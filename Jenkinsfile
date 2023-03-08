@@ -54,6 +54,11 @@ pipeline {
         }
 
         stage('artifactory upload dev/nonprod build') {
+            when {
+                expression {
+                    return appEnv == "nonprod";
+                }
+            }
             steps{
                 script{
                     artifacts = [
@@ -61,7 +66,7 @@ pipeline {
                         'prod_Jenkinsfile',
                         'app.json'
                     ]
-                    artifactoryUploadFiles files: artifacts, version: packageVersion
+                    artifactoryUploadFiles files: artifacts, version: CodeVersion
                 }
             }
         }
