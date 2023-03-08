@@ -1,0 +1,112 @@
+uuid: c587f9b2-55df-4538-b529-e968bb27bc2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.payment_methods
+    - field.field.taxonomy_term.payment_methods.field_agreement_number
+    - field.field.taxonomy_term.payment_methods.field_channel
+    - field.field.taxonomy_term.payment_methods.field_external_link
+    - field.field.taxonomy_term.payment_methods.field_product_type
+    - field.field.taxonomy_term.payment_methods.field_screenshot
+    - field.field.taxonomy_term.payment_methods.field_status
+    - image.style.crop_freeform
+    - taxonomy.vocabulary.payment_methods
+  module:
+    - ds
+    - link
+    - panelizer
+    - svg_image
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_screenshot
+        - taxonomy_term_title
+        - field_agreement_number
+        - description
+        - field_external_link
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h4
+          class: ''
+id: taxonomy_term.payment_methods.payment_methods
+targetEntityType: taxonomy_term
+bundle: payment_methods
+mode: payment_methods
+content:
+  description:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 250
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  field_agreement_number:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_external_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_screenshot:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: crop_freeform
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+hidden:
+  field_channel: true
+  field_product_type: true
+  field_status: true
+  langcode: true
+  name: true
+  search_api_excerpt: true

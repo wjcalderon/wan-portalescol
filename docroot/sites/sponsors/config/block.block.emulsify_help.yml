@@ -1,0 +1,22 @@
+uuid: 8592f2d0-772f-489f-bb0e-9f56ea322fb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - emulsify
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: emulsify_help
+theme: emulsify
+region: content
+weight: -1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

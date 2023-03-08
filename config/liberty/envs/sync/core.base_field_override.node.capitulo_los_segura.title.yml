@@ -1,0 +1,20 @@
+uuid: 55b3860f-85f3-481b-9959-7ecdf5218af3
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.capitulo_los_segura
+_core:
+  default_config_hash: uJ0o7A_TzTHyNNB1c2vltTJcAzaQpMMBA8yoj-a_A3I
+id: node.capitulo_los_segura.title
+field_name: title
+entity_type: node
+bundle: capitulo_los_segura
+label: 'Nombre del capítulo'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

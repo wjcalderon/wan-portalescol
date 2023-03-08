@@ -1,0 +1,8 @@
+uuid: 952ae99d-9895-40db-96f8-8950bbe47ffd
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_text_box
+label: 'Cuadro de texto'
+revision: 0
+description: 'Cuadro con texto enriquecido'

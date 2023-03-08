@@ -1,0 +1,93 @@
+uuid: dcc6302c-7d7f-44e6-9a19-18f531ffc888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.payment_channel.field_screenshot
+    - taxonomy.vocabulary.payment_channel
+  module:
+    - panelizer
+    - svg_image
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        id: panels_variant
+        label: Default
+        weight: 0
+        uuid: b3acbf7e-0cf6-4a64-9c1a-58cd4fe5fbfa
+        blocks:
+          3e36b626-a629-40d8-bdc2-6b867b3a2d11:
+            id: 'entity_field:taxonomy_term:description'
+            label: Description
+            label_display: '0'
+            provider: ctools_block
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            formatter:
+              type: text_default
+              weight: 0
+              region: content
+              label: hidden
+              settings: {  }
+              third_party_settings: {  }
+            region: content
+            weight: 0
+            uuid: 3e36b626-a629-40d8-bdc2-6b867b3a2d11
+          d13a8b61-a30b-4543-804a-992e728355b0:
+            id: 'entity_field:taxonomy_term:field_screenshot'
+            label: Screenshot
+            label_display: '0'
+            provider: ctools_block
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            formatter:
+              type: image
+              weight: 0
+              region: content
+              label: above
+              settings:
+                image_link: ''
+                image_style: ''
+              third_party_settings: {  }
+            region: content
+            weight: 1
+            uuid: d13a8b61-a30b-4543-804a-992e728355b0
+        page_title: '[term:name]'
+        layout: layout_onecol
+        layout_settings: {  }
+        builder: ipe
+        storage_type: ''
+        storage_id: ''
+        pattern: panelizer
+id: taxonomy_term.payment_channel.default
+targetEntityType: taxonomy_term
+bundle: payment_channel
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_screenshot:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: 100
+        height: 100
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

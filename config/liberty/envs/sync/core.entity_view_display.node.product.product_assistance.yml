@@ -1,0 +1,54 @@
+uuid: 92b7613a-cc42-4e94-adbe-7ec83b1bcac3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.product_assistance
+    - field.field.node.product.body
+    - field.field.node.product.field_assistances
+    - field.field.node.product.field_c_components
+    - field.field.node.product.field_clauses
+    - field.field.node.product.field_doc_clauses
+    - field.field.node.product.field_documents_required
+    - field.field.node.product.field_icon
+    - field.field.node.product.field_person_type
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_social_network_image
+    - node.type.product
+  module:
+    - entity_reference_revisions
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.product.product_assistance
+targetEntityType: node
+bundle: product
+mode: product_assistance
+content:
+  field_assistances:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_c_components: true
+  field_clauses: true
+  field_doc_clauses: true
+  field_documents_required: true
+  field_icon: true
+  field_person_type: true
+  field_product_type: true
+  field_social_network_image: true
+  langcode: true
+  links: true

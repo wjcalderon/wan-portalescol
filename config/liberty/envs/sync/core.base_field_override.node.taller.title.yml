@@ -1,0 +1,18 @@
+uuid: a43b91a8-12c8-4eb9-b43e-bd9947dec99e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.taller
+id: node.taller.title
+field_name: title
+entity_type: node
+bundle: taller
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

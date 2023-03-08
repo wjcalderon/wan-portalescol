@@ -1,0 +1,23 @@
+uuid: 7cba53d7-38bf-4316-90f3-4b76e9e43a61
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_carousel_background
+    - paragraphs.paragraphs_type.lib_v2_carousel_card
+  module:
+    - options
+id: paragraph.lib_v2_carousel_card.field_lib_v2_carousel_background
+field_name: field_lib_v2_carousel_background
+entity_type: paragraph
+bundle: lib_v2_carousel_card
+label: Fondo
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: yellow
+default_value_callback: ''
+settings: {  }
+field_type: list_string

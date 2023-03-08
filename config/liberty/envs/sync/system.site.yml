@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+langcode: es
+uuid: 44135c4e-1476-409d-95a9-bcdebd552dae
+name: 'Liberty Seguros'
+mail: admin.portal@libertyseguros.co
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/38
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: es

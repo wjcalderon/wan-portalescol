@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_text.field_c_classes
+    - field.field.paragraph.single_text.field_c_title
+    - field.field.paragraph.single_text.field_c_title_status
+    - field.field.paragraph.single_text.field_c_width
+    - field.field.paragraph.single_text.field_text_area
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - options
+    - text
+id: paragraph.single_text.default
+targetEntityType: paragraph
+bundle: single_text
+mode: default
+content:
+  field_c_classes:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title_status:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_c_width:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_text_area:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

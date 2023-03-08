@@ -1,0 +1,68 @@
+uuid: 9d8d8b5b-45b5-412d-8069-e0af644b9c65
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_breaker.field_lib_body
+    - field.field.paragraph.lib_breaker.field_lib_heading
+    - field.field.paragraph.lib_breaker.field_lib_image_side
+    - field.field.paragraph.lib_breaker.field_lib_label_logo
+    - field.field.paragraph.lib_breaker.field_lib_link
+    - field.field.paragraph.lib_breaker.field_lib_media_image
+    - paragraphs.paragraphs_type.lib_breaker
+  module:
+    - link
+    - media_library
+    - text
+id: paragraph.lib_breaker.default
+targetEntityType: paragraph
+bundle: lib_breaker
+mode: default
+content:
+  field_lib_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_image_side:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_label_logo:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_lib_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_lib_media_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

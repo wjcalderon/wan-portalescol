@@ -1,0 +1,9 @@
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: axHrg7qzmVCPXpp4Aa42DQn0ySydu-Z3bC9XKsUqns4
+name: Categorías
+vid: categories
+description: ''
+weight: 0

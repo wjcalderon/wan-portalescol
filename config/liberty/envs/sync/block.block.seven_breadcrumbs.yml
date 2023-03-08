@@ -1,0 +1,22 @@
+uuid: 4e1679ad-0037-4fe2-b5de-c4a567891a1e
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: PFU7DzXtG6bcSomQ_wXUsjaAsVlys24Ypdu_wobbvV0
+id: seven_breadcrumbs
+theme: seven
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

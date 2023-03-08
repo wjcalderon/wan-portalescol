@@ -1,0 +1,13 @@
+uuid: 43565a3c-eefc-492d-a289-375d34246467
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.temporadas_los_segura
+_core:
+  default_config_hash: 7oJjvLnDNA-qxMGBIcpTIf53OVszNmmnG1jDHNurlIg
+id: taxonomy_term.temporadas_los_segura
+target_entity_type_id: taxonomy_term
+target_bundle: temporadas_los_segura
+default_langcode: site_default
+language_alterable: false

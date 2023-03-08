@@ -1,0 +1,8 @@
+name: 'Cf_Liberty'
+type: module
+description: 'a new module for captcha funcionalities'
+package: 'Liberty'
+# Information added by Drupal.org packaging script on 2021-10-10
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - block

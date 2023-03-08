@@ -1,0 +1,19 @@
+uuid: 223d13bb-2a2c-4a34-97f2-7a6ee6948698
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cover_caracteristic
+    - paragraphs.paragraphs_type.cover
+id: paragraph.cover.field_cover_caracteristic
+field_name: field_cover_caracteristic
+entity_type: paragraph
+bundle: cover
+label: Coberturas
+description: 'Se recomienda un máximo de 50 caracteres.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

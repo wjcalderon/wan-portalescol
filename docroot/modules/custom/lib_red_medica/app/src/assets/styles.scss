@@ -1,0 +1,32 @@
+html {
+  scroll-behavior: smooth;
+  &.is-modal {
+    overflow: hidden;
+  }
+  .component__form--red-medica {
+    min-height: 35rem;
+    overflow-x: unset;
+  }
+  @media only screen and (max-width: 768px) {
+    .hide-mobile {
+      visibility: hidden;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 0 !important;
+    }
+  }
+}
+
+@import "scss/block";
+@import "scss/form";
+@import "scss/results";
+@import "scss/single_result";
+@import "scss/pagination";
+@import "scss/modal";
+@import "scss/tabs";
+@import "scss/preferential_help";
+@import "scss/single_map";
+@import "scss/tooltips";
+@import "scss/error_form";
+@import "scss/banner_footer";

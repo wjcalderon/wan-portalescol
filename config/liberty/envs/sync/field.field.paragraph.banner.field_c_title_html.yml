@@ -1,0 +1,21 @@
+uuid: 7cca6320-e7ff-4bfc-94f3-2e04ff195089
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title_html
+    - paragraphs.paragraphs_type.banner
+  module:
+    - text
+id: paragraph.banner.field_c_title_html
+field_name: field_c_title_html
+entity_type: paragraph
+bundle: banner
+label: 'Titiulo html'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: f91547bd-b54c-4193-bae9-1d2601ff4034
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_form
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner.field_link_form
+field_name: field_link_form
+entity_type: paragraph
+bundle: banner
+label: 'Enlacé Formulario'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Estoy Interesado'
+default_value_callback: ''
+settings: {  }
+field_type: string

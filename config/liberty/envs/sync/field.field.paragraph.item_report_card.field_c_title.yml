@@ -1,0 +1,19 @@
+uuid: eb45dc53-1202-4b35-959b-7221b514d268
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title
+    - paragraphs.paragraphs_type.item_report_card
+id: paragraph.item_report_card.field_c_title
+field_name: field_c_title
+entity_type: paragraph
+bundle: item_report_card
+label: 'Título informes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

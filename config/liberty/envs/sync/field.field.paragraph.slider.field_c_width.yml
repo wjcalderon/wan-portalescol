@@ -1,0 +1,21 @@
+uuid: 6b0fd2c9-9644-488c-a5ca-bbfb214370af
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.slider
+  module:
+    - options
+id: paragraph.slider.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: slider
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

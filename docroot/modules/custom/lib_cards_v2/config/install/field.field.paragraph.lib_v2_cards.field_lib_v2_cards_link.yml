@@ -1,0 +1,23 @@
+uuid: 51b29eda-6f78-4cda-ab30-04aecb8cd5a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_cards_link
+    - paragraphs.paragraphs_type.lib_v2_cards
+  module:
+    - link
+id: paragraph.lib_v2_cards.field_lib_v2_cards_link
+field_name: field_lib_v2_cards_link
+entity_type: paragraph
+bundle: lib_v2_cards
+label: boton
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

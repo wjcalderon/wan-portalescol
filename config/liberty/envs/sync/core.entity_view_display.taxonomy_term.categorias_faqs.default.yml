@@ -1,0 +1,67 @@
+uuid: 9111f276-09c3-4e5f-8199-cb784048902c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.categorias_faqs.field_cta
+    - field.field.taxonomy_term.categorias_faqs.field_faqs_reference
+    - field.field.taxonomy_term.categorias_faqs.field_icon
+    - taxonomy.vocabulary.categorias_faqs
+  module:
+    - link
+    - panelizer
+    - svg_image
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.categorias_faqs.default
+targetEntityType: taxonomy_term
+bundle: categorias_faqs
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_faqs_reference:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

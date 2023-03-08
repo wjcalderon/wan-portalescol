@@ -1,0 +1,21 @@
+uuid: 4efb14dd-f8bd-4d1f-a86c-70385aec0e89
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lead
+    - paragraphs.paragraphs_type.video
+_core:
+  default_config_hash: 7MtiFwofV0_nhT9lIztTM3SYagzHaBrKW0ny8xzQ2MY
+id: paragraph.video.field_lead
+field_name: field_lead
+entity_type: paragraph
+bundle: video
+label: Resumen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

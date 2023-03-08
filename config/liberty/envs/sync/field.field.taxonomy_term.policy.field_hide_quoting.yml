@@ -1,0 +1,23 @@
+uuid: 87ebb95f-8b9c-41b8-b5a0-113a47a76526
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hide_quoting
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_hide_quoting
+field_name: field_hide_quoting
+entity_type: taxonomy_term
+bundle: policy
+label: 'Ocultar en cotizacion'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

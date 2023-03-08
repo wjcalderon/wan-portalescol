@@ -1,0 +1,23 @@
+uuid: 3b98f9e2-af07-43ea-824d-142f516b151c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_columns
+    - paragraphs.paragraphs_type.banner_cards
+  module:
+    - options
+id: paragraph.banner_cards.field_lib_columns
+field_name: field_lib_columns
+entity_type: paragraph
+bundle: banner_cards
+label: 'No. Columnas'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

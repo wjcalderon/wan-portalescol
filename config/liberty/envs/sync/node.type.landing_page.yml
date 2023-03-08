@@ -1,0 +1,20 @@
+uuid: f35cf6d3-eef6-477a-b51b-b24cb8311c30
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: qCqe51QUGCjFMMWcfQx44zG5_Ki6QsavYxwwrQZwJrg
+name: 'Página de entrada'
+type: landing_page
+description: 'Una página especial con su propio diseño y contenido.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: f6bbc23a-d213-472b-b3e0-1b074c041aaa
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_peso_kg
+    - node.type.vehiculo
+id: node.vehiculo.field_peso_kg
+field_name: field_peso_kg
+entity_type: node
+bundle: vehiculo
+label: 'Peso Kg'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+.header-white{
+    background-color: #ffffff !important;
+}
+
+.header-blue{
+    background-color: #1A1446 !important;
+}
+
+.header-yellow{
+    background-color: #FFD000 !important;
+}
+
+.header-orange{
+    background-color: #ff6600 !important;
+}
+
+.nodisplay {
+    display: none !important;
+}

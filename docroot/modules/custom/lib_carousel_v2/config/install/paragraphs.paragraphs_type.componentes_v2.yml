@@ -1,0 +1,10 @@
+uuid: 23c6a8fc-b323-4efb-91d7-84611f16b303
+langcode: es
+status: true
+dependencies: {  }
+id: componentes_v2
+label: 'Componentes v2'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,58 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.paragraph.card_person.field_image
+    - field.field.paragraph.card_person.field_label
+    - field.field.paragraph.card_person.field_lead
+    - field.field.paragraph.card_person.field_name
+    - paragraphs.paragraphs_type.card_person
+  module:
+    - entity_browser
+id: paragraph.card_person.default
+targetEntityType: paragraph
+bundle: card_person
+mode: default
+content:
+  field_image:
+    type: entity_browser_file
+    weight: 1
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      field_widget_replace: false
+      selection_mode: selection_append
+    region: content
+    third_party_settings: {  }
+  field_label:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_lead:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

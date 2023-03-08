@@ -1,0 +1,360 @@
+uuid: 0cd01a6d-c61c-4863-ba99-2e53bb50cd9b
+langcode: en
+status: open
+dependencies: {  }
+third_party_settings:
+  api_settings:
+    params:
+      param1:
+        ws_param_webform_field: id_type
+        ws_param_ws_parameter: id_type
+      param2:
+        ws_param_webform_field: id_number
+        ws_param_ws_parameter: id_number
+      param3:
+        ws_param_webform_field: name
+        ws_param_ws_parameter: name
+      param4:
+        ws_param_webform_field: last_name
+        ws_param_ws_parameter: last_name
+      param5:
+        ws_param_webform_field: email
+        ws_param_ws_parameter: email
+      param6:
+        ws_param_webform_field: phone
+        ws_param_ws_parameter: phone
+      param7:
+        ws_param_webform_field: placa
+        ws_param_ws_parameter: placa
+      param8:
+        ws_param_webform_field: field_email_override
+        ws_param_ws_parameter: field_email_override
+      param9:
+        ws_param_webform_field: correo
+        ws_param_ws_parameter: correo
+      param10:
+        ws_param_webform_field: campana
+        ws_param_ws_parameter: campana
+      param11:
+        ws_param_webform_field: sponsor
+        ws_param_ws_parameter: sponsor
+      param12:
+        ws_param_webform_field: ramo
+        ws_param_ws_parameter: ramo
+      param13:
+        ws_param_webform_field: url_landing
+        ws_param_ws_parameter: url_landing
+      param14:
+        ws_param_webform_field: producto
+        ws_param_ws_parameter: producto
+      param15:
+        ws_param_webform_field: id_rand
+        ws_param_ws_parameter: id_rand
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: call_center
+title: 'Call Center '
+description: ''
+category: ''
+elements: |-
+  processed_text:
+    '#type': processed_text
+    '#text': |
+      <div class="form-modal-flex">
+        <div class="form-modal-icon">&nbsp;</div>
+        <div class="form-modal-content">
+          <div class="form-modal-title">Has escogido</div>
+          <div class="form-modal-text">
+            <p>Diligencia los siguientes datos para que un asesor se ponga en contacto contigo:</p>
+          </div>
+        </div>
+      </div>
+    '#format': full_html
+  id_type:
+    '#type': select
+    '#title': 'Tipo de documento'
+    '#options':
+      'Cedula de ciudadania': 'Cédula de ciudadanía'
+      'Cedula de extranjeria': 'Cedula de extranjeria'
+      Pasaporte: Pasaporte
+    '#empty_option': 'Tipo de documento'
+    '#required': true
+  id_number:
+    '#type': textfield
+    '#title': 'Número de identificación'
+    '#required': true
+  name:
+    '#type': textfield
+    '#title': Nombres
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': Apellidos
+    '#required': true
+  email:
+    '#type': email
+    '#title': 'Correo electrónico'
+    '#required': true
+    '#pattern': '[^@]+@[^@]+\.[a-zA-Z]{2,6}'
+  phone:
+    '#type': textfield
+    '#title': 'Número de teléfono'
+    '#required': true
+  placa:
+    '#type': textfield
+    '#title': Placa
+    '#states':
+      invisible:
+        ':input[name="ramo"]':
+          '!value': '2'
+  field_email_override:
+    '#type': email
+    '#title': field_email_override
+    '#default_value': ''
+    '#attributes':
+      class:
+        - 'email_nodisplay email_to'
+    '#label_attributes':
+      class:
+        - email_nodisplay_label
+  correo:
+    '#type': hidden
+    '#title': correo
+    '#default_value': soporte@esinergia.co
+  campana:
+    '#type': hidden
+    '#title': campaign
+    '#default_value': '[current-page:title]'
+  sponsor:
+    '#type': hidden
+    '#title': sponsors
+    '#attributes':
+      class:
+        - sponsors_value
+  ramo:
+    '#type': hidden
+    '#title': ramo
+    '#attributes':
+      class:
+        - ramo_value
+  url_landing:
+    '#type': hidden
+    '#title': url_landing
+    '#attributes':
+      class:
+        - landing_url
+    '#private': true
+  producto:
+    '#type': hidden
+    '#title': Product
+    '#attributes':
+      class:
+        - product_value
+  id_rand:
+    '#type': hidden
+    '#title': id_rand
+    '#attributes':
+      class:
+        - id_rand
+  captcha:
+    '#type': captcha
+    '#captcha_type': recaptcha/reCAPTCHA
+  send_email:
+    '#type': radios
+    '#title': send_email
+    '#wrapper_attributes':
+      class:
+        - ajax_display
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': 'Enviar información'
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: modal
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: 'Gracias por enviar la solicitud, muy pronto un asesor se pondr&aacute; en contacto contigo.'
+  confirmation_attributes:
+    class:
+      - confimation
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

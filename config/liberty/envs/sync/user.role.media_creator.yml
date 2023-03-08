@@ -1,0 +1,19 @@
+uuid: 2356f90a-79af-41ac-bad1-1e37bf5c1898
+langcode: es
+status: true
+dependencies:
+  module:
+    - entity_browser
+    - media
+_core:
+  default_config_hash: sOivTdNRBzCVaqhc-dgc2Hemc3wgEMiQ3k4W1wI2BTY
+id: media_creator
+label: 'Media creator'
+weight: 5
+is_admin: false
+permissions:
+  - 'access media overview'
+  - 'access media_browser entity browser pages'
+  - 'create media'
+  - 'delete media'
+  - 'update media'

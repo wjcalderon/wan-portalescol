@@ -1,0 +1,67 @@
+uuid: 28cb772c-fb93-43a6-9fa0-52c7fbc46a7a
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cards
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_desc
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_image
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_link
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_title
+  module:
+    - link
+    - media_library
+_core:
+  default_config_hash: Rwf7YWa9ZCKK_m4HvA-4wc8zZ-nOTSMb8mH9Z9hcVXs
+id: paragraph.lib_v4_cards.default
+targetEntityType: paragraph
+bundle: lib_v4_cards
+mode: default
+content:
+  field_lib_v4_cards_desc:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v4_cards_image:
+    type: media_library_widget
+    weight: 26
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_lib_v4_cards_link:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_lib_v4_cards_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

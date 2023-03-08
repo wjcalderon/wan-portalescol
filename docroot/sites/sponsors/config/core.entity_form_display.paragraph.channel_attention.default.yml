@@ -1,0 +1,42 @@
+uuid: 78aa424c-0c22-4aa4-9942-b85d086da0dd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.channel_attention.field_contacts_phone
+    - field.field.paragraph.channel_attention.field_description
+    - field.field.paragraph.channel_attention.field_office
+    - paragraphs.paragraphs_type.channel_attention
+  module:
+    - text
+id: paragraph.channel_attention.default
+targetEntityType: paragraph
+bundle: channel_attention
+mode: default
+content:
+  field_contacts_phone:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_office:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

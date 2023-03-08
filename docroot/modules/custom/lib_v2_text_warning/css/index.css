@@ -1,0 +1,14 @@
+.lib-comp-textwarning {
+    display: flex;
+    padding: 2rem;
+    background-color: var(--button-color);
+    color: var(--primary-color);
+    margin: 4rem 2rem;
+    border-radius: 12px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lib-comp-textwarning__icon {
+    padding-right: 30px;
+}

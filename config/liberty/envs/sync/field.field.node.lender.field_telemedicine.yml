@@ -1,0 +1,28 @@
+uuid: 8f3f6abd-6bd7-48f2-aa38-a90079365337
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telemedicine
+    - node.type.lender
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: 2Y8hecCSa2iK1dUgXnBrouccHxzP2lqaqFO7x09blbI
+id: node.lender.field_telemedicine
+field_name: field_telemedicine
+entity_type: node
+bundle: lender
+label: Telemedicina
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

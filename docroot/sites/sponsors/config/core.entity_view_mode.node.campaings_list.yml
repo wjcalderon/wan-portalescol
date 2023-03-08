@@ -1,0 +1,10 @@
+uuid: 3a9a8f28-5adb-45a9-8056-6b0d3fba4347
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.campaings_list
+label: 'Lista de campañas'
+targetEntityType: node
+cache: true

@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: faq_los_segura_creator
+label: 'Faq Los Segura creator'
+weight: 35
+is_admin: false

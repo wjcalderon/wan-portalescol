@@ -1,0 +1,28 @@
+uuid: 301df50b-a94d-4041-8110-a89e82cdea80
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_detalle
+    - field.field.block_content.banner_detalle.field_banner
+  module:
+    - ds
+    - entity_reference_revisions
+id: block_content.banner_detalle.default
+targetEntityType: block_content
+bundle: banner_detalle
+mode: default
+content:
+  field_banner:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 1
+    region: content
+hidden:
+  langcode: true

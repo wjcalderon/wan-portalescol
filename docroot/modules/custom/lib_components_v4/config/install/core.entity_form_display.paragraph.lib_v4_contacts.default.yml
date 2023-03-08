@@ -1,0 +1,57 @@
+uuid: 7e61ea0d-264f-4c3d-8cb2-ba34d8b0822b
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_contacts
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_contact
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_image
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_title
+  module:
+    - media_library
+_core:
+  default_config_hash: G-Szsdrwj50cjvEZjNsCjUVPLyJmc2uOx3o-OLMRr1E
+id: paragraph.lib_v4_contacts.default
+targetEntityType: paragraph
+bundle: lib_v4_contacts
+mode: default
+content:
+  field_lib_v4_contacts_contact:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v4_contacts_image:
+    type: media_library_widget
+    weight: 26
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_lib_v4_contacts_title:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

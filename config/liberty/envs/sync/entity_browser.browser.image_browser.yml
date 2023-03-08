@@ -1,0 +1,43 @@
+uuid: 26130083-3093-4513-9c4b-060f81a8c9d9
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.media
+  module:
+    - lightning_media
+    - views
+_core:
+  default_config_hash: JJHmBj7aN_8TKrNPmRURDz3ACyY2Wh7nyotuARHCLgM
+name: image_browser
+label: 'Image Browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select Image(s)'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  44d52e51-9627-43b5-a637-3b0462041d1c:
+    id: file_upload
+    uuid: 44d52e51-9627-43b5-a637-3b0462041d1c
+    label: Upload
+    weight: -9
+    settings:
+      submit_text: Select
+      form_mode: media_browser
+      return_file: true
+  1087009e-1803-4994-bf6f-27589465b1b7:
+    id: view
+    uuid: 1087009e-1803-4994-bf6f-27589465b1b7
+    label: Library
+    weight: -10
+    settings:
+      submit_text: Select
+      auto_select: false
+      view: media
+      view_display: entity_browser_2

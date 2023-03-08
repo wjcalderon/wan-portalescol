@@ -1,0 +1,22 @@
+uuid: 52bd299d-143b-446a-9d36-8667c58ed50f
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  lightning_workflow:
+    workflow: editorial
+_core:
+  default_config_hash: cckjCHwy70AX3t29DszMBMHwP_abCRwsSrjUcEHqfGo
+name: 'Landing Los Segura'
+type: landing_los_segura
+description: 'Landing Los Segura'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

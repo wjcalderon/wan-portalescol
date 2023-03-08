@@ -1,0 +1,22 @@
+uuid: 17a7e2ba-88e2-4162-ae9c-bc24d8078bde
+langcode: en
+status: true
+dependencies:
+  theme:
+    - liberty
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: liberty_local_tasks
+theme: liberty
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

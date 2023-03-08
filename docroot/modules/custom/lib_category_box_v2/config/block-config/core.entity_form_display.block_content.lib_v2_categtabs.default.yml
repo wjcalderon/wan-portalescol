@@ -1,0 +1,65 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categtabs
+    - field.field.block_content.lib_v2_categtabs.field_lib_v2_categtabs_colum
+    - field.field.block_content.lib_v2_categtabs.field_lib_v2_categtabs_group_ref
+    - field.field.block_content.lib_v2_categtabs.field_lib_v2_categtabs_icons
+    - field.field.block_content.lib_v2_categtabs.field_lib_v2_categtabs_title
+  module:
+    - inline_entity_form
+    - media_library
+id: block_content.lib_v2_categtabs.default
+targetEntityType: block_content
+bundle: lib_v2_categtabs
+mode: default
+content:
+  field_lib_v2_categtabs_colum:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_v2_categtabs_group_ref:
+    type: inline_entity_form_complex
+    weight: 4
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Tarjeta
+      label_plural: Tarjetas
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_lib_v2_categtabs_icons:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_lib_v2_categtabs_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

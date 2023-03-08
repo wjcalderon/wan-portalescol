@@ -1,0 +1,19 @@
+uuid: 469ca434-a365-4140-8a75-5f6a6420acb7
+langcode: es
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_cta
+field_name: field_cta
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

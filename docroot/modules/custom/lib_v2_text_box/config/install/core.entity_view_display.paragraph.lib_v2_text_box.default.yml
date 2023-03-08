@@ -1,0 +1,31 @@
+uuid: 6773d4f5-944a-4172-b69e-907a7ee21f30
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_text_box.field_lib_v2_text_box_desc
+    - field.field.paragraph.lib_v2_text_box.field_lib_v2_text_box_title
+    - paragraphs.paragraphs_type.lib_v2_text_box
+  module:
+    - text
+id: paragraph.lib_v2_text_box.default
+targetEntityType: paragraph
+bundle: lib_v2_text_box
+mode: default
+content:
+  field_lib_v2_text_box_desc:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v2_text_box_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

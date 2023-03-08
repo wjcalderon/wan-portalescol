@@ -1,0 +1,11 @@
+uuid: f6fb554c-38c8-4b22-917d-59c5ca9e4215
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.informes
+id: node.informes
+target_entity_type_id: node
+target_bundle: informes
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,25 @@
+uuid: 25f85ee7-3bb4-4d15-932d-c5acfcb8d050
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_carousel_card
+    - field.storage.block_content.field_lib_v3_carousel_link
+  module:
+    - link
+_core:
+  default_config_hash: mU2g8fLiC2n1jbmnF5Z83ThW3tnWGtkYMIdoN4jYutc
+id: block_content.lib_v3_carousel_card.field_lib_v3_carousel_link
+field_name: field_lib_v3_carousel_link
+entity_type: block_content
+bundle: lib_v3_carousel_card
+label: Botón
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

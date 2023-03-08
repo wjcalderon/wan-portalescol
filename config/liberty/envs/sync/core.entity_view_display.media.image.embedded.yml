@@ -1,0 +1,42 @@
+uuid: f5fc1f2e-e9a9-421f-a20c-383fb98fd0aa
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.image
+    - media.type.image
+  module:
+    - svg_image
+_core:
+  default_config_hash: FaHkkj9J9DxKQ-R7RNddSDq_d0D6UBY3hoKzoAQoGaw
+id: media.image.embedded
+targetEntityType: media
+bundle: image
+mode: embedded
+content:
+  image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

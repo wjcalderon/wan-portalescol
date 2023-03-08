@@ -1,0 +1,21 @@
+uuid: 4efaa19e-257c-464c-97e9-e4ffe03be213
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_card
+    - paragraphs.paragraphs_type.grid_accordion
+  module:
+    - text
+id: paragraph.grid_accordion.field_title_card
+field_name: field_title_card
+entity_type: paragraph
+bundle: grid_accordion
+label: 'Titulo Tarjeta'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

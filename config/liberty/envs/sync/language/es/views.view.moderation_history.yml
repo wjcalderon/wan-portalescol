@@ -1,0 +1,30 @@
+display:
+  default:
+    display_title: Máster
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        uid:
+          admin_label: 'Escrito por'
+          separator: ', '
+        created:
+          admin_label: Fecha
+          separator: ', '
+        moderation_state:
+          admin_label: 'Estado de moderación'
+          separator: ', '
+      arguments:
+        nid:
+          exception:
+            title: Todo(s)
+  page:
+    display_title: Página
+    display_options:
+      menu:
+        title: Historial

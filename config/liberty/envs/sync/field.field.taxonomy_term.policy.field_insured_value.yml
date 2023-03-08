@@ -1,0 +1,23 @@
+uuid: 6dd40c4c-729c-4458-9a6f-2a946deb0590
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_insured_value
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_insured_value
+field_name: field_insured_value
+entity_type: taxonomy_term
+bundle: policy
+label: 'Valor asegurado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: integer

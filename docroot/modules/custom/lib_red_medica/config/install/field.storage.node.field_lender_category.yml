@@ -1,0 +1,30 @@
+uuid: 5d9f7e5d-08a5-455e-867b-3fcb0f2d0695
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  module:
+    - node
+    - options
+id: node.field_lender_category
+field_name: field_lender_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Instituciones
+    -
+      value: '2'
+      label: Especialistas
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

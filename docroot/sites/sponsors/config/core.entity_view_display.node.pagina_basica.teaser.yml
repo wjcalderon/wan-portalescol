@@ -1,0 +1,21 @@
+uuid: b63fc9f4-a057-4a28-8d06-0d35589bc4f5
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.pagina_basica
+  module:
+    - user
+id: node.pagina_basica.teaser
+targetEntityType: node
+bundle: pagina_basica
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

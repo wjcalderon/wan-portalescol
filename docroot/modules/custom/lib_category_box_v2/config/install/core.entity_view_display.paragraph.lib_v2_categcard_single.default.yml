@@ -1,0 +1,31 @@
+uuid: ac7d5788-70e8-4a34-b5ce-acf673c0d46b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_categcard_single.field_lib_v2_categcard_desc
+    - field.field.paragraph.lib_v2_categcard_single.field_lib_v2_categcard_icon
+    - paragraphs.paragraphs_type.lib_v2_categcard_single
+id: paragraph.lib_v2_categcard_single.default
+targetEntityType: paragraph
+bundle: lib_v2_categcard_single
+mode: default
+content:
+  field_lib_v2_categcard_desc:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v2_categcard_icon:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

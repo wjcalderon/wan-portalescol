@@ -1,0 +1,14 @@
+uuid: 32ea5a31-0a76-4e32-8b5d-76a7394305aa
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.lib_plan_icon
+label: 'Plan Icon'
+targetEntityType: paragraph
+cache: true

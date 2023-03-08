@@ -1,0 +1,28 @@
+langcode: es
+status: true
+dependencies: {  }
+id: news_article_video_creator
+label: 'Noticias artículo video creator'
+weight: 43
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node news_article_video content'
+  - 'administer panelizer node news_article_video layout'
+  - 'change layouts in place editing'
+  - 'create news_article_video content'
+  - 'create url aliases'
+  - 'edit own news_article_video content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view news_article_video revisions'
+  - 'view own unpublished content'

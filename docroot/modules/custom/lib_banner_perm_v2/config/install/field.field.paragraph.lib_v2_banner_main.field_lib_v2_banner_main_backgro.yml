@@ -1,0 +1,21 @@
+uuid: 58a12413-3ba0-49ba-809c-f54f016005c8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_banner_main_backgro
+    - paragraphs.paragraphs_type.lib_v2_banner_main
+  module:
+    - options
+id: paragraph.lib_v2_banner_main.field_lib_v2_banner_main_backgro
+field_name: field_lib_v2_banner_main_backgro
+entity_type: paragraph
+bundle: lib_v2_banner_main
+label: Fondo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

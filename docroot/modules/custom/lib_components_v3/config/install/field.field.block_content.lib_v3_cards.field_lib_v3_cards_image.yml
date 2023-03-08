@@ -1,0 +1,31 @@
+uuid: 1818cb4b-3ca2-49b6-8e6a-2e7b6083146b
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_cards
+    - field.storage.block_content.field_lib_v3_cards_image
+    - media.type.image
+_core:
+  default_config_hash: ZBukjd9aASZPQjlq5H2MvNvyno7J-YLnv7RnIcwvQQI
+id: block_content.lib_v3_cards.field_lib_v3_cards_image
+field_name: field_lib_v3_cards_image
+entity_type: block_content
+bundle: lib_v3_cards
+label: Imagen
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

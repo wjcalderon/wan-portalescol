@@ -1,0 +1,21 @@
+uuid: f7774aa9-b326-424c-89ec-504c304b96b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_card_style
+    - paragraphs.paragraphs_type.lib_card_list_out
+  module:
+    - options
+id: paragraph.lib_card_list_out.field_lib_card_style
+field_name: field_lib_card_style
+entity_type: paragraph
+bundle: lib_card_list_out
+label: Estilo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

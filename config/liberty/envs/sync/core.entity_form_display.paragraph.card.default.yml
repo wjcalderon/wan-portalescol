@@ -1,0 +1,110 @@
+uuid: d025df58-a6f1-4f78-a2e5-fb7c8afb98fa
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card.field_additional_elements
+    - field.field.paragraph.card.field_c_classes
+    - field.field.paragraph.card.field_cta
+    - field.field.paragraph.card.field_heading
+    - field.field.paragraph.card.field_image
+    - field.field.paragraph.card.field_lead
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.card
+  module:
+    - field_group
+    - link_class
+    - paragraphs
+    - svg_image
+third_party_settings:
+  field_group:
+    group_styling_settings:
+      children:
+        - field_c_classes
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_items_de_lista:
+      children:
+        - field_additional_elements
+      label: 'Items de lista'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.card.default
+targetEntityType: paragraph
+bundle: card
+mode: default
+content:
+  field_additional_elements:
+    type: entity_reference_paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: item_lista
+    third_party_settings: {  }
+  field_c_classes:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cta:
+    type: link_class_field_widget
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      link_class_mode: manual
+      link_class_force: ''
+      link_class_select: ''
+    third_party_settings: {  }
+  field_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_lead:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,21 @@
+uuid: 1aaed45e-f4f3-483b-8d46-6599eecaf210
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: sinisternotificationinsured
+theme: liberty_public
+region: blocks_activate
+weight: -29
+provider: null
+plugin: sinister_notification_insured
+settings:
+  id: sinister_notification_insured
+  label: 'Sinister notification insured'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * hook_schema()
+ */
+function liberty_session_schema() {
+
+  $schema['liberty_session'] = array(
+    'description' => 'Store liberty session',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => t("id auto increment"),
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'not null' => false,
+        'default' => 0,
+        'description' => t("id user"),
+      ),
+      'nuid' => array(
+        'type' => 'int',
+        'not null' => false,
+        'default' => 0,
+        'description' => t("id node"),
+      ),
+      'date_time' => array(
+        'description' => t('life time date'),
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'ip' => array(
+        'type' => 'varchar',
+        'description' => "customer ip",
+        'length' => 50,
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'id' => array('id'),
+      'uid' => array('uid'),
+      'nuid' => array('nuid'),
+    ),
+  );
+  return $schema;
+}

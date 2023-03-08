@@ -1,0 +1,11 @@
+uuid: 0dc89e53-0957-4bdc-ad0a-e4382070ddac
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_text_box
+id: block_content.lib_v2_text_box
+target_entity_type_id: block_content
+target_bundle: lib_v2_text_box
+default_langcode: site_default
+language_alterable: false

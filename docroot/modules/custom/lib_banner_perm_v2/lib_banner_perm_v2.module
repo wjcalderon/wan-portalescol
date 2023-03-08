@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_banner_perm_v2.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lib_banner_perm_v2_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lib_banner_perm_v2 module.
+    case 'help.page.lib_banner_perm_v2':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Main banner v2') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_banner_perm_v2_theme() {
+  return [
+    'lib_banner_perm_v2' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function lib_banner_perm_v2_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook)
+{
+    if (isset($variables['elements']['content']['#block_content'])) {
+        array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    }
+}

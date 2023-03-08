@@ -1,0 +1,65 @@
+uuid: 8b51a6e5-f775-4557-acb8-0fd65d45c86f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_person_list.field_c_classes
+    - field.field.paragraph.card_person_list.field_c_title
+    - field.field.paragraph.card_person_list.field_c_title_status
+    - field.field.paragraph.card_person_list.field_c_width
+    - field.field.paragraph.card_person_list.field_card_item
+    - paragraphs.paragraphs_type.card_person_list
+  module:
+    - entity_reference_revisions
+    - options
+_core:
+  default_config_hash: 3eftvUCPMksvCo3HlMcgXrjpib2VlCKGc0ZmEEw7IxQ
+id: paragraph.card_person_list.default
+targetEntityType: paragraph
+bundle: card_person_list
+mode: default
+content:
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_c_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_card_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,29 @@
+uuid: 36aff4ce-0c44-45b7-a399-0348ec396573
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: is-hidden
+id: buscadorpuntosdepagopopup
+theme: liberty_public
+region: blocks_popups
+weight: -35
+provider: null
+plugin: 'block_content:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+settings:
+  id: 'block_content:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+  label: 'Buscador puntos de pago popup'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

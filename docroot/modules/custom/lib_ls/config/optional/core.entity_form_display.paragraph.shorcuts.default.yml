@@ -1,0 +1,43 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.shorcuts.field_c_size_container
+    - field.field.paragraph.shorcuts.field_c_width
+    - field.field.paragraph.shorcuts.field_shorcut_item
+    - paragraphs.paragraphs_type.shorcuts
+  module:
+    - paragraphs
+id: paragraph.shorcuts.default
+targetEntityType: paragraph
+bundle: shorcuts
+mode: default
+content:
+  field_c_size_container:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_c_width:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_shorcut_item:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

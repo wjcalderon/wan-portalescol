@@ -1,0 +1,29 @@
+uuid: 1afd4e2b-f405-412a-b6dd-9684063806b7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.news_inphography
+    - taxonomy.vocabulary.tags
+id: node.news_inphography.field_tags
+field_name: field_tags
+entity_type: node
+bundle: news_inphography
+label: Etiquetas
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

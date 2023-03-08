@@ -1,0 +1,41 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slider.field_banner_item
+    - field.field.paragraph.slider.field_c_classes
+    - field.field.paragraph.slider.field_c_width
+    - paragraphs.paragraphs_type.slider
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.slider.default
+targetEntityType: paragraph
+bundle: slider
+mode: default
+content:
+  field_banner_item:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_c_classes:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_width:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+hidden: {  }

@@ -1,0 +1,13 @@
+uuid: bdfcdd18-7a21-43ef-b76a-254c967e436e
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+_core:
+  default_config_hash: krqD71-jIQiQaXDVwyizcBGkYelhxU7TLOgaUbCfc1Q
+id: paragraph.lib_v4_carousel_card
+target_entity_type_id: paragraph
+target_bundle: lib_v4_carousel_card
+default_langcode: site_default
+language_alterable: false

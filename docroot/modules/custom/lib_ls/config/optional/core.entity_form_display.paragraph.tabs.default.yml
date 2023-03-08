@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tabs.field_c_classes
+    - field.field.paragraph.tabs.field_c_subtitle
+    - field.field.paragraph.tabs.field_c_title
+    - field.field.paragraph.tabs.field_c_title_status
+    - field.field.paragraph.tabs.field_c_width
+    - field.field.paragraph.tabs.field_tab_item
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_c_title:
+      children:
+        - field_c_title
+        - field_c_subtitle
+        - field_c_title_status
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Component title'
+    group_c_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Styling settings'
+id: paragraph.tabs.default
+targetEntityType: paragraph
+bundle: tabs
+mode: default
+content:
+  field_c_classes:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_subtitle:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title_status:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_c_width:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_tab_item:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

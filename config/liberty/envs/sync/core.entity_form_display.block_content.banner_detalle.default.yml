@@ -1,0 +1,36 @@
+uuid: 09e9c332-aff8-426c-8dde-b5a952b5a32a
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_detalle
+    - field.field.block_content.banner_detalle.field_banner
+  module:
+    - paragraphs
+id: block_content.banner_detalle.default
+targetEntityType: block_content
+bundle: banner_detalle
+mode: default
+content:
+  field_banner:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

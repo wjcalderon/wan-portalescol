@@ -1,0 +1,10 @@
+uuid: 35158170-e84f-403d-a723-1361ee106429
+langcode: es
+status: true
+dependencies: {  }
+id: plan_list
+label: 'Plan List'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

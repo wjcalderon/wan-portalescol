@@ -1,0 +1,14 @@
+uuid: 2dfee8aa-5482-4696-89b7-5f77ed5f9937
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.red_medica_admin
+  module:
+    - user
+id: user_add_role_action.red_medica_admin
+label: 'Añade el rol Red medica admin al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: red_medica_admin

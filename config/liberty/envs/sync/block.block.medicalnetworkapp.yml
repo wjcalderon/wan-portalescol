@@ -1,0 +1,25 @@
+uuid: dc47fdfb-e4c2-4aff-bbfc-5717d7eba4f5
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_red_medica
+  theme:
+    - liberty_public
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: 849xt-spvCpqzzKhlYJWQQl0-_zrTrfZmZJywGxhY6E
+id: medicalnetworkapp
+theme: liberty_public
+region: blocks_activate
+weight: 0
+provider: null
+plugin: medical_network_block
+settings:
+  id: medical_network_block
+  label: 'Medical network app'
+  label_display: '0'
+  provider: lib_red_medica
+visibility: {  }

@@ -1,0 +1,35 @@
+uuid: 90e51456-7abb-41a0-b1c5-8ce0b6bc7f88
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: 'is-hidden modal-link-fallback-popup modal-close'
+id: lineascaidas
+theme: liberty_public
+region: blocks_popups
+weight: -30
+provider: null
+plugin: 'block_content:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+settings:
+  id: 'block_content:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+  label: 'Lineas Caidas'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

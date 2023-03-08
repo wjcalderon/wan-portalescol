@@ -1,0 +1,13 @@
+lib_quoting.content:
+  title: 'Importación de códigos facecolda'
+  parent: lib_migrate.admin_index
+  description: 'Importación de excel con los códigos facecolda para el cotizador.'
+  weight: -10
+  route_name: lib_quoting.migrate
+
+lib_quoting.config:
+  title: 'Configuración api cotizador'
+  parent: lib_migrate.admin_index
+  description: 'Configuración de api del cotizador.'
+  weight: -10
+  route_name: lib_quoting.config

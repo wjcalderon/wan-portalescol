@@ -1,0 +1,19 @@
+id: speciality
+label: Speciality
+
+source:
+  plugin: csv
+  path: modules/custom/lib_rm/data/especialidad.csv
+  header_row_count: 1
+  delimiter: ;
+  keys:
+    - codigoreps
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: speciality
+
+process:
+  name: especialidad
+  field_reps_code: codigoreps
+

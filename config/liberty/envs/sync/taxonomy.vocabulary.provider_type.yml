@@ -1,0 +1,8 @@
+uuid: 5107c36d-e1cc-478d-9dbb-01a371c77fba
+langcode: es
+status: true
+dependencies: {  }
+name: 'Tipo de proveedor'
+vid: provider_type
+description: 'Tipo de proveedor asociado a los prestadores de salud'
+weight: 0

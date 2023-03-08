@@ -1,0 +1,20 @@
+uuid: 5d3ca1df-b504-4ddc-b0da-235f0dbabbde
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: tabsdocumentosrequeridos
+theme: liberty_public
+region: blocks_activate
+weight: -25
+provider: null
+plugin: tabs_documents_required
+settings:
+  id: tabs_documents_required
+  label: 'Tabs documentos requeridos'
+  label_display: '0'
+  provider: lib_core
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 7ccabec9-48aa-4655-99e5-3f3aa050d6e3
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.label_directorio_medico
+    - taxonomy.vocabulary.tipo_de_plan
+  module:
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.tipo_de_plan.label_directorio_medico
+targetEntityType: taxonomy_term
+bundle: tipo_de_plan
+mode: label_directorio_medico
+content: {  }
+hidden:
+  description: true
+  langcode: true

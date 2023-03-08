@@ -1,0 +1,28 @@
+section.pagination {
+  text-align: center;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      height: 1.5rem;
+      margin: 0 .5rem;
+      padding: .2rem;
+      width: 1.5rem;
+      &.page-item.disabled {
+        display: none;
+      }
+      a {
+        &:focus {
+          outline: none;
+        }
+      }
+      &.active {
+        background-color: #06748c;
+        border-radius: 50%;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

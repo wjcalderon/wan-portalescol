@@ -1,0 +1,23 @@
+uuid: c317b19d-d9aa-4638-818d-c1017b490056
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+    - lib_quoting
+    - lightning_core
+    - system
+    - toolbar
+third_party_settings:
+  lightning_core:
+    description: ''
+id: cotizador_admin
+label: 'Cotizador admin'
+weight: 30
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access config liberty'
+  - 'access import facecolda codes'
+  - 'access toolbar'
+  - 'view the administration theme'

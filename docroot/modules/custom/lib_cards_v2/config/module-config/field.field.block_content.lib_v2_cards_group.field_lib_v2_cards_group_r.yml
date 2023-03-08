@@ -1,0 +1,31 @@
+uuid: e8634abc-434d-4108-93be-e5fa9f302dfa
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_cards
+    - block_content.type.lib_v2_cards_group
+    - field.storage.block_content.field_lib_v2_cards_group_r
+_core:
+  default_config_hash: tNdDDb8l8coOLINeafAaJ6BYBMBKLQlxoWGn5JHh73w
+id: block_content.lib_v2_cards_group.field_lib_v2_cards_group_r
+field_name: field_lib_v2_cards_group_r
+entity_type: block_content
+bundle: lib_v2_cards_group
+label: 'Adicionar tarjetas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      lib_v2_cards: lib_v2_cards
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

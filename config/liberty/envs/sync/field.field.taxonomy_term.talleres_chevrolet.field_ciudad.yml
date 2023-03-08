@@ -1,0 +1,19 @@
+uuid: c2a67934-c375-4d9e-af55-a3c7d86e1071
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ciudad
+    - taxonomy.vocabulary.talleres_chevrolet
+id: taxonomy_term.talleres_chevrolet.field_ciudad
+field_name: field_ciudad
+entity_type: taxonomy_term
+bundle: talleres_chevrolet
+label: Ciudad
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

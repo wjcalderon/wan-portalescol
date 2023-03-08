@@ -1,0 +1,40 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_report_card.field_c_title
+    - field.field.paragraph.item_report_card.field_lead
+    - field.field.paragraph.item_report_card.field_report_documents
+    - paragraphs.paragraphs_type.item_report_card
+  module:
+    - entity_reference_revisions
+id: paragraph.item_report_card.default
+targetEntityType: paragraph
+bundle: item_report_card
+mode: default
+content:
+  field_c_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_lead:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_report_documents:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

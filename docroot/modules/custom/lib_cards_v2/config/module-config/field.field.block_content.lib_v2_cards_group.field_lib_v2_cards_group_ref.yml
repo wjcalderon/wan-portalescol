@@ -1,0 +1,23 @@
+uuid: 93914e9e-2704-4787-842f-985468b56090
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_cards_group
+    - field.storage.block_content.field_lib_v2_cards_group_ref
+  module:
+    - options
+_core:
+  default_config_hash: NHiy7wkhg8xZ9t9gtJv76U4a4fV51TAfdeUOWvGO904
+id: block_content.lib_v2_cards_group.field_lib_v2_cards_group_ref
+field_name: field_lib_v2_cards_group_ref
+entity_type: block_content
+bundle: lib_v2_cards_group
+label: 'Cantidad columnas'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

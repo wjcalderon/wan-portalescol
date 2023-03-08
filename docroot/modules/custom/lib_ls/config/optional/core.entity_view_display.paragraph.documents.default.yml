@@ -1,0 +1,48 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documents.field_c_classes
+    - field.field.paragraph.documents.field_c_title
+    - field.field.paragraph.documents.field_files
+    - field.field.paragraph.documents.field_lead
+    - paragraphs.paragraphs_type.documents
+  module:
+    - file
+id: paragraph.documents.default
+targetEntityType: paragraph
+bundle: documents
+mode: default
+content:
+  field_c_classes:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_files:
+    weight: 2
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_lead:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

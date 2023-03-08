@@ -1,0 +1,47 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_report_card.field_c_title
+    - field.field.paragraph.item_report_card.field_lead
+    - field.field.paragraph.item_report_card.field_report_documents
+    - paragraphs.paragraphs_type.item_report_card
+  module:
+    - paragraphs
+id: paragraph.item_report_card.default
+targetEntityType: paragraph
+bundle: item_report_card
+mode: default
+content:
+  field_c_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_lead:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_report_documents:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: documents
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

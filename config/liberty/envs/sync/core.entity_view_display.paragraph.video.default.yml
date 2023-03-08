@@ -1,0 +1,83 @@
+uuid: 160aa03a-51c8-44ea-b047-870ee9fc522b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_c_classes
+    - field.field.paragraph.video.field_c_title
+    - field.field.paragraph.video.field_c_title_status
+    - field.field.paragraph.video.field_c_width
+    - field.field.paragraph.video.field_layout
+    - field.field.paragraph.video.field_lead
+    - field.field.paragraph.video.field_video_embed
+    - paragraphs.paragraphs_type.video
+  module:
+    - options
+    - video_embed_field
+_core:
+  default_config_hash: TXTZFzjCy0iu3H1QOynIWP9srpk7x8Xdr2YE_ueKXm8
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_layout:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_video_embed:
+    type: video_embed_field_video
+    label: hidden
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

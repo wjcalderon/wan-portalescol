@@ -1,0 +1,23 @@
+uuid: 6feecb92-8832-4da2-bc8a-5f2ec2bb20c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_precio
+    - node.type.precio_vehiculo
+id: node.precio_vehiculo.field_precio
+field_name: field_precio
+entity_type: node
+bundle: precio_vehiculo
+label: Precio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: integer

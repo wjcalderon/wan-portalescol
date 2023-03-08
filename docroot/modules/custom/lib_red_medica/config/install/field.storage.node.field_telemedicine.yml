@@ -1,0 +1,21 @@
+uuid: 63e0af7b-f311-43db-9bd0-357d55aef3a1
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  module:
+    - node
+id: node.field_telemedicine
+field_name: field_telemedicine
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,49 @@
+uuid: 70947c7e-b057-4dbf-8b9a-c6d7a8a8c487
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_group_ref
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent_items
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_v2_questions_frequent.field_lib_v2_group_ref
+field_name: field_lib_v2_group_ref
+entity_type: paragraph
+bundle: lib_v2_questions_frequent
+label: 'Adicionar items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      lib_v2_questions_frequent_items: lib_v2_questions_frequent_items
+    negate: 0
+    target_bundles_drag_drop:
+      componentes_v2:
+        weight: 8
+        enabled: false
+      lib_v2_cards:
+        weight: 9
+        enabled: false
+      lib_v2_cards_group:
+        weight: 10
+        enabled: false
+      lib_v2_carousel:
+        weight: 11
+        enabled: false
+      lib_v2_carousel_card:
+        weight: 12
+        enabled: false
+      lib_v2_questions_frequent:
+        weight: 13
+        enabled: false
+      lib_v2_questions_frequent_items:
+        weight: 14
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,29 @@
+uuid: eb84d66f-df84-4231-81f1-aad8e90e05b8
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:dc404c4f-df65-4ca9-99cc-e5a3fec5bf95'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: 'is-hidden no-transform-y'
+id: ayudaasistenciasysiniestrospopup
+theme: liberty_public
+region: blocks_popups
+weight: -36
+provider: null
+plugin: 'block_content:dc404c4f-df65-4ca9-99cc-e5a3fec5bf95'
+settings:
+  id: 'block_content:dc404c4f-df65-4ca9-99cc-e5a3fec5bf95'
+  label: 'Ayuda Asistencias y Siniestros popup'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

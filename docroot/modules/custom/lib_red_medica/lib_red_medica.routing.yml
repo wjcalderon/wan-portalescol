@@ -1,0 +1,59 @@
+lib_red_medica.admin_settings_form:
+  path: '/admin/config/medical_network/settings'
+  defaults:
+    _form: '\Drupal\lib_red_medica\Form\MedicalNetworkAdmin'
+    _title: 'Configuración Red Medica'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+lib_red_medica.import_glossary_form:
+  path: '/admin/config/medical_network/import_glossary'
+  defaults:
+    _form: '\Drupal\lib_red_medica\Form\ImportGlossary'
+    _title: 'Importar Glosario de especialidades'
+  requirements:
+    _permission: 'access import lenders'
+  options:
+    _admin_route: TRUE
+
+lib_red_medica.plans:
+  path: 'api/medical-network/plan/{plan_tid}'
+  defaults:
+    _controller: '\Drupal\lib_red_medica\Controller\MedicalNetworkController::plan'
+    plan_tid: ''
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+lib_red_medica.cities:
+  path: 'api/medical-network/cities/{plan_tid}/{name_city}'
+  defaults:
+    _controller: '\Drupal\lib_red_medica\Controller\MedicalNetworkController::cities'
+    plan_tid: ''
+    name_city: ''
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+lib_red_medica.specialties:
+  path: 'api/medical-network/specialities/{plan_tid}/{city_tid}/{speciality}'
+  defaults:
+    _controller: '\Drupal\lib_red_medica\Controller\MedicalNetworkController::specialities'
+    plan_tid: ''
+    city_tid: ''
+    speciality: ''
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+lib_red_medica.institutions:
+  path: 'api/medical-network/institutions/{plan_tid}/{institution}'
+  defaults:
+    _controller: '\Drupal\lib_red_medica\Controller\MedicalNetworkController::institutions'
+    plan_tid: ''
+    institution: ''
+    _format: json
+  requirements:
+    _access: 'TRUE'

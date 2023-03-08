@@ -1,0 +1,26 @@
+uuid: a270667f-cf29-4247-8b66-43771175eb76
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_ls
+    - system
+  theme:
+    - liberty_public
+id: lsvideoembedblock
+theme: liberty_public
+region: blocks_popups
+weight: -38
+provider: null
+plugin: ls_video_embed_block
+settings:
+  id: ls_video_embed_block
+  label: 'LS video embed block'
+  label_display: '0'
+  provider: lib_ls
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /los-segura

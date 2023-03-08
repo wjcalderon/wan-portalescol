@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_article_video_reviewer
+  module:
+    - user
+id: user_add_role_action.news_article_video_reviewer
+label: 'Añade el rol Noticias artículo video reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_article_video_reviewer

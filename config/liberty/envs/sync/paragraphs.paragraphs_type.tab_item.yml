@@ -1,0 +1,9 @@
+uuid: cab4e005-91fb-4cfa-a5fb-2944b589ef90
+langcode: en
+status: true
+dependencies: {  }
+id: tab_item
+label: 'Item Pestaña'
+icon_uuid: null
+description: 'Item tipo pestaña, referenciado por el componente <b>pestañas</b>.'
+behavior_plugins: {  }

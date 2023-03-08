@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categtabs
+    - field.storage.block_content.field_lib_v2_categtabs_colum
+  module:
+    - options
+id: block_content.lib_v2_categtabs.field_lib_v2_categtabs_colum
+field_name: field_lib_v2_categtabs_colum
+entity_type: block_content
+bundle: lib_v2_categtabs
+label: 'Cantidad de columnas'
+description: 'Cantidad de columnas para el listados de tarjetas de categoría'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

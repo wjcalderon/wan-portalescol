@@ -1,0 +1,10 @@
+uuid: 6f4a3f14-1dc1-4cf2-82ed-f05f1a15199f
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.destacado_preview
+label: 'Destacado preview'
+targetEntityType: node
+cache: true

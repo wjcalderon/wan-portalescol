@@ -1,0 +1,19 @@
+uuid: 5b510c07-661f-4ca0-a326-7e1f4be05479
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_business_key
+    - node.type.campaign
+id: node.campaign.field_business_key
+field_name: field_business_key
+entity_type: node
+bundle: campaign
+label: 'Clave de negocio'
+description: 'Digite la clave de negocio asociada a esta campaña.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

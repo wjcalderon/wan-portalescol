@@ -1,0 +1,8 @@
+uuid: 47535565-ead6-4f00-aad6-caa4386d581b
+langcode: es
+status: true
+dependencies: {  }
+name: 'Tipo de plan'
+vid: tipo_de_plan
+description: 'Tipo de plan asociado a los prestadores de salud '
+weight: 0

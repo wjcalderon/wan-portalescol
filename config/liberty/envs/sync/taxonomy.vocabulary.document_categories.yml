@@ -1,0 +1,8 @@
+uuid: 9343b1da-4711-4aca-b9f9-e2b62096b2c2
+langcode: es
+status: true
+dependencies: {  }
+name: 'Categorías Documentos'
+vid: document_categories
+description: 'Categorías de documentos'
+weight: 0

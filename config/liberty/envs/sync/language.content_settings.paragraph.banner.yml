@@ -1,0 +1,11 @@
+uuid: 86aabfa4-6eec-4d79-a2fe-cfd0440ee1cc
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner
+target_entity_type_id: paragraph
+target_bundle: banner
+default_langcode: site_default
+language_alterable: false

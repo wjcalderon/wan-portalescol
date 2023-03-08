@@ -1,0 +1,14 @@
+uuid: ff0c67fe-dd57-4da5-b5f2-ef6fd39a9952
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.vehiculo_reviewer
+  module:
+    - user
+id: user_remove_role_action.vehiculo_reviewer
+label: 'Elimina el rol Vehículo reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: vehiculo_reviewer

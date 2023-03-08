@@ -1,0 +1,58 @@
+uuid: 8ed1ac61-d917-4654-b365-d06851d5e836
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_moreinfo_group
+    - field.field.paragraph.lib_v4_moreinfo_group.field_lib_v4_moreinfo_group_ref
+    - field.field.paragraph.lib_v4_moreinfo_group.field_lib_v4_moreinfo_title
+  module:
+    - inline_entity_form
+_core:
+  default_config_hash: 2s1MX1tR5lAB-Vo6bmqMyzgLoI2YUU3_1z2J3VQHWWQ
+id: paragraph.lib_v4_moreinfo_group.default
+targetEntityType: paragraph
+bundle: lib_v4_moreinfo_group
+mode: default
+content:
+  field_lib_v4_moreinfo_group_ref:
+    type: inline_entity_form_complex
+    weight: 27
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Card
+      label_plural: Cards
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_lib_v4_moreinfo_title:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

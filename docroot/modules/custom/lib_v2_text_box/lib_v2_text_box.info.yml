@@ -1,0 +1,7 @@
+name: 'Lib text box v2'
+type: module
+description: 'Rich text box'
+core_version_requirement: ^8 || ^9
+package: 'Esinergia'
+dependencies:
+  - lib_v2_core

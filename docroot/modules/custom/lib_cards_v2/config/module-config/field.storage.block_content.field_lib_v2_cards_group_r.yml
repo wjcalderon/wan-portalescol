@@ -1,0 +1,21 @@
+uuid: fb981131-0c42-48eb-ab15-989c1767a3ec
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: QGuIF-7tLLHCtezzhp00ySpnM691XCfSQcPhA7vZDSw
+id: block_content.field_lib_v2_cards_group_r
+field_name: field_lib_v2_cards_group_r
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

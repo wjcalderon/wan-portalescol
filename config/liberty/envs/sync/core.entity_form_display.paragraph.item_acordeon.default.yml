@@ -1,0 +1,39 @@
+uuid: dd58b001-3346-4b40-b161-df9f81101a54
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_acordeon.field_componentes
+    - field.field.paragraph.item_acordeon.field_name
+    - paragraphs.paragraphs_type.item_acordeon
+  module:
+    - paragraphs
+id: paragraph.item_acordeon.default
+targetEntityType: paragraph
+bundle: item_acordeon
+mode: default
+content:
+  field_componentes:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

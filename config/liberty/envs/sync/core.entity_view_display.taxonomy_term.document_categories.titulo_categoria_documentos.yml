@@ -1,0 +1,56 @@
+uuid: 6d74db46-63c3-4934-b1b2-cfb9add86ac2
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.titulo_categoria_documentos
+    - field.field.taxonomy_term.document_categories.field_cta
+    - field.field.taxonomy_term.document_categories.field_icon
+    - taxonomy.vocabulary.document_categories
+  module:
+    - ds
+    - panelizer
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - taxonomy_term_title
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h2
+          class: ''
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.document_categories.titulo_categoria_documentos
+targetEntityType: taxonomy_term
+bundle: document_categories
+mode: titulo_categoria_documentos
+content: {  }
+hidden:
+  description: true
+  field_cta: true
+  field_icon: true
+  langcode: true

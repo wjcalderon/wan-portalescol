@@ -1,0 +1,22 @@
+uuid: c8bc19ec-0230-4d4f-9357-db5d88f72e49
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+_core:
+  default_config_hash: WbRZVJGiwScXMHKXgFo440il8LJ3e0F1x7-iwrku3yg
+id: block_content.field_lib_v3_cards_image
+field_name: field_lib_v3_cards_image
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

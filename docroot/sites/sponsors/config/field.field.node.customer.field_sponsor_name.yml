@@ -1,0 +1,29 @@
+uuid: d3883024-cf3e-4c15-88e2-efbc3a70620f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sponsor_name
+    - node.type.customer
+    - taxonomy.vocabulary.sponsors
+id: node.customer.field_sponsor_name
+field_name: field_sponsor_name
+entity_type: node
+bundle: customer
+label: 'Nombre Sponsor'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sponsors: sponsors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

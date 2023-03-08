@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: faq_los_segura_reviewer
+label: 'Faq Los Segura reviewer'
+weight: 36
+is_admin: false

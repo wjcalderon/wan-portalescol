@@ -1,0 +1,44 @@
+uuid: 32a1228d-27c2-4aeb-bbb2-08056d8f6e32
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.news_article
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: news_article_creator
+label: 'Noticias artículo creator'
+weight: 41
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node news_article content'
+  - 'administer panelizer node news_article layout'
+  - 'create news_article content'
+  - 'create url aliases'
+  - 'edit own news_article content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view news_article revisions'
+  - 'view own unpublished content'

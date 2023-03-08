@@ -1,0 +1,19 @@
+uuid: 13faaf1d-be6b-4e7c-8fe9-ac58fcca571f
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_questions_frequent
+    - field.storage.block_content.field_lib_v2_questions_title
+id: block_content.lib_v2_questions_frequent.field_lib_v2_questions_title
+field_name: field_lib_v2_questions_title
+entity_type: block_content
+bundle: lib_v2_questions_frequent
+label: 'Titulo sección'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

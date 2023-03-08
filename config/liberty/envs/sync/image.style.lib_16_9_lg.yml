@@ -1,0 +1,15 @@
+uuid: 238c11e7-abe4-4225-8bed-f2d2b2971121
+langcode: es
+status: true
+dependencies: {  }
+name: lib_16_9_lg
+label: '16:9 Large (1280 x 480)'
+effects:
+  fb99e378-389a-4b11-9391-c320a1b8f290:
+    uuid: fb99e378-389a-4b11-9391-c320a1b8f290
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 480
+      anchor: center-center

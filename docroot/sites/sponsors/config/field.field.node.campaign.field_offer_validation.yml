@@ -1,0 +1,21 @@
+uuid: fe913a71-53d1-4727-a601-b54dd5a538d7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offer_validation
+    - node.type.campaign
+  module:
+    - text
+id: node.campaign.field_offer_validation
+field_name: field_offer_validation
+entity_type: node
+bundle: campaign
+label: 'validacion de oferta'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

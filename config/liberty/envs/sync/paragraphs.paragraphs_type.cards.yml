@@ -1,0 +1,9 @@
+uuid: 9f155835-9657-4fa7-a8c6-61ec372a81aa
+langcode: en
+status: true
+dependencies: {  }
+id: cards
+label: Tarjetas
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de tarjeta" y agréguelos en una página de landing.'
+behavior_plugins: {  }

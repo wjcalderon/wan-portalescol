@@ -1,0 +1,25 @@
+uuid: 5fb1db49-8eee-4ec6-97f6-707fa0762687
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_layout
+    - paragraphs.paragraphs_type.video
+  module:
+    - options
+_core:
+  default_config_hash: J41mH-2XJAishSTDxUmc1Ay_66LBh0crdGFAaFnGqTw
+id: paragraph.video.field_layout
+field_name: field_layout
+entity_type: paragraph
+bundle: video
+label: Layout
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

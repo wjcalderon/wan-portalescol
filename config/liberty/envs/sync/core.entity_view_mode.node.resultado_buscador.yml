@@ -1,0 +1,14 @@
+uuid: a0e0b3fd-939b-4f45-ad6a-33d57addd898
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'Modo de presentación de resultados en el buscador global del portal'
+id: node.resultado_buscador
+label: 'Resultado buscador'
+targetEntityType: node
+cache: true

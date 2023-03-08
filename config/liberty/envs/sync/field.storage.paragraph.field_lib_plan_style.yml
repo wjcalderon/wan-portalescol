@@ -1,0 +1,27 @@
+uuid: 492aa933-ccd2-422b-af18-31fc8a7428ec
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_plan_style
+field_name: field_lib_plan_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Default
+    -
+      value: icon
+      label: Icon
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

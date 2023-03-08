@@ -1,0 +1,21 @@
+uuid: 9200ebc4-2c6a-4386-baf1-f51ab4aee677
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cards
+    - field.storage.paragraph.field_lib_v4_cards_desc
+_core:
+  default_config_hash: kS7W9jjqaev4vbcjK-MLEXHhA_OXHoJJeSqS1-V9k3Y
+id: paragraph.lib_v4_cards.field_lib_v4_cards_desc
+field_name: field_lib_v4_cards_desc
+entity_type: paragraph
+bundle: lib_v4_cards
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 73dc3c11-8ec8-4c48-8f89-82e030afd610
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_monitored_page
+    - node.type.campaign
+  module:
+    - link
+id: node.campaign.field_monitored_page
+field_name: field_monitored_page
+entity_type: node
+bundle: campaign
+label: 'Pagina Vigilado'
+description: 'Enlace de la pagina  del vigilado '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

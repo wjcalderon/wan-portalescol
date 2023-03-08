@@ -1,0 +1,10 @@
+liberty_color_header-js:
+  version: 3
+  css:
+    theme:
+      css/liberty_color_header.css: {}
+  js:
+    js/liberty_color_header.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

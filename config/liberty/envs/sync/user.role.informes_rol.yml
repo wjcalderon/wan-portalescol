@@ -1,0 +1,14 @@
+uuid: afe61b47-0e93-4bd7-848f-790c17e0ceec
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Rol para visualizacion de landing de descripcion de informes'
+id: informes_rol
+label: informes
+weight: 49
+is_admin: null
+permissions: {  }

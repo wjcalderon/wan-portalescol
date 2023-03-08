@@ -1,0 +1,20 @@
+uuid: 1d3fdecc-7e4c-41a0-bd43-c53e1a81209f
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_quoting
+  theme:
+    - liberty_public
+id: autosquotingform
+theme: liberty_public
+region: blocks_activate
+weight: -21
+provider: null
+plugin: autos_quoting_form
+settings:
+  id: autos_quoting_form
+  label: 'Autos quoting form'
+  label_display: '0'
+  provider: lib_quoting
+visibility: {  }

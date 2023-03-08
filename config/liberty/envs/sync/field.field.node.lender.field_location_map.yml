@@ -1,0 +1,21 @@
+uuid: baacb9c7-89e9-4ffe-a861-1d92875b6214
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map
+    - node.type.lender
+  module:
+    - geolocation
+id: node.lender.field_location_map
+field_name: field_location_map
+entity_type: node
+bundle: lender
+label: 'Localización mapa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

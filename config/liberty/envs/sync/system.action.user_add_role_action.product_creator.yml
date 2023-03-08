@@ -1,0 +1,14 @@
+uuid: 7decec6a-2a1a-40d9-b5c4-debd5b8bfd81
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.product_creator
+  module:
+    - user
+id: user_add_role_action.product_creator
+label: 'Add the Product creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: product_creator

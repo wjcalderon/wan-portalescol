@@ -1,0 +1,12 @@
+uuid: 9472848e-3498-4ba4-90fc-c4c78b934e96
+langcode: es
+status: true
+dependencies: {  }
+label: Small
+id: small
+description: ''
+aspect_ratio: ''
+soft_limit_width: 480
+soft_limit_height: 477
+hard_limit_width: 480
+hard_limit_height: 477

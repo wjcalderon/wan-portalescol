@@ -1,0 +1,14 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 2_1_medium
+label: '2:1 Medium (1024x512)'
+effects:
+  734e6c02-82ae-477a-9112-90b3e49b3926:
+    uuid: 734e6c02-82ae-477a-9112-90b3e49b3926
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 700
+      height: 350
+      anchor: center-center

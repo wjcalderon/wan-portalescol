@@ -1,0 +1,136 @@
+uuid: b75c0bef-ee15-4f06-b2d7-9ccd27392339
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid_single
+    - paragraphs.paragraphs_type.card_grid_accordion
+    - paragraphs.paragraphs_type.grid_accordion
+  module:
+    - entity_reference_revisions
+id: paragraph.card_grid_accordion.field_grid_single
+field_name: field_grid_single
+entity_type: paragraph
+bundle: card_grid_accordion
+label: 'Grid Individual'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      grid_accordion: grid_accordion
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 37
+        enabled: false
+      assistance_item:
+        weight: 38
+        enabled: false
+      banner:
+        weight: 39
+        enabled: false
+      card:
+        weight: 40
+        enabled: false
+      card_grid_accordion:
+        weight: 43
+        enabled: false
+      card_person:
+        weight: 44
+        enabled: false
+      card_person_list:
+        weight: 45
+        enabled: false
+      cards:
+        weight: 41
+        enabled: false
+      cards_reports:
+        weight: 42
+        enabled: false
+      column:
+        weight: 46
+        enabled: false
+      columns:
+        weight: 47
+        enabled: false
+      documents:
+        weight: 48
+        enabled: false
+      drupal_block:
+        weight: 49
+        enabled: false
+      drupal_view:
+        weight: 50
+        enabled: false
+      grid_accordion:
+        weight: 51
+        enabled: true
+      image:
+        weight: 52
+        enabled: false
+      item_acordeon:
+        weight: 53
+        enabled: false
+      item_lista:
+        weight: 54
+        enabled: false
+      item_report_card:
+        weight: 55
+        enabled: false
+      item_tab_multi:
+        weight: 56
+        enabled: false
+      lista:
+        weight: 57
+        enabled: false
+      microsite:
+        weight: 58
+        enabled: false
+      multi_tabs:
+        weight: 59
+        enabled: false
+      qualtrics_embed:
+        weight: 60
+        enabled: false
+      select_cta:
+        weight: 61
+        enabled: false
+      shorcut:
+        weight: 62
+        enabled: false
+      shorcuts:
+        weight: 63
+        enabled: false
+      short_banner:
+        weight: 64
+        enabled: false
+      single_text:
+        weight: 65
+        enabled: false
+      slider:
+        weight: 66
+        enabled: false
+      tab_item:
+        weight: 68
+        enabled: false
+      tabs:
+        weight: 67
+        enabled: false
+      testimonies:
+        weight: 69
+        enabled: false
+      testimony_item:
+        weight: 70
+        enabled: false
+      video:
+        weight: 71
+        enabled: false
+      webform:
+        weight: 72
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+uuid: 4fad3093-2ef3-4d06-94a7-9f6c56fe1972
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+    - field.storage.paragraph.field_lib_v4_carousel_text_sup
+_core:
+  default_config_hash: 8nXIhkoWRGtcNmx6dJFjzWRDg1Ci736it-MRuPYY9co
+id: paragraph.lib_v4_carousel_card.field_lib_v4_carousel_text_sup
+field_name: field_lib_v4_carousel_text_sup
+entity_type: paragraph
+bundle: lib_v4_carousel_card
+label: 'Texto apoyo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

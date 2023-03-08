@@ -1,0 +1,21 @@
+uuid: e81bc5c6-a4c0-4ea3-a535-c9d4fcdf2fa6
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_marca
+field_name: field_marca
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 120
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,43 @@
+uuid: 67e9a3c3-58b9-4fd7-bc8d-a5286859d7aa
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.faq_los_segura.body
+    - field.field.node.faq_los_segura.field_faq_ls_category
+    - node.type.faq_los_segura
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: Vo6gWcl82tt7lheo9L2kLMm6uZLzkgLNtrStExLJ2kU
+id: node.faq_los_segura.default
+targetEntityType: node
+bundle: faq_los_segura
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_faq_ls_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,21 @@
+uuid: e7be13ab-3354-40cd-a678-43d2e33131f5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map
+    - node.type.payment_points
+  module:
+    - geolocation
+id: node.payment_points.field_location_map
+field_name: field_location_map
+entity_type: node
+bundle: payment_points
+label: 'Localización mapa'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

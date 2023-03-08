@@ -1,0 +1,145 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_components
+    - node.type.landing_los_segura
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.card_person_list
+    - paragraphs.paragraphs_type.drupal_block
+    - paragraphs.paragraphs_type.drupal_view
+    - paragraphs.paragraphs_type.shorcuts
+    - paragraphs.paragraphs_type.short_banner
+    - paragraphs.paragraphs_type.tabs
+    - paragraphs.paragraphs_type.testimonies
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.landing_los_segura.field_p_components
+field_name: field_p_components
+entity_type: node
+bundle: landing_los_segura
+label: Componentes
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      banner: banner
+      short_banner: short_banner
+      drupal_block: drupal_block
+      card_person_list: card_person_list
+      drupal_view: drupal_view
+      shorcuts: shorcuts
+      tabs: tabs
+      testimonies: testimonies
+      video: video
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 31
+        enabled: false
+      assistance_item:
+        weight: 32
+        enabled: false
+      banner:
+        enabled: true
+        weight: 33
+      card:
+        weight: 34
+        enabled: false
+      card_person:
+        weight: 40
+        enabled: false
+      card_person_list:
+        enabled: true
+        weight: 41
+      cards:
+        weight: 35
+        enabled: false
+      cards_reports:
+        weight: 36
+        enabled: false
+      column:
+        weight: 37
+        enabled: false
+      columns:
+        weight: 38
+        enabled: false
+      documents:
+        weight: 39
+        enabled: false
+      drupal_block:
+        enabled: true
+        weight: 40
+      drupal_view:
+        enabled: true
+        weight: 41
+      image:
+        weight: 42
+        enabled: false
+      item_acordeon:
+        weight: 43
+        enabled: false
+      item_lista:
+        weight: 44
+        enabled: false
+      item_report_card:
+        weight: 45
+        enabled: false
+      item_tab_multi:
+        weight: 46
+        enabled: false
+      lista:
+        weight: 47
+        enabled: false
+      microsite:
+        weight: 48
+        enabled: false
+      multi_tabs:
+        weight: 49
+        enabled: false
+      qualtrics_embed:
+        weight: 50
+        enabled: false
+      select_cta:
+        weight: 51
+        enabled: false
+      shorcut:
+        weight: 52
+        enabled: false
+      shorcuts:
+        enabled: true
+        weight: 53
+      short_banner:
+        enabled: true
+        weight: 35
+      single_text:
+        weight: 54
+        enabled: false
+      slider:
+        weight: 55
+        enabled: false
+      tab_item:
+        weight: 57
+        enabled: false
+      tabs:
+        enabled: true
+        weight: 56
+      testimonies:
+        enabled: true
+        weight: 58
+      testimony_item:
+        weight: 59
+        enabled: false
+      video:
+        enabled: true
+        weight: 65
+      webform:
+        weight: 60
+        enabled: false
+field_type: entity_reference_revisions

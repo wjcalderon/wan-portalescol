@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_inphography_creator
+  module:
+    - user
+id: user_remove_role_action.news_inphography_creator
+label: 'Elimina el rol Noticias infografía creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: news_inphography_creator

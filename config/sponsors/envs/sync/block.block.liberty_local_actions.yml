@@ -1,0 +1,20 @@
+uuid: 5fa583cb-f33d-4ca9-aef2-c056be78c74a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - liberty
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: liberty_local_actions
+theme: liberty
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

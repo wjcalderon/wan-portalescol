@@ -1,0 +1,13 @@
+uuid: b0b7e897-8ff1-48ed-b77a-e4b86b80aa06
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_contacts_group
+_core:
+  default_config_hash: Q3hXqjE3OJ37NWCePlMdhJVPD7ZC-qJjZNk5V9s7o3o
+id: paragraph.lib_v4_contacts_group
+target_entity_type_id: paragraph
+target_bundle: lib_v4_contacts_group
+default_langcode: site_default
+language_alterable: false

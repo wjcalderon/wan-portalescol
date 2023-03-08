@@ -1,0 +1,72 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_banner_main
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_backgro
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_heading
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_image
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_link
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_link_co
+    - field.field.block_content.lib_v2_banner_main.field_lib_v2_banner_main_subhead
+  module:
+    - link
+    - options
+id: block_content.lib_v2_banner_main.default
+targetEntityType: block_content
+bundle: lib_v2_banner_main
+mode: default
+content:
+  field_lib_v2_banner_main_backgro:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_lib_v2_banner_main_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v2_banner_main_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_lib_v2_banner_main_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_v2_banner_main_link_co:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_v2_banner_main_subhead:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

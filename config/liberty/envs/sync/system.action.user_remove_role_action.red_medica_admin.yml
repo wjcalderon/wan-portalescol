@@ -1,0 +1,14 @@
+uuid: b919726f-5c79-4e9e-a460-3f3acc5b9336
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.red_medica_admin
+  module:
+    - user
+id: user_remove_role_action.red_medica_admin
+label: 'Elimina el rol Red medica admin al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: red_medica_admin

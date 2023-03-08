@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_inphography_reviewer
+  module:
+    - user
+id: user_add_role_action.news_inphography_reviewer
+label: 'Añade el rol Noticias infografía reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_inphography_reviewer

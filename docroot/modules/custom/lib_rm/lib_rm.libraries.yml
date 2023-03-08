@@ -1,0 +1,4 @@
+lib_rm:
+  version: VERSION
+  js:
+    js/lib_rm.js: {}

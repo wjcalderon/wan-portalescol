@@ -1,0 +1,25 @@
+uuid: 0440e90c-04af-4229-806f-43b540b4f293
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.buscas-ayuda
+  module:
+    - system
+  theme:
+    - liberty_public
+id: buscasayuda
+theme: liberty_public
+region: blocks_popups
+weight: -37
+provider: null
+plugin: 'system_menu_block:buscas-ayuda'
+settings:
+  id: 'system_menu_block:buscas-ayuda'
+  label: '¿Necesitas ayuda?'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

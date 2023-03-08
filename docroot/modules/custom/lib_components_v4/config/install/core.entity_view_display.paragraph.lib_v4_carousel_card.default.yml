@@ -1,0 +1,84 @@
+uuid: 5930ce90-dd5c-4ed5-a97c-696cd5b692b2
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_background
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_image
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_link
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_link_color
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_sec
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_text_main
+    - field.field.paragraph.lib_v4_carousel_card.field_lib_v4_carousel_text_sup
+  module:
+    - link
+    - options
+_core:
+  default_config_hash: UqAegNkZulMtTM2wlBkK14BrT6G5pg4gUs2E05me7jQ
+id: paragraph.lib_v4_carousel_card.default
+targetEntityType: paragraph
+bundle: lib_v4_carousel_card
+mode: default
+content:
+  field_lib_v4_carousel_background:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_lib_v4_carousel_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_v4_carousel_link:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_lib_v4_carousel_link_color:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_lib_v4_carousel_sec:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_lib_v4_carousel_text_main:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_v4_carousel_text_sup:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

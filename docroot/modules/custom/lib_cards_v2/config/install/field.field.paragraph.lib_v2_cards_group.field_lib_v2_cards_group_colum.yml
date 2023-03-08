@@ -1,0 +1,23 @@
+uuid: 8ef41b51-1e65-4db1-8931-1a8c5c360a5c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_cards_group_colum
+    - paragraphs.paragraphs_type.lib_v2_cards_group
+  module:
+    - options
+id: paragraph.lib_v2_cards_group.field_lib_v2_cards_group_colum
+field_name: field_lib_v2_cards_group_colum
+entity_type: paragraph
+bundle: lib_v2_cards_group
+label: 'Cantidad columnas'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,11 @@
+uuid: 782d0b19-55dc-4967-b935-9c0ca26fa877
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: qrLCDxdyNeGUK1KMZqf6Qr_Tjia8GbDH_Ym9PyXF8Nw
+id: glosario_los_segura_reviewer
+label: 'Glosario los Segura reviewer'
+weight: 38
+is_admin: false
+permissions: {  }

@@ -1,0 +1,32 @@
+uuid: e859e8fd-6302-48fe-a936-79e71376af69
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.form_webform
+    - field.storage.block_content.field_form
+    - webform.webform.call_center_
+  module:
+    - webform
+id: block_content.form_webform.field_form
+field_name: field_form
+entity_type: block_content
+bundle: form_webform
+label: Formulario
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 1369ef0a-33a3-419e-823d-b94ba65d7974
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="16px" viewBox="0 0 10 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Icon/Arrow Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.828,0 C7.488,0 9.654,2.166 9.654,4.828 C9.654,6.41825558 8.00208614,9.78891748 6.54158811,12.4558456 L6.5439,12.4569 L5.9979,13.4529 L5.1849,12.2189 L5.42596523,11.7890557 C7.26333599,8.42363457 8.353,5.83681464 8.353,4.828 C8.353,2.883 6.771,1.301 4.828,1.301 C2.883,1.301 1.301,2.883 1.301,4.828 C1.301,6.54372533 4.15188327,11.7406411 5.32731802,13.7328553 L5.4726,13.9667 L4.6316,15.2167 L4.12467977,14.2512886 C3.30051978,12.8444876 0,7.06927711 0,4.828 C0,2.166 2.166,0 4.828,0 Z M4.8588,2.6003 C6.2828,2.6003 7.4428,3.7603 7.4428,5.1853 C7.4428,6.6103 6.2828,7.7703 4.8588,7.7703 C3.4328,7.7703 2.2728,6.6103 2.2728,5.1853 C2.2728,3.7603 3.4328,2.6003 4.8588,2.6003 Z M4.8588,3.9013 C4.1498,3.9013 3.5738,4.4773 3.5738,5.1853 C3.5738,5.8933 4.1498,6.4693 4.8588,6.4693 C5.5668,6.4693 6.1428,5.8933 6.1428,5.1853 C6.1428,4.4773 5.5668,3.9013 4.8588,3.9013 Z" id="path-1"></path>
+    </defs>
+    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4.-Claims-Insured-description" transform="translate(-985.000000, -1814.000000)">
+            <g id="Icon/Arrow-Copy" transform="translate(978.170213, 1810.000000)">
+                <g id="Icon/GPS">
+                    <g id="Color/Liberty-Blue" transform="translate(7.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        <g id="Color/Liberty-Dark-Gray" mask="url(#mask-2)" fill="#343741" fill-rule="nonzero">
+                            <g transform="translate(-45.000000, -41.000000)" id="Rectangle-Copy-3">
+                                <polygon points="0 0 101 0 101 97 0 97"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

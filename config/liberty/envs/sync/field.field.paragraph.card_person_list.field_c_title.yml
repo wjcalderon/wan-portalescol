@@ -1,0 +1,21 @@
+uuid: a4a952d5-c99d-4fa3-a123-2f0706a5818f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title
+    - paragraphs.paragraphs_type.card_person_list
+_core:
+  default_config_hash: hzZmRcyXZxw-GkpjiGu_81SWQdd2h4z2V5pz4nMaGuw
+id: paragraph.card_person_list.field_c_title
+field_name: field_c_title
+entity_type: paragraph
+bundle: card_person_list
+label: 'Component title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

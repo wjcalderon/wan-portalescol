@@ -1,0 +1,11 @@
+uuid: fbeba185-076b-4039-8e09-dc757f179d03
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jorG6zFoj-hosmRmgTj4mWUBUfOt-GD4svgavfdck48
+id: faq_los_segura_reviewer
+label: 'Faq Los Segura reviewer'
+weight: 36
+is_admin: false
+permissions: {  }

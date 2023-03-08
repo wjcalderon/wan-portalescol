@@ -1,0 +1,8 @@
+uuid: d8a0d688-258b-43d8-8818-b2ca9a8fbef7
+langcode: en
+status: true
+dependencies: {  }
+name: Sponsors
+vid: sponsors
+description: 'Lista de sponsors'
+weight: 0

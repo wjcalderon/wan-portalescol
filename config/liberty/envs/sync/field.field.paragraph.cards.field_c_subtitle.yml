@@ -1,0 +1,19 @@
+uuid: 47e060b9-9e9f-4099-96dd-b449971fd900
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_subtitle
+    - paragraphs.paragraphs_type.cards
+id: paragraph.cards.field_c_subtitle
+field_name: field_c_subtitle
+entity_type: paragraph
+bundle: cards
+label: 'Component subtitle'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

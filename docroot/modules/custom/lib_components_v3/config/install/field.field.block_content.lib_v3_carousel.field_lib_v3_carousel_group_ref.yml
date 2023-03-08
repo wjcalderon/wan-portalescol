@@ -1,0 +1,31 @@
+uuid: dad02048-0a63-4726-9b9b-bc26d667d996
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_carousel
+    - block_content.type.lib_v3_carousel_card
+    - field.storage.block_content.field_lib_v3_carousel_group_ref
+_core:
+  default_config_hash: D_DDykT_EedIjJHNaZRya08pmfaZ5bwy3yijOP7e_7k
+id: block_content.lib_v3_carousel.field_lib_v3_carousel_group_ref
+field_name: field_lib_v3_carousel_group_ref
+entity_type: block_content
+bundle: lib_v3_carousel
+label: 'Adicionar Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      lib_v3_carousel_card: lib_v3_carousel_card
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,9 @@
+langcode: es
+status: true
+dependencies: {  }
+id: short_banner
+label: 'Short Banner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

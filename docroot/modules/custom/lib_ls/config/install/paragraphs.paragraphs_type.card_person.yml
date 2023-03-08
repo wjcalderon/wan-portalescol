@@ -1,0 +1,9 @@
+langcode: es
+status: true
+dependencies: {  }
+id: card_person
+label: 'Tarjeta: Persona'
+icon_uuid: null
+icon_default: null
+description: 'Se usa en Los Segura inicialmente'
+behavior_plugins: {  }

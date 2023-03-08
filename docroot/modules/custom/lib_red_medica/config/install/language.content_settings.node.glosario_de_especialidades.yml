@@ -1,0 +1,14 @@
+uuid: a2149edc-a807-4b04-ab8f-c16dc8e3e71b
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - node.type.glosario_de_especialidades
+id: node.glosario_de_especialidades
+target_entity_type_id: node
+target_bundle: glosario_de_especialidades
+default_langcode: es
+language_alterable: false

@@ -1,0 +1,56 @@
+uuid: 9dfcacce-b719-4fc6-ac9c-2d0533e48d75
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_small_image
+    - node.type.news_article
+  module:
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: '[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+id: node.news_article.field_small_image
+field_name: field_small_image
+entity_type: node
+bundle: news_article
+label: 'Imagen pequeña'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 381x203
+  min_resolution: 381x203
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

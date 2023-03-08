@@ -1,0 +1,25 @@
+uuid: ba880295-94fb-4aa1-8041-0277d3ba4141
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: situsiniestroesdeautos
+theme: liberty_public
+region: blocks_activate
+weight: -30
+provider: null
+plugin: 'block_content:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+settings:
+  id: 'block_content:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+  label: 'Si tu siniestro es de autos'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: promocional_siniestros
+visibility: {  }

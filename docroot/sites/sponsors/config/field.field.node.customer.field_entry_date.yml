@@ -1,0 +1,21 @@
+uuid: b676d8d9-4f1a-433c-8969-0cc227ae72c9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_entry_date
+    - node.type.customer
+  module:
+    - datetime
+id: node.customer.field_entry_date
+field_name: field_entry_date
+entity_type: node
+bundle: customer
+label: 'Fecha de ingreso a landing'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

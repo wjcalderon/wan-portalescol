@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.acordeon
+  module:
+    - options
+id: paragraph.acordeon.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: acordeon
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

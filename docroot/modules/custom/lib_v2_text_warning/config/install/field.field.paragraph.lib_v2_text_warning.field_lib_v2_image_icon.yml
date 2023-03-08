@@ -1,0 +1,29 @@
+uuid: f5ecc5b0-dcd2-4650-8662-76e1d1d645c1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_image_icon
+    - media.type.svg_media
+    - paragraphs.paragraphs_type.lib_v2_text_warning
+id: paragraph.lib_v2_text_warning.field_lib_v2_image_icon
+field_name: field_lib_v2_image_icon
+entity_type: paragraph
+bundle: lib_v2_text_warning
+label: icono
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      svg_media: svg_media
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

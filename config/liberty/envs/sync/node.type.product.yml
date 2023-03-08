@@ -1,0 +1,17 @@
+uuid: 13da3dd3-df29-45ad-bf53-a77903354c88
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Producto
+type: product
+description: 'Un producto relacionado a un ramo de un tipo de cliente.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

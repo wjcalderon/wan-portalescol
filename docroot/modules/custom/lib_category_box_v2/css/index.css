@@ -1,0 +1,62 @@
+.lib-comp-catbox {
+    max-width: var(--desktop);
+    margin: 4rem auto;
+}
+
+.lib-comp-catbox__content {
+    padding: 4rem 2rem;
+}
+
+.lib-comp-catbox__item {
+    background: #e6efef;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin: 1rem;
+    line-height: 1.5;
+}
+
+.lib-comp-catbox__tabs {
+    display: flex;
+    justify-content: stretch;
+    align-items: baseline;
+}
+
+.lib-comp-catbox__tab {
+    text-align: center;
+    width: 100%;
+    border-bottom: 5px solid #e6efef;
+    padding: 1rem 2rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.lib-comp-catbox__tab.is-active {
+    border-bottom: 5px solid var(--button-color);
+}
+
+.lib-comp-catbox__grid {
+    display: none;
+}
+
+.lib-comp-catbox__grid.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.lib-comp-catbox__grid.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.lib-comp-catbox__grid.is-active {
+    display: grid;
+}
+
+@media (max-width: 920px) {
+    .lib-comp-catbox__grid.grid-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .lib-comp-catbox__grid.grid-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,19 @@
+uuid: d55d5ecf-256a-4592-aa11-c7f23841a86d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_office
+    - paragraphs.paragraphs_type.channel_attention
+id: paragraph.channel_attention.field_office
+field_name: field_office
+entity_type: paragraph
+bundle: channel_attention
+label: Oficina
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

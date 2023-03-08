@@ -1,0 +1,39 @@
+uuid: b9388e21-01f3-4e92-a33b-620aa1b9881e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.channel_attention.field_contacts_phone
+    - field.field.paragraph.channel_attention.field_description
+    - field.field.paragraph.channel_attention.field_office
+    - paragraphs.paragraphs_type.channel_attention
+  module:
+    - text
+id: paragraph.channel_attention.default
+targetEntityType: paragraph
+bundle: channel_attention
+mode: default
+content:
+  field_contacts_phone:
+    type: number_unformatted
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_office:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,20 @@
+uuid: 1637e3ee-7ea2-450a-a27d-45f9b1b270f7
+langcode: es
+status: true
+dependencies:
+  module:
+    - liberty_claims
+  theme:
+    - liberty_public
+id: claimblock
+theme: liberty_public
+region: blocks_activate
+weight: -10
+provider: null
+plugin: claim_block
+settings:
+  id: claim_block
+  label: 'Claim block'
+  label_display: '0'
+  provider: liberty_claims
+visibility: {  }

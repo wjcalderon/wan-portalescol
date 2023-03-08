@@ -1,0 +1,32 @@
+uuid: af7eee27-d3a2-480f-9229-94b4b4fe5d3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_text_box
+    - field.field.block_content.lib_v2_text_box.field_lib_v2_text_box_desc
+    - field.field.block_content.lib_v2_text_box.field_lib_v2_text_box_title
+  module:
+    - text
+id: block_content.lib_v2_text_box.default
+targetEntityType: block_content
+bundle: lib_v2_text_box
+mode: default
+content:
+  field_lib_v2_text_box_desc:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v2_text_box_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

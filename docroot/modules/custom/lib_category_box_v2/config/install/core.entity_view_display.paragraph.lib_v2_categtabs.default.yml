@@ -1,0 +1,52 @@
+uuid: bfb5856f-5d9e-415c-ac3b-9a0dec82fc2c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_categtabs.field_lib_v2_categtabs_colum
+    - field.field.paragraph.lib_v2_categtabs.field_lib_v2_categtabs_group_ref
+    - field.field.paragraph.lib_v2_categtabs.field_lib_v2_categtabs_icons
+    - field.field.paragraph.lib_v2_categtabs.field_lib_v2_categtabs_title
+    - paragraphs.paragraphs_type.lib_v2_categtabs
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.lib_v2_categtabs.default
+targetEntityType: paragraph
+bundle: lib_v2_categtabs
+mode: default
+content:
+  field_lib_v2_categtabs_colum:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_v2_categtabs_group_ref:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_v2_categtabs_icons:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_v2_categtabs_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,25 @@
+uuid: abd3dcb6-7ce8-4287-8b8b-09da85508a0b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: reportarsiniestrosautos
+theme: liberty_public
+region: blocks_activate
+weight: -32
+provider: null
+plugin: 'block_content:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+settings:
+  id: 'block_content:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+  label: '¿En que podemos ayudarte?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

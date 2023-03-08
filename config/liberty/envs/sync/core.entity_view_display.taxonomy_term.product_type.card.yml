@@ -1,0 +1,46 @@
+uuid: 7edd0196-2b07-45ce-b315-c5a39e0ede11
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.card
+    - field.field.taxonomy_term.product_type.field_cta
+    - field.field.taxonomy_term.product_type.field_icon
+    - field.field.taxonomy_term.product_type.field_person_type
+    - taxonomy.vocabulary.product_type
+  module:
+    - ds
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: onecolumn
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - taxonomy_term_title
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: taxonomy_term.product_type.card
+targetEntityType: taxonomy_term
+bundle: product_type
+mode: card
+content: {  }
+hidden:
+  description: true
+  field_cta: true
+  field_icon: true
+  field_person_type: true
+  langcode: true

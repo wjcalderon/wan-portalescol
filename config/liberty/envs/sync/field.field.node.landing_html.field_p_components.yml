@@ -1,0 +1,120 @@
+uuid: fa8812f6-9623-4005-b624-c3e870079964
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_components
+    - node.type.landing_html
+    - paragraphs.paragraphs_type.microsite
+    - paragraphs.paragraphs_type.qualtrics_embed
+  module:
+    - entity_reference_revisions
+id: node.landing_html.field_p_components
+field_name: field_p_components
+entity_type: node
+bundle: landing_html
+label: Components
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      microsite: microsite
+      qualtrics_embed: qualtrics_embed
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 31
+        enabled: false
+      assistance_item:
+        weight: 32
+        enabled: false
+      banner:
+        weight: 33
+        enabled: false
+      card:
+        weight: 34
+        enabled: false
+      cards:
+        weight: 35
+        enabled: false
+      cards_reports:
+        weight: 36
+        enabled: false
+      column:
+        weight: 37
+        enabled: false
+      columns:
+        weight: 38
+        enabled: false
+      documents:
+        weight: 39
+        enabled: false
+      drupal_block:
+        weight: 40
+        enabled: false
+      drupal_view:
+        weight: 41
+        enabled: false
+      image:
+        weight: 42
+        enabled: false
+      item_acordeon:
+        weight: 43
+        enabled: false
+      item_lista:
+        weight: 44
+        enabled: false
+      item_report_card:
+        weight: 45
+        enabled: false
+      item_tab_multi:
+        weight: 46
+        enabled: false
+      lista:
+        weight: 47
+        enabled: false
+      microsite:
+        weight: 48
+        enabled: true
+      multi_tabs:
+        weight: 49
+        enabled: false
+      qualtrics_embed:
+        weight: 50
+        enabled: true
+      select_cta:
+        weight: 51
+        enabled: false
+      shorcut:
+        weight: 52
+        enabled: false
+      shorcuts:
+        weight: 53
+        enabled: false
+      single_text:
+        weight: 54
+        enabled: false
+      slider:
+        weight: 55
+        enabled: false
+      tab_item:
+        weight: 56
+        enabled: false
+      tabs:
+        weight: 57
+        enabled: false
+      testimonies:
+        weight: 58
+        enabled: false
+      testimony_item:
+        weight: 59
+        enabled: false
+      webform:
+        weight: 60
+        enabled: false
+field_type: entity_reference_revisions

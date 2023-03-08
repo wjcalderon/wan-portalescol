@@ -1,0 +1,20 @@
+uuid: 740a94be-e33f-4a5e-80e2-d9028de0e145
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_deductible_salary
+field_name: field_deductible_salary
+entity_type: taxonomy_term
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

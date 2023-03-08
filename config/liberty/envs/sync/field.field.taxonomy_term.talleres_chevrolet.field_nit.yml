@@ -1,0 +1,19 @@
+uuid: 45d70a63-1931-4e75-a8cb-0393bdc24c54
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_nit
+    - taxonomy.vocabulary.talleres_chevrolet
+id: taxonomy_term.talleres_chevrolet.field_nit
+field_name: field_nit
+entity_type: taxonomy_term
+bundle: talleres_chevrolet
+label: Nit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

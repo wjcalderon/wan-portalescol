@@ -1,0 +1,9 @@
+lib_quoting:
+  version: VERSION
+  js:
+    js/lib_quoting.js: {}
+    
+lib_quoting_validate:
+  version: VERSION
+  js:
+    js/lib_quoting_validate.js: {}

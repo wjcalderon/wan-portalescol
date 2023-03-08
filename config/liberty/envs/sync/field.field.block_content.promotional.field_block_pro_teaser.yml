@@ -1,0 +1,19 @@
+uuid: e743edf9-d1c8-44e0-be84-7eb12a541bfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotional
+    - field.storage.block_content.field_block_pro_teaser
+id: block_content.promotional.field_block_pro_teaser
+field_name: field_block_pro_teaser
+entity_type: block_content
+bundle: promotional
+label: Teaser
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,28 @@
+uuid: 75129047-b5d2-476b-b886-efc3289fc931
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vehiculo
+    - node.type.precio_vehiculo
+    - node.type.vehiculo
+id: node.precio_vehiculo.field_vehiculo
+field_name: field_vehiculo
+entity_type: node
+bundle: precio_vehiculo
+label: Vehículo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      vehiculo: vehiculo
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: b363055e-637a-4365-b249-89db1ff39384
+langcode: es
+status: true
+dependencies: {  }
+name: Modelo
+vid: modelo
+description: 'Modelo del vehículo'
+weight: 0

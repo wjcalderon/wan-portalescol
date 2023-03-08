@@ -1,0 +1,27 @@
+#app {
+  &:not(.mobile) {
+    background-color: #fff;
+  }
+  .back {
+    color: #06748c;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    letter-spacing: -0.18px;
+    margin: 2rem 0 0;
+    padding-left: 2rem;
+    position: relative;
+    text-align: left;
+    &::before {
+      background-image: url("~@/assets/img/back-filters.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      left: 0;
+      height: 1rem;
+      position: absolute;
+      top: .25rem;
+      width: 1rem;
+    }
+  }
+}

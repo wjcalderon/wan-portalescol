@@ -1,0 +1,11 @@
+uuid: fedec624-e73f-410a-bb0e-da9352d23951
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy
+target_entity_type_id: taxonomy_term
+target_bundle: policy
+default_langcode: site_default
+language_alterable: false

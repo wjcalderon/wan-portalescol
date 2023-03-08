@@ -1,0 +1,10 @@
+uuid: 25878998-b2de-4089-9c34-e46d887daee8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GpIg81sknVB5SaZWPVQbVCGCMIUPRc1gzlWDPUTtJqs
+id: lib_v4_cardinfo
+label: 'Tarjeta mas información v4'
+revision: 0
+description: 'Componente grupo mas informacion'

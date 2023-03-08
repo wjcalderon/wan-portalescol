@@ -1,0 +1,25 @@
+uuid: 51a8c7b7-e860-4cad-b039-0173dabd33ac
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:card:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: pagarpagatuscuotas
+theme: liberty_public
+region: blocks_activate
+weight: -14
+provider: null
+plugin: 'block_content:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+settings:
+  id: 'block_content:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+  label: 'Pagar - Paga tus cuotas'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

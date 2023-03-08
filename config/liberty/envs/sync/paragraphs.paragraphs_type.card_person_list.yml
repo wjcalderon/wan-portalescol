@@ -1,0 +1,12 @@
+uuid: 854d0086-379a-495e-8a37-90e07849b569
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SBbyb7E1h8YK2bNZGIabjsWuWY__4IT8aYjs7sNtwNs
+id: card_person_list
+label: 'Tarjetas: Persona'
+icon_uuid: null
+icon_default: null
+description: 'Lista de tarjetas de tipo persona.'
+behavior_plugins: {  }

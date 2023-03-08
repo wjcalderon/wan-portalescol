@@ -1,0 +1,10 @@
+uuid: 4e8ea851-6910-4667-8a5b-579741be0619
+langcode: es
+status: true
+dependencies: {  }
+id: lib_banner_promo_icons
+label: 'Hero Banner con Iconos'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Hero Banner con Iconos.'
+behavior_plugins: {  }

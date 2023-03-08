@@ -1,0 +1,22 @@
+uuid: 6c089146-8287-474e-a379-3685bbb7d946
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+id: node.landing_page.status
+field_name: status
+entity_type: node
+bundle: landing_page
+label: Publicado
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

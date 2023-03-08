@@ -1,0 +1,22 @@
+uuid: 71a604ee-2e33-4995-80f5-2f34c8cfedf1
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  lightning_workflow:
+    workflow: editorial
+_core:
+  default_config_hash: KlZbi4s2DgOoyVIvz4q5xEH9oQBdWdPHgQj-7ObbaeQ
+name: 'Capítulo Los Segura'
+type: capitulo_los_segura
+description: 'Capítulo de temporada'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

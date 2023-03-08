@@ -1,0 +1,10 @@
+uuid: 92c965ae-5775-4544-a3c0-fd2a67d41287
+langcode: es
+status: true
+dependencies: {  }
+id: banner_cards
+label: 'Banner con recuadros'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Banner con recuadros.'
+behavior_plugins: {  }

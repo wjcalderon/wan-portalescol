@@ -1,0 +1,125 @@
+uuid: 1f9cf9a8-44f7-4edc-9d5a-69ff26c5b3ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.payment_channels
+    - field.field.taxonomy_term.payment_channel.field_screenshot
+    - taxonomy.vocabulary.payment_channel
+  module:
+    - ds
+    - panelizer
+    - svg_image
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        id: panels_variant
+        label: Default
+        weight: 0
+        uuid: a0be1aff-8c59-4074-8f8e-155396e4d2c5
+        blocks:
+          d476b792-40ee-4654-be6b-98781db42d04:
+            id: 'entity_field:taxonomy_term:description'
+            label: Description
+            label_display: '0'
+            provider: ctools_block
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            formatter:
+              type: text_default
+              weight: 0
+              region: content
+              label: hidden
+              settings: {  }
+              third_party_settings: {  }
+            region: content
+            weight: 0
+            uuid: d476b792-40ee-4654-be6b-98781db42d04
+          ce2a1ea0-63e4-4e56-b128-12b17a4ecb23:
+            id: 'entity_field:taxonomy_term:field_screenshot'
+            label: Screenshot
+            label_display: '0'
+            provider: ctools_block
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            formatter:
+              type: image
+              weight: 0
+              region: content
+              label: above
+              settings:
+                image_link: ''
+                image_style: ''
+              third_party_settings: {  }
+            region: content
+            weight: 1
+            uuid: ce2a1ea0-63e4-4e56-b128-12b17a4ecb23
+        page_title: '[term:name]'
+        layout: layout_onecol
+        layout_settings: {  }
+        builder: ipe
+        storage_type: ''
+        storage_id: ''
+        pattern: panelizer
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - field_screenshot
+        - taxonomy_term_title
+        - description
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h3
+          class: ''
+id: taxonomy_term.payment_channel.payment_channels
+targetEntityType: taxonomy_term
+bundle: payment_channel
+mode: payment_channels
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_screenshot:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: 60
+        height: 60
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+hidden: {  }

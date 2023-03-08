@@ -1,0 +1,14 @@
+uuid: c66a8484-9721-485b-aeb0-410bd1cd37f4
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.glosario_los_segura_reviewer
+  module:
+    - user
+id: user_add_role_action.glosario_los_segura_reviewer
+label: 'Añade el rol Glosario los Segura reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: glosario_los_segura_reviewer

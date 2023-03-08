@@ -1,0 +1,23 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - liberty_public
+id: views_block__news_block_news_destacadas_preview
+theme: liberty_public
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'views_block:news-block_news_destacadas_preview'
+settings:
+  id: 'views_block:news-block_news_destacadas_preview'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

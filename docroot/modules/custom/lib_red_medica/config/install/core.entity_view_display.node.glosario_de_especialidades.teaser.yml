@@ -1,0 +1,47 @@
+uuid: 43069107-a701-44d9-9066-c8e5cf46ad3a
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.glosario_de_especialidades.body
+    - node.type.glosario_de_especialidades
+  module:
+    - manage_display
+    - text
+id: node.glosario_de_especialidades.teaser
+targetEntityType: node
+bundle: glosario_de_especialidades
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  title:
+    label: hidden
+    type: title
+    weight: -50
+    region: content
+    settings:
+      tag: h2
+      linked: true
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  created: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

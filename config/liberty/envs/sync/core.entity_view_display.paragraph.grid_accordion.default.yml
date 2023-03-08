@@ -1,0 +1,31 @@
+uuid: da18f27b-63b5-4481-9128-afdd0184b026
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grid_accordion.field_body_card
+    - field.field.paragraph.grid_accordion.field_title_card
+    - paragraphs.paragraphs_type.grid_accordion
+  module:
+    - text
+id: paragraph.grid_accordion.default
+targetEntityType: paragraph
+bundle: grid_accordion
+mode: default
+content:
+  field_body_card:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title_card:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

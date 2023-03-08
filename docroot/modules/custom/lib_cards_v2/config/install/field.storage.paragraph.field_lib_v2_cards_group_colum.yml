@@ -1,0 +1,27 @@
+uuid: b9e0cc34-8a5e-435c-ad6f-4cb042513c80
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_v2_cards_group_colum
+field_name: field_lib_v2_cards_group_colum
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '3'
+      label: '3'
+    -
+      value: '4'
+      label: '4'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

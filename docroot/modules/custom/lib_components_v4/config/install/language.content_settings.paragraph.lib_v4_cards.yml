@@ -1,0 +1,13 @@
+uuid: d0972784-19af-4496-a097-2368c0f4cc9f
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cards
+_core:
+  default_config_hash: ONz3SH5MQwOOm4RBUvlQPPnY525UYroHIqi_yS0zzTY
+id: paragraph.lib_v4_cards
+target_entity_type_id: paragraph
+target_bundle: lib_v4_cards
+default_langcode: site_default
+language_alterable: false

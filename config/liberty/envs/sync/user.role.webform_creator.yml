@@ -1,0 +1,44 @@
+uuid: e161f13a-c5c1-45cf-afc5-dacba028e89e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.webform
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: webform_creator
+label: 'Webform creator'
+weight: 11
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node webform content'
+  - 'administer panelizer node webform layout'
+  - 'create url aliases'
+  - 'create webform content'
+  - 'edit own webform content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view webform revisions'

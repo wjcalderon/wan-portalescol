@@ -1,0 +1,9 @@
+uuid: acb9172a-5f3e-475f-b02a-5930edee5400
+langcode: es
+status: true
+dependencies: {  }
+id: lista
+label: Lista
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de lista" y agréguelos en una página de producto.'
+behavior_plugins: {  }

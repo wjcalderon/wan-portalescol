@@ -1,0 +1,43 @@
+uuid: 59a8f468-a670-4d59-b89a-ac6bacc6aab0
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_contacts
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_contact
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_image
+    - field.field.paragraph.lib_v4_contacts.field_lib_v4_contacts_title
+_core:
+  default_config_hash: gS7aO-gX4JaUEgzJPFa376Aq7pUM1CTBSGxYMHl4ZoQ
+id: paragraph.lib_v4_contacts.default
+targetEntityType: paragraph
+bundle: lib_v4_contacts
+mode: default
+content:
+  field_lib_v4_contacts_contact:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_v4_contacts_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_v4_contacts_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

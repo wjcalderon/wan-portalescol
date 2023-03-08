@@ -1,0 +1,112 @@
+uuid: 029ee233-4638-43d8-8075-73ad7ec38cd9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shorcut_item
+    - paragraphs.paragraphs_type.shorcut
+    - paragraphs.paragraphs_type.shorcuts
+  module:
+    - entity_reference_revisions
+id: paragraph.shorcuts.field_shorcut_item
+field_name: field_shorcut_item
+entity_type: paragraph
+bundle: shorcuts
+label: 'Item de menú'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      shorcut: shorcut
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 30
+        enabled: false
+      assistance_item:
+        weight: 31
+        enabled: false
+      banner:
+        weight: 32
+        enabled: false
+      card:
+        weight: 33
+        enabled: false
+      cards:
+        weight: 34
+        enabled: false
+      cards_reports:
+        weight: 35
+        enabled: false
+      column:
+        weight: 36
+        enabled: false
+      columns:
+        weight: 37
+        enabled: false
+      documents:
+        weight: 38
+        enabled: false
+      drupal_block:
+        weight: 39
+        enabled: false
+      drupal_view:
+        weight: 40
+        enabled: false
+      image:
+        weight: 41
+        enabled: false
+      item_acordeon:
+        weight: 42
+        enabled: false
+      item_lista:
+        weight: 43
+        enabled: false
+      item_report_card:
+        weight: 44
+        enabled: false
+      item_tab_multi:
+        weight: 45
+        enabled: false
+      lista:
+        weight: 46
+        enabled: false
+      multi_tabs:
+        weight: 47
+        enabled: false
+      select_cta:
+        weight: 48
+        enabled: false
+      shorcut:
+        weight: 49
+        enabled: true
+      shorcuts:
+        weight: 29
+        enabled: false
+      single_text:
+        weight: 50
+        enabled: false
+      slider:
+        weight: 51
+        enabled: false
+      tab_item:
+        weight: 52
+        enabled: false
+      tabs:
+        weight: 53
+        enabled: false
+      testimonies:
+        weight: 54
+        enabled: false
+      testimony_item:
+        weight: 55
+        enabled: false
+      webform:
+        weight: 56
+        enabled: false
+field_type: entity_reference_revisions

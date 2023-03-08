@@ -1,0 +1,58 @@
+uuid: 01ab94f0-7efe-49df-bf97-9143215f2490
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.precio_vehiculo.field_label_autocomplete
+    - field.field.node.precio_vehiculo.field_modelo
+    - field.field.node.precio_vehiculo.field_precio
+    - field.field.node.precio_vehiculo.field_vehiculo
+    - node.type.precio_vehiculo
+  module:
+    - user
+id: node.precio_vehiculo.default
+targetEntityType: node
+bundle: precio_vehiculo
+mode: default
+content:
+  field_label_autocomplete:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_modelo:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_precio:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_vehiculo:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,35 @@
+id: provider_type
+label: Provider type Taxonomy
+
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      term_id: 1
+      name: 'CONSULTA PRIORITARIA'
+    -
+      term_id: 2
+      name: 'CUIDADO DOMICILIARIO'
+    -
+      term_id: 3
+      name: 'EXAMENES DE DIAGNOSTICO'
+
+    - term_id: 4
+      name: 'HOSPITALIZACIÓN'
+
+    - term_id: 5
+      name: 'MEDICO ESPECIALISTA'
+
+    - term_id: 6
+      name: 'SERVICIO DE URGENCIAS'
+  ids:
+    term_id:
+      type: integer
+
+process:
+  tid: term_id
+  name: name
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: provider_type

@@ -1,0 +1,22 @@
+uuid: 2c2ff797-fe80-47d5-a83c-25da36fba9e8
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+_core:
+  default_config_hash: GvQmiGWUaR97MDHdTT4SR4IGd-U5lt1xmBQxeudkPtc
+id: block_content.field_lib_v3_contacts_image
+field_name: field_lib_v3_contacts_image
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

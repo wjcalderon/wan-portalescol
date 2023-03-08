@@ -1,0 +1,21 @@
+uuid: 7d9d5bca-ae0b-4210-93dc-f72d1ab80b3f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_qualtrics
+    - paragraphs.paragraphs_type.qualtrics_embed
+  module:
+    - text
+id: paragraph.qualtrics_embed.field_qualtrics
+field_name: field_qualtrics
+entity_type: paragraph
+bundle: qualtrics_embed
+label: Qualtrics
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

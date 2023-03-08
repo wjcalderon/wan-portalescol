@@ -1,0 +1,30 @@
+uuid: 0fea3425-e4d6-434c-9f41-6c0e9c9defec
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_lib_v2_carousel_link_color
+field_name: field_lib_v2_carousel_link_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: Blanco
+    -
+      value: blue
+      label: Azul
+    -
+      value: yellow
+      label: Amarillo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

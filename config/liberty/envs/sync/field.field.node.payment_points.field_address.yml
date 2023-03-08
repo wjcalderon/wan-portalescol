@@ -1,0 +1,19 @@
+uuid: 456cb2bf-48b6-4541-9b2f-229b07b5240f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.payment_points
+id: node.payment_points.field_address
+field_name: field_address
+entity_type: node
+bundle: payment_points
+label: Dirección
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

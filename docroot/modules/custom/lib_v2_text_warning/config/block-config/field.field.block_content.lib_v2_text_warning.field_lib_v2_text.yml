@@ -1,0 +1,19 @@
+uuid: 97d1a5c4-f781-4e99-bffe-62744df33e58
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_text_warning
+    - field.storage.block_content.field_lib_v2_text
+id: block_content.lib_v2_text_warning.field_lib_v2_text
+field_name: field_lib_v2_text
+entity_type: block_content
+bundle: lib_v2_text_warning
+label: Texto
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

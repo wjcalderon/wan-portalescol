@@ -1,0 +1,13 @@
+<div class="lib-comp-qa">
+	<h2 class="lib-comp-qa__title">{{content.field_lib_v2_questions_title}}</h2>
+	<div class="lib-comp-qa__accordion">
+		{% for key, item in content.field_lib_v2_group_ref if key|first != '#' %}
+			{# Accordion item #}
+			<div class="lib-comp-qa__item lib-comp-qa__item__{{key + 1}}">
+				<div class="lib-comp-qa__question">{{item.field_lib_v2_group_ref_title}}</div>
+				<div class="lib-comp-qa__answer">{{item.field_lib_v2_group_ref_descripti}}</div>
+			</div>
+			{# End Accordion item #}
+		{% endfor %}
+	</div>
+</div>

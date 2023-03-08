@@ -1,0 +1,11 @@
+uuid: 6f56786d-1cdd-4b4c-a69d-842399b9e273
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.slider
+id: paragraph.slider
+target_entity_type_id: paragraph
+target_bundle: slider
+default_langcode: site_default
+language_alterable: false

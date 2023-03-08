@@ -1,0 +1,91 @@
+uuid: f0965db7-eac8-4f7a-aac4-7f1f76a95d1b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_multi_tab_item
+    - paragraphs.paragraphs_type.item_tab_multi
+    - paragraphs.paragraphs_type.multi_tabs
+  module:
+    - entity_reference_revisions
+id: paragraph.multi_tabs.field_multi_tab_item
+field_name: field_multi_tab_item
+entity_type: paragraph
+bundle: multi_tabs
+label: 'multi tab item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_tab_multi: item_tab_multi
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 22
+        enabled: false
+      assistance_item:
+        weight: 23
+        enabled: false
+      banner:
+        weight: 24
+        enabled: false
+      card:
+        weight: 25
+        enabled: false
+      cards:
+        weight: 26
+        enabled: false
+      drupal_block:
+        weight: 27
+        enabled: false
+      drupal_view:
+        weight: 28
+        enabled: false
+      image:
+        weight: 29
+        enabled: false
+      item_acordeon:
+        weight: 30
+        enabled: false
+      item_lista:
+        weight: 31
+        enabled: false
+      item_tab_multi:
+        weight: 22
+        enabled: true
+      lista:
+        weight: 32
+        enabled: false
+      multi_tabs:
+        weight: 21
+        enabled: false
+      select_cta:
+        weight: 33
+        enabled: false
+      single_text:
+        weight: 34
+        enabled: false
+      slider:
+        weight: 35
+        enabled: false
+      tab_item:
+        weight: 36
+        enabled: false
+      tabs:
+        weight: 37
+        enabled: false
+      testimonies:
+        weight: 38
+        enabled: false
+      testimony_item:
+        weight: 39
+        enabled: false
+      webform:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

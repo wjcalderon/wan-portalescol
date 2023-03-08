@@ -1,0 +1,11 @@
+uuid: 6d365628-173a-41ce-88f0-1e43a0ee134a
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q3FuTDRn4IW8xns3t4NYBq9q8KIuQ5ArbvOIZfa2i00
+id: landing_los_segura_creator
+label: 'Landing Los Segura creator'
+weight: 33
+is_admin: false
+permissions: {  }

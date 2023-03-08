@@ -1,0 +1,23 @@
+uuid: 0b1e9737-2721-4648-9de6-6a61a6de1d4c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_hero_style
+    - paragraphs.paragraphs_type.lib_banner_promo_icons
+  module:
+    - options
+id: paragraph.lib_banner_promo_icons.field_lib_hero_style
+field_name: field_lib_hero_style
+entity_type: paragraph
+bundle: lib_banner_promo_icons
+label: Estilo
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: hero2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

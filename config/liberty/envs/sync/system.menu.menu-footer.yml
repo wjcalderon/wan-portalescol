@@ -1,0 +1,8 @@
+uuid: b4e375ee-b2a0-4b40-b5c8-a170903da2d0
+langcode: es
+status: true
+dependencies: {  }
+id: menu-footer
+label: 'Pie de pagina General'
+description: 'Menú principal del pie de página del portal'
+locked: false

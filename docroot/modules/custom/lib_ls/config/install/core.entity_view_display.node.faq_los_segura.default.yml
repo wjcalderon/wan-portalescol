@@ -1,0 +1,40 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.faq_los_segura.body
+    - field.field.node.faq_los_segura.field_faq_ls_category
+    - node.type.faq_los_segura
+  module:
+    - text
+    - user
+id: node.faq_los_segura.default
+targetEntityType: node
+bundle: faq_los_segura
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_faq_ls_category:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

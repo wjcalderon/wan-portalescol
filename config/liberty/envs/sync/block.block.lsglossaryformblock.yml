@@ -1,0 +1,26 @@
+uuid: 2b485c9b-625b-4c31-98cf-175144a999b2
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_ls
+    - system
+  theme:
+    - liberty_public
+id: lsglossaryformblock
+theme: liberty_public
+region: blocks_activate
+weight: -9
+provider: null
+plugin: ls_glossary_form_block
+settings:
+  id: ls_glossary_form_block
+  label: 'LS glossary form block'
+  label_display: '0'
+  provider: lib_ls
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /los-segura

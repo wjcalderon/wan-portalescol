@@ -1,0 +1,76 @@
+uuid: cbc584dd-2d76-4e98-b7a3-a3ded186f5d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotional
+    - field.field.block_content.promotional.field_b_image
+    - field.field.block_content.promotional.field_block_pro_cta
+    - field.field.block_content.promotional.field_block_pro_teaser
+  module:
+    - field_group
+    - link
+    - svg_image
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - field_block_pro_teaser
+        - field_block_pro_cta
+      label: content
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: content
+        classes: field--type-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: block_content.promotional.default
+targetEntityType: block_content
+bundle: promotional
+mode: default
+content:
+  field_b_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_block_pro_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_block_pro_teaser:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

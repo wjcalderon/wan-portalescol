@@ -1,0 +1,196 @@
+_core:
+  default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ
+langcode: es
+definitions:
+  contact__site_page:
+    menu_name: footer
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: true
+  system__admin_config_system:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -18
+    expanded: false
+    enabled: true
+  system__site_information_settings:
+    menu_name: admin
+    parent: system.admin_config_system
+    weight: 1
+    expanded: false
+    enabled: true
+  system__cron_settings:
+    menu_name: admin
+    parent: system.admin_config_system
+    weight: 2
+    expanded: false
+    enabled: true
+  entity_reference_revisions__delete_orphans:
+    menu_name: admin
+    parent: system.admin_config_system
+    weight: 3
+    expanded: false
+    enabled: true
+  liberty_form__DBmigrator:
+    menu_name: admin
+    parent: system.admin_config_system
+    weight: 4
+    expanded: false
+    enabled: true
+  system__admin_config_content:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -17
+    expanded: false
+    enabled: true
+  system__admin_config_ui:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -16
+    expanded: false
+    enabled: true
+  system__admin_config_development:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -15
+    expanded: false
+    enabled: true
+  system__admin_config_media:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -14
+    expanded: false
+    enabled: true
+  system__admin_config_search:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -13
+    expanded: false
+    enabled: true
+  system__admin_config_regional:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -12
+    expanded: false
+    enabled: true
+  system__admin_config_services:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -11
+    expanded: false
+    enabled: true
+  system__admin_config_workflow:
+    menu_name: admin
+    parent: system.admin_config
+    weight: -10
+    expanded: false
+    enabled: true
+  admin_toolbar_tools__help:
+    menu_name: admin
+    parent: system.admin
+    weight: 1
+    expanded: false
+    enabled: true
+  system__admin_content:
+    menu_name: admin
+    parent: system.admin
+    weight: 4
+    expanded: false
+    enabled: true
+  system__admin_structure:
+    menu_name: admin
+    parent: system.admin
+    weight: 5
+    expanded: false
+    enabled: true
+  system__themes_page:
+    menu_name: admin
+    parent: system.admin
+    weight: 6
+    expanded: false
+    enabled: true
+  system__modules_list:
+    menu_name: admin
+    parent: system.admin
+    weight: 7
+    expanded: false
+    enabled: true
+  system__admin_config:
+    menu_name: admin
+    parent: system.admin
+    weight: 8
+    expanded: false
+    enabled: true
+  entity__user__collection:
+    menu_name: admin
+    parent: system.admin
+    weight: 9
+    expanded: false
+    enabled: true
+  system__admin_reports:
+    menu_name: admin
+    parent: system.admin
+    weight: 10
+    expanded: false
+    enabled: true
+  system__admin_index:
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 1
+    expanded: false
+    enabled: true
+  admin_toolbar_tools__flush:
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 2
+    expanded: false
+    enabled: true
+  'admin_toolbar_tools__extra_links:devel':
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 3
+    expanded: false
+    enabled: true
+  system__run_cron:
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 4
+    expanded: false
+    enabled: true
+  system__db_update:
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 5
+    expanded: false
+    enabled: true
+  'admin_toolbar_tools__extra_links:user__logout':
+    menu_name: admin
+    parent: admin_toolbar_tools.help
+    weight: 6
+    expanded: false
+    enabled: true
+  help__main:
+    menu_name: admin
+    parent: system.admin
+    weight: 11
+    expanded: false
+    enabled: true
+  'admin_toolbar_tools__extra_links:node__add':
+    menu_name: admin
+    parent: system.admin_content
+    weight: 4
+    expanded: false
+    enabled: true
+  comment__admin:
+    menu_name: admin
+    parent: system.admin_content
+    weight: 5
+    expanded: false
+    enabled: true
+  'admin_toolbar_tools__extra_links:view__files':
+    menu_name: admin
+    parent: system.admin_content
+    weight: 6
+    expanded: false
+    enabled: true

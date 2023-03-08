@@ -1,0 +1,71 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_person_list.field_c_classes
+    - field.field.paragraph.card_person_list.field_c_title
+    - field.field.paragraph.card_person_list.field_c_title_status
+    - field.field.paragraph.card_person_list.field_c_width
+    - field.field.paragraph.card_person_list.field_card_item
+    - paragraphs.paragraphs_type.card_person_list
+  module:
+    - paragraphs_browser
+id: paragraph.card_person_list.default
+targetEntityType: paragraph
+bundle: card_person_list
+mode: default
+content:
+  field_c_classes:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title_status:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_c_width:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_card_item:
+    weight: 2
+    settings:
+      title: Persona
+      title_plural: Personas
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: all
+      closed_mode_threshold: '0'
+      add_mode: paragraphs_browser
+      form_display_mode: default
+      default_paragraph_type: card_person
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: 0
+      paragraphs_browser: _na
+      modal_width: 80%
+      modal_height: auto
+    third_party_settings: {  }
+    type: paragraphs_browser
+    region: content
+hidden:
+  created: true
+  status: true

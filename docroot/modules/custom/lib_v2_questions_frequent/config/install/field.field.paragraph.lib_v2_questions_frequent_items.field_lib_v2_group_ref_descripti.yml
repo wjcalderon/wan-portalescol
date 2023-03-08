@@ -1,0 +1,21 @@
+uuid: 7a32b783-bf91-457d-9e2e-c5eb0ed4df8b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_group_ref_descripti
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent_items
+  module:
+    - text
+id: paragraph.lib_v2_questions_frequent_items.field_lib_v2_group_ref_descripti
+field_name: field_lib_v2_group_ref_descripti
+entity_type: paragraph
+bundle: lib_v2_questions_frequent_items
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

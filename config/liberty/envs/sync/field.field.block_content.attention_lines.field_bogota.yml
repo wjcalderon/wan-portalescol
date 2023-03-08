@@ -1,0 +1,21 @@
+uuid: 5875dfb9-4f6a-48dd-9d10-92f43fd5cefe
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+    - field.storage.block_content.field_bogota
+  module:
+    - text
+id: block_content.attention_lines.field_bogota
+field_name: field_bogota
+entity_type: block_content
+bundle: attention_lines
+label: Bogotá
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

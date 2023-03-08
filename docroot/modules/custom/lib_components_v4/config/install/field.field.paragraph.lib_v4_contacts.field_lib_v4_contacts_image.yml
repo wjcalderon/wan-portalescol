@@ -1,0 +1,31 @@
+uuid: 9b7c8971-614b-4626-a56f-9e1ccbd713fa
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_contacts
+    - field.storage.paragraph.field_lib_v4_contacts_image
+    - media.type.image
+_core:
+  default_config_hash: mcU2CpmP3mQGPybkXFlihIeyDWLzxP7SS2ext8ws0AI
+id: paragraph.lib_v4_contacts.field_lib_v4_contacts_image
+field_name: field_lib_v4_contacts_image
+entity_type: paragraph
+bundle: lib_v4_contacts
+label: Imagen
+description: 'Imagen del contacto'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 5f474dad-11fa-4efc-a820-5bfa0dede6d8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_label_autocomplete
+    - node.type.precio_vehiculo
+id: node.precio_vehiculo.field_label_autocomplete
+field_name: field_label_autocomplete
+entity_type: node
+bundle: precio_vehiculo
+label: 'Label autocomplete'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

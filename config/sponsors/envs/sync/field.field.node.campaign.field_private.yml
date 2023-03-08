@@ -1,0 +1,23 @@
+uuid: f88d8460-641c-4244-816f-88d7a9e3af62
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_private
+    - node.type.campaign
+id: node.campaign.field_private
+field_name: field_private
+entity_type: node
+bundle: campaign
+label: 'Campaña Privada'
+description: 'Si se marca este checkbox, la campaña queda como privada y requiere acceso por Tipo y No. de identificación.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: 99160c22-b19a-4e6b-a13b-b6f58c13e431
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_text_box_desc
+    - paragraphs.paragraphs_type.lib_v2_text_box
+  module:
+    - text
+id: paragraph.lib_v2_text_box.field_lib_v2_text_box_desc
+field_name: field_lib_v2_text_box_desc
+entity_type: paragraph
+bundle: lib_v2_text_box
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

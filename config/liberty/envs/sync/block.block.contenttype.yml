@@ -1,0 +1,23 @@
+uuid: e8b9532e-cd74-4120-9f65-4ed0ac2be247
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.content_type
+  module:
+    - facets
+  theme:
+    - liberty_public
+id: contenttype
+theme: liberty_public
+region: content
+weight: -32
+provider: null
+plugin: 'facet_block:content_type'
+settings:
+  id: 'facet_block:content_type'
+  label: 'Hemos encontrado...'
+  label_display: visible
+  provider: facets
+  block_id: contenttype
+visibility: {  }

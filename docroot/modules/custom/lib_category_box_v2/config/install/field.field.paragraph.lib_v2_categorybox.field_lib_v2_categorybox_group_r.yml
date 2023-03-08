@@ -1,0 +1,64 @@
+uuid: 874dfadb-ebf3-4921-8fbd-f27514582131
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_categorybox_group_r
+    - paragraphs.paragraphs_type.lib_v2_categorybox
+    - paragraphs.paragraphs_type.lib_v2_categtabs
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_v2_categorybox.field_lib_v2_categorybox_group_r
+field_name: field_lib_v2_categorybox_group_r
+entity_type: paragraph
+bundle: lib_v2_categorybox
+label: 'adicionar tabs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      lib_v2_categtabs: lib_v2_categtabs
+    negate: 0
+    target_bundles_drag_drop:
+      componentes_v2:
+        weight: 13
+        enabled: false
+      lib_v2_banner_main:
+        weight: 14
+        enabled: false
+      lib_v2_cards:
+        weight: 15
+        enabled: false
+      lib_v2_cards_group:
+        weight: 16
+        enabled: false
+      lib_v2_carousel:
+        weight: 17
+        enabled: false
+      lib_v2_carousel_card:
+        weight: 18
+        enabled: false
+      lib_v2_categcard_single:
+        weight: 19
+        enabled: false
+      lib_v2_categorybox:
+        weight: 20
+        enabled: false
+      lib_v2_categtabs:
+        weight: 21
+        enabled: true
+      lib_v2_questions_frequent:
+        weight: 22
+        enabled: false
+      lib_v2_questions_frequent_items:
+        weight: 23
+        enabled: false
+      lib_v2_text_box:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

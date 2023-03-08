@@ -1,0 +1,11 @@
+uuid: 98b198cc-670d-475f-9700-eb4ce0198126
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipo_de_plan
+id: taxonomy_term.tipo_de_plan
+target_entity_type_id: taxonomy_term
+target_bundle: tipo_de_plan
+default_langcode: site_default
+language_alterable: false

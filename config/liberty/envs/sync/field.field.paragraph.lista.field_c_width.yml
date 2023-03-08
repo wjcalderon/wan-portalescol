@@ -1,0 +1,21 @@
+uuid: 26239711-0112-4097-b98e-85f895cf70e0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.lista
+  module:
+    - options
+id: paragraph.lista.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: lista
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

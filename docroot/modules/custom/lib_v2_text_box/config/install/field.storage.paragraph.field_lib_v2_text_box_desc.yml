@@ -1,0 +1,19 @@
+uuid: c8ce8ee3-d724-43f7-9632-8ec693c03044
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_lib_v2_text_box_desc
+field_name: field_lib_v2_text_box_desc
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

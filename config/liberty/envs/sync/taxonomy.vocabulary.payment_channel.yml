@@ -1,0 +1,8 @@
+uuid: b139b04e-352f-4c94-89cd-720e0a124ad2
+langcode: es
+status: true
+dependencies: {  }
+name: 'Canales de pago'
+vid: payment_channel
+description: 'Canales de pago Liberty'
+weight: 0

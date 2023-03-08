@@ -1,0 +1,25 @@
+uuid: 4ad562b9-1c3e-4c2f-9ef2-7fe09fe9b15c
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bcd7bf7d-c731-4513-974a-44461780cb22'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: pagarformasdepago
+theme: liberty_public
+region: blocks_activate
+weight: -16
+provider: null
+plugin: 'block_content:bcd7bf7d-c731-4513-974a-44461780cb22'
+settings:
+  id: 'block_content:bcd7bf7d-c731-4513-974a-44461780cb22'
+  label: 'Pagar - Formas de pago'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

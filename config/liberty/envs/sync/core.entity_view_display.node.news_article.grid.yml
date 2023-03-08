@@ -1,0 +1,93 @@
+uuid: 3d2bc449-36d8-43c7-af10-45b514326cba
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_big_image
+    - field.field.node.news_article.field_category
+    - field.field.node.news_article.field_cta
+    - field.field.node.news_article.field_featured
+    - field.field.node.news_article.field_relacionados
+    - field.field.node.news_article.field_small_image
+    - field.field.node.news_article.field_tags
+    - node.type.news_article
+  module:
+    - manage_display
+    - panelizer
+    - svg_image
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.news_article.grid
+targetEntityType: node
+bundle: news_article
+mode: grid
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: custom
+      custom_date_format: 'F d \d\e Y'
+      timezone: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_small_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_big_image: true
+  field_cta: true
+  field_featured: true
+  field_relacionados: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

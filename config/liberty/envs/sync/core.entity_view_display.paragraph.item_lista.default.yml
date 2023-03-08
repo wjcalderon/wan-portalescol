@@ -1,0 +1,47 @@
+uuid: 8012a609-8240-4382-8b08-28918c1c7834
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_lista.field_c_image
+    - field.field.paragraph.item_lista.field_c_title
+    - field.field.paragraph.item_lista.field_vineta
+    - image.style.img_40x40
+    - paragraphs.paragraphs_type.item_lista
+  module:
+    - svg_image
+id: paragraph.item_lista.default
+targetEntityType: paragraph
+bundle: item_lista
+mode: default
+content:
+  field_c_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: img_40x40
+      svg_attributes:
+        width: 40
+        height: 40
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_vineta:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

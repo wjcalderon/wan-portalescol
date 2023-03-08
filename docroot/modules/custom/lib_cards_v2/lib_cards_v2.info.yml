@@ -1,0 +1,10 @@
+name: 'Lib cards v2'
+type: module
+description: 'Card with description'
+core_version_requirement: ^8 || ^9
+package: 'Esinergia'
+dependencies: 
+  - inline_entity_form
+  - lib_v2_core
+  - media
+  - media_library

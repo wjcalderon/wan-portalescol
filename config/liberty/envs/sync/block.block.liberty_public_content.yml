@@ -1,0 +1,22 @@
+uuid: 1014e6a4-8b94-40db-8d14-4f7ed59c2056
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - liberty_public
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: liberty_public_content
+theme: liberty_public
+region: content
+weight: -30
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

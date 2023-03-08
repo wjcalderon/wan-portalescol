@@ -1,0 +1,14 @@
+uuid: 8544f4e6-c8c5-4f85-aa3d-ef02eb89a213
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_rol
+  module:
+    - user
+id: user_add_role_action.informes_rol
+label: 'Añade el rol informes al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: informes_rol

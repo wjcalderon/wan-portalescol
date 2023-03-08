@@ -1,0 +1,20 @@
+uuid: 6d7d7f68-ddb4-47e9-80d9-e3e39457f63c
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_marca_linea
+field_name: field_marca_linea
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 4a26efea-6ad6-44b2-a873-a8862b430c46
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_v2_categtabs_colum
+field_name: field_lib_v2_categtabs_colum
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid-2
+      label: '2 Columnas'
+    -
+      value: grid-3
+      label: '3 Columnas'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

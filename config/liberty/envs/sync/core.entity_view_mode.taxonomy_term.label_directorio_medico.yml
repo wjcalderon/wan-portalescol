@@ -1,0 +1,14 @@
+uuid: 23f964af-0e9f-42a2-b057-03be53ff68fb
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.label_directorio_medico
+label: 'label directorio medico'
+targetEntityType: taxonomy_term
+cache: true

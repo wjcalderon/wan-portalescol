@@ -1,0 +1,33 @@
+uuid: 53d820a3-fc2d-4d82-9550-09df04e128e0
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_v2_banner_main_link_co
+field_name: field_lib_v2_banner_main_link_co
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: yellow
+      label: Amarillo
+    -
+      value: blue
+      label: Azul
+    -
+      value: light-blue
+      label: Celeste
+    -
+      value: white
+      label: Blanco
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

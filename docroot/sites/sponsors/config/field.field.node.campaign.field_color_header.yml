@@ -1,0 +1,23 @@
+uuid: 7b4074fa-dc47-401c-b99a-468fc4d3a0a6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color_header
+    - node.type.campaign
+  module:
+    - options
+id: node.campaign.field_color_header
+field_name: field_color_header
+entity_type: node
+bundle: campaign
+label: 'Color header'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

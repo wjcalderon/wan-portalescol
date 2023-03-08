@@ -1,0 +1,23 @@
+uuid: e07b9380-960c-4ae4-bce8-6003abe962a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_carousel
+    - field.field.block_content.lib_v2_carousel.field_lib_v2_carousel_group_ref
+id: block_content.lib_v2_carousel.default
+targetEntityType: block_content
+bundle: lib_v2_carousel
+mode: default
+content:
+  field_lib_v2_carousel_group_ref:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

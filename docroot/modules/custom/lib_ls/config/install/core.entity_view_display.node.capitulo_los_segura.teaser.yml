@@ -1,0 +1,47 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.capitulo_los_segura.body
+    - field.field.node.capitulo_los_segura.field_temporada
+    - field.field.node.capitulo_los_segura.field_video
+    - image.style.2_1_medium
+    - node.type.capitulo_los_segura
+  module:
+    - text
+    - user
+    - video_embed_field
+id: node.capitulo_los_segura.teaser
+targetEntityType: node
+bundle: capitulo_los_segura
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_video:
+    type: video_embed_field_thumbnail
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      image_style: 2_1_medium
+      link_image_to: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  field_temporada: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: 203853f8-e087-4efc-ae2f-a302a53946a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_categcard_desc
+    - paragraphs.paragraphs_type.lib_v2_categcard_single
+id: paragraph.lib_v2_categcard_single.field_lib_v2_categcard_desc
+field_name: field_lib_v2_categcard_desc
+entity_type: paragraph
+bundle: lib_v2_categcard_single
+label: descripción
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

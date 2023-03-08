@@ -1,0 +1,11 @@
+uuid: ce4d8305-be1e-4abb-9572-a26570da338e
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_carousel_card
+id: block_content.lib_v2_carousel_card
+target_entity_type_id: block_content
+target_bundle: lib_v2_carousel_card
+default_langcode: site_default
+language_alterable: false

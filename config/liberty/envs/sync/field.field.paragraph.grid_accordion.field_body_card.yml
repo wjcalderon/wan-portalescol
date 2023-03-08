@@ -1,0 +1,21 @@
+uuid: 8b374a9c-d0ba-4856-8b6d-41b034998565
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_card
+    - paragraphs.paragraphs_type.grid_accordion
+  module:
+    - text
+id: paragraph.grid_accordion.field_body_card
+field_name: field_body_card
+entity_type: paragraph
+bundle: grid_accordion
+label: 'Cuerpo Tarjeta'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

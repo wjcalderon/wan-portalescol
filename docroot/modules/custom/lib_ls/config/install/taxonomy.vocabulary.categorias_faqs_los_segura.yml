@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 'Categorías Faqs Los Segura'
+vid: categorias_faqs_los_segura
+description: ''
+weight: 0

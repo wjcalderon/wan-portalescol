@@ -1,0 +1,8 @@
+uuid: c712decc-4ba9-43c2-bc30-1bb1c9e98c7f
+langcode: es
+status: true
+dependencies: {  }
+name: 'Categorías FAQs'
+vid: categorias_faqs
+description: 'Categorías de las preguntas frecuentes'
+weight: 0

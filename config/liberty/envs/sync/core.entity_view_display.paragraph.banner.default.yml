@@ -1,0 +1,103 @@
+uuid: 581e8d8a-75af-4f76-afd4-ff82131b0905
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner.field_c_classes
+    - field.field.paragraph.banner.field_c_image
+    - field.field.paragraph.banner.field_c_size_container
+    - field.field.paragraph.banner.field_c_subtitle
+    - field.field.paragraph.banner.field_c_title
+    - field.field.paragraph.banner.field_c_title_html
+    - field.field.paragraph.banner.field_c_title_status
+    - field.field.paragraph.banner.field_c_width
+    - field.field.paragraph.banner.field_cta
+    - paragraphs.paragraphs_type.banner
+    - responsive_image.styles.banner_image
+  module:
+    - link
+    - options
+    - responsive_image
+    - text
+id: paragraph.banner.default
+targetEntityType: paragraph
+bundle: banner
+mode: default
+content:
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: banner_image
+      image_link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_c_size_container:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_c_title_html:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+hidden: {  }

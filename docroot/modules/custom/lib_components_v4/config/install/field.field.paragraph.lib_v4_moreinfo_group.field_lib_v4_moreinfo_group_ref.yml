@@ -1,0 +1,31 @@
+uuid: 9e9198b3-18dc-4773-890d-38303622c5bb
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cardinfo
+    - paragraphs.paragraphs_type.lib_v4_moreinfo_group
+    - field.storage.paragraph.field_lib_v4_moreinfo_group_ref
+_core:
+  default_config_hash: vO_3gIqITw7QkoMRphXJUERbqHvAw4XxNbiO8fSXi3w
+id: paragraph.lib_v4_moreinfo_group.field_lib_v4_moreinfo_group_ref
+field_name: field_lib_v4_moreinfo_group_ref
+entity_type: paragraph
+bundle: lib_v4_moreinfo_group
+label: 'Adiccionar mas informacion'
+description: 'Añadir tarjeta de mas informacion'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      lib_v4_cardinfo: lib_v4_cardinfo
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,7 @@
+services:
+  logger.channel.migratewebform:
+    parent: logger.channel_base
+    arguments: ["migratewebform"]
+  migratedata:
+    class: Drupal\migratewebform\Services\MigrateDataClass
+    arguments: []

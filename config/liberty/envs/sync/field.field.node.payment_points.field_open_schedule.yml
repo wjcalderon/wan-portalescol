@@ -1,0 +1,21 @@
+uuid: 9b8a1553-b5b0-4a94-bba4-23a18feb40d8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_schedule
+    - node.type.payment_points
+  module:
+    - text
+id: node.payment_points.field_open_schedule
+field_name: field_open_schedule
+entity_type: node
+bundle: payment_points
+label: 'Horario de atención'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

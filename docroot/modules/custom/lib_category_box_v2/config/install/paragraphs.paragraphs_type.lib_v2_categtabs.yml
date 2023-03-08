@@ -1,0 +1,10 @@
+uuid: ccd41662-1e25-4791-9d1d-43023b13e8de
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_categtabs
+label: categorias
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,249 @@
+<?php
+
+/**
+ * @file
+ * Contains li_news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function li_news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the li_news module.
+    case 'help.page.li_news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Liberty news module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_preprocess_page
+ */
+function li_news_preprocess_page(&$variables){
+	global $base_url;
+  $variables['#attached']['drupalSettings']['baseUrlCommentScore'] = $base_url;
+
+  $urlSaveComment = Url::fromroute('li_news.lib_news_controller_formatDate')->setAbsolute()->toString();
+  $variables['#attached']['drupalSettings']['formatUrl'] = $urlSaveComment;
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function li_news_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if($form_id == 'views_exposed_form'){
+    if(isset($form['created'])){
+      $form['#prefix'] = '
+      <div class="date-range">
+        <span class="date-range-status">
+          Fecha de publicación
+        </span>
+        <div class="date-range-range__range">
+          <span class="date-range-range__range__min">
+          </span>
+          -
+          <span class="date-range-range__range__max">
+          </span>
+        </div>
+      </div>';
+
+      $form['created']['min']['#attributes']['class'][] = 'datepicker-select edit-created-min';
+      $form['created']['max']['#attributes']['class'][] = 'datepicker-select edit-created-max';
+
+      $form['created']['min']['#suffix'] = '<div class="datepicker-container-min"></div>';
+      $form['created']['max']['#suffix'] = '<div class="datepicker-container-max"></div>';
+
+      $form['field_category_target_id']['#attributes']['class'][] = 'select-news-category';
+
+      $form['actions']['submit']['#attributes']['class'][] = 'exposed-submit';
+    }
+
+    if(isset($form['type'])){
+      $form['type']['#options']['All'] = t('Category');
+    }
+
+    if(isset($form['field_category_target_id'])){
+      $form['field_category_target_id']['#options']['All'] = t('Content type');
+    }
+  }
+
+  if($form_id == 'node_news_article_form'){
+    $config = \Drupal::config('li_news.newsconfig');
+    $maxNews = isset($config->get('news_module')['quantity_news']) ?
+      intval($config->get('news_module')['quantity_news']) : 50;
+
+    $bundles = ['news_article', 'news_article_video', 'news_inphography'];
+
+    $countNews = \Drupal::entityQuery('node')
+      ->condition('type', $bundles, 'IN')
+      ->count()
+      ->execute();
+
+    if ($countNews >= $maxNews){
+      $form['actions']['submit']['#disabled'] = TRUE;
+      $message = t('You have reached the limit of published news, please free up space to be able to publish new news.')->__toString();
+
+      drupal_set_message($message, 'warning');
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function li_news_views_pre_render($view) {
+  if (isset($view) && ($view->storage->id() == 'news')) {
+    $view->element['#attached']['library'][] = 'li_news/li_news_styles';
+    $view->element['#attached']['library'][] = 'li_news/datepicker';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function li_news_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+function li_news_preprocess_taxonomy_term(&$variables){
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function li_news_preprocess_node(&$variables){
+  $node = $variables['node'];
+  $newsBundles = ['news_article', 'news_article_video', 'news_inphography'];
+
+  if(in_array($node->bundle(), $newsBundles)){
+    $termLabel = 'cat-' . $node->field_category->entity->label();
+    $termLabel = strtolower($termLabel);
+    $termLabel = str_replace(' ','-',$termLabel);
+    $variables['cat_class'] = $termLabel;
+
+    $variables['type_news'] = _get_node_type($node);
+
+    $variables['#attached']['library'][] = 'li_news/li_news_styles';
+  }
+
+  if($node->bundle() == 'news_inphography'){
+    $variables['#attached']['library'][] = 'li_news/inphography_modal';
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function li_news_preprocess_field(&$variables){
+  if($variables['field_name'] == 'field_small_image')
+    $variables['items'][0]['content']['#item_attributes']['class'][] = 'image-mobile';
+
+  if($variables['field_name'] == 'field_big_image')
+    $variables['items'][0]['content']['#item_attributes']['class'][] = 'image-desktop';
+
+  if($variables['field_name'] == 'created')
+    $variables['attributes']['class'][] = 'date-created';
+}
+
+/**
+ * Implements template_preprocess_field_group_html_element().
+ */
+function li_news_preprocess_field_group_html_element(&$variables){
+
+  if($variables['element']['#group_name'] == 'group_header'){
+    $variables['element']['title_node'] = [
+      '#markup' => $variables['element']['field_big_image']['#object']->label(),
+    ];
+
+    $nid = $variables['element']['field_big_image']['#object']->id();
+    $options = ['absolute' => TRUE];
+    $url_object = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid], $options);
+    $variables['node_url'] = $url_object->toString();
+  }
+
+  if($variables['element']['#group_name'] == 'group_header_body'){
+    $variables['element']['type'] = [
+      '#markup' => _get_node_type($variables['element']['field_featured']['#object']),
+    ];
+
+    $variables['element']['summary'] = [
+      '#markup' => isset($variables['element']['field_featured']['#object']->body->summary) ?
+        $variables['element']['field_featured']['#object']->body->summary : '',
+    ];
+  }
+
+  if(isset($variables['element']['field_category'])){
+    $termLabel = $variables['element']['field_category']['#object']->field_category->entity->label();
+    $termLabel = strtolower($termLabel);
+    $termLabel = 'cat-' . str_replace(' ','-',$termLabel);
+    $variables['cat_class'] = $termLabel;
+  }
+}
+
+function _get_node_type($node){
+  switch ($node->bundle()) {
+    case 'news_article':
+      return 'Artículo';
+      break;
+    case 'news_article_video':
+      return 'Artículo con video';
+      break;
+    case 'news_inphography':
+      return 'Infografía';
+      break;
+  }
+}
+
+/**
+ * Creates the required block for the news page.
+ */
+function li_news_modules_installed($modules, $is_syncing) {
+  if (in_array('li_news', $modules) && !$is_syncing) {
+    $default_content = [
+      // Keyed by entity type.
+      'block_content' => [
+          // Then by UUID.
+          'fe674ce1-6d05-4354-b3c7-28d531fa847d' => [
+            'info' => 'CTA home noticias',
+            'type' => 'cta',
+            'field_descripcion_cta' => 'CTA home noticias',
+            'field_link' => 'https://libertyseguros.co/personas/seguros-autos',
+            'field_big_image' => null,
+            'field_small_image' => null,
+            'field_target_blank' => FALSE
+          ],
+        ],
+      ];
+    _create_default_block($default_content);
+  }
+}
+
+/**
+ * Creates install content.
+ *
+ * @param array $content
+ *   Content keyed by entity-type and UUID.
+ */
+function _create_default_block(array $content) {
+  foreach ($content as $entity_type_id => $items) {
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+    foreach ($items as $uuid => $item) {
+      $entity = $storage->create($item + ['uuid' => $uuid]);
+      $entity->save();
+    }
+  }
+}

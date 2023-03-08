@@ -1,0 +1,25 @@
+uuid: 38eb0f28-6f07-4382-bd10-37c68003e03d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: tepodemosayudar
+theme: liberty_public
+region: blocks_activate
+weight: -22
+provider: null
+plugin: 'block_content:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+settings:
+  id: 'block_content:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+  label: '¿Te podemos ayudar?'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

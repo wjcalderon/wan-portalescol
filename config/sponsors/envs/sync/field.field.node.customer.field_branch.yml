@@ -1,0 +1,29 @@
+uuid: 39ee3c84-cf12-457e-80a5-b744a25a1c10
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_branch
+    - node.type.customer
+    - taxonomy.vocabulary.campaings
+id: node.customer.field_branch
+field_name: field_branch
+entity_type: node
+bundle: customer
+label: Ramo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      campaings: campaings
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

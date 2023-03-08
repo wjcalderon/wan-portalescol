@@ -1,0 +1,17 @@
+uuid: f6e3528c-117b-425e-85b5-75af9f10cf63
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - user.role.glosario_de_especialidades_creator
+  module:
+    - user
+id: user_add_role_action.glosario_de_especialidades_creator
+label: 'Añade el rol Glosario de especialidades creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: glosario_de_especialidades_creator

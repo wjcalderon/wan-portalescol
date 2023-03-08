@@ -1,0 +1,12 @@
+uuid: a226707e-30dc-4c35-98ab-f46fa0d844f5
+langcode: es
+status: true
+dependencies: {  }
+label: Large
+id: large
+description: ''
+aspect_ratio: ''
+soft_limit_width: 1920
+soft_limit_height: 635
+hard_limit_width: 1920
+hard_limit_height: 635

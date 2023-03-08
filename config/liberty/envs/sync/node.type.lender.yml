@@ -1,0 +1,18 @@
+uuid: be07bf69-43d1-4223-9873-9d9fb01da253
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Prestador de Salud'
+type: lender
+description: 'Un prestador de salud asociado a la Red médica de Liberty'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

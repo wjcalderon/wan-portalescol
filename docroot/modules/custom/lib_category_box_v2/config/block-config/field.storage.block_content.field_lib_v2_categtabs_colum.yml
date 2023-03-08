@@ -1,0 +1,29 @@
+uuid: 66fa9618-c331-491d-8782-77f33144af6e
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: xYfJMnjPxUS1n9b3EfO1sgkTBg_RN3AMrQZv99gD8-o
+id: block_content.field_lib_v2_categtabs_colum
+field_name: field_lib_v2_categtabs_colum
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid-2
+      label: '2 Columnas'
+    -
+      value: grid-3
+      label: '3 Columnas'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

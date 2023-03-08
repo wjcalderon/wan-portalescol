@@ -1,0 +1,29 @@
+uuid: 52e50d99-adc4-4286-9878-19c432d5710f
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipo_de_plan
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.tipo_de_plan.default
+targetEntityType: taxonomy_term
+bundle: tipo_de_plan
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

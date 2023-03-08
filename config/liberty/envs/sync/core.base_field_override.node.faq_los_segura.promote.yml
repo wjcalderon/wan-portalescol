@@ -1,0 +1,24 @@
+uuid: 74efa4cd-7e01-4b21-bec9-29e96fb035e1
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.faq_los_segura
+_core:
+  default_config_hash: AcMu14HmBBdSjBO3KqksHbrTjHo2w9CKxoy2HKovx_Q
+id: node.faq_los_segura.promote
+field_name: promote
+entity_type: node
+bundle: faq_los_segura
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

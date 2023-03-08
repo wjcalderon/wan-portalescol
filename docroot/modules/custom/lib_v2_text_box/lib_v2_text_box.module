@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_v2_text_box.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lib_v2_text_box_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lib_v2_text_box module.
+    case 'help.page.lib_v2_text_box':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Rich text box') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_v2_text_box_theme() {
+  return [
+    'lib_v2_text_box' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function lib_v2_text_box_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook)
+{
+    if (isset($variables['elements']['content']['#block_content'])) {
+        array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    }
+}
