@@ -2,7 +2,7 @@
 import com.lmig.intl.cloud.jenkins.util.EnvConfigUtil
 
 countryParams = new EnvConfigUtil().getCountryEnvDetails(env.JOB_NAME)
-def customWorkerImages = ['node=artifactory-emea.aws.lmig.com/pod-templates-latam/o7820428/drupal9_php8:latest']
+def customWorkerImages = ['php=artifactory-emea.aws.lmig.com/pod-templates-latam/o7820428/drupal9_php8:latest']
 
 pipeline {
     agent {
@@ -49,16 +49,10 @@ pipeline {
 
         stage("Compose Install") {
             steps {
-                container("node") {
-                    sh 'composer install --optimize-autoloader --no-dev'
+                container("php") {
                     sh 'ls -lh'
-                }
-            }
-        }
-
-        stage('List directory root'){
-            steps {
-                script{
+                    sh 'composer install --optimize-autoloader --no-dev'
+                    sh 'vendor/bin/robo archive:build'
                     sh 'ls -lh'
                 }
             }
