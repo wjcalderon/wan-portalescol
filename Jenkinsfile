@@ -2,7 +2,7 @@
 import com.lmig.intl.cloud.jenkins.util.EnvConfigUtil
 
 countryParams = new EnvConfigUtil().getCountryEnvDetails(env.JOB_NAME)
-def customWorkerImages = ['artifactory-emea.aws.lmig.com/pod-templates-latam/o7820428/drupal9_php8:latest']
+def customWorkerImages = ['node=artifactory-emea.aws.lmig.com/pod-templates-latam/o7820428/drupal9_php8:latest']
 
 pipeline {
     agent {
