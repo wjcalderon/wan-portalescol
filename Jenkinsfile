@@ -12,8 +12,8 @@ pipeline {
     }
 
     environment {
-        appEnv = countryParams.countryEnv
-        appCountry = countryParams.countryCode
+        appEnv = "${countryParams.countryEnv}"
+        appCountry = "${countryParams.countryCode}"
     }
 
     stages {
