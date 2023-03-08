@@ -56,6 +56,14 @@ pipeline {
             }
         }
 
+        stage('List directory root'){
+            steps {
+                script{
+                    sh 'ls -lh'
+                }
+            }
+        }
+
         /*stage('Validate Dev Env'){
             when {
                 expression {
