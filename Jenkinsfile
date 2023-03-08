@@ -14,6 +14,8 @@ node('linux'){
     stage('Install Libraries'){
         withAWS(credentials:'aws-cred') {
             dir('.'){
+                sh 'pip install docker-compose'
+                sh 'docker-compose -v'
                 sh 'composer install --optimize-autoloader --no-dev'
                 sh 'ls -lh'
             }
