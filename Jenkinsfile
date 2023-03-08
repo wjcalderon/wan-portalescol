@@ -15,7 +15,7 @@ pipeline {
         appEnv = "${countryParams.countryEnv}"
         appCountry = "${countryParams.countryCode}"
         zipFileName = "function.zip"
-        exclude = "-x '*.git*' README.md composer.lock prod_Jenkinsfile app.json"
+        exclude = "-x '*.git*' README.md composer.lock prod_Jenkinsfile app.json .editorconfig Jenkinsfile"
     }
 
     stages {
