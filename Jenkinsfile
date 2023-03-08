@@ -51,6 +51,7 @@ pipeline {
             steps {
                 container("node") {
                     sh 'composer install --optimize-autoloader --no-dev'
+                    sh 'ls -lh'
                 }
             }
         }
