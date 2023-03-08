@@ -1,0 +1,40 @@
+{{ attach_library('lib_v2_core/libraries') }}
+{{ attach_library('lib_category_box_v2/libraries') }}
+<div class="lib-comp-catbox">
+    <div class="lib-comp-catbox__tabs">
+        {# Tabs #}
+        {% for key, item in categorybox  %}
+        {% if key == 0 %}
+        <div class="lib-comp-catbox__tab lib-comp-catbox__tab-{{key + 1}} is-active">
+        {% else %}
+        <div class="lib-comp-catbox__tab lib-comp-catbox__tab-{{key + 1}}">
+        {% endif %}
+            <div class="lib-comp-catbox__tab-icon"><img width="25" height="25" alt="Error" src="{{(item.logo)}}"></div>
+            <div class="lib-comp-catbox__tab-text">{{item.title}}</div>
+        </div>
+        {% endfor %}
+        {# End Tabs #}
+    </div>
+    <div class="lib-comp-catbox__content">
+        {# Tab Content #}
+        <div class="lib-comp-catbox__tab-content">
+            {# Grid icons #}
+            {% for key, item in categorybox  %}
+                {% if key == 0 %}
+                <div class="lib-comp-catbox__grid {{item.column}} is-active">
+                {% else %}
+                <div class="lib-comp-catbox__grid {{item.column}}">
+                {% endif %}
+                {% for key, item2 in item.card if key|first != '#' %}
+                    <div class="lib-comp-catbox__item lib-comp-catbox__item-{{key + 1}} lib-comp-card-icon">
+                        <div class="lib-comp-card-icon__icon"><img width="25" height="25" alt="Error" src="{{(item2.icon)}}"></div>
+                        <div class="lib-comp-card-icon__text">{{(item2.desc)}}</div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endfor %}
+            {# End Grid Icons #}
+        </div>
+        {# End Tab Content #}
+    </div>
+</div>

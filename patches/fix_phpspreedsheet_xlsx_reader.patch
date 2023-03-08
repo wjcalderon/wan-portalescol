@@ -1,0 +1,12 @@
+diff --git a/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php b/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
+index 566e9fb..966d5c4 100644
+--- a/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
++++ b/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
+@@ -86,6 +86,7 @@ class Xlsx extends BaseReader
+         $result = false;
+         $zip = new ZipArchive();
+
++	$filename = drupal_realpath($filename);
+         if ($zip->open($filename) === true) {
+             $workbookBasename = $this->getWorkbookBaseName($zip);
+             $result = !empty($workbookBasename);

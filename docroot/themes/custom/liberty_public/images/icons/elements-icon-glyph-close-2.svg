@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path d="m4,6l2,-2l9,9l9,-9l2,2l-9,9l9,9l-2,2l-9,-9l-9,9l-2,-2l9,-9l-9,-9z" id="a"/>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="none" fill-rule="evenodd" id="svg_1">
+   <mask fill="#ffffff" id="b">
+    <use fill="#ffffff" id="svg_2" xlink:href="#a"/>
+   </mask>
+   <use fill="#ffffff" id="svg_3" xlink:href="#a"/>
+   <g fill="#C0BFC0" id="svg_4" mask="url(#b)">
+    <path d="m0,0l30,0l0,30l-30,0l0,-30z" fill="#ffffff" id="svg_5"/>
+   </g>
+  </g>
+ </g>
+</svg>

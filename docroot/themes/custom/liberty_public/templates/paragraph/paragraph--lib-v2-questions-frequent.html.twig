@@ -1,0 +1,17 @@
+{{ attach_library('lib_v2_core/libraries') }}
+{{ attach_library('lib_v2_questions_frequent/libraries') }}
+<div class="lib-comp-qa">
+	<h2 class="lib-comp-qa__title">{{content.field_lib_v2_questions_title}}</h2>
+	<div class="lib-comp-qa__accordion">
+		{% for key, item in questions_frequent  %}
+			{# Accordion item #}
+			<div class="lib-comp-qa__item lib-comp-qa__item__{{key + 1}}">
+				<div class="lib-comp-qa__question">{{item.title}}</div>
+				<div class="lib-comp-qa__answer">
+					{{item.desc| raw}}
+				</div>
+			</div>
+			{# End Accordion item #}
+		{% endfor %}
+	</div>
+</div>

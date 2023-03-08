@@ -1,0 +1,49 @@
+#!/bin/bash
+
+STANDARD="Drupal,DrupalPractice"
+BIN="./vendor/bin"
+
+# Check whether CodeSniffer can be found
+if [ ! -f "$BIN/phpcs" ]
+then
+    echo "CodeSniffer not found – is it installed? 'composer require --dev squizlabs/CodeSniffer'"
+    echo
+    exit 1
+fi
+
+# Retrieve staged files
+FILES=$(git diff --cached --name-only --diff-filter=ACMR HEAD)
+
+# Run the sniffer
+echo "Ejecutando CodeSniffer utilizando los estandares de $STANDARD "
+echo
+PHPCS=("$BIN/phpcs" "--standard=$STANDARD" "--extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml" "--filter=gitstaged" "--encoding=utf-8" "-p" ".")
+"${PHPCS[@]}"
+
+# Syntax OK
+if [ $? == 0 ]
+then
+    echo "No se ha detectado ninguna infracción"
+    echo
+    exit 0
+fi
+
+# Fix automatically?†
+read -p "Corregir automáticamente las infracciones cuando sea posible? [Y/n]: " < /dev/tty
+if [[ ! ("$REPLY" == 'y' || "$REPLY" == 'Y' || "$REPLY" == '') ]]
+then
+    echo
+    exit 1
+fi
+
+# Run the beautifier
+PHPCBF=("$BIN/phpcbf" "--standard=$STANDARD" "--extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml" "--filter=gitstaged" ".")
+"${PHPCBF[@]}"
+
+# Stage the files
+echo "Reposicionamiento de archivos actualizados"
+echo
+git add ${FILES}
+
+# Run the sniffer again
+"${PHPCS[@]}"

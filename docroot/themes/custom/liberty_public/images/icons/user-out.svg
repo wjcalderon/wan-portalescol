@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2.576,14.6687467 C3.17066667,12.37168 5.25493333,10.6687467 7.73546667,10.6687467 C10.2154667,10.6687467 12.2997333,12.37168 12.8949333,14.6687467 L2.576,14.6687467 Z M13.0709333,16.0042133 L13.0709333,16.00208 L2.4,16.00208 L2.4,16.0042133 L1.06666667,16.0042133 C1.06666667,12.32688 4.05813333,9.33541333 7.73546667,9.33541333 C11.4122667,9.33541333 14.4042667,12.32688 14.4042667,16.0042133 L13.0709333,16.0042133 Z M7.73536,8.00426667 C5.52842667,8.00426667 3.73322667,6.20906667 3.73322667,4.00213333 C3.73322667,1.7952 5.52842667,0 7.73536,0 C9.94229333,0 11.7374933,1.7952 11.7374933,4.00213333 C11.7374933,6.20906667 9.94229333,8.00426667 7.73536,8.00426667 Z M7.73536,1.33333333 C6.26389333,1.33333333 5.06656,2.53066667 5.06656,4.00213333 C5.06656,5.4736 6.26389333,6.67093333 7.73536,6.67093333 C9.20682667,6.67093333 10.40416,5.4736 10.40416,4.00213333 C10.40416,2.53066667 9.20682667,1.33333333 7.73536,1.33333333 Z" id="path-1"></path>
+    </defs>
+    <g id="DSK--Header-y-footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Liberty2_Pago1-1-Copy-5" transform="translate(-1287.000000, -348.000000)">
+            <g id="Group-14-Copy" transform="translate(0.000000, 336.000000)">
+                <g id="Top-Right-Menu" transform="translate(1119.000000, 11.000000)">
+                    <g id="Lock-/-Log-In" transform="translate(107.000000, 0.000000)">
+                        <g id="Elements-/-Icon-/-Glyph-/-User-Outline" transform="translate(60.000000, 1.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <g id="Elements-/-Color-/-Principal-/-Withe" mask="url(#mask-2)" fill="#FFFFFF" fill-rule="evenodd">
+                                <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

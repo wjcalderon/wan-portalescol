@@ -1,0 +1,80 @@
+.banner {
+    @include breakout;
+    
+    position: relative;
+
+    &__image {
+        @include banner-height;
+
+        position: relative;
+        width: 100%;
+
+        @include medium {
+            position: absolute;
+        }
+
+        img {
+            @include banner-height;
+
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content-wrapper {
+        @include wrapper;
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+
+        @include medium {
+            @include banner-height;
+        }
+    }
+
+    &__content {
+        background-color: white;
+        border-radius: 3px;
+        padding: 1rem;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 5px 0 #a4a4a461;
+
+        @include medium {
+            margin-bottom: initial;
+            padding: 2rem;
+            width: 460px;
+            
+        }
+
+        h2 {
+            line-height: 1.3;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: $color-primary;
+
+            @include medium {
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+        }
+
+        div {
+            margin-bottom: 1rem;
+        }
+    }
+}

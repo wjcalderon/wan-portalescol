@@ -1,0 +1,388 @@
+// Header Main Menu
+//
+// Header menus styling for main nav
+//
+// Markup: header.twig
+//
+// Style guide: components.header
+#header__zona-usuario {
+  display: flex;
+  background: $azul-os-pr;
+  padding: 0 1rem;
+
+  @media screen and (min-width: $small-max) {
+    padding: .4rem 4rem;
+  }
+  ul {
+    display: flex;
+    margin-bottom: 0;
+    justify-content: space-between;
+  }
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: $blanco-pl;
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 2.2rem;
+    display: block;
+    border-top: 2px solid transparent;
+    &.secciones {
+      display: none;
+      @media screen and (min-width: $small-max) {
+        display: flex;
+      }
+    }
+    &.header__oficinas {
+      background-image: url(../images/icons/location-pin-out.svg);
+      background-size: 13px;
+      background-position: right center;
+      background-repeat: no-repeat;
+      padding-right: 1.3rem;
+    }
+    &.header__ingresar {
+      background-image: url(../images/icons/user-out.svg);
+      background-size: 13px;
+      background-position: right center;
+      background-repeat: no-repeat;
+      padding-right: 1.3rem;
+      //
+    }
+  }
+  .cog--mq {
+    justify-content: flex-end;
+  }
+  .menu {
+    li {
+      position: relative;
+      .nav__mb {
+        padding-right: 2rem;
+        background: url("../images/icons/arrow-down-menu.png") no-repeat 135px
+          17px;
+        position: relative;
+        // z-index: 9999999;
+        &:focus {
+          outline: none;
+        }
+      }
+      ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 0;
+        left: 0;
+        top: 36px;
+        display: none;
+        background: $azul-os-pr;
+        z-index: 2;
+        padding: 0;
+        &:hover {
+          visibility: visible;
+          opacity: 1;
+          display: block;
+        }
+        li {
+          clear: both;
+          width: 100%;
+          white-space: nowrap;
+          &:hover {
+            background-color: $azul-os-sc;
+          }
+        }
+      }
+      &:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+      }
+    }
+  }
+}
+
+#block-menubranding {
+  display: none;
+  @media screen and (min-width: $small-max) {
+    display: flex;
+  }
+  .menu {
+    li a.acerca__liberty {
+      @media screen and (min-width: $small-max) {
+        display: none;
+      }
+    }
+  }
+}
+
+header {
+  background: $amarillo-pr;
+}
+
+#header {
+  padding: 1.2rem 1rem;
+  justify-content: space-between;
+  @media screen and (min-width: $small-max) {
+    padding: 1.9rem 4rem;
+  }
+  @media screen and (max-width: $medium-max) {
+    padding: 1.9rem 2rem;
+  }
+  @include breakpoint($small) {
+    padding: 1.2rem 1rem;
+  }
+
+  #navegacion {
+    justify-content: flex-end;
+  }
+}
+
+#burguer-menu {
+  display: block;
+  @media screen and (min-width: $small-max) {
+    display: none;
+  }
+  @include breakpoint($small) {
+    position: relative;
+    z-index: 9999999;
+  }
+}
+
+@include breakpoint($small) {
+  .block-tb-megamenu {
+    display: none;
+  }
+}
+
+#buscador {
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: $amarillo-pr;
+  top: 0;
+  font-weight: 600;
+  left: 0;
+  padding: 3.5rem 1.5rem;
+  box-sizing: border-box;
+  @media screen and (min-width: $small-max) {
+    position: relative;
+    min-width: 40px;
+    min-height: 40px;
+    display: block;
+    background: none;
+    height: auto;
+    width: auto;
+    padding: 0;
+    margin-left: 2.3rem;
+  }
+  @include breakpoint($small) {
+    height: auto;
+    z-index: 9999999;
+    top: 2.1875rem;
+    padding: 1rem;
+  }
+  label {
+    display: none;
+  }
+  input {
+    &[type="text"] {
+      width: 100%;
+      @include breakpoint($small) {
+        // width: calc(100% - 2rem) !important;
+        // border: 1px solid $azul-os-pr;
+        // padding: 1rem;
+        // margin-bottom: 1rem;
+        // border-radius: 4px;
+        margin: 0.5rem 0;
+        border: 0;
+        border-radius: 50px;
+        padding: 0.7rem;
+        width: 90% !important;
+      }
+      @media screen and (min-width: $small-max) {
+        background: $blanco-pl;
+        border: none;
+        box-shadow: none;
+        border-radius: 5px;
+        margin: 0;
+        font-size: 1rem;
+        color: $azul-os-pr;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        display: block;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+  .form-actions {
+    @media screen and (min-width: $small-max) {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      padding: 0;
+      width: 36px;
+      overflow: hidden;
+      border-radius: 4px;
+      display: flex;
+      border: none;
+      box-shadow: none;
+      background: none;
+      height: 36px;
+    }
+    @include breakpoint($small) {
+      display: none;
+    }
+    input {
+      @media screen and (min-width: $small-max) {
+        background: transparent;
+        width: 100%;
+        overflow: hidden;
+        text-indent: -300px;
+        background-image: url(../images/icons/search.svg);
+        background-size: 35%;
+        background-repeat: no-repeat;
+        background-position: 13px 11px;
+        border: none;
+        margin: 0;
+        border-radius: 4px;
+        box-shadow: none;
+        pointer-events: none;
+        padding-right: 18px;
+        padding: 0;
+      }
+    }
+  }
+  &.buscador__input--activo {
+    input {
+      &[type="text"] {
+        background: $blanco;
+        opacity: 1;
+        width: 400px;
+        padding-left: 45px;
+      }
+    }
+    .form-actions {
+      width: 2.5rem;
+      input {
+        &[type="text"] {
+          pointer-events: visible;
+          border-right: 1px solid;
+          border-radius: 0;
+          height: 20px;
+          margin-top: 8px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  form {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    @media screen and (min-width: $small-max) {
+      margin: 0;
+      cursor: pointer;
+    }
+    @include breakpoint($small) {
+      &::after {
+        content: "";
+        position: absolute;
+        background-image: url(../images/icons/search.svg);
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: $gris-qi;
+        top: 50%;
+        left: 45px;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 20px;
+      }
+    }
+  }
+  #buscador__close {
+    display: block;
+    @media screen and (min-width: $small-max) {
+      display: none;
+    }
+  }
+  .form-item {
+    margin-bottom: 0;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10000;
+}
+
+////////////////// mobile ////////////////////////////
+#herramientas--mb {
+  @media screen and (min-width: $small-max) {
+    display: none;
+  }
+  .item-erramienta--mb {
+    width: 36px;
+    height: 36px;
+    background: $blanco-pl;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+  }
+}
+
+span.addtoany_list {
+  // display: block !important;
+  // margin-bottom: -4rem !important;
+  position: relative;
+  left: 10%;
+  p.text-share {
+    color: $petroleo-tr;
+    @include breakpoint($small) {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+  }
+  @include breakpoint($small) {
+    margin-bottom: 2rem !important;
+    width: 80vw;
+  }
+}
+
+.menu--menu-navegacion {
+  width: 100%;
+}
+ 
+#navegacion .menu--menu-clientes {
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+
+    li {
+      a {
+        border: 2px solid $azul-os-pr;
+        border-radius: 20px;
+        padding: 0.5rem 1.2rem;
+        color: $azul-os-pr;
+      }
+    }
+  }
+}

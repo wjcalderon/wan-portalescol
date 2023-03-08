@@ -1,0 +1,55 @@
+diff --git a/js/maxlength.js b/js/maxlength.js
+index 9df04ee..35a458d 100644
+--- a/js/maxlength.js
++++ b/js/maxlength.js
+@@ -110,33 +110,41 @@
+   };
+ 
+   /**
+-   * Replaces line ending with to chars, because PHP-calculation counts with two chars
+-   * as two characters.
++   * Replaces 1 or 2 consecutive line endings with a return char, because
++   * PHP-calculation counts with two chars as two characters.
+    *
+    * @see http://www.sitepoint.com/blogs/2004/02/16/line-endings-in-javascript/
+    */
+   ml.twochar_lineending = function(str) {
+-    return str.replace(/(\r\n|\r|\n)/g, "\r");
++    return str.replace(/(\r\n\r\n|\r\r|\n\n|\r\n|\r|\n)/g, "â†©");
+   };
+ 
+   ml.strip_tags = function(input, allowed) {
+     // Remove all newlines, spaces and tabs from the beginning and end of html.
+     input = $.trim(input);
++
+     // making the lineendings with two chars
+     input = ml.twochar_lineending(input);
++
+     // We do want that the space characters to count as 1, not 6...
+-    input = input.replace('&nbsp;', ' ');
+-    //input = input.split(' ').join('');
++    input = input.replace(/&nbsp;/g, ' ');
++
+     // Strips HTML and PHP tags from a string
+     allowed = (((allowed || "") + "")
+         .toLowerCase()
+         .match(/<[a-z][a-z0-9]*>/g) || [])
+         .join(''); // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
++
+     var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+-        commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+-    return input.replace(commentsAndPhpTags, '').replace(tags, function($0, $1){
+-      return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+-    });
++        commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi,
++        emptyTags = />[ ]{1,}</gi;
++
++    return input
++      .replace(emptyTags, '><')
++      .replace(commentsAndPhpTags, '')
++      .replace(tags, function($0, $1) {
++        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
++      });
+   };
+ 
+   /**

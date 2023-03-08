@@ -1,0 +1,43 @@
+{% set forms__base_class = 'forms' %}
+
+<div {{ bem(forms__base_class, forms__modifiers, forms__blockname, forms__extra_classes) }}>
+    <div {{ bem('welcome', [forms__extra_classes], forms__base_class) }}>
+        {% if welcome__heading %}
+        {{ title_prefix }}
+        {% include "@atoms/text/headings/_heading.twig" with {
+            heading_base_class: forms__base_class|default('heading'),
+            heading_level: 1,
+            heading: welcome__heading,
+        } %}
+        {{ title_suffix }}
+        {% endif %}
+        <div {{ bem('body', [], forms__base_class) }}>
+            {{ welcome__body }}
+        </div>
+        {% block form__content %}
+            <form>
+                <div class="form-item">
+                    <label for="text" class="form-item__label form-item__label--select">Select</label>
+                    <select id="select" name="select" class="form-item__select form-select">
+                        <option hidden selected>Tipo de documento</option>
+                        <option value="value1">Cédula de ciudadanía</option>
+                        <option value="value2">Pasaporte</option>
+                    </select>
+                </div>
+                 <div class="form-item">
+                    <label for="text" class="form-item__label form-item__label--textfield">Number Input</label>
+                    <input id="text" type="number" class="form-item__textfield form-text" placeholder="Número de identificación" pattern="[0-9]*">
+                </div>
+                {% include "@atoms/buttons/twig/button.twig" with {
+                    button_content: form__button__text,
+                } %}
+            </form>
+        {% endblock %}
+    </div>
+
+    <div {{ bem('message', [], forms__base_class) }}>
+        {% include "@atoms/alerts/alerts.twig" with {
+            alert__message: alert__message,
+        } %}
+    </div>
+</div>

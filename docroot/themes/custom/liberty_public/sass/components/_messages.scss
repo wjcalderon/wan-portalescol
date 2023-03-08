@@ -1,0 +1,51 @@
+.drupal-messages {
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid white;
+
+  @include borderradius();
+
+  @extend .tmp-shadow;
+
+  ol {
+    @extend .no-ul-list;
+  }
+
+  &.messages--status {
+    background: $blanco-sc;
+    color: $gris-pr;
+  }
+
+  &.messages--warning {
+    background: rgba($amarillo-pr, 0.3);
+    color: $gris-pr;
+  }
+
+  &.messages--error {
+    background: rgba($rojo, 0.3);
+    color: $rojo;
+  }
+}
+.webform-submission-form {
+  .messages--error {
+    display: none;
+  }
+}
+
+.no-results {
+  text-align: center;
+  .img-no-results {
+    display: inline-block;
+    width: 250px;
+    height: 210px;
+    background: url('../images/no-resultados.png') no-repeat;
+  }
+
+  p {
+    color: $azul-os-pr;
+    font-size: 1.125rem;
+    &.subtitle {
+      font-size: .875rem;
+    }
+  }
+}

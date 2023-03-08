@@ -1,0 +1,25 @@
+<div class="field field-icon">
+  {{ content.field_icon }}
+</div>
+
+{% if
+  title_prefix
+    or title_suffix
+    or display_submitted
+    or unpublished
+    or (page is empty and label) %}
+  {{ title_prefix }}
+  {% if not page and label %}
+    <h3 {{ title_attributes }}>
+      <a href="{{ url }}">{{ label }}</a>
+    </h3>
+  {% endif %}
+  {{ title_suffix }}
+{% endif %}
+
+{{ content|without('comment', 'links', 'field_icon') }}
+<a href="{{ url }}" class="button button-secondary button--small">Conoce más</a>
+
+<!-- /content -->
+
+<!-- /article #node -->

@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Display Suite 1 column template.
+ *
+ * Available variables:
+ * - ds_content_wrapper: wrapper around content
+ * - attributes: content region attributes
+ * - ds_content: content region
+ */
+#}
+  <div class="icon">
+  	<span class="document">
+  </div>
+  <div class="content">
+	  <h2>{{- content.name| render -}}</h2>
+	  <p>Documento</p>
+	  <a  class="button button--small" href="{{- content.field_document|field_value -}}" target="_blank" rel="noreferrer"> Descargar documentos </a>
+  </div>

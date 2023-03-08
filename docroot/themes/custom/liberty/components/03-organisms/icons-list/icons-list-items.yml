@@ -1,0 +1,10 @@
+items:
+  - list_icon__icon: "phone"
+    list_icon__title: "icon"
+    list_icon__text: "Más de 100 años de experiencia en el mundo de los seguros"
+  - list_icon__icon: "phone"
+    list_icon__title: "icon"
+    list_icon__text: "Nos encontramos presentes en más de 100 países"
+  - list_icon__icon: "phone"
+    list_icon__title: "icon"
+    list_icon__text: "Certificación AAA Fitch Ratings"

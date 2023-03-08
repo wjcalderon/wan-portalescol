@@ -1,0 +1,15 @@
+.component__lista--producto-beneficios {
+    background: $azul-hielo-sc;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    h2 {
+        padding-top: 3rem;
+    }
+    .component__item-lista {
+        margin-bottom: 1.25rem;
+    }
+    img {
+        width: 1.5625rem;
+        margin-right: 1.25rem;
+    }
+}

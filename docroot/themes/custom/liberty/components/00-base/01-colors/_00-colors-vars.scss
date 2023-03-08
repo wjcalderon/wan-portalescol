@@ -1,0 +1,35 @@
+// Color variables - it is better to use the colors in
+// components/00-base/01-colors/_01-colors-used.scss rather than
+// these colors directly.
+
+// Project
+$color-primary: #1a1446;
+$color-secondary: #99e3ea;
+$color-yellow: #fed000;
+$color-primary-smoke: #29254f;
+$color-secondary-dark: #06748c;
+$color-secondary-link: #28a3af;
+$color-secondary-light: #f0fbfc;
+$color-gray-border: #919191;
+$color-text-light: #707070;
+$color-text-dark: #343741;
+$color-error: #d32f2f;
+$color-disable: #e6e6e6;
+$color-background: #f5f5f5;
+$color-background-error: #fff4f5;
+
+// Grayscale
+$white: #f5f5f5;
+$near-white: #f2f2f2;
+$gray-lightest: #e5e5e5;
+$gray-lighter: #ccc;
+$gray-light: #888;
+$gray: #343741;
+$gray-dark: #4c4c4c;
+$gray-darker: #333;
+$black: black;
+
+// Status
+$yellow-light: #f9fb93;
+$red-light: #fbe3e4;
+$green-light: #cfefc2;

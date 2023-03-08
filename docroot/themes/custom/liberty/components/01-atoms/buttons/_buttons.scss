@@ -1,0 +1,127 @@
+// Sass map to define colors. Each set should have a "Dark" variation when required.
+// e.g. `default` and `default-dark`. Or `purple` and `purple-dark`.
+$button-colors: (
+  primary: (
+    text: clr(primary),
+    bg: clr(secondary),
+    text-hover: clr(primary),
+    bg-hover: clr(secondary),
+  ),
+  primary-dark: (
+    text: clr(primary),
+    bg: clr(secondary),
+    text-hover: clr(primary),
+    bg-hover: clr(secondary),
+  ),
+  secondary: (
+    text: clr(primary),
+    bg: clr(secondary),
+    text-hover: clr(primary),
+    bg-hover: clr(secondary),
+  ),
+  secondary-dark: (
+    text: clr(primary),
+    bg: clr(secondary),
+    text-hover: clr(primary),
+    bg-hover: clr(secondary),
+  ),
+);
+
+// Mixin to define colors for one or more schemes.
+// Simply pass the color scheme to the mixin to get the colors defined in the map.
+// e.g. @include buttonColors(default) will get all of the colors defined in the "default" section.
+@mixin buttonColors(
+  $scheme,
+  $pallate: map-get($button-colors, $scheme),
+  $map: $button-colors
+) {
+  color: $color-primary;
+  background-color: $color-secondary;
+
+  &:visited {
+    color: map-get($pallate, text);
+  }
+
+  &:hover {
+    color: map-get($pallate, text-hover);
+    background-color: map-get($pallate, bg-hover);
+  }
+}
+
+// The button-base mixin contains styles that apply to all buttons
+// regardless of color or size.
+@mixin button-base {
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 3px solid $color-secondary-dark;
+}
+
+.edit-submit-cancel_form_sponsors {
+  background-color: white !important;
+  border: 1px solid black !important;
+  border-bottom: 3px solid gray !important;
+}
+// Button color variations
+// Note how we include dark mode options for each
+@mixin button-color-primary {
+  @include buttonColors(primary);
+
+  @media (prefers-color-scheme: dark) {
+    @include buttonColors(primary-dark);
+  }
+}
+
+@mixin button-color-secondary {
+  @include buttonColors(secondary);
+
+  @media (prefers-color-scheme: dark) {
+    @include buttonColors(secondary-dark);
+  }
+}
+
+// Button size variations
+@mixin button-medium {
+  line-height: 1.4;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+@mixin button-large {
+  line-height: 2;
+  padding: $space $space-double;
+}
+
+.button {
+  @include button-base;
+  @include button-color-secondary;
+  @include button-medium;
+
+  &--alt {
+    @include button-color-primary;
+    @include button-large;
+  }
+
+  &.is-disabled {
+    background-color: $color-disable;
+    color: $gray;
+    font-weight: 400;
+    border-bottom: none;
+  }
+}
+
+.form-actions .form-submit,
+.form-actions .form-item__textfield.form-submit {
+  @include button-base;
+  @include button-color-secondary;
+  @include button-medium;
+
+  &--alt {
+    @include button-color-primary;
+    @include button-large;
+  }
+}
