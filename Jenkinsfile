@@ -49,16 +49,25 @@ pipeline {
         stage("Sonar") {
             steps {
                 script {
-                   def codeSources = '.'
+				   //copio codigo personalizar a un directorio para ser analizado
+				   sh "mkdir sonar"
+				   sh "mkdir sonar/docroot"
+				   sh "mkdir sonar/docroot/modules"
+				   
+				   sh "cp docroot/modules/custom sonar/docroot/modules -R"
+				   sh "cp docroot/themes sonar/docroot -R"
+
+                   def codeSources = 'sonar'
                    def SonarProjectKey = "${appName}"
-                   def packageVersion = '0.0.1' //para dev el build, para nonprod el tag
-                    withSonarQubeEnv('sonarqube') {
+                   def packageVersion = '0.0.1'
+                   withSonarQubeEnv('sonarqube') {
                         sh "ls -la"
                         echo "sonarSources: ${codeSources}"
                         echo "sonarProjectName: ${appName}"
 
                         sh "sonar-scanner -Dsonar.projectKey=${SonarProjectKey} -Dsonar.projectName=${appName} -Dsonar.projectVersion=${packageVersion} -Dsonar.sources=${codeSources}"                      
-                    }
+                   }
+                   sh "rm sonar -Rf"
                 }
             }
         }
