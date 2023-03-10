@@ -16,6 +16,7 @@ pipeline {
         appCountry = "${countryParams.countryCode}"
         zipFileName = "function.zip"
         exclude = "-x '*.git*' README.md composer.lock prod_Jenkinsfile app.json .editorconfig Jenkinsfile"
+        appName = ""
     }
 
     stages {
@@ -45,6 +46,22 @@ pipeline {
             }
         }
 
+        stage("Sonar") {
+            steps {
+                script {
+                   def codeSources = '.'
+                   def SonarProjectKey = "${appName}"
+                   def packageVersion = '0.0.1' //para dev el build, para nonprod el tag
+                    withSonarQubeEnv('sonarqube') {
+                        sh "ls -la"
+                        echo "sonarSources: ${codeSources}"
+                        echo "sonarProjectName: ${appName}"
+
+                        sh "sonar-scanner -Dsonar.projectKey=${SonarProjectKey} -Dsonar.projectName=${appName} -Dsonar.projectVersion=${packageVersion} -Dsonar.sources=${codeSources}"                      
+                    }
+                }
+            }
+        }
         stage('zip Function') {	
             steps{
                 script{
