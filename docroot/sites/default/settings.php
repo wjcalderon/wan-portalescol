@@ -900,5 +900,6 @@ $databases['default']['default'] = array (
   'port' => $_ENV['PortalColombia_port'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
 );
