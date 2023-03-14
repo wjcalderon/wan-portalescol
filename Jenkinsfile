@@ -40,7 +40,7 @@ pipeline {
         stage("Compose Install") {
             steps {
                 container("php") {
-                    sh 'composer install --optimize-autoloader --no-dev'
+                    sh 'composer install'
                     sh 'ls -lh'
                 }
             }
