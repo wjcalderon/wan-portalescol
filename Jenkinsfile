@@ -40,7 +40,7 @@ pipeline {
         stage("Compose Install") {
             steps {
                 container("php") {
-                    sh 'composer install --optimize-autoloader --no-dev'
+                    sh 'composer install'
                     sh 'ls -lh'
                 }
             }
@@ -55,7 +55,7 @@ pipeline {
 				   sh "mkdir sonar/docroot/modules"
 				   
 				   sh "cp docroot/modules/custom sonar/docroot/modules -R"
-				   sh "cp docroot/themes sonar/docroot -R"
+				   sh "cp docroot/themes/custom sonar/docroot/themes -R"
 
                    def codeSources = 'sonar'
                    def SonarProjectKey = "${appName}"
