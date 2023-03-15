@@ -892,12 +892,12 @@ if (file_exists('/var/www/site-php')) {
 $settings['config_sync_directory'] = '../config/liberty/envs/sync';
 
 $databases['default']['default'] = array (
-  'database' => $_ENV['PortalColombia_nameDB'],
-  'username' => $_ENV['PortalColombia_username'],
-  'password' => $_ENV['PortalColombia_password'],
+  'database' => getenv('PortalColombia_nameDB'),
+  'username' => getenv('PortalColombia_username'),
+  'password' => getenv('PortalColombia_password'),
   'prefix' => '',
-  'host' => $_ENV['PortalColombia_hostname'],
-  'port' => $_ENV['PortalColombia_port'],
+  'host' => getenv('PortalColombia_hostname'),
+  'port' => getenv('PortalColombia_port'),
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
   'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
