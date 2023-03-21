@@ -63,10 +63,8 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
             $sites['aliados-dev.libertyseguros.co'] = 'sponsors';
             break;
         case 'test':
-            $sites['nonprodportal.libertyseguros.co'] = 'default';
-            $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
-            // $sites['libertysegstg.prod.acquia-sites.com'] = 'sponsors';
-            $sites['libertysegstg.prod.acquia-sites.com'] = 'default';
+            $sites['mgr-nonprodportal.libertyseguros.co'] = 'default';
+            $sites['mgr-aliados-nonprod.libertyseguros.co'] = 'sponsors';
             break;
         case 'prod':
             $sites['libertyseguros.co'] = 'default';

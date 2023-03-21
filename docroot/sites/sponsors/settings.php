@@ -831,14 +831,15 @@ if (file_exists('/var/www/site-php/libertyseg/sponsors-settings.inc')) {
     require '/var/www/site-php/libertyseg/sponsors-settings.inc';
 }
 
-$databases['default']['default'] = array(
-    'database' => 'sponsors',
-    'username' => 'drupal',
-    'password' => 'drupal',
-    'prefix' => '',
-    'host' => 'sponsors',
-    'port' => '3306',
-    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-    'driver' => 'mysql',
+$databases['default']['default'] = array (
+  'database' => getenv('Sponsor_nameDB'),
+  'username' => getenv('Sponsor_username'),
+  'password' => getenv('Sponsor_password'),
+  'prefix' => '',
+  'host' => getenv('Sponsor_hostname'),
+  'port' => getenv('Sponsor_port'),
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
 );
 $settings['config_sync_directory'] = '../config/sponsors/envs/sync';
