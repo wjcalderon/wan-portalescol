@@ -55,7 +55,7 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
  */
-$sites['internal-intl-co-portalescol-ecu-nonprod-1330252222.us-east-1.elb.amazonaws.com'] = 'default';
+
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
         case 'dev':
