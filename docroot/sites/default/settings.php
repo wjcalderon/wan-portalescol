@@ -908,3 +908,8 @@ $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\R
 \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
 \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_AWS_ELB |
 \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST;
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
+$settings['reverse_proxy_header'] = 'HTTP_TRUE_CLIENT_IP';
+$settings['reverse_proxy_proto_header'] = 'HTTP_X_FORWARDED_PROTO';
+$settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
