@@ -902,3 +902,9 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
 );
+
+$settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
+\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
+\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
+\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_AWS_ELB |
+\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST;

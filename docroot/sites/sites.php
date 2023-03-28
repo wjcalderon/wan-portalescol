@@ -72,11 +72,5 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
             $sites['aliados.libertyseguros.co'] = 'sponsors';
             $sites['libertyseg.prod.acquia-sites.com'] = 'default';
             break;
-        case 'next':
-            $sites['libertysegnext.prod.acquia-sites.com'] = 'default';
-        case 'LANDO':
-            $sites['libertyseg.lndo.site'] = 'default';
-            $sites['sponsors.lndo.site'] = 'sponsors';
-            break;
     }
 }
