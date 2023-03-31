@@ -377,25 +377,6 @@ $settings['reverse_proxy'] = true;
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
 
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-        case 'dev':
-        case 'test':
-        case 'LANDO':
-            $settings['reverse_proxy_addresses'] = [
-                'bal-17364.prod.hosting.acquia.com',
-                'bal-17365.prod.hosting.acquia.com',
-            ];
-            break;
-        case 'prod':
-            $settings['reverse_proxy_addresses'] = [
-                'bal-17362.prod.hosting.acquia.com',
-                'bal-17363.prod.hosting.acquia.com',
-            ];
-            break;
-    }
-}
-
 /**
  * Reverse proxy trusted headers.
  *
@@ -755,12 +736,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
-$settings['trusted_host_patterns'] = [
-    '^aliados-nonprod\.libertyseguros\.co$',
-    '^aliados\.libertyseguros\.co$',
-    '^.+\.libertyseguros\.co$',
-    '^sponsors\.lndo\.site$',
-];
+
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
