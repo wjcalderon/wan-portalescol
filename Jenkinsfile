@@ -42,7 +42,6 @@ pipeline {
                 container("php") {
                     sh 'composer install'
                     sh 'ls -lh'
-		    sh 'ls -lh docroot/modules/contrib/webform/includes'
                 }
             }
         }
@@ -93,7 +92,7 @@ pipeline {
                         'prod_Jenkinsfile',
                         'app.json'
                     ]
-                    //artifactoryUploadFiles files: artifacts, version: CodeVersion
+                    artifactoryUploadFiles files: artifacts, version: CodeVersion
                 }
             }
         }
