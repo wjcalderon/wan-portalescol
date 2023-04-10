@@ -40,6 +40,7 @@ pipeline {
         stage("Compose Install") {
             steps {
                 container("php") {
+                    sh 'composer update'
                     sh 'composer install'
                     sh 'ls -lh'
                 }
