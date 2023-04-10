@@ -20,6 +20,7 @@
         "drupal/ape": "^1.5",
         "drupal/auto_entitylabel": "^3.0@beta",
         "drupal/autologout": "^1.4",
+        "drupal/backup_migrate": "^5.0",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/block_class": "^2.0",
         "drupal/checklistapi": "^2.0",
