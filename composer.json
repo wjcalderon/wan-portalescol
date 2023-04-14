@@ -35,10 +35,10 @@
         "drupal/config_ignore": "^2.3",
         "drupal/config_split": "^2.0@RC",
         "drupal/config_update": "^1.7",
-        "drupal/core": "^9.4",
-        "drupal/core-composer-scaffold": "^9.4",
-        "drupal/core-project-message": "^9.4",
-        "drupal/core-recommended": "^9.4",
+        "drupal/core": "9.4",
+        "drupal/core-composer-scaffold": "9.4",
+        "drupal/core-project-message": "9.4",
+        "drupal/core-recommended": "9.4",
         "drupal/core_context": "^1.0@beta",
         "drupal/devel": "^4.1",
         "drupal/devel_entity_updates": "^3.0",
@@ -225,7 +225,7 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "dupal/media_entity":{
+            "dupal/media_entity": {
                 "rename": "https://www.drupal.org/files/issues/2020-02-14/rename-media-bundles-before-file-update-3113671-2.patch"
             },
             "drupal/node_edit_protection": {
@@ -233,7 +233,8 @@
             },
             "drupal/claro": {
                 "dropbottum": "https://www.drupal.org/files/issues/2022-06-21/claro-dropbottum-3217868-20.patch",
-                "function deprected": "https://www.drupal.org/files/issues/2020-02-07/attributes-key-missing-hash-3111390-3.patch"
+                "function deprected": "https://www.drupal.org/files/issues/2020-02-07/attributes-key-missing-hash-3111390-3.patch",
+                "claro templates": "https://www.drupal.org/files/issues/2022-09-28/3312270-claro-menu-twig-fix.patch"
             },
             "drupal/textfield_counter": {
                 "incompatible claro": "https://www.drupal.org/files/issues/2022-08-04/textfield-counter-incompatible-with-claro-3182675-10.patch",
@@ -247,7 +248,8 @@
                 "Workaround for Call to a member function in layout builder": "https://www.drupal.org/files/issues/2020-04-08/2985882-field-85.patch",
                 "path-matcher": "https://www.drupal.org/files/issues/2022-07-18/ASGS-4866-php8-compatibility_3.patch",
                 "Component/Utility ": "https://www.drupal.org/files/issues/2022-03-18/fix-for-php-greater-8-1-3255637.patch",
-                "operations": "https://www.drupal.org/files/issues/2021-11-23/2473873-97.patch"
+                "operations": "https://www.drupal.org/files/issues/2021-11-23/2473873-97.patch",
+                "claro templates": "https://www.drupal.org/files/issues/2022-09-28/3312270-claro-menu-twig-fix.patch"
             },
             "phpoffice/phpspreadsheet": {
                 "Error placeholder": "patches/fix_phpspreedsheet_xlsx_reader.patch"
@@ -264,8 +266,8 @@
             "drupal/ckeditor_videodetector": {
                 "Automated Drupal Rector fixes": "https://www.drupal.org/files/issues/2020-05-23/ckeditor_videodetector.1.x-dev.rector.patch"
             },
-            "drupal/geolocation":{
-                "deg2rad fixes" : "https://www.drupal.org/files/issues/2022-01-11/3257751-5.patch"
+            "drupal/geolocation": {
+                "deg2rad fixes": "https://www.drupal.org/files/issues/2022-01-11/3257751-5.patch"
             }
         },
         "patches-ignore": {
