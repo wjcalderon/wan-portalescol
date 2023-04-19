@@ -23,17 +23,17 @@ for (let q = 0; q < 4; q++) {
 
   var ischannel = document.getElementsByClassName('channel-attention');
   if (ischannel.length > 0) {
-      var footerlogo = document.getElementById('footer');
-      var cornerlogo = document.getElementById('logo-corner');
-      footerlogo.classList.add("addpadding");
-      cornerlogo.classList.add("addpadding");
+    var footerlogo = document.getElementById('footer');
+    var cornerlogo = document.getElementById('logo-corner');
+    footerlogo.classList.add('addpadding');
+    cornerlogo.classList.add('addpadding');
   }
 
   if (ischannel.length > 300) {
-      var footerlogo = document.getElementById('footer');
-      var cornerlogo = document.getElementById('logo-corner');
-      footerlogo.classList.add("addpaddingplus");
-      cornerlogo.classList.add("addpaddingplus");
+    var footerlogo = document.getElementById('footer');
+    var cornerlogo = document.getElementById('logo-corner');
+    footerlogo.classList.add('addpaddingplus');
+    cornerlogo.classList.add('addpaddingplus');
   }
 
   for (let b = 0; b < allItem.length; b++) {
@@ -101,7 +101,6 @@ for (let q = 0; q < 4; q++) {
       }
 
       element.classList.add('is-active');
-      console.log(element.classList);
       if (element.classList[2] == 'tab-0') {
         const card_list = element
           .closest('.card-service__content')

@@ -493,6 +493,11 @@ class ClaimServices {
         $request['vehiculo']['taller'] = 0;
       }
 
+      $brand = $request['vehiculo']['marca'];
+      if (strpos($brand, 'GREAT WALL MOTOR') !== FALSE) {
+        $request['vehiculo']['marca'] = 'GREAT WALL';
+      }
+
       $this->logger->set(
             'request_sipo',
             json_encode($request, JSON_UNESCAPED_UNICODE),
@@ -760,10 +765,9 @@ class ClaimServices {
 
               if ($response->polizas->codigoBroker == $config2->get('cod_chevrolet')) {
 
-                if ($this->checkInRange($seven_year, $model_actual, $model) && $response->polizas->riesgoAuto->automovil->marca == "CHEVROLET") {
+                if ($this->checkInRange($seven_year, $model_actual, $model) && ($response->polizas->riesgoAuto->automovil->marca == "CHEVROLET" || $response->polizas->riesgoAuto->automovil->marca == "chevrolet")) {
                   $return['GMFChevrolet']['codigoConcesionario'] = $response->polizas->codigoConcesionario;
-                  $_SESSION['GMFChevrolet'] =
-                                        $return['GMFChevrolet'];
+                  $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
                 }
                 else {
                   if (isset($_SESSION['GMFChevrolet'])) {
@@ -776,14 +780,8 @@ class ClaimServices {
                   unset($_SESSION['GMFChevrolet']);
                 }
               }
-              if (
-                    isset(
-                        $response->polizas->riesgoAuto->automovil
-                          ->marca
-                    )
-                ) {
-                $brand = $response->polizas->riesgoAuto->automovil
-                  ->marca;
+              if (isset($response->polizas->riesgoAuto->automovil->marca)) {
+                $brand = $response->polizas->riesgoAuto->automovil->marca;
                 if (strpos($brand, 'GREAT WALL') !== FALSE) {
                   $return['personalInfo']['brand'] = 'GREAT WALL MOTOR';
                 }

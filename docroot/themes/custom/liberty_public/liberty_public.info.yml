@@ -14,6 +14,7 @@ libraries:
   - liberty_public/slick_theme_css
   - liberty_public/datetimepicker
   - liberty_public/eyebrow
+  - liberty_public/cropper
 regions:
   eyebrow: Eyebrow
   branding: Branding

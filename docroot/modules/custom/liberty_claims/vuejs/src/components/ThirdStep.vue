@@ -62,7 +62,7 @@
           <float-label>
             <input type="text" name="name" v-model.lazy="casualtyData.driverName" placeholder="Nombre del conductor" tabindex=3>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('driverName')">{{ hasError('driverName') }}</div>
+          <div class="error-message" v-if="submited && hasError('driverName')">{{ hasError('driverName') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('driverPhone'), filled: casualtyData.driverPhone}">
@@ -433,7 +433,7 @@ export default {
         driverName: {
           required: {},
           length: {
-            max: 50
+            max: 70
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
@@ -464,7 +464,7 @@ export default {
         declarantName: {
           required: {},
           length: {
-            max: 50
+            max: 70
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,

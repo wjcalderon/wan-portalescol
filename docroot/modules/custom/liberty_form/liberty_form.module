@@ -171,7 +171,7 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id === "node_campaign_form") {
     $form['#attached']['library'][] = 'liberty_form/liberty-validations-campaing-form';
-  } 
+  }
 
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
@@ -203,8 +203,9 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
           }
           else {
             $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-          }
 
+          }
+          $form['#attached']['drupalSettings']['enviroment'] = 'prod';
         }
         break;
 
@@ -1377,4 +1378,17 @@ function liberty_form_preprocess_node(&$variables) {
       break;
   }
 
+}
+
+/**
+ * @param $variables
+ */
+function liberty_form_preprocess_page(&$variables) {
+  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+      case 'prod':
+        $variables['#attached']['drupalSettings']['enviroment'] = 'prod';
+        break;
+    }
+  }
 }

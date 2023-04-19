@@ -140,7 +140,7 @@ liberty_claims.settings_email_form:
   options:
     _admin_route: TRUE
 
-lib_gps.comunas:
+liberty_claims.comunas:
   path: '/liberty_claims/comunas'
   defaults:
     _title: 'Comunas'

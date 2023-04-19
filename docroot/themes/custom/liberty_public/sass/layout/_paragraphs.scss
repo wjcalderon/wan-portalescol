@@ -51,6 +51,29 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+  
+    .component__tabs--asistencias-zona-cliente.component__tab--content-accordion-mb:last-child ul li {
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: normal;
+    }
+  
+    .component__tabs--asistencias-zona-cliente.component__tab--content-accordion-mb:last-child .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+      float: unset;
+      padding: .5em 1em;
+      text-decoration: none;
+    }
+
+    .component__tabs--asistencias-zona-cliente.component__tab--content-accordion-mb:last-child .ui-tabs .ui-tabs-nav .ui-tabs-anchor img{
+      object-fit: contain;
+      width: 25px;
+    }
+  
+  }
+
 .card__img--oval {
     width: 5rem;
     height: 5rem;

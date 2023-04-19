@@ -3,29 +3,22 @@
     <h1>Cuéntanos lo sucedido</h1>
     <p>Describe todo lo ocurrido con el mayor detalle posible.</p>
 
-    <div v-bind:class="{field: true, descrip: true, error: submited && hasError('description')}">
+    <div v-bind:class="{ field: true, descrip: true, error: submited && hasError('description') }">
       <float-label label="Descripción de los hechos.">
         <textarea name="description" cols="30" rows="5" v-model="casualtyData.description" v-on:keyup="countDown"
           placeholder="Descripción de los hechos, piezas afectadas, lugares etc." tabindex=1>
-            </textarea>
+              </textarea>
       </float-label>
       <p class="countdown">Ingresa mínimo {{ validationRules.description.length.min }} caracteres contando espacios <span
           class="remain">{{ countDownVal }}</span></p>
       <div class="error-message" v-show="submited && hasError('description')">{{ hasError('description') }}</div>
     </div>
 
-    <div class="label label-img-adj">Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf - 2MB, jpg - 60KB  (opcional)</div>
-    <dropzone
-      id="dropzone-affected"
-      ref="dropzoneEl"
-      :options="dropzoneOptions"
-      :useCustomSlot="true"
-      :duplicateCheck="true"
-      @vdropzone-success="fileUploaded"
-      @vdropzone-removed-file="fileRemoved"
-      @vdropzone-file-added="fileAdded"
-      :class="{error: submited && hasError('files')}"
-      v-if="userData">
+    <div class="label label-img-adj">Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf -
+      2MB, jpg - 60KB (opcional)</div>
+    <dropzone id="dropzone-affected" ref="dropzoneEl" :options="dropzoneOptions" :useCustomSlot="true"
+      :duplicateCheck="true" @vdropzone-success="fileUploaded" @vdropzone-removed-file="fileRemoved"
+      @vdropzone-file-added="fileAdded" :class="{ error: submited && hasError('files') }" v-if="userData">
       <span class="arch-desck">Arrastra tus archivos para adjuntar, o <strong>búscalos aquí</strong></span>
       <span class="arch-mobile">Adjunta tus archivos aquí</span>
     </dropzone>
@@ -38,8 +31,10 @@
         <div class="option-buttons">
           <div class="label">¿El declarante es el mismo tercero afectado?</div>
           <div class="option-buttons-items">
-            <button type="button" v-on:click="isDeclarant(true)" v-bind:class="{selected: casualtyData.isDeclarant === true}">Si</button>
-            <button type="button" v-on:click="isDeclarant(false)" v-bind:class="{selected: casualtyData.isDeclarant === false}">No</button>
+            <button type="button" v-on:click="isDeclarant(true)"
+              v-bind:class="{ selected: casualtyData.isDeclarant === true }">Si</button>
+            <button type="button" v-on:click="isDeclarant(false)"
+              v-bind:class="{ selected: casualtyData.isDeclarant === false }">No</button>
           </div>
         </div>
       </div>
@@ -48,55 +43,63 @@
 
     <div class="row flied-no-mb segundo-nivel tercer-afec">
 
-        <div v-bind:class="{field: true, error: submited && hasError('declarantName'), filled: casualtyData.declarantName}">
-          <float-label>
-            <input type="text" name="name" v-model.lazy="casualtyData.declarantName" placeholder="Nombre del declarante">
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('declarantName')">{{ hasError('declarantName') }}</div>
-        </div>
+      <div v-bind:class="{ field: true, error: submited && hasError('declarantName'), filled: casualtyData.declarantName }">
+        <float-label>
+          <input type="text" name="name" v-model.lazy="casualtyData.declarantName" placeholder="Nombre del declarante">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantName')">{{ hasError('declarantName') }}</div>
+      </div>
 
-        <div v-bind:class="{field: true, error: submited && hasError('declarantPhone'), filled: casualtyData.declarantPhone}">
-          <float-label>
-            <input type="text" v-model="casualtyData.declarantPhone" name="phone" placeholder="Teléfono">
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('declarantPhone')">{{ hasError('declarantPhone') }}</div>
-        </div>
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantPhone'), filled: casualtyData.declarantPhone }">
+        <float-label>
+          <input type="text" v-model="casualtyData.declarantPhone" name="phone" placeholder="Teléfono">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantPhone')">{{ hasError('declarantPhone') }}</div>
+      </div>
 
-        <div v-bind:class="{field: true, error: submited && hasError('declarantDocType'), filled: casualtyData.declarantDocType}">
-          <float-label label="Tipo de documento" :dispatch="false">
-            <select v-model="casualtyData.declarantDocType">
-              <option v-for="(index, option) in documentTypes" v-bind:key="index" :selected="index === 0" v-bind:value="index">{{ option }}</option>
-            </select>
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('declarantDocType')">{{ hasError('declarantDocType') }}</div>
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantDocType'), filled: casualtyData.declarantDocType }">
+        <float-label label="Tipo de documento" :dispatch="false">
+          <select v-model="casualtyData.declarantDocType">
+            <option v-for="(index, option) in documentTypes" v-bind:key="index" :selected="index === 0"
+              v-bind:value="index">{{ option }}</option>
+          </select>
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantDocType')">{{ hasError('declarantDocType') }}
         </div>
+      </div>
 
-        <div v-bind:class="{field: true, error: submited && hasError('declarantDocumentId'), filled: casualtyData.declarantDocumentId}" >
-          <float-label>
-            <input type="text" name="id" v-model="casualtyData.declarantDocumentId" placeholder="Escribe tu número de documento">
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('declarantDocumentId')">{{ hasError('declarantDocumentId') }}</div>
-        </div>
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantDocumentId'), filled: casualtyData.declarantDocumentId }">
+        <float-label>
+          <input type="text" name="id" v-model="casualtyData.declarantDocumentId"
+            placeholder="Escribe tu número de documento">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantDocumentId')">{{ hasError('declarantDocumentId')
+        }}</div>
+      </div>
 
-        <div v-bind:class="{field: true, error: submited && hasError('city'), filled: casualtyData.city}">
-          <div class="label label-img-adj">
-            ¿En  que  ciudad  vas  a  reparar  tu vehículo?
-            <button v-tooltip="{content: cityHelpMessage, placement: 'top-center'}">Help</button>
-          </div>
-          <float-label label="Ciudad" :dispatch="false">
-            <select v-model="casualtyData.city">
-              <option v-for="item in cities" v-bind:key="item[0]" v-bind:value="item[0]">{{ item[1] }}</option>
-            </select>
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('city')">{{ hasError('city') }}</div>
+      <div v-bind:class="{ field: true, error: submited && hasError('city'), filled: casualtyData.city }">
+        <div class="label label-img-adj">
+          ¿En que ciudad vas a reparar tu vehículo?
+          <button v-tooltip="{ content: cityHelpMessage, placement: 'top-center' }">Help</button>
         </div>
+        <float-label label="Ciudad" :dispatch="false">
+          <select v-model="casualtyData.city">
+            <option v-for="item in cities" v-bind:key="item[0]" v-bind:value="item[0]">{{ item[1] }}</option>
+          </select>
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('city')">{{ hasError('city') }}</div>
+      </div>
 
-        <div v-bind:class="{field: true, address: true, error: submited && hasError('whereAddress'), filled: casualtyData.whereAddress}" >
-          <float-label>
-            <input type="text" v-model="casualtyData.whereAddress" placeholder="Dirección o Ciudad de ocurrencia">
-          </float-label>
-          <div class="error-message" v-show="submited && hasError('whereAddress')">{{ hasError('whereAddress') }}</div>
-        </div>
+      <div
+        v-bind:class="{ field: true, address: true, error: submited && hasError('whereAddress'), filled: casualtyData.whereAddress }">
+        <float-label>
+          <input type="text" v-model="casualtyData.whereAddress" placeholder="Dirección o Ciudad de ocurrencia">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('whereAddress')">{{ hasError('whereAddress') }}</div>
+      </div>
     </div>
 
     <div class="row">
@@ -104,23 +107,19 @@
         <div class="option-buttons">
           <div class="label">¿Hubo heridos?</div>
           <div class="option-buttons-items">
-            <button
-              type="button"
-              v-on:click="changeRules('withInjured', 'casualties', true)"
-              v-bind:class="{selected: casualtyData.withInjured === true}">
+            <button type="button" v-on:click="changeRules('withInjured', 'casualties', true)"
+              v-bind:class="{ selected: casualtyData.withInjured === true }">
               Si
             </button>
-            <button
-              type="button"
-              v-on:click="changeRules('withInjured', 'casualties', false)"
-              v-bind:class="{selected: casualtyData.withInjured === false}">
+            <button type="button" v-on:click="changeRules('withInjured', 'casualties', false)"
+              v-bind:class="{ selected: casualtyData.withInjured === false }">
               No
             </button>
           </div>
         </div>
       </div>
       <div class="col campo-heridos">
-        <div v-bind:class="{field: true, error: submited && hasError('casualties'), filled: casualtyData.casualties}">
+        <div v-bind:class="{ field: true, error: submited && hasError('casualties'), filled: casualtyData.casualties }">
           <float-label label="¿Cuántos?">
             <select v-model="casualtyData.casualties" v-bind:disabled="casualtyData.withInjured === false">
               <option v-for="option in counts" v-bind:key="option.value" :value="option.value">{{ option.label }}</option>
@@ -136,23 +135,19 @@
         <div class="option-buttons">
           <div class="label">¿Hubo muertos?</div>
           <div class="option-buttons-items">
-            <button
-              type="button"
-              v-on:click="changeRules('withDeaths', 'deaths', true)"
-              v-bind:class="{selected: casualtyData.withDeaths === true}">
+            <button type="button" v-on:click="changeRules('withDeaths', 'deaths', true)"
+              v-bind:class="{ selected: casualtyData.withDeaths === true }">
               Si
             </button>
-            <button
-              type="button"
-              v-on:click="changeRules('withDeaths', 'deaths', false)"
-              v-bind:class="{selected: casualtyData.withDeaths === false}">
+            <button type="button" v-on:click="changeRules('withDeaths', 'deaths', false)"
+              v-bind:class="{ selected: casualtyData.withDeaths === false }">
               No
             </button>
           </div>
         </div>
       </div>
       <div class="col campo-muerte">
-        <div v-bind:class="{field: true, error: submited && hasError('deaths'), filled: casualtyData.deaths}">
+        <div v-bind:class="{ field: true, error: submited && hasError('deaths'), filled: casualtyData.deaths }">
           <float-label label="¿Cuántos?">
             <select v-model="casualtyData.deaths" v-bind:disabled="casualtyData.withDeaths === false">
               <option v-for="option in counts" v-bind:key="option.value" :value="option.value">{{ option.label }}</option>
@@ -168,8 +163,10 @@
         <div class="option-buttons">
           <div class="label">¿Intervino policía de tránsito?</div>
           <div class="option-buttons-items">
-            <button type="button" v-on:click="yesNoOptions('withPolice', true)" v-bind:class="{selected: casualtyData.withPolice === true}">Si</button>
-            <button type="button" v-on:click="yesNoOptions('withPolice', false)" v-bind:class="{selected: casualtyData.withPolice === false}">No</button>
+            <button type="button" v-on:click="yesNoOptions('withPolice', true)"
+              v-bind:class="{ selected: casualtyData.withPolice === true }">Si</button>
+            <button type="button" v-on:click="yesNoOptions('withPolice', false)"
+              v-bind:class="{ selected: casualtyData.withPolice === false }">No</button>
           </div>
         </div>
       </div>
@@ -184,28 +181,23 @@
       </div>
     </div>
     <div class="image-car">
-      <img v-bind:src="carImage" alt="Daños en el vehículo"/>
-      <p-check
-        color="primary-o"
-        class="p-default p-round p-thick"
-        v-model="casualtyData.damages"
-        v-for="option in damages"
-        v-bind:key="option"
-        v-bind:value="option">
+      <img v-bind:src="carImage" alt="Daños en el vehículo" />
+      <p-check color="primary-o" class="p-default p-round p-thick" v-model="casualtyData.damages"
+        v-for="option in damages" v-bind:key="option" v-bind:value="option">
         <i class="icon mdi mdi-check" slot="extra"></i>
         {{ option }}
       </p-check>
     </div>
 
     <div class="actions">
-      <a  href="#" v-on:click.prevent="prevStep">Volver</a>
+      <a href="#" v-on:click.prevent="prevStep">Volver</a>
       <button v-on:click="nextStep" type="button">Continuar</button>
     </div>
 
     <alert :open="modal" icon="invalid-plate" v-on:closeModal="closeModal($event)">
       <div slot="body">
-        <div >
-          <h2>{{ modalTitle}}</h2>
+        <div>
+          <h2>{{ modalTitle }}</h2>
           <p> {{ modalBody }}</p>
         </div>
       </div>
@@ -265,7 +257,7 @@ export default {
     carImage: function () {
       return this.drupalSettings.assetsPath ? '/' + this.drupalSettings.assetsPath + 'car-form.png' : 'src/assets/car-form.png';
     },
-    dropzoneOptions: function() {
+    dropzoneOptions: function () {
       if (this.userData) {
         return {
           url: '/claim/files/' + this.userData.documentId + '/save/',
@@ -346,7 +338,7 @@ export default {
         declarantName: {
           required: {},
           length: {
-            max: 60
+            max: 70
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
@@ -391,7 +383,7 @@ export default {
       counts: [
         { value: 0, label: '¿Cuántos?' },
         { value: 1, label: '1' },
-        { value: 'more', label: 'Mas de uno'}
+        { value: 'more', label: 'Mas de uno' }
       ],
       damages: [
         'Sección delantera',

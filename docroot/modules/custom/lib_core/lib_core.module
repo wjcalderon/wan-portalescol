@@ -25,7 +25,7 @@ function lib_core_views_pre_render(ViewExecutable $view) {
  */
 function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
-  // var_dump($form_id);
+  // dump($form_id);
   /* if(strpos($form_id, 'webform_submission_') === 0){
   var_dump(1);
   $form['#attached']['library'][] = 'lib_core/captcha';
