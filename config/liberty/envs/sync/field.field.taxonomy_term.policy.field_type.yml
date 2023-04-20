@@ -1,0 +1,23 @@
+uuid: 1edf689c-2b26-460f-bf7c-3c2e48b3874f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_type
+    - taxonomy.vocabulary.policy
+  module:
+    - options
+id: taxonomy_term.policy.field_type
+field_name: field_type
+entity_type: taxonomy_term
+bundle: policy
+label: Tipo
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Coberturas
+default_value_callback: ''
+settings: {  }
+field_type: list_string

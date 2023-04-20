@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: documents
+label: Documentos
+icon_uuid: null
+description: 'Listado de documentos'
+behavior_plugins: {  }

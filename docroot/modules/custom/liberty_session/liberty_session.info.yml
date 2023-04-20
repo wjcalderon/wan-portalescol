@@ -1,0 +1,4 @@
+name: liberty-session
+type: module
+description: Este modulo es para garantizar tiempos y uso de session de las landing
+core_version_requirement: ^8 || ^9

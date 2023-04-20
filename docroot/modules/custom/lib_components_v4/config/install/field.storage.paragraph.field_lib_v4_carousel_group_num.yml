@@ -1,0 +1,30 @@
+uuid: ed158061-f856-40d8-9711-f4a6a4b902be
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - options
+id: paragraph.field_lib_v4_carousel_group_num
+field_name: field_lib_v4_carousel_group_num
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: 'Por defecto'
+    -
+      value: leftNavigation
+      label: 'Navegacion izquierda'
+    -
+      value: rightNavigation
+      label: 'Navegacion derecha'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

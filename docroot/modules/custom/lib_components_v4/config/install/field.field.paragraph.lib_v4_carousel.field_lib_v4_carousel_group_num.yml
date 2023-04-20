@@ -1,0 +1,23 @@
+uuid: 95fb1427-c1a4-4ea3-9d1a-903c76f6c27c
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel
+    - field.storage.paragraph.field_lib_v4_carousel_group_num
+  module:
+    - options
+id: paragraph.lib_v4_carousel.field_lib_v4_carousel_group_num
+field_name: field_lib_v4_carousel_group_num
+entity_type: paragraph
+bundle: lib_v4_carousel
+label: 'Tipo de carrusel'
+description: 'Tipo de navegacion en el carrusel'
+required: false
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

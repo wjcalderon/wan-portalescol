@@ -1,0 +1,21 @@
+uuid: 48221c9e-dcbb-431e-af8c-74946290c935
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_card
+    - paragraphs.paragraphs_type.card_grid_accordion
+  module:
+    - text
+id: paragraph.card_grid_accordion.field_title_card
+field_name: field_title_card
+entity_type: paragraph
+bundle: card_grid_accordion
+label: 'Titulo Sección'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

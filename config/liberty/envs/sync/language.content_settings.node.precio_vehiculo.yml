@@ -1,0 +1,11 @@
+uuid: 57f001c6-95f4-46fb-a26f-b095ecfd7b39
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.precio_vehiculo
+id: node.precio_vehiculo
+target_entity_type_id: node
+target_bundle: precio_vehiculo
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,19 @@
+uuid: b46e67e2-b89a-42b1-bc15-e0d4633baaa0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_consulting_room
+    - node.type.lender
+id: node.lender.field_consulting_room
+field_name: field_consulting_room
+entity_type: node
+bundle: lender
+label: Consultorio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

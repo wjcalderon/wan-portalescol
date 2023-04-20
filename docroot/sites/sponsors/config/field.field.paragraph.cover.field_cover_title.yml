@@ -1,0 +1,21 @@
+uuid: 1ec2d5bb-e260-43d8-99f0-d3b7403407dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cover_title
+    - paragraphs.paragraphs_type.cover
+  module:
+    - text
+id: paragraph.cover.field_cover_title
+field_name: field_cover_title
+entity_type: paragraph
+bundle: cover
+label: Título
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

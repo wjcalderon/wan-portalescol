@@ -1,0 +1,11 @@
+uuid: 2c885254-058a-4666-bf02-6661bf6c9ccc
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.payment_channel
+id: taxonomy_term.payment_channel
+target_entity_type_id: taxonomy_term
+target_bundle: payment_channel
+default_langcode: site_default
+language_alterable: false

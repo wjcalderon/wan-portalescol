@@ -1,0 +1,11 @@
+uuid: 11f52c93-ac7f-4b7b-8de5-9c53f819fe8b
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.referencia_adicional
+id: taxonomy_term.referencia_adicional
+target_entity_type_id: taxonomy_term
+target_bundle: referencia_adicional
+default_langcode: site_default
+language_alterable: false

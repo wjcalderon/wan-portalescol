@@ -1,0 +1,21 @@
+uuid: 12602448-030a-4441-b200-3c8823aeda3c
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+_core:
+  default_config_hash: mLS_2i7BbVAjQoWPyPBrP6IvfiR8P1F9c1TbyvnL8A0
+id: block_content.field_lib_v3_carousel_link
+field_name: field_lib_v3_carousel_link
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

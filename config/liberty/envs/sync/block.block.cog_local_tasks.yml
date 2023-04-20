@@ -1,0 +1,22 @@
+uuid: 1ce93fe9-bb71-487a-ae0c-4acae8294d7f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cog
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cog_local_tasks
+theme: cog
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

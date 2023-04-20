@@ -1,0 +1,21 @@
+uuid: 90ae47bb-2bff-4714-8d4e-b42ae3e24a91
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_lib_v2_banner_main_heading
+field_name: field_lib_v2_banner_main_heading
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

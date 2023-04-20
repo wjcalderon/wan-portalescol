@@ -1,0 +1,20 @@
+uuid: 17812876-77b4-4fd8-8fef-b92416f0e8ce
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_campaing_tax
+field_name: field_campaing_tax
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

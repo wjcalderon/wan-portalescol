@@ -1,0 +1,21 @@
+uuid: 40b6cd2b-ca2a-4bfb-b225-3084026ce1dd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_name
+    - paragraphs.paragraphs_type.card_person
+_core:
+  default_config_hash: rMgIsDLBMQtSwfNVDxkbIBS0tixdW0zp3-bVi-GLG_k
+id: paragraph.card_person.field_name
+field_name: field_name
+entity_type: paragraph
+bundle: card_person
+label: Nombre
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

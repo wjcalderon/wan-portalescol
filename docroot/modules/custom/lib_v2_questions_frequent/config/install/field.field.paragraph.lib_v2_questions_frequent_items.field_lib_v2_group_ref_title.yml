@@ -1,0 +1,19 @@
+uuid: 2a6a34c4-c6fe-47c2-90e3-f48a5aeee118
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_group_ref_title
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent_items
+id: paragraph.lib_v2_questions_frequent_items.field_lib_v2_group_ref_title
+field_name: field_lib_v2_group_ref_title
+entity_type: paragraph
+bundle: lib_v2_questions_frequent_items
+label: Titulo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

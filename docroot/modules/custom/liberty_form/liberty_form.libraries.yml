@@ -1,0 +1,118 @@
+liberty-css:
+  version: VERSION
+  css:
+    theme:
+      css/liberty.css: {}
+  js:
+    js/css_node.js: {}
+
+css_custom:
+  version: VERSION
+  css:
+    theme:
+      css/custom.css: {}
+
+liberty-js:
+  version: VERSION
+  js:
+    js/liberty.js: {}
+  css:
+    theme:
+      css/liberty.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+liberty-node:
+  version: VERSION
+  js:
+    js/liberty_node.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+liberty-node-create:
+  version: VERSION
+  js:
+    js/liberty_node_save.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+liberty-validations:
+  version: VERSION
+  js:
+    js/liberty-validations.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+    - liberty/jquery-validation
+
+liberty-callcenter-form-validation:
+  version: VERSION
+  js:
+    js/callcenter-form-validation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+    - liberty/jquery-validation
+
+liberty-callcenter-login-after:
+  version: VERSION
+  js:
+    js/login-after.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+    - liberty/jquery-validation
+
+liberty-google-analytics-links:
+  version: VERSION
+  js:
+    js/google-analytics-links.js: {}
+liberty-login-form:
+  version: VERSION
+  js:
+    js/login.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+liberty-webform-api:
+  version: VERSION
+  js:
+    js/webform-api.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+cover-caracteristic:
+  version: VERSION
+  js:
+    js/cover.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+redirect-form:
+  version: VERSION
+  js:
+    js/redirect.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+liberty-validations-campaing-form:
+  version: VERSION
+  js:
+    js/validations_campaing_form.js: {}

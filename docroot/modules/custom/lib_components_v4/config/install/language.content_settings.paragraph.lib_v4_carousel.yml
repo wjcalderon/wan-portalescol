@@ -1,0 +1,13 @@
+uuid: c9b8afa5-6564-4c0d-b47f-4rcdc8585de4
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel
+_core:
+  default_config_hash: lXsn4a46A4SRPse72bgIQw5eIROFBsivzl8FySZrC08
+id: paragraph.lib_v4_carousel
+target_entity_type_id: paragraph
+target_bundle: lib_v4_carousel
+default_langcode: site_default
+language_alterable: false

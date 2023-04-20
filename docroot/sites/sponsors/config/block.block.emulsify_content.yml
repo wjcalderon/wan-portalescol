@@ -1,0 +1,22 @@
+uuid: 7bc2f2d2-61e6-42d3-ac1c-aaf5b6293894
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - emulsify
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: emulsify_content
+theme: emulsify
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

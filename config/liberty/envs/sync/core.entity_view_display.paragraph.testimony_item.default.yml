@@ -1,0 +1,66 @@
+uuid: c3d56713-71e0-4061-8ff6-c262034d194a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimony_item.field_c_classes
+    - field.field.paragraph.testimony_item.field_date
+    - field.field.paragraph.testimony_item.field_heading
+    - field.field.paragraph.testimony_item.field_lead
+    - field.field.paragraph.testimony_item.field_score
+    - field.field.paragraph.testimony_item.field_user
+    - paragraphs.paragraphs_type.testimony_item
+id: paragraph.testimony_item.default
+targetEntityType: paragraph
+bundle: testimony_item
+mode: default
+content:
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_date:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_score:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_user:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

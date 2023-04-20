@@ -1,0 +1,28 @@
+langcode: es
+status: true
+dependencies: {  }
+id: news_inphography_creator
+label: 'Noticias infografía creator'
+weight: 45
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node news_inphography content'
+  - 'administer panelizer node news_inphography layout'
+  - 'change layouts in place editing'
+  - 'create news_inphography content'
+  - 'create url aliases'
+  - 'edit own news_inphography content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view news_inphography revisions'
+  - 'view own unpublished content'

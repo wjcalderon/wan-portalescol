@@ -1,0 +1,8 @@
+uuid: b28e3a28-06ce-4216-928f-19f630a86fa5
+langcode: es
+status: true
+dependencies: {  }
+name: Especialidad
+vid: speciality
+description: 'Especialidades asociadadas a los prestadores de salud en red médica'
+weight: 0

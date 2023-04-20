@@ -1,0 +1,27 @@
+uuid: bab5d876-9989-4193-bd4b-288fdca634cd
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lender
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: lender_reviewer
+label: 'Prestador reviewer'
+weight: 18
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any lender content'
+  - 'edit any lender content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

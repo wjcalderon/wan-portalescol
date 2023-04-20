@@ -1,0 +1,17 @@
+uuid: 0f920e78-5270-41e7-b9ff-c60a57dff4db
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.medium
+  module:
+    - crop
+name: banner_medium
+label: 'banner medium'
+effects:
+  b7f156ec-1081-4fb3-99d5-acbf77256d2d:
+    uuid: b7f156ec-1081-4fb3-99d5-acbf77256d2d
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: medium

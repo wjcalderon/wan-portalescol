@@ -1,0 +1,14 @@
+uuid: 82eb56b3-c5d4-4fde-82c5-5c86d10f494f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.faq_los_segura_creator
+  module:
+    - user
+id: user_add_role_action.faq_los_segura_creator
+label: 'Añade el rol Faq Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: faq_los_segura_creator

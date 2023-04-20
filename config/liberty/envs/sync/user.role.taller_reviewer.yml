@@ -1,0 +1,27 @@
+uuid: 50ceebec-dd16-428b-81d1-80c9f7373e50
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.taller
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: taller_reviewer
+label: 'Taller reviewer'
+weight: 48
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any taller content'
+  - 'edit any taller content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

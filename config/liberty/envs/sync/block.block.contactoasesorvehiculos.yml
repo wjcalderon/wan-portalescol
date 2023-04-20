@@ -1,0 +1,25 @@
+uuid: d5f62b03-1304-4398-9f69-2c3d5d84e153
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8128680b-c384-4e75-a7e9-0fc475ae2186'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: contactoasesorvehiculos
+theme: liberty_public
+region: blocks_activate
+weight: -38
+provider: null
+plugin: 'block_content:8128680b-c384-4e75-a7e9-0fc475ae2186'
+settings:
+  id: 'block_content:8128680b-c384-4e75-a7e9-0fc475ae2186'
+  label: 'Contacto asesor vehículos '
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

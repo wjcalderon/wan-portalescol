@@ -1,0 +1,11 @@
+uuid: a57462c6-5763-4452-98a1-d9a72a992c84
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9arH_mp5H4L4QOfkOFk4Eq-zum2qZWPBLtCM7nidQeI
+id: landing_los_segura_reviewer
+label: 'Landing Los Segura reviewer'
+weight: 34
+is_admin: false
+permissions: {  }

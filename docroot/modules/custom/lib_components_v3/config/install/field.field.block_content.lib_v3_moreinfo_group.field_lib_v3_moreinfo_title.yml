@@ -1,0 +1,21 @@
+uuid: b2c389cc-5b33-4344-a2a8-90004a4f0800
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_moreinfo_group
+    - field.storage.block_content.field_lib_v3_moreinfo_title
+_core:
+  default_config_hash: u53QzRp13c4shzcQYAzJ-0sFzNEgAUP1oz4nnxV7tO8
+id: block_content.lib_v3_moreinfo_group.field_lib_v3_moreinfo_title
+field_name: field_lib_v3_moreinfo_title
+entity_type: block_content
+bundle: lib_v3_moreinfo_group
+label: Titulo
+description: 'Titulo de la seccion'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

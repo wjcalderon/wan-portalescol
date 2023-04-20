@@ -1,0 +1,24 @@
+uuid: 84843ca9-4adc-4552-b1a2-4cc8d7e18f24
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.landing_los_segura
+_core:
+  default_config_hash: 0GYcMYiMxL-J1l3CtiyvRRwh7FvtmOWlnHGcdZNZxe4
+id: node.landing_los_segura.promote
+field_name: promote
+entity_type: node
+bundle: landing_los_segura
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

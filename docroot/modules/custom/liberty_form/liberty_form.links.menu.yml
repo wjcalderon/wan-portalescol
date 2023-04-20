@@ -1,0 +1,62 @@
+liberty_form.msn_api:
+  title: "Configuración del api sms"
+  route_name: liberty_form.msn_api
+  description: "Configuración de la API para envío de mensajes de texto vía sms"
+  parent: liberty_form.group.admin
+  weight: 99
+
+liberty_form.sms_launcher:
+  title: "Enviar mensajes de texto a clientes"
+  route_name: liberty_form.sms_launcher
+  description: "Aquí podrás realizar el envío de los mensajes a tus clientes"
+  parent: liberty_form.group.admin
+  weight: -99
+
+liberty_form.mail_launcher:
+  title: "Enviar correo electronicos a los clientes"
+  route_name: liberty_form.mailLauncher
+  description: "Aquí podrás realizar el envío de los correos electronicos a tus clientes"
+  parent: liberty_form.group.admin
+  weight: -99
+
+liberty_form.db_migrator:
+  title: "Migrador de Base de Datos de Clientes"
+  route_name: liberty_form.db_migrator
+  description: "Formulario de cargue de la base de datos"
+  parent: liberty_form.group.admin
+  weight: 99
+
+liberty_form.group.admin:
+  title: "Liberty"
+  route_name: system.admin_config_liberty_form
+  parent: system.admin_config
+  description: 'Liberty Configuration'
+  weight: -999
+
+liberty_form.marketing_cloud:
+  title: 'Configuración del sftp marketing cloud'
+  route_name: liberty_form.marketing_cloud
+  description: 'Configuración para el envío de archivos al servidor sftp de marketing cloud'
+  parent: liberty_form.group.admin
+  weight: 99  
+
+liberty_form.dwh:
+  title: 'Configuración del sftp DWH'
+  route_name: liberty_form.dwh
+  description: 'Configuración para el envío de archivos al servidor sftp de de DWH'
+  parent: liberty_form.group.admin
+  weight: 99
+
+liberty_form.vip:
+  title: 'Configuración de la variable VIP'
+  route_name: liberty_form.vip
+  description: 'Configuración de la variable para poder acceder de forma vip a la landing privadas'
+  parent: liberty_form.group.admin
+  weight: 99
+
+liberty_form.KeyApiMarketingCloud:
+  title: 'Configuración de url acceso api marketing cloud'
+  route_name: liberty_form.KeyApiMarketingCloud
+  description: 'Configuración url acceso servidor api de marketing cloud'
+  parent: liberty_form.group.admin
+  weight: 99

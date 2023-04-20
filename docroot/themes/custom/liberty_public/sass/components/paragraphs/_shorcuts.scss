@@ -1,0 +1,111 @@
+.component__shorcuts {
+  .sticky-container {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .sticky-wrapper {
+    width: 100%;
+    list-style: none;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: center;
+
+    .sticky-item {
+
+      display: inline-block;
+      padding-bottom: 1.4rem;
+      margin: 6px 6px 0;
+      font-size: 0.8rem;
+
+      @media screen and (max-width: 468px) {
+        display: inline-block;
+        padding-bottom: 1.4rem;
+        margin: 6px 10px 0;
+        font-size: 0.8rem;
+        max-width: 15%;
+        vertical-align: top;
+        line-height: 1.2;
+      }
+
+      @media screen and (min-width: $small-max) {
+        font-size: 1rem;
+      }
+
+      &.active,
+      &:hover {
+        border-bottom: 3px solid $petroleo-tr;
+        font-weight: 600;
+      }
+
+      @media screen and (max-width: $small-max) {
+        &:before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 40px;
+          background-image: url(../images/icons/los-segura/family.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+
+        &:nth-child(2) {
+          &:before {
+            background-image: url(../images/icons/los-segura/faq.svg);
+          }
+        }
+
+        &:nth-child(3) {
+          &:before {
+            background-image: url(../images/icons/los-segura/video.svg);
+          }
+        }
+
+        &:nth-child(4) {
+          &:before {
+            background-image: url(../images/icons/los-segura/glossary.svg);
+          }
+        }
+
+        &:nth-child(5) {
+          &:before {
+            background-image: url(../images/icons/los-segura/quote.svg);
+          }
+        }
+      }
+    }
+
+    &.is-fixed {
+      position: fixed;
+      top: 0;
+      background: $blanco-pl;
+      z-index: 50;
+      width: 100%;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+      a {
+        padding: 1.5rem 1.8rem;
+        font-size: 1rem;
+
+        @media screen and (max-width: 979px) {
+          padding: 0 1rem;
+          white-space: normal;
+          text-align: center;
+          font-size: 0.8rem;
+          display: block;
+        }
+
+        @media screen and (max-width: $small-max) {
+          padding: 0;
+          white-space: normal;
+          text-align: center;
+          font-size: 0.8rem;
+          display: block;
+        }
+      }
+    }
+  }
+}

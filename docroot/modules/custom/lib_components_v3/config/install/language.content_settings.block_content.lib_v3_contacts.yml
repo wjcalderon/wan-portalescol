@@ -1,0 +1,13 @@
+uuid: 3f053822-ded2-427d-9066-e311dfbd9927
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_contacts
+_core:
+  default_config_hash: PmPK1IkOQszwWIKRQEEqJmBqvuD44EM4__BM_C8nC4g
+id: block_content.lib_v3_contacts
+target_entity_type_id: block_content
+target_bundle: lib_v3_contacts
+default_langcode: site_default
+language_alterable: false

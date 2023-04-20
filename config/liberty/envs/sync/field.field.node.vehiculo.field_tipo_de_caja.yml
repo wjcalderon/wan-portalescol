@@ -1,0 +1,21 @@
+uuid: b64e82d1-9cde-40b5-a8fa-8d28f3a45952
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tipo_de_caja
+    - node.type.vehiculo
+  module:
+    - options
+id: node.vehiculo.field_tipo_de_caja
+field_name: field_tipo_de_caja
+entity_type: node
+bundle: vehiculo
+label: 'Tipo de caja'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

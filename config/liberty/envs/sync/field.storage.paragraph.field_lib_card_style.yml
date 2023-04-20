@@ -1,0 +1,27 @@
+uuid: 750842aa-77cc-4b84-8554-90b9f4c21999
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_card_style
+field_name: field_lib_card_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Basic
+    -
+      value: market
+      label: Market
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

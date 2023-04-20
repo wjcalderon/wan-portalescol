@@ -1,0 +1,28 @@
+uuid: 9ea488a3-0b3f-4fc7-beca-e3d2ad8068ac
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_doc_clauses
+    - media.type.document
+    - node.type.product
+id: node.product.field_doc_clauses
+field_name: field_doc_clauses
+entity_type: node
+bundle: product
+label: Cláusulas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

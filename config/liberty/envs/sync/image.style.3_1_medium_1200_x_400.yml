@@ -1,0 +1,15 @@
+uuid: ae966c68-8cd6-40d4-9ef8-4fbba6e48790
+langcode: es
+status: true
+dependencies: {  }
+name: 3_1_medium_1200_x_400
+label: '3:1 Medium (1200 x 400)'
+effects:
+  685f50a2-7233-426e-b691-da704c237692:
+    uuid: 685f50a2-7233-426e-b691-da704c237692
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 400
+      anchor: center-center

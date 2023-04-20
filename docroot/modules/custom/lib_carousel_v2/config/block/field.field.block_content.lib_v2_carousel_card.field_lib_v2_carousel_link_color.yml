@@ -1,0 +1,23 @@
+uuid: 2f733b80-f92a-4699-ace5-c495649f1160
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_carousel_card
+    - field.storage.block_content.field_lib_v2_carousel_link_color
+  module:
+    - options
+id: block_content.lib_v2_carousel_card.field_lib_v2_carousel_link_color
+field_name: field_lib_v2_carousel_link_color
+entity_type: block_content
+bundle: lib_v2_carousel_card
+label: 'Color Botón'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

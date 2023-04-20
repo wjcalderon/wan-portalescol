@@ -1,0 +1,27 @@
+uuid: 35a723c1-7974-433b-990e-606f3ec40d23
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: destacados
+label: Destacados
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news_article: news_article
+      news_article_video: news_article_video
+      news_inphography: news_inphography
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: news_article
+queue_settings:
+  min_size: 4
+  max_size: 4
+  act_as_queue: true
+  reverse: false

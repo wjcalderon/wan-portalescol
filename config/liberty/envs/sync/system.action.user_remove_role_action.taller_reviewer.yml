@@ -1,0 +1,14 @@
+uuid: 0fcc8d7c-d408-478d-a098-d1e573777c9b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.taller_reviewer
+  module:
+    - user
+id: user_remove_role_action.taller_reviewer
+label: 'Elimina el rol Taller reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: taller_reviewer

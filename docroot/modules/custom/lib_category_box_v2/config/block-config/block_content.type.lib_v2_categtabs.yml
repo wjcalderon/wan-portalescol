@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_categtabs
+label: Categorias
+revision: 0
+description: 'Pestañas para caja de categorias'

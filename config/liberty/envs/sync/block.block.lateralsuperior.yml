@@ -1,0 +1,25 @@
+uuid: c14fe341-82ca-4eef-a497-3639f530a327
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.menu-branding
+  module:
+    - system
+  theme:
+    - liberty_public
+id: lateralsuperior
+theme: liberty_public
+region: menu_mobile
+weight: -35
+provider: null
+plugin: 'system_menu_block:menu-branding'
+settings:
+  id: 'system_menu_block:menu-branding'
+  label: 'Lateral Superior'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

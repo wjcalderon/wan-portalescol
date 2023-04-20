@@ -1,0 +1,24 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - entity_browser.browser.media_browser
+    - media.type.infografia
+  module:
+    - entity_embed
+    - media
+label: Infografía
+id: infografia
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - infografia
+  display_plugins:
+    - 'view_mode:media.full'
+  entity_browser: media_browser
+  entity_browser_settings:
+    display_review: false
+icon: {  }
+icon_uuid: null

@@ -1,0 +1,16 @@
+
+@media only screen and (max-width: 979px) {
+  .abierto #navigation-mb {
+    z-index: 9999;
+    width: 90%; 
+  }
+
+  #burguer-menu {
+    position: relative;
+    z-index: 999;
+  }
+
+  .menu--menu-branding li {
+    display: block !important;
+  }
+}

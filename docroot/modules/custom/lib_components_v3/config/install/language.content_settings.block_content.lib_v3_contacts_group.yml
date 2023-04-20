@@ -1,0 +1,13 @@
+uuid: b0b7e897-8ff1-48ed-b77a-e9b86b80aa06
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_contacts_group
+_core:
+  default_config_hash: Q3hXqjE3OJ37NWCePlMdhJVPD7ZC-qJjZNk5V9s7o3o
+id: block_content.lib_v3_contacts_group
+target_entity_type_id: block_content
+target_bundle: lib_v3_contacts_group
+default_langcode: site_default
+language_alterable: false

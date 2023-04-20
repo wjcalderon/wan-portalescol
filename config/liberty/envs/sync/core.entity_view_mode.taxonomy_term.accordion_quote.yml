@@ -1,0 +1,14 @@
+uuid: c036351a-1438-4a76-8138-596e8b957564
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.accordion_quote
+label: 'Acordeon cotización'
+targetEntityType: taxonomy_term
+cache: true

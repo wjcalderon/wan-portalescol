@@ -1,0 +1,59 @@
+uuid: 8b06059d-7a5d-477d-b287-2a67114799ab
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.plan_list.field_lib_columns
+    - field.field.paragraph.plan_list.field_lib_heading
+    - field.field.paragraph.plan_list.field_lib_p_items
+    - field.field.paragraph.plan_list.field_lib_plan_style
+    - field.field.paragraph.plan_list.field_lib_summary
+    - paragraphs.paragraphs_type.plan_list
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.plan_list.default
+targetEntityType: paragraph
+bundle: plan_list
+mode: default
+content:
+  field_lib_columns:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_plan_style:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,28 @@
+.cog--items.slick-initialized.slick-slider.slick-dotted {
+  margin-bottom: -1rem !important;
+}
+.cp-banner-bottom {
+  .link--full {
+    display: none;
+  }
+  .cog--mq {
+    .cp-banner__heading {
+      right: 6.625rem !important;
+      .button {
+        display: block !important;
+        margin: 1.5rem auto -1.5rem !important;
+        text-align: center !important;
+        width: 12rem !important;
+        &:hover {
+          a {
+            color: #fff !important;
+          }
+        }
+        a {
+          color: #1a1446 !important;
+          font-size: .95rem !important;
+        }
+      }
+    }
+  }
+}

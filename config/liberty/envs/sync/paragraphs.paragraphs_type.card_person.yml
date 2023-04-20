@@ -1,0 +1,12 @@
+uuid: ee626e02-a136-4436-aa74-2a0d6b824628
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GP020IHO2XO5TB8V_0-AYJomO1e55EZ7ygzUawlhHSU
+id: card_person
+label: 'Tarjeta: Persona'
+icon_uuid: null
+icon_default: null
+description: 'Se usa en Los Segura inicialmente'
+behavior_plugins: {  }

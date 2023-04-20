@@ -1,0 +1,93 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.paragraph.image.field_c_classes
+    - field.field.paragraph.image.field_c_image
+    - field.field.paragraph.image.field_c_title
+    - field.field.paragraph.image.field_c_title_status
+    - field.field.paragraph.image.field_c_width
+    - paragraphs.paragraphs_type.image
+  module:
+    - entity_browser
+    - field_group
+third_party_settings:
+  field_group:
+    group_com:
+      children:
+        - field_c_title
+        - field_c_title_status
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Component title'
+    group_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Styling settings'
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  field_c_classes:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_image:
+    type: entity_browser_file
+    weight: 1
+    settings:
+      entity_browser: image_browser
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      view_mode: default
+    region: content
+    third_party_settings: {  }
+  field_c_title:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title_status:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_c_width:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

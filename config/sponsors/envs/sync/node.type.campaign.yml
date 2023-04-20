@@ -1,0 +1,17 @@
+uuid: b666ec49-cf04-4c7f-9f9e-85f8b5b5edca
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Campaña
+type: campaign
+description: 'A campaign with liberty partners '
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

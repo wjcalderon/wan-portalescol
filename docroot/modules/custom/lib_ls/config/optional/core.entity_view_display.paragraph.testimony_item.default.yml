@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimony_item.field_c_classes
+    - field.field.paragraph.testimony_item.field_date
+    - field.field.paragraph.testimony_item.field_heading
+    - field.field.paragraph.testimony_item.field_lead
+    - field.field.paragraph.testimony_item.field_score
+    - field.field.paragraph.testimony_item.field_user
+    - paragraphs.paragraphs_type.testimony_item
+id: paragraph.testimony_item.default
+targetEntityType: paragraph
+bundle: testimony_item
+mode: default
+content:
+  field_c_classes:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_date:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_lead:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_score:
+    weight: 3
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_user:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

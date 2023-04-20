@@ -1,0 +1,14 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 768x1090
+label: 768x1090
+effects:
+  df4fae7d-d5f9-4eef-af38-f292845f14d6:
+    uuid: df4fae7d-d5f9-4eef-af38-f292845f14d6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 1090
+      anchor: center-center

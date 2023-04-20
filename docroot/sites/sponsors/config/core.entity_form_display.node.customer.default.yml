@@ -1,0 +1,187 @@
+uuid: 0a52f761-e965-4dbc-8732-ca13a5e4a941
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.customer.field_birth_day
+    - field.field.node.customer.field_branch
+    - field.field.node.customer.field_bussiness_key
+    - field.field.node.customer.field_campaign
+    - field.field.node.customer.field_campaign_id
+    - field.field.node.customer.field_city
+    - field.field.node.customer.field_country
+    - field.field.node.customer.field_customer_name
+    - field.field.node.customer.field_diligence_form_date
+    - field.field.node.customer.field_document_type
+    - field.field.node.customer.field_edad
+    - field.field.node.customer.field_email
+    - field.field.node.customer.field_entry_date
+    - field.field.node.customer.field_gender
+    - field.field.node.customer.field_id_number
+    - field.field.node.customer.field_id_type
+    - field.field.node.customer.field_lastname
+    - field.field.node.customer.field_origin
+    - field.field.node.customer.field_phone
+    - field.field.node.customer.field_send_mails
+    - field.field.node.customer.field_sponsor_name
+    - node.type.customer
+  module:
+    - datetime
+id: node.customer.default
+targetEntityType: node
+bundle: customer
+mode: default
+content:
+  field_birth_day:
+    type: datetime_default
+    weight: 32
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_branch:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_bussiness_key:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_campaign:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_campaign_id:
+    type: options_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_city:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_country:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_customer_name:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_diligence_form_date:
+    type: datetime_default
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_document_type:
+    type: options_select
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_edad:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_email:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_entry_date:
+    type: datetime_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_gender:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_id_number:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lastname:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_origin:
+    type: options_select
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_phone:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_send_mails:
+    type: boolean_checkbox
+    weight: 35
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_sponsor_name:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_id_type: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

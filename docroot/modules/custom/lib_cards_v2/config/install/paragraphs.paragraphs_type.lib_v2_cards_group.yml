@@ -1,0 +1,10 @@
+uuid: b89955f6-f17f-4472-8e77-ee414b76f7ff
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_cards_group
+label: 'Card Group'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

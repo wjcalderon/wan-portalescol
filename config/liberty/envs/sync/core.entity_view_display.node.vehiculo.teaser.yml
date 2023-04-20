@@ -1,0 +1,68 @@
+uuid: 71811c4d-ebbe-4f70-b8dd-bf400ac1c2ec
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vehiculo.field_agrupador_sistema
+    - field.field.node.vehiculo.field_aire_acondicionado
+    - field.field.node.vehiculo.field_bcpp
+    - field.field.node.vehiculo.field_capacidad_kg
+    - field.field.node.vehiculo.field_capacidad_pasajeros
+    - field.field.node.vehiculo.field_cilindraje
+    - field.field.node.vehiculo.field_codigo
+    - field.field.node.vehiculo.field_combustible
+    - field.field.node.vehiculo.field_ejes
+    - field.field.node.vehiculo.field_id_servicio
+    - field.field.node.vehiculo.field_importado
+    - field.field.node.vehiculo.field_marca_linea
+    - field.field.node.vehiculo.field_nacionalidad
+    - field.field.node.vehiculo.field_peso_categoria
+    - field.field.node.vehiculo.field_peso_kg
+    - field.field.node.vehiculo.field_potencia
+    - field.field.node.vehiculo.field_puertas
+    - field.field.node.vehiculo.field_ref2
+    - field.field.node.vehiculo.field_servicio
+    - field.field.node.vehiculo.field_tipo_de_caja
+    - field.field.node.vehiculo.field_tipo_vehiculo
+    - field.field.node.vehiculo.field_transmision
+    - field.field.node.vehiculo.field_um
+    - node.type.vehiculo
+  module:
+    - user
+id: node.vehiculo.teaser
+targetEntityType: node
+bundle: vehiculo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_agrupador_sistema: true
+  field_aire_acondicionado: true
+  field_bcpp: true
+  field_capacidad_kg: true
+  field_capacidad_pasajeros: true
+  field_cilindraje: true
+  field_codigo: true
+  field_combustible: true
+  field_ejes: true
+  field_id_servicio: true
+  field_importado: true
+  field_marca_linea: true
+  field_nacionalidad: true
+  field_peso_categoria: true
+  field_peso_kg: true
+  field_potencia: true
+  field_puertas: true
+  field_ref2: true
+  field_servicio: true
+  field_tipo_de_caja: true
+  field_tipo_vehiculo: true
+  field_transmision: true
+  field_um: true
+  langcode: true

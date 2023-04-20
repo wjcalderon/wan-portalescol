@@ -1,0 +1,19 @@
+uuid: 7654162f-7161-4d1e-8d34-7f6778344456
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_heading
+    - paragraphs.paragraphs_type.banner_cards
+id: paragraph.banner_cards.field_lib_heading
+field_name: field_lib_heading
+entity_type: paragraph
+bundle: banner_cards
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

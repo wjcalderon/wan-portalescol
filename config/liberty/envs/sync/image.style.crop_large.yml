@@ -1,0 +1,17 @@
+uuid: 9ae5baac-65af-4503-ae80-e8493330abf1
+langcode: es
+status: true
+dependencies:
+  config:
+    - crop.type.large
+  module:
+    - crop
+name: crop_large
+label: 'Cropped: Large'
+effects:
+  a81c0b87-d808-42c0-977e-cf2a7a38ce4f:
+    uuid: a81c0b87-d808-42c0-977e-cf2a7a38ce4f
+    id: crop_crop
+    weight: null
+    data:
+      crop_type: large

@@ -1,0 +1,58 @@
+uuid: 1f6d34ab-b420-4bb1-98f0-99173b7be2b6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_person.field_image
+    - field.field.paragraph.card_person.field_label
+    - field.field.paragraph.card_person.field_lead
+    - field.field.paragraph.card_person.field_name
+    - image.style.large
+    - paragraphs.paragraphs_type.card_person
+  module:
+    - svg_image
+_core:
+  default_config_hash: hdVLl4eWuht7cVt5JRa0D2n-ZkgMvoFgW3Oo1B9PkeU
+id: paragraph.card_person.default
+targetEntityType: paragraph
+bundle: card_person
+mode: default
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: large
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

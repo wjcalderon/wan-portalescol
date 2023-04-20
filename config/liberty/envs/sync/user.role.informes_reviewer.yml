@@ -1,0 +1,27 @@
+uuid: 2c9ebcef-f65e-4b79-b2dc-a01588b74fbf
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.informes
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: informes_reviewer
+label: 'Informes reviewer'
+weight: 51
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any informes content'
+  - 'edit any informes content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

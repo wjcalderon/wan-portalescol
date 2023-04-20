@@ -1,0 +1,19 @@
+uuid: eaadf9aa-ee19-4073-8e35-dc29d521d463
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_classes
+    - paragraphs.paragraphs_type.webform
+id: paragraph.webform.field_c_classes
+field_name: field_c_classes
+entity_type: paragraph
+bundle: webform
+label: 'CSS class(es)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

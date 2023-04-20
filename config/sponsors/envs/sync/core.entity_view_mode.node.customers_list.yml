@@ -1,0 +1,10 @@
+uuid: a92a8c65-e4f5-4af3-9a51-f95f71a2148d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.customers_list
+label: 'Lista de clientes'
+targetEntityType: node
+cache: true

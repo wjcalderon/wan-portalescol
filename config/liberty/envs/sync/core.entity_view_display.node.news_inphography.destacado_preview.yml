@@ -1,0 +1,55 @@
+uuid: 9e2a2e89-ddaf-438e-973c-a77075312b3f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.destacado_preview
+    - field.field.node.news_inphography.body
+    - field.field.node.news_inphography.field_big_image
+    - field.field.node.news_inphography.field_category
+    - field.field.node.news_inphography.field_cta
+    - field.field.node.news_inphography.field_featured
+    - field.field.node.news_inphography.field_relacionados
+    - field.field.node.news_inphography.field_small_image
+    - field.field.node.news_inphography.field_tags
+    - node.type.news_inphography
+  module:
+    - manage_display
+    - svg_image
+id: node.news_inphography.destacado_preview
+targetEntityType: node
+bundle: news_inphography
+mode: destacado_preview
+content:
+  field_small_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  created: true
+  field_big_image: true
+  field_category: true
+  field_cta: true
+  field_featured: true
+  field_relacionados: true
+  field_tags: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
+  uid: true

@@ -1,0 +1,7 @@
+name: 'Lib v2 Preguntas frecuentes'
+type: module
+description: 'Drop-down tabs with text'
+core_version_requirement: ^8 || ^9
+package: 'Esinergia'
+dependencies:
+  - lib_v2_core

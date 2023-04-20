@@ -1,0 +1,14 @@
+uuid: ff960773-7be3-4ded-a692-6410bcb067e7
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.precio_vehiculo_reviewer
+  module:
+    - user
+id: user_add_role_action.precio_vehiculo_reviewer
+label: 'Añade el rol Precio vehículo reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: precio_vehiculo_reviewer

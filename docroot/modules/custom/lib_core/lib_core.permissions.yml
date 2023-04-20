@@ -1,0 +1,4 @@
+access config liberty:
+  title: 'Access liberty config'
+  description: 'Access liberty config'
+  restrict access: TRUE

@@ -1,0 +1,187 @@
+uuid: 0745b936-8342-4c76-91ef-b97d8ab74b11
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.lender.field_consulting_room
+    - field.field.node.lender.field_dv
+    - field.field.node.lender.field_extension
+    - field.field.node.lender.field_google_maps_address
+    - field.field.node.lender.field_identification
+    - field.field.node.lender.field_lender_category
+    - field.field.node.lender.field_location_map
+    - field.field.node.lender.field_network_address
+    - field.field.node.lender.field_oficina
+    - field.field.node.lender.field_phone
+    - field.field.node.lender.field_provider_type
+    - field.field.node.lender.field_schedules
+    - field.field.node.lender.field_speciality
+    - field.field.node.lender.field_telemedicine
+    - field.field.node.lender.field_type_plan
+    - field.field.node.lender.field_ubication
+    - field.field.node.lender.field_web_page
+    - field.field.node.lender.field_whatsapp
+    - node.type.lender
+  module:
+    - geolocation
+    - link
+    - manage_display
+    - options
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.lender.default
+targetEntityType: node
+bundle: lender
+mode: default
+content:
+  field_consulting_room:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_dv:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_extension:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_google_maps_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_identification:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_location_map:
+    type: geolocation_latlng
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_network_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_oficina:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_provider_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_schedules:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_speciality:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_type_plan:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_ubication:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_web_page:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_lender_category: true
+  field_telemedicine: true
+  field_whatsapp: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

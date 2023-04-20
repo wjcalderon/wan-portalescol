@@ -1,0 +1,22 @@
+uuid: f70e13fb-2cec-47ad-953f-8a7f08430a83
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lender
+id: node.lender.promote
+field_name: promote
+entity_type: node
+bundle: lender
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

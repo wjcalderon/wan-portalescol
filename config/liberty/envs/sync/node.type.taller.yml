@@ -1,0 +1,20 @@
+uuid: bb8a1e0b-15cf-4a08-b327-9b655ed38c98
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  lightning_workflow:
+    workflow: editorial
+name: Taller
+type: taller
+description: 'Talleres de servicio'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

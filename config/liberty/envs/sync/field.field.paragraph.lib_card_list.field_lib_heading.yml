@@ -1,0 +1,19 @@
+uuid: 77bdcb88-3d27-4c5f-a59f-27df0a785dd2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_heading
+    - paragraphs.paragraphs_type.lib_card_list
+id: paragraph.lib_card_list.field_lib_heading
+field_name: field_lib_heading
+entity_type: paragraph
+bundle: lib_card_list
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

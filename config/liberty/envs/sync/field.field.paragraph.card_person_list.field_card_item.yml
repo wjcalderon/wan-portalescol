@@ -1,0 +1,129 @@
+uuid: 842aeb16-53d9-409a-9783-e8b9ac035aec
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_item
+    - paragraphs.paragraphs_type.card_person
+    - paragraphs.paragraphs_type.card_person_list
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: Ac9FcFyZkhzybsSSAvmLQy8Y1bjDqBZBpKHTVIiP5ik
+id: paragraph.card_person_list.field_card_item
+field_name: field_card_item
+entity_type: paragraph
+bundle: card_person_list
+label: Persona
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_person: card_person
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 35
+        enabled: false
+      assistance_item:
+        weight: 36
+        enabled: false
+      banner:
+        weight: 37
+        enabled: false
+      card:
+        weight: 38
+        enabled: false
+      card_person:
+        weight: 39
+        enabled: true
+      card_person_list:
+        weight: 34
+        enabled: false
+      cards:
+        weight: 40
+        enabled: false
+      cards_reports:
+        weight: 41
+        enabled: false
+      column:
+        weight: 42
+        enabled: false
+      columns:
+        weight: 43
+        enabled: false
+      documents:
+        weight: 44
+        enabled: false
+      drupal_block:
+        weight: 45
+        enabled: false
+      drupal_view:
+        weight: 46
+        enabled: false
+      image:
+        weight: 47
+        enabled: false
+      item_acordeon:
+        weight: 48
+        enabled: false
+      item_lista:
+        weight: 49
+        enabled: false
+      item_report_card:
+        weight: 50
+        enabled: false
+      item_tab_multi:
+        weight: 51
+        enabled: false
+      lista:
+        weight: 52
+        enabled: false
+      microsite:
+        weight: 53
+        enabled: false
+      multi_tabs:
+        weight: 54
+        enabled: false
+      qualtrics_embed:
+        weight: 55
+        enabled: false
+      select_cta:
+        weight: 56
+        enabled: false
+      shorcut:
+        weight: 57
+        enabled: false
+      shorcuts:
+        weight: 58
+        enabled: false
+      single_text:
+        weight: 59
+        enabled: false
+      slider:
+        weight: 60
+        enabled: false
+      tab_item:
+        weight: 61
+        enabled: false
+      tabs:
+        weight: 62
+        enabled: false
+      testimonies:
+        weight: 63
+        enabled: false
+      testimony_item:
+        weight: 64
+        enabled: false
+      video:
+        weight: 65
+        enabled: false
+      webform:
+        weight: 66
+        enabled: false
+field_type: entity_reference_revisions

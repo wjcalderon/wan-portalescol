@@ -1,0 +1,9 @@
+status: 0
+pattern: '[node:field_sponsor]: [node:field_campaing_tax]'
+escape: true
+preserve_titles: false
+dependencies:
+  config:
+    - node.type.campaign
+save: 0
+chunk: '50'

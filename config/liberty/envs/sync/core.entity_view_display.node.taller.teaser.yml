@@ -1,0 +1,49 @@
+uuid: edf85047-aeea-464f-aac6-a87b658dbd14
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.taller.field_direccion
+    - field.field.node.taller.field_email
+    - field.field.node.taller.field_marcas
+    - field.field.node.taller.field_nombre
+    - field.field.node.taller.field_telefono
+    - field.field.node.taller.field_tipo_de_tall
+    - field.field.node.taller.field_ubicacion
+    - node.type.taller
+  module:
+    - manage_display
+id: node.taller.teaser
+targetEntityType: node
+bundle: taller
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  created: true
+  field_direccion: true
+  field_email: true
+  field_marcas: true
+  field_nombre: true
+  field_telefono: true
+  field_tipo_de_tall: true
+  field_ubicacion: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

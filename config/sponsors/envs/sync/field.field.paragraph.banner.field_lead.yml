@@ -1,0 +1,21 @@
+uuid: 7cf2a1b8-4822-4e27-9f22-9844299272b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lead
+    - paragraphs.paragraphs_type.banner
+  module:
+    - text
+id: paragraph.banner.field_lead
+field_name: field_lead
+entity_type: paragraph
+bundle: banner
+label: 'Leyenda del banner'
+description: 'cantidad máxima de caracteres recomendada: 100'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

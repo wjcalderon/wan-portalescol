@@ -1,0 +1,8 @@
+uuid: aa0a331a-8147-48d5-95e5-e69a47e9c7ce
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_questions_frequent
+label: 'Preguntas frecuentes'
+revision: 0
+description: 'Pestañas desplegables con texto '

@@ -1,0 +1,85 @@
+.contact-block {
+  @include breakout;
+
+  background-color: $color-secondary-light;
+  background-repeat: no-repeat;
+  background-position: 20px bottom;
+  background-origin: content-box;
+  background-size: 18px;
+  padding: 1rem 0;
+  margin-top: 3rem;
+
+  @include medium {
+    padding: 3rem 0;
+    background-position: 20px center;
+    background-origin: unset;
+  }
+
+  &__content {
+    @include wrapper;
+
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    @include heading-large(
+      $font-size: 1.2rem,
+      $font-weight: bold,
+      $color: $color-primary,
+      $line-height: 1.2,
+      $margin: 0 0 0.5rem
+    );
+
+    @include medium {
+      @include heading-large(
+        $font-size: 1.2rem,
+        $font-weight: bold,
+        $color: $color-primary,
+        $line-height: 1.2,
+        $margin: 0 0 0.3rem
+      );
+    }
+  }
+
+  &__second {
+    padding: 2rem;
+    text-align: center;
+
+    @include large {
+      padding: 0;
+    }
+  }
+
+  &__first {
+    text-align: center;
+  }
+
+  &__first-text {
+    padding-right: 0;
+
+    @include medium {
+      padding-right: 2rem;
+    }
+  }
+
+  &__phone {
+    padding: 1rem 0;
+    font-weight: 500;
+    display: inline-block;
+    color: $color-secondary-dark;
+  }
+
+  &__bottom {
+    font-size: 1rem;
+
+    h3 {
+      font-weight: 500;
+      display: inline-block;
+      color: $color-secondary-dark;
+      padding-bottom: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+  }
+}

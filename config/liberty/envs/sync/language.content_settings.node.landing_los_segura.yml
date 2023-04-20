@@ -1,0 +1,13 @@
+uuid: 96d00aa4-4844-461a-a945-ed713c91a9b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.landing_los_segura
+_core:
+  default_config_hash: DfF4GbYPMiMXtllYw7Et0uScQODUiqPXT9iPGkeUWw8
+id: node.landing_los_segura
+target_entity_type_id: node
+target_bundle: landing_los_segura
+default_langcode: site_default
+language_alterable: false

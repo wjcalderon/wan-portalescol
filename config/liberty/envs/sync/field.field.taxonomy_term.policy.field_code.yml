@@ -1,0 +1,19 @@
+uuid: 76abc1ee-7b4d-44ba-8bbd-c18e77db6152
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_code
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_code
+field_name: field_code
+entity_type: taxonomy_term
+bundle: policy
+label: Código
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

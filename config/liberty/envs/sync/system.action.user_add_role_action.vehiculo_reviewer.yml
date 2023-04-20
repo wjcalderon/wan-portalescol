@@ -1,0 +1,14 @@
+uuid: 085d73ba-7671-486d-8961-b597cf628e75
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.vehiculo_reviewer
+  module:
+    - user
+id: user_add_role_action.vehiculo_reviewer
+label: 'Añade el rol Vehículo reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: vehiculo_reviewer

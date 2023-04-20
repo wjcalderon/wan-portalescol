@@ -1,0 +1,21 @@
+uuid: 4f1ffe27-4f20-425d-b5cc-529f4c50c23d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_body
+    - paragraphs.paragraphs_type.lib_breaker
+  module:
+    - text
+id: paragraph.lib_breaker.field_lib_body
+field_name: field_lib_body
+entity_type: paragraph
+bundle: lib_breaker
+label: Descripción
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

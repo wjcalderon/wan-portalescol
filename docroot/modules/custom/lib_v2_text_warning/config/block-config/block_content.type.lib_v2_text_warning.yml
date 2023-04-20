@@ -1,0 +1,8 @@
+uuid: 8d6450cd-4a71-4374-8ec1-a067323ad6fa
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_text_warning
+label: 'Texto Advertencia'
+revision: 0
+description: 'Caja de texto turquesa con texto enriquecido'

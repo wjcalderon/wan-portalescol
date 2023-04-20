@@ -1,0 +1,621 @@
+uuid: 6f7e6b55-0984-4901-bbd0-5bea5624aa7b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_direccion
+    - field.storage.node.field_nombre
+    - field.storage.node.field_telefono
+    - field.storage.node.field_ubicacion
+    - node.type.taller
+    - taxonomy.vocabulary.ubication
+  content:
+    - 'taxonomy_term:ubication:06a86f7f-0e8b-4886-9c75-b4aa00b94e3f'
+    - 'taxonomy_term:ubication:12326d3e-727e-4a3e-a9f9-e1bd6e6411d7'
+    - 'taxonomy_term:ubication:2d4fbdb0-f8be-4be6-8366-256d944b66a0'
+    - 'taxonomy_term:ubication:2e68c033-51cc-46d5-91bd-8609d8e248c2'
+    - 'taxonomy_term:ubication:30058c96-d9e5-40b3-afe9-ef5106a5f09d'
+    - 'taxonomy_term:ubication:305eb8df-021a-4c96-896d-aa04cf3fae08'
+    - 'taxonomy_term:ubication:37cb2d25-3db9-48c5-9c1f-a5ee8f6da4ac'
+    - 'taxonomy_term:ubication:42b6d0f8-8bbe-4e5d-8f90-c7bf3e6f60ab'
+    - 'taxonomy_term:ubication:4ddf4f24-5efa-48d7-9c00-55d63c75a99b'
+    - 'taxonomy_term:ubication:691e53f7-60be-4991-acaf-09708f86ec3d'
+    - 'taxonomy_term:ubication:874bd910-4e26-4e36-8eae-7e3ae0a3222c'
+    - 'taxonomy_term:ubication:8a862cf8-1f5d-4d6a-82cb-fb79a4cd24e3'
+    - 'taxonomy_term:ubication:967d8823-75dc-4a41-8afa-71f765838a94'
+    - 'taxonomy_term:ubication:a0e184f0-3f37-4bb3-95a6-080096e4d95c'
+    - 'taxonomy_term:ubication:a3ad9120-77e8-4a4d-82b1-2ac7f2e43564'
+    - 'taxonomy_term:ubication:a965b192-6c38-4725-aba6-f2851bc82969'
+    - 'taxonomy_term:ubication:b35d5847-823c-41de-b561-dfe64bb0e9ae'
+    - 'taxonomy_term:ubication:b3ecbd01-2807-49b8-89ea-fc2ee6ed010d'
+    - 'taxonomy_term:ubication:c4451a8b-2f82-4f6b-b58c-e0f1f171ba79'
+    - 'taxonomy_term:ubication:cb2f22cd-529c-47ba-9eeb-9c272434518f'
+    - 'taxonomy_term:ubication:e9062fcf-ed8a-4084-b274-bfa19ea480ae'
+    - 'taxonomy_term:ubication:efe472e8-7a19-4401-a3e9-70eae38e5cbe'
+  module:
+    - node
+    - taxonomy
+id: talleres
+label: Talleres
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Talleres
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_ubicacion:
+          id: field_ubicacion
+          table: node__field_ubicacion
+          field: field_ubicacion
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_direccion:
+          id: field_direccion
+          table: node__field_direccion
+          field: field_direccion
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_nombre:
+          id: field_nombre
+          table: node__field_nombre
+          field: field_nombre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_telefono:
+          id: field_telefono
+          table: node__field_telefono
+          field: field_telefono
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 0
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Aplicar
+          reset_button: false
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: none
+        options: {  }
+      empty: {  }
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            taller: taller
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_ubicacion_target_id:
+          id: field_ubicacion_target_id
+          table: node__field_ubicacion
+          field: field_ubicacion_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            551: 551
+            271: 271
+            22856: 22856
+            347: 347
+            562: 562
+            530: 530
+            481: 481
+            596: 596
+            388: 388
+            372: 372
+            248: 248
+            612: 612
+            564: 564
+            611: 611
+            504: 504
+            286: 286
+            607: 607
+            125: 125
+            606: 606
+            52: 52
+            123: 123
+            288: 288
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ubicacion_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_ubicacion_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_ubicacion_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              page_creator: '0'
+              layout_manager: '0'
+              marketing_administrator: '0'
+              page_reviewer: '0'
+              landing_page_creator: '0'
+              landing_page_reviewer: '0'
+              media_creator: '0'
+              media_manager: '0'
+              product_creator: '0'
+              product_reviewer: '0'
+              webform_creator: '0'
+              webform_reviewer: '0'
+              faq_creator: '0'
+              faq_reviewer: '0'
+              lender_creator: '0'
+              lender_reviewer: '0'
+              office_creator: '0'
+              office_reviewer: '0'
+              document_creator: '0'
+              document_reviewer: '0'
+              payment_points_creator: '0'
+              payment_points_reviewer: '0'
+              red_medica_admin: '0'
+              vehiculo_creator: '0'
+              vehiculo_reviewer: '0'
+              precio_vehiculo_creator: '0'
+              precio_vehiculo_reviewer: '0'
+              cotizador_admin: '0'
+              landing_html_creator: '0'
+              landing_html_reviewer: '0'
+              landing_los_segura_creator: '0'
+              landing_los_segura_reviewer: '0'
+              faq_los_segura_creator: '0'
+              faq_los_segura_reviewer: '0'
+              glosario_los_segura_creator: '0'
+              glosario_los_segura_reviewer: '0'
+              capitulo_los_segura_creator: '0'
+              capitulo_los_segura_reviewer: '0'
+              news_article_creator: '0'
+              news_article_reviewer: '0'
+              news_article_video_creator: '0'
+              news_article_video_reviewer: '0'
+              news_inphography_creator: '0'
+              news_inphography_reviewer: '0'
+              glosario_de_especialidades_creator: '0'
+              taller_creator: '0'
+              glosario_de_especialidades_reviewer: '0'
+              taller_reviewer: '0'
+              informes_rol: '0'
+              informes_creator: '0'
+              informes_reviewer: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: 'Ubicación (field_ubicacion)'
+            description: ''
+            identifier: field_ubicacion_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: ''
+                operator: or
+                value: {  }
+              2:
+                title: ''
+                operator: or
+                value: {  }
+              3:
+                title: ''
+                operator: or
+                value: {  }
+          reduce_duplicates: false
+          vid: ubication
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      style:
+        type: default
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      use_ajax: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+      tags:
+        - 'config:field.storage.node.field_direccion'
+        - 'config:field.storage.node.field_nombre'
+        - 'config:field.storage.node.field_telefono'
+        - 'config:field.storage.node.field_ubicacion'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+      tags:
+        - 'config:field.storage.node.field_direccion'
+        - 'config:field.storage.node.field_nombre'
+        - 'config:field.storage.node.field_telefono'
+        - 'config:field.storage.node.field_ubicacion'

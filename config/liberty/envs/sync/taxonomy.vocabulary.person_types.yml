@@ -1,0 +1,8 @@
+uuid: aed6b340-096d-4ce9-895b-b5a1a3d48bba
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tipos de cliente'
+vid: person_types
+description: 'Tipos de cliente, primer nivel de jerarquía de contenido'
+weight: 0

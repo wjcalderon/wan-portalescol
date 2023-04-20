@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_forma_alter().
+ */
+function lib_cf_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+   //var_dump($form_id);
+   if(strpos($form_id, 'webform_submission_') === 0){
+     //var_dump(1);
+    $form['#attached']['library'][] = 'lib_cf/captcha';
+
+   }
+}
+
+function lib_cf_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account)  { 
+
+   $node_type = $node->getType();   
+ 
+   if ($node_type == 'informes') {
+ 
+     // Roles Body Class
+     $UserRoles = $account->getRoles(); 
+     // Roles
+     if(in_array('administrator', $UserRoles)|| in_array('informes_rol', $UserRoles)){
+      return AccessResult::allowed()->cachePerPermissions(); 
+     } else {      
+      return AccessResult::forbidden();
+     }
+   }
+ }

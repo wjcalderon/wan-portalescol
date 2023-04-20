@@ -1,0 +1,173 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.news_article_video.body
+    - field.field.node.news_article_video.field_big_image
+    - field.field.node.news_article_video.field_category
+    - field.field.node.news_article_video.field_cta
+    - field.field.node.news_article_video.field_featured
+    - field.field.node.news_article_video.field_relacionados
+    - field.field.node.news_article_video.field_small_image
+    - field.field.node.news_article_video.field_tags
+    - image.style.thumbnail
+    - node.type.news_article_video
+  module:
+    - content_moderation
+    - inline_entity_form
+    - maxlength
+    - path
+    - svg_image
+    - text
+id: node.news_article_video.default
+targetEntityType: node
+bundle: news_article_video
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 10
+    region: content
+    settings:
+      rows: 9
+      placeholder: ''
+      summary_rows: 3
+      show_summary: false
+    third_party_settings:
+      maxlength:
+        maxlength_js: 5000
+        maxlength_js_label: 'Contenido limitado en @limit caracteres, quedan: <strong>@remaining</strong>'
+        maxlength_js_summary: 180
+        maxlength_js_label_summary: 'Contenido limitado en @limit caracteres, quedan: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+        maxlength_js_truncate_html: true
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_big_image:
+    type: image_image
+    weight: 11
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_category:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cta:
+    type: inline_entity_form_simple
+    weight: 15
+    region: content
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+  field_featured:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_small_image:
+    type: image_image
+    weight: 12
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_tags:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 8
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 75
+        maxlength_js_label: 'Contenido limitado en @limit caracteres, quedan: <strong>@remaining</strong>'
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_relacionados: true

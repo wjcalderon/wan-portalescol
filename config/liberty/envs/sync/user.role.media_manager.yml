@@ -1,0 +1,17 @@
+uuid: e228d0e1-54ec-444d-872f-fbd318fd0aea
+langcode: es
+status: true
+dependencies:
+  module:
+    - entity_browser
+    - media
+_core:
+  default_config_hash: C19s-DgCoW5aZz7bys6qI9jrW1Johq0cN-IGCtDbR0Y
+id: media_manager
+label: 'Media manager'
+weight: 6
+is_admin: false
+permissions:
+  - 'access media overview'
+  - 'access media_browser entity browser pages'
+  - 'administer media'

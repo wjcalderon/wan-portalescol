@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: T7VswoE1KAQFJFAb6t3Rdlm9pfqYHi8mbowFISy4VFk
+id: marketing_administrator
+label: 'Administrador mercadeo'
+weight: 3
+is_admin: null
+permissions: {  }

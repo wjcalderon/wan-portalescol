@@ -1,0 +1,6 @@
+captcha:
+  js:
+    js/captcha1.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

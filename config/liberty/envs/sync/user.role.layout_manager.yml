@@ -1,0 +1,28 @@
+uuid: 1c767c2a-a58e-46e0-9cda-9333b8e9450e
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_ui
+    - node
+    - panelizer
+_core:
+  default_config_hash: O15STNqaxZJp9WQvMNCRYzhPnpaMVU0W8eVoijQd3rw
+id: layout_manager
+label: 'Layout manager'
+weight: 2
+is_admin: false
+permissions:
+  - 'administer node display'
+  - 'administer panelizer'
+  - 'administer panelizer node document defaults'
+  - 'administer panelizer node faq defaults'
+  - 'administer panelizer node landing_page defaults'
+  - 'administer panelizer node lender defaults'
+  - 'administer panelizer node office defaults'
+  - 'administer panelizer node page defaults'
+  - 'administer panelizer node payment_points defaults'
+  - 'administer panelizer node precio_vehiculo defaults'
+  - 'administer panelizer node product defaults'
+  - 'administer panelizer node vehiculo defaults'
+  - 'administer panelizer node webform defaults'

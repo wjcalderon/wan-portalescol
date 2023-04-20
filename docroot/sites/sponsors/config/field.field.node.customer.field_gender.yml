@@ -1,0 +1,19 @@
+uuid: fcc488e2-e5a6-404a-8700-3abf84ed403a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gender
+    - node.type.customer
+id: node.customer.field_gender
+field_name: field_gender
+entity_type: node
+bundle: customer
+label: genero
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

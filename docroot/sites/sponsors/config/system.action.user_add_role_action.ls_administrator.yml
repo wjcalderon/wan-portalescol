@@ -1,0 +1,14 @@
+uuid: cf26c794-9a34-44d4-b25f-9729d154b56b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.ls_administrator
+  module:
+    - user
+id: user_add_role_action.ls_administrator
+label: 'Add the Administrador LS role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ls_administrator

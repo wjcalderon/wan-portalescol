@@ -1,0 +1,14 @@
+uuid: da3ca698-d53c-4b6c-a266-d6fa221b80ed
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_inphography_creator
+  module:
+    - user
+id: user_add_role_action.news_inphography_creator
+label: 'Añade el rol Noticias infografía creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_inphography_creator

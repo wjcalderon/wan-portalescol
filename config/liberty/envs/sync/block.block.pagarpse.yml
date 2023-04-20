@@ -1,0 +1,29 @@
+uuid: 851db6e2-a99f-497c-962a-fcbf69c3f0f2
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:card:fdb86457-105d-430c-88dd-9389c9921cfb'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: pagar--mg-card
+id: pagarpse
+theme: liberty_public
+region: blocks_activate
+weight: -15
+provider: null
+plugin: 'block_content:fdb86457-105d-430c-88dd-9389c9921cfb'
+settings:
+  id: 'block_content:fdb86457-105d-430c-88dd-9389c9921cfb'
+  label: 'Pagar - PSE'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

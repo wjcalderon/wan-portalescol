@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="25px" viewBox="0 0 20 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12.7041667,25 L12.6941667,25 C12.3941667,24.9966667 12.11,24.865 11.9141667,24.6366667 C11.0358333,23.6158333 3.33333333,14.5083333 3.33333333,9.36 C3.33333333,4.19916667 7.5375,0 12.7041667,0 C17.8708333,0 22.075,4.19916667 22.075,9.36 C22.075,14.9683333 13.8325,24.2591667 13.4816667,24.6525 C13.2833333,24.8741667 13,25 12.7041667,25 Z M12.7041667,2.08333333 C8.68583333,2.08333333 5.41666667,5.3475 5.41666667,9.36 C5.41666667,12.6983333 10.1341667,19.1791667 12.7183333,22.3491667 C15.3,19.2758333 19.9916667,12.9491667 19.9916667,9.36 C19.9916667,5.3475 16.7225,2.08333333 12.7041667,2.08333333 Z M12.7041667,5.00366667 C14.545,5.00366667 16.0375,6.49366667 16.0375,8.33283333 C16.0375,10.172 14.545,11.6628333 12.7041667,11.6628333 C10.8633333,11.6628333 9.37083333,10.172 9.37083333,8.33283333 C9.37083333,6.49366667 10.8633333,5.00366667 12.7041667,5.00366667 Z" id="path-1"></path>
+    </defs>
+    <g id="MOB--Header-y-footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Liberty_1-Home2-1-Copy" transform="translate(-207.000000, -52.000000)">
+            <g id="menu" transform="translate(0.000000, 40.000000)">
+                <g id="Elements-/-Icon-/-Glyph-/-Location-Pin-Outline" transform="translate(204.000000, 12.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                        <rect id="Rectangle" x="0" y="0" width="25" height="25"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

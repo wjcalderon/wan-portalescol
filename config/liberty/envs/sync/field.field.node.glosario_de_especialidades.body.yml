@@ -1,0 +1,28 @@
+uuid: 7410eb95-68db-4599-a287-33b15d691da8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.glosario_de_especialidades
+  module:
+    - text
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: 7FeShq8cI7COXgeq8UzWwun_3uzWJaTYqEkmKxMLG_E
+id: node.glosario_de_especialidades.body
+field_name: body
+entity_type: node
+bundle: glosario_de_especialidades
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

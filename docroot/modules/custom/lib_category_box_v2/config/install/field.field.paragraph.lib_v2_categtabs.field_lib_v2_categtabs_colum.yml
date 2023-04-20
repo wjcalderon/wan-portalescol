@@ -1,0 +1,23 @@
+uuid: f18a7bbc-39de-4deb-826f-6b87466eeef7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_categtabs_colum
+    - paragraphs.paragraphs_type.lib_v2_categtabs
+  module:
+    - options
+id: paragraph.lib_v2_categtabs.field_lib_v2_categtabs_colum
+field_name: field_lib_v2_categtabs_colum
+entity_type: paragraph
+bundle: lib_v2_categtabs
+label: 'cantidad columnas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: grid-2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

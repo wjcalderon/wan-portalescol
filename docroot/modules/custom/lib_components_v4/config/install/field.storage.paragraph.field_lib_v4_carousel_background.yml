@@ -1,0 +1,32 @@
+uuid: c3cc6fdd-69be-4315-b68b-4d68913d6e97
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - options
+_core:
+  default_config_hash: BPlOLJxgLNN3irQQD2E7Xj1eyaHgqn_oTjQ6ofhkRPw
+id: paragraph.field_lib_v4_carousel_background
+field_name: field_lib_v4_carousel_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: Blanco
+    -
+      value: blue
+      label: Azul
+    -
+      value: yellow
+      label: Amarillo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

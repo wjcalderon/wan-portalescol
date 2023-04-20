@@ -1,0 +1,64 @@
+uuid: 2d476acc-a663-4783-92d4-06d43392954e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_cards.field_lib_columns
+    - field.field.paragraph.banner_cards.field_lib_heading
+    - field.field.paragraph.banner_cards.field_lib_media_image
+    - field.field.paragraph.banner_cards.field_lib_p_items
+    - field.field.paragraph.banner_cards.field_lib_summary
+    - paragraphs.paragraphs_type.banner_cards
+  module:
+    - ds
+    - entity_reference_revisions
+    - options
+id: paragraph.banner_cards.default
+targetEntityType: paragraph
+bundle: banner_cards
+mode: default
+content:
+  field_lib_columns:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_media_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: '3_1'
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: lib_icon_card
+      link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 1
+    region: content
+  field_lib_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

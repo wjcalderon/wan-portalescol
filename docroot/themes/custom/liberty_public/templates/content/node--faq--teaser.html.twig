@@ -1,0 +1,9 @@
+{% set base_url = url('<front>')|render|split('/')|join('/') %}
+<div class="field field-icon">
+  <a href="{{ url }}">
+    <img src="{{ base_url }}{{ directory }}/images/icons/help-outline.svg" />
+  </a>
+</div>
+<div class="title">
+  <a href="{{ url }}">{{ node.label }}</a>
+</div>

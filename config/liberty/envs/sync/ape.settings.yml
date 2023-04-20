@@ -1,0 +1,7 @@
+alternatives: ''
+exclusions: ''
+lifetime:
+  alternatives: 86400
+  301: 86400
+  302: 86400
+  404: 86400

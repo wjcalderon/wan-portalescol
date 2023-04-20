@@ -1,0 +1,23 @@
+uuid: 180852a7-2985-4c68-a4f4-f091a742bd5b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_contact
+    - node.type.campaign
+id: node.campaign.field_phone_contact
+field_name: field_phone_contact
+entity_type: node
+bundle: campaign
+label: 'Telefono contacto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

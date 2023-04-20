@@ -1,0 +1,24 @@
+.lib-comp-textbox {
+    margin: 4rem auto;
+    width: calc(var(--desktop) - 4rem);
+    border: 1px solid #deedf2;
+    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 200;
+    color: var(--black-color);
+}
+
+.lib-comp-textbox__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 0 0;
+}
+
+@media (max-width: 1140px) {
+    .lib-comp-textbox {
+        width: calc(90% - 4rem);
+    }
+}

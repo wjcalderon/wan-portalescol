@@ -1,0 +1,14 @@
+uuid: 0c3e88c6-b24d-4ec6-9ed0-e30a2822904f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.vehiculo_creator
+  module:
+    - user
+id: user_remove_role_action.vehiculo_creator
+label: 'Elimina el rol Vehículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: vehiculo_creator

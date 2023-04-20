@@ -1,0 +1,35 @@
+uuid: 42f1f970-d807-4a6c-b395-18f461628c98
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_cta
+    - field.field.block_content.block_cta.field_b_cta
+  module:
+    - link_class
+id: block_content.block_cta.default
+targetEntityType: block_content
+bundle: block_cta
+mode: default
+content:
+  field_b_cta:
+    type: link_class_field_widget
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      link_class_mode: manual
+      link_class_force: ''
+      link_class_select: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  moderation_state: true

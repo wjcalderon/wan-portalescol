@@ -1,0 +1,17 @@
+uuid: 6df09f6c-7c98-4491-b66d-69e98ff07147
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Documento
+type: document
+description: 'Agregue un documento tipo pdf al banco de documentos'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_text.field_c_classes
+    - field.field.paragraph.single_text.field_c_title
+    - field.field.paragraph.single_text.field_c_title_status
+    - field.field.paragraph.single_text.field_c_width
+    - field.field.paragraph.single_text.field_text_area
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_c_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Component title'
+    group_c_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Styling settings'
+id: paragraph.single_text.default
+targetEntityType: paragraph
+bundle: single_text
+mode: default
+content:
+  field_c_classes:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title_status:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_c_width:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_text_area:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

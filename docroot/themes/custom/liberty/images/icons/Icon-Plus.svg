@@ -1,0 +1,16 @@
+<svg id="Icon_Plus_Copy_2" data-name="Icon/Plus Copy 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M4.938,10.5.17,5.735A.561.561,0,0,1,.085,5.63h0L.078,5.618h0L.071,5.606h0L.064,5.594h0A.556.556,0,0,1,0,5.4H0V5.387H0V5.347s0-.009,0-.014,0-.009,0-.014V5.281H0V5.266H0a.559.559,0,0,1,.173-.342L4.938.164a.559.559,0,1,1,.791.791L1.91,4.774H13.29a.56.56,0,0,1,0,1.119H1.91L5.729,9.712a.559.559,0,1,1-.791.791Z"/>
+    </clipPath>
+  </defs>
+  <rect id="Icons_Back_option_background" data-name="Icons/Back option background" width="16" height="16" fill="none"/>
+  <g id="Color_Liberty_Blue" data-name="Color/Liberty Blue" transform="translate(0.667 2.667)">
+    <path id="Mask-2" data-name="Mask" d="M4.938,10.5.17,5.735A.561.561,0,0,1,.085,5.63h0L.078,5.618h0L.071,5.606h0L.064,5.594h0A.556.556,0,0,1,0,5.4H0V5.387H0V5.347s0-.009,0-.014,0-.009,0-.014V5.281H0V5.266H0a.559.559,0,0,1,.173-.342L4.938.164a.559.559,0,1,1,.791.791L1.91,4.774H13.29a.56.56,0,0,1,0,1.119H1.91L5.729,9.712a.559.559,0,1,1-.791.791Z" transform="translate(0)"/>
+    <g id="Color_Liberty_Blue-2" data-name="Color/Liberty Blue" transform="translate(0)" clip-path="url(#clip-path)">
+      <g id="Color_Liberty_Blue-3" data-name="Color/Liberty Blue" transform="translate(-22.519 -24.296)">
+        <rect id="Rectangle" width="59.259" height="59.259" fill="#1a1446"/>
+      </g>
+    </g>
+  </g>
+</svg>

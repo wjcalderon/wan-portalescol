@@ -1,0 +1,10 @@
+uuid: b7d4ff20-951c-4eb7-b9d5-408280d25afa
+langcode: es
+status: true
+dependencies: {  }
+id: channel_attention
+label: 'Canales Atención'
+icon_uuid: null
+icon_default: null
+description: 'Use canales de atención, para los datos de contacto.'
+behavior_plugins: {  }

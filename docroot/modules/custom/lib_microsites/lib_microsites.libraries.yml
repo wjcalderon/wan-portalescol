@@ -1,0 +1,7 @@
+microsites:
+  version: 1.x
+  js:
+    js/microsites.js: {}
+  dependencies:
+    - core/jquery
+    - core/once

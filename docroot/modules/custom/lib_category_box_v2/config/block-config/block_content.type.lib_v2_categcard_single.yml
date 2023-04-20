@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_categcard_single
+label: 'Tarjeta simple'
+revision: 0
+description: 'tarjeta simple para caja de categorias'

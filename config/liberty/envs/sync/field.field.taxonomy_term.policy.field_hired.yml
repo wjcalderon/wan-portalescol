@@ -1,0 +1,23 @@
+uuid: c4b3a744-1137-4dcc-8fc0-554d11c7d204
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hired
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_hired
+field_name: field_hired
+entity_type: taxonomy_term
+bundle: policy
+label: Contratado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

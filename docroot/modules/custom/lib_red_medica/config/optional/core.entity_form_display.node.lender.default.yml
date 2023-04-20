@@ -1,0 +1,303 @@
+uuid: a4719684-394c-4e0a-994d-a8e7f2470292
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.lender.field_consulting_room
+    - field.field.node.lender.field_dv
+    - field.field.node.lender.field_extension
+    - field.field.node.lender.field_google_maps_address
+    - field.field.node.lender.field_identification
+    - field.field.node.lender.field_lender_category
+    - field.field.node.lender.field_location_map
+    - field.field.node.lender.field_network_address
+    - field.field.node.lender.field_oficina
+    - field.field.node.lender.field_phone
+    - field.field.node.lender.field_provider_type
+    - field.field.node.lender.field_schedules
+    - field.field.node.lender.field_speciality
+    - field.field.node.lender.field_telemedicine
+    - field.field.node.lender.field_type_plan
+    - field.field.node.lender.field_ubication
+    - field.field.node.lender.field_web_page
+    - field.field.node.lender.field_whatsapp
+    - node.type.lender
+  module:
+    - content_moderation
+    - field_group
+    - geolocation_google_maps
+    - link
+    - path
+    - shs
+third_party_settings:
+  field_group:
+    group_phones:
+      children:
+        - field_extension
+        - field_phone
+      parent_name: ''
+      weight: 16
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Teléfonos
+      region: content
+    group_identification:
+      children:
+        - field_identification
+        - field_dv
+      parent_name: ''
+      weight: 18
+      format_type: details
+      format_settings:
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Identificación
+      region: content
+id: node.lender.default
+targetEntityType: node
+bundle: lender
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_consulting_room:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_dv:
+    weight: 25
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_extension:
+    weight: 20
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_google_maps_address:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_identification:
+    weight: 24
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_lender_category:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_location_map:
+    weight: 20
+    settings:
+      google_map_settings:
+        height: 400px
+        width: 100%
+        type: ROADMAP
+        zoom: 10
+        maxZoom: 18
+        minZoom: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        marker_icon_path: ''
+        disableAutoPan: 1
+        rotateControl: false
+        fullscreenControl: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+        info_auto_display: 0
+      auto_client_location: '0'
+      auto_client_location_marker: '0'
+      allow_override_map_settings: 0
+      centre:
+        fit_bounds:
+          enable: true
+      hide_textfield_form: false
+    third_party_settings: {  }
+    type: geolocation_googlegeocoder
+    region: content
+  field_network_address:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_oficina:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_phone:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_provider_type:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_schedules:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_speciality:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_telemedicine:
+    type: boolean_checkbox
+    weight: 24
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_type_plan:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ubication:
+    weight: 19
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+    type: options_shs
+    region: content
+  field_web_page:
+    weight: 17
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_whatsapp:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 7
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

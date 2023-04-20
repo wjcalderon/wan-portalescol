@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 16</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="32" cy="32" r="32"></circle>
+        <filter x="-25.0%" y="-28.1%" width="150.0%" height="150.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.099702381   0 0 0 0 0.099702381   0 0 0 0 0.099702381  0 0 0 0.134341033 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-3" cx="32" cy="32" r="24.6153846"></circle>
+        <filter x="-32.5%" y="-36.6%" width="165.0%" height="165.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.099702381   0 0 0 0 0.099702381   0 0 0 0 0.099702381  0 0 0 0.134341033 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-5" points="6.37377399 13.6 1.7 9.03855068 3.20703625 7.5669006 6.37206823 10.6558675 13.7904051 3.4 15.3 4.86915293"></polygon>
+    </defs>
+    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Claims-Insured-stp2" transform="translate(-641.000000, -2289.000000)">
+            <g id="Group-14" transform="translate(651.000000, 2301.000000)">
+                <g id="Group-16" transform="translate(0.000000, 0.000000)">
+                    <g id="Oval" opacity="0.592540923" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#D5FEFF" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Oval" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        <use fill="#DEFEFF" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="Elements-/-Icon-/-Glyph-/-Checkmark-On" transform="translate(23.384615, 23.384615)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-5"></use>
+                        <g id="Elements-/-Color-/-Secundario-/-Gray-1" mask="url(#mask-6)" fill="#343741" fill-rule="evenodd">
+                            <rect id="Rectangle" x="0" y="0" width="17" height="17"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

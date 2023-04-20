@@ -1,0 +1,158 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+{% set layout = paragraph.field_layout.0.value %}
+
+{% set modifier_class = '' %}
+{% if layout == 'default' %}
+  {% set modifier_class = 'video--default' %}
+{% elseif layout == 'wide_right' %}
+  {% set modifier_class = 'video--wide video--media-right' %}
+{% elseif layout == 'wide_left' %}
+  {% set modifier_class = 'video--wide video--media-leftt' %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component__' ~ paragraph.bundle|clean_class,
+  modifier_class
+]
+%}
+
+{# Container by default. #}
+{% set add_container = true %}
+
+{# Width. #}
+{% if content.field_c_width|render %}
+  {% set c_width = content.field_c_width['#items'].getString() %}
+  {% if c_width == 'edge2edge' %}
+    {% set add_container = false %}
+  {% endif %}
+{% endif %}
+
+{# Sets Unique ID for paragraph from Paragraph ID. #}
+{% set c_container_title = '' %}
+{% if content.field_c_size_container|render %}
+  {% set c_container_title = content.field_c_size_container['#items'].getString() %}
+{% endif %}
+
+{# Sets Unique ID for paragraph from Paragraph ID. #}
+{% set paragraph_id = 'component-' ~ paragraph.id.value %}
+
+{# Sets paragraph title for paragraph. #}
+{% set paragraph_title = content.field_c_title|render %}
+
+{# Sets paragraph subtitle for paragraph. #}
+{% set paragraph_subtitle = content.field_lead|field_value %}
+
+{# Sets paragraph title status for paragraph. #}
+{% set paragraph_title_status = true %}
+{% if 'On' in content.field_c_title_status[0] %}
+  {% set paragraph_title_status = false %}
+{% endif %}
+
+{# Add custom paragraph CSS class(es). #}
+{%  set c_clasess = content.field_c_classes|render %}
+{% if c_clasess %}
+  {% set striped_custom_classes = c_clasess|striptags|lower %}
+  {% set split_custom_classes = striped_custom_classes|split(' ') %}
+  {% for custom_class in split_custom_classes %}
+    {% set clened_custom_class = [ custom_class|clean_class ] %}
+    {% set classes = classes|merge(clened_custom_class) %}
+  {%  endfor %}
+{% endif %}
+
+<section{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
+{% if layout == 'default' %}
+  {% if paragraph_title and paragraph_title_status %}
+    <div class="component__heading">
+      {% if add_container %}<div class="cog--mq">{% endif %}
+        <h2 class="component__title">{{- paragraph_title -}}</h2>
+        {% if paragraph_subtitle is not empty %}
+          <p>{{- paragraph_subtitle -}}</p>
+        {% endif %}
+        {% if add_container %}</div>{% endif %}
+    </div>
+  {% endif %}
+  <div class="component__content">
+    {% if add_container %}<div class="cog--mq">{% endif %}
+    <div class="videoWrapper">
+      <div class="video-thumbnail">
+        <a  href="#" class="video__link" data-atr="{{ video_embed_src }}"><img src="{{ thumbnail_youtube }}"/></a>
+        <div class="video__share">
+          <div class="share__item share__link"><span>Compartir</span></div>
+          <a  target="_blank" rel="noreferrer" href="http://www.facebook.com/share.php?u={{ url_youtube }}&title=Los+Segura!" class="share__item share__facebook"><span>Compartir</span></a>
+          <a  href="https://twitter.com/intent/tweet?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__twitter"><span>Compartir</span></a>
+          <a  href="https://www.linkedin.com/sharing/share-offsite/?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__linkedin"><span>Compartir</span></a>
+        </div>
+      </div>
+    </div>
+      {% if add_container %}</div>{% endif %}
+  </div>
+{% else %}
+  <div class="cog--mq">
+    <div class="component__content">
+      <div class="component__heading">
+        {% if add_container %}<div class="cog--mq">{% endif %}
+          <h2 class="component__title">{{- paragraph_title -}}</h2>
+          {% if paragraph_subtitle is not empty %}
+            <p>{{- paragraph_subtitle -}}</p>
+          {% endif %}
+          {% if add_container %}</div>{% endif %}
+      </div>
+      <div class="videoWrapper">
+        <div class="video-thumbnail">
+          <a  href="#" class="video__link" data-atr="{{ video_embed_src }}"><img src="{{ thumbnail_youtube }}"/></a>
+          <div class="video__share">
+            <a  href="#" class="share__item share__link" data-atr="{{ video_embed_src }}"><span>Compartir</span></a>
+            <a  target="_blank" rel="noreferrer" href="http://www.facebook.com/share.php?u={{ url_youtube }}&title=Los+Segura!" class="share__item share__facebook"><span>Compartir</span></a>
+            <a  href="https://twitter.com/intent/tweet?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__twitter"><span>Compartir</span></a>
+            <a  href="https://www.linkedin.com/sharing/share-offsite/?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__linkedin"><span>Compartir</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+</section>

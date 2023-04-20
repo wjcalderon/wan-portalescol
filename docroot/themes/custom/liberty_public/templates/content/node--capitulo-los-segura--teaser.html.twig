@@ -1,0 +1,48 @@
+<article class="chapter-ls">
+  <div class="chapter-ls__media">
+    <div class="videoWrapper">
+      <div class="video-thumbnail">
+        <a href="#" class="video__link" data-atr="{{ video_embed_src }}">
+          <img src="{{ thumbnail_youtube }}" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="chapter-ls__content">
+    <div class="chapter-ls__title">
+      {{ node.label }}
+    </div>
+    <div class="chapter-ls__body">
+      {{ content.body }}
+    </div>
+    <div class="chapter-ls__share">
+      <div class="video__share">
+        <div class="share__item share__link">
+          <span>Compartir</span>
+        </div>
+        <a target="_blank"
+          rel="noreferrer"
+          href="http://www.facebook.com/share.php?u={{
+          url_youtube
+          }}&title=Los+Segura!"
+          class="share__item share__facebook">
+          <span>Compartir</span>
+        </a>
+        <a href="https://twitter.com/intent/tweet?&url={{ url_youtube }}"
+          target="_blank"
+          rel="noreferrer"
+          class="share__item share__twitter">
+          <span>Compartir</span>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?&url={{
+          url_youtube
+          }}"
+          target="_blank"
+          rel="noreferrer"
+          class="share__item share__linkedin">
+          <span>Compartir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

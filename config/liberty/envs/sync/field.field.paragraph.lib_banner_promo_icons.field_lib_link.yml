@@ -1,0 +1,23 @@
+uuid: 7ba57434-29fe-43cb-9452-a5a3f76e100e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_link
+    - paragraphs.paragraphs_type.lib_banner_promo_icons
+  module:
+    - link
+id: paragraph.lib_banner_promo_icons.field_lib_link
+field_name: field_lib_link
+entity_type: paragraph
+bundle: lib_banner_promo_icons
+label: Botón
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

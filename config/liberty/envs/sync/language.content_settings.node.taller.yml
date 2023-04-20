@@ -1,0 +1,11 @@
+uuid: c1722d93-e511-4fe8-bc18-d9abfcb1dea6
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.taller
+id: node.taller
+target_entity_type_id: node
+target_bundle: taller
+default_langcode: site_default
+language_alterable: false

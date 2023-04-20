@@ -1,0 +1,9 @@
+uuid: 70d3e837-99af-489a-bec2-99bca58bef21
+langcode: es
+status: true
+dependencies: {  }
+id: item_acordeon
+label: 'Item Acordeón'
+icon_uuid: null
+description: 'Item tipo acordeon, referenciado por el componente <strong>acordeon</strong>.'
+behavior_plugins: {  }

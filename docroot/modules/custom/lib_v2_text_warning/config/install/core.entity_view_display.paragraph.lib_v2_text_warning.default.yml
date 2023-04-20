@@ -1,0 +1,32 @@
+uuid: 0bfb551e-3e43-4a75-9118-dd9e1cbe4fb4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_text_warning.field_lib_v2_image_icon
+    - field.field.paragraph.lib_v2_text_warning.field_lib_v2_text
+    - paragraphs.paragraphs_type.lib_v2_text_warning
+  module:
+    - text
+id: paragraph.lib_v2_text_warning.default
+targetEntityType: paragraph
+bundle: lib_v2_text_warning
+mode: default
+content:
+  field_lib_v2_image_icon:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_v2_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

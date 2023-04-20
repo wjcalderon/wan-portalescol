@@ -1,0 +1,14 @@
+uuid: b50c0794-0098-4587-878c-281f10ccdcc1
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.payment_points_reviewer
+  module:
+    - user
+id: user_remove_role_action.payment_points_reviewer
+label: 'Elimina el rol Puntos de pago reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: payment_points_reviewer

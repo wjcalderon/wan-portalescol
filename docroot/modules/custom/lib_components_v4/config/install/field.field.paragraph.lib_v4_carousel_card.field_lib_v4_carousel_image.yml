@@ -1,0 +1,31 @@
+uuid: 679100d3-bab7-47d8-967f-fa619afae50d
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+    - field.storage.paragraph.field_lib_v4_carousel_image
+    - media.type.image
+_core:
+  default_config_hash: qbY5BD0gk0EPPL6QskWQXz08Ngl3d4fB7tBKX3yIrbQ
+id: paragraph.lib_v4_carousel_card.field_lib_v4_carousel_image
+field_name: field_lib_v4_carousel_image
+entity_type: paragraph
+bundle: lib_v4_carousel_card
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

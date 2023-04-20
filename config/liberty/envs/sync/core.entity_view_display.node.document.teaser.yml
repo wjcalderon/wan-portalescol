@@ -1,0 +1,36 @@
+uuid: adc60866-ef13-4ce3-b872-8f3a3a76af2d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.document.field_category_doc
+    - field.field.node.document.field_pdf
+    - node.type.document
+  module:
+    - file
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.document.teaser
+targetEntityType: node
+bundle: document
+mode: teaser
+content:
+  field_pdf:
+    type: file_url_plain
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_category_doc: true
+  langcode: true
+  links: true

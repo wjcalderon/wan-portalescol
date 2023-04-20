@@ -1,0 +1,14 @@
+uuid: 119b150b-bd21-401f-8aae-2152f4367fb7
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.cotizador_admin
+  module:
+    - user
+id: user_remove_role_action.cotizador_admin
+label: 'Elimina el rol Cotizador admin al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cotizador_admin

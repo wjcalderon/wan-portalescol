@@ -1,0 +1,19 @@
+uuid: 4a215a2f-d731-48d2-aaaa-1e46715eb5ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_heading
+    - paragraphs.paragraphs_type.lib_breaker
+id: paragraph.lib_breaker.field_lib_heading
+field_name: field_lib_heading
+entity_type: paragraph
+bundle: lib_breaker
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

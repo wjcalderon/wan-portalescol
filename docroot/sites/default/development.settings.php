@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Lagoon Drupal 8 development environment configuration file.
+ *
+ * This file will only be included on development environments.
+ *
+ * It contains some defaults that the Lagoon team suggests, please edit them as required.
+ */
+
+// Show all error messages on the site
+$config['system.logging']['error_level'] = 'all';
+
+ // Disable Google Analytics from sending dev GA data.
+$config['google_analytics.settings']['account'] = 'UA-XXXXXXXX-YY';
+
+// Expiration of cached pages to 0
+$config['system.performance']['cache']['page']['max_age'] = 0;
+
+// Aggregate CSS files off
+$config['system.performance']['css']['preprocess'] = 0;
+
+// Aggregate JavaScript files off
+$config['system.performance']['js']['preprocess'] = 0;
+
+// Stage file proxy URL from production URL
+if (getenv('LAGOON_PRODUCTION_URL')){
+  $config['stage_file_proxy.settings']['origin'] = getenv('LAGOON_PRODUCTION_URL');
+}
+
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['extension_discovery_scan_tests'] = FALSE;
+
+
+/*
+// Change kint maxLevels setting:
+include_once(DRUPAL_ROOT . '/modules/contrib/devel/kint/kint/Kint.class.php');
+if(class_exists('Kint')){
+  // Set the maxlevels to prevent out-of-memory. Currently there doesn't seem to be a cleaner way to set this:
+  Kint::$maxLevels = 4;
+}*/

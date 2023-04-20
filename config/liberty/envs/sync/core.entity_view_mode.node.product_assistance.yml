@@ -1,0 +1,14 @@
+uuid: fb8d9e50-8bac-484c-a42e-0e3f695eaf9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.product_assistance
+label: 'product assistance'
+targetEntityType: node
+cache: true

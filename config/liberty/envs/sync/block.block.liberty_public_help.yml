@@ -1,0 +1,22 @@
+uuid: 91e45dd6-9e30-4344-b7b4-f2717523321e
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - liberty_public
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: liberty_public_help
+theme: liberty_public
+region: content
+weight: -36
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

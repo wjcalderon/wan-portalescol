@@ -1,0 +1,3 @@
+services:
+  lib_core.chat_manager:
+    class: Drupal\lib_core\ChatManager

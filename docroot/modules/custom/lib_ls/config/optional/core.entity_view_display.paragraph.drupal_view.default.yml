@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.drupal_view.field_c_classes
+    - field.field.paragraph.drupal_view.field_c_subtitle
+    - field.field.paragraph.drupal_view.field_c_title
+    - field.field.paragraph.drupal_view.field_c_title_status
+    - field.field.paragraph.drupal_view.field_c_width
+    - field.field.paragraph.drupal_view.field_view
+    - paragraphs.paragraphs_type.drupal_view
+  module:
+    - options
+    - viewsreference
+id: paragraph.drupal_view.default
+targetEntityType: paragraph
+bundle: drupal_view
+mode: default
+content:
+  field_c_classes:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_subtitle:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title_status:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_c_width:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_view:
+    weight: 3
+    label: hidden
+    settings:
+      plugin_types:
+        block: block
+        default: 0
+        page: 0
+        feed: 0
+        entity_browser: 0
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+hidden: {  }

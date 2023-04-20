@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Elements / Icon / Glyph / Add</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="7.08333333 -6.07514039e-13 7.08333333 7.08333333 0 7.08333333 0 9.91666667 7.08333333 9.91666667 7.08333333 17 9.9161 17 9.9161 9.91666667 17 9.91666667 17 7.08333333 9.9161 7.08333333 9.9161 -6.07514039e-13"></polygon>
+    </defs>
+    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Claims-Insured-stp2" transform="translate(-796.000000, -2515.000000)">
+            <g id="Group-Copy-6" transform="translate(781.000000, 2500.000000)">
+                <g id="Group-2">
+                    <g id="Elements-/-Icon-/-Glyph-/-Add" transform="translate(15.925000, 15.925000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <g id="Elements-/-Color-/-Secundario-/-Gray-1" mask="url(#mask-2)" fill="#343741" fill-rule="evenodd">
+                            <rect id="Rectangle" x="0" y="0" width="17" height="17"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

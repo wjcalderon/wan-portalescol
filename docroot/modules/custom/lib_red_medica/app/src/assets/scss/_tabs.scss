@@ -1,0 +1,68 @@
+.glossary {
+  h3 {
+    text-align: center;
+    font-size: 1.875rem;
+  }
+  p {
+    color: #707070;
+    text-align: center;
+  }
+  ul.tabs {
+    @media only screen and (max-width: 320px) {
+      margin: 0 0 1rem 0;
+      padding: 0;
+    }
+    list-style: none;
+    margin-top: .5rem;
+    text-align: left;
+    li {
+      color: #707070;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 1rem;
+      margin-right: .5rem;
+      padding: .5rem 1rem;
+      &.is-active {
+        border-bottom: 2px solid #06748c;
+        color: #1a1446;
+        font-weight: bold;
+      }
+    }
+    & + .tab-content {
+      ul {
+        list-style: none;
+        margin-bottom: 1rem;
+        padding: 0;
+        text-align: left;
+        li {
+          color: #707070;
+          &.letter {
+            background-color: #99e3ea;
+            border-radius: 3px;
+            color: #1a1446;
+            display: inline;
+            font-size: 1.5625rem;
+            font-weight: bolder;
+            padding: .2rem .7rem;
+            text-align: left;
+          }
+          &.term {
+            color: #1a1446;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  &.mobile {
+    .modal-content {
+      max-height: 100%;
+      top: 0;
+      ul.tabs {
+        li {
+          padding: 0 .3rem;
+        }
+      }
+    }
+  }
+}

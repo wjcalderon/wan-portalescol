@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categcard_single
+id: block_content.lib_v2_categcard_single
+target_entity_type_id: block_content
+target_bundle: lib_v2_categcard_single
+default_langcode: site_default
+language_alterable: false

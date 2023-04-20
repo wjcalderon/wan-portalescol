@@ -1,0 +1,41 @@
+uuid: c4eeb2fa-480b-42e3-9a65-724c2993de5c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_questions_frequent_items
+    - field.field.block_content.lib_v2_questions_frequent_items.field_lib_v2_group_ref_descripti
+    - field.field.block_content.lib_v2_questions_frequent_items.field_lib_v2_group_ref_title
+  module:
+    - text
+id: block_content.lib_v2_questions_frequent_items.default
+targetEntityType: block_content
+bundle: lib_v2_questions_frequent_items
+mode: default
+content:
+  field_lib_v2_group_ref_descripti:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v2_group_ref_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

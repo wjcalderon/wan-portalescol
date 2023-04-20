@@ -1,0 +1,33 @@
+uuid: 74aa63ab-ec57-44fb-9e03-56daf1367aad
+langcode: es
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: faqs
+label: FAQs
+type: 'canonical_entities:node'
+pattern: 'zona-de-cliente/preguntas-frecuentes/[node:title]'
+selection_criteria:
+  c38f9a5a-78a0-4211-901d-0df225e2724f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: c38f9a5a-78a0-4211-901d-0df225e2724f
+    context_mapping:
+      node: node
+    bundles:
+      faq: faq
+  b266130d-94e0-4076-a6ad-50c23e0ab62b:
+    id: language
+    negate: false
+    uuid: b266130d-94e0-4076-a6ad-50c23e0ab62b
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      es: es
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Language

@@ -1,0 +1,20 @@
+uuid: 464e00e6-27ff-468e-8ba3-d559880bc8ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - liberty_public
+id: menusecundario
+theme: liberty_public
+region: menu_desktop_second
+weight: -37
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-secundario'
+settings:
+  id: 'tb_megamenu_menu_block:menu-secundario'
+  label: 'menu secundario'
+  label_display: '0'
+  provider: tb_megamenu
+visibility: {  }

@@ -1,0 +1,73 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.select_cta.field_c_classes
+    - field.field.paragraph.select_cta.field_c_title
+    - field.field.paragraph.select_cta.field_c_title_status
+    - field.field.paragraph.select_cta.field_c_width
+    - field.field.paragraph.select_cta.field_cta
+    - field.field.paragraph.select_cta.field_label
+    - paragraphs.paragraphs_type.select_cta
+  module:
+    - link
+    - options
+id: paragraph.select_cta.default
+targetEntityType: paragraph
+bundle: select_cta
+mode: default
+content:
+  field_c_classes:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title_status:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_c_width:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_cta:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_label:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

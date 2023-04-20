@@ -1,0 +1,8 @@
+name: 'liberty Claims'
+type: module
+description: 'Liberty claims module'
+core_version_requirement: ^8.8 || ^9
+package: 'Custom'
+dependencies:
+  - drupal:oauth2_client
+  - drupal:yaml_editor

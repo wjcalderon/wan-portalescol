@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 'Temporadas Los Segura'
+vid: temporadas_los_segura
+description: ''
+weight: 0

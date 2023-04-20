@@ -1,0 +1,43 @@
+uuid: 1d98a7cc-85bf-4e11-9099-141f6e922bb7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_cards_group_ref
+    - paragraphs.paragraphs_type.lib_v2_cards
+    - paragraphs.paragraphs_type.lib_v2_cards_group
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_v2_cards_group.field_lib_v2_cards_group_ref
+field_name: field_lib_v2_cards_group_ref
+entity_type: paragraph
+bundle: lib_v2_cards_group
+label: 'Adicionar cards'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      lib_v2_cards: lib_v2_cards
+    negate: 0
+    target_bundles_drag_drop:
+      componentes_v2:
+        weight: 6
+        enabled: false
+      lib_v2_cards:
+        weight: 7
+        enabled: true
+      lib_v2_cards_group:
+        weight: 8
+        enabled: false
+      lib_v2_carousel:
+        weight: 9
+        enabled: false
+      lib_v2_carousel_card:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

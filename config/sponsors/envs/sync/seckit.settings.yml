@@ -1,0 +1,60 @@
+_core:
+  default_config_hash: x6bhN6WZwfVUI_LLMvRJIUW_2c26VTaBozbfXmJWmro
+langcode: es
+seckit_xss:
+  csp:
+    checkbox: true
+    vendor-prefix:
+      x: false
+      webkit: false
+    report-only: false
+    base-uri: '''self'''
+    default-src: '''self'''
+    script-src: '''self'' ''unsafe-eval'' ''unsafe-inline'' *.google-analytics.com *.google.com *.googletagmanager.com *.gstatic.com *.zscalerthree.net *.akamaihd.net *.google.com *.gstatic.com *.newrelic.com *.nr-data.net *.cloudflare.com unpkg.com *.jsdelivr.net'
+    object-src: '''self'''
+    style-src: '''self'' ''unsafe-inline'' fonts.googleapis.com *.zscalerthree.net cdn.jsdelivr.net cdnjs.cloudflare.com '
+    img-src: ''
+    manifest-src: '''self'''
+    media-src: '''self'' *.zscalerthree.net *.google-analytics.com'
+    form-action: '''self'''
+    frame-src: '''self'' www.google.com https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha'
+    frame-ancestors: '''self'''
+    child-src: '''self'''
+    font-src: fonts.gstatic.com
+    connect-src: '''self'' *.google-analytics.com *.doubleclick.net *.nr-data.net'
+    report-uri: /report-csp-violation
+    upgrade-req: true
+    policy-uri: '''none'''
+  x_xss:
+    seckit_x_xss_option_disable: Disabled
+    seckit_x_xss_option_0: '0'
+    seckit_x_xss_option_1: 1;
+    seckit_x_xss_option_1_block: '1; mode=block'
+    select: 2
+seckit_csrf:
+  origin: false
+  origin_whitelist: ''
+seckit_clickjacking:
+  js_css_noscript: false
+  noscript_message: 'Sorry, you need to enable JavaScript to visit this website.'
+  x_frame: '1'
+  x_frame_allow_from: ''
+seckit_ssl:
+  hsts: true
+  hsts_subdomains: false
+  hsts_max_age: 2592000
+  hsts_preload: false
+seckit_ct:
+  expect_ct: false
+  max_age: 86400
+  report_uri: ''
+  enforce: false
+seckit_fp:
+  feature_policy: false
+  feature_policy_policy: ''
+seckit_various:
+  from_origin: false
+  from_origin_destination: same
+  referrer_policy: false
+  referrer_policy_policy: strict-origin
+  disable_autocomplete: true

@@ -1,0 +1,19 @@
+uuid: c40f1b8d-08a7-439c-8ff3-9bd82ca76cbb
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_description_banner
+field_name: field_description_banner
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

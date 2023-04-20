@@ -1,0 +1,29 @@
+uuid: 26fe8d77-fbf6-4a3c-a132-2a315d407d74
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_carousel_card
+    - field.storage.block_content.field_lib_v2_carousel_image
+    - media.type.image
+id: block_content.lib_v2_carousel_card.field_lib_v2_carousel_image
+field_name: field_lib_v2_carousel_image
+entity_type: block_content
+bundle: lib_v2_carousel_card
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

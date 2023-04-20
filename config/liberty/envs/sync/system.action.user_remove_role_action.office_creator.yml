@@ -1,0 +1,14 @@
+uuid: c3afef22-12da-409d-a0c6-a22b558fda6b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.office_creator
+  module:
+    - user
+id: user_remove_role_action.office_creator
+label: 'Elimina el rol Sucursal creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: office_creator

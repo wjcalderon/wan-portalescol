@@ -1,0 +1,51 @@
+uuid: 6d065e31-aed6-4e3e-9938-a93fef7cabb0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_card_list_out.field_lib_card_style
+    - field.field.paragraph.lib_card_list_out.field_lib_columns
+    - field.field.paragraph.lib_card_list_out.field_lib_heading
+    - field.field.paragraph.lib_card_list_out.field_lib_p_items
+    - paragraphs.paragraphs_type.lib_card_list_out
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.lib_card_list_out.default
+targetEntityType: paragraph
+bundle: lib_card_list_out
+mode: default
+content:
+  field_lib_card_style:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_columns:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

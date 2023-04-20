@@ -1,0 +1,15 @@
+uuid: b85ff53b-22b4-4dc6-8fac-3052713976a9
+langcode: es
+status: true
+dependencies: {  }
+name: 3_1_large_1920_x_640_
+label: '3:1 Large (1920 x 640)'
+effects:
+  f643c281-330c-4508-be63-8d973fe5621f:
+    uuid: f643c281-330c-4508-be63-8d973fe5621f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 640
+      anchor: center-center

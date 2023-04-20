@@ -1,0 +1,85 @@
+uuid: 4dce54cc-f3f8-4ec1-8169-9669b390c8a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items_acordeon
+    - paragraphs.paragraphs_type.acordeon
+    - paragraphs.paragraphs_type.item_acordeon
+  module:
+    - entity_reference_revisions
+id: paragraph.acordeon.field_items_acordeon
+field_name: field_items_acordeon
+entity_type: paragraph
+bundle: acordeon
+label: 'Items Acordeón'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_acordeon: item_acordeon
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 20
+        enabled: false
+      assistance_item:
+        weight: 21
+        enabled: false
+      banner:
+        weight: 22
+        enabled: false
+      card:
+        weight: 23
+        enabled: false
+      cards:
+        weight: 24
+        enabled: false
+      drupal_block:
+        weight: 25
+        enabled: false
+      drupal_view:
+        weight: 26
+        enabled: false
+      image:
+        weight: 27
+        enabled: false
+      item_acordeon:
+        weight: 28
+        enabled: true
+      item_lista:
+        weight: 29
+        enabled: false
+      lista:
+        weight: 30
+        enabled: false
+      select_cta:
+        weight: 31
+        enabled: false
+      single_text:
+        weight: 32
+        enabled: false
+      slider:
+        weight: 33
+        enabled: false
+      tab_item:
+        weight: 34
+        enabled: false
+      tabs:
+        weight: 35
+        enabled: false
+      testimonies:
+        weight: 36
+        enabled: false
+      testimony_item:
+        weight: 37
+        enabled: false
+      webform:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

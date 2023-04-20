@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: lista
+label: Lista
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de lista" y agréguelos en una página de producto.'
+behavior_plugins: {  }

@@ -1,0 +1,26 @@
+uuid: 7886d6e4-b03e-42db-a2d9-995bc2aa0ca6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - liberty_public
+id: menuprincipalempresas_2
+theme: liberty_public
+region: menu_desktop
+weight: -36
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-principal-empresas'
+settings:
+  id: 'tb_megamenu_menu_block:menu-principal-empresas'
+  label: 'menu principal empresas'
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/empresas\r\n/empresas/*"

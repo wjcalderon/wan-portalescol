@@ -1,0 +1,38 @@
+uuid: ea2d59a7-55b7-49ee-af3e-74e96b490a09
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.landing_html.body
+    - field.field.node.landing_html.field_p_components
+    - node.type.landing_html
+  module:
+    - entity_reference_revisions
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.landing_html.default
+targetEntityType: node
+bundle: landing_html
+mode: default
+content:
+  field_p_components:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  content_moderation_control: true
+  langcode: true
+  links: true

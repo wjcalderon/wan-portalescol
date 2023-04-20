@@ -1,0 +1,29 @@
+uuid: e5813d84-c4a9-4e60-9247-ca7f573c8187
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ubication
+    - node.type.office
+    - taxonomy.vocabulary.ubication
+id: node.office.field_ubication
+field_name: field_ubication
+entity_type: node
+bundle: office
+label: Ubicación
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ubication: ubication
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

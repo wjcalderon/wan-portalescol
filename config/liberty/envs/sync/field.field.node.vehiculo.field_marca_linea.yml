@@ -1,0 +1,29 @@
+uuid: 9f225cc8-7f06-4121-81b9-1aa80115783d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_marca_linea
+    - node.type.vehiculo
+    - taxonomy.vocabulary.marca_linea
+id: node.vehiculo.field_marca_linea
+field_name: field_marca_linea
+entity_type: node
+bundle: vehiculo
+label: Marca/linea
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      marca_linea: marca_linea
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,26 @@
+uuid: 8af0c284-6cd5-44f2-8178-f47f438f25a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - liberty_public
+id: menuprincipalpersonas_2
+theme: liberty_public
+region: menu_desktop
+weight: -37
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-principal-personas'
+settings:
+  id: 'tb_megamenu_menu_block:menu-principal-personas'
+  label: 'menu principal personas'
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/empresas\r\n/empresas/*\r\n"

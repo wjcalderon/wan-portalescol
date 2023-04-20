@@ -1,0 +1,7 @@
+services:
+  logger.channel.li_news:
+    parent: logger.channel_base
+    arguments: ["li_news"]
+  li_news.default:
+    class: Drupal\li_news\Services\NewsService
+    arguments: []

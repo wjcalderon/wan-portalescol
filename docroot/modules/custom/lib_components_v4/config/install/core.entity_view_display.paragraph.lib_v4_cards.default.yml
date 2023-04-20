@@ -1,0 +1,58 @@
+uuid: afb851ad-5d7e-498d-806d-8e55822be1e1
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cards
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_desc
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_image
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_link
+    - field.field.paragraph.lib_v4_cards.field_lib_v4_cards_title
+  module:
+    - link
+_core:
+  default_config_hash: _kXuv7NsJCvzM4m__SFv4v7CYah7BG7zD7vGDCLUDNA
+id: paragraph.lib_v4_cards.default
+targetEntityType: paragraph
+bundle: lib_v4_cards
+mode: default
+content:
+  field_lib_v4_cards_desc:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_v4_cards_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_v4_cards_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_v4_cards_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

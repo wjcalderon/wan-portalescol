@@ -1,0 +1,25 @@
+uuid: ffe7014b-05f3-4ff2-bca9-1c991d185020
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: lineasdeatencionsiniesrtros
+theme: liberty_public
+region: blocks_activate
+weight: -34
+provider: null
+plugin: 'block_content:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+settings:
+  id: 'block_content:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+  label: 'Lineas de atención siniestros'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

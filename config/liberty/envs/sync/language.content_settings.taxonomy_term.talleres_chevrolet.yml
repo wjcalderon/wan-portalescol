@@ -1,0 +1,11 @@
+uuid: daa8c967-3871-4b4e-b41d-ac79a37e6fbe
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.talleres_chevrolet
+id: taxonomy_term.talleres_chevrolet
+target_entity_type_id: taxonomy_term
+target_bundle: talleres_chevrolet
+default_langcode: site_default
+language_alterable: false

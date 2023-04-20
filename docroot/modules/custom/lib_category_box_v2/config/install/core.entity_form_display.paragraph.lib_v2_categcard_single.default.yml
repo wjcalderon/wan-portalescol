@@ -1,0 +1,33 @@
+uuid: 8f858c72-5e77-47f3-ba7c-1117941dd1f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_categcard_single.field_lib_v2_categcard_desc
+    - field.field.paragraph.lib_v2_categcard_single.field_lib_v2_categcard_icon
+    - paragraphs.paragraphs_type.lib_v2_categcard_single
+  module:
+    - media_library
+id: paragraph.lib_v2_categcard_single.default
+targetEntityType: paragraph
+bundle: lib_v2_categcard_single
+mode: default
+content:
+  field_lib_v2_categcard_desc:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v2_categcard_icon:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

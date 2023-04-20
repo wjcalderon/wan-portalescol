@@ -1,0 +1,32 @@
+uuid: 18b75f1a-85f4-46aa-9358-164109fcf54d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.header_caracteristics.field_caracteristic
+    - field.field.paragraph.header_caracteristics.field_icon
+    - paragraphs.paragraphs_type.header_caracteristics
+  module:
+    - image
+id: paragraph.header_caracteristics.default
+targetEntityType: paragraph
+bundle: header_caracteristics
+mode: default
+content:
+  field_caracteristic:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_icon:
+    type: image_url
+    label: above
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

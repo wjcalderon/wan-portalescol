@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_article_video_creator
+  module:
+    - user
+id: user_remove_role_action.news_article_video_creator
+label: 'Elimina el rol Noticias artículo video creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: news_article_video_creator

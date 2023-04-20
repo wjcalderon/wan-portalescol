@@ -1,0 +1,90 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.assistance_item.field_c_image
+    - field.field.paragraph.assistance_item.field_heading
+    - field.field.paragraph.assistance_item.field_lead
+    - field.field.paragraph.assistance_item.field_step
+    - paragraphs.paragraphs_type.assistance_item
+  module:
+    - field_group
+    - svg_image
+third_party_settings:
+  field_group:
+    group_left:
+      children:
+        - field_c_image
+        - field_heading
+        - field_lead
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: left
+    group_right:
+      children:
+        - field_step
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: right
+id: paragraph.assistance_item.default
+targetEntityType: paragraph
+bundle: assistance_item
+mode: default
+content:
+  field_c_image:
+    weight: 1
+    label: hidden
+    settings:
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_heading:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_lead:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_step:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

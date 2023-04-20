@@ -1,0 +1,80 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_c_classes
+    - field.field.paragraph.video.field_c_title
+    - field.field.paragraph.video.field_c_title_status
+    - field.field.paragraph.video.field_c_width
+    - field.field.paragraph.video.field_layout
+    - field.field.paragraph.video.field_lead
+    - field.field.paragraph.video.field_video_embed
+    - paragraphs.paragraphs_type.video
+  module:
+    - options
+    - video_embed_field
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_c_classes:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title_status:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_c_width:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_layout:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_lead:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_video_embed:
+    weight: 2
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
+    third_party_settings: {  }
+    type: video_embed_field_video
+    region: content
+hidden:
+  search_api_excerpt: true

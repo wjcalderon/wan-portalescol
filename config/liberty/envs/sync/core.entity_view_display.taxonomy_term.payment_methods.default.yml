@@ -1,0 +1,171 @@
+uuid: 6b2ebb77-f244-4786-a3c5-675e9ef95b2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.payment_methods.field_agreement_number
+    - field.field.taxonomy_term.payment_methods.field_channel
+    - field.field.taxonomy_term.payment_methods.field_external_link
+    - field.field.taxonomy_term.payment_methods.field_product_type
+    - field.field.taxonomy_term.payment_methods.field_screenshot
+    - field.field.taxonomy_term.payment_methods.field_status
+    - taxonomy.vocabulary.payment_methods
+  module:
+    - blazy
+    - ds
+    - link
+    - manage_display
+    - options
+    - panelizer
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - description
+        - field_agreement_number
+        - field_channel
+        - field_external_link
+        - field_product_type
+        - field_screenshot
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.payment_methods.default
+targetEntityType: taxonomy_term
+bundle: payment_methods
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_agreement_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: ds_content
+  field_channel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_external_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  field_product_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_screenshot:
+    type: blazy
+    label: above
+    settings:
+      caption:
+        title: '0'
+        alt: '0'
+      icon: ''
+      layout: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: default
+      skin: ''
+      fx: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      _uri: ''
+      breakpoints:
+        xs:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        sm:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        md:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        lg:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        xl:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+      sizes: ''
+      grid_header: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+    third_party_settings: {  }
+    weight: 5
+    region: ds_content
+  field_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  name:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

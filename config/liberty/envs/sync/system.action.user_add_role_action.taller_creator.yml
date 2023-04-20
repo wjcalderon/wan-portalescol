@@ -1,0 +1,14 @@
+uuid: 63f15742-752a-4538-891c-3fc7df407006
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.taller_creator
+  module:
+    - user
+id: user_add_role_action.taller_creator
+label: 'Añade el rol Taller creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: taller_creator

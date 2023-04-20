@@ -1,0 +1,7 @@
+{% set alert__base_class = 'alert' %}
+
+<div {{ bem(alert__base_class) }}>
+    <div {{ bem('message', [], alert__base_class) }}>
+        {{ alert__message }}
+    </div>
+</div>

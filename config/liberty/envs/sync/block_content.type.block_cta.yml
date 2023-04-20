@@ -1,0 +1,8 @@
+uuid: 67eb5f58-cfa5-4eef-94f9-c5cb981ab52c
+langcode: en
+status: true
+dependencies: {  }
+id: block_cta
+label: CTA
+revision: 1
+description: 'Bloque personalizado para crear un enlace con título, url destino'

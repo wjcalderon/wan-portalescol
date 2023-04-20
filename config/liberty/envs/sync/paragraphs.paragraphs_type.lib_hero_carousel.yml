@@ -1,0 +1,10 @@
+uuid: 1b293656-8e71-4ebd-9b7d-27f4b652ae89
+langcode: es
+status: true
+dependencies: {  }
+id: lib_hero_carousel
+label: 'Hero Carousel'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Hero Carrusel.'
+behavior_plugins: {  }

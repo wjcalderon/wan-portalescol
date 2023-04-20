@@ -1,0 +1,22 @@
+diff --git a/docroot/modules/contrib/ds/includes/field_ui.inc b/docroot/modules/contrib/ds/includes/field_ui.inc
+index dafe2df..f05104d 100644
+--- a/docroot/modules/contrib/ds/includes/field_ui.inc
++++ b/docroot/modules/contrib/ds/includes/field_ui.inc
+@@ -13,6 +13,7 @@
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Plugin\PluginFormInterface;
+ use Drupal\Core\Render\Element;
++use Drupal\Core\StringTranslation\TranslatableMarkup;
+ use Drupal\Core\Url;
+ use Drupal\ds\Ds;
+ use Drupal\ds\Plugin\DsField\DsFieldInterface;
+@@ -716,6 +717,9 @@ function _ds_field_ui_table_layouts($entity_type, $bundle, $view_mode, array &$f
+   foreach ($ds_layouts as $key => $layout_definition) {
+     // Create new layout option group.
+     $optgroup = $layout_definition->getCategory() ?: t('Other');
++    if ($optgroup instanceof TranslatableMarkup) {
++      $optgroup = $optgroup->getUntranslatedString();
++    }
+     if (!isset($layout_options[$optgroup])) {
+       $layout_options[$optgroup] = [];
+     }

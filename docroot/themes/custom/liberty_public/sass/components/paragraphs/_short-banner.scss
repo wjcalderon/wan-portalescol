@@ -1,0 +1,14 @@
+.component__short-banner {
+  &__mobile {
+    @media screen and (min-width: $small-max) {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+    @media screen and (min-width: $small-max) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+uuid: 154779cd-b4ce-4330-984e-16e77d39e441
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+id: glosario_de_especialidades_reviewer
+label: 'Glosario de especialidades reviewer'
+weight: 48
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any glosario_de_especialidades content'
+  - 'edit any glosario_de_especialidades content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

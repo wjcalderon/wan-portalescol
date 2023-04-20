@@ -1,0 +1,9 @@
+uuid: 9ca1f563-3fbd-4faf-8d4e-d3ef0c519bc3
+langcode: en
+status: true
+dependencies: {  }
+id: testimony_item
+label: 'Item Testimonio'
+icon_uuid: null
+description: 'Item tipo testimonio, referenciado por el componente <b>testimonios</b>.'
+behavior_plugins: {  }

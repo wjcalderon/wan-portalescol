@@ -1,0 +1,19 @@
+uuid: 3d4a2f00-3ab9-4d2d-a666-ad65e82c38c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_country
+    - node.type.campaign
+id: node.campaign.field_campaign_country
+field_name: field_campaign_country
+entity_type: node
+bundle: campaign
+label: País
+description: 'Digite el país asociado a esta campaña.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+name: Etiquetas
+vid: tags
+description: 'Palabras claves relacionadas a las Noticias'
+weight: 0

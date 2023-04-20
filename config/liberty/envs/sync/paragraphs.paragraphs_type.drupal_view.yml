@@ -1,0 +1,9 @@
+uuid: 3632c0ba-8ad5-467a-8b7b-297a798a8902
+langcode: en
+status: true
+dependencies: {  }
+id: drupal_view
+label: Vista
+icon_uuid: null
+description: 'Permite referenciar una instancia de vista del módulo <b>views</b>.'
+behavior_plugins: {  }

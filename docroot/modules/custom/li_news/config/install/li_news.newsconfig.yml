@@ -1,0 +1,8 @@
+article:
+  quantity_images: '5'
+article_video:
+  quantity_images: '5'
+  quantity_videos: '1'
+news_module:
+  quantity_news: '16'
+langcode: es

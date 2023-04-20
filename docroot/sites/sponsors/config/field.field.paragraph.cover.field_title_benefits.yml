@@ -1,0 +1,21 @@
+uuid: 1c64dabd-5d2d-4d9a-b632-b37e4291ab08
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_benefits
+    - paragraphs.paragraphs_type.cover
+id: paragraph.cover.field_title_benefits
+field_name: field_title_benefits
+entity_type: paragraph
+bundle: cover
+label: 'Titulo Beneficios'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: Beneficios
+default_value_callback: ''
+settings: {  }
+field_type: string

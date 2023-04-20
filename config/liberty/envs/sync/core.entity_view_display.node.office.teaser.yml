@@ -1,0 +1,32 @@
+uuid: d21a44b3-d7bb-42c3-861a-2a77a0b4a708
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.office.field_location_map
+    - field.field.node.office.field_network_address
+    - field.field.node.office.field_open_schedule
+    - field.field.node.office.field_phone
+    - field.field.node.office.field_ubication
+    - node.type.office
+  module:
+    - user
+id: node.office.teaser
+targetEntityType: node
+bundle: office
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_location_map: true
+  field_network_address: true
+  field_open_schedule: true
+  field_phone: true
+  field_ubication: true
+  langcode: true

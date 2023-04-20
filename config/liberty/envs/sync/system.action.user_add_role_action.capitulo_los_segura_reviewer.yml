@@ -1,0 +1,14 @@
+uuid: 2d499405-0665-4665-bc83-ef72a68f7da9
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.capitulo_los_segura_reviewer
+  module:
+    - user
+id: user_add_role_action.capitulo_los_segura_reviewer
+label: 'Añade el rol Capítulo Los Segura reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: capitulo_los_segura_reviewer

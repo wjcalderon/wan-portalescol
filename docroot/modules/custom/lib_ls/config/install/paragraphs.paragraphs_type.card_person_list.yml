@@ -1,0 +1,9 @@
+langcode: es
+status: true
+dependencies: {  }
+id: card_person_list
+label: 'Tarjetas: Persona'
+icon_uuid: null
+icon_default: null
+description: 'Lista de tarjetas de tipo persona.'
+behavior_plugins: {  }

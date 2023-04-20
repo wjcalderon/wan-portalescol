@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_article_creator
+  module:
+    - user
+id: user_add_role_action.news_article_creator
+label: 'Añade el rol Noticias artículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_article_creator

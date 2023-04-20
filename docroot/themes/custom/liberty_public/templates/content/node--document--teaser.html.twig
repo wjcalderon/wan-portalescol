@@ -1,0 +1,30 @@
+{% set base_url = url('<front>')|render|split('/')|join('/') %}
+{% if (content.field_pdf['#items']|length) > 1 %}
+  <div class="field field-icon">
+    <a href="{{ url }}" target="_blank" rel="noreferrer">
+      <img src="{{ base_url }}{{
+        directory
+        }}/images/icons/dowload-outline.svg" />
+    </a>
+  </div>
+  <div class="title">
+    <a href="{{ url }}" target="_blank" rel="noreferrer">{{ node.label }}</a>
+  </div>
+{% else %}
+  <div class="field field-icon">
+    <a href="{{ content.field_pdf|field_value }}" target="_blank" rel="noreferrer">
+      <img src="{{ base_url }}{{
+        directory
+        }}/images/icons/dowload-outline.svg" />
+    </a>
+  </div>
+  <div class="title">
+    <a href="{{ content.field_pdf|field_value }}" target="_blank" rel="noreferrer">
+      {{ node.label }}
+    </a>
+  </div>
+{% endif %}
+
+<!-- /content -->
+
+<!-- /article #node -->

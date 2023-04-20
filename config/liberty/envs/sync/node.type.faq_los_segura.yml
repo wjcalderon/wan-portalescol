@@ -1,0 +1,22 @@
+uuid: b11161ba-0bfc-4cce-a80f-31b7a51af5b1
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  lightning_workflow:
+    workflow: editorial
+_core:
+  default_config_hash: u9sS2xWTmtFILnG74UNolDJRQ3MDHo3JNaMg6cky2y4
+name: 'Faq Los Segura'
+type: faq_los_segura
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

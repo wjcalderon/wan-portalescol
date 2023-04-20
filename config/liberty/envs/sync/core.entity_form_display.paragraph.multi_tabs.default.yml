@@ -1,0 +1,103 @@
+uuid: 098878c0-5303-4749-b2ca-ed74a4760213
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multi_tabs.field_c_classes
+    - field.field.paragraph.multi_tabs.field_c_title
+    - field.field.paragraph.multi_tabs.field_c_title_status
+    - field.field.paragraph.multi_tabs.field_c_width
+    - field.field.paragraph.multi_tabs.field_lead
+    - field.field.paragraph.multi_tabs.field_multi_tab_item
+    - paragraphs.paragraphs_type.multi_tabs
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_ti:
+      children:
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_component_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.multi_tabs.default
+targetEntityType: paragraph
+bundle: multi_tabs
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lead:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_multi_tab_item:
+    type: entity_reference_paragraphs
+    weight: 4
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

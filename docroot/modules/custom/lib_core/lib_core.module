@@ -1,0 +1,188 @@
+<?php
+
+/**
+ * @file
+ * Contains liberty_claims.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\GeneratedLink;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function lib_core_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'payment_methods')) {
+    $view->element['#attached']['library'][] = 'lib_core/payment-methods';
+  }
+}
+
+/**
+ * Implements hook_forma_alter().
+ */
+function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // var_dump($form_id);
+  /* if(strpos($form_id, 'webform_submission_') === 0){
+  var_dump(1);
+  $form['#attached']['library'][] = 'lib_core/captcha';
+
+  }*/
+
+  if ($form_id == 'webform_submission_solicitud_add_form' || $form_id == 'webform_submission_solicitud_paragraph_156_add_form') {
+
+    $form['elements']['descripcion_de_auto']['#attributes']['class'][] = 'msg-description';
+    $form['elements']['descripcion_de_cumplimiento']['#attributes']['class'][] = 'msg-description';
+    $form['elements']['descripcion_de_salud']['#attributes']['class'][] = 'msg-description';
+    $form['elements']['descripcion_de_soat']['#attributes']['class'][] = 'msg-description';
+    $form['elements']['descripcion_de_vida']['#attributes']['class'][] = 'msg-description';
+
+  }
+
+  if ($form_id == 'views_exposed_form' && isset($form['field_product_type_target_id'])) {
+    $form['field_product_type_target_id']['#attributes'] = [
+      'placeholder' => 'Select a product to know its payment method',
+    ];
+    $form['actions']['submit']['#name'] = 'button-filter-product-type';
+  }
+
+  if ($form_id == 'views_exposed_form' && isset($form['#id']) && $form['#id'] == 'views-exposed-form-clauses-documents-page-2') {
+    $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
+    $form['title']['#attributes']['placeholder'] = 'Encuentra la documentación que necesitas para tus procesos con Liberty';
+    $form['title']['#size'] = 60;
+    $form['#action'] = "/zona-de-cliente/clausulas-y-documentos";
+  }
+  if ($form_id == 'views_exposed_form' && isset($form['#id']) && $form['#id'] == 'views-exposed-form-faqs-page-1') {
+    $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
+    $form['title']['#attributes']['placeholder'] = '¿En qué podemos ayudarte?';
+    $form['title']['#size'] = 60;
+    $form['#action'] = "/zona-de-cliente/preguntas-frecuentes";
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function lib_core_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  $account = \Drupal::currentUser();
+  if ($view->id() == 'my_special_view' && $account->hasPermission('my special permission') && $display_id == 'public_display') {
+    $args[0] = 'custom value';
+  }
+
+  if ($view->id() == 'faqs' && $display_id == 'block_3') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $category = $node->get('field_category_faq')->getValue();
+    if (isset($category[0]['target_id'])) {
+      $args[0] = $category[0]['target_id'];
+    }
+  }
+
+  if (($view->id() == 'clauses_documents' && $display_id === 'page_1') || ($view->id() == 'faqs' && $display_id === 'page_2')) {
+    $category = \Drupal::request()->query->get('category');
+    if (!empty($category) && is_numeric($category) && $category > 0) {
+      $args[0] = $category;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_core_theme($existing, $type, $theme, $path) {
+  return [
+    'tabs_assistances' => [
+      'variables' => [
+        'ramos' => NULL,
+        'products' => NULL,
+        'block_contact' => NULL,
+      ],
+      'template' => 'tabs_assistances',
+    ],
+    'tabs_documents_required' => [
+      'variables' => [
+        'ramos' => NULL,
+        'products' => NULL,
+        'block_contact' => NULL,
+      ],
+      'template' => 'tabs_documents_required',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_file_link().
+ */
+function lib_core_preprocess_file_link(&$variables) {
+  if ($variables['link'] && $variables['link'] instanceof GeneratedLink) {
+    $doc = new DOMDocument();
+    $doc->loadHTML(mb_convert_encoding($variables['link']->getGeneratedLink(), 'HTML-ENTITIES', 'UTF-8'));
+    $node = $doc->getElementsByTagName('a')[0];
+    $node->setAttribute('target', '_blank');
+    $variables['link']->setGeneratedLink($doc->saveHTML());
+  }
+}
+
+/**
+ * Update 8001.
+ */
+function lib_core_update_8001() {
+  $entity_type = 'block_content';
+  $bundle = 'promotional';
+  $field_name = 'field_pro_image';
+
+  /** @var \Drupal\Core\KeyValueStore\KeyValueFactoryInterface $key_value_factory */
+  $key_value_factory = \Drupal::service('keyvalue');
+  $field_map_kv_store = $key_value_factory->get('entity.definitions.bundle_field_map');
+  $map = $field_map_kv_store->get($entity_type);
+  // Remove the field_dates field from the bundle field map for the page bundle.
+  unset($map[$field_name]['bundles'][$bundle]);
+  $field_map_kv_store->set($entity_type, $map);
+}
+
+/**
+ * View alter.
+ */
+function lib_core_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+
+  if ($entity->bundle() == 'campaign') {
+    // @todo Agregar validacion a view mode full
+    $build['#cache']['max-age'] = 0;
+    \Drupal::service('page_cache_kill_switch')->trigger();
+  }
+}
+
+/**
+ * Cron custom.
+ */
+function lib_core_cron() {
+  $date = strtotime("-1 day");
+  $database = \Drupal::database();
+  $database->query("delete from sessions where timestamp < '" . $date . "';");
+
+  $file_system = \Drupal::service('file_system');
+  $files = \Drupal::entityTypeManager()
+    ->getStorage('file')
+    ->getQuery()
+    ->condition('uri', '%pqr%', 'LIKE')
+    ->execute();
+  $storage_handler = \Drupal::entityTypeManager()->getStorage("file");
+
+  foreach ($files as $file) {
+    $locale_directory = $storage_handler->load($file)->get('uri')->getValue()[0]['value'];
+    $directory = explode('/', $locale_directory);
+    $directoryD = array_pop($directory);
+    $uri = $directory[0] . '//' . $directory[2] . '/';
+    if (is_dir($uri)) {
+      if (!$file_system->scanDirectory($uri, '/.*/')) {
+        $file_system->rmdir($uri);
+      }
+    }
+
+  }
+  $entities = $storage_handler->loadMultiple($files);
+  $storage_handler->delete($entities);
+
+}

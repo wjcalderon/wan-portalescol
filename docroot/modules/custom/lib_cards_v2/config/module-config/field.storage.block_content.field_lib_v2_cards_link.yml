@@ -1,0 +1,21 @@
+uuid: 02b0d716-d39d-4ff1-bcfe-368f19fb611a
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+_core:
+  default_config_hash: 9SXmEO--ukxF0VP3kC4thHKjeAmUKuVogwJPgvt533w
+id: block_content.field_lib_v2_cards_link
+field_name: field_lib_v2_cards_link
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

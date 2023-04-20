@@ -1,0 +1,21 @@
+uuid: 293a4fa3-43ab-44f1-8c76-bd33129df7da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_validacion_de_oferta
+    - node.type.campaign
+  module:
+    - text
+id: node.campaign.field_validacion_de_oferta
+field_name: field_validacion_de_oferta
+entity_type: node
+bundle: campaign
+label: 'Encabezado Productos'
+description: 'Diligencie el encabezado o descripción de uno o varios productos. Máximo recomendado 200 caracteres'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,14 @@
+uuid: 78d5e347-b80e-4b6f-9f7f-8845e9f49b06
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_creator
+  module:
+    - user
+id: user_remove_role_action.informes_creator
+label: 'Elimina el rol Informes creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: informes_creator

@@ -1,0 +1,22 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.glosario_los_segura
+  module:
+    - text
+id: node.glosario_los_segura.body
+field_name: body
+entity_type: node
+bundle: glosario_los_segura
+label: Definición
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

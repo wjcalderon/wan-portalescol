@@ -1,0 +1,41 @@
+uuid: f6e9e8d7-e4ab-4ae4-b895-d8d315312b99
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_carousel
+    - field.field.block_content.lib_v2_carousel.field_lib_v2_carousel_group_ref
+  module:
+    - inline_entity_form
+id: block_content.lib_v2_carousel.default
+targetEntityType: block_content
+bundle: lib_v2_carousel
+mode: default
+content:
+  field_lib_v2_carousel_group_ref:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Card
+      label_plural: Cards
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

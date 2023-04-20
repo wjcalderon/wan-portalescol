@@ -1,0 +1,10 @@
+uuid: fc912342-1e0b-4ae9-93cd-1384e036663d
+langcode: es
+status: true
+dependencies: {  }
+id: lib_card
+label: Card
+icon_uuid: null
+icon_default: null
+description: 'Un contenido libre.'
+behavior_plugins: {  }

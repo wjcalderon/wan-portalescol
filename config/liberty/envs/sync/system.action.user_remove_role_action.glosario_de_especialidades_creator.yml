@@ -1,0 +1,19 @@
+uuid: f798b1a9-3915-477b-8e0e-bd987bfe03c8
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.glosario_de_especialidades_creator
+  module:
+    - user
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: og0s8xWl_7iEI0fsNKx5EhQk_0qf6IkF8WIjg89_vNQ
+id: user_remove_role_action.glosario_de_especialidades_creator
+label: 'Elimina el rol Glosario de especialidades creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: glosario_de_especialidades_creator

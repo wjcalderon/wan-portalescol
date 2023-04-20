@@ -1,0 +1,21 @@
+uuid: 01050e2c-d850-4966-9968-d9d2736b2cee
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: sinisternotificationthirdaffected
+theme: liberty_public
+region: blocks_activate
+weight: -28
+provider: null
+plugin: sinister_notification_third
+settings:
+  id: sinister_notification_third
+  label: 'Sinister notification third affected'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

@@ -1,0 +1,51 @@
+uuid: bcc4cf26-977e-4eba-bfd6-fda29fd48d48
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.paragraph.qualtrics_embed.field_c_classes
+    - field.field.paragraph.qualtrics_embed.field_image
+    - field.field.paragraph.qualtrics_embed.field_qualtrics
+    - paragraphs.paragraphs_type.qualtrics_embed
+  module:
+    - entity_browser
+    - text
+id: paragraph.qualtrics_embed.default
+targetEntityType: paragraph
+bundle: qualtrics_embed
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: entity_browser_file
+    weight: 1
+    region: content
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_qualtrics:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

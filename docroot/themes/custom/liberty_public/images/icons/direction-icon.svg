@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="22px" viewBox="0 0 18 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon </title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.1796667,22 L11.1708667,22 C10.9068667,21.9970667 10.6568,21.8812 10.4844667,21.6802667 C9.71153333,20.7819333 2.93333333,12.7673333 2.93333333,8.2368 C2.93333333,3.69526667 6.633,0 11.1796667,0 C15.7263333,0 19.426,3.69526667 19.426,8.2368 C19.426,13.1721333 12.1726,21.3480667 11.8638667,21.6942 C11.6893333,21.8892667 11.44,22 11.1796667,22 Z M11.1796667,1.83333333 C7.64353333,1.83333333 4.76666667,4.7058 4.76666667,8.2368 C4.76666667,11.1745333 8.91806667,16.8776667 11.1921333,19.6672667 C13.464,16.9627333 17.5926667,11.3952667 17.5926667,8.2368 C17.5926667,4.7058 14.7158,1.83333333 11.1796667,1.83333333 Z M11.1796667,4.40322667 C12.7996,4.40322667 14.113,5.71442667 14.113,7.33289333 C14.113,8.95136 12.7996,10.2632933 11.1796667,10.2632933 C9.55973333,10.2632933 8.24633333,8.95136 8.24633333,7.33289333 C8.24633333,5.71442667 9.55973333,4.40322667 11.1796667,4.40322667 Z" id="path-1"></path>
+    </defs>
+    <g id="DSK-Red-médica" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Red-médica-Copy-2" transform="translate(-367.000000, -1270.000000)">
+            <g id="Group-13" transform="translate(182.000000, 1132.000000)">
+                <g id="info-copy-10" transform="translate(85.000000, 89.000000)">
+                    <g id="Group-5">
+                        <g id="Elements-/-Icon-/-Glyph-/-Location-Pin-Outline" transform="translate(98.000000, 49.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                                <rect id="Rectangle" x="0" y="0" width="22" height="22"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

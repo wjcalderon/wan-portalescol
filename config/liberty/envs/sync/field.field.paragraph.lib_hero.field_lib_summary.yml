@@ -1,0 +1,19 @@
+uuid: 3105688c-3f31-4de8-9e39-45fb1a06bb22
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_summary
+    - paragraphs.paragraphs_type.lib_hero
+id: paragraph.lib_hero.field_lib_summary
+field_name: field_lib_summary
+entity_type: paragraph
+bundle: lib_hero
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

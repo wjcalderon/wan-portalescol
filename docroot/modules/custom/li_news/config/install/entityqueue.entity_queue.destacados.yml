@@ -1,0 +1,28 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: wHlsw8t2eCKPvL-BWgbYvDDaVgFGCY0DUVu2n4mZKnE
+id: destacados
+label: Destacados
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news_article: news_article
+      news_article_video: news_article_video
+      news_inphography: news_inphography
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: news_article
+queue_settings:
+  min_size: 4
+  max_size: 4
+  act_as_queue: true
+  reverse: false

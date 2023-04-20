@@ -1,0 +1,72 @@
+uuid: 2d290a1d-fcf2-475b-ade8-3ce222c3bb39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cover.field_benefits
+    - field.field.paragraph.cover.field_button_text
+    - field.field.paragraph.cover.field_cover_caracteristic
+    - field.field.paragraph.cover.field_cover_caracteristics
+    - field.field.paragraph.cover.field_cover_image
+    - field.field.paragraph.cover.field_cover_title
+    - field.field.paragraph.cover.field_link_button
+    - field.field.paragraph.cover.field_title_benefits
+    - paragraphs.paragraphs_type.cover
+  module:
+    - svg_image
+    - text
+id: paragraph.cover.default
+targetEntityType: paragraph
+bundle: cover
+mode: default
+content:
+  field_benefits:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_cover_caracteristic:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cover_image:
+    type: image_url
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cover_title:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_title_benefits:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_cover_caracteristics: true
+  field_link_button: true

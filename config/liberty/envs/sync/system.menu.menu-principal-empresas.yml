@@ -1,0 +1,8 @@
+uuid: d48a80f1-f19e-4a50-ba3e-e6a13dcc522d
+langcode: es
+status: true
+dependencies: {  }
+id: menu-principal-empresas
+label: 'Productos Empresas'
+description: 'Menú principal de productos de empresas'
+locked: false

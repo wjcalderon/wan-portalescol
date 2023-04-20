@@ -1,0 +1,30 @@
+uuid: 483c82ea-5a40-4f5d-a1a6-38926629bb03
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.column.field_componentes
+    - paragraphs.paragraphs_type.column
+  module:
+    - paragraphs
+id: paragraph.column.default
+targetEntityType: paragraph
+bundle: column
+mode: default
+content:
+  field_componentes:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

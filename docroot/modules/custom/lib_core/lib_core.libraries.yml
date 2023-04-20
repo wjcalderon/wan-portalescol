@@ -1,0 +1,19 @@
+payment-methods:
+  version: VERSION
+  css:
+    component:
+      css/lib_core.css: {}
+  js:
+    js/lib_core.js: {}
+
+sinister_notice:
+  version: 1001
+  js:
+    js/lib_core_sinister_notice.js: {}
+
+pqr_version_new:
+  version: 1027
+  js:
+    js/lib_core_pqr.js: {}
+  dependencies:
+    - core/drupal.message

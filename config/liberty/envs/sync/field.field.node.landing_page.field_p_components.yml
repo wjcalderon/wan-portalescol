@@ -1,0 +1,225 @@
+uuid: 0782c845-9972-4190-b0d7-3d79fdc651fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_components
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.banner_cards
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.card_grid_accordion
+    - paragraphs.paragraphs_type.card_list_mmedia
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.drupal_block
+    - paragraphs.paragraphs_type.drupal_view
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.lib_banner_promo_icons
+    - paragraphs.paragraphs_type.lib_breaker
+    - paragraphs.paragraphs_type.lib_card_list_out
+    - paragraphs.paragraphs_type.lib_hero_carousel
+    - paragraphs.paragraphs_type.lib_tabs
+    - paragraphs.paragraphs_type.microsite
+    - paragraphs.paragraphs_type.multi_tabs
+    - paragraphs.paragraphs_type.plan_list
+    - paragraphs.paragraphs_type.qualtrics_embed
+    - paragraphs.paragraphs_type.select_cta
+    - paragraphs.paragraphs_type.single_text
+    - paragraphs.paragraphs_type.slider
+    - paragraphs.paragraphs_type.tabs
+    - paragraphs.paragraphs_type.testimonies
+    - paragraphs.paragraphs_type.testimony_item
+    - paragraphs.paragraphs_type.webform
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_p_components
+field_name: field_p_components
+entity_type: node
+bundle: landing_page
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      drupal_block: drupal_block
+      drupal_view: drupal_view
+      single_text: single_text
+      card: card
+      banner: banner
+      cards: cards
+      slider: slider
+      image: image
+      tabs: tabs
+      testimonies: testimonies
+      testimony_item: testimony_item
+      multi_tabs: multi_tabs
+      select_cta: select_cta
+      webform: webform
+      qualtrics_embed: qualtrics_embed
+      columns: columns
+      card_grid_accordion: card_grid_accordion
+      microsite: microsite
+      banner_cards: banner_cards
+      card_list_mmedia: card_list_mmedia
+      lib_banner_promo_icons: lib_banner_promo_icons
+      lib_breaker: lib_breaker
+      lib_card_list_out: lib_card_list_out
+      lib_hero_carousel: lib_hero_carousel
+      lib_tabs: lib_tabs
+      plan_list: plan_list
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 22
+        enabled: false
+      assistance_item:
+        weight: 14
+        enabled: false
+      banner:
+        weight: 12
+        enabled: true
+      banner_cards:
+        weight: 53
+        enabled: true
+      card:
+        weight: 11
+        enabled: true
+      card_grid_accordion:
+        weight: 45
+        enabled: true
+      card_list_mmedia:
+        weight: 58
+        enabled: true
+      card_media:
+        weight: 59
+        enabled: false
+      card_person:
+        weight: 39
+        enabled: false
+      card_person_list:
+        weight: 40
+        enabled: false
+      cards:
+        weight: 12
+        enabled: true
+      cards_reports:
+        weight: 36
+        enabled: false
+      column:
+        weight: 25
+        enabled: false
+      columns:
+        weight: 31
+        enabled: true
+      documents:
+        weight: 39
+        enabled: false
+      drupal_block:
+        weight: 2
+        enabled: true
+      drupal_view:
+        weight: 5
+        enabled: true
+      grid_accordion:
+        weight: 53
+        enabled: false
+      image:
+        weight: 15
+        enabled: true
+      item_acordeon:
+        weight: 30
+        enabled: false
+      item_lista:
+        weight: 31
+        enabled: false
+      item_report_card:
+        weight: 45
+        enabled: false
+      item_tab_multi:
+        weight: 34
+        enabled: false
+      lib_banner_promo_icons:
+        weight: 59
+        enabled: true
+      lib_breaker:
+        weight: 67
+        enabled: true
+      lib_card:
+        weight: 60
+        enabled: false
+      lib_card_list:
+        weight: 69
+        enabled: false
+      lib_card_list_out:
+        weight: 70
+        enabled: true
+      lib_hero:
+        weight: 71
+        enabled: false
+      lib_hero_carousel:
+        weight: 72
+        enabled: true
+      lib_tab_item:
+        weight: 74
+        enabled: false
+      lib_tabs:
+        weight: 73
+        enabled: true
+      lista:
+        weight: 32
+        enabled: false
+      microsite:
+        weight: 48
+        enabled: true
+      multi_tabs:
+        weight: 21
+        enabled: true
+      plan_list:
+        weight: 85
+        enabled: true
+      qualtrics_embed:
+        weight: 30
+        enabled: true
+      select_cta:
+        weight: 23
+        enabled: true
+      shorcut:
+        weight: 50
+        enabled: false
+      shorcuts:
+        weight: 51
+        enabled: false
+      short_banner:
+        weight: 60
+        enabled: false
+      single_text:
+        weight: 6
+        enabled: true
+      slider:
+        weight: 15
+        enabled: true
+      tab_item:
+        weight: 18
+        enabled: false
+      tabs:
+        weight: 17
+        enabled: true
+      testimonies:
+        weight: 19
+        enabled: true
+      testimony_item:
+        weight: 20
+        enabled: true
+      video:
+        weight: 67
+        enabled: false
+      webform:
+        weight: 26
+        enabled: true
+field_type: entity_reference_revisions

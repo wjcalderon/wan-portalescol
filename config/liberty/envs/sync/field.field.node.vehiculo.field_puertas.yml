@@ -1,0 +1,23 @@
+uuid: 5e21afd9-74cb-42e3-adbd-33eb76269c2e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_puertas
+    - node.type.vehiculo
+id: node.vehiculo.field_puertas
+field_name: field_puertas
+entity_type: node
+bundle: vehiculo
+label: Puertas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

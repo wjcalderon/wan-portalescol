@@ -1,0 +1,19 @@
+uuid: 59861cf5-9a55-4084-aa2a-4f322935afac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+    - field.storage.block_content.field_numero_mst
+id: block_content.attention_lines.field_numero_mst
+field_name: field_numero_mst
+entity_type: block_content
+bundle: attention_lines
+label: 'Desde celular'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

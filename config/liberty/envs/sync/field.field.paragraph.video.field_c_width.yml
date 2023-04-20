@@ -1,0 +1,23 @@
+uuid: b0209255-6312-4886-b08e-64d7b821a9fe
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.video
+  module:
+    - options
+_core:
+  default_config_hash: I0f28s96_qPcxFCrd9CqL18lnK9GEKWIjOc4bCmY-bU
+id: paragraph.video.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: video
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

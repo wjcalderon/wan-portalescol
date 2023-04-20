@@ -1,0 +1,38 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.infografia.field_media_image
+    - field.field.media.infografia.field_media_in_library
+    - image.style.medium
+    - media.type.infografia
+  module:
+    - svg_image
+id: media.infografia.media_library
+targetEntityType: media
+bundle: infografia
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_image: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

@@ -1,0 +1,13 @@
+uuid: d73b2687-ba3b-427b-9a65-464f3f2c67e0
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.categorias_faqs_los_segura
+_core:
+  default_config_hash: bIO_i_aKr0mQKE2_9BZlN4K8374-c2v5mqH5fOAiwe0
+id: taxonomy_term.categorias_faqs_los_segura
+target_entity_type_id: taxonomy_term
+target_bundle: categorias_faqs_los_segura
+default_langcode: site_default
+language_alterable: false

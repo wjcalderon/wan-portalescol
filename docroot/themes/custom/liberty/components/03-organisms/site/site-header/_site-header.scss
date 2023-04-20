@@ -1,0 +1,38 @@
+.header {
+  background-color: $color-primary;
+
+  &__inner {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__primary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $space;
+
+    @include large {
+      padding: $space 0;
+    }
+  }
+
+  &__branding {
+    margin-right: $space;
+    max-width: 300px;
+  }
+
+  &__sponsor {
+    border-left: 1px solid #ffffff59;
+    padding: .5rem 0 .5rem 1rem;
+
+    img {
+      padding-left: 15px;
+      min-width: 120px;
+      height: initial;
+    }
+  }
+}

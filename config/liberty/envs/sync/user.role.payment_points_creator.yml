@@ -1,0 +1,44 @@
+uuid: 50f0d4de-1502-4d4e-a86a-d0215c6e2414
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.payment_points
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: payment_points_creator
+label: 'Puntos de pago creator'
+weight: 23
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node payment_points content'
+  - 'administer panelizer node payment_points layout'
+  - 'create payment_points content'
+  - 'create url aliases'
+  - 'edit own payment_points content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view payment_points revisions'

@@ -1,0 +1,31 @@
+uuid: ee14584b-7641-4cb2-a946-0c5e30ce54f2
+langcode: es
+status: true
+dependencies:
+  config:
+    - search_api.index.content
+    - views.view.buscador_global
+  module:
+    - views
+    - search_api_autocomplete
+id: buscador_global
+label: 'Buscador global'
+index_id: content
+suggester_settings:
+  server:
+    fields: {  }
+suggester_weights:
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:buscador_global':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

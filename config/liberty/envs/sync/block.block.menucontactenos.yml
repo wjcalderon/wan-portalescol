@@ -1,0 +1,20 @@
+uuid: 6fab0032-422a-4df8-9b5b-f0ea561f5060
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - liberty_public
+id: menucontactenos
+theme: liberty_public
+region: menu_desktop_second
+weight: -35
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-con'
+settings:
+  id: 'tb_megamenu_menu_block:menu-con'
+  label: 'menu contactenos'
+  label_display: '0'
+  provider: tb_megamenu
+visibility: {  }

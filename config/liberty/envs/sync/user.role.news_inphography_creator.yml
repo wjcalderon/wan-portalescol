@@ -1,0 +1,44 @@
+uuid: 4640500f-2f53-49f0-bb59-5c775a4942c9
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.news_inphography
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: news_inphography_creator
+label: 'Noticias infografía creator'
+weight: 45
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node news_inphography content'
+  - 'administer panelizer node news_inphography layout'
+  - 'create news_inphography content'
+  - 'create url aliases'
+  - 'edit own news_inphography content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view news_inphography revisions'
+  - 'view own unpublished content'

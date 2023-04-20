@@ -1,0 +1,15 @@
+uuid: 46187136-d478-4fd6-bb0f-1b3c10f467fd
+langcode: es
+status: true
+dependencies: {  }
+name: icon_cotizador_30x30_
+label: icon_cotizador(30x30)
+effects:
+  b8de8022-2d96-4bec-9267-fa77cda3305d:
+    uuid: b8de8022-2d96-4bec-9267-fa77cda3305d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 30
+      height: 30
+      anchor: center-center

@@ -1,0 +1,17 @@
+uuid: 7b8d2b02-5e8b-4156-85ff-8a2c1444235b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Clientes
+type: customer
+description: 'A partner customer for use in a campaign'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

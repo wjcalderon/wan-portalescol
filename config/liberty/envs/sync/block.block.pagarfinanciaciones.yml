@@ -1,0 +1,29 @@
+uuid: bd8a7db2-dfef-4427-aa16-a560a69a82dd
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:card:d00853ed-4d3e-4eb2-8973-86062c64203e'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: pagar--mg-card
+id: pagarfinanciaciones
+theme: liberty_public
+region: blocks_activate
+weight: -17
+provider: null
+plugin: 'block_content:d00853ed-4d3e-4eb2-8973-86062c64203e'
+settings:
+  id: 'block_content:d00853ed-4d3e-4eb2-8973-86062c64203e'
+  label: 'Pagar - Financiaciones'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

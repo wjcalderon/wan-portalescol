@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: shorcuts
+label: 'Menu Accesos Rápidos'
+icon_uuid: null
+description: 'Grupo de shorcuts que forman un menu con anclas'
+behavior_plugins: {  }

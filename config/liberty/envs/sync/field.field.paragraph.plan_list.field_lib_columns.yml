@@ -1,0 +1,23 @@
+uuid: fcbc037d-d888-4e4c-a2d1-593b68e4107b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_columns
+    - paragraphs.paragraphs_type.plan_list
+  module:
+    - options
+id: paragraph.plan_list.field_lib_columns
+field_name: field_lib_columns
+entity_type: paragraph
+bundle: plan_list
+label: 'No. Columnas'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

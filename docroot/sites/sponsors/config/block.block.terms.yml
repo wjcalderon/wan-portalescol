@@ -1,0 +1,33 @@
+uuid: 4d70e758-0f0b-47f0-b63f-08f6596641ee
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:53f4209e-cd87-4ccc-91c7-480d8780c472'
+  module:
+    - block_content
+    - node
+  theme:
+    - liberty
+id: terms
+theme: liberty
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:53f4209e-cd87-4ccc-91c7-480d8780c472'
+settings:
+  id: 'block_content:53f4209e-cd87-4ccc-91c7-480d8780c472'
+  label: 'Terminos y condiciones'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      webform: webform

@@ -1,0 +1,10 @@
+uuid: 60166c68-39f9-45c2-adb7-6cc7238ef37a
+langcode: en
+status: true
+dependencies: {  }
+id: header_caracteristics
+label: 'Lista de iconos'
+icon_uuid: null
+icon_default: null
+description: 'En este espacio van configurados las características con su respectivo logotipo para cada landing.'
+behavior_plugins: {  }

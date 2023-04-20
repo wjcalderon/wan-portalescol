@@ -1,0 +1,23 @@
+uuid: c8ef43c8-6751-4ab6-a1fe-284abb0eb262
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cilindraje
+    - node.type.vehiculo
+id: node.vehiculo.field_cilindraje
+field_name: field_cilindraje
+entity_type: node
+bundle: vehiculo
+label: Cilindraje
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,32 @@
+.logo-corner {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  align-content: flex-end;
+  align-items: flex-end;
+  bottom: 6rem;
+
+  &.addpadding {
+    @include medium {
+      bottom: 22rem;
+    }
+
+    &.addpaddingplus {
+      @include medium {
+        bottom: 33rem;
+      }
+    }
+  }
+
+  picture {
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+      max-height: 161px;
+      max-width: 33px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "lib_category_box_v2",
+    "type": "drupal-module",
+    "description": "Caja de categorias v2",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/lib_category_box_v2",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/lib_category_box_v2",
+        "source": "http://cgit.drupalcode.org/lib_category_box_v2",
+    },
+}

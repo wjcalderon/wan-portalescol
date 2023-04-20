@@ -1,0 +1,48 @@
+uuid: c0d063ef-6839-4c5a-82b2-159bc6b1b950
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_cardinfo
+    - field.field.paragraph.lib_v4_cardinfo.field_lib_v4_cardinfo_link
+    - field.field.paragraph.lib_v4_cardinfo.field_lib_v4_cardinfo_text_sup
+    - field.field.paragraph.lib_v4_cardinfo.field_lib_v4_cardinfo_title
+  module:
+    - link
+_core:
+  default_config_hash: H4XCnMUc2Yg5mU87lrMqODhcQCjQitAQzvcVtyTt_mU
+id: paragraph.lib_v4_cardinfo.default
+targetEntityType: paragraph
+bundle: lib_v4_cardinfo
+mode: default
+content:
+  field_lib_v4_cardinfo_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_v4_cardinfo_text_sup:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v4_cardinfo_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

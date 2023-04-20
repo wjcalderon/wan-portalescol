@@ -1,0 +1,14 @@
+uuid: 498139fb-3b90-461c-a005-456b669e6660
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_creator
+  module:
+    - user
+id: user_add_role_action.informes_creator
+label: 'Añade el rol Informes creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: informes_creator

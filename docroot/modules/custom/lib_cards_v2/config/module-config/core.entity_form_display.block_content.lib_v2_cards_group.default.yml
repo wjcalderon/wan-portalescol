@@ -1,0 +1,56 @@
+uuid: c5d653bc-d674-4fa6-852d-25f4541a8270
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_cards_group
+    - field.field.block_content.lib_v2_cards_group.field_lib_v2_cards_group_r
+    - field.field.block_content.lib_v2_cards_group.field_lib_v2_cards_group_ref
+  module:
+    - inline_entity_form
+_core:
+  default_config_hash: Obms5gahB49LggKAVqWJWIcM9vmaXST2-OaYBJihHTU
+id: block_content.lib_v2_cards_group.default
+targetEntityType: block_content
+bundle: lib_v2_cards_group
+mode: default
+content:
+  field_lib_v2_cards_group_r:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: 'Inline content'
+      label_plural: 'Inline content'
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_lib_v2_cards_group_ref:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

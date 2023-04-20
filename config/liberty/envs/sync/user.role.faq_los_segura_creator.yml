@@ -1,0 +1,11 @@
+uuid: 45c9721c-6edc-459d-b23b-1edf0f527af8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vptnQElVCChmqZKNcLeSRr4gZqkFgUqYwpAIyxJGjj8
+id: faq_los_segura_creator
+label: 'Faq Los Segura creator'
+weight: 35
+is_admin: false
+permissions: {  }

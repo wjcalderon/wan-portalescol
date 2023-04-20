@@ -1,0 +1,9 @@
+uuid: d887ccad-de1d-4aeb-b19b-64beaae5f165
+langcode: en
+status: true
+dependencies: {  }
+id: testimonies
+label: Testimonios
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de testimonio" y agréguelos en una página de landing.'
+behavior_plugins: {  }

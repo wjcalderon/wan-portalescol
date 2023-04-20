@@ -1,0 +1,9 @@
+.elements-center{
+    text-align: center;
+}
+
+.elements-center p {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 2rem;
+ }

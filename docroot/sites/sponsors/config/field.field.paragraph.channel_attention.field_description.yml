@@ -1,0 +1,21 @@
+uuid: 2e8a06fd-1c29-4f39-9dc0-6e1d35fc44ec
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.channel_attention
+  module:
+    - text
+id: paragraph.channel_attention.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: channel_attention
+label: Descripción
+description: 'se recomienda utilizar la etiqueda h2 para el título de este campo y la etiqueta p para el parrafo siguiente.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

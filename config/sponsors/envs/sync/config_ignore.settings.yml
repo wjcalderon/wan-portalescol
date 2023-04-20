@@ -1,0 +1,13 @@
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
+langcode: es
+ignored_config_entities:
+  - 'liberty_form.*'
+  - 'recaptcha.*'
+  - 'liberty_form.dwh.*'
+  - 'liberty_form.KeyApiMarketingCloud.*'
+  - 'liberty_form.marketing_cloud.*'
+  - 'liberty_form.msn_api.*'
+  - 'liberty_form.vip.*'
+  - 'liberty.settings.*'
+  - 'block.*'

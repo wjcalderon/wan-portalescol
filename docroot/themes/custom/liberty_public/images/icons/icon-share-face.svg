@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon copy</title>
+    <defs>
+        <filter x="-20.0%" y="-36.2%" width="140.0%" height="172.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="16" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M10.2979138,3.2 L8.95940795,3.2 C7.52092363,3.2 6.87228771,3.83357326 6.87228771,5.04630592 L6.87228771,6.33868241 L5.86666667,6.33868241 L5.86666667,7.97975955 L6.87228771,7.97975955 L6.87228771,12.8 L8.80558051,12.8 L8.80558051,7.95942495 L10.1542537,7.95942495 L10.2979138,6.33868241 L8.80558051,6.33868241 L8.80558051,5.41552945 C8.80558051,5.03331437 8.88221181,4.88212289 9.2518119,4.88212289 L10.2979138,4.88212289 L10.2979138,3.2 Z" id="path-2"></path>
+    </defs>
+    <g id="los-segura-DSK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-los-segura-Copy" transform="translate(-951.000000, -1047.000000)">
+            <g id="Bitmap" transform="translate(412.000000, 815.000000)" filter="url(#filter-1)">
+                <g id="icon-copy" transform="translate(583.000000, 260.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="#1A1446" xlink:href="#path-2"></use>
+                    <g id="Group" mask="url(#mask-3)" fill="#1A1446">
+                        <g id="Color">
+                            <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

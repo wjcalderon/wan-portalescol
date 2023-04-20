@@ -1,0 +1,18 @@
+li_news.news_config_form:
+  path: "/admin/config/li_news/newsconfig"
+  defaults:
+    _form: '\Drupal\li_news\Form\NewsConfigForm'
+    _title: "News configurations"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+li_news.lib_news_controller_formatDate:
+  path: "/li_news/formatDate"
+  defaults:
+    _controller: '\Drupal\li_news\Controller\LibNewsController::formatDate'
+    _title: "Format date"
+  requirements:
+    _permission: "access content"
+  methods: [POST]

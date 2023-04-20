@@ -1,0 +1,29 @@
+uuid: 99727591-8ca5-499b-9169-858f5eb955b3
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: OYEJBWSS6ZddwQDDXuRGdkYt3E4IRKHyb0q4mu1s_So
+id: block_content.field_lib_v2_cards_group_ref
+field_name: field_lib_v2_cards_group_ref
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid-3
+      label: '3 Columnas'
+    -
+      value: grid-4
+      label: '4 Columnas'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

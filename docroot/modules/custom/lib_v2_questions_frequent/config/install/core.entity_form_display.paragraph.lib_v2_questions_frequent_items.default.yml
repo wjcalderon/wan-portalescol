@@ -1,0 +1,34 @@
+uuid: 885b433b-7017-40de-8b76-5e092eb073c3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_questions_frequent_items.field_lib_v2_group_ref_descripti
+    - field.field.paragraph.lib_v2_questions_frequent_items.field_lib_v2_group_ref_title
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent_items
+  module:
+    - text
+id: paragraph.lib_v2_questions_frequent_items.default
+targetEntityType: paragraph
+bundle: lib_v2_questions_frequent_items
+mode: default
+content:
+  field_lib_v2_group_ref_descripti:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v2_group_ref_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

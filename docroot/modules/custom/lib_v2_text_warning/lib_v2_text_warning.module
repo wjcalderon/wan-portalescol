@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_v2_text_warning.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lib_v2_text_warning_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lib_v2_text_warning module.
+    case 'help.page.lib_v2_text_warning':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('turquoise text box with enriched text') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_v2_text_warning_theme() {
+  return [
+    'lib_v2_text_warning' => [
+      'render element' => 'children',
+    ],
+  ];
+}

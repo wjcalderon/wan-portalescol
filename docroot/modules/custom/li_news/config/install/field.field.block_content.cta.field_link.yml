@@ -1,0 +1,24 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_link
+  module:
+    - link
+_core:
+  default_config_hash: 4zoJ2D1oqcqtOOsW0XVIRK_um5q6lyAUhHFj0FmFZp0
+id: block_content.cta.field_link
+field_name: field_link
+entity_type: block_content
+bundle: cta
+label: Enlace
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

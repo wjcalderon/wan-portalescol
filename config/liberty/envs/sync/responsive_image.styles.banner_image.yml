@@ -1,0 +1,21 @@
+uuid: f65c5d33-9b0d-4fb0-900e-5ea4f68c98b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.3_1_large_1920_x_640_
+    - image.style.3_1_medium_1200_x_400
+id: banner_image
+label: '3:1 Images'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 3_1_large_1920_x_640_
+        - 3_1_medium_1200_x_400
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: 3_1_medium_1200_x_400

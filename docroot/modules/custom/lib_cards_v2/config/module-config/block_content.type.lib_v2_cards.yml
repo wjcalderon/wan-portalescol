@@ -1,0 +1,10 @@
+uuid: 4b7f058e-0636-4a90-bd36-8f724fdaf86a
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hsbULe3o3DZcQeJoZZf1SRIqs7XFLMbUzUhYx1_qH0s
+id: lib_v2_cards
+label: Tarjetas
+revision: 0
+description: ''

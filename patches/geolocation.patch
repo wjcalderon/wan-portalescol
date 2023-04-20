@@ -1,0 +1,21 @@
+diff --git a/docroot/modules/contrib/geolocation/js/geolocation-google-maps-api.js b/docroot/modules/contrib/geolocation/js/geolocation-google-maps-api.js
+index 69e0be4..95a3ba4 100644
+--- a/js/geolocation-google-maps-api.js
++++ b/js/geolocation-google-maps-api.js
+@@ -393,6 +393,16 @@
+       }
+     }
+
++    // Set marker label color
++    if (markerSettings.label !== undefined && markerSettings.label !== '') {
++      var label = {
++        text: markerSettings.label,
++        color: '#ffffff'
++        };
++
++        markerSettings.label = label;
++    }
++
+     // Add the marker to the map.
+     /** @type {GoogleMarker} */
+     var currentMarker = new google.maps.Marker(markerSettings);

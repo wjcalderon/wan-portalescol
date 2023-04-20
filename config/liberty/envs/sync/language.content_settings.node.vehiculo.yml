@@ -1,0 +1,11 @@
+uuid: 2d4acfe3-1ba2-49a1-81a9-903a8d7ac8eb
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.vehiculo
+id: node.vehiculo
+target_entity_type_id: node
+target_bundle: vehiculo
+default_langcode: site_default
+language_alterable: false

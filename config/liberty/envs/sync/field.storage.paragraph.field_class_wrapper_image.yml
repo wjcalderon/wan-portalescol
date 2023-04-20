@@ -1,0 +1,21 @@
+uuid: 0250d9ef-ca08-4af0-895a-77906c73507c
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_class_wrapper_image
+field_name: field_class_wrapper_image
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

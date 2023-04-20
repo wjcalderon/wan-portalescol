@@ -1,0 +1,17 @@
+uuid: 061e2c5e-ec51-4dc6-a429-60f744cd89f3
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+title: 'Default cron handler'
+id: lib_core_cron
+weight: 0
+module: lib_core
+callback: lib_core_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

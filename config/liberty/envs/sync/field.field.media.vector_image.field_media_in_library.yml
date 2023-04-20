@@ -1,0 +1,23 @@
+uuid: 97635694-52ae-4a23-9d15-9d81f1259635
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_in_library
+    - media.type.vector_image
+id: media.vector_image.field_media_in_library
+field_name: field_media_in_library
+entity_type: media
+bundle: vector_image
+label: 'Show in media library'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Shown in media library'
+  off_label: 'Hidden in media library'
+field_type: boolean

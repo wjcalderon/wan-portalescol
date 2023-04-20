@@ -1,0 +1,23 @@
+uuid: bd530933-c1f9-41b2-b800-7a539d0cf4cd
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_class
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: hide-element
+id: pagetitle
+theme: liberty_public
+region: header
+weight: -36
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

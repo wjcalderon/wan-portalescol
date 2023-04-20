@@ -1,0 +1,29 @@
+uuid: 65745b8a-1cae-4385-b2b5-1a561f5a390b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_person_type
+    - taxonomy.vocabulary.person_types
+    - taxonomy.vocabulary.product_type
+id: taxonomy_term.product_type.field_person_type
+field_name: field_person_type
+entity_type: taxonomy_term
+bundle: product_type
+label: 'Person type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      person_types: person_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

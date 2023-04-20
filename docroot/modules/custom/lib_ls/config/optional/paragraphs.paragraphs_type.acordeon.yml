@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: acordeon
+label: Acordeón
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de acordeón" y agréguelos en una página de componentes.'
+behavior_plugins: {  }

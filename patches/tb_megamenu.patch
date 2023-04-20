@@ -1,0 +1,15 @@
+diff --git a/src/TBMegaMenuBuilder.php b/src/TBMegaMenuBuilder.php
+index fcf8a84..1dad856 100644
+--- a/src/TBMegaMenuBuilder.php
++++ b/src/TBMegaMenuBuilder.php
+@@ -102,9 +102,7 @@ class TBMegaMenuBuilder implements TBMegaMenuBuilderInterface {
+    */
+   public function getMenuItem(string $menu_name, string $plugin_id) {
+     $tree = &drupal_static(__FUNCTION__);
+-    if (is_null($tree)) {
+-      $tree = $this->menuTree->load($menu_name, (new MenuTreeParameters())->onlyEnabledLinks());
+-    }
++    $tree = $this->menuTree->load($menu_name, (new MenuTreeParameters())->onlyEnabledLinks());
+     $item = self::findMenuItem($tree, $plugin_id);
+     return $item;
+   }

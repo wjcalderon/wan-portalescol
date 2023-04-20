@@ -1,0 +1,30 @@
+uuid: f0ebc8ff-023d-4eed-85ce-ad66c246a20c
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_v2_carousel_background
+field_name: field_lib_v2_carousel_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: Blanco
+    -
+      value: blue
+      label: Azul
+    -
+      value: yellow
+      label: Amarillo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

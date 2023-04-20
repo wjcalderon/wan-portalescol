@@ -1,0 +1,21 @@
+uuid: 5452c7da-948e-446f-aa3e-f258609c3d19
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: pqrform
+theme: liberty_public
+region: blocks_activate
+weight: -13
+provider: null
+plugin: pqr
+settings:
+  id: pqr
+  label: 'Pqr form'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

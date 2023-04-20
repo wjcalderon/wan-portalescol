@@ -1,0 +1,109 @@
+{#
+/**
+ * @file
+ * Theme override for a view template to display a list of rows.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the container.
+ * - rows: A list of rows for this list.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's contents.
+ * - title: The title of this group of rows. May be empty.
+ * - list: @todo.
+ *   - type: Starting tag will be either a ul or ol.
+ *   - attributes: HTML attributes for the list element.
+ *
+ * @see template_preprocess_views_view_list()
+ */
+#}
+{% set base_url = url('<front>')|render|split('/')|join('/') %}
+<div id="tabs" class="cp-tabs">
+    <div class="component__heading">
+      <div class="cog--mq">
+          <ul class="js-slider js-slider-nondk" data-slick='{ "slidesToShow": 3, "slidesToScroll": 1, "dots": false, "arrows": true, "infinite": true }'>
+            {% for key,value in ramos %}
+              <li>
+                <a  href='#tabs-{{ key }}'>
+                  {% if value['icon']|trim is not empty %}
+                    <img src="{{ file_url(value['icon']) }}">
+                  {% endif %}
+                  {{ value['name'] }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+    {% for key,product in products %}
+      <div id="tabs-{{ key }}">
+        <div id="sub-tabs" class="cp-tabs sub-tabs">
+          <div class="component__heading">
+            <div class="cog--mq">
+                <p>Selecciona una categoría</p>
+                <div class="form-item">
+                  <label>Producto</label>
+                  <select class="select--tabs">
+                    {% for item in product %}
+                      <option value="sub-tabs-{{ item['nid'] }}">{{ item['title'] }} </option>
+                    {% endfor %}
+                  </select>
+                </div>
+            </div>
+          </div>
+          <div class="component__content">
+            <div class="cog--mq cog--flex">
+              {% for item in product %}
+                <div id="sub-tabs-{{ item['nid']}}" class="sub-tab__container">
+                  {% for content in item['content'] %}
+                    <div class="sub-tab__row cog--flex">
+                      <a  href="#" class="popup-close">Volver</a>
+                        <div class="sub-tab__heading">
+                          <div class="sub-tab__heading-img">
+                          {% if content['icon']|trim is not empty %}
+                            <img src="{{ file_url(content['icon']) }}">
+                          {% endif %}
+                          </div>
+                          <div class="sub-tab__heading-text">
+                            <h5>{{ content['heading'][0]['value'] }}</h5>
+                            <p>{{ content['lead'][0]['value'] }}</p>
+                          </div>
+                        </div>
+                        <div class="sub-tab__content">
+                          <ol>
+                          {% for step in content['steps'] %}
+                            <li> {{ step['value'] }}</li>
+                          {% endfor %}
+                          <ol>
+                        </div>
+                      <a  href="#" class="sub-tab__content-more view-more">Ver mas</a>
+                      <a  href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+              <div class="block__contact-call">
+                <a  href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
+              </div>
+              <div class="block__contact">
+                <div class="sticky">
+                  <div class="block__heading">
+                    <div class="card__img--oval">
+                      <img src="{{ base_url ~ directory }}/images/icons/call-outline-n.svg">
+                    </div>
+                    <p> Obtén asistencia, llama a nuestras </p>
+                    <h3>líneas de atención</h3>
+                  </div>
+                  <div class="block__content">
+                    {% for item_contact in block_contact %}
+                      <label>{{- item_contact['label'] -}} </label>
+                      <p>{{ item_contact['value'] }} </p>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>

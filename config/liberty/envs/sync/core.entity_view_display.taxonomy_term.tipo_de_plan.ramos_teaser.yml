@@ -1,0 +1,30 @@
+uuid: c449c6ed-e408-41ce-b965-7247e2d49a21
+langcode: es
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.ramos_teaser
+    - taxonomy.vocabulary.tipo_de_plan
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.tipo_de_plan.ramos_teaser
+targetEntityType: taxonomy_term
+bundle: tipo_de_plan
+mode: ramos_teaser
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

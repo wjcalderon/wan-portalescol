@@ -1,0 +1,11 @@
+uuid: 0cc9c22b-134d-4fcb-97d3-bce8c667ae38
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.instagram
+id: media.instagram
+target_entity_type_id: media
+target_bundle: instagram
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,27 @@
+uuid: 27cb02e4-b56f-4f22-9406-6752b9a651e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_id_type
+field_name: field_id_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Cédula de ciudadanía'
+      label: 'Cédula de ciudadanía'
+    -
+      value: Pasaporte
+      label: Pasaporte
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

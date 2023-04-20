@@ -1,0 +1,24 @@
+uuid: 4af2944d-5d54-4cf1-8da4-f32c863ff11c
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 8aTzJfhfIZ2Twd4_TsRkj1OcwgrlV-GtbGmNGRqAv_s
+id: landing_qualtrics
+label: 'Landing Qualtrics'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  01e18595-7644-40b1-838b-7f494d0f5486:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 01e18595-7644-40b1-838b-7f494d0f5486
+    context_mapping:
+      node: node
+    bundles:
+      landing_html: landing_html
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_ls.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\editor\Entity\Editor;
+
+/**
+ * Implements hook_help().
+ */
+function lib_ls_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+      // Main module help for the lib_los_segura module.
+    case 'help.page.co_core':
+      $output = '';
+      $output .= '<h3>' . t('Acerca de') . '</h3>';
+      $output .= '<p>' . t('Funcionalidades generales de los segura') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_ls_theme() {
+  return [
+    'los_segura_video_embed_block' => [
+      'variables' => [
+        'content' => NULL
+      ],
+      'render element' => 'children',
+    ]
+  ];
+}

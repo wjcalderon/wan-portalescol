@@ -1,0 +1,21 @@
+uuid: 5440b976-534c-4d5a-843d-38f28abbf661
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_origin
+    - node.type.customer
+  module:
+    - options
+id: node.customer.field_origin
+field_name: field_origin
+entity_type: node
+bundle: customer
+label: 'Origen de ingreso'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

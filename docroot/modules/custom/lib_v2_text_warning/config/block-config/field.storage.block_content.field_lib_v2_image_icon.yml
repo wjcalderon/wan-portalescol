@@ -1,0 +1,20 @@
+uuid: b1d860d6-068c-414d-854c-7c4de5c79468
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+id: block_content.field_lib_v2_image_icon
+field_name: field_lib_v2_image_icon
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 577cd539-5792-479a-aed0-e3c5c22b93f4
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_lib_summary
+field_name: field_lib_summary
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

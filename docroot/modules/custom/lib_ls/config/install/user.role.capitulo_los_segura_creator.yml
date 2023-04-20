@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: capitulo_los_segura_creator
+label: 'Capítulo Los Segura creator'
+weight: 39
+is_admin: false

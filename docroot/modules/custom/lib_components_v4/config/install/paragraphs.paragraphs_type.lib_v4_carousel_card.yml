@@ -1,0 +1,10 @@
+uuid: cdc3b925-6394-46d3-b6b8-4c34d16e8840
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EOs7J8xD8CGSZdU4Pix4-9vBbTKgsRFXyDCYRa8taw4
+id: lib_v4_carousel_card
+label: 'Card Carrusel v4'
+revision: 0
+description: 'Carousel con imagen, texto y un botón de enlace a cualquier sitio activo.'

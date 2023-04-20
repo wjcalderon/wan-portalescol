@@ -1,0 +1,13 @@
+lib_red_medica.admin_settings_form:
+  title: 'Configuración Red Medica'
+  route_name: lib_red_medica.admin_settings_form
+  description: 'Configuración Red Medica'
+  parent: lib_migrate.admin_index
+  weight: 90
+
+lib_red_medica.import_glossary_form:
+  title: 'Importar Glosario de especialidades'
+  route_name: lib_red_medica.import_glossary_form
+  description: 'Importar Glosario de especialidades'
+  parent: lib_migrate.admin_index
+  weight: 91

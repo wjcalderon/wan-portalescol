@@ -1,0 +1,23 @@
+uuid: d34798f0-3307-452e-8e61-c857b24cd1de
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_columns
+    - paragraphs.paragraphs_type.lib_card_list_out
+  module:
+    - options
+id: paragraph.lib_card_list_out.field_lib_columns
+field_name: field_lib_columns
+entity_type: paragraph
+bundle: lib_card_list_out
+label: 'No. Columnas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

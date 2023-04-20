@@ -1,0 +1,25 @@
+uuid: ec5f899c-2b67-4dbf-b18d-9113163ce331
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-tipo-persona
+  module:
+    - system
+  theme:
+    - liberty_public
+id: menutipodepersona
+theme: liberty_public
+region: branding
+weight: -38
+provider: null
+plugin: 'system_menu_block:menu-tipo-persona'
+settings:
+  id: 'system_menu_block:menu-tipo-persona'
+  label: 'menu tipo de persona'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

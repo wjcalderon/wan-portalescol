@@ -1,0 +1,24 @@
+uuid: e9dfc40e-a909-4464-a6f5-2ec9ae039c28
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.capitulo_los_segura
+_core:
+  default_config_hash: lBAaUQa4kbV6LPLiAMNF4sBFsU7ohlEpXcMuQUlgdGE
+id: node.capitulo_los_segura.promote
+field_name: promote
+entity_type: node
+bundle: capitulo_los_segura
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

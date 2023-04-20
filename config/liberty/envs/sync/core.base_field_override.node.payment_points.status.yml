@@ -1,0 +1,22 @@
+uuid: f0b532a3-79b7-4eb4-aadf-ec7d8149d629
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.payment_points
+id: node.payment_points.status
+field_name: status
+entity_type: node
+bundle: payment_points
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

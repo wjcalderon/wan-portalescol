@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Icon/Exclamation</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6.5,0 C10.088,0 13,2.912 13,6.5 C13,10.088 10.088,13 6.5,13 C2.912,13 0,10.088 0,6.5 C0,2.912 2.912,0 6.5,0 Z M6.5,1.3 C3.6335,1.3 1.3,3.6335 1.3,6.5 C1.3,9.3665 3.6335,11.7 6.5,11.7 C9.3665,11.7 11.7,9.3665 11.7,6.5 C11.7,3.6335 9.3665,1.3 6.5,1.3 Z M7.15,5.85 L7.15,9.75 L5.85,9.75 L5.85,5.85 L7.15,5.85 Z M7.15,3.25 L7.15,4.55 L5.85,4.55 L5.85,3.25 L7.15,3.25 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components/Form/Select-Error" transform="translate(0.000000, -59.000000)">
+            <g id="Icon/Exclamation" transform="translate(6.500000, 65.500000) rotate(-180.000000) translate(-6.500000, -65.500000) translate(0.000000, 59.000000)">
+                <g id="Color/Liberty-Blue">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#DD133C" fill-rule="nonzero" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

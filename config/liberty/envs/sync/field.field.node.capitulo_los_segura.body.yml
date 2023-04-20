@@ -1,0 +1,25 @@
+uuid: be29098c-2eb6-45b8-a75b-fba9712aa6c3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.capitulo_los_segura
+  module:
+    - text
+_core:
+  default_config_hash: JL_emf0mEYaMZWetM0vgA_rPQ7SAwG8PJx-P1xFI3eQ
+id: node.capitulo_los_segura.body
+field_name: body
+entity_type: node
+bundle: capitulo_los_segura
+label: Sinopsis
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

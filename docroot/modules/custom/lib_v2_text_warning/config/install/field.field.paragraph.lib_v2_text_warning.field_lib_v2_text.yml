@@ -1,0 +1,21 @@
+uuid: 6ed4a245-1fd6-46df-8c03-fd01cadac5a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_text
+    - paragraphs.paragraphs_type.lib_v2_text_warning
+  module:
+    - text
+id: paragraph.lib_v2_text_warning.field_lib_v2_text
+field_name: field_lib_v2_text
+entity_type: paragraph
+bundle: lib_v2_text_warning
+label: texto
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

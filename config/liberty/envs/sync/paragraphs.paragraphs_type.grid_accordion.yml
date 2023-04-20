@@ -1,0 +1,10 @@
+uuid: f70d9801-f539-4d4f-9cec-86a8c7263390
+langcode: es
+status: true
+dependencies: {  }
+id: grid_accordion
+label: 'Grid accordion'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
