@@ -123,4 +123,4 @@ liberty-card-accordion:
     - core/drupal
     - core/drupalSettings
     - core/jquery
-    - core/jquery.once   
+    - core/jquery.once

@@ -11,6 +11,10 @@
     Order allow,deny
   </IfModule>
 </FilesMatch>
+<FilesMatch "\.(png|gif|jpeg|jpg)$">
+  Header set Cache-Control "max-age=31536000, public"
+  Header set Expires "max-age=31536000, public"
+</FilesMatch>
 
 # Don't show directory listings for URLs which map to a directory.
 Options -Indexes

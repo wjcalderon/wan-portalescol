@@ -493,11 +493,6 @@ class ClaimServices {
         $request['vehiculo']['taller'] = 0;
       }
 
-      $brand = $request['vehiculo']['marca'];
-      if (strpos($brand, 'GREAT WALL MOTOR') !== FALSE) {
-        $request['vehiculo']['marca'] = 'GREAT WALL';
-      }
-
       $this->logger->set(
             'request_sipo',
             json_encode($request, JSON_UNESCAPED_UNICODE),
@@ -780,8 +775,14 @@ class ClaimServices {
                   unset($_SESSION['GMFChevrolet']);
                 }
               }
-              if (isset($response->polizas->riesgoAuto->automovil->marca)) {
-                $brand = $response->polizas->riesgoAuto->automovil->marca;
+              if (
+                    isset(
+                        $response->polizas->riesgoAuto->automovil
+                          ->marca
+                    )
+                ) {
+                $brand = $response->polizas->riesgoAuto->automovil
+                  ->marca;
                 if (strpos($brand, 'GREAT WALL') !== FALSE) {
                   $return['personalInfo']['brand'] = 'GREAT WALL MOTOR';
                 }
