@@ -19,7 +19,6 @@
   }
 }
 
-
 .cp-banner-bottom {
   .cp-banner__image {
     height: 500px;
@@ -123,7 +122,8 @@
       position: absolute;
     }
   }
-  h1, h2 {
+  h1,
+  h2 {
     font-weight: 300;
     font-size: 1.875rem;
     color: $charcoal-grey;
@@ -271,7 +271,6 @@
   overflow: hidden;
   text-indent: -1000px;
 }
-
 
 .header-blue {
   background-color: $azul-hielo-sc;
