@@ -27,6 +27,7 @@ docroot/themes/custom/*/styleguide
 
 # Ignore .env files as they are personal
 .env.dev
+.ddev
 
 # Ignore mounts
 docroot/files
@@ -144,3 +145,4 @@ drush/*
 
 # Enviromennt load
 # load.environment.php
+/.editorconfig
