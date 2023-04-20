@@ -1,0 +1,6 @@
+services:
+  liberty_core.event_subscriber:
+    class: Drupal\liberty_core\EventSubscriber\LibertyCoreSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,13 @@
+{
+    "name": "lib_banner_perm_v2",
+    "type": "drupal-module",
+    "description": "Main banner v2",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/lib_banner_perm_v2",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/lib_banner_perm_v2",
+        "source": "http://cgit.drupalcode.org/lib_banner_perm_v2",
+    },
+}
