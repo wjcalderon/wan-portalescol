@@ -40,7 +40,7 @@ class LoggerService implements LoggerServiceInterface {
     }
 
     $handler = new RotatingFileHandler(
-      $path . '/claims_log.log',
+      $path . '/claims_log.json',
       30,
       Logger::DEBUG
     );
