@@ -85,7 +85,10 @@ class LibCoreController extends ControllerBase
 
         // Get csrfToken
         $csrfToken = $client->get('/session/token',
-            ['headers' => ['Content-Type' => "application/json"]])
+            [
+                'headers' => ['Content-Type' => "application/json"],
+                'verify' => false
+            ])
             ->getBody()
             ->getContents();
 

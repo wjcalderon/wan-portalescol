@@ -85,9 +85,12 @@ class LibCoreControllerMain extends ControllerBase
 
         // Get csrfToken
         $csrfToken = $client->get('/session/token',
-            ['headers' => ['Content-Type' => "application/json"]])
-            ->getBody()
-            ->getContents();
+        [
+            'headers' => ['Content-Type' => "application/json"],
+            'verify' => false
+        ])
+        ->getBody()
+        ->getContents();
 
         // Change field names case
         $new_values = [];
