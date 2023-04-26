@@ -115,7 +115,8 @@ class LibCoreController extends ControllerBase
         // Post to webform
         $webform = $client->post(
             '/webform_rest/submit?_format=json',
-            $body
+            $body,
+            'verify' => false
         );
         // \Drupal::logger('lib_pqr')->error($webform);
 
