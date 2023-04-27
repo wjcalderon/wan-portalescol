@@ -112,11 +112,15 @@ class LibCoreController extends ControllerBase
             'body' => (json_encode($new_values)),
         ];
 
+        $options = [
+            'verify' => false // Habilitar verificación SSL
+         ];
+
         // Post to webform
         $webform = $client->post(
             '/webform_rest/submit?_format=json',
             $body,
-            'verify' => false
+            $options
         );
         // \Drupal::logger('lib_pqr')->error($webform);
 
