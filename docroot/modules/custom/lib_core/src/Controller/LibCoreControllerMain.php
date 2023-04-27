@@ -78,9 +78,9 @@ class LibCoreControllerMain extends ControllerBase
         // Post to SalesForce
         $client = new Client();
 
-        $base_uri = \Drupal::request()->getSchemeAndHttpHost();
+        $base_uri = \Drupal::request()->getHost();
         $client = new Client([
-            'base_uri' => $base_uri,
+            'base_uri' => 'http://'.$base_uri,
         ]);
 
         // Get csrfToken
@@ -111,10 +111,15 @@ class LibCoreControllerMain extends ControllerBase
             'body' => (json_encode($new_values)),
         ];
 
+        $options = [
+            'verify' => false // Habilitar verificación SSL
+         ];
+
         // Post to webform
         $client->post(
             '/webform_rest/submit?_format=json',
-            $body
+            $body,
+            $options
         );
         // https://libertysegurosandinomarket--smartsuper.my.salesforce.com/
         // SalesForce endpoint
@@ -135,6 +140,7 @@ class LibCoreControllerMain extends ControllerBase
                     'Content-Type' => 'application/x-www-form-urlencoded',
                 ],
                 'form_params' => $values,
+                'verify' => false
             ]
         );
         // \Drupal::logger('lib_core')->error($sf);

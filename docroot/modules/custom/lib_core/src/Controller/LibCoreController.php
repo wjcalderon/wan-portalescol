@@ -183,6 +183,7 @@ class LibCoreController extends ControllerBase
                     'Content-Type' => 'application/x-www-form-urlencoded',
                 ],
                 'form_params' => $values_env,
+                'verify' => false
             ]
         );
         \Drupal::logger('lib_pqr')->error(json_encode($sf));
