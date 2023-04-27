@@ -78,9 +78,9 @@ class LibCoreController extends ControllerBase
         // Post to SalesForce
         $client = new Client();
 
-        $base_uri = \Drupal::request()->getSchemeAndHttpHost();
+        $base_uri = \Drupal::request()->getHost();
         $client = new Client([
-            'base_uri' => $base_uri,
+            'base_uri' => 'http://'.$base_uri,
         ]);
 
         // Get csrfToken
