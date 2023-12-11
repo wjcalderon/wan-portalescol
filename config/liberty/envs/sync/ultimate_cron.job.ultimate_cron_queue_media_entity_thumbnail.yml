@@ -1,0 +1,20 @@
+uuid: 749ab515-9415-4be4-b1fd-f17361ee058a
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+title: 'Queue: Descargador miniatura'
+id: ultimate_cron_queue_media_entity_thumbnail
+weight: 10
+module: media
+callback: 'ultimate_cron.queue_worker:queueCallback'
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '* * * * *'
+launcher:
+  id: serial
+logger:
+  id: database

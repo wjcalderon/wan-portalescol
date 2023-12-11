@@ -1,0 +1,24 @@
+uuid: 1e1a2b02-7bfd-4480-83e7-005e64d96b5a
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.glosario_los_segura
+_core:
+  default_config_hash: Pa3r947i3121jyHTKyVoqORa12CsGFSzq4imgb4x3NM
+id: node.glosario_los_segura.promote
+field_name: promote
+entity_type: node
+bundle: glosario_los_segura
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

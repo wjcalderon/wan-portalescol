@@ -1,0 +1,21 @@
+uuid: 5b4af5a9-6267-439d-97d0-bcc74ef5c19f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.card_person
+_core:
+  default_config_hash: _v9OuU5iPwJUEUPyurHlcdYdfQUnGdEeE2-U3vfRZLU
+id: paragraph.card_person.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: card_person
+label: Etiqueta
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

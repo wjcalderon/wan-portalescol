@@ -1,0 +1,19 @@
+uuid: db4de89c-43a0-4341-9dce-e0ac8e79d807
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_network_address
+    - node.type.lender
+id: node.lender.field_network_address
+field_name: field_network_address
+entity_type: node
+bundle: lender
+label: 'Dirección de red'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

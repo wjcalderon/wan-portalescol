@@ -1,0 +1,9 @@
+uuid: 84d91ea1-1102-4a0c-80bb-96cc02b047bf
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Imágen
+icon_uuid: null
+description: 'Componente tipo imágen que se puede agregar desde una página de landing.'
+behavior_plugins: {  }

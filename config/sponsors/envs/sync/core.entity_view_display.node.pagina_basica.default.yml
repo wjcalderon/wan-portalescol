@@ -1,0 +1,16 @@
+uuid: d6190a6f-f01d-4830-ad63-b3ac06134f1d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.pagina_basica
+  module:
+    - user
+id: node.pagina_basica.default
+targetEntityType: node
+bundle: pagina_basica
+mode: default
+content: {  }
+hidden:
+  langcode: true
+  links: true

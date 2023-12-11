@@ -1,0 +1,84 @@
+uuid: 1d98aef6-cbf5-401a-9c39-759da4b5e3b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cover.field_benefits
+    - field.field.paragraph.cover.field_button_text
+    - field.field.paragraph.cover.field_cover_caracteristic
+    - field.field.paragraph.cover.field_cover_caracteristics
+    - field.field.paragraph.cover.field_cover_image
+    - field.field.paragraph.cover.field_cover_title
+    - field.field.paragraph.cover.field_link_button
+    - field.field.paragraph.cover.field_title_benefits
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.cover
+  module:
+    - mmf_core_fields
+    - svg_image
+    - textfield_counter
+id: paragraph.cover.default
+targetEntityType: paragraph
+bundle: cover
+mode: default
+content:
+  field_benefits:
+    type: mmf_string_textfield
+    weight: 6
+    region: content
+    settings:
+      min_count: '3'
+      size: '60'
+      placeholder: ''
+    third_party_settings: {  }
+  field_button_text:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cover_caracteristic:
+    type: mmf_string_textfield
+    weight: 5
+    region: content
+    settings:
+      min_count: '3'
+      size: '60'
+      placeholder: ''
+    third_party_settings: {  }
+  field_cover_image:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_cover_title:
+    type: text_textarea_with_counter
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+      maxlength: 25
+      counter_position: before
+      js_prevent_submit: true
+      count_html_characters: false
+      textcount_status_message: 'Maxlength: <span class="maxlength_count">@maxlength</span><br />Used: <span class="current_count">@current_length</span><br />Remaining: <span class="remaining_count">@remaining_count</span>'
+    third_party_settings: {  }
+  field_title_benefits:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_cover_caracteristics: true
+  field_link_button: true
+  status: true

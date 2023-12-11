@@ -1,0 +1,14 @@
+uuid: f6b694a0-d125-43d6-b93c-7617f58f31d7
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.ramos_teaser
+label: 'Ramo resumen'
+targetEntityType: taxonomy_term
+cache: true

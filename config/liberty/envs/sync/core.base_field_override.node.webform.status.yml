@@ -1,0 +1,22 @@
+uuid: f3a7f78a-f403-45c1-9727-7e23424a6d7a
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.webform
+id: node.webform.status
+field_name: status
+entity_type: node
+bundle: webform
+label: Publicado
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

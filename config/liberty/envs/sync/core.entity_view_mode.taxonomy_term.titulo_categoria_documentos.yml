@@ -1,0 +1,14 @@
+uuid: fd3f4e42-9c6e-4f3f-baf8-c7dc7c0a86eb
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.titulo_categoria_documentos
+label: 'titulo categoria documentos'
+targetEntityType: taxonomy_term
+cache: true

@@ -1,0 +1,25 @@
+uuid: 77d3a4d5-eb28-4657-bd9e-3930f4c255b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-branding
+  module:
+    - system
+  theme:
+    - liberty_public
+id: menubranding
+theme: liberty_public
+region: branding
+weight: -37
+provider: null
+plugin: 'system_menu_block:menu-branding'
+settings:
+  id: 'system_menu_block:menu-branding'
+  label: 'menu  branding'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

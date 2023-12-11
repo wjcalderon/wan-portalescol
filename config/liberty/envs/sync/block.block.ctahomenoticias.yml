@@ -1,0 +1,25 @@
+uuid: daea8593-a39a-4ae9-9bec-d62b77017058
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:cta:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: ctahomenoticias
+theme: liberty_public
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'block_content:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+settings:
+  id: 'block_content:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+  label: 'CTA home noticias'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

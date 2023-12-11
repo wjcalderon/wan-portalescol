@@ -1,0 +1,20 @@
+uuid: 638b9664-2f0b-4118-bc27-2f135c41ed34
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: tabsasistencias
+theme: liberty_public
+region: blocks_activate
+weight: -26
+provider: null
+plugin: tabs_assistances
+settings:
+  id: tabs_assistances
+  label: 'Tabs Asistencias'
+  label_display: '0'
+  provider: lib_core
+visibility: {  }

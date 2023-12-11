@@ -1,0 +1,19 @@
+uuid: 2a39bca3-fa52-4c01-a9a1-e6a6b58d99aa
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_heading
+    - paragraphs.paragraphs_type.item_scroll
+id: paragraph.item_scroll.field_lib_heading
+field_name: field_lib_heading
+entity_type: paragraph
+bundle: item_scroll
+label: Ancla
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

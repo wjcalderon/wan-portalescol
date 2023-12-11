@@ -1,0 +1,16 @@
+uuid: ec62bd0e-752c-4bfd-a3bf-c92e6a253f46
+langcode: es
+status: true
+dependencies:
+  module:
+    - contact
+  enforced:
+    module:
+      - contact_storage
+_core:
+  default_config_hash: jZQoNkJeq8A9-hHjrd3s6HE4or1uMGcZ97wa_HF_VeA
+id: contact_message_delete_action
+label: 'Eliminar mensaje'
+type: contact_message
+plugin: 'entity:delete_action:contact_message'
+configuration: {  }

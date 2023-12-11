@@ -1,0 +1,23 @@
+uuid: 7f52446f-c85b-47e8-ba04-548b69b05945
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_policy_included
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_policy_included
+field_name: field_policy_included
+entity_type: taxonomy_term
+bundle: policy
+label: Incluido
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

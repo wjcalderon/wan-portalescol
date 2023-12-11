@@ -1,0 +1,9 @@
+uuid: d9f4ff34-8510-48a2-a5ad-820b17948188
+langcode: es
+status: true
+dependencies: {  }
+id: slider
+label: Slider
+icon_uuid: null
+description: 'Agrupe múltiples "banner" y agréguelos en una página de landing.'
+behavior_plugins: {  }

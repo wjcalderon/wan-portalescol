@@ -1,0 +1,14 @@
+uuid: d1213af4-6760-44c1-ad26-857210f2a251
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.landing_los_segura_creator
+  module:
+    - user
+id: user_add_role_action.landing_los_segura_creator
+label: 'Añade el rol Landing Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: landing_los_segura_creator

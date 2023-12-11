@@ -1,0 +1,8 @@
+uuid: 3ab1e813-7fa8-4cbc-8e2d-ec01a9b950bd
+langcode: es
+status: true
+dependencies: {  }
+name: 'Marca - Línea'
+vid: marca_linea
+description: 'Marca y Línea del vehículo'
+weight: 0

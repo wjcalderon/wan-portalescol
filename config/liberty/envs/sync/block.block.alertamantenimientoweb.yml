@@ -1,0 +1,30 @@
+uuid: 475c64ac-58fb-4264-97e3-3718801c16be
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:alert:e7d6b3ef-17e2-42df-b3ca-ba9729a7a87e'
+  module:
+    - block_content
+    - system
+  theme:
+    - liberty_public
+id: alertamantenimientoweb
+theme: liberty_public
+region: eyebrow
+weight: 0
+provider: null
+plugin: 'block_content:e7d6b3ef-17e2-42df-b3ca-ba9729a7a87e'
+settings:
+  id: 'block_content:e7d6b3ef-17e2-42df-b3ca-ba9729a7a87e'
+  label: 'Alerta mantenimiento web'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

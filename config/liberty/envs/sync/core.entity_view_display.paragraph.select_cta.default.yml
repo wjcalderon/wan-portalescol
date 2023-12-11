@@ -1,0 +1,74 @@
+uuid: 3e2d3fda-8788-49f4-b78f-c3993f5d5766
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.select_cta.field_c_classes
+    - field.field.paragraph.select_cta.field_c_title
+    - field.field.paragraph.select_cta.field_c_title_status
+    - field.field.paragraph.select_cta.field_c_width
+    - field.field.paragraph.select_cta.field_cta
+    - field.field.paragraph.select_cta.field_label
+    - paragraphs.paragraphs_type.select_cta
+  module:
+    - link
+    - options
+id: paragraph.select_cta.default
+targetEntityType: paragraph
+bundle: select_cta
+mode: default
+content:
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

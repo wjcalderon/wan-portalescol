@@ -1,0 +1,114 @@
+uuid: c81bc03c-46d1-4899-b048-dcd661170361
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.campaings_list
+    - field.field.node.campaign.body
+    - field.field.node.campaign.field_banner
+    - field.field.node.campaign.field_business_key
+    - field.field.node.campaign.field_campaign_country
+    - field.field.node.campaign.field_campaing_tax
+    - field.field.node.campaign.field_caracteristics
+    - field.field.node.campaign.field_color_card
+    - field.field.node.campaign.field_color_header
+    - field.field.node.campaign.field_contact
+    - field.field.node.campaign.field_cover
+    - field.field.node.campaign.field_mail_call_center
+    - field.field.node.campaign.field_monitored
+    - field.field.node.campaign.field_monitored_page
+    - field.field.node.campaign.field_offer_validation
+    - field.field.node.campaign.field_office
+    - field.field.node.campaign.field_phone_contact
+    - field.field.node.campaign.field_premiums
+    - field.field.node.campaign.field_private
+    - field.field.node.campaign.field_sponsor
+    - field.field.node.campaign.field_sponsor_logo
+    - field.field.node.campaign.field_url_google_analitics
+    - field.field.node.campaign.field_url_vip
+    - field.field.node.campaign.field_validacion_de_oferta
+    - node.type.campaign
+  module:
+    - entity_reference_revisions
+    - user
+id: node.campaign.campaings_list
+targetEntityType: node
+bundle: campaign
+mode: campaings_list
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_business_key:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_campaign_country:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_campaing_tax:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_cover:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_private:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_sponsor:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_banner: true
+  field_caracteristics: true
+  field_color_card: true
+  field_color_header: true
+  field_contact: true
+  field_mail_call_center: true
+  field_monitored: true
+  field_monitored_page: true
+  field_offer_validation: true
+  field_office: true
+  field_phone_contact: true
+  field_premiums: true
+  field_sponsor_logo: true
+  field_url_google_analitics: true
+  field_url_vip: true
+  field_validacion_de_oferta: true
+  langcode: true
+  links: true

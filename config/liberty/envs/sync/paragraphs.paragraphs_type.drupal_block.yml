@@ -1,0 +1,9 @@
+uuid: c564ba5c-6770-42b7-ae01-3cf15e024449
+langcode: en
+status: true
+dependencies: {  }
+id: drupal_block
+label: Bloque
+icon_uuid: null
+description: 'Permite referenciar una entidad tipo bloque del CMS Drupal.'
+behavior_plugins: {  }

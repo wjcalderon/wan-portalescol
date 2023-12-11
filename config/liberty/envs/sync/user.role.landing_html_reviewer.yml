@@ -1,0 +1,27 @@
+uuid: 47ac2be9-5908-49f0-b40f-3046b2ba44a7
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.landing_html
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: landing_html_reviewer
+label: 'Landing Qualtrics / HTML reviewer'
+weight: 32
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any landing_html content'
+  - 'edit any landing_html content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

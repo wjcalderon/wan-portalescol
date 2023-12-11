@@ -1,0 +1,14 @@
+uuid: 17b9defb-3554-4ac9-8be6-0e13e80374c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.faq_reviewer
+  module:
+    - user
+id: user_remove_role_action.faq_reviewer
+label: 'Remove the Faq reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: faq_reviewer

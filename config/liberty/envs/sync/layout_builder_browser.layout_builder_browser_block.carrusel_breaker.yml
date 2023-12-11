@@ -1,0 +1,11 @@
+uuid: e6820b79-0c88-4387-88e7-46b090a47a3c
+langcode: es
+status: true
+dependencies: {  }
+id: carrusel_breaker
+block_id: 'inline_block:carousel_internal'
+category: multiples
+label: 'Carrusel - Breaker'
+image_path: ''
+image_alt: ''
+weight: 3

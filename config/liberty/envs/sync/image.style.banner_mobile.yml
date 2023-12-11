@@ -1,0 +1,17 @@
+uuid: 1b859904-481a-4178-9aec-9aa154d471fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.small
+  module:
+    - crop
+name: banner_mobile
+label: 'banner mobile'
+effects:
+  629188a3-d6dc-4765-aac1-e739102a0206:
+    uuid: 629188a3-d6dc-4765-aac1-e739102a0206
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: small

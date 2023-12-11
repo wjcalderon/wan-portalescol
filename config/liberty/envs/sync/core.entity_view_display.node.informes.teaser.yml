@@ -1,0 +1,47 @@
+uuid: 64de2e03-08f4-419a-a629-7b1caec50708
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.informes.body
+    - field.field.node.informes.field_p_components
+    - node.type.informes
+  module:
+    - manage_display
+    - text
+id: node.informes.teaser
+targetEntityType: node
+bundle: informes
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  created: true
+  field_p_components: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

@@ -1,0 +1,41 @@
+uuid: 4cfd3502-1079-4cd2-baf6-06375ff5cb2e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.media.svg_media.field_media_in_library
+    - field.field.media.svg_media.field_media_svg
+    - media.type.svg_media
+  module:
+    - svg_image_field
+id: media.svg_media.default
+targetEntityType: media
+bundle: svg_media
+mode: default
+content:
+  field_media_svg:
+    type: svg_image_field_formatter
+    label: visually_hidden
+    settings:
+      inline: false
+      apply_dimensions: true
+      width: 25
+      height: 25
+      enable_alt: true
+      enable_title: true
+      link: ''
+      force_fill: false
+      sanitize: true
+      sanitize_remote: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

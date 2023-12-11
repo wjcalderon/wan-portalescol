@@ -1,0 +1,23 @@
+uuid: 28671073-6c5b-4115-9b72-5e3228b8ed2c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_plan_style
+    - paragraphs.paragraphs_type.plan_list
+  module:
+    - options
+id: paragraph.plan_list.field_lib_plan_style
+field_name: field_lib_plan_style
+entity_type: paragraph
+bundle: plan_list
+label: 'Plan Style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

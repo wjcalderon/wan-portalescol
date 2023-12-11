@@ -1,0 +1,14 @@
+uuid: cc9985fe-72d8-4946-b210-5840ce804d6d
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_reviewer
+  module:
+    - user
+id: user_remove_role_action.informes_reviewer
+label: 'Elimina el rol Informes reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: informes_reviewer

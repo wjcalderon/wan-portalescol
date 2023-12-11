@@ -1,0 +1,25 @@
+uuid: 9007783c-1555-4cd7-adf6-c93fe5e53dba
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - liberty_public
+id: views_block__news_block_news
+theme: liberty_public
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'views_block:news-block_news'
+settings:
+  id: 'views_block:news-block_news'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

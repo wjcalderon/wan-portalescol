@@ -1,0 +1,9 @@
+uuid: 7289603a-324d-40b6-a67c-5e4389daf283
+langcode: es
+status: true
+dependencies: {  }
+id: item_report_card
+label: 'Item Tarjeta Informe'
+icon_uuid: null
+description: 'Item tipo tarjeta, referenciado por el componente <b>tarjetas</b>, incluye, título, descripción y documentos.'
+behavior_plugins: {  }

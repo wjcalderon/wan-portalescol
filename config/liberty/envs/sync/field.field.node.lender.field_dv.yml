@@ -1,0 +1,23 @@
+uuid: 7554fe4b-2bbe-4906-a174-793a6d722f2a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dv
+    - node.type.lender
+id: node.lender.field_dv
+field_name: field_dv
+entity_type: node
+bundle: lender
+label: DV
+description: 'Ingrese el dígito de verificación de su identidad (si aplica)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

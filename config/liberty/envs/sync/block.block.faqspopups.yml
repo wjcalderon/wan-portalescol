@@ -1,0 +1,29 @@
+uuid: 518ce535-a731-44b9-8279-ac0ff2ffd220
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:31003fa7-43b5-4982-88d3-67f77e28b996'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: 'is-hidden faqs-popup'
+id: faqspopups
+theme: liberty_public
+region: blocks_popups
+weight: -33
+provider: null
+plugin: 'block_content:31003fa7-43b5-4982-88d3-67f77e28b996'
+settings:
+  id: 'block_content:31003fa7-43b5-4982-88d3-67f77e28b996'
+  label: 'faqs popups'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

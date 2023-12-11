@@ -1,0 +1,8 @@
+uuid: 4f58f601-1a64-45c5-be89-dae2b96f6812
+langcode: es
+status: true
+dependencies: {  }
+id: hero_slider
+label: 'Carrusel - Hero'
+revision: 0
+description: ''

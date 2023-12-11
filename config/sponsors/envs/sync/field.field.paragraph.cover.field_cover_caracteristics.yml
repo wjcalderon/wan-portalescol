@@ -1,0 +1,21 @@
+uuid: 3bfd062c-de42-48fe-a86e-bbd33d6ae3c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cover_caracteristics
+    - paragraphs.paragraphs_type.cover
+  module:
+    - text
+id: paragraph.cover.field_cover_caracteristics
+field_name: field_cover_caracteristics
+entity_type: paragraph
+bundle: cover
+label: 'Coberturas Características'
+description: 'Ingrese las coberturas de este servicio de seguro'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,19 @@
+uuid: 44e442e4-bc3d-4b2a-b4c9-f109fa2eb40b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_classes
+    - paragraphs.paragraphs_type.acordeon
+id: paragraph.acordeon.field_c_classes
+field_name: field_c_classes
+entity_type: paragraph
+bundle: acordeon
+label: 'CSS class(es)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

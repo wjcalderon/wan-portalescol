@@ -1,0 +1,25 @@
+uuid: 9a19fed6-d9c3-4cf8-b578-5fee2c4e9f09
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_faqs_reference
+    - taxonomy.vocabulary.categorias_faqs
+id: taxonomy_term.categorias_faqs.field_faqs_reference
+field_name: field_faqs_reference
+entity_type: taxonomy_term
+bundle: categorias_faqs
+label: 'Preguntas '
+description: 'Seleccione las preguntas que se desee que aparezcan en el landing de preguntas frecuentes para esta categoría. Puede incluir máximo 5.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: faqs
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,120 @@
+uuid: 0345c68c-2b8b-4272-aeb0-67080ac29eb4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_components
+    - node.type.product
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.single_text
+    - paragraphs.paragraphs_type.tabs
+    - paragraphs.paragraphs_type.webform
+  module:
+    - entity_reference_revisions
+id: node.product.field_c_components
+field_name: field_c_components
+entity_type: node
+bundle: product
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      cards: cards
+      single_text: single_text
+      tabs: tabs
+      webform: webform
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 20
+        enabled: false
+      assistance_item:
+        weight: 16
+        enabled: false
+      banner:
+        weight: 17
+        enabled: true
+      card:
+        weight: 18
+        enabled: false
+      cards:
+        weight: 19
+        enabled: true
+      cards_reports:
+        weight: 34
+        enabled: false
+      column:
+        weight: 35
+        enabled: false
+      columns:
+        weight: 36
+        enabled: false
+      documents:
+        weight: 37
+        enabled: false
+      drupal_block:
+        weight: 20
+        enabled: false
+      drupal_view:
+        weight: 21
+        enabled: false
+      image:
+        weight: 22
+        enabled: false
+      item_acordeon:
+        weight: 28
+        enabled: false
+      item_lista:
+        weight: 29
+        enabled: false
+      item_report_card:
+        weight: 43
+        enabled: false
+      item_tab_multi:
+        weight: 44
+        enabled: false
+      lista:
+        weight: 30
+        enabled: false
+      multi_tabs:
+        weight: 46
+        enabled: false
+      select_cta:
+        weight: 23
+        enabled: false
+      shorcut:
+        weight: 48
+        enabled: false
+      shorcuts:
+        weight: 49
+        enabled: false
+      single_text:
+        weight: 24
+        enabled: true
+      slider:
+        weight: 25
+        enabled: false
+      tab_item:
+        weight: 27
+        enabled: false
+      tabs:
+        weight: 26
+        enabled: true
+      testimonies:
+        weight: 28
+        enabled: false
+      testimony_item:
+        weight: 29
+        enabled: false
+      webform:
+        weight: 30
+        enabled: true
+field_type: entity_reference_revisions

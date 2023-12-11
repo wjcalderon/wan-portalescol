@@ -1,0 +1,9 @@
+uuid: 8405e7c9-9897-4e5f-9f14-291e10304572
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Banner
+icon_uuid: null
+description: 'Banner tipo imágen para agregar en las páginas landing.'
+behavior_plugins: {  }

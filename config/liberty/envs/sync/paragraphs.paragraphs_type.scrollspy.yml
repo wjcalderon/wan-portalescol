@@ -1,0 +1,10 @@
+uuid: 5bde7353-a6af-46ac-b589-46ea0392ccbd
+langcode: es
+status: true
+dependencies: {  }
+id: scrollspy
+label: 'Menu Scroll'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Menú Scroll. Actualice automáticamente la navegación o enumere los componentes del grupo en función de la posición de desplazamiento para indicar qué enlace está actualmente activo en la ventana gráfica.'
+behavior_plugins: {  }

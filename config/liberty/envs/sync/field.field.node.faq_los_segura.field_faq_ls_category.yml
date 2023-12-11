@@ -1,0 +1,31 @@
+uuid: 8503f0aa-ca8f-4d2d-917b-dc2adaefef9c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faq_ls_category
+    - node.type.faq_los_segura
+    - taxonomy.vocabulary.categorias_faqs_los_segura
+_core:
+  default_config_hash: x4X1r9L9GBn5sXX95Vv8eTwOBIfcEDj1pwV6Z38TlWY
+id: node.faq_los_segura.field_faq_ls_category
+field_name: field_faq_ls_category
+entity_type: node
+bundle: faq_los_segura
+label: Categoría
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorias_faqs_los_segura: categorias_faqs_los_segura
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

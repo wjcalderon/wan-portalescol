@@ -1,0 +1,11 @@
+uuid: 8afb606d-a0a0-4a4d-8423-9bbbbf0b8b3b
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.tab_item
+id: paragraph.tab_item
+target_entity_type_id: paragraph
+target_bundle: tab_item
+default_langcode: site_default
+language_alterable: false

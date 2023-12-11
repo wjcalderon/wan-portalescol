@@ -1,0 +1,20 @@
+uuid: 58a52bd7-39d0-43cc-9a55-b73b3a20dc21
+langcode: es
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_items_acordeon
+field_name: field_items_acordeon
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

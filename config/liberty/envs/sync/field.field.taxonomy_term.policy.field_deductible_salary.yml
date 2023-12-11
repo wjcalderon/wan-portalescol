@@ -1,0 +1,23 @@
+uuid: 0dd2bb23-189e-4269-a9cf-549a43d7a284
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_deductible_salary
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_deductible_salary
+field_name: field_deductible_salary
+entity_type: taxonomy_term
+bundle: policy
+label: 'Salarios deducibles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

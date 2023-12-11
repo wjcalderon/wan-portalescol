@@ -1,0 +1,66 @@
+uuid: ff91299a-b0cb-4a32-82da-91ae3b8d55f8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_card_list_out.field_lib_card_style
+    - field.field.paragraph.lib_card_list_out.field_lib_columns
+    - field.field.paragraph.lib_card_list_out.field_lib_heading
+    - field.field.paragraph.lib_card_list_out.field_lib_p_card_items
+    - paragraphs.paragraphs_type.lib_card_list_out
+  module:
+    - paragraphs
+    - paragraphs_features
+id: paragraph.lib_card_list_out.default
+targetEntityType: paragraph
+bundle: lib_card_list_out
+mode: default
+content:
+  field_lib_card_style:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_columns:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_p_card_items:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: lib_card
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+hidden:
+  created: true
+  status: true

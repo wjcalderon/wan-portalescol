@@ -1,0 +1,28 @@
+uuid: eed271a9-af96-4735-bcd3-5ef89b4dc29b
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - block
+    - comment
+    - contact
+    - content_moderation
+    - filter
+    - media
+    - system
+_core:
+  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
+id: anonymous
+label: 'Usuario anónimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'administer blocks'
+  - 'use text format restricted_html'
+  - 'view any unpublished content'
+  - 'view media'

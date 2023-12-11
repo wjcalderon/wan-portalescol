@@ -1,0 +1,33 @@
+uuid: 07a7d7df-d2fe-4a0a-bce9-cf34323cd385
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.microsite.field_file_zip
+    - field.field.paragraph.microsite.field_path
+    - paragraphs.paragraphs_type.microsite
+  module:
+    - file
+id: paragraph.microsite.default
+targetEntityType: paragraph
+bundle: microsite
+mode: default
+content:
+  field_file_zip:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_path:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,14 @@
+uuid: 5fb08d32-30b5-4015-904c-c86bdfa4b284
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.marketing_administrator
+  module:
+    - user
+id: user_remove_role_action.marketing_administrator
+label: 'Elimina el rol Administrador mercadeo al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: marketing_administrator

@@ -1,0 +1,29 @@
+uuid: 3525d7d3-97ec-4c80-b689-4f0dfd972020
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+title: 'Default cron handler'
+id: lib_core_cron
+weight: 0
+module: lib_core
+callback: lib_core_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ 0 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

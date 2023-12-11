@@ -1,0 +1,27 @@
+uuid: bc8148b2-68fe-40c0-98e3-bda47d9f1074
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_zip
+    - paragraphs.paragraphs_type.microsite
+  module:
+    - file
+id: paragraph.microsite.field_file_zip
+field_name: field_file_zip
+entity_type: paragraph
+bundle: microsite
+label: Archivo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: zip
+  max_filesize: ''
+  description_field: false
+field_type: file

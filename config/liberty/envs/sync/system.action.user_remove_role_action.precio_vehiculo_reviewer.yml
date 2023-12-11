@@ -1,0 +1,14 @@
+uuid: e26ce344-3520-41f0-a38f-42f5e3729a9e
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.precio_vehiculo_reviewer
+  module:
+    - user
+id: user_remove_role_action.precio_vehiculo_reviewer
+label: 'Elimina el rol Precio vehículo reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: precio_vehiculo_reviewer

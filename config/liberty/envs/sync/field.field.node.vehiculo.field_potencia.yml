@@ -1,0 +1,23 @@
+uuid: 55b66d22-812b-4ff8-a48a-578d5ec9aeb0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_potencia
+    - node.type.vehiculo
+id: node.vehiculo.field_potencia
+field_name: field_potencia
+entity_type: node
+bundle: vehiculo
+label: Potencia
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

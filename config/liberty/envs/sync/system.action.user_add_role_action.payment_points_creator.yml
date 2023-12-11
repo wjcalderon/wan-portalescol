@@ -1,0 +1,14 @@
+uuid: a909a757-e369-42cc-90e0-829c88dfe1c0
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.payment_points_creator
+  module:
+    - user
+id: user_add_role_action.payment_points_creator
+label: 'Añade el rol Puntos de pago creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: payment_points_creator

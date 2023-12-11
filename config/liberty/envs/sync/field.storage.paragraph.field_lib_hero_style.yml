@@ -1,0 +1,27 @@
+uuid: 4f428ac4-3e28-4db3-8d43-1ba7be5fbf17
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_hero_style
+field_name: field_lib_hero_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hero1
+      label: 'Hero + Iconos flotantes'
+    -
+      value: hero2
+      label: 'Hero + Iconos recuadros'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

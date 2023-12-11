@@ -1,0 +1,13 @@
+uuid: ac311959-d0ef-4c86-9a77-e4442b54bc9e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.capitulo_los_segura
+_core:
+  default_config_hash: ynGDYBa80NNeN-fHC4LtVEe4p0UCo6fw1e7Geg-wDew
+id: node.capitulo_los_segura
+target_entity_type_id: node
+target_bundle: capitulo_los_segura
+default_langcode: site_default
+language_alterable: false

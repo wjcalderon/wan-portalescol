@@ -1,0 +1,35 @@
+uuid: b793be74-b5e5-4fbd-aad8-8c17330c7830
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_list_foto
+    - field.field.block_content.card_list_foto.field_columns_grid
+    - field.field.block_content.card_list_foto.field_p_card_foto
+  module:
+    - entity_reference_revisions
+    - options
+id: block_content.card_list_foto.default
+targetEntityType: block_content
+bundle: card_list_foto
+mode: default
+content:
+  field_columns_grid:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_p_card_foto:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

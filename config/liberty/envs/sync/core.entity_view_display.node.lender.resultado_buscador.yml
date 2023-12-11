@@ -1,0 +1,73 @@
+uuid: 0d5a7016-2e24-45a6-a666-c9e92f3464a8
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.resultado_buscador
+    - field.field.node.lender.field_consulting_room
+    - field.field.node.lender.field_dv
+    - field.field.node.lender.field_extension
+    - field.field.node.lender.field_google_maps_address
+    - field.field.node.lender.field_identification
+    - field.field.node.lender.field_lender_category
+    - field.field.node.lender.field_location_map
+    - field.field.node.lender.field_network_address
+    - field.field.node.lender.field_oficina
+    - field.field.node.lender.field_phone
+    - field.field.node.lender.field_provider_type
+    - field.field.node.lender.field_schedules
+    - field.field.node.lender.field_speciality
+    - field.field.node.lender.field_telemedicine
+    - field.field.node.lender.field_type_plan
+    - field.field.node.lender.field_ubication
+    - field.field.node.lender.field_web_page
+    - field.field.node.lender.field_whatsapp
+    - node.type.lender
+  module:
+    - manage_display
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.lender.resultado_buscador
+targetEntityType: node
+bundle: lender
+mode: resultado_buscador
+content:
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_consulting_room: true
+  field_dv: true
+  field_extension: true
+  field_google_maps_address: true
+  field_identification: true
+  field_lender_category: true
+  field_location_map: true
+  field_network_address: true
+  field_oficina: true
+  field_phone: true
+  field_provider_type: true
+  field_schedules: true
+  field_speciality: true
+  field_telemedicine: true
+  field_type_plan: true
+  field_ubication: true
+  field_web_page: true
+  field_whatsapp: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
+  uid: true

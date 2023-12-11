@@ -1,0 +1,15 @@
+uuid: cf48e99f-3bcf-4918-b62b-4efa70a5a784
+langcode: en
+status: true
+dependencies: {  }
+name: img_40x40
+label: img_40X40
+effects:
+  42a6dc9d-76d2-4ce4-9a35-de7471f93bf8:
+    uuid: 42a6dc9d-76d2-4ce4-9a35-de7471f93bf8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 40
+      height: 40
+      anchor: center-center

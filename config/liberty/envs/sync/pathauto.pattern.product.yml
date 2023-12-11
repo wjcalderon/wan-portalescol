@@ -1,0 +1,22 @@
+uuid: 33e94460-352b-452a-a5ce-9226a0a75432
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: product
+label: Producto
+type: 'canonical_entities:node'
+pattern: '[node:field_person_type]/[node:field_product_type]/[node:title]'
+selection_criteria:
+  02e8b75d-97e9-4b62-b851-cf6199a3359f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 02e8b75d-97e9-4b62-b851-cf6199a3359f
+    context_mapping:
+      node: node
+    bundles:
+      product: product
+selection_logic: and
+weight: -5
+relationships: {  }

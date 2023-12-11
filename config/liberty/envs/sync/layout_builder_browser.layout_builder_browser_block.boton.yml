@@ -1,0 +1,11 @@
+uuid: 4b35a74d-35c1-4576-936c-c16fb014c09a
+langcode: es
+status: true
+dependencies: {  }
+id: boton
+block_id: 'inline_block:button'
+category: general
+label: Botón
+image_path: ''
+image_alt: ''
+weight: null

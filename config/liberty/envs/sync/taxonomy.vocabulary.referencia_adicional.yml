@@ -1,0 +1,8 @@
+uuid: 359a90d5-4317-49da-9a94-473a54a31da0
+langcode: es
+status: true
+dependencies: {  }
+name: 'Referencia adicional'
+vid: referencia_adicional
+description: 'Referencia 2 del vehículo'
+weight: 0

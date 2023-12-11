@@ -1,0 +1,21 @@
+uuid: b997c84f-1a8f-4ecf-9830-7c97a9d652ed
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_body
+    - paragraphs.paragraphs_type.card_list_mmedia
+  module:
+    - text
+id: paragraph.card_list_mmedia.field_lib_body
+field_name: field_lib_body
+entity_type: paragraph
+bundle: card_list_mmedia
+label: 'Texto inferior'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

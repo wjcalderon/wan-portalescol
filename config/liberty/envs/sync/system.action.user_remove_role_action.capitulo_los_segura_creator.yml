@@ -1,0 +1,14 @@
+uuid: 5c7d80c6-80e3-4fca-8ac8-1e72a2e95df5
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.capitulo_los_segura_creator
+  module:
+    - user
+id: user_remove_role_action.capitulo_los_segura_creator
+label: 'Elimina el rol Capítulo Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: capitulo_los_segura_creator

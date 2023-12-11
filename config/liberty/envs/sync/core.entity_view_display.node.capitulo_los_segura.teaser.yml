@@ -1,0 +1,50 @@
+uuid: 42b7ccc3-b27e-4841-ab65-fab20a0bede0
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.capitulo_los_segura.body
+    - field.field.node.capitulo_los_segura.field_temporada
+    - field.field.node.capitulo_los_segura.field_video
+    - image.style.2_1_medium
+    - node.type.capitulo_los_segura
+  module:
+    - text
+    - user
+    - video_embed_field
+_core:
+  default_config_hash: ln-Bl_UG1iIMEJFlp-Q1luCIyi0n1fC2KQ4brnOWUEs
+id: node.capitulo_los_segura.teaser
+targetEntityType: node
+bundle: capitulo_los_segura
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_video:
+    type: video_embed_field_thumbnail
+    label: hidden
+    settings:
+      image_style: 2_1_medium
+      link_image_to: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  field_temporada: true
+  langcode: true
+  search_api_excerpt: true

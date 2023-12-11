@@ -1,0 +1,25 @@
+uuid: cb6023ae-2fdc-46b4-ba0e-0812b061f389
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:36a1defb-0066-4365-8ed8-420252cf5928'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: lineadeventas
+theme: liberty_public
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'block_content:36a1defb-0066-4365-8ed8-420252cf5928'
+settings:
+  id: 'block_content:36a1defb-0066-4365-8ed8-420252cf5928'
+  label: 'Linea de ventas '
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

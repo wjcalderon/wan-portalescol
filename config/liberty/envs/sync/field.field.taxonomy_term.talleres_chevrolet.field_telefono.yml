@@ -1,0 +1,19 @@
+uuid: b5c24e24-3e34-4060-8b2a-3536782dce65
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_telefono
+    - taxonomy.vocabulary.talleres_chevrolet
+id: taxonomy_term.talleres_chevrolet.field_telefono
+field_name: field_telefono
+entity_type: taxonomy_term
+bundle: talleres_chevrolet
+label: Telefono
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

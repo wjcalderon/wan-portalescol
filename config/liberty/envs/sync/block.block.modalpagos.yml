@@ -1,0 +1,35 @@
+uuid: aea4f2b9-35b6-4e1e-ad5d-efa7b58868fa
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:19dd6928-d0db-4550-a7de-eda2b28f9c22'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: 'is-hidden modal-link-fallback-popup modal-close'
+id: modalpagos
+theme: liberty_public
+region: blocks_popups
+weight: -29
+provider: null
+plugin: 'block_content:19dd6928-d0db-4550-a7de-eda2b28f9c22'
+settings:
+  id: 'block_content:19dd6928-d0db-4550-a7de-eda2b28f9c22'
+  label: 'Modal Pagos'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /pagos

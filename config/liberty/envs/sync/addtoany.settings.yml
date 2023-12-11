@@ -1,0 +1,29 @@
+_core:
+  default_config_hash: 9YPlBuinIKLe5jVEf-aIhZvKFn77i18yD4CrNR0BbVQ
+langcode: es
+buttons_size: 32
+additional_html: "<a class=\"list-share\"></a>\r\n<div class=\"social-network\">\r\n<a class=\"a2a_button_facebook\"></a>\r\n<a class=\"a2a_button_twitter\"></a>\r\n<a class=\"a2a_button_whatsapp\"></a>\r\n</div>\r\n<p class=\"text-share\">Compartir</p>"
+additional_css: "p.text-share{\r\n    font-family: Roboto;\r\n    font-size: 0.8125rem;\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-stretch: normal;\r\n    line-height: normal;\r\n    letter-spacing: normal;\r\n    color: #28a3af;\r\n}\r\nspan.addtoany_list{\r\n    position: relative;\r\n    top: 22px;\r\n    left: 10%;\r\ndisplay: inline-block;\r\n    z-index: 10;\r\n}\r\nspan.addtoany_list:hover .social-network, a.list-share:active .social-network{\r\ndisplay:inline;\r\n}\r\na.list-share{\r\nbackground-image: url(/themes/custom/liberty_public/images/icons/share.svg);\r\n    background-repeat: no-repeat;\r\n    width: 32px;\r\n    height: 32px;\r\n}\r\n.social-network{\r\ndisplay:none;\r\n}\r\n.a2a_kit a{\r\nmargin-left: 1rem;\r\n}"
+additional_js: ''
+universal_button: none
+custom_universal_button: /themes/custom/liberty_public/images/icons/share.svg
+universal_button_placement: before
+entities:
+  media: 1
+  node: 1
+  comment: 1
+  block_content: 0
+  consumer: 0
+  contact_message: 0
+  content_moderation_state: 0
+  crop: 0
+  file: 0
+  search_api_task: 0
+  shortcut: 0
+  oauth2_token: 0
+  taxonomy_term: 0
+  user: 0
+  webform_submission: 0
+  menu_link_content: 0
+  paragraph: 0
+no_3p: false

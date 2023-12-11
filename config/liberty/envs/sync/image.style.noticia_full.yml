@@ -1,0 +1,15 @@
+uuid: c19afe6f-0b32-40cd-9862-85ddfce92eb4
+langcode: es
+status: true
+dependencies: {  }
+name: noticia_full
+label: 'Noticia full'
+effects:
+  e673eb4c-a685-432d-a9f7-62054adb6eb8:
+    uuid: e673eb4c-a685-432d-a9f7-62054adb6eb8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1601
+      height: 586
+      anchor: center-center

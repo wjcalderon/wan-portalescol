@@ -1,0 +1,17 @@
+uuid: ce17c8fb-ae07-4f65-b28a-3ec522903d59
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Landing Qualtrics / HTML'
+type: landing_html
+description: 'Landing page que permite crear banner con script Qualtrics e incrustar micrositios html.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

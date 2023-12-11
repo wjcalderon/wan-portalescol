@@ -1,0 +1,9 @@
+uuid: 8cfd0330-7b5b-47ad-b616-39f0f89c34df
+langcode: es
+status: true
+dependencies: {  }
+id: multi_tabs
+label: 'Pestañas multiples'
+icon_uuid: null
+description: 'Agregue pestañas dentro de pestañas'
+behavior_plugins: {  }

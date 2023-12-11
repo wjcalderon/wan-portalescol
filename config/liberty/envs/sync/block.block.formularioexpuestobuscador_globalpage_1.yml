@@ -1,0 +1,23 @@
+uuid: 631fa339-ec7f-4964-9573-a6c43a54f038
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.buscador_global
+  module:
+    - views
+  theme:
+    - liberty_public
+id: formularioexpuestobuscador_globalpage_1
+theme: liberty_public
+region: menu_desktop_second
+weight: -36
+provider: null
+plugin: 'views_exposed_filter_block:buscador_global-page_1'
+settings:
+  id: 'views_exposed_filter_block:buscador_global-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

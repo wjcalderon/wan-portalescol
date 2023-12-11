@@ -1,0 +1,23 @@
+uuid: 83d9a998-5345-4758-a144-f5211714830e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_capacidad_pasajeros
+    - node.type.vehiculo
+id: node.vehiculo.field_capacidad_pasajeros
+field_name: field_capacidad_pasajeros
+entity_type: node
+bundle: vehiculo
+label: 'Capacidad pasajeros'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

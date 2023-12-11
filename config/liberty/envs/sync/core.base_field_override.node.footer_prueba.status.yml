@@ -1,0 +1,22 @@
+uuid: 0536ce81-3146-4e9b-942d-827cca74e9d5
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.footer_prueba
+id: node.footer_prueba.status
+field_name: status
+entity_type: node
+bundle: footer_prueba
+label: Publicado
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

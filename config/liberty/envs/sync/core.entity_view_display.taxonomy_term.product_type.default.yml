@@ -1,0 +1,58 @@
+uuid: 0f0f865d-d6bb-4866-ab5d-d958a5c06700
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.product_type.field_cta
+    - field.field.taxonomy_term.product_type.field_icon
+    - field.field.taxonomy_term.product_type.field_person_type
+    - taxonomy.vocabulary.product_type
+  module:
+    - ds
+    - link
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: onecolumn
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_cta
+        - taxonomy_term_title
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: taxonomy_term.product_type.default
+targetEntityType: taxonomy_term
+bundle: product_type
+mode: default
+content:
+  field_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: -4
+    region: main
+hidden:
+  description: true
+  field_icon: true
+  field_person_type: true
+  langcode: true

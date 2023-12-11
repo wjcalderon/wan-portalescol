@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: J2JFbzhYiEVawxBVk4aLivhAfI08OO2rhy_u0WKpYSA
+langcode: es
+enforce:
+  enable: true
+  features: {  }

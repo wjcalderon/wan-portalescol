@@ -1,0 +1,25 @@
+uuid: 8e63137a-522e-4ad7-a394-51d8fe8c9f1c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.landing_los_segura
+  module:
+    - text
+_core:
+  default_config_hash: Tx5dXXFh3nooQzA_cM9dakHghOH4p-aMYHBiZv5B0aY
+id: node.landing_los_segura.body
+field_name: body
+entity_type: node
+bundle: landing_los_segura
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

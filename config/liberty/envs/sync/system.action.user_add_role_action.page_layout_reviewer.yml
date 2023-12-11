@@ -1,0 +1,14 @@
+uuid: 62a9b1a4-d7f9-49fe-b32d-1bb2cf79fd7b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.page_layout_reviewer
+  module:
+    - user
+id: user_add_role_action.page_layout_reviewer
+label: 'Añade el rol Página flexible reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: page_layout_reviewer

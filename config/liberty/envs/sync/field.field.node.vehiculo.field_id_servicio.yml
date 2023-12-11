@@ -1,0 +1,23 @@
+uuid: c50532bd-c9d4-471b-9c21-c9df2a75a5d9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id_servicio
+    - node.type.vehiculo
+id: node.vehiculo.field_id_servicio
+field_name: field_id_servicio
+entity_type: node
+bundle: vehiculo
+label: 'Id servicio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

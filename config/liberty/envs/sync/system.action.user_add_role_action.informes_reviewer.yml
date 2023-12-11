@@ -1,0 +1,14 @@
+uuid: 2eab2104-15e6-4129-ad56-113ef806c15a
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_reviewer
+  module:
+    - user
+id: user_add_role_action.informes_reviewer
+label: 'Añade el rol Informes reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: informes_reviewer

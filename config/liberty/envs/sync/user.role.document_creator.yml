@@ -1,0 +1,44 @@
+uuid: a0e5a706-5011-4a17-9260-56217cd4ae90
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.document
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: document_creator
+label: 'Documento creator'
+weight: 21
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node document content'
+  - 'administer panelizer node document layout'
+  - 'create document content'
+  - 'create url aliases'
+  - 'edit own document content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view document revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

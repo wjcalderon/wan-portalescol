@@ -1,0 +1,26 @@
+uuid: 4433f5ef-e7ab-4b24-ab4f-c9cf1a3f821d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: dOKBzyUEcvobJ2GWBxfiN1XLUn-rGjH40COwu7A_ryU
+id: node.field_whatsapp
+field_name: field_whatsapp
+entity_type: node
+type: string
+settings:
+  max_length: 128
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

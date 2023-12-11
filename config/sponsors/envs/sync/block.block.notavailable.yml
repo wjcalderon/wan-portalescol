@@ -1,0 +1,30 @@
+uuid: ba15bcef-3b24-4293-8a36-fd1732d4af5d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - liberty
+id: notavailable
+theme: liberty
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:822462b5-6a10-454e-9e0f-65d7781019cf'
+settings:
+  id: 'block_content:822462b5-6a10-454e-9e0f-65d7781019cf'
+  label: not-available
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      pagina_basica: pagina_basica

@@ -1,0 +1,35 @@
+uuid: 016e662c-6d57-4db7-a982-585d9dbdf131
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.header_caracteristics.field_caracteristic
+    - field.field.paragraph.header_caracteristics.field_icon
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.header_caracteristics
+  module:
+    - svg_image
+id: paragraph.header_caracteristics.default
+targetEntityType: paragraph
+bundle: header_caracteristics
+mode: default
+content:
+  field_caracteristic:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_icon:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

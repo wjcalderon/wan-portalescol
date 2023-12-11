@@ -1,0 +1,36 @@
+uuid: a15365cf-ece6-4105-a0da-48fbefde165e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lender
+  module:
+    - lib_core
+    - lib_migrate
+    - lightning_core
+    - node
+    - system
+    - toolbar
+third_party_settings:
+  lightning_core:
+    description: ''
+id: red_medica_admin
+label: 'Red medica admin'
+weight: 25
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access config liberty'
+  - 'access content overview'
+  - 'access import lenders'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'create lender content'
+  - 'delete any lender content'
+  - 'delete lender revisions'
+  - 'delete own lender content'
+  - 'edit any lender content'
+  - 'edit own lender content'
+  - 'revert lender revisions'
+  - 'view lender revisions'
+  - 'view the administration theme'

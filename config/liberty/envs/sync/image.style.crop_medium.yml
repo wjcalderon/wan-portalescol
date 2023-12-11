@@ -1,0 +1,17 @@
+uuid: 6ec0a6c4-2e04-4bed-a679-6cd136276bf4
+langcode: es
+status: true
+dependencies:
+  config:
+    - crop.type.medium
+  module:
+    - crop
+name: crop_medium
+label: 'Cropped: Medium'
+effects:
+  4045d9c3-bf17-4a15-a2cc-053c88a69d15:
+    uuid: 4045d9c3-bf17-4a15-a2cc-053c88a69d15
+    id: crop_crop
+    weight: null
+    data:
+      crop_type: medium

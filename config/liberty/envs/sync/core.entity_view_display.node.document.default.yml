@@ -1,0 +1,47 @@
+uuid: 80c77fb2-9e00-43b6-ad23-da0cdfae41ff
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.document.field_category_doc
+    - field.field.node.document.field_pdf
+    - node.type.document
+  module:
+    - file
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.document.default
+targetEntityType: node
+bundle: document
+mode: default
+content:
+  field_category_doc:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

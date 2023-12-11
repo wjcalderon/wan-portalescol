@@ -1,0 +1,25 @@
+uuid: 20fea440-dace-47cb-bd14-270bae2917b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured
+    - node.type.news_article
+_core:
+  default_config_hash: L7TK3t08zylR23DSFa8TOrHtCRbMYRKRxAzucbH73CY
+id: node.news_article.field_featured
+field_name: field_featured
+entity_type: node
+bundle: news_article
+label: Destacada
+description: 'Opción para destacar la noticia en el módulo de noticias'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Si
+  off_label: 'No'
+field_type: boolean

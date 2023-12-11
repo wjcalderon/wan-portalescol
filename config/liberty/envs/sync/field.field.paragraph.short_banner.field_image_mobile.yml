@@ -1,0 +1,40 @@
+uuid: c365052a-e9ce-4384-946c-3a46c31cd311
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_mobile
+    - paragraphs.paragraphs_type.short_banner
+  module:
+    - image
+_core:
+  default_config_hash: txiwcoKCmuAzdP2C4oTTvxz-q3ZLtDSrsQ3kq34_YMI
+id: paragraph.short_banner.field_image_mobile
+field_name: field_image_mobile
+entity_type: paragraph
+bundle: short_banner
+label: 'Image Mobile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

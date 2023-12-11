@@ -1,0 +1,19 @@
+uuid: 7c641f67-d875-4bea-9216-821162c2dde7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_tab_heading
+    - paragraphs.paragraphs_type.lib_hero
+id: paragraph.lib_hero.field_lib_tab_heading
+field_name: field_lib_tab_heading
+entity_type: paragraph
+bundle: lib_hero
+label: 'Tab Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

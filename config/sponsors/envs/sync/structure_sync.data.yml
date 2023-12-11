@@ -1,0 +1,94 @@
+blocks:
+  -
+    info: terms
+    langcode: es
+    uuid: 53f4209e-cd87-4ccc-91c7-480d8780c472
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"terms-modal-wrap\">\r\n<div class=\"terms-modal-overlay\">\r\n<div class=\"terms-modal-box\">\r\n<div class=\"terms-modal-close\">Cerrar</div>\r\n\r\n<h2><strong>Términos y condiciones de uso</strong></h2>\r\n\r\n<p>Al acceder al Sitio Web propiedad de Liberty Seguros, el usuario asume el compromiso de seguir y cumplir los términos y condiciones que se indicarán a continuación (en adelante los \"Términos y Condiciones\"). En caso de que no esté de acuerdo con los Términos y Condiciones le rogamos que se abstenga de utilizar el Sitio Web. Estos Términos y Condiciones, así como el contenido, diseño y organización del Sitio Web, podrán ser modificados en cualquier momento. En caso de modificación de los Términos y, su nueva redacción será publicada inmediatamente y se encontrará accesible en el Sitio Web, resultando aplicable desde ese momento. El uso del Sitio Web, incluido el acceso para los usuarios y la navegación a través del mismo, es libre y gratuito e implica el cumplimiento de los presentes Términos y Condiciones, de la legislación colombiana y de las buenas costumbres y los usos aceptados en el ámbito de Internet. Los presentes Términos y Condiciones son aplicables a todos los usuarios que utilizan el Sitio Web. No obstante, en caso de que en el futuro se incluyan nuevas secciones en el Sitio Web que presten servicios específicos, Liberty podría incluir en las mismas Condiciones Términos y Condiciones específicos, aplicables a secciones de manera preferente sobre los presentes Términos y, o bien complementando los mismos. En todas las referencias entiéndase por Liberty, la compañía Liberty Seguros SA Exclusión de Responsabilidad El usuario acepta que él es el único responsable de las decisiones que adoptan con base en la información o en los materiales de esta página o de sus vínculos o enlaces. Liberty no asume responsabilidad alguna por los daños y perjuicios de toda naturaleza que podrían derivarse de la utilización inadecuada o negligente de los servicios y de los contenidos por parte del usuario, ni por los que pueden derivarse de la falta de veracidad, vigencia, exhaustividad y / o autenticidad dela información que el usuario proporciona a otros usuarios acerca de sí mismos y, en particular, aunque no de forma exclusiva, por los daños y perjuicios de toda naturaleza que pueden derivarse de la suplantación de la personalidad de un tercero efectuada por un usuario en cualquier clase de comunicación a través de éste sitio web. Privacidad Liberty por otra parte, garantiza a los usuarios de esta página que la información personal que estos depositen en nuestro servidor, no será divulgada por ningún medio salvo disposición legal, requerimiento de autoridad competente o autorización expresa del titular. El Sitio Web de Liberty, será manejado por personal calificado y sujeto a las disposiciones y políticas que la Ley y Liberty exigen, hecho que garantiza la confidencialidad y buen manejo de la información. Propiedad Intelectual Todos los diseños, marcas, nombres, denominaciones, imágenes, logos, gráficos, iconos, nombres de dominio, aplicaciones, secuencias de código autoejecutables y todo otro contenido del Sitio Web pertenecen a Liberty o, en su caso, Liberty cuenta con licencia para su uso, y gozan, en consecuencia, de la protección propia de los derechos sobre la propiedad intelectual e industrial. Todos los derechos de propiedad intelectual y copyright de los contenidos de este Sitio Web se reservan a Liberty y sus licenciantes y en ningún caso el acceso al Sitio Web implican dejación alguna por parte de Liberty en dichos derechos a favor del usuario. Los usuarios del Sitio Web pueden hacer uso privado del Sitio Web y de su contenido. En ningún caso podrá hacer uso comercial de los mismos, ni alterarlos en cualquier manera, reproducirlos más allá de su uso privado, distribuirlos o comunicarlos públicamente. Para la distribución y / o comunicación pública de los diseños, marcas, nombres, denominaciones, imágenes, logos, gráficos, iconos, nombres de dominio, aplicaciones, secuencias de código autoejecutables y cualquier contenido del Sitio Web, el usuario requiere la autorización previa y por escrito por parte de Liberty. Declaración responsabilidad Liberty Declaro libremente que conozco y entiendo la responsabilidad que me impone haber recibido el derecho al uso del Usuario y contraseña de acceso, al (los) equipo (s) y / o sistemas de Liberty Seguros o entidad filial, facultad que me fue conferida única y exclusivamente para consultas y transacciones autorizadas y relacionadas con la administración de la relación comercial con los Clientes de Liberty Seguros. Me obligo a utilizar este derecho solamente mientras esta autorización esté vigente y siempre en un todo de acuerdo con las reglas y normas de Liberty Seguros SA o entidad filial Comprendo y acepto el carácter de personal y secreto / intransferible que es propio del citado derecho y me comprometo a no divulgar mi contraseña verbalmente o por escrito a persona alguna. Me comprometo a utilizarlo de la manera más adecuada para impedir su conocimiento, así como a no trabajar bajo ninguna circunstancia con un perfil de usuario y por consiguiente contraseña de otro usuario. Estoy enterado que no debo utilizar el derecho que me fue concedido, en algo que no entienda o con lo que no esté de acuerdo, o en algo que sea irregular o no autorizado. Me comprometo a no entregar dicho derecho a otra persona o permitir su uso, ni facilitar su conocimiento en forma directa o indirecta. Garantizo que por ningún motivo permitiré a ninguna persona, sea cual fuere su jerarquía, me persuada para emplear mi derecho en algo contra mi voluntad o en oposición con lo procedente, me comprometo a solicitar su retiro en caso de no necesitarlo, no haberlo solicitado o cuando cese mi relación contractual con el Intermediario de Seguros. Acepto que el no-cumplimiento de lo aquí consignado se considerará FALTA GRAVE y puede tener consecuencias civiles y penales. Acepto que esta declaración es soporte para cualquier acceso otorgado a los sistemas de la compañía actual y para modificaciones o novedades futuras.</p>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Términos y condiciones de uso'
+    langcode: es
+    uuid: 9646b502-7fc2-4c0c-af5a-7b2221e3eb18
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"terms-modal-wrap\">\r\n<div class=\"terms-modal-overlay\">\r\n<div class=\"terms-modal-box\">\r\n<div class=\"terms-modal-close\">Cerrar</div>\r\n\r\n<h2><strong>Términos y condiciones de uso</strong></h2>\r\n\r\n<p>Al acceder al Sitio Web propiedad de Liberty Seguros, el usuario asume el compromiso de seguir y cumplir los términos y condiciones que se indicarán a continuación (en adelante los \"Términos y Condiciones\"). En caso de que no esté de acuerdo con los Términos y Condiciones le rogamos que se abstenga de utilizar el Sitio Web. Estos Términos y Condiciones, así como el contenido, diseño y organización del Sitio Web, podrán ser modificados en cualquier momento. En caso de modificación de los Términos y, su nueva redacción será publicada inmediatamente y se encontrará accesible en el Sitio Web, resultando aplicable desde ese momento. El uso del Sitio Web, incluido el acceso para los usuarios y la navegación a través del mismo, es libre y gratuito e implica el cumplimiento de los presentes Términos y Condiciones, de la legislación colombiana y de las buenas costumbres y los usos aceptados en el ámbito de Internet. Los presentes Términos y Condiciones son aplicables a todos los usuarios que utilizan el Sitio Web. No obstante, en caso de que en el futuro se incluyan nuevas secciones en el Sitio Web que presten servicios específicos, Liberty podría incluir en las mismas Condiciones Términos y Condiciones específicos, aplicables a secciones de manera preferente sobre los presentes Términos y, o bien complementando los mismos. En todas las referencias entiéndase por Liberty, la compañía Liberty Seguros SA Exclusión de Responsabilidad El usuario acepta que él es el único responsable de las decisiones que adoptan con base en la información o en los materiales de esta página o de sus vínculos o enlaces. Liberty no asume responsabilidad alguna por los daños y perjuicios de toda naturaleza que podrían derivarse de la utilización inadecuada o negligente de los servicios y de los contenidos por parte del usuario, ni por los que pueden derivarse de la falta de veracidad, vigencia, exhaustividad y / o autenticidad dela información que el usuario proporciona a otros usuarios acerca de sí mismos y, en particular, aunque no de forma exclusiva, por los daños y perjuicios de toda naturaleza que pueden derivarse de la suplantación de la personalidad de un tercero efectuada por un usuario en cualquier clase de comunicación a través de éste sitio web. Privacidad Liberty por otra parte, garantiza a los usuarios de esta página que la información personal que estos depositen en nuestro servidor, no será divulgada por ningún medio salvo disposición legal, requerimiento de autoridad competente o autorización expresa del titular. El Sitio Web de Liberty, será manejado por personal calificado y sujeto a las disposiciones y políticas que la Ley y Liberty exigen, hecho que garantiza la confidencialidad y buen manejo de la información. Propiedad Intelectual Todos los diseños, marcas, nombres, denominaciones, imágenes, logos, gráficos, iconos, nombres de dominio, aplicaciones, secuencias de código autoejecutables y todo otro contenido del Sitio Web pertenecen a Liberty o, en su caso, Liberty cuenta con licencia para su uso, y gozan, en consecuencia, de la protección propia de los derechos sobre la propiedad intelectual e industrial. Todos los derechos de propiedad intelectual y copyright de los contenidos de este Sitio Web se reservan a Liberty y sus licenciantes y en ningún caso el acceso al Sitio Web implican dejación alguna por parte de Liberty en dichos derechos a favor del usuario. Los usuarios del Sitio Web pueden hacer uso privado del Sitio Web y de su contenido. En ningún caso podrá hacer uso comercial de los mismos, ni alterarlos en cualquier manera, reproducirlos más allá de su uso privado, distribuirlos o comunicarlos públicamente. Para la distribución y / o comunicación pública de los diseños, marcas, nombres, denominaciones, imágenes, logos, gráficos, iconos, nombres de dominio, aplicaciones, secuencias de código autoejecutables y cualquier contenido del Sitio Web, el usuario requiere la autorización previa y por escrito por parte de Liberty. Declaración responsabilidad Liberty Declaro libremente que conozco y entiendo la responsabilidad que me impone haber recibido el derecho al uso del Usuario y contraseña de acceso, al (los) equipo (s) y / o sistemas de Liberty Seguros o entidad filial, facultad que me fue conferida única y exclusivamente para consultas y transacciones autorizadas y relacionadas con la administración de la relación comercial con los Clientes de Liberty Seguros. Me obligo a utilizar este derecho solamente mientras esta autorización esté vigente y siempre en un todo de acuerdo con las reglas y normas de Liberty Seguros SA o entidad filial Comprendo y acepto el carácter de personal y secreto / intransferible que es propio del citado derecho y me comprometo a no divulgar mi contraseña verbalmente o por escrito a persona alguna. Me comprometo a utilizarlo de la manera más adecuada para impedir su conocimiento, así como a no trabajar bajo ninguna circunstancia con un perfil de usuario y por consiguiente contraseña de otro usuario. Estoy enterado que no debo utilizar el derecho que me fue concedido, en algo que no entienda o con lo que no esté de acuerdo, o en algo que sea irregular o no autorizado. Me comprometo a no entregar dicho derecho a otra persona o permitir su uso, ni facilitar su conocimiento en forma directa o indirecta. Garantizo que por ningún motivo permitiré a ninguna persona, sea cual fuere su jerarquía, me persuada para emplear mi derecho en algo contra mi voluntad o en oposición con lo procedente, me comprometo a solicitar su retiro en caso de no necesitarlo, no haberlo solicitado o cuando cese mi relación contractual con el Intermediario de Seguros. Acepto que el no-cumplimiento de lo aquí consignado se considerará FALTA GRAVE y puede tener consecuencias civiles y penales. Acepto que esta declaración es soporte para cualquier acceso otorgado a los sistemas de la compañía actual y para modificaciones o novedades futuras.</p>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+taxonomies:
+  campaings:
+    -
+      vid: campaings
+      tid: '2'
+      langcode: es
+      name: Autos
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bae7474f-c78d-40b0-8044-eb6ae3b8f4f9
+    -
+      vid: campaings
+      tid: '3'
+      langcode: es
+      name: Hogar
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1226b7eb-4ae8-42b1-b463-0a979804c484
+    -
+      vid: campaings
+      tid: '5'
+      langcode: es
+      name: Vida
+      description__value: "<p>Ramo de tipo vida</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 7855299c-1b5c-4d5d-baea-e208081bacf7
+  sponsors:
+    -
+      vid: sponsors
+      tid: '4'
+      langcode: es
+      name: 'Banco Falabella'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8e4974c6-a92c-4337-8d62-ebeb380a5c9c
+      field_logo:
+        -
+          target_id: '39'
+          alt: 'logo falabella'
+          title: ''
+          width: '64'
+          height: '64'
+    -
+      vid: sponsors
+      tid: '1'
+      langcode: es
+      name: BBVA
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 10273230-cdcb-4fbc-a0d7-185038649cff
+      field_logo:
+        -
+          target_id: '7'
+          alt: bbva
+          title: ''
+          width: '64'
+          height: '64'

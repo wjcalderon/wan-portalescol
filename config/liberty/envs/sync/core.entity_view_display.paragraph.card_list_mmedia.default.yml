@@ -1,0 +1,51 @@
+uuid: 7653e7e3-8467-4f95-a92c-0909cd47ef80
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_list_mmedia.field_lib_body
+    - field.field.paragraph.card_list_mmedia.field_lib_heading
+    - field.field.paragraph.card_list_mmedia.field_lib_p_items
+    - field.field.paragraph.card_list_mmedia.field_lib_summary
+    - paragraphs.paragraphs_type.card_list_mmedia
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.card_list_mmedia.default
+targetEntityType: paragraph
+bundle: card_list_mmedia
+mode: default
+content:
+  field_lib_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

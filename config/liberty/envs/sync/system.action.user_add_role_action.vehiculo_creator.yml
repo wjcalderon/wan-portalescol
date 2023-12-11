@@ -1,0 +1,14 @@
+uuid: c0ac0cff-8321-429b-966e-6d125bd21a6e
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.vehiculo_creator
+  module:
+    - user
+id: user_add_role_action.vehiculo_creator
+label: 'Añade el rol Vehículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: vehiculo_creator

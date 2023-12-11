@@ -1,0 +1,8 @@
+uuid: ac711f25-c5ee-4788-b655-58ad2fd0e9ee
+langcode: es
+status: true
+dependencies: {  }
+id: card_list_basic
+label: 'Card list - Card basic'
+revision: 0
+description: ''

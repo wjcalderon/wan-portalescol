@@ -1,0 +1,73 @@
+uuid: 6ece3825-a6fd-4a9c-83c9-67f83d2b65f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+    - field.field.block_content.attention_lines.field_bogota
+    - field.field.block_content.attention_lines.field_numero_mst
+    - field.field.block_content.attention_lines.field_operadores
+    - field.field.block_content.attention_lines.field_resto_pais
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: block_content.attention_lines.default
+targetEntityType: block_content
+bundle: attention_lines
+mode: default
+content:
+  field_bogota:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_numero_mst:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_operadores:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_resto_pais:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  moderation_state: true

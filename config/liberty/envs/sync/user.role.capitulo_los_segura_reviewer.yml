@@ -1,0 +1,11 @@
+uuid: 6cbcfa81-fe29-4e63-9745-4c084d248ea8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6LljOYCwSC9mZD8CIXFz0PxTjwPgAbXGlt7BIYwd124
+id: capitulo_los_segura_reviewer
+label: 'Capítulo Los Segura reviewer'
+weight: 40
+is_admin: false
+permissions: {  }

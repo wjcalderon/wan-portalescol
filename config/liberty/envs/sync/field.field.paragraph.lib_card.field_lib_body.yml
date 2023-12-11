@@ -1,0 +1,21 @@
+uuid: e756b004-bc9f-4bb8-bb29-87bd54ff494c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_body
+    - paragraphs.paragraphs_type.lib_card
+  module:
+    - text
+id: paragraph.lib_card.field_lib_body
+field_name: field_lib_body
+entity_type: paragraph
+bundle: lib_card
+label: Descripción
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

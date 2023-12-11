@@ -1,0 +1,14 @@
+uuid: 05964258-ca5e-497c-9efc-3f4d08d66348
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.informes_rol
+  module:
+    - user
+id: user_remove_role_action.informes_rol
+label: 'Elimina el rol informes al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: informes_rol

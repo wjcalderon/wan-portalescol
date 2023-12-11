@@ -1,0 +1,14 @@
+uuid: 4878ec17-b3f3-4fa4-bf7c-c32e3ea29f1d
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.taller_creator
+  module:
+    - user
+id: user_remove_role_action.taller_creator
+label: 'Elimina el rol Taller creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: taller_creator

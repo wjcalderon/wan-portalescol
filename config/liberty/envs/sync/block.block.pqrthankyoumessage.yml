@@ -1,0 +1,21 @@
+uuid: 3c63d1e6-4802-4c0f-ad09-223b746dab3d
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - liberty_public
+id: pqrthankyoumessage
+theme: liberty_public
+region: blocks_activate
+weight: -12
+provider: null
+plugin: pqr_thankyou
+settings:
+  id: pqr_thankyou
+  label: 'Pqr thank you message'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

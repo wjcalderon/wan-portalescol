@@ -1,0 +1,19 @@
+uuid: 2ab983c8-c0bc-4ec3-8d48-50e29cb8e2b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_documents_required
+    - node.type.product
+id: node.product.field_documents_required
+field_name: field_documents_required
+entity_type: node
+bundle: product
+label: 'Documentos requeridos en siniestros'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

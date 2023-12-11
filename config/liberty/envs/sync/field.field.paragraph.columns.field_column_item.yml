@@ -1,0 +1,100 @@
+uuid: 9267fe0b-8488-48f7-a2fd-5eb93c056b3c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_item
+    - paragraphs.paragraphs_type.column
+    - paragraphs.paragraphs_type.columns
+  module:
+    - entity_reference_revisions
+id: paragraph.columns.field_column_item
+field_name: field_column_item
+entity_type: paragraph
+bundle: columns
+label: Columna
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      column: column
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 26
+        enabled: false
+      assistance_item:
+        weight: 27
+        enabled: false
+      banner:
+        weight: 28
+        enabled: false
+      card:
+        weight: 29
+        enabled: false
+      cards:
+        weight: 30
+        enabled: false
+      column:
+        weight: 25
+        enabled: true
+      columns:
+        weight: 31
+        enabled: false
+      drupal_block:
+        weight: 32
+        enabled: false
+      drupal_view:
+        weight: 33
+        enabled: false
+      image:
+        weight: 34
+        enabled: false
+      item_acordeon:
+        weight: 35
+        enabled: false
+      item_lista:
+        weight: 36
+        enabled: false
+      item_tab_multi:
+        weight: 37
+        enabled: false
+      lista:
+        weight: 38
+        enabled: false
+      multi_tabs:
+        weight: 39
+        enabled: false
+      product_search:
+        weight: 40
+        enabled: false
+      select_cta:
+        weight: 41
+        enabled: false
+      single_text:
+        weight: 42
+        enabled: false
+      slider:
+        weight: 43
+        enabled: false
+      tab_item:
+        weight: 44
+        enabled: false
+      tabs:
+        weight: 45
+        enabled: false
+      testimonies:
+        weight: 46
+        enabled: false
+      testimony_item:
+        weight: 47
+        enabled: false
+      webform:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions

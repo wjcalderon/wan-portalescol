@@ -1,0 +1,12 @@
+uuid: 3a7b4c9e-9480-4af4-a75d-fd8b1a260831
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: i7FcAMXHfS1kX_fYnavKStWCLV8aRUpD9YyXH_qe5h0
+id: short_banner
+label: 'Short Banner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

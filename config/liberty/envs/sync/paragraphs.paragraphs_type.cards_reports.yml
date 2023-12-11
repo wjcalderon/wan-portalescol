@@ -1,0 +1,9 @@
+uuid: 292935e4-2a7f-48c0-baa6-247a558dd415
+langcode: es
+status: true
+dependencies: {  }
+id: cards_reports
+label: 'Tarjetas Informes'
+icon_uuid: null
+description: 'Agrupe múltiples "Item Tarjeta Informe" y agréguelos en una página básica.'
+behavior_plugins: {  }

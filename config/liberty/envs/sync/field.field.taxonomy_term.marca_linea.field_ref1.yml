@@ -1,0 +1,19 @@
+uuid: 1a2ce1a4-718d-492e-81c9-79a3100e2d26
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ref1
+    - taxonomy.vocabulary.marca_linea
+id: taxonomy_term.marca_linea.field_ref1
+field_name: field_ref1
+entity_type: taxonomy_term
+bundle: marca_linea
+label: Ref1
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

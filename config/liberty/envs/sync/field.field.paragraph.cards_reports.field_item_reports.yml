@@ -1,0 +1,109 @@
+uuid: afb2b500-3ea5-4f1a-ab19-efaa73ca7530
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item_reports
+    - paragraphs.paragraphs_type.cards_reports
+    - paragraphs.paragraphs_type.item_report_card
+  module:
+    - entity_reference_revisions
+id: paragraph.cards_reports.field_item_reports
+field_name: field_item_reports
+entity_type: paragraph
+bundle: cards_reports
+label: Reportes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_report_card: item_report_card
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 28
+        enabled: false
+      assistance_item:
+        weight: 29
+        enabled: false
+      banner:
+        weight: 30
+        enabled: false
+      card:
+        weight: 31
+        enabled: false
+      cards:
+        weight: 32
+        enabled: false
+      cards_reports:
+        weight: 33
+        enabled: false
+      column:
+        weight: 34
+        enabled: false
+      columns:
+        weight: 35
+        enabled: false
+      documents:
+        weight: 36
+        enabled: false
+      drupal_block:
+        weight: 37
+        enabled: false
+      drupal_view:
+        weight: 38
+        enabled: false
+      image:
+        weight: 39
+        enabled: false
+      item_acordeon:
+        weight: 40
+        enabled: false
+      item_lista:
+        weight: 41
+        enabled: false
+      item_report_card:
+        weight: 42
+        enabled: true
+      item_tab_multi:
+        weight: 43
+        enabled: false
+      lista:
+        weight: 44
+        enabled: false
+      multi_tabs:
+        weight: 45
+        enabled: false
+      select_cta:
+        weight: 46
+        enabled: false
+      shorcuts:
+        weight: 47
+        enabled: false
+      single_text:
+        weight: 48
+        enabled: false
+      slider:
+        weight: 49
+        enabled: false
+      tab_item:
+        weight: 51
+        enabled: false
+      tabs:
+        weight: 50
+        enabled: false
+      testimonies:
+        weight: 52
+        enabled: false
+      testimony_item:
+        weight: 53
+        enabled: false
+      webform:
+        weight: 54
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,20 @@
+uuid: 44d28204-d438-453b-8c94-00eb22864c3a
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+title: 'Queue: Thumbnail downloader'
+id: ultimate_cron_queue_media_entity_thumbnail
+weight: 10
+module: media
+callback: 'ultimate_cron.queue_worker:queueCallback'
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '* * * * *'
+launcher:
+  id: serial
+logger:
+  id: database

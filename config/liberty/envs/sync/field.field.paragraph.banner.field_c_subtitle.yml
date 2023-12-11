@@ -1,0 +1,19 @@
+uuid: 49b8730d-d2cd-4889-a1df-40ff9c6ea104
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_subtitle
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner.field_c_subtitle
+field_name: field_c_subtitle
+entity_type: paragraph
+bundle: banner
+label: 'Component subtitle'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

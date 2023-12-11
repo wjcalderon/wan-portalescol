@@ -1,0 +1,55 @@
+uuid: e5af8187-c204-40ab-90bb-740daecdf169
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field__testimony_item
+    - paragraphs.paragraphs_type.testimonies
+    - paragraphs.paragraphs_type.testimony_item
+  module:
+    - entity_reference_revisions
+id: paragraph.testimonies.field__testimony_item
+field_name: field__testimony_item
+entity_type: paragraph
+bundle: testimonies
+label: ' Testimony item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      testimony_item: testimony_item
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 10
+        enabled: false
+      cards:
+        weight: 11
+        enabled: false
+      drupal_block:
+        weight: 12
+        enabled: false
+      drupal_view:
+        weight: 13
+        enabled: false
+      single_text:
+        weight: 14
+        enabled: false
+      tab_item:
+        weight: 15
+        enabled: false
+      tabs:
+        weight: 16
+        enabled: false
+      testimonies:
+        weight: 17
+        enabled: false
+      testimony_item:
+        weight: 18
+        enabled: true
+field_type: entity_reference_revisions

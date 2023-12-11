@@ -1,0 +1,31 @@
+uuid: 90fca4d1-0a57-4ac4-a400-71394b4071d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.resultado_buscador
+    - field.field.node.faq.body
+    - field.field.node.faq.field_category_faq
+    - field.field.node.faq.field_product_type
+    - node.type.faq
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.faq.resultado_buscador
+targetEntityType: node
+bundle: faq
+mode: resultado_buscador
+content: {  }
+hidden:
+  addtoany: true
+  body: true
+  field_category_faq: true
+  field_product_type: true
+  langcode: true
+  links: true

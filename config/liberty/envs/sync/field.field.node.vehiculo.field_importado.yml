@@ -1,0 +1,21 @@
+uuid: e705aeb8-46da-4541-ba6c-aeeacee9a93e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_importado
+    - node.type.vehiculo
+  module:
+    - options
+id: node.vehiculo.field_importado
+field_name: field_importado
+entity_type: node
+bundle: vehiculo
+label: Importado
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

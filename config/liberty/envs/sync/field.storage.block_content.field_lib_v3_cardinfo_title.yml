@@ -1,0 +1,23 @@
+uuid: 96bf0371-bc93-49ae-87cc-b685e9c18298
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: YQqAFSw7ZHWyqiPlsAVQXO8RSr3OXSP3dXvw6XCyYFM
+id: block_content.field_lib_v3_cardinfo_title
+field_name: field_lib_v3_cardinfo_title
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

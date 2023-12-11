@@ -1,0 +1,75 @@
+uuid: 04398827-875e-4d0f-beca-1df974a9c1d1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.plan_list.field_lib_columns
+    - field.field.paragraph.plan_list.field_lib_heading
+    - field.field.paragraph.plan_list.field_lib_p_items
+    - field.field.paragraph.plan_list.field_lib_plan_style
+    - field.field.paragraph.plan_list.field_lib_summary
+    - paragraphs.paragraphs_type.plan_list
+  module:
+    - paragraphs
+    - paragraphs_features
+id: paragraph.plan_list.default
+targetEntityType: paragraph
+bundle: plan_list
+mode: default
+content:
+  field_lib_columns:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_p_items:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: item
+      title_plural: items
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: all
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: plan
+      default_paragraph_type: lib_card
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+  field_lib_plan_style:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_summary:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

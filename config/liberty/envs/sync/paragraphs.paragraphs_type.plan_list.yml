@@ -1,0 +1,10 @@
+uuid: 28c729c7-adb6-4e15-8ac7-42554777557e
+langcode: es
+status: true
+dependencies: {  }
+id: plan_list
+label: 'Plan List'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Plan List.'
+behavior_plugins: {  }

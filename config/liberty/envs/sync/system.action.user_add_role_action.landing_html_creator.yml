@@ -1,0 +1,14 @@
+uuid: 7f118abb-127a-4ffd-82a4-463ee86cac79
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.landing_html_creator
+  module:
+    - user
+id: user_add_role_action.landing_html_creator
+label: 'Añade el rol Landing Qualtrics / HTML creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: landing_html_creator

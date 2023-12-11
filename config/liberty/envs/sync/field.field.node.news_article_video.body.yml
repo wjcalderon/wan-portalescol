@@ -1,0 +1,23 @@
+uuid: d2d7916b-8621-40bd-aa21-aaebda3ade10
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.news_article_video
+  module:
+    - text
+id: node.news_article_video.body
+field_name: body
+entity_type: node
+bundle: news_article_video
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

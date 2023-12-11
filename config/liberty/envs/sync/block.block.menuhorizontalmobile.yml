@@ -1,0 +1,25 @@
+uuid: 37a2470c-f0f0-4a1b-82bb-5b59b155b082
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-horizontal-mobile
+  module:
+    - system
+  theme:
+    - liberty_public
+id: menuhorizontalmobile
+theme: liberty_public
+region: menu_mobile
+weight: -37
+provider: null
+plugin: 'system_menu_block:menu-horizontal-mobile'
+settings:
+  id: 'system_menu_block:menu-horizontal-mobile'
+  label: 'menu horizontal mobile'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,148 @@
+uuid: 38dadfa7-5068-461e-8c93-6ef965067bd7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_components
+    - node.type.informes
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.card_person
+    - paragraphs.paragraphs_type.card_person_list
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.cards_reports
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.short_banner
+    - paragraphs.paragraphs_type.single_text
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - entity_reference_revisions
+id: node.informes.field_p_components
+field_name: field_p_components
+entity_type: node
+bundle: informes
+label: 'Components informes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      card: card
+      cards: cards
+      cards_reports: cards_reports
+      card_person: card_person
+      card_person_list: card_person_list
+      image: image
+      short_banner: short_banner
+      single_text: single_text
+      tabs: tabs
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 35
+        enabled: false
+      assistance_item:
+        weight: 36
+        enabled: false
+      banner:
+        weight: 37
+        enabled: true
+      card:
+        weight: 38
+        enabled: true
+      card_person:
+        weight: 41
+        enabled: true
+      card_person_list:
+        weight: 42
+        enabled: true
+      cards:
+        weight: 39
+        enabled: true
+      cards_reports:
+        weight: 40
+        enabled: true
+      column:
+        weight: 43
+        enabled: false
+      columns:
+        weight: 44
+        enabled: false
+      documents:
+        weight: 45
+        enabled: false
+      drupal_block:
+        weight: 46
+        enabled: false
+      drupal_view:
+        weight: 47
+        enabled: false
+      image:
+        weight: 48
+        enabled: true
+      item_acordeon:
+        weight: 49
+        enabled: false
+      item_lista:
+        weight: 50
+        enabled: false
+      item_report_card:
+        weight: 51
+        enabled: false
+      item_tab_multi:
+        weight: 52
+        enabled: false
+      lista:
+        weight: 53
+        enabled: false
+      microsite:
+        weight: 54
+        enabled: false
+      multi_tabs:
+        weight: 55
+        enabled: false
+      qualtrics_embed:
+        weight: 56
+        enabled: false
+      select_cta:
+        weight: 57
+        enabled: false
+      shorcut:
+        weight: 58
+        enabled: false
+      shorcuts:
+        weight: 59
+        enabled: false
+      short_banner:
+        weight: 60
+        enabled: true
+      single_text:
+        weight: 61
+        enabled: true
+      slider:
+        weight: 62
+        enabled: false
+      tab_item:
+        weight: 64
+        enabled: false
+      tabs:
+        weight: 63
+        enabled: true
+      testimonies:
+        weight: 65
+        enabled: false
+      testimony_item:
+        weight: 66
+        enabled: false
+      video:
+        weight: 67
+        enabled: false
+      webform:
+        weight: 68
+        enabled: false
+field_type: entity_reference_revisions

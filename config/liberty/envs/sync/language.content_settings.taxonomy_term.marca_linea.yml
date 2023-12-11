@@ -1,0 +1,11 @@
+uuid: 1f1c888e-2af9-47f2-8a38-3320915707a5
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.marca_linea
+id: taxonomy_term.marca_linea
+target_entity_type_id: taxonomy_term
+target_bundle: marca_linea
+default_langcode: site_default
+language_alterable: false

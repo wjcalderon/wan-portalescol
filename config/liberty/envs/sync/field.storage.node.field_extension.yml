@@ -1,0 +1,20 @@
+uuid: 3d26b2a6-9778-4520-85eb-17531493bcf9
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_extension
+field_name: field_extension
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

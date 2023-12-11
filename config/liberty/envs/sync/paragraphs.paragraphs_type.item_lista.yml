@@ -1,0 +1,9 @@
+uuid: aec19703-d775-4ce4-aca2-b10fcb967dd1
+langcode: es
+status: true
+dependencies: {  }
+id: item_lista
+label: 'Item Lista'
+icon_uuid: null
+description: 'Item tipo lista, referenciado por el componente <strong>lista</strong>.'
+behavior_plugins: {  }

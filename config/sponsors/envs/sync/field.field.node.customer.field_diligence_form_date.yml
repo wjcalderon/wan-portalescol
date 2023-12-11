@@ -1,0 +1,21 @@
+uuid: bcefd61e-5063-4b1f-a588-f1547035e440
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_diligence_form_date
+    - node.type.customer
+  module:
+    - datetime
+id: node.customer.field_diligence_form_date
+field_name: field_diligence_form_date
+entity_type: node
+bundle: customer
+label: 'Fecha diligenciamiento del formulario'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+uuid: e1bbc658-83c4-427d-8cc0-817670f5e99c
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.footer_prueba
+id: node.footer_prueba.title
+field_name: title
+entity_type: node
+bundle: footer_prueba
+label: footer_prueba
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

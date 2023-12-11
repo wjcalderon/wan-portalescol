@@ -1,0 +1,10 @@
+uuid: 05c38d07-251a-4d30-b885-cd340e4dd02f
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YyV81Ao68jJiAKf_6P-jOPtidXeL5GktEgOCST-DezA
+id: lib_v3_contacts
+label: 'Contactos v3'
+revision: 0
+description: 'Componente grupo de contactos'

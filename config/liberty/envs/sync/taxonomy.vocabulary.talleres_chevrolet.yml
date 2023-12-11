@@ -1,0 +1,8 @@
+uuid: a6394390-5d94-4be6-9310-ec4e6c744775
+langcode: es
+status: true
+dependencies: {  }
+name: 'Talleres Chevrolet'
+vid: talleres_chevrolet
+description: ''
+weight: 0

@@ -1,0 +1,82 @@
+uuid: c1d8afa6-2c9d-4a74-aa25-15a3669a0447
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.payment_points.field_address
+    - field.field.node.payment_points.field_location_map
+    - field.field.node.payment_points.field_open_schedule
+    - field.field.node.payment_points.field_phone
+    - field.field.node.payment_points.field_product_type
+    - field.field.node.payment_points.field_ubication
+    - node.type.payment_points
+  module:
+    - geolocation
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.payment_points.default
+targetEntityType: node
+bundle: payment_points
+mode: default
+content:
+  field_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_location_map:
+    type: geolocation_latlng
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_open_schedule:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_product_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_ubication:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

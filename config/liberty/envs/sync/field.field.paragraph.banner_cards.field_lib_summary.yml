@@ -1,0 +1,19 @@
+uuid: 70c24607-0e78-4c06-95b4-9a5cf3603a97
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_summary
+    - paragraphs.paragraphs_type.banner_cards
+id: paragraph.banner_cards.field_lib_summary
+field_name: field_lib_summary
+entity_type: paragraph
+bundle: banner_cards
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

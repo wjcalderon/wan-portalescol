@@ -1,0 +1,78 @@
+uuid: c8b0ff0e-55c3-4f0e-aebe-4ae9cc06d884
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.campaign
+    - node.type.customer
+    - taxonomy.vocabulary.campaings
+    - taxonomy.vocabulary.sponsors
+    - workflows.workflow.editorial
+  module:
+    - auto_entitylabel
+    - content_moderation
+    - file
+    - filter
+    - node
+    - path
+    - pathauto
+    - system
+    - taxonomy
+    - toolbar
+    - update
+    - webform
+    - webform_node
+id: ls_administrator
+label: 'Administrador LS'
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access webform submission user'
+  - 'administer content types'
+  - 'administer filters'
+  - 'administer node_type labels'
+  - 'administer nodes'
+  - 'administer pathauto'
+  - 'administer site configuration'
+  - 'administer taxonomy'
+  - 'administer taxonomy_vocabulary labels'
+  - 'administer url aliases'
+  - 'administer webform'
+  - 'administer webform element access'
+  - 'administer webform labels'
+  - 'administer webform submission'
+  - 'bypass node access'
+  - 'create campaign content'
+  - 'create customer content'
+  - 'create terms in campaings'
+  - 'create terms in sponsors'
+  - 'create url aliases'
+  - 'edit any campaign content'
+  - 'edit any webform'
+  - 'edit own campaign content'
+  - 'edit terms in campaings'
+  - 'edit terms in sponsors'
+  - 'notify of path changes'
+  - 'use editorial transition ac'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition default_actived'
+  - 'use editorial transition default_default'
+  - 'use editorial transition default_desactivado_'
+  - 'use editorial transition publish'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view any unpublished content'
+  - 'view any webform submission'
+  - 'view the administration theme'
+  - 'view update notifications'
+  - 'view webform submissions any node'
+  - 'view webform submissions own node'

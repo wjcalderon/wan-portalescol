@@ -1,0 +1,30 @@
+uuid: 87630d0a-2cff-4cc0-8ed3-eb8ec04a9f12
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-principal-personas
+  module:
+    - system
+  theme:
+    - liberty_public
+id: menuprincipalpersonas
+theme: liberty_public
+region: menu_mobile
+weight: -34
+provider: null
+plugin: 'system_menu_block:menu-principal-personas'
+settings:
+  id: 'system_menu_block:menu-principal-personas'
+  label: 'menu principal personas'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/personas\r\n/personas/*\r\n/clientes/*"

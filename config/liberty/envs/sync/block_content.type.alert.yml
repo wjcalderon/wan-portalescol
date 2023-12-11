@@ -1,0 +1,8 @@
+uuid: 1772dbf0-63cb-4f2d-bb69-2f3180ac0908
+langcode: es
+status: true
+dependencies: {  }
+id: alert
+label: 'Alerta Banner'
+revision: 0
+description: 'Banner de emergencia para ubicar usualmente en el top del sitio.'

@@ -1,0 +1,25 @@
+uuid: b7908669-5205-4b4f-9aed-77007fe52435
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:1185cc99-578c-4116-b313-00977bb09684'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: canalesfootermb
+theme: liberty_public
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:1185cc99-578c-4116-b313-00977bb09684'
+settings:
+  id: 'block_content:1185cc99-578c-4116-b313-00977bb09684'
+  label: 'Canales footer mb'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

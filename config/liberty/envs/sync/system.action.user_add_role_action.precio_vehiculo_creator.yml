@@ -1,0 +1,14 @@
+uuid: 898052c9-a2db-441f-921f-f782aa414970
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.precio_vehiculo_creator
+  module:
+    - user
+id: user_add_role_action.precio_vehiculo_creator
+label: 'Añade el rol Precio vehículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: precio_vehiculo_creator

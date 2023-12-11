@@ -1,0 +1,11 @@
+uuid: 460a1135-2e12-49ff-88bd-f3db86c7849a
+langcode: es
+status: true
+dependencies: {  }
+id: card_list_card_foto
+block_id: 'inline_block:card_list_foto'
+category: multiples
+label: 'Lista Card Foto'
+image_path: ''
+image_alt: ''
+weight: -3

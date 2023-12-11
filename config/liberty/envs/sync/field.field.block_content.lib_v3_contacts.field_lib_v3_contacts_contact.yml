@@ -1,0 +1,21 @@
+uuid: 50b69c5f-0dff-4f13-90ad-66e1b1016eff
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_contacts
+    - field.storage.block_content.field_lib_v3_contacts_contact
+_core:
+  default_config_hash: kQ0_jI8zg0oO0EtWaIvwc9UqhomBXJn7Zz7nF1nR6mg
+id: block_content.lib_v3_contacts.field_lib_v3_contacts_contact
+field_name: field_lib_v3_contacts_contact
+entity_type: block_content
+bundle: lib_v3_contacts
+label: Contacto
+description: 'Contacto como tal'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

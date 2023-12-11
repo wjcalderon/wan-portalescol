@@ -1,0 +1,19 @@
+uuid: e1208108-9634-4ef5-9505-ea1ee5b75ebf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.select_cta
+id: paragraph.select_cta.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: select_cta
+label: Etiqueta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

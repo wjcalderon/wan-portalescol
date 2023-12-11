@@ -1,0 +1,24 @@
+uuid: ad20e7ff-e678-4e85-80e5-c8ec2953adba
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.nuestro_seguros_home
+  module:
+    - views
+  theme:
+    - liberty_public
+id: views_block__nuestro_seguros_home_block_1
+theme: liberty_public
+region: blocks_activate
+weight: -23
+provider: null
+plugin: 'views_block:nuestro_seguros_home-block_1'
+settings:
+  id: 'views_block:nuestro_seguros_home-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

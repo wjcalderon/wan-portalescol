@@ -1,0 +1,25 @@
+uuid: 5a97de7d-70ee-4959-a4d0-43b41bde2fb9
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.clauses_documents
+  module:
+    - views
+  theme:
+    - liberty_public
+id: views_block__clauses_documents_block_1
+theme: liberty_public
+region: blocks_activate
+weight: -20
+provider: null
+plugin: 'views_block:clauses_documents-block_1'
+settings:
+  id: 'views_block:clauses_documents-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 7ea9633d-7a19-4434-9de7-05d983f38aac
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ubication
+    - node.type.lender
+    - taxonomy.vocabulary.ubication
+id: node.lender.field_ubication
+field_name: field_ubication
+entity_type: node
+bundle: lender
+label: Ubicación
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ubication: ubication
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

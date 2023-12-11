@@ -1,0 +1,23 @@
+uuid: fb64d870-5585-491a-9e7e-51646763db4b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color_card
+    - node.type.campaign
+  module:
+    - options
+id: node.campaign.field_color_card
+field_name: field_color_card
+entity_type: node
+bundle: campaign
+label: 'Color Tarjetas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: yellow
+default_value_callback: ''
+settings: {  }
+field_type: list_string

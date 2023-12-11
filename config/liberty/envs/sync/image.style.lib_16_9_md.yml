@@ -1,0 +1,15 @@
+uuid: 10651735-51b2-4702-abd6-6060b9af013c
+langcode: es
+status: true
+dependencies: {  }
+name: lib_16_9_md
+label: '16:9 medium (800x450)'
+effects:
+  d7543d50-ef6e-4982-820d-ef779499398a:
+    uuid: d7543d50-ef6e-4982-820d-ef779499398a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 450
+      anchor: center-center

@@ -1,0 +1,25 @@
+uuid: 656a6ad8-32b5-4a56-aaa8-09c0b48cc6c4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f3877453-de3f-486e-ba4e-9898cfa1361c'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: terminosycondiciones
+theme: liberty_public
+region: footer_terminos
+weight: -28
+provider: null
+plugin: 'block_content:f3877453-de3f-486e-ba4e-9898cfa1361c'
+settings:
+  id: 'block_content:f3877453-de3f-486e-ba4e-9898cfa1361c'
+  label: 'Términos y condiciones '
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

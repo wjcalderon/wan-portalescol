@@ -1,0 +1,19 @@
+uuid: 0f6195f4-07a6-4654-aacd-77e650cb3b1d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_oficina
+    - node.type.lender
+id: node.lender.field_oficina
+field_name: field_oficina
+entity_type: node
+bundle: lender
+label: Oficina
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

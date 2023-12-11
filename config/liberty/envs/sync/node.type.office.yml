@@ -1,0 +1,17 @@
+uuid: d6bff924-21e7-4fe5-88b0-fa72d0283e2d
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Sucursal
+type: office
+description: 'Una sucursal'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

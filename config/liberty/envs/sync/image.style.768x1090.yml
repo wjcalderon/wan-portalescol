@@ -1,0 +1,17 @@
+uuid: 100cd2ec-9d0c-4b9a-b4d7-9c484c554319
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DMmKT9K3Ks8qmjPrmEZS8fIpuVpJC8IdDWz8WnawwIk
+name: 768x1090
+label: 768x1090
+effects:
+  df4fae7d-d5f9-4eef-af38-f292845f14d6:
+    uuid: df4fae7d-d5f9-4eef-af38-f292845f14d6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 1090
+      anchor: center-center

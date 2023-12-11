@@ -1,0 +1,27 @@
+uuid: a65e958a-0d37-4808-9b79-2c8726236e5e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.capitulo_los_segura
+  module:
+    - video_embed_field
+_core:
+  default_config_hash: 27ILpGa-AGXVdQayXyldI7310GTbKsZNOEkx4BL3TJs
+id: node.capitulo_los_segura.field_video
+field_name: field_video
+entity_type: node
+bundle: capitulo_los_segura
+label: Video
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

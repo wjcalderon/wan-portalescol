@@ -1,0 +1,12 @@
+uuid: 4baee335-28c9-4f63-ad37-391c53635db0
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: edfn4l1cRenZYoLicu00ufX9XF-zNTtB4gknKegfpts
+id: lib_v2_categorybox
+label: 'Caja de categorias'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

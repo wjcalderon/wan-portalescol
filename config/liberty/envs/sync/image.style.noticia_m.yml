@@ -1,0 +1,15 @@
+uuid: d82ad699-f98c-4648-abe0-9d0a58db4842
+langcode: es
+status: true
+dependencies: {  }
+name: noticia_m
+label: 'Noticia mobile'
+effects:
+  290d232b-f82b-4c80-b2cb-d11c36cd7e57:
+    uuid: 290d232b-f82b-4c80-b2cb-d11c36cd7e57
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 480
+      anchor: center-center

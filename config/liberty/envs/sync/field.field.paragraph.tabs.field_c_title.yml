@@ -1,0 +1,19 @@
+uuid: 5694e947-08aa-4830-bb09-1b17b559d891
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title
+    - paragraphs.paragraphs_type.tabs
+id: paragraph.tabs.field_c_title
+field_name: field_c_title
+entity_type: paragraph
+bundle: tabs
+label: 'Component title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

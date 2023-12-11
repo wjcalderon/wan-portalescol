@@ -1,0 +1,14 @@
+uuid: ffcf20fe-6391-441d-b391-6c1c1229db9b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.landing_html_reviewer
+  module:
+    - user
+id: user_add_role_action.landing_html_reviewer
+label: 'Añade el rol Landing Qualtrics / HTML reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: landing_html_reviewer

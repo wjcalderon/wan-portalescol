@@ -1,0 +1,21 @@
+uuid: 033e7c02-1f43-4d13-897d-8a5305fc0bbe
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_status
+    - taxonomy.vocabulary.payment_methods
+  module:
+    - options
+id: taxonomy_term.payment_methods.field_status
+field_name: field_status
+entity_type: taxonomy_term
+bundle: payment_methods
+label: Estado
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

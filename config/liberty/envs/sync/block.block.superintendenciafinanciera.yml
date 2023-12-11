@@ -1,0 +1,25 @@
+uuid: d907737d-e22d-4a6d-85a3-8c4be91e444c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_image:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: superintendenciafinanciera
+theme: liberty_public
+region: footer_left
+weight: 0
+provider: null
+plugin: 'block_content:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+settings:
+  id: 'block_content:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+  label: 'super intendencia financiera'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

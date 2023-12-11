@@ -1,0 +1,50 @@
+uuid: d4277fb9-cfbc-45a7-920b-017cf417a5db
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.resultado_buscador
+    - field.field.node.page.body
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_p_components
+    - field.field.node.page.layout_builder__layout
+    - field.field.node.page.layout_selection
+    - node.type.page
+  module:
+    - manage_display
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+_core:
+  default_config_hash: Kfxnq5Imio9VFBoNa_PIkzXoTmjz_T-EY3mOrwDTddU
+id: node.page.resultado_buscador
+targetEntityType: node
+bundle: page
+mode: resultado_buscador
+content:
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  content_moderation_control: true
+  created: true
+  field_meta_tags: true
+  field_p_components: true
+  langcode: true
+  layout_builder__layout: true
+  layout_selection: true
+  links: true
+  search_api_excerpt: true
+  uid: true

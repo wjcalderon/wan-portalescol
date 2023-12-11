@@ -1,0 +1,24 @@
+uuid: c54055cb-08b3-4683-90bb-88c384c24daa
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+  theme:
+    - liberty_public
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: liberty_public_local_tasks
+theme: liberty_public
+region: content
+weight: -37
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

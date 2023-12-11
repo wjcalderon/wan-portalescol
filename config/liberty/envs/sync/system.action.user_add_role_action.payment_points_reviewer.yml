@@ -1,0 +1,14 @@
+uuid: 6f3df833-0f3d-4cc2-956f-2ddbdc0f30a1
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.payment_points_reviewer
+  module:
+    - user
+id: user_add_role_action.payment_points_reviewer
+label: 'Añade el rol Puntos de pago reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: payment_points_reviewer

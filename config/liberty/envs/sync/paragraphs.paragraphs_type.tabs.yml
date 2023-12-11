@@ -1,0 +1,9 @@
+uuid: a518d706-9909-4149-ae7a-00e89439e9e7
+langcode: en
+status: true
+dependencies: {  }
+id: tabs
+label: Pestañas
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de pestaña" y agréguelos en una página de landing.'
+behavior_plugins: {  }

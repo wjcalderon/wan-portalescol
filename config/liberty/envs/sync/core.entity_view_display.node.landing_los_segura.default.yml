@@ -1,0 +1,45 @@
+uuid: 92a00628-66d3-45e6-8a0e-2d50770f06bd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.landing_los_segura.body
+    - field.field.node.landing_los_segura.field_p_components
+    - node.type.landing_los_segura
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+_core:
+  default_config_hash: _u-MM7jFungh2L_CQ8Fw2SW_OqIhdF1PT_DCJPFQ74o
+id: node.landing_los_segura.default
+targetEntityType: node
+bundle: landing_los_segura
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_p_components:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

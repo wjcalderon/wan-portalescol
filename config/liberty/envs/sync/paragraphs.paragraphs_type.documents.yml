@@ -1,0 +1,9 @@
+uuid: e696e693-826d-4ce4-a407-c9df40e59353
+langcode: es
+status: true
+dependencies: {  }
+id: documents
+label: Documentos
+icon_uuid: null
+description: 'Listado de documentos'
+behavior_plugins: {  }

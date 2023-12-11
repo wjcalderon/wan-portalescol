@@ -1,0 +1,14 @@
+uuid: 49127a74-9de0-4c32-b3ca-3249d7f454c5
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.capitulo_los_segura_reviewer
+  module:
+    - user
+id: user_remove_role_action.capitulo_los_segura_reviewer
+label: 'Elimina el rol Capítulo Los Segura reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: capitulo_los_segura_reviewer

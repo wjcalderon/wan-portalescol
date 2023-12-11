@@ -1,0 +1,23 @@
+uuid: e8a59e16-42b3-4db9-9c8d-bdcc7623103f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_deductible_percentage
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_deductible_percentage
+field_name: field_deductible_percentage
+entity_type: taxonomy_term
+bundle: policy
+label: 'Porcentaje deducible'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: '%'
+  suffix: ''
+field_type: integer

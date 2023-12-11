@@ -1,0 +1,32 @@
+uuid: cb245a9a-91de-459c-a6ec-5ed9f9e37116
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.glosario_de_especialidades
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: TgQgAqg9Y-n02xypkvggsvq4_rQu20losJ5fYGokJuo
+id: glosario_de_especialidades_reviewer
+label: 'Glosario de especialidades reviewer'
+weight: 48
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any glosario_de_especialidades content'
+  - 'edit any glosario_de_especialidades content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

@@ -1,0 +1,35 @@
+uuid: 15d23429-2f46-4ec7-b14c-bdf465272d99
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:09ad0b08-a7f7-4680-ad6c-65ca65c754d5'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - liberty_public
+third_party_settings:
+  block_class:
+    classes: is-hidden
+id: redmedicapopup
+theme: liberty_public
+region: blocks_popups
+weight: -32
+provider: null
+plugin: 'block_content:09ad0b08-a7f7-4680-ad6c-65ca65c754d5'
+settings:
+  id: 'block_content:09ad0b08-a7f7-4680-ad6c-65ca65c754d5'
+  label: 'red medica popup'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/zona-cliente/red-medica\r\nzona-cliente/red-medica/*"

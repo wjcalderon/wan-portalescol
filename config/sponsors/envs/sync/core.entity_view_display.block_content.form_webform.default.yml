@@ -1,0 +1,24 @@
+uuid: 6abb75bf-ae21-4f7e-bbec-321658621e25
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.form_webform
+    - field.field.block_content.form_webform.field_form
+  module:
+    - webform
+id: block_content.form_webform.default
+targetEntityType: block_content
+bundle: form_webform
+mode: default
+content:
+  field_form:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

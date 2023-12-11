@@ -1,0 +1,21 @@
+uuid: 70e3e98a-d418-4595-a1c1-34cfaa7fa5cb
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_ref1
+field_name: field_ref1
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 150
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

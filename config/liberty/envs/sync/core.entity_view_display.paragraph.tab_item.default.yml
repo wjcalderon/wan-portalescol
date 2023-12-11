@@ -1,0 +1,102 @@
+uuid: 737bc986-61b7-4d06-bada-26490af9b975
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tab_item.field_body
+    - field.field.paragraph.tab_item.field_c_classes
+    - field.field.paragraph.tab_item.field_c_image
+    - field.field.paragraph.tab_item.field_class_wrapper_image
+    - field.field.paragraph.tab_item.field_cta
+    - field.field.paragraph.tab_item.field_image
+    - field.field.paragraph.tab_item.field_lead
+    - field.field.paragraph.tab_item.field_name
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - entity_reference_revisions
+    - link
+    - svg_image
+id: paragraph.tab_item.default
+targetEntityType: paragraph
+bundle: tab_item
+mode: default
+content:
+  field_body:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_c_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_class_wrapper_image:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lead:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

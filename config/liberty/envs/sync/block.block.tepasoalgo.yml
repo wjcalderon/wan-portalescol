@@ -1,0 +1,25 @@
+uuid: 734125e6-9037-47e3-837f-ae6f0b51c398
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_cta:039826c8-c1aa-40c2-85ce-b0581ef13464'
+  module:
+    - block_content
+  theme:
+    - liberty_public
+id: tepasoalgo
+theme: liberty_public
+region: footer_tool
+weight: -11
+provider: null
+plugin: 'block_content:039826c8-c1aa-40c2-85ce-b0581ef13464'
+settings:
+  id: 'block_content:039826c8-c1aa-40c2-85ce-b0581ef13464'
+  label: '¿Te pasó algo?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: c29c99e3-f68a-47df-a9f0-78446ef4950b
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Banner
+icon_uuid: null
+icon_default: null
+description: 'Un componente banner con imagen y leyenda.'
+behavior_plugins: {  }

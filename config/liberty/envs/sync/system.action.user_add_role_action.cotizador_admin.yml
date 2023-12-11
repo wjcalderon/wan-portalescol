@@ -1,0 +1,14 @@
+uuid: ac108103-4e69-43ab-86a4-6397a7848e4e
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.cotizador_admin
+  module:
+    - user
+id: user_add_role_action.cotizador_admin
+label: 'Añade el rol Cotizador admin al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cotizador_admin

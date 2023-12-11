@@ -1,0 +1,9 @@
+uuid: f30bcac9-963c-413e-8581-18d2793afcbe
+langcode: es
+status: true
+dependencies: {  }
+id: qualtrics_embed
+label: 'Qualtrics embed'
+icon_uuid: null
+description: 'Agregar formulario de Qualtrics'
+behavior_plugins: {  }

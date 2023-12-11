@@ -1,0 +1,30 @@
+uuid: 39f909b2-d854-45c7-988b-58133e8dbd07
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_color_header
+field_name: field_color_header
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: Blanco
+    -
+      value: blue
+      label: Azul
+    -
+      value: yellow
+      label: Amarillo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

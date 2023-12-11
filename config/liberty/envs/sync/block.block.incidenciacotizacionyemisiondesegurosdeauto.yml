@@ -1,0 +1,31 @@
+uuid: b77f3c48-a16a-4f59-9900-6d2bf122948a
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:alert:a07fa467-96b5-44a0-8518-f407e495b4be'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - liberty_public
+id: incidenciacotizacionyemisiondesegurosdeauto
+theme: liberty_public
+region: eyebrow
+weight: 0
+provider: null
+plugin: 'block_content:a07fa467-96b5-44a0-8518-f407e495b4be'
+settings:
+  id: 'block_content:a07fa467-96b5-44a0-8518-f407e495b4be'
+  label: 'Incidencia cotización y emisión de seguros de Auto'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

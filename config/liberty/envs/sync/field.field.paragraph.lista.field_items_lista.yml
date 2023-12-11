@@ -1,0 +1,79 @@
+uuid: 3e4f539a-6b0a-4843-802a-c08ade8eeb16
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items_lista
+    - paragraphs.paragraphs_type.item_lista
+    - paragraphs.paragraphs_type.lista
+  module:
+    - entity_reference_revisions
+id: paragraph.lista.field_items_lista
+field_name: field_items_lista
+entity_type: paragraph
+bundle: lista
+label: 'Items lista'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_lista: item_lista
+    negate: 0
+    target_bundles_drag_drop:
+      assistance_item:
+        weight: 19
+        enabled: false
+      banner:
+        weight: 20
+        enabled: false
+      card:
+        weight: 21
+        enabled: false
+      cards:
+        weight: 22
+        enabled: false
+      drupal_block:
+        weight: 23
+        enabled: false
+      drupal_view:
+        weight: 24
+        enabled: false
+      image:
+        weight: 25
+        enabled: false
+      item_lista:
+        weight: 26
+        enabled: true
+      lista:
+        weight: 18
+        enabled: false
+      select_cta:
+        weight: 27
+        enabled: false
+      single_text:
+        weight: 28
+        enabled: false
+      slider:
+        weight: 29
+        enabled: false
+      tab_item:
+        weight: 30
+        enabled: false
+      tabs:
+        weight: 31
+        enabled: false
+      testimonies:
+        weight: 32
+        enabled: false
+      testimony_item:
+        weight: 33
+        enabled: false
+      webform:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

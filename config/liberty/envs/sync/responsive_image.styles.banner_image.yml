@@ -1,0 +1,39 @@
+uuid: f65c5d33-9b0d-4fb0-900e-5ea4f68c98b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.banner_full
+    - image.style.banner_medium
+    - image.style.banner_mobile
+  theme:
+    - liberty_public
+id: banner_image
+label: 'Banner image'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 1440px
+      sizes_image_styles:
+        - banner_full
+    breakpoint_id: liberty_public.wide
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 768px
+      sizes_image_styles:
+        - banner_medium
+    breakpoint_id: liberty_public.narrow
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 320px
+      sizes_image_styles:
+        - banner_mobile
+    breakpoint_id: liberty_public.mobile
+    multiplier: 1x
+breakpoint_group: liberty_public
+fallback_image_style: banner_mobile

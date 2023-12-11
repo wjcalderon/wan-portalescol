@@ -1,0 +1,44 @@
+uuid: cd26af5a-6a5f-4b38-82fa-9d1df5d42f79
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.footer_prueba
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: footer_prueba_creator
+label: 'Footer_prueba creator'
+weight: 52
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node footer_prueba content'
+  - 'administer panelizer node footer_prueba layout'
+  - 'create footer_prueba content'
+  - 'create url aliases'
+  - 'edit own footer_prueba content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view footer_prueba revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

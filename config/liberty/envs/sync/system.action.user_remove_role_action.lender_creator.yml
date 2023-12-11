@@ -1,0 +1,14 @@
+uuid: 2c462918-b2d5-4726-a717-e64228d016a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lender_creator
+  module:
+    - user
+id: user_remove_role_action.lender_creator
+label: 'Elimina el rol Prestador creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: lender_creator

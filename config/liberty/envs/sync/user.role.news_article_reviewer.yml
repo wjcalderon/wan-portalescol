@@ -1,0 +1,27 @@
+uuid: 72488790-c55c-4dae-a47d-73a93b2242fd
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.news_article
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: news_article_reviewer
+label: 'Noticias artículo reviewer'
+weight: 42
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any news_article content'
+  - 'edit any news_article content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'
