@@ -1,0 +1,50 @@
+{% set card__base_class = card__base_class|default('card-foto') %}
+
+<div {{ bem(card__base_class, card__modifiers, card__blockname) }}>
+  <div {{ bem('image', card__image__modifiers, card__base_class) }}>
+    {% block card__image %}
+    {% include "@atoms/images/image/_image.twig" with {
+        image_modifiers: card__image__modifiers,
+        image_src: card__image__src,
+      } %}
+    {% endblock %}
+  </div>
+  <div {{ bem('content', card__content__modifiers, card__base_class) }}>
+    {# Heading #}
+    {% if card__heading %}
+      <div {{ bem('heading', [], card__base_class) }}>
+        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+          heading_level: card__heading_level|default(2),
+          heading: card__heading,
+          heading_modifiers: card__heading__modifiers
+        } %}
+      </div>
+    {% endif %}
+
+    {# Body #}
+    {% if card__body %}
+      <div {{ bem('body', card__body__modifiers, card__base_class) }}>
+        {% include "@atoms/text/text/_text.twig" with {
+          paragraph_content: card__body,
+          paragraph_modifiers: card__body__modifiers
+        } %}
+      </div>
+    {% endif %}
+
+    {# Link #}
+    {% if card__link__url %}
+    <div {{ bem('content-button', card__body__modifiers, card__base_class) }}>
+      {% include "@atoms/links/link/link.twig" with {
+        link_base_class: card__link__base_class|default('button'),
+        link_modifiers: card__link__modifiers,
+        link_attributes: card__link__attributes,
+        link_content: card__link__text,
+        link_url: card__link__url,
+      } %}
+    </div>
+    {% endif %}
+
+  </div>
+
+
+</div>

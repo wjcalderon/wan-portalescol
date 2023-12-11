@@ -1,0 +1,7 @@
+lib_ls.los_segura_glossary_form:
+  path: "/lib_ls/form/los_segura_glossary"
+  defaults:
+    _form: '\Drupal\lib_ls\Form\LosSeguraGlossaryForm'
+    _title: "LosSeguraGlossaryForm"
+  requirements:
+    _access: "TRUE"

@@ -1,0 +1,18 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_descripcion_cta
+id: block_content.cta.field_descripcion_cta
+field_name: field_descripcion_cta
+entity_type: block_content
+bundle: cta
+label: 'Descripción CTA'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

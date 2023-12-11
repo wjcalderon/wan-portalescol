@@ -1,0 +1,61 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lista.field_c_classes
+    - field.field.paragraph.lista.field_c_title
+    - field.field.paragraph.lista.field_c_title_status
+    - field.field.paragraph.lista.field_c_width
+    - field.field.paragraph.lista.field_items_lista
+    - paragraphs.paragraphs_type.lista
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.lista.default
+targetEntityType: paragraph
+bundle: lista
+mode: default
+content:
+  field_c_classes:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_c_title_status:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_c_width:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_items_lista:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

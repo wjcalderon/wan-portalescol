@@ -1,0 +1,21 @@
+uuid: 348b9561-7d82-4648-b102-8cd3735aa5c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.call_to_action
+    - field.storage.block_content.field_title_html
+  module:
+    - text
+id: block_content.call_to_action.field_title_html
+field_name: field_title_html
+entity_type: block_content
+bundle: call_to_action
+label: Título
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

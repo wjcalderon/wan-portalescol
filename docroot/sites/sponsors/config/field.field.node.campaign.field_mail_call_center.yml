@@ -1,0 +1,19 @@
+uuid: 8311e7a7-df14-4a0e-8f4f-29b1fef9b2f9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mail_call_center
+    - node.type.campaign
+id: node.campaign.field_mail_call_center
+field_name: field_mail_call_center
+entity_type: node
+bundle: campaign
+label: 'Correo call center'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

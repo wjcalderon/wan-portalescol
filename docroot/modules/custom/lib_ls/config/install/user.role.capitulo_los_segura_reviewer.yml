@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: capitulo_los_segura_reviewer
+label: 'Capítulo Los Segura reviewer'
+weight: 40
+is_admin: false

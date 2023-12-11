@@ -1,0 +1,32 @@
+uuid: e5209e98-bbf6-43ea-ab91-345fe162a7b2
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: GWvSxrhc3P83lIvgdTC231tyLAVIkDcUMt-NTASwJvY
+id: block_content.field_lib_v3_carousel_link_color
+field_name: field_lib_v3_carousel_link_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: Blanco
+    -
+      value: blue
+      label: Azul
+    -
+      value: yellow
+      label: Amarillo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

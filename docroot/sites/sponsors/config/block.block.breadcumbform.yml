@@ -1,0 +1,33 @@
+uuid: ebec8d21-3bb5-4ba3-8e5c-55d366c3fdfc
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
+  module:
+    - block_content
+    - node
+  theme:
+    - liberty
+id: breadcumbform
+theme: liberty
+region: content
+weight: 1
+provider: null
+plugin: 'block_content:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
+settings:
+  id: 'block_content:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
+  label: breadcumbform
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      webform: webform

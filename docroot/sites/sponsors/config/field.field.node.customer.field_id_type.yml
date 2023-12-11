@@ -1,0 +1,21 @@
+uuid: 625fee97-b9cd-48e6-a799-412e10041bb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id_type
+    - node.type.customer
+  module:
+    - options
+id: node.customer.field_id_type
+field_name: field_id_type
+entity_type: node
+bundle: customer
+label: 'Id type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

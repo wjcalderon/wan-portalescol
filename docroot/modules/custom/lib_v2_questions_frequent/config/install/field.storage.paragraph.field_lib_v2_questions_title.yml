@@ -1,0 +1,21 @@
+uuid: 2e010c09-9232-4d5b-bde8-8cfc96f5c6d6
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_lib_v2_questions_title
+field_name: field_lib_v2_questions_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

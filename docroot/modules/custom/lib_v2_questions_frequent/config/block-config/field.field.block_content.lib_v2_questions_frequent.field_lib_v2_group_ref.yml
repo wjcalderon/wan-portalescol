@@ -1,0 +1,29 @@
+uuid: 1a2b0434-5b9d-42af-a05b-d7e0f04f5072
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_questions_frequent
+    - block_content.type.lib_v2_questions_frequent_items
+    - field.storage.block_content.field_lib_v2_group_ref
+id: block_content.lib_v2_questions_frequent.field_lib_v2_group_ref
+field_name: field_lib_v2_group_ref
+entity_type: block_content
+bundle: lib_v2_questions_frequent
+label: 'Adicionar items'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      lib_v2_questions_frequent_items: lib_v2_questions_frequent_items
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

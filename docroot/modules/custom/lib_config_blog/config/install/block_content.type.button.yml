@@ -1,0 +1,8 @@
+uuid: 05db8f6c-6212-4225-86c1-e46395ac41f6
+langcode: es
+status: true
+dependencies: {  }
+id: button
+label: Button
+revision: 0
+description: ''

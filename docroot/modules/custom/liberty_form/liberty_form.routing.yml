@@ -1,0 +1,115 @@
+login-afterliberty_form.access:
+  path: "/welcome/{id}"
+  defaults:
+    _controller: '\Drupal\liberty_form\Controller\LibertyDocumentValidationController::validation'
+    _title: "Verifique su número de documento para continuar"
+    id: "1"
+  requirements:
+    _access: "TRUE"
+
+liberty_form.db_migrator:
+  path: "/admin/config/liberty/customers-db_import"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\LibertyDatabaseMigratorForm'
+    _title: "Migrador de Base de Datos de Clientes"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.msn_api:
+  path: "/admin/config/liberty/sms-settings"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\MsnApi'
+    _title: "Configuración API SMS"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.sms_launcher:
+  path: "/admin/config/liberty/sms-launcher"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\SmsLauncher'
+    _title: "SMS launcher"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.mailLauncher:
+  path: "/admin/config/liberty/mailLauncher"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\mailLauncher'
+    _title: "Correo electronico launcher"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+system.admin_config_liberty_form:
+  path: "/admin/config/Liberty"
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: "Liberty"
+  requirements:
+    _permission: "access administration pages"
+
+liberty_form.marketing_cloud:
+  path: "/admin/config/liberty/marketing-cloud"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\MarketingCloud'
+    _title: "Configuración Marketing Cloud"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.dwh:
+  path: "/admin/config/liberty/dwh"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\Dwh'
+    _title: "Configuración DWH"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.vip:
+  path: "/admin/config/liberty/vip"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\Vip'
+    _title: "Configuración VIP"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.KeyApiMarketingCloud:
+  path: "/admin/config/liberty/KeyApiMarketingCloud"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\KeyApiMarketingCloud'
+    _title: "Configuración url acceso api marketing cloud"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE
+
+liberty_form.update:
+  path: "/node/{id}/update/confirm"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\ConfirmUpdateForm'
+    _title: "Confirm Update"
+  requirements:
+    _permission: "administer site configuration"
+    id: ^\d+$
+
+liberty_form.confirm:
+  path: "/admin/config/liberty/customers-db_import/confirm"
+  defaults:
+    _form: '\Drupal\liberty_form\Form\ConfirmUpdateBaseForm'
+    _title: "deasdasdasdasdasd"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE

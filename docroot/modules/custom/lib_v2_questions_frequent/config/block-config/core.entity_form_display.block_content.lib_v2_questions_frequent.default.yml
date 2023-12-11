@@ -1,0 +1,52 @@
+uuid: 308f2b15-ac9c-416f-9f86-fbb1363891f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_questions_frequent
+    - field.field.block_content.lib_v2_questions_frequent.field_lib_v2_group_ref
+    - field.field.block_content.lib_v2_questions_frequent.field_lib_v2_questions_title
+  module:
+    - inline_entity_form
+_core:
+  default_config_hash: sW9OPU3k0q3OzSXP77M5yyiJK-o0jS3flSnFk_uAOPk
+id: block_content.lib_v2_questions_frequent.default
+targetEntityType: block_content
+bundle: lib_v2_questions_frequent
+mode: default
+content:
+  field_lib_v2_group_ref:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Item
+      label_plural: Items
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_lib_v2_questions_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -1,0 +1,136 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function liberty_theme_suggestions_paragraph_alter(&$suggestions, $variables)
+{
+    $paragraph = $variables['elements']['#paragraph'];
+    $parent = $paragraph->getParentEntity();
+    if ($parent) {
+        $suggestions[] = 'paragraph__' . $parent->bundle() . '__' . $paragraph->bundle();
+    }
+}
+
+/**
+ * @param $variables
+ */
+function liberty_preprocess_node(&$variables)
+{
+
+    $variables['#attached']['library'][] = 'liberty_form/liberty-js';
+    $variables['#attached']['library'][] = 'liberty_form/redirect-form';
+    $db = Drupal::database();
+    $node = $variables['node'];
+
+    if ($node->getType() == "campaign") {
+        $session = \Drupal::request()->getSession();
+        // var_dump($session);
+        // die;
+        if (isset($session)) {
+            if ($session->get('node_id') !== "") {
+                $details = $session->get('node_id');
+                $variables['#attached']['drupalSettings']['details'] = $details;
+                $variables['#attached']['library'][] = 'liberty_form/liberty-node-create';
+                $session->set('node_id', '');
+            }
+        }
+
+        if ($node->get('field_sponsor')->getValue()) {
+            $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+            if ($term->field_mail_call) {
+                $variables['#attached']['drupalSettings']['liberty_email']['email_to'] = $term->field_mail_call->value;
+            }
+        }
+
+        $field_private = $node->get('field_private')->getValue();
+        if ($field_private[0]['value'] == 1) {
+            // VIP configuration
+            $config = \Drupal::config('liberty_form.vip');
+            $request_vip_value = \Drupal::request()->query->get($config->get('variable_get_name'));
+            $variable_get_value = $config->get('variable_get_value');
+            if (isset($request_vip_value)) {
+
+                if ($request_vip_value != $variable_get_value) {
+                    $variables['#attached']['drupalSettings']['node_id'] = $node->id();
+                    $variables['#attached']['library'][] = 'liberty_form/liberty-node';
+                }
+            } else {
+
+                if (!isset($_COOKIE['vip_access'])) {
+                    $variables['#attached']['drupalSettings']['node_id'] = $node->id();
+                    $variables['#attached']['library'][] = 'liberty_form/liberty-node';
+
+                }
+
+            }
+        }
+    }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK()
+ */
+function liberty_theme_suggestions_form_alter(array &$suggestions, array $variables)
+{
+    $suggestions[] = 'form__' . $variables['element']['#id'];
+}
+
+/**
+ * Implements hook_theme_preprocess_region()
+ */
+function liberty_preprocess_region(&$variables)
+{
+
+    $path_user = \Drupal::request()->getpathInfo();
+    $arg_user = explode('/', $path_user);
+
+    $current_path = \Drupal::service('path.current')->getPath();
+    $vari = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if (isset($vari)) {
+        if ($vari == "/user/login") {
+            $variables['class_user'] = "login-box";
+        }
+    }
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node) {
+        if ($node->getType() == "campaign") {
+            if ($node->get('field_sponsor')->getValue()) {
+
+                if ($node->get('field_sponsor')->getValue()) {
+                    $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
+                    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+                    $media_field = $term->get('field_logo')->entity->getFileUri();
+                    $media_field = file_create_url($media_field);
+                    $variables['url_logo_header'] = $media_field;
+                }
+            }
+        }
+    }
+
+}
+/**
+ * Implements hook_preprocess_html()
+ */
+function liberty_preprocess_html(&$variables)
+{
+    // Add node ID to the body class.
+    $path = \Drupal::request()->getpathInfo();
+    $arg = explode('/', $path);
+    if (isset($arg[2])) {
+        $path_url = $arg[2];
+        if ($path_url == "welcome") {
+            $variables['attributes']['class'][] = 'form-validation';
+        }
+    } elseif (isset($arg[1])) {
+        $path_url = $arg[1];
+        if ($path_url == "welcome") {
+            $variables['attributes']['class'][] = 'form-validation';
+        }
+    }
+
+}

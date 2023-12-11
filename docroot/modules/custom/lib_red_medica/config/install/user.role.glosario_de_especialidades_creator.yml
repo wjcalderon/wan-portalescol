@@ -1,0 +1,32 @@
+uuid: 75d393a6-2584-4151-a675-c772172e0cc1
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+id: glosario_de_especialidades_creator
+label: 'Glosario de especialidades creator'
+weight: 47
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node glosario_de_especialidades content'
+  - 'administer panelizer node glosario_de_especialidades layout'
+  - 'change layouts in place editing'
+  - 'create glosario_de_especialidades content'
+  - 'create url aliases'
+  - 'edit own glosario_de_especialidades content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view glosario_de_especialidades revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

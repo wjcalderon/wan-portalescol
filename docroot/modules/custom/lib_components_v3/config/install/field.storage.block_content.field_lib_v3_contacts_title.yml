@@ -1,0 +1,23 @@
+uuid: dba9f1f3-32be-440d-8146-a9738124f592
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: v0C-PJTtb8ARjg8Q5Ww69z4IwY1gZ04IlX3UXlfPR5k
+id: block_content.field_lib_v3_contacts_title
+field_name: field_lib_v3_contacts_title
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+uuid: 3b4315fc-6544-4d43-96f9-2df04c0acfd5
+langcode: es
+status: true
+dependencies: {  }
+id: multiples
+label: Múltiples
+weight: null

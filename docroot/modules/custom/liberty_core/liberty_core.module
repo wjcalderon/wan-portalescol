@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Hook and preprocess custom liberty_core.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Hook node view alter.
+ */
+function liberty_core_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+
+  if ($entity->bundle() == 'campaign') {
+    // @todo Agregar validacion a view mode full
+    $build['#cache']['max-age'] = 0;
+    \Drupal::service('page_cache_kill_switch')->trigger();
+
+    $moderation_state = $entity->get('moderation_state')->getValue()[0]['value'];
+    if ($moderation_state == "archived") {
+      header('Location: /not-access');
+      exit;
+
+    }
+
+  }
+  elseif ($entity->bundle() == 'webform') {
+    // @todo Agregar validacion a view mode full
+    $build['#cache']['max-age'] = 0;
+    \Drupal::service('page_cache_kill_switch')->trigger();
+  }
+
+}
+
+/**
+ * Hook form submit.
+ */
+function liberty_core_form_submit(array $form, FormStateInterface $form_state) {
+  // die("I'm not getting run, why :(");.
+  \Drupal::service('messenger')->addMessage("Why won't this message show?");
+}

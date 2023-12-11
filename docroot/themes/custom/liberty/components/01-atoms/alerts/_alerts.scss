@@ -1,0 +1,70 @@
+.alert {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid $color-gray-border;
+    border-radius: .3rem;
+    border-left: 7px solid $color-error;
+    font-size: 1rem;
+    max-width: 630px;
+    margin: 0 auto;
+
+    b,
+    strong {
+        color: $color-error;
+        font-weight: 500;
+    }
+
+    &__message {
+        display: inline-block;
+        vertical-align: middle;
+
+        &::before {
+            content: " ";
+            background-image: url(../images/icons/error.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            height: 26px;
+            width: 26px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.liberty-form {
+    position: relative;
+    padding: .9rem;
+    border: 1px solid $color-gray-border;
+    border-radius: .3rem;
+    border-left: 7px solid $color-error;
+    font-size: 1rem;
+    max-width: 630px;
+    margin: 2rem auto 0;
+
+    &__heading {
+        color: $color-error;
+        font-weight: 500;
+        display: inline-block;
+        vertical-align: middle;
+
+        &::before {
+            content: " ";
+            background-image: url(../images/icons/error.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            height: 26px;
+            width: 26px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+    }
+
+    &__summary {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 500;
+    }
+}

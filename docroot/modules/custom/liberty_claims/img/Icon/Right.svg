@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Icon/Right</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19.150826,12.7241306 L20.4467471,11.5646268 L14.4898603,6.01334367 C13.9035444,5.43441823 12.8235909,5.56051013 12.3687761,6.01334367 L6.75,11.5646268 L7.99093447,12.7241306 L12.5434135,8.12967978 L12.5434135,20.5900493 L14.4898603,20.5900493 L14.4898603,8.12967978 L19.150826,12.7241306 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="volver-resultados" transform="translate(-6.000000, -6.000000)">
+            <g id="Group-10">
+                <g id="Icon/ArrowBack">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1A1446" fill-rule="nonzero" transform="translate(13.598374, 13.107525) rotate(-90.000000) translate(-13.598374, -13.107525) " xlink:href="#path-1"></use>
+                    <g id="Color/Web-gray-1" mask="url(#mask-2)" fill="#565656" fill-rule="nonzero">
+                        <g transform="translate(-42.750000, -40.500000)" id="Rectangle-Copy-4">
+                            <polygon points="0 0 114 0 114 109 0 109"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

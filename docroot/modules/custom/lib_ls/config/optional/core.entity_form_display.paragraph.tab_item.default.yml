@@ -1,0 +1,146 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.paragraph.tab_item.field_body
+    - field.field.paragraph.tab_item.field_c_classes
+    - field.field.paragraph.tab_item.field_c_image
+    - field.field.paragraph.tab_item.field_class_wrapper_image
+    - field.field.paragraph.tab_item.field_cta
+    - field.field.paragraph.tab_item.field_image
+    - field.field.paragraph.tab_item.field_lead
+    - field.field.paragraph.tab_item.field_name
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - entity_browser
+    - field_group
+    - link
+    - paragraphs
+    - svg_image
+third_party_settings:
+  field_group:
+    group_c_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_image
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Styling settings'
+    group_head:
+      children:
+        - field_name
+        - field_lead
+        - field_image
+        - field_class_wrapper_image
+        - field_cta
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Head
+    group_body:
+      children:
+        - field_body
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Body
+id: paragraph.tab_item.default
+targetEntityType: paragraph
+bundle: tab_item
+mode: default
+content:
+  field_body:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_c_classes:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_image:
+    type: entity_browser_file
+    weight: 3
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    region: content
+    third_party_settings: {  }
+  field_class_wrapper_image:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cta:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_image:
+    type: image_image
+    weight: 3
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    region: content
+    third_party_settings: {  }
+  field_lead:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

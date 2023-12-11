@@ -1,0 +1,22 @@
+uuid: 8896cca7-7209-422d-8c21-9647ea8a2320
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - field.storage.node.field_whatsapp
+    - node.type.lender
+id: node.lender.field_whatsapp
+field_name: field_whatsapp
+entity_type: node
+bundle: lender
+label: Whatsapp
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

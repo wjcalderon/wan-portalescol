@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: glosario_los_segura_reviewer
+label: 'Glosario los Segura reviewer'
+weight: 38
+is_admin: false

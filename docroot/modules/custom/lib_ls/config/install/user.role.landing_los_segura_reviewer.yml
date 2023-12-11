@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: landing_los_segura_reviewer
+label: 'Landing Los Segura reviewer'
+weight: 34
+is_admin: false

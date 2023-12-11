@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains esn_views.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function esn_views_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the esn_views module.
+    case 'help.page.esn_views':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Customs views settings UR sites.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function esn_views_theme($existing, $type, $theme, $path) {
+  \Drupal::moduleHandler()->loadInclude('esn_views', 'inc', 'esn_views.theme');
+  return [
+    'esn_views_grid' => [
+      'file' => 'esn_views.theme.inc',
+    ],
+  ];
+}

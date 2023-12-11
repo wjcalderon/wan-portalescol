@@ -1,0 +1,44 @@
+uuid: da1f4b81-0cf8-4eed-94ff-39c1dc840d8e
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+    - node.type.page_layout
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: page_layout_creator
+label: 'Página flexible creator'
+weight: 54
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node page_layout content'
+  - 'administer panelizer node page_layout layout'
+  - 'create page_layout content'
+  - 'create url aliases'
+  - 'edit own page_layout content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view page_layout revisions'

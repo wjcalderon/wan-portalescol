@@ -1,0 +1,91 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonies.field__testimony_item
+    - field.field.paragraph.testimonies.field_c_classes
+    - field.field.paragraph.testimonies.field_c_title
+    - field.field.paragraph.testimonies.field_c_title_status
+    - field.field.paragraph.testimonies.field_c_width
+    - paragraphs.paragraphs_type.testimonies
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_c_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Component title'
+    group_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Styling settings'
+id: paragraph.testimonies.default
+targetEntityType: paragraph
+bundle: testimonies
+mode: default
+content:
+  field__testimony_item:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: testimony_item
+    third_party_settings: {  }
+    region: content
+  field_c_classes:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_c_title_status:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_c_width:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

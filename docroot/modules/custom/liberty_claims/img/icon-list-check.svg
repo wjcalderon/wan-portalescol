@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="14px" viewBox="0 0 21 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="9.37319704 17.6 2.5 11.6969479 4.71622978 9.79245961 9.37068857 13.7899461 20.2800075 4.4 22.5 6.30125673"></polygon>
+    </defs>
+    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="9.1-Claims-Third-cases-docs" transform="translate(-297.000000, -1509.000000)">
+            <g id="Group-10" transform="translate(295.000000, 1505.000000)">
+                <g id="Elements-/-Icon-/-Glyph-/-Checkmark-On">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <g id="Elements-/-Color-/-Principal-/-Yellow-4-Copy-2" mask="url(#mask-2)" fill="#28A3AF" fill-rule="evenodd">
+                        <rect id="Rectangle" x="0" y="0" width="25" height="22"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

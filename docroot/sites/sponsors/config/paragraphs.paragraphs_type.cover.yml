@@ -1,0 +1,10 @@
+uuid: de37e173-92ea-4369-814a-70be23e2f9b6
+langcode: en
+status: true
+dependencies: {  }
+id: cover
+label: Producto
+icon_uuid: null
+icon_default: null
+description: 'Campos para ingresar la información de un producto y su cobertura.'
+behavior_plugins: {  }

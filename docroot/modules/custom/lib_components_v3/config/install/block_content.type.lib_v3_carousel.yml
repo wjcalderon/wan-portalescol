@@ -1,0 +1,10 @@
+uuid: c18167d5-e79e-4bf0-b4ee-987f0fa63ad8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EK3QNWNgq2THJuh35VR1JkVGoMiXGYacsbHmi7B523M
+id: lib_v3_carousel
+label: 'Carrusel v3'
+revision: 0
+description: 'Grupo de Card Carusel'

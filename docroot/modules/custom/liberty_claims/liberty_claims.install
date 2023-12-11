@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dblog module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function liberty_claims_schema() {
+  $schema['liberty_log'] = [
+    'description' => 'Table that contains logs of liberty claims activity.',
+    'fields' => [
+      'lid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique log event ID.',
+      ],
+      'token' => [
+        'type' => 'varchar_ascii',
+        'not null' => TRUE,
+        'length' => 64,
+        'description' => 'Unique token of the register.',
+      ],
+      'plate' => [
+        'type' => 'varchar_ascii',
+        'length' => 8,
+        'not null' => FALSE,
+        'description' => 'Vehicle plate',
+      ],
+      'document_id' => [
+        'type' => 'varchar_ascii',
+        'length' => 20,
+        'not null' => FALSE,
+        'default' => 0,
+        'description' => 'User document id.',
+      ],
+      'sipo_id' => [
+        'type' => 'varchar_ascii',
+        'length' => 10,
+        'not null' => FALSE,
+        'description' => 'Case number in SIPO',
+      ],
+      'iaxis_id' => [
+        'type' => 'varchar_ascii',
+        'not null' => FALSE,
+        'length' => 10,
+        'description' => 'Case number in IAXIS',
+      ],
+      'has_files' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'Whether the case has files',
+      ],
+      'data'  => [
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Document proccessed whit the app data.',
+      ],
+      'request_iaxis' => [
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Document proccessed whit the iaxis request data.',
+      ],
+      'request_sipo' => [
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Document proccessed whit the sipo request data.',
+      ],
+      'response_iaxis' => [
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Document proccessed whit iaxis response data.',
+      ],
+      'response_sipo' => [
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Document proccessed whit sipo response data.',
+      ],
+      'status' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'Status of the activity',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp of when event occurred.',
+      ],
+    ],
+    'primary key' => ['lid'],
+    'indexes' => [
+      'plate' => ['plate'],
+      'document_id' => ['document_id'],
+      'sipo_id' => ['sipo_id'],
+      'iaxis_id' => ['iaxis_id'],
+    ],
+  ];
+
+  return $schema;
+}

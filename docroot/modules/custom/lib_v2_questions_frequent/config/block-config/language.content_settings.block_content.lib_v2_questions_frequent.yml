@@ -1,0 +1,11 @@
+uuid: d2cb0b66-9a0e-4337-bb90-b1cc4b5e5917
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_questions_frequent
+id: block_content.lib_v2_questions_frequent
+target_entity_type_id: block_content
+target_bundle: lib_v2_questions_frequent
+default_langcode: site_default
+language_alterable: false

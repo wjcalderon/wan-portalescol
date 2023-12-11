@@ -1,0 +1,18 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_class_wrapper_image
+    - paragraphs.paragraphs_type.tab_item
+id: paragraph.tab_item.field_class_wrapper_image
+field_name: field_class_wrapper_image
+entity_type: paragraph
+bundle: tab_item
+label: 'Class wrapper image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

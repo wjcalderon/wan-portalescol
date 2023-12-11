@@ -1,0 +1,14 @@
+uuid: 76218439-cbd9-42fb-b49f-4642b224c58f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.ls_administrator
+  module:
+    - user
+id: user_remove_role_action.ls_administrator
+label: 'Remove the Administrador LS role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ls_administrator

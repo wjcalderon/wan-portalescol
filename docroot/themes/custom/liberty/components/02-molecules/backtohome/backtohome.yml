@@ -1,0 +1,5 @@
+bth_url: 'https://github.com/liberty-ds/liberty-design-system'
+bth_home_content: 'Home'
+bth_page_content: 'Current page'
+bth_attributes:
+  'target': '_self'

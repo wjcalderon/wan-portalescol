@@ -1,0 +1,7 @@
+lib_core.environmentvars.settings:
+  path: '/admin/config/system/environmentvars-settings'
+  defaults:
+    _title: 'Configuraciones Variables de Entorno Liberty'
+    _form: 'Drupal\lib_core\Form\EnvironmentVarsForm'
+  requirements:
+    _permission: 'administer site configuration'

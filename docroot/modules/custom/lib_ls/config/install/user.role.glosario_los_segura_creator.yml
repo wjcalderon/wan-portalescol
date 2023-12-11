@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: glosario_los_segura_creator
+label: 'Glosario los Segura creator'
+weight: 37
+is_admin: false

@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * liberty_session.install
+ */
+
+/**
+ * Hook_schema()
+ */
+function liberty_session_schema() {
+
+  $schema['liberty_session'] = [
+    'description' => 'Store liberty session',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => "id auto increment",
+      ],
+      'uid' => [
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0,
+        'description' => "id user",
+      ],
+      'nuid' => [
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0,
+        'description' => "id node",
+      ],
+      'date_time' => [
+        'description' => 'life time date',
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ],
+      'ip' => [
+        'type' => 'varchar',
+        'description' => "customer ip",
+        'length' => 50,
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'id' => ['id'],
+      'uid' => ['uid'],
+      'nuid' => ['nuid'],
+    ],
+  ];
+  return $schema;
+}

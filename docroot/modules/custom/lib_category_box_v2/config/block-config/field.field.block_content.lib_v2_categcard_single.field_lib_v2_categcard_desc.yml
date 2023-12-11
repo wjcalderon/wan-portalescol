@@ -1,0 +1,18 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categcard_single
+    - field.storage.block_content.field_lib_v2_categcard_desc
+id: block_content.lib_v2_categcard_single.field_lib_v2_categcard_desc
+field_name: field_lib_v2_categcard_desc
+entity_type: block_content
+bundle: lib_v2_categcard_single
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

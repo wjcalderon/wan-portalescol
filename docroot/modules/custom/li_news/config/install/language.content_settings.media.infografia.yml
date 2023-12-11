@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.infografia
+id: media.infografia
+target_entity_type_id: media
+target_bundle: infografia
+default_langcode: site_default
+language_alterable: false

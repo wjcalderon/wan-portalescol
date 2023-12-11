@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M10,20 C4.48613703,20 0,15.513863 0,10 C0,4.48613703 4.48613703,0 10,0 C15.513863,0 20,4.48613703 20,10 C20,15.513863 15.513863,20 10,20 Z M10,1.66622234 C5.40455878,1.66622234 1.66622234,5.40455878 1.66622234,10 C1.66622234,14.5947747 5.40455878,18.3337777 10,18.3337777 C14.5954412,18.3337777 18.3337777,14.5947747 18.3337777,10 C18.3337777,5.40455878 14.5954412,1.66622234 10,1.66622234 Z M9.13029859,14.9985337 L9.13029859,13.2603306 L10.8691682,13.2603306 L10.8691682,14.9985337 L9.13029859,14.9985337 Z M10,5.00126633 C12.4340176,5.00126633 13.2164756,6.56618235 13.2164756,7.52259397 C13.2164756,10.0432551 11.0423887,9.69534791 10.8697681,11.2602639 L10.8697681,12.3906292 L9.13023194,12.3906292 L9.13023194,11.5208611 C9.30418555,9.26146361 11.2170088,9.08684351 11.1303652,7.6958811 C11.1303652,6.91408958 10.6958144,6.56618235 10,6.56618235 C9.13023194,6.56618235 8.69634764,7.26133031 8.69634764,8.04378832 L6.78352439,8.04378832 C6.95747801,6.30558518 8.08784324,5.00126633 10,5.00126633 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components-/-Float-/-Box-/-Menu" transform="translate(-32.000000, -278.000000)">
+            <g id="Elements-/-Icon-/-Glyph-/-Help-Outline" transform="translate(32.000000, 278.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                    <rect id="Rectangle" x="0" y="0" width="20" height="20"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

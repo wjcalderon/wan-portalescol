@@ -1,0 +1,10 @@
+uuid: d1e88f1d-b6a9-47c8-a251-ca32e3430520
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WHE13z4eEKf59jCgJB0wja1I0_iCos2eop03ghYpAAs
+id: lib_v3_moreinfo_group
+label: 'Grupo mas informacion v3'
+revision: 0
+description: 'Grupo para tarjetas de mas informacion'

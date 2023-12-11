@@ -1,0 +1,63 @@
+uuid: 7c829e05-9bc5-4b30-a6e2-2b55d99db674
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.customer.field_birth_day
+    - field.field.node.customer.field_branch
+    - field.field.node.customer.field_bussiness_key
+    - field.field.node.customer.field_campaign
+    - field.field.node.customer.field_campaign_id
+    - field.field.node.customer.field_city
+    - field.field.node.customer.field_country
+    - field.field.node.customer.field_customer_name
+    - field.field.node.customer.field_diligence_form_date
+    - field.field.node.customer.field_document_type
+    - field.field.node.customer.field_edad
+    - field.field.node.customer.field_email
+    - field.field.node.customer.field_entry_date
+    - field.field.node.customer.field_gender
+    - field.field.node.customer.field_id_number
+    - field.field.node.customer.field_id_type
+    - field.field.node.customer.field_lastname
+    - field.field.node.customer.field_origin
+    - field.field.node.customer.field_phone
+    - field.field.node.customer.field_send_mails
+    - field.field.node.customer.field_sponsor_name
+    - node.type.customer
+  module:
+    - user
+id: node.customer.teaser
+targetEntityType: node
+bundle: customer
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_birth_day: true
+  field_branch: true
+  field_bussiness_key: true
+  field_campaign: true
+  field_campaign_id: true
+  field_city: true
+  field_country: true
+  field_customer_name: true
+  field_diligence_form_date: true
+  field_document_type: true
+  field_edad: true
+  field_email: true
+  field_entry_date: true
+  field_gender: true
+  field_id_number: true
+  field_id_type: true
+  field_lastname: true
+  field_origin: true
+  field_phone: true
+  field_send_mails: true
+  field_sponsor_name: true
+  langcode: true

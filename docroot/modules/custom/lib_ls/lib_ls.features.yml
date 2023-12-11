@@ -1,0 +1,22 @@
+excluded:
+  - simple_sitemap.bundle_settings..menu_link_content.acerca-de-liberty
+  - simple_sitemap.bundle_settings..menu_link_content.buscas-ayuda
+  - simple_sitemap.bundle_settings..menu_link_content.enlaces-rapidos
+  - simple_sitemap.bundle_settings..menu_link_content.footer
+  - simple_sitemap.bundle_settings..menu_link_content.main
+  - simple_sitemap.bundle_settings..menu_link_content.menu-branding
+  - simple_sitemap.bundle_settings..menu_link_content.menu-con
+  - simple_sitemap.bundle_settings..menu_link_content.menu-footer
+  - simple_sitemap.bundle_settings..menu_link_content.menu-horizontal-mobile
+  - simple_sitemap.bundle_settings..menu_link_content.menu-principal-empresas
+  - simple_sitemap.bundle_settings..menu_link_content.menu-principal-mobile
+  - simple_sitemap.bundle_settings..menu_link_content.menu-principal-personas
+  - simple_sitemap.bundle_settings..menu_link_content.menu-secundario
+  - simple_sitemap.bundle_settings..menu_link_content.menu-tipo-persona
+  - simple_sitemap.bundle_settings..menu_link_content.shorcuts
+  - tb_megamenu.menu_config.menu-con__liberty_public
+  - tb_megamenu.menu_config.menu-principal-empresas__liberty_public
+  - tb_megamenu.menu_config.menu-principal-personas__liberty_public
+  - tb_megamenu.menu_config.menu-secundario__liberty_public
+  - tb_megamenu.menu_config.menu-tipo-persona__liberty_public
+required: true

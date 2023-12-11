@@ -1,0 +1,7 @@
+migratewebform.migrate_form:
+  path: '/migratewebform/form/migrate'
+  defaults:
+    _form: '\Drupal\migratewebform\Form\MigrateForm'
+    _title: 'MigrateForm'
+  requirements:
+    _access: 'TRUE'

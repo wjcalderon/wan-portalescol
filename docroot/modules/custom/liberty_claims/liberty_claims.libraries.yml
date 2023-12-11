@@ -1,0 +1,11 @@
+forms:
+  js:
+    vuejs/dist/build.js: {}
+    https://cdn.jsdelivr.net/npm/pretty-checkbox-vue@1.1/dist/pretty-checkbox-vue.min.js: {type: external}
+  css:
+    component:
+      css/form.css: {}
+      https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css: {type: external}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

@@ -1,0 +1,21 @@
+uuid: d5d8f84f-fb44-4a7a-afdf-cd880b145143
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_image_side
+    - paragraphs.paragraphs_type.hero
+  module:
+    - options
+id: paragraph.hero.field_lib_image_side
+field_name: field_lib_image_side
+entity_type: paragraph
+bundle: hero
+label: 'Orientación Imágen'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

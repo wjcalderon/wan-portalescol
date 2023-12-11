@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="50px" viewBox="0 0 55 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M27.084375,46.703125 C13.63905,46.703125 2.7,36.77695 2.7,24.5765625 C2.7,12.376175 13.63905,2.45 27.084375,2.45 C40.5297,2.45 51.46875,12.376175 51.46875,24.5765625 C51.46875,36.77695 40.5297,46.703125 27.084375,46.703125 M27.084375,0 C12.15,0 0,11.025 0,24.5765625 C0,38.128125 12.15,49.153125 27.084375,49.153125 C42.01875,49.153125 54.16875,38.128125 54.16875,24.5765625 C54.16875,11.025 42.01875,0 27.084375,0 M23.914035,30.7715713 L17.240985,24.7163963 L15.332085,26.4485463 L23.083785,33.4831088 C23.337585,33.7134088 23.68116,33.8420338 24.038235,33.8420338 C24.06591,33.8420338 24.09291,33.8414213 24.120585,33.8395838 C24.506685,33.8181463 24.86376,33.6472588 25.102035,33.3710213 L38.95101,17.2904462 L36.82341,15.7818588 L23.914035,30.7715713 Z" id="path-1"></path>
+    </defs>
+    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Siniestros_step5" transform="translate(-403.000000, -682.000000)">
+            <g id="Stepper" transform="translate(382.000000, 654.000000)">
+                <g id="Group-5" transform="translate(0.000000, 4.000000)">
+                    <g id="Elements-/-Icon-/-Liberty-/-Checkmark" transform="translate(21.000000, 24.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Fill-4" fill="#171343" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                            <rect id="Rectangle" x="0" y="0" width="54" height="49"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

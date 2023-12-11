@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type='text/css'>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+    }
+
+    .embeddedServiceHelpButton .helpButton .uiButton, .embeddedServiceSidebarMinimizedDefaultUI.helpButton, .embeddedServiceSidebarMinimizedDefaultUI{
+    right: 230px!important;
+    bottom: 16px!important;
+    border-radius: .3rem!important;
+    background-color: #ffffff!important;
+    color: #1A1446!important;
+    font-weight: 500!important;
+    box-shadow: 0 2px 10px 0 rgba(26,20,70,0.3)!important;
+    line-height: 46px!important;
+    font-weight: bold !important;
+    font-family: "Roboto",sans-serif!important;
+    font-size: 16px!important;
+    border: none!important;
+        padding-right: 4rem!important;
+        background-image: url(icons/chat.svg)!important;
+        background-repeat: no-repeat!important;
+        background-position: 79% center!important;
+    background-size: 24px!important;
+    padding-left: 1.5rem!important;
+    min-width: 7rem!important;
+
+    }
+
+    .embeddedServiceSidebar.layout-docked .dockableContainer{
+      right: 230px!important;
+    }
+
+    .embeddedServiceHelpButton .uiButton .helpButtonLabel .message {
+    font-weight: 500!important;
+    text-overflow: initial!important;
+    color: #1A1446!important;
+    font-weight: 500!important;
+        width: 37px!important;
+}
+
+    .embeddedServiceSidebarMinimizedDefaultUI .minimizedText>.message {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: initial!important;
+    color: #1A1446!important;
+    font-weight: 500!important;
+        width: 37px!important;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter .chasitorText.textAreaIsFocused{
+  border: none!important;
+}
+
+.embeddedServiceHelpButton .embeddedServiceIcon{
+  display: none!important;
+}
+
+.embeddedServiceLiveAgentStateChat .messageArea:focus{
+  border: none!important;
+}
+    .embeddedServiceHelpButton .helpButton .uiButton:hover{
+      background-color: #ffffff!important;
+    }
+
+    .prechatFields .required{
+      display: none;
+    }
+
+     .prechatFields > div .uiInputSelect:last-child,  .prechatFields > div .uiOutputText:last-child{
+      display: none;
+     }
+
+    .embeddedServiceHelpButton .helpButton .uiButton:hover:before{
+      display: none;
+    }
+
+    .dockableContainer .cChatService_cmp .input,  .dockableContainer .cChatService_cmp .select{
+    width: 100%;
+    height: 40px!important;
+    border-radius: .3em;
+    font-size: .8em;
+    padding: .4em;
+    border: 0;
+    color: #343741!important;
+    box-sizing: border-box;
+    outline: 0;
+    border-bottom: none!important;
+    border: 1px solid #C0BFC0!important;
+    background-color: transparent!important;
+    font-family: "Roboto",sans-serif!important;
+    }
+
+    .dockableContainer .cChatService_cmp .select{
+      color: transparent!important;
+    }
+
+    .uiOutputText{
+      color: #343741!important;
+      font-weight: normal!important;
+    }
+
+    .dockableContainer .cChatService_cmp .input::placeholder, .dockableContainer .cChatService_cmp .select::placeholder{
+      color: transparent;
+    }
+
+    .dockableContainer .cChatService_cmp .select.selected{
+      color: #343741!important;
+    }
+
+.embeddedServiceSidebarHeader .embeddedServiceIcon svg{
+  fill: #1A1446!important;
+}
+
+ .prechatFields > div{
+  margin-right: 1.4rem!important;
+    margin-left: 1.4rem!important;
+      display: grid;
+  grid-template-areas:
+    'labeluno labeluno labeluno labeluno'
+    'inputuno inputuno inputuno inputuno'
+    'labeldos labeltres labeltres labeltres'
+    'inputdos inputtres inputtres inputtres'
+    'labelcuatro labelcuatro labelcuatro labelcuatro'
+    'inputcuatro inputcuatro inputcuatro inputcuatro'
+    'labelcinco labelcinco labelcinco labelcinco'
+    'inputcinco inputcinco inputcinco inputcinco';
+  grid-gap: 10px;
+  grid-row-gap: 5px;
+    }
+
+.prechatFields > div > div:nth-of-type(1){
+  color: #f00!important;
+}    
+
+span[data-aura-rendered-by="37:115;a"], .prechatFields > div > span:nth-of-type(2){
+  grid-area: labeluno;
+}
+
+div[data-aura-rendered-by="273:0"], .prechatFields > div > div:nth-of-type(1){
+  grid-area: inputuno;
+}
+
+span[data-aura-rendered-by="50:115;a"], .prechatFields > div > span:nth-of-type(4){
+  grid-area: labeldos;
+}
+
+div[data-aura-rendered-by="282:0"], .prechatFields > div > div:nth-of-type(2){
+  grid-area: inputdos;
+}
+
+span[data-aura-rendered-by="65:115;a"], .prechatFields > div > span:nth-of-type(6){
+  grid-area: labeltres;
+}
+
+div[data-aura-rendered-by="291:0"], .prechatFields > div > div:nth-of-type(3){
+  grid-area: inputtres;
+}
+
+span[data-aura-rendered-by="76:115;a"], .prechatFields > div > span:nth-of-type(7){
+  grid-area: labelcuatro;
+}
+
+div[data-aura-rendered-by="300:0"], .prechatFields > div > div:nth-of-type(4){
+  grid-area: inputcuatro;
+}
+
+span[data-aura-rendered-by="87:115;a"], .prechatFields > div > span:nth-of-type(8){
+  grid-area: labelcinco;
+}
+
+div[data-aura-rendered-by="309:0"], .prechatFields > div > div:nth-of-type(5){
+  grid-area: inputcinco;
+}
+
+span[data-aura-rendered-by="98:115;a"], .prechatFields > div > span:nth-of-type(9){
+  display: none;
+}
+
+.cChatService_cmp .prechatFields .titulo:before{
+  content: "¡Hola!";
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.embeddedServiceLiveAgentStateChatItem.chatMessage{
+  background-color: #E6F8FA!important;
+}
+
+.embeddedServiceLiveAgentStateChat .messageArea{
+  padding-top: 10px!important;
+    background-color: #E6F8FA!important;
+}
+
+.cChatService_cmp .prechatFields .titulo{
+  font-size: .9rem!important;
+    padding: 0;
+    text-align: center!important;
+    display: block;
+    font-family: "Roboto",sans-serif!important;
+}
+
+.startButtonWrapper{
+  margin: 1.4rem;
+  margin-top: 9px;
+}
+
+.startButtonWrapper .customButton{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    height: 40px;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    background: #99E5EA!important;
+}
+
+.startButtonWrapper .customButton:focus, .startButtonWrapper .customButton:hover{
+  color: #1A1446!important;
+  text-shadow: none!important;
+}
+
+.uiButton--default:hover .label, .uiButton--default:focus .label {
+    color: #1A1446!important;
+    text-shadow: none!important;
+}
+
+.embeddedServiceSidebar.layout-docked .dockableContainer{
+  max-height: 550px!important;
+}
+
+.embeddedServiceSidebarHeader .shortHeaderContent{
+  background-color: #ffffff;
+}
+
+.cChatService_cmp .uiOutputText{
+  margin: 0!important;
+}
+
+.cChatService_cmp .uiInput{
+  margin-bottom: 14px!important;
+}
+
+.embeddedServiceSidebarExtendedHeader{
+  color: #1A1446!important;
+  background-color: #fff!important;
+  font-family: "Roboto",sans-serif!important;
+}
+
+.embeddedServiceLiveAgentStateWaitingHeader .waitingGreeting {
+    font-size: 1.56rem!important;
+}
+
+.embeddedServiceSidebarDialogState #dialogTextBody{
+  display: none;
+}
+
+.embeddedServiceSidebarDialogState #dialogTextTitle {
+    color: #1A1446!important;
+    font-size: 1.5rem!important;
+     font-family: "Roboto",sans-serif!important;
+     font-weight: 500!important;
+}
+
+.embeddedServiceSidebarButton.dialog-button-0 .label {
+    font-family: "Roboto",sans-serif!important;
+    color: #1A1446!important;
+    font-weight: 500!important;
+}
+
+.embeddedServiceLiveAgentQueuePosition.queuePositionWaiting .queuePositionNumber, .embeddedServiceLiveAgentQueuePosition .queuePositionMessage, .embeddedServiceLiveAgentQueuePosition .embeddedServiceIcon>svg{
+  display: none;
+}
+
+.embeddedServiceLiveAgentStateWaitingHeader .waitingMessage{
+  margin-top: 3px!important;
+}
+
+.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus{
+  background-color: transparent!important;
+  box-shadow: none!important;
+
+}
+
+.embeddedServiceSidebarButton.uiButton--inverse .label{
+  color: #1A1446!important;
+  font-weight: 400;
+  font-family: "Roboto",sans-serif!important;
+}
+
+.embeddedServiceSidebarButton.uiButton--inverse{
+  margin-bottom: 50px;
+
+}
+
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before{
+  display: none!important;
+}
+
+div[data-aura-class="embeddedServiceLiveAgentStateWaitingHeader"]{
+  display: block!important;
+}
+
+.embeddedServiceLiveAgentStateChatHeader{
+  display: none!important;
+}
+
+
+.embeddedServiceSidebarButton.dialog-button-0 {
+    background: #99E5EA!important;
+    font-family: "Roboto",sans-serif!important;
+    height: 40px!important;
+}
+
+.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent {
+    background: #F2FEFF!important;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+    margin-top: 5px;
+}
+
+.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
+    background: #fff!important;
+    color: #333!important;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+    margin-top: 5px;
+}
+
+.prechatFields .uiOutputText:first-child {
+  color: lime;
+}
+
+/*div[data-aura-class="embeddedServiceSidebarHeader"] .extendedHeader{
+  display: none;
+}*/
+
+div[data-aura-class="embeddedServiceLiveAgentStateWaiting"] .extendedHeader{
+  display: block;
+}
+
+
+.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
+    background-color: #e6f8fa!important;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter.dynamicResizeTextOneRow .chasitorText {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+}
+
+.embeddedServiceSidebarButton:focus{
+  box-shadow: none!important;
+  text-decoration: none!important;
+}
+
+.embeddedServiceSidebarHeader .headerItem:focus:after{
+  border: none!important;
+}
+
+</style>
+</head>
+<body>
+<div id="prueba"></div>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+    var initESW = function(gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true;
+        embedded_svc.settings.language = 'es';
+        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Establece el dominio para su desarrollo de modo que los visitantes puedan navegar por subdominios durante una sesión de chat)
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.settings.autoOpenPostChat = true;
+        embedded_svc.settings.defaultMinimizedText = "Chat";
+        embedded_svc.settings.disabledMinimizedText = "Chat inactivo";
+        embedded_svc.settings.offlineSupportMinimizedText = "vfdr";
+        embedded_svc.settings.loadingText = "Cargando";
+        embedded_svc.settings.avatarImgURL = "https://libertysegdev.prod.acquia-sites.com/themes/custom/liberty_public/images/logo-chat.svg"
+        embedded_svc.addEventHandler("onChatEndedByChasitor", function(data) {
+          console.log("onChatConferenceEnded event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+        });
+        embedded_svc.settings.extraPrechatFormDetails = [
+                    {
+                        "label":"Origin",
+                        "value":"Chat Servicio",
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"RecordTypeId",
+                        "value":"012K0000000LuhvIAC",
+                        "transcriptFields":["RecordTypeId"],
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"Nombre Completo",
+                        "transcriptFields":["Nombre__c"],
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"Tipo",
+                        "transcriptFields":["LGM_TipIdentificacion__c"],
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"Número de identificación",
+                        "transcriptFields":["Numero_de_identificacion__c"],
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"Correo electrónico",
+                        "transcriptFields":["Correo_Electronico__c"],
+                        "displayToAgent": true
+                    },
+                    {
+                        "label":"Teléfono",
+                        "transcriptFields":["Telefono_Celular__c"],
+                        "displayToAgent": true
+                    },
+                    {
+                          "label": "Pais",
+                          "value": "COLOMBIA",
+                          "transcriptFields":["LGM_Pais__c"],
+                          "displayToAgent": true
+                    },
+                    {
+                          "label": "Intermediario",
+                          "value": "false",
+                          "displayToAgent": true
+                    }
+
+            ];
+            embedded_svc.settings.extraPrechatInfo = [
+
+                   {"entityFieldMaps":[
+                       {"doCreate":false,
+                       "doFind":false,
+                       "fieldName":"LastName",
+                       "isExactMatch":true,
+                       "label":"Apellidos"},
+                       {"doCreate":false,
+                       "doFind":false,
+                       "fieldName":"FirstName",
+                       "isExactMatch":true,
+                       "label":"Nombre"},
+                       {"doCreate":false,
+                       "doFind":false,
+                       "fieldName":"Email",
+                       "isExactMatch":true,
+                       "label":"Correo electrónico"}],
+                       "entityName":"Contact",
+                       "saveToTranscript":"Contact",
+                       "showOnCreate":true},
+
+                   {'entityName':'Account',
+                    'showOnCreate':true,
+                    'saveToTranscript':'AccountId',
+                    'entityFieldMaps':[{
+                        'isExactMatch':true,
+                        'fieldName':'Tipo_de_identificacion__c',
+                        'doCreate':false,
+                        'doFind':true,
+                        'label':'Tipo'
+                    },{
+                        'isExactMatch':true,
+                        'fieldName':'Numero_de_identificacion__c',
+                        'doCreate':false,
+                        'doFind':true,
+                        'label':'Número de identificación'
+                    },{
+                        'isExactMatch':true,
+                        'fieldName':'LGM_Pais__c',
+                        'doCreate':false,
+                        'doFind':true,
+                        'label':'Pais'
+                    },
+                    {
+                        'isExactMatch':true,
+                        'fieldName':'Intermediario__c',
+                        'doCreate':false,
+                        'doFind':true,
+                        'label':'Intermediario'
+                    }
+                    ]},{
+                      "entityName": "LiveChatTranscriptFile__c",
+                      "saveToTranscript": "Archivo_Transcript__c",
+                      "showOnCreate":false,
+                      "entityFieldMaps": [{
+                        "isExactMatch": true,
+                        "fieldName": "Origen__c",
+                        "doCreate": true,
+                        "doFind": false,
+                        "label": "Origin"
+                      }]
+                    }
+                    ];
+        embedded_svc.init(
+            'https://libertysegurosandinomarket--qa.cs9.my.salesforce.com',
+            'https://qa-encuestaslibertyseguros.cs9.force.com/prechat',
+            gslbBaseURL,
+            '00DK000000WfdT4',
+            'ChatServicio',
+            {
+                baseLiveAgentContentURL: 'https://c.la3-c1cs-dfw.salesforceliveagent.com/content',
+                deploymentId: '5724A0000000vSr',
+                buttonId: '573K00000008SCN',
+                baseLiveAgentURL: 'https://d.la3-c1cs-dfw.salesforceliveagent.com/chat',
+                eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IK00000008Pf2MAE_1707e637cbb',
+                isOfflineSupportEnabled: false
+            }
+        );
+    };
+
+    if (!window.embedded_svc) {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://libertysegurosandinomarket--qa.cs9.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.onload = function() {
+            initESW(null);
+        };
+        document.body.appendChild(s);
+    } else {
+        initESW('https://service.force.com');
+    }
+
+</script>
+</body>
+</html>

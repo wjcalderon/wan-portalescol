@@ -1,0 +1,21 @@
+uuid: 2d517433-e822-4a0f-902c-f4d628c288b1
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+    - field.storage.paragraph.field_lib_v4_carousel_sec
+_core:
+  default_config_hash: q8mZFRtLFf-zCloskMLfsTxg2TfeIi9W-1vmiPSvQUY
+id: paragraph.lib_v4_carousel_card.field_lib_v4_carousel_sec
+field_name: field_lib_v4_carousel_sec
+entity_type: paragraph
+bundle: lib_v4_carousel_card
+label: 'Texto secundario'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

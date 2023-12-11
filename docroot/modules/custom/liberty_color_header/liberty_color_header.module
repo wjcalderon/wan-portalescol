@@ -1,0 +1,216 @@
+<?php
+
+/**
+ * @file
+ * Contains liberty_color_header.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_help().
+ */
+function liberty_color_header_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the liberty_color_header module.
+    case 'help.page.liberty_color_header':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('time input recaptcha') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Liberty color header preprocess page.
+ */
+function liberty_color_header_preprocess_page(&$variables) {
+  $requestStack = \Drupal::requestStack();
+
+  $path = \Drupal::request()->getpathInfo();
+  $arg = explode('/', $path);
+
+  if (in_array("user", $arg)) {
+    $color_header = "header-blue";
+  }
+  else {
+    if (in_array("node", $arg) && (!in_array("edit", $arg) && !in_array("delete", $arg))) {
+
+      if ($arg[1] == 'es') {
+        $node_id = $arg[3];
+      }
+      else {
+        $node_id = $arg[2];
+      }
+      if (isset($node_id)) {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+        if (isset($node) && $node->getType() == "campaign") {
+          $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+          // Add a JS library.
+          $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+          // Pass variable to Drupal.Settings.
+          $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+        }
+      }
+    }
+    elseif (in_array("polizas", $arg)) {
+      if ($arg[3] == 'polizas') {
+        $node_id = end($arg);
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+      else {
+        $node_id = $arg[3];
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+    }
+    elseif (in_array("formulario", $arg)) {
+      $request = $requestStack->getCurrentRequest();
+      $nid = $request->get('nid') ?? FALSE;
+      if (isset($nid)) {
+        $nid = $request->get('nid');
+        if ($nid) {
+          $node_id = base64_decode($nid);
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+        else {
+          $response = new RedirectResponse("/");
+          $response->send();
+        }
+      }
+    }
+    elseif (in_array("login", $arg)) {
+
+      if ($arg[3] == 'login') {
+        $node_id = end($arg);
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+      else {
+        $node_id = $arg[3];
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+    }
+    elseif (end($arg) == "callcenter") {
+      $request = $requestStack->getCurrentRequest();
+      if ($request) {
+        $nid = $request->request->get('nid');
+        if ($nid) {
+          $node_id = base64_decode($nid);
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+        else {
+          $response = new RedirectResponse("/");
+          $response->send();
+        }
+      }
+
+    }
+    elseif (in_array("login", $arg)) {
+      if (in_array("login", $arg)) {
+        $node_id = end($arg);
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+      else {
+        $node_id = end($arg);
+
+        if (isset($node_id)) {
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node->getType() == "campaign") {
+            $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+            // Add a JS library.
+            $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+            // Pass variable to Drupal.Settings.
+            $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+          }
+        }
+      }
+    }
+    else {
+      $node_id = end($arg);
+
+      if (isset($node_id)) {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+        if ($node && $node->getType() == "campaign") {
+          $color_header = $node->get('field_color_header')->getValue()[0]['value'];
+          // Add a JS library.
+          $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
+          // Pass variable to Drupal.Settings.
+          $variables['#attached']['drupalSettings']['liberty_color_header']['color_header'] = $color_header;
+        }
+      }
+
+    }
+  }
+
+}

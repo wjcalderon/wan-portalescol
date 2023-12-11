@@ -1,0 +1,31 @@
+.component__slider {
+    .slick-dotted.slick-slider {
+        margin-top: 0;
+    }
+}
+
+.slick-dotted.slick-slider {
+    @media screen and (max-width: $medium-max) {
+        margin-bottom: 0!important;
+        margin-top: 3rem;
+    }
+}
+
+@include breakpoint($small) {
+    .slick-next {
+        right: 0 !important;
+        top: 30%;
+        width: 40px;
+        &::before {
+            width: 100%;
+        }
+    }
+    .slick-prev {
+        display: none;
+        top: 30%;
+        width: 40px;
+        &::before {
+            width: 100%;
+        }
+    }
+}

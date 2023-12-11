@@ -1,0 +1,10 @@
+uuid: 2ea86dfa-9ffa-4a34-9fa8-a6cf8cb89bea
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_text_box
+label: 'Cuadro de texto'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

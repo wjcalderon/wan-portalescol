@@ -1,0 +1,11 @@
+uuid: f8f95cc5-67db-4b9f-a992-b49e8202a84c
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.campaings
+id: taxonomy_term.campaings
+target_entity_type_id: taxonomy_term
+target_bundle: campaings
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,10 @@
+uuid: b9ed3705-3475-4ba6-a43c-e75571719b40
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_cards
+label: cards
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: 4fdeb320-12ed-40df-8164-20ee29a29375
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_banner_main
+label: 'Banner fijo'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,22 @@
+.header__eyebrow {
+  padding: 1rem;
+  background-color: #ffeaa9;
+
+  @media screen and (min-width: $small-max) {
+    padding: 1rem 2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  a {
+    color: #1a1446;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.node.field_cta
+    - node.type.news_inphography
+_core:
+  default_config_hash: MgvxtXV_qaZSE39R7KF2ftgPCvUzweLyxIqZcBVVr34
+id: node.news_inphography.field_cta
+field_name: field_cta
+entity_type: node
+bundle: news_inphography
+label: CTA
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      cta: cta
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

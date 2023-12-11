@@ -1,0 +1,21 @@
+lib_migrate.admin_index:
+  title: Liberty
+  route_name: lib_migrate.admin_index
+  parent: system.admin_config
+  description: 'Configure liberty.'
+  position: left
+  weight: -20
+
+lib_migrate.content:
+  title: 'Importación de  prestadores'
+  parent: lib_migrate.admin_index
+  description: 'Importación de excel con los prestadores de servicio de la red medica.'
+  weight: -10
+  route_name: lib_migrate.content
+
+lib_migrate.config:
+  title: 'Configuración api latitud y longitud'
+  parent: lib_migrate.admin_index
+  description: 'Configuración de api latitud y longitud'
+  weight: -10
+  route_name: lib_migrate.config

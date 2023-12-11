@@ -1,0 +1,30 @@
+{% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+    heading_level: 1,
+    heading: "Imagenes"
+  } %}
+<div class="content-images">
+<div  class="image">
+<img class="image" src="https://placeimg.com/300/300/any">
+</div>
+<div  class="image image--blue">
+{% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+      heading_level: 4,
+      heading: "Amarillo",
+      heading_modifiers: ['title-guia']
+} %}
+<img src="https://placeimg.com/300/300/any">
+{% include "themes/custom/liberty_public/templates/new-components/components/atoms/logo/logo.twig" with {
+      logo_modifiers: ['white', 'iso']
+} %}
+</div>
+<div  class="image image--black">
+{% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+      heading_level: 4,
+      heading: "Oscuro",
+      heading_modifiers: ['title-guia']
+} %}
+<img src="https://placeimg.com/300/300/any">
+{% include "themes/custom/liberty_public/templates/new-components/components/atoms/logo/logo.twig" with {
+      logo_modifiers: ['white', 'iso']
+} %}
+</div>

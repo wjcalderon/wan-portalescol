@@ -1,0 +1,19 @@
+uuid: aea4eb5d-0f53-4257-ad83-c1e7e259c1b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_validacion_de_oferta
+field_name: field_validacion_de_oferta
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

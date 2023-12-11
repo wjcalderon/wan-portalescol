@@ -1,0 +1,17 @@
+name: "li_news"
+type: module
+description: "Liberty news module"
+core_version_requirement: ^8.8 || ^9
+package: "Esinergia"
+
+dependencies:
+  - maxlength
+  - editor_advanced_link
+  - inline_entity_form
+  - manage_display
+  - entityqueue
+  - content_translation
+  - libraries
+  - ckeditor_videodetector
+  - scheduler
+  - better_exposed_filters

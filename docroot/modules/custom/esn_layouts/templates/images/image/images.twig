@@ -1,0 +1,30 @@
+{% include "modules/custom/esn_layouts/templates/text/headings/_heading.twig" with {
+    heading_level: 1,
+    heading: "Imagenes"
+  } %}
+<div class="content-images">
+<div  class="image">
+<img class="image" src="https://placeimg.com/300/300/any">
+</div>
+<div  class="image image--blue">
+{% include "@atoms/text/headings/_heading.twig" with {
+      heading_level: 4,
+      heading: "Amarillo",
+      heading_modifiers: ['title-guia']
+} %}
+<img src="https://placeimg.com/300/300/any">
+{% include "modules/custom/esn_layouts/templates/logo/logo.twig" with {
+      logo_modifiers: ['white', 'iso']
+} %}
+</div>
+<div  class="image image--black">
+{% include "modules/custom/esn_layouts/templates/text/headings/_heading.twig" with {
+      heading_level: 4,
+      heading: "Oscuro",
+      heading_modifiers: ['title-guia']
+} %}
+<img src="https://placeimg.com/300/300/any">
+{% include "modules/custom/esn_layouts/templates/logo/logo.twig" with {
+      logo_modifiers: ['white', 'iso']
+} %}
+</div>

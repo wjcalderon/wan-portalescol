@@ -1,0 +1,13 @@
+uuid: d0972784-19af-4496-a097-6468c0f4cc9f
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_cards
+_core:
+  default_config_hash: ONz3SH5MQwOOm4RBUvlQPPnY525UYroHIqi_yS0zzTY
+id: block_content.lib_v3_cards
+target_entity_type_id: block_content
+target_bundle: lib_v3_cards
+default_langcode: site_default
+language_alterable: false

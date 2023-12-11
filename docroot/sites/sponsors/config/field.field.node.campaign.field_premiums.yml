@@ -1,0 +1,21 @@
+uuid: d5b64dd2-9893-4b92-a110-ac3ac3d68f1b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_premiums
+    - node.type.campaign
+  module:
+    - text
+id: node.campaign.field_premiums
+field_name: field_premiums
+entity_type: node
+bundle: campaign
+label: Primas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

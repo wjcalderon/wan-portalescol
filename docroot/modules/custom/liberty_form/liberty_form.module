@@ -1,0 +1,1410 @@
+<?php
+
+/**
+ * @file
+ * Contains liberty_form.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\path_alias\Entity\PathAlias;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\Entity\WebformSubmission;
+use phpseclib\Crypt\RSA;
+use phpseclib\Net\SFTP;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_theme().
+ */
+function liberty_form_theme($existing, $type, $theme, $path) {
+
+  return [
+    'document_validation_form' => [
+      'render element' => 'form',
+    ],
+    'liberty_message_block' => [
+      'variables' => [
+        'heading' => NULL,
+        'summary' => NULL,
+        'type' => NULL,
+      ],
+      'template' => 'liberty-message-block',
+    ],
+  ];
+
+}
+
+/**
+ * Form alter.
+ */
+function liberty_form_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+
+  $field_definition = $context['items']->getFieldDefinition();
+  if ("field_cover_caracteristic" == $field_definition->getName()) {
+    if ($context['delta'] < 3) {
+      $element['value']['#attributes']['class'][] = 'required_custom';
+      $element['value']['#required'] = TRUE;
+    }
+  }
+
+  if ("field_benefits" == $field_definition->getName()) {
+    if ($context['delta'] < 3) {
+      $element['value']['#attributes']['class'][] = 'required_custom';
+      $element['value']['#required'] = TRUE;
+    }
+
+  }
+
+}
+
+/**
+ * Function custom.
+ */
+function liberty_form_c_liberty_formnode_delete_confirm_submit($form, &$form_state) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $cid = $node->id();
+
+  $query_initial = Drupal::entityTypeManager()->getStorage('node')->getQuery();
+
+  $res_initial = $query_initial->condition('type', 'customer')
+    ->condition('field_campaign_id', $cid)
+    ->execute();
+
+  if ($res_initial) {
+    $nids = $res_initial;
+    foreach ($nids as $nid) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+      if ($node) {
+        $node->delete();
+      }
+
+    }
+  }
+}
+
+/**
+ * Preprocess links.
+ */
+function liberty_form_preprocess_links(&$variables) {
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+  if (in_array("ls_administrator", $roles) && $result == "/admin/content/campaings") {
+    unset($variables['links']['delete']);
+  }
+}
+
+/**
+ * Preproces menu local tasks.
+ */
+function liberty_form_preprocess_menu_local_tasks(&$variables) {
+
+  if (isset($variables['primary']['entity.node.delete_form'])) {
+    unset($variables['primary']['entity.node.delete_form']);
+  }
+}
+
+/**
+ * Form alter.
+ */
+function liberty_form_form_alter(&$form, &$form_state, $form_id) {
+  if ("LibertyDatabaseMigratorForm" == $form_id) {
+    $form['description']['#markup'] = "<div class='font_major'>Esta acción no se pude deshacer</div>";
+    $form['actions']['submit']['#value'] = "Importar";
+    $form['#attached']['library'][] = 'liberty_form/css_custom';
+  }
+
+  if ("node_campaign_delete_form" == $form_id) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $form['actions']['submit']['#submit'][] = 'liberty_form_c_liberty_formnode_delete_confirm_submit';
+    $form['#title'] = "¿Esta seguro que desea eliminar la campaña " . $node->get('title')->value . "?";
+    $form['description']['#markup'] = t("Recuerda que al eliminar la campaña también eliminas la base de datos asociada y perderás esta información. \n  Esta accion no se puede deshacer!!!");
+    $form['actions']['cancel']['#title'] = "No estoy seguro";
+    $form['actions']['submit']['#value'] = "Sí, eliminar";
+  }
+
+  if ($form_id == "node_campaign_edit_form") {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      $fecha_actual = date("d-m-Y");
+      $created = $node->get('created')->value;
+      $form['#attached']['library'][] = 'liberty_form/liberty-css';
+      $form['actions']['delete']['#title'] = 'Eliminar campaña';
+      if (strtotime($fecha_actual . "- 6 month") < $created) {
+        $form['actions']['delete']['#attributes']['class'][] = 'nodisplay';
+      }
+    }
+    $form['moderation_state']['widget'][0]['state']['#options']['default'] = "Seleccione una opción";
+    $form['moderation_state']['widget'][0]['state']['#default_value'] = 'default';
+  }
+
+  if ($form_id === "node_campaign_form") {
+    $form['#attached']['library'][] = 'liberty_form/liberty-validations-campaing-form';
+  }
+
+  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+      case 'prod':
+        if ($form_id === "webform_submission_call_center__node_55666_add_form") {
+          $form['#attributes']['id'][] = 'webform_submission_call_center';
+          $form['actions']['submit_cancel'] = [
+            '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
+            '#suffix' => '</a>',
+          ];
+
+          if ($cookie_type_id = \Drupal::request()->cookies->get('type_id')) {
+            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
+
+            switch ($cookie_type_id) {
+              case 1:
+                $document_type = 'Cedula de ciudadania';
+                break;
+
+              case 2:
+                $document_type = 'Cedula de extranjeria';
+                break;
+
+              case 3:
+                $document_type = 'Pasaporte';
+                break;
+
+              default:
+                $document_type = '';
+            }
+
+            if ($cookie_user_id = \Drupal::request()->cookies->get('user_id')) {
+              $form['elements']['id_type']['#value'] = $document_type;
+              $form['elements']['id_number']['#value'] = $cookie_user_id;
+              $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
+              $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
+            }
+          }
+
+          else {
+            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
+          }
+          $form['#attached']['drupalSettings']['enviroment'] = 'prod';
+        }
+        break;
+
+      default:
+        if ($form_id === "webform_submission_call_center__node_6211_add_form") {
+          $form['#attributes']['id'][] = 'webform_submission_call_center';
+
+          $form['actions']['submit_cancel'] = [
+            '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
+            '#suffix' => '</a>',
+          ];
+
+          if ($type_id_cookie = \Drupal::request()->cookies->get('type_id')) {
+            if ($user_id_cookie = \Drupal::request()->cookies->get('user_id')) {
+              $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
+
+              switch ($type_id_cookie) {
+                case 1:
+                  $document_type = 'Cedula de ciudadania';
+                  break;
+
+                case 2:
+                  $document_type = 'Cedula de extranjeria';
+                  break;
+
+                case 3:
+                  $document_type = 'Pasaporte';
+                  break;
+
+                default:
+                  $document_type = '';
+              }
+
+              $form['elements']['id_type']['#value'] = $document_type;
+              $form['elements']['id_number']['#value'] = $user_id_cookie;
+              $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
+              $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
+            }
+          }
+
+          else {
+            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
+          }
+        }
+        break;
+    }
+  }
+  else {
+    if ($form_id === "webform_submission_call_center__node_6211_add_form") {
+      $form['#attributes']['id'][] = 'webform_submission_call_center';
+
+      $form['actions']['submit_cancel'] = [
+        '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
+        '#suffix' => '</a>',
+      ];
+
+      if ($type_id = \Drupal::request()->cookies->get('type_id')) {
+        $user_id = \Drupal::request()->cookies->get('user_id');
+
+        if ($type_id == 1) {
+          $document_type = 'Cedula de ciudadania';
+        }
+        elseif ($type_id == 2) {
+          $document_type = 'Cedula de extranjeria';
+        }
+        elseif ($type_id == 3) {
+          $document_type = 'Pasaporte';
+        }
+        else {
+          $document_type = '';
+        }
+
+        $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
+        $form['elements']['id_type']['#value'] = $document_type;
+        $form['elements']['id_number']['#value'] = $user_id;
+        $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
+        $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
+      }
+      else {
+        $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
+      }
+
+    }
+  }
+
+  switch ($form_id) {
+    case 'LibertyDocumentValidationForm':
+
+      $path = \Drupal::request()->getpathInfo();
+      $arg = explode('/', $path);
+      if (isset($arg[3])) {
+        $node_id = $arg[3];
+        if (isset($form['elements']['nom'])) {
+          $form['id_campaign']['#default_value'] = $node_id;
+
+        }
+      }
+      break;
+
+    case 'node_campaign_form':
+
+      $form['field_sponsor']['widget']['#ajax'] = [
+        'event' => 'change',
+        'callback' => 'setGAURL',
+        'wrapper' => 'edit-field-link-de-google-analytics-wrapper',
+        'progress' => [
+          'type' => 'throbber',
+          'message' => t('Verifying entry...'),
+        ],
+      ];
+      if ($form['field_cover']) {
+        $items = $form['field_cover']['widget'][0]['subform']['field_cover_caracteristic']['widget'];
+        $items['#max_delta'] = 4;
+        $form['#attached']['library'][] = 'liberty_form/cover-caracteristic';
+      }
+      break;
+  }
+
+}
+
+/**
+ * Liberty form preprocess region.
+ */
+function liberty_form_preprocess_region(&$variables) {
+  $requestStack = \Drupal::requestStack();
+  if (!\Drupal::request()->cookies->get('dmVyaWZpY')) {
+    setcookie('dmVyaWZpY', "c2kgdGllbmU", time() + 3600, '/');
+  }
+
+  $path = \Drupal::request()->getpathInfo();
+  $arg = explode('/', $path);
+  if (isset($arg[3])) {
+    $node_id = $arg[3];
+  }
+  else {
+    if (isset($arg[2])) {
+      $node_id = $arg[2];
+    }
+  }
+
+  if (isset($arg[3]) && $arg[3] == "login") {
+    if (!(end($arg) == "login")) {
+      $node_id = end($arg);
+      if (isset($node_id)) {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+        if ($node->getType() == "campaign") {
+          if ($node->get('field_monitored')->getValue()) {
+            if ($node->hasField('field_monitored_page') && !$node->get('field_monitored_page')->isEmpty()) {
+              $field_values = $node->get('field_monitored_page')->getValue();
+              if (!empty($field_values[0]['uri'])) {
+                $variables['url_vigilado_privado'] = $field_values[0]['uri'];
+              }
+              else {
+                $variables['url_vigilado_privado'] = '';
+              }
+            }
+            else {
+              $variables['url_vigilado_privado'] = '';
+            }
+
+            $furi = $node->get('field_monitored')->entity->getFileUri();
+            $furi = file_create_url($furi);
+            $variables['logo_vigilado_privado'] = $furi;
+          }
+          $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
+          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+          $media_field = $term->get('field_logo')->entity->getFileUri();
+          $media_field = file_create_url($media_field);
+          $variables['url_logo_header'] = $media_field;
+        }
+      }
+    }
+
+  }
+  elseif (isset($arg[3]) && $arg[3] == "polizas") {
+    $node_id = end($arg);
+    if (isset($node_id)) {
+      $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+      $node = $node_storage->load($node_id);
+      if ($node->getType() == "campaign") {
+        if ($node->get('field_monitored')->getValue()) {
+          if ($node->hasField('field_monitored_page') && !$node->get('field_monitored_page')->isEmpty()) {
+            $field_values = $node->get('field_monitored_page')->getValue();
+            if (!empty($field_values[0]['uri'])) {
+              $variables['url_vigilado_privado'] = $field_values[0]['uri'];
+            }
+            else {
+              $variables['url_vigilado_privado'] = '';
+            }
+          }
+          else {
+            $variables['url_vigilado_privado'] = '';
+          }
+          $furi = $node->get('field_monitored')->entity->getFileUri();
+          $furi = file_create_url($furi);
+          $variables['logo_vigilado_privado'] = $furi;
+        }
+        $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+        $media_field = $term->get('field_logo')->entity->getFileUri();
+        $media_field = file_create_url($media_field);
+        $variables['url_logo_header'] = $media_field;
+      }
+    }
+  }
+
+  if (isset($arg[2])) {
+    if ($arg[2] == "welcome") {
+      if (isset($node_id)) {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+        if ($node->getType() == "campaign") {
+          if ($node->get('field_monitored')->getValue()) {
+            $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
+            $furi = $node->get('field_monitored')->entity->getFileUri();
+            $furi = file_create_url($furi);
+            $variables['logo_vigilado_privado'] = $furi;
+          }
+          $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
+          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+          $media_field = $term->get('field_logo')->entity->getFileUri();
+          $media_field = file_create_url($media_field);
+          $variables['url_logo_header'] = $media_field;
+        }
+      }
+      $tempstore = \Drupal::service('tempstore.private')->get('LibertySession');
+      $some_data = $tempstore->get('landingaccess');
+      $landing_access = $some_data ?? NULL;
+
+      if ($landing_access === $node_id) {
+        $options = ['absolute' => TRUE];
+        $node = Url::fromRoute('entity.node.canonical', ['node' => $node_id], $options);
+        $response = new RedirectResponse($node->toString());
+        $response->send();
+      }
+    }
+    elseif ($arg[1] == "welcome") {
+
+      if (isset($node_id)) {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+
+        $tid = $node->get('field_sponsor')->getValue()[0]['target_id'];
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+        $term_name = $term->get('name')->getValue()[0]['value'];
+        $term_name_replace = str_replace(" ", "_", $term_name);
+
+        header("Location: /es/" . $term_name_replace . "/login/" . $node_id, TRUE, 301);
+        exit();
+
+      }
+      $tempstore = \Drupal::service('tempstore.private')->get('LibertySession');
+      $some_data = $tempstore->get('landingaccess');
+      $landing_access = $some_data ?? NULL;
+
+      if ($landing_access === $node_id) {
+        $options = ['absolute' => TRUE];
+        $node = Url::fromRoute('entity.node.canonical', ['node' => $node_id], $options);
+        $response = new RedirectResponse($node->toString());
+        $response->send();
+      }
+    }
+    elseif (end($arg) == "formulario") {
+      // Verifica si el valor 'nid' está presente en la solicitud actual.
+      $request = $requestStack->getCurrentRequest();
+      $nid = $request->get('nid') ?? FALSE;
+      if (isset($nid)) {
+        if ($nid) {
+          $node_id = base64_decode($nid);
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+          if ($node && $node->getType() == "campaign") {
+            $field_monitored = $node->get('field_monitored')->entity;
+            if ($field_monitored) {
+              $furi = $field_monitored->getFileUri();
+              $furi = file_create_url($furi);
+              $variables['logo_vigilado_privado'] = $furi;
+              if ($node->hasField('field_monitored_page') && !$node->get('field_monitored_page')->isEmpty()) {
+                $url = $node->get('field_monitored_page')->getValue();
+                $variables['url_vigilado_privado'] = $url[0]['uri'];
+              }
+              else {
+                $variables['url_vigilado_privado'] = '';
+              }
+
+            }
+
+            $sponsor_id = $node->get('field_sponsor')->target_id;
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+            if ($term) {
+              $media_field = $term->get('field_logo')->entity;
+              if ($media_field) {
+                $media_uri = $media_field->getFileUri();
+                $media_url = file_create_url($media_uri);
+                $variables['url_logo_header'] = $media_url;
+              }
+            }
+
+            $variables['#attached']['drupalSettings']['sponsors']['value'] = $sponsor_id;
+            $campaign_tax = $node->get('field_campaing_tax')->target_id;
+            $variables['#attached']['drupalSettings']['ramo']['value'] = $campaign_tax;
+          }
+        }
+      }
+      else {
+        // $response = new RedirectResponse("/");
+        // $response->send();
+      }
+    }
+    elseif (end($arg) == "formulario") {
+      $request = $requestStack->getCurrentRequest();
+      if ($request) {
+        $cookieValue = $request->cookies->get('dmVyaWZpY');
+
+        if ($cookieValue === NULL) {
+          header('Location: /not-access');
+          exit;
+        }
+      }
+
+      $request = $requestStack->getCurrentRequest();
+      $nid = $request->get('nid') ?? FALSE;
+      if (isset($nid)) {
+        if ($nid) {
+          $node_id = base64_decode($nid);
+          $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+          $node = $node_storage->load($node_id);
+
+          if ($node && $node->getType() == "campaign") {
+            $field_monitored = $node->get('field_monitored')->entity;
+
+            if ($field_monitored) {
+              $furi = $field_monitored->getFileUri();
+              $furi = file_create_url($furi);
+              $variables['logo_vigilado_privado'] = $furi;
+
+              $field_monitored_page = $node->get('field_monitored_page')->first();
+              if ($field_monitored_page) {
+                $variables['url_vigilado_privado'] = $field_monitored_page->toUrl()->toString();
+              }
+            }
+
+            $field_sponsor = $node->get('field_sponsor')->first();
+            if ($field_sponsor) {
+              $sponsor_id = $field_sponsor->target_id;
+              $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+
+              if ($term) {
+                $media_field = $term->get('field_logo')->entity;
+                if ($media_field) {
+                  $media_uri = $media_field->getFileUri();
+                  $media_url = file_create_url($media_uri);
+                  $variables['url_logo_header'] = $media_url;
+                }
+              }
+
+              $variables['#attached']['drupalSettings']['sponsors']['value'] = $sponsor_id;
+            }
+
+            $campaign_tax = $node->get('field_campaing_tax')->first();
+            if ($campaign_tax) {
+              $variables['#attached']['drupalSettings']['ramo']['value'] = $campaign_tax->target_id;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/**
+ * Import csv.
+ */
+function liberty_form_import_customers_csv($item, &$context) {
+
+  $message = 'Importando todos los cientes ...';
+  $context['sandbox']['current_item'] = $item;
+  $context['message'] = $message;
+  $context['message'] = $message;
+  $context['results'][] = $item;
+
+}
+
+/**
+ * Send sms.
+ */
+function liberty_form_sending_sms($item, &$context) {
+
+  $message = 'Enviando mensajes de texto a clientes. Esto puede tomar mucho tiempo, por favor no cierre esta página ni abandone el proceso ...';
+  $context['sandbox']['current_item'] = $item;
+  $context['message'] = $message;
+  $context['message'] = $message;
+  $context['results'][] = $item;
+
+}
+
+/**
+ * Form alter.
+ */
+function liberty_form_form_libertydocumentvalidationform_alter(&$form, &$form_state, $form_id) {
+  $form['identification_type']['#attributes']['class'][] = 'item_label_background';
+}
+
+/**
+ * Liberty form cron.
+ */
+function liberty_form_cron() {
+  $config = \Drupal::config('liberty_form.dwh');
+  if ($config) {
+    $user_sftp = $config->get('user_sftp');
+    $port_sftp = $config->get('port_sftp');
+    $path_sftp = $config->get('path_sftp');
+    $host_sftp = $config->get('host_sftp');
+    $sftp = new SFTP($host_sftp, $port_sftp);
+    $hoy = date("Y-m-d H:i:s");
+
+    // Crea la carpeta si no existe para guardar el csv y le aplica permiso.
+    $estructura = 'public://content/csv_dwh';
+    if (!file_exists($estructura)) {
+      mkdir($estructura, 0777, TRUE);
+    }
+
+    // Crea el archivo csv  con la fecha y hora en la genera el archivo y
+    // le aplica permisos.
+    $ruta = 'public://content/csv_dwh/landingsponsor.csv';
+    $file_handle = fopen($ruta, 'w');
+    fclose($file_handle);
+
+    // Traemos la data del webform asignado.
+    $webform = Webform::load('call_center_');
+    if ($webform->hasSubmissions()) {
+      $query = \Drupal::entityQuery('webform_submission')
+        ->condition('webform_id', 'call_center_');
+      // ->condition('send_email', false);
+      $query->accessCheck(FALSE);
+      $result = $query->execute();
+      $count = 1;
+      $submission_data2 = [];
+      $submission_data2[0] = [
+        "Pais",
+        "NombreSponsor",
+        "Clavenegocio",
+        "Ramo",
+        'Campana',
+        'Tipodocumento',
+        'Numerodocumento',
+        'Nombres',
+        'Apellido',
+        'Correoelectronico',
+        'Telefono',
+        'Ciudad',
+        'Placa',
+        'Fechanacimiento',
+        'Genero',
+        'Origeningreso',
+        'Fechadiligenciamientoformulario',
+        'Consecutivo',
+        'Habeasdata',
+      ];
+
+      foreach ($result as $key => $item) {
+        $array_single = [];
+        $submission = WebformSubmission::load($item);
+        $submission_data = $submission->getData();
+        $send_email = $submission_data['send_email'];
+
+        if ($send_email == FALSE) {
+          // Load submission.
+          $webform_submission = WebformSubmission::load($item);
+          // Get submission data.
+          $data = $webform_submission->getData();
+          // Change submission data.
+          $data['send_email'] = TRUE;
+          // Set submission data.
+          $webform_submission->setData($data);
+          // Save submission.
+          $webform_submission->save();
+
+          // Variables del webform.
+          if (isset($submission_data['id_number'])) {
+            $id_identification = $submission_data['id_number'];
+          }
+          else {
+            $id_identification = "";
+          }
+          if (isset($submission_data['campana'])) {
+            $campanas = $submission_data['campana'];
+          }
+          else {
+            $campanas = "";
+          }
+          if (isset($submission_data['id_type'])) {
+            $id_type = $submission_data['id_type'];
+          }
+          else {
+            $id_type = "";
+          }
+          if (isset($submission_data['id_number'])) {
+            $id_number = $submission_data['id_number'];
+          }
+          else {
+            $id_number = "";
+          }
+          if (isset($submission_data['name'])) {
+            $name = $submission_data['name'];
+          }
+          else {
+            $name = "";
+          }
+          if (isset($submission_data['last_name'])) {
+            $last_name = $submission_data['last_name'];
+          }
+          else {
+            $last_name = "";
+          }
+          if (isset($submission_data['email'])) {
+            $email = $submission_data['email'];
+          }
+          else {
+            $email = "";
+          }
+          if (isset($submission_data['phone'])) {
+            $phone = $submission_data['phone'];
+          }
+          else {
+            $phone = "";
+          }
+          if (isset($submission_data['placa'])) {
+            $placa = $submission_data['placa'];
+          }
+          else {
+            $placa = "";
+          }
+
+          if (isset($submission_data['url_landing'])) {
+            $url_landing = $submission_data['url_landing'];
+          }
+          else {
+            $url_landing = "";
+          }
+
+          $url_landing_node = explode("/", $url_landing);
+          $url_landing_node = end($url_landing_node);
+          $country_campaign = "";
+          $business_key_campaign = "";
+          if ($url_landing_node) {
+            $node_campaign = \Drupal::entityTypeManager()->getStorage('node')->load($url_landing_node);
+            $country_campaign = $node_campaign->get('field_campaign_country')->getValue()[0]['value'];
+            $business_key_campaign = $node_campaign->get('field_business_key')->getValue()[0]['value'];
+
+            $created_sunmission = date("Y-m-d H:i:s", $submission->get('created')->getValue()[0]['value']);
+            if (isset($submission_data['sponsor'])) {
+              $term_name_sponsor = Term::load($submission_data['sponsor'])->get('name')->value;
+            }
+            else {
+              $term_name_sponsor = "";
+            }
+            if (isset($submission_data['ramo'])) {
+              $term_name_ramo = Term::load($submission_data['ramo'])->get('name')->value;
+            }
+            else {
+              $term_name_ramo = "";
+            }
+
+            $query_customer = \Drupal::entityQuery('node')
+              ->condition('type', 'customer')
+              ->condition('field_id_number', $id_identification);
+            $results_customer = $query_customer->execute();
+            $count_customer = count($results_customer);
+
+            $country_campaign = strtoupper($country_campaign);
+            $term_name_sponsor = strtoupper($term_name_sponsor);
+
+            if ($id_type == "Cédula de ciudadanía") {
+              $id_type = "Cedula de ciudadania";
+            }
+            elseif ($id_type == "Cedula de extranjeria") {
+              $id_type = "Cédula de extranjería";
+            }
+
+            if ($count_customer !== 0) {
+              foreach ($results_customer as $key => $item_customer) {
+                $entity = \Drupal::entityTypeManager()->getStorage('node')->load($item_customer);
+                $field_bussiness_key = $entity->get('field_bussiness_key')->getValue()[0]['value'];
+                $field_city = $entity->get('field_city')->getValue()[0]['value'];
+                $field_birth_day = $entity->get('field_birth_day')->getValue()[0]['value'];
+                $field_gender = $entity->get('field_gender')->getValue()[0]['value'];
+              }
+              array_push($array_single, $country_campaign, $term_name_sponsor, $field_bussiness_key, $term_name_ramo, $campanas, $id_type, $id_number, $name, $last_name, $email, $phone, $field_city, $placa, $field_birth_day, $field_gender, "Url Enviada Por Correo", $created_sunmission, $item, 'TRUE');
+
+            }
+            else {
+              array_push($array_single, $country_campaign, $term_name_sponsor, $business_key_campaign, $term_name_ramo, $campanas, $id_type, $id_number, $name, $last_name, $email, $phone, "", $placa, "", "", "Ingreso Url Publica", $created_sunmission, $item, 'TRUE');
+            }
+
+            $submission_data2[$count] = $array_single;
+            $count++;
+
+          }
+
+        }
+
+        $delimitador = ';';
+        $encapsulador = '"';
+
+        $file_handle = fopen($ruta, 'w');
+        foreach ($submission_data2 as $linea) {
+          fputcsv($file_handle, $linea, $delimitador, $encapsulador);
+        }
+        rewind($file_handle);
+        fclose($file_handle);
+      }
+      $key = new RSA();
+      if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+        $key->loadKey(file_get_contents(__DIR__ . '/key_dwh/id_rsa'));
+      }
+      else {
+        $key->loadKey(file_get_contents(__DIR__ . '/key_dwh/id_rsa_ambiente_desarrollo'));
+      }
+
+      // Conecta al servidor y deja el archivo en el path predeterminado.
+      if (!$sftp->login($user_sftp, $key)) {
+        \Drupal::logger('SFTP DWH')->error($sftp->getLastSFTPError());
+        \Drupal::logger('SFTP DWH')->error('Login error SFTP.');
+
+      }
+      else {
+        \Drupal::logger('SFTP DWH')->notice('Login success SFTP.');
+        $data = file_get_contents($ruta);
+
+        if (!$sftp->put($path_sftp . 'landingsponsorEC_' . $hoy . '.csv', $data)) {
+          \Drupal::logger('SFTP DWH')->error($sftp->getLastSFTPError());
+        }
+
+        \Drupal::logger('SFTP DWH')->notice('Carga Completada archivo CSV DWH');
+      }
+    }
+
+  }
+}
+
+/**
+ * Liberty form node update.
+ */
+function liberty_form_node_update(EntityInterface $entity) {
+
+  if ($entity->getType() === 'campaign') {
+    // Variables vip.
+    $config = \Drupal::config('liberty_form.vip');
+    $variable_get_name = $config->get('variable_get_name');
+    $variable_get_value = $config->get('variable_get_value');
+
+    $sponsor_id = $entity->field_sponsor[0]->target_id;
+    $ramo_id = $entity->field_campaing_tax[0]->target_id;
+    $query = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+    $sponsor = $query->name->value;
+    $query2 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($ramo_id);
+    $ramo = $query2->name->value;
+    $private_status = $entity->field_private->value;
+    $term_name_sponsor = str_replace(" ", "_", $sponsor);
+
+    if ($private_status === 1) {
+      $private = 'privada';
+    }
+    else {
+      $private = 'publica';
+    }
+    $nid = $entity->nid[0]->value;
+    $host = \Drupal::request()->getSchemeAndHttpHost();
+    $gaurl = "$host/node/$nid/?utm_source=$ramo&utm_medium=$private&utm_campaign=$term_name_sponsor";
+    $gaurl2 = "$host/node/$nid/?$variable_get_name=$variable_get_value&utm_source=$ramo&utm_medium=$private&utm_campaign=$term_name_sponsor";
+    $prev_url = $entity->field_url_google_analitics->value;
+    $prev_url2 = $entity->field_url_vip->value;
+    $con = \Drupal::database();
+    if (empty($prev_url2)) {
+      $con->insert('node__field_url_vip')->fields([
+        'bundle',
+        'entity_id',
+        'revision_id',
+        'field_url_vip_value',
+        'delta',
+        'langcode',
+      ])->values([
+        'bundle' => 'campaign',
+        'entity_id' => $nid,
+        'revision_id' => $nid + 1,
+        'field_url_vip_value' => $gaurl2,
+        'delta' => 0,
+        'langcode' => 'es',
+      ])->execute();
+
+    }
+    else {
+      $con->update('node__field_url_vip')->fields([
+        'field_url_vip_value' => $gaurl2,
+      ])->condition('entity_id', $nid)->execute();
+    }
+
+    if (empty($prev_url)) {
+      $con->insert('node__field_url_google_analitics')->fields([
+        'bundle',
+        'entity_id',
+        'revision_id',
+        'field_url_google_analitics_value',
+        'delta',
+        'langcode',
+      ])->values([
+        'bundle' => 'campaign',
+        'entity_id' => $nid,
+        'revision_id' => $nid + 1,
+        'field_url_google_analitics_value' => $gaurl,
+        'delta' => 0,
+        'langcode' => 'es',
+      ])->execute();
+
+    }
+    else {
+      $con->update('node__field_url_google_analitics')->fields([
+        'field_url_google_analitics_value' => $gaurl,
+      ])->condition('entity_id', $nid)->execute();
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function liberty_form_node_insert(EntityInterface $entity) {
+
+  if ($entity->getType() === 'campaign') {
+    // Variables vip.
+    $config = \Drupal::config('liberty_form.vip');
+    $variable_get_name = $config->get('variable_get_name');
+    $variable_get_value = $config->get('variable_get_value');
+
+    $sponsor_id = $entity->field_sponsor[0]->target_id;
+    $ramo_id = $entity->field_campaing_tax[0]->target_id;
+    $query = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
+    $sponsor = $query->name->value;
+    $query2 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($ramo_id);
+    $ramo = $query2->name->value;
+    $private_status = $entity->field_private->value;
+    if ($private_status === 1) {
+      $private = 'privada';
+    }
+    else {
+      $private = 'publica';
+    }
+    $nid = $entity->nid[0]->value;
+    $host = \Drupal::request()->getSchemeAndHttpHost();
+    $gaurl = "$host/node/$nid/?utm_source=$ramo&utm_medium=$private&utm_campaign=$sponsor";
+    $gaurl2 = "$host/node/$nid/?$variable_get_name=$variable_get_value&utm_source=$ramo&utm_medium=$private&utm_campaign=$sponsor";
+    $con = \Drupal::database();
+    $con->insert('node__field_url_google_analitics')->fields([
+      'bundle',
+      'entity_id',
+      'revision_id',
+      'field_url_google_analitics_value',
+      'delta',
+      'langcode',
+    ])->values([
+      'bundle' => 'campaign',
+      'entity_id' => $nid,
+      'revision_id' => $nid + 1,
+      'field_url_google_analitics_value' => $gaurl,
+      'delta' => 0,
+      'langcode' => 'es',
+    ])->execute();
+
+    $con->insert('node__field_url_vip')->fields([
+      'bundle',
+      'entity_id',
+      'revision_id',
+      'field_url_vip_value',
+      'delta',
+      'langcode',
+    ])->values([
+      'bundle' => 'campaign',
+      'entity_id' => $nid,
+      'revision_id' => $nid + 1,
+      'field_url_vip_value' => $gaurl2,
+      'delta' => 0,
+      'langcode' => 'es',
+    ])->execute();
+  }
+
+}
+
+/**
+ * Implements hook_webform_third_party_settings_form_alter().
+ */
+function liberty_form_webform_third_party_settings_form_alter(&$form, &$form_state, $form_id) {
+
+  // Define max input params or get for configuration previously created.
+  $max_input_params = 15;
+
+  // Cargar la entidad actual del formulario web y su configuración de terceros.
+  $webform = $form_state->getFormObject()->getEntity();
+  $third_party_settings = $webform->getThirdPartySettings('api_settings');
+
+  $form['third_party_settings']['api_settings']['params'] = [
+    '#type' => 'fieldset',
+    '#title' => t('API parameters mapping'),
+    '#weight' => 3,
+  ];
+
+  for ($i = 1; $i <= $max_input_params; $i++) {
+    $form['third_party_settings']['api_settings']['params']['param' . $i] = [
+      '#type' => 'fieldset',
+      '#title' => t('Parameter %i', ['%i' => $i]),
+    ];
+
+    $form['third_party_settings']['api_settings']['params']['param' . $i]['ws_param_webform_field'] = [
+      '#type' => 'textfield',
+      '#title' => t('Webform field machine name'),
+      '#default_value' => $third_party_settings['params']['param' . $i]['ws_param_webform_field'] ?? '',
+      '#maxlength' => 255,
+    ];
+
+    $form['third_party_settings']['api_settings']['params']['param' . $i]['ws_param_ws_parameter'] = [
+      '#type' => 'textfield',
+      '#title' => t('API service parameter name'),
+      '#default_value' => $third_party_settings['params']['param' . $i]['ws_param_ws_parameter'] ?? '',
+      '#maxlength' => 255,
+    ];
+
+  }
+}
+
+/**
+ * Implements hook_webform_submission_form_alter().
+ */
+function liberty_form_webform_submission_form_alter(&$form, &$form_state, $form_id) {
+
+  $third_party_settings = \Drupal::config('liberty_form.KeyApiMarketingCloud');
+
+  if (isset($third_party_settings) && !empty($third_party_settings)) {
+    $form['actions']['submit']['#submit'][0] = "_liberty_form_webform_submission_form_submit";
+    $form['actions']['submit']['#submit'][1] = "::save";
+    $form['actions']['submit']['#submit'][2] = "::confirmForm";
+
+  }
+
+}
+
+/**
+ * Send API call in custom submit.
+ */
+function _liberty_form_webform_submission_form_submit(array &$form, FormStateInterface &$form_state) {
+  $requestStack = \Drupal::requestStack();
+
+  // $form['actions']['submit']['#submit'] = "::confirmForm";
+  // Cargar la entidad actual del formulario web y su configuración de terceros.
+  $webform = Drupal::entityTypeManager()->getStorage('webform')->load($form['#webform_id']);
+  $third_party_settings = $webform->getThirdPartySettings('api_settings');
+
+  // Set and format input parameters.
+  $values = $form_state->getValues();
+
+  // Variables conexion api mk.
+  $config = \Drupal::config('liberty_form.KeyApiMarketingCloud');
+  $api_service_url = $config->get('variable_get_key');
+  $api_service_auth = $config->get('variable_get_key_auth');
+  $api_client_id = $config->get('api_client_id');
+  $api_client_secret = $config->get('api_service_auth');
+  $api_service_params = [];
+  // kint($values);
+  foreach ($third_party_settings['params'] as $param) {
+    $api_service_params[$param['ws_param_ws_parameter']] = $values[$param['ws_param_webform_field']];
+  }
+
+  $data = [
+    "grant_type" => "client_credentials",
+    "client_id" => $api_client_id,
+    "client_secret" => $api_client_secret,
+    "account_id" => "518002376",
+  ];
+  $access_token = "";
+  $ch = curl_init("https://" . $api_service_auth);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  if (!$response) {
+    \Drupal::logger('liberty_form')->error($response);
+  }
+  else {
+    \Drupal::logger('liberty_form')->notice("Conexión exitosa con la api");
+    $resultado = json_decode($response);
+    foreach ($resultado as $key => $value) {
+      if ($key == "access_token") {
+        $access_token = $value;
+      }
+    }
+  }
+
+  // Verifica si tiene cedula la sesion creada.
+  $tempstorenumber = \Drupal::service('tempstore.private')->get('LibertySessionNumber');
+  if (isset($tempstorenumber)) {
+    $identification_number = $tempstorenumber->get('LibertySessionNumber');
+  }
+
+  $path = \Drupal::request()->getpathInfo();
+  $arg = explode('/', $path);
+  if (end($arg) == "formulario") {
+
+    $request = $requestStack->getCurrentRequest();
+    $nid = $request->get('nid') ?? FALSE;
+    if (isset($nid)) {
+      if ($nid) {
+        $node_id = base64_decode($nid);
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $node = $node_storage->load($node_id);
+        if ($node) {
+          $correo = $node->get('field_mail_call_center')->getString();
+          $campaign_country = $node->get('field_campaign_country')->first();
+          $pais = $campaign_country ? $campaign_country->value : NULL;
+          $business_key = $node->get('field_business_key')->first();
+          $field_business_key = $business_key ? $business_key->value : NULL;
+        }
+      }
+    }
+
+  }
+
+  // Trae la informacion del usuario si existe.
+  if (isset($identification_number)) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'customer')
+      ->condition('field_id_number', $identification_number);
+    $results_customer = $query->execute();
+    foreach ($results_customer as $key => $item_customer) {
+      $entity = \Drupal::entityTypeManager()->getStorage('node')->load($item_customer);
+      $field_city = $entity->get('field_city')->getValue()[0]['value'];
+      $field_birth_day = $entity->get('field_birth_day')->getValue()[0]['value'];
+      $field_gender = $entity->get('field_gender')->getValue()[0]['value'];
+      $origen_ingreso = "Url Enviada";
+
+    }
+  }
+  else {
+    $field_city = '';
+    $field_birth_day = '';
+    $field_gender = '';
+    $origen_ingreso = "Url Publica";
+  }
+
+  // kint($api_service_params['sponsor']);
+  // trae los nombres de las taxonomy.
+  $term_name_sponsor1 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($api_service_params['sponsor'])->name->value;
+  $term_name_ramo = Term::load($api_service_params['ramo'])->name->value;
+
+  // Fecha actual.
+  $hoy = date("d/m/Y");
+  $data4 = [];
+  // kint($correo);
+  foreach ($correo as $valor) {
+    // kint($valor);
+    array_push($data4, [
+      "contactKey" => $api_service_params['id_type'] . $api_service_params['id_number'],
+      "to" => $valor['value'],
+      "attributes" => [
+        "NombreSponsor" => $term_name_sponsor1,
+        "NumeroDocumentoCliente" => $api_service_params['id_number'],
+        "NumeroRequerimiento" => $api_service_params['id_rand'],
+        "Pais" => $pais ? strtoupper($pais) : "",
+        "ClaveNegocio" => $field_business_key ? $field_business_key : "",
+        "Ramo" => strtoupper($term_name_ramo),
+        "Campaña" => $api_service_params['campana'],
+        "TipoDocumentoCliente" => $api_service_params['id_type'],
+        "NombresCliente" => $api_service_params['name'],
+        "ApellidosCliente" => $api_service_params['last_name'],
+        "CorreoelectronicoCliente" => $api_service_params['email'],
+        "TelefonoCliente" => $api_service_params['phone'],
+        "Ciudad" => $field_city ? $field_city : "",
+        "Placa" => $api_service_params['placa'],
+        "FechaNacimientoCliente" => $field_birth_day ? $field_birth_day : "",
+        "Genero" => $field_gender ? $field_gender : "",
+        "OrigenIngreso" => $origen_ingreso ? $origen_ingreso : "",
+        "FechaDiligenciaFormulario" => $hoy,
+      ],
+    ]);
+  }
+
+  $data2 = [
+    "definitionKey" => "65b885ab-c2b4-46fe-85d0-d6cb8be-2202",
+    "recipients" => $data4,
+  ];
+
+  $data3 = json_encode($data2);
+
+  // \Drupal::logger('liberty_form')->notice('json =>'. $data3);
+  // Send json for mail sending
+  // url contra la que atacamos
+  $ch = curl_init("https://" . $api_service_url . "messaging/v1/email/messages/");
+  // A true, obtendremos una respuesta de la url, en otro caso,
+  // true si es correcto, false si no lo es.
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  // Establecemos el verbo http que queremos utilizar para la petición.
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+  $headers = [
+    'Content-type: application/json',
+    'Authorization: Bearer ' . $access_token,
+  ];
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  // Enviamos el array data.
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data3);
+  // Obtenemos la respuesta.
+  $response = curl_exec($ch);
+
+  // Se cierra el recurso CURL y se liberan los recursos del sistema
+  // curl_close($ch);
+  $resultado = json_decode($response, TRUE);
+
+  if (isset($resultado['responses'])) {
+    foreach ($resultado['responses'] as $valor) {
+
+      if (isset($valor)) {
+        \Drupal::logger('liberty_form')->notice("Envio exitoso");
+      }
+      else {
+        \Drupal::logger('liberty_form')->error($resultado);
+      }
+
+    }
+  }
+
+}
+
+/**
+ * Implements hook_filter_info().
+ */
+function liberty_form_filter_info() {
+  $filters = [];
+
+  $filters['kill_nbsp'] = [
+    'title' => t('Kill Non-Breaking Spaces'),
+    'description' => t('Remove non-breaking spaces.'),
+    'process callback' => '_liberty_form_filters_kill_nbsp',
+    'tips callback' => '_liberty_form_filters_kill_nbsp_tips',
+  ];
+
+  return $filters;
+}
+
+/**
+ * Filter callbacks.
+ */
+function _liberty_form_filters_kill_nbsp($text, $filter) {
+  return preg_replace('/&nbsp;/', ' ', $text);
+}
+
+/**
+ * Filter tips.
+ */
+function _liberty_form_filters_kill_nbsp_tips($filter, $format, $long = FALSE) {
+  if (!$long) {
+    // This string will be shown in the content add/edit form.
+    return t("Don\'t use non-breaking spaces.  Ever.");
+  }
+  else {
+    // And this one on the "Filter Tips" page.
+    return t('Non-breaking spaces are evil and will be eradicated.');
+  }
+}
+
+/**
+ * Preprocess node.
+ */
+function liberty_form_preprocess_node(&$variables) {
+  $requestStack = \Drupal::requestStack();
+
+  $nid = $variables['node']->id();
+  $nodeType = $variables['node']->getType();
+  $variables['#cache']['max-age'] = 0;
+
+  switch ($nodeType) {
+    case 'campaign':
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+      $tid = $node->get('field_sponsor')->getValue()[0]['target_id'];
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+      $term_name = $term->get('name')->getValue()[0]['value'];
+      $_SESSION["term_name"] = $term_name;
+
+      $term_name_replace = str_replace(" ", "_", $term_name);
+
+      PathAlias::create([
+        'path' => "/welcome/" . $nid,
+        'alias' => '/' . $term_name_replace . '/login/' . $nid,
+        'langcode' => 'es',
+      ])->save();
+
+      PathAlias::create([
+        'path' => "/welcome/" . $nid,
+        'alias' => '/' . $term_name_replace . '/login/' . $nid,
+        'langcode' => 'en',
+      ])->save();
+
+      PathAlias::create([
+        'path' => "/node/" . $nid,
+        'alias' => '/' . $term_name_replace . '/polizas/' . $nid,
+        'langcode' => 'en',
+      ])->save();
+
+      PathAlias::create([
+        'path' => "/node/" . $nid,
+        'alias' => '/' . $term_name_replace . '/polizas/' . $nid,
+        'langcode' => 'es',
+      ])->save();
+
+      if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == "prod") {
+
+        $path_alias_manager = \Drupal::entityTypeManager()->getStorage('path_alias');
+        $alias_objects = $path_alias_manager->loadByProperties([
+          'alias'     => '/' . $term_name_replace . '/formulario',
+          'langcode' => 'es',
+        ]);
+
+        if (count($alias_objects) > 0) {
+          foreach ($alias_objects as $alias_object) {
+            $alias_object->alias = '/' . $term_name_replace . '/formulario';
+            $alias_object->save();
+          }
+        }
+        else {
+          PathAlias::create([
+            'path' => "/node/55666",
+            'alias' => '/' . $term_name_replace . '/formulario',
+            'langcode' => 'es',
+          ])->save();
+        }
+
+      }
+      else {
+        $path_alias_manager = \Drupal::entityTypeManager()->getStorage('path_alias');
+        $alias_objects = $path_alias_manager->loadByProperties([
+          'alias'     => '/' . $term_name_replace . '/formulario',
+          'langcode' => 'es',
+        ]);
+        if (count($alias_objects) > 0) {
+          foreach ($alias_objects as $alias_object) {
+            $alias_object->alias = '/' . $term_name_replace . '/formulario';
+            $alias_object->save();
+          }
+        }
+        else {
+          PathAlias::create([
+            'path' => "/node/6211",
+            'alias' => '/' . $term_name_replace . '/formulario',
+            'langcode' => 'es',
+          ])->save();
+        }
+      }
+
+      $path = \Drupal::request()->getpathInfo();
+      $arg = explode('/', $path);
+
+      if ($arg[2] == "node") {
+        header("Location: /es/" . $term_name_replace . "/polizas/" . $nid, TRUE, 301);
+        exit();
+      }
+      elseif ($arg[1] == "node") {
+        header("Location: /es/" . $term_name_replace . "/polizas/" . $nid, TRUE, 301);
+        exit();
+      }
+
+      break;
+
+    case 'webform':
+      $nid = 0;
+      $valor_product_token = "";
+
+      $request = $requestStack->getCurrentRequest();
+      $nid = $request->get('nid') ?? FALSE;
+      $valor_product_token = $request->get('valor_product_token') ?? FALSE;
+
+      $term_name = $_SESSION["term_name"];
+      $term_name_replace = str_replace(" ", "_", $term_name);
+
+      $path = \Drupal::request()->getpathInfo();
+      $arg = explode('/', $path);
+
+      if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == "prod") {
+
+        if (end($arg) == "55666") {
+          header("Location: /es/" . $term_name_replace . "/formulario?nid=" . $nid . "&valor_product_token=" . $valor_product_token, TRUE, 301);
+          exit();
+        }
+      }
+      else {
+
+        if (end($arg) == "6211") {
+          header("Location: /es/" . $term_name_replace . "/formulario?nid=" . $nid . "&valor_product_token=" . $valor_product_token, TRUE, 301);
+          exit();
+        }
+      }
+      break;
+  }
+
+}
+
+/**
+ * Liberty form preprocess page.
+ */
+function liberty_form_preprocess_page(&$variables) {
+  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+      case 'prod':
+        $variables['#attached']['drupalSettings']['enviroment'] = 'prod';
+        break;
+    }
+  }
+}

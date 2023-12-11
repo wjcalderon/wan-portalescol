@@ -1,0 +1,16 @@
+style:
+  title: Estilo
+  type: select
+  empty_value: ''
+  options:
+    alpha: Alpha
+    primary: Primario
+    secondary: Secundario
+size:
+  title: Tamaño
+  type: select
+  empty_value: ''
+  options:
+    small: Small
+    medium: Medium
+    large: Large

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Hook and preprocess lib_red_medica.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function lib_red_medica_theme($existing, $type, $theme, $path) {
+  return [
+    'medical_network' => [
+      'render element' => 'elements',
+    ],
+  ];
+}

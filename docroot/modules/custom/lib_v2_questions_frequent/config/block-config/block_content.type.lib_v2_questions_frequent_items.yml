@@ -1,0 +1,8 @@
+uuid: dac579d6-6c45-4b72-84b4-e41f7b6fc3c5
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_questions_frequent_items
+label: Items
+revision: 0
+description: 'Items preguntas frecuentes'

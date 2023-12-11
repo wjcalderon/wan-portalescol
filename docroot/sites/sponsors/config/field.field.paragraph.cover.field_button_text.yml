@@ -1,0 +1,21 @@
+uuid: cee7215b-f2fc-47ce-97f5-9d0e2682eb32
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_text
+    - paragraphs.paragraphs_type.cover
+id: paragraph.cover.field_button_text
+field_name: field_button_text
+entity_type: paragraph
+bundle: cover
+label: 'Texto del botón'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Estoy interesado'
+default_value_callback: ''
+settings: {  }
+field_type: string

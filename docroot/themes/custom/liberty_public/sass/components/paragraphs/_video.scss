@@ -1,0 +1,229 @@
+.component__video {
+  padding: 3rem 0;
+}
+.video-embed-field-responsive-video {
+  position: relative;
+  max-width: 650px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
+  margin-top: 2rem;
+}
+
+.video--wide {
+  .component__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media screen and (min-width: $small-max) {
+      flex-direction: row;
+    }
+  }
+
+  .videoWrapper {
+    flex-basis: 100%;
+    @media screen and (min-width: $small-max) {
+      flex-basis: 50%;
+    }
+  }
+
+  .component__heading {
+    flex-basis: 100%;
+    @media screen and (min-width: $small-max) {
+      flex-basis: 45%;
+    }
+
+    .component__title {
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    .cog--mq {
+      @media screen and (max-width: $small-max) {
+        padding: 0;
+      }
+    }
+
+    .component__title {
+      padding: 0;
+    }
+  }
+
+  &.video--media-right {
+    .component__heading {
+      @media screen and (min-width: $small-max) {
+        padding-right: 3rem;
+      }
+    }
+  }
+
+  &.video--media-left {
+    .component__heading {
+      order: 2;
+      @media screen and (min-width: $small-max) {
+        padding-left: 3rem;
+      }
+    }
+
+    .videoWrapper {
+      order: 1;
+    }
+  }
+}
+
+.videoModalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  background-color: rgba(27, 20, 70, 0.92);
+
+  &.is-open {
+    display: flex;
+  }
+
+  .video-modal {
+    width: 100%;
+  }
+
+  .video-modalContent {
+    position: relative;
+    max-width: 854px;
+    margin: 0 auto;
+
+    .video-embed-field-responsive-video {
+      max-width: 854px;
+    }
+  }
+
+  .videoModalClose {
+    position: absolute;
+    top: -35px;
+    right: 20px;
+    color: white;
+  }
+}
+
+.videoWrapper {
+  a:focus {
+    outline-color: white;
+  }
+  .video-thumbnail {
+    max-width: 680px;
+    margin: 2rem auto;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
+      border-radius: 6px;
+    }
+
+    .video__share {
+      position: absolute;
+      bottom: 7px;
+      right: 0px;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      padding: 1rem 0;
+      box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
+      border-radius: 12px 0 0 0;
+      overflow: hidden;
+      transition: height 0.4s;
+
+      .share__item {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        display: block;
+        padding-bottom: 12px;
+
+        &:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      span {
+        text-indent: -9999px;
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-position: center;
+        margin: 0 auto;
+      }
+
+      .share__link {
+        span {
+          background: url(../images/icons/icon-share.svg) no-repeat;
+          background-position: center;
+        }
+      }
+
+      .share__facebook {
+        span {
+          background: url(../images/icons/icon-share-facebook.svg) no-repeat;
+          background-position: center;
+        }
+      }
+
+      .share__twitter {
+        span {
+          background: url(../images/icons/icon-share-twitter.svg) no-repeat;
+          background-position: center;
+        }
+      }
+
+      .share__linkedin {
+        span {
+          background: url(../images/icons/los-segura/linkedin.svg) no-repeat;
+          background-position: center;
+        }
+      }
+
+      .share__instagram {
+        span {
+          background: url(../images/icons/los-segura/instagram.svg) no-repeat;
+          background-position: center;
+        }
+      }
+
+      &:hover {
+        height: 215px;
+        background-color: #f0fbfc;
+      }
+    }
+
+    .video__link {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: block;
+
+      &:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/icons/icon-play.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 64px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+uuid: 99727591-8ca5-499b-9169-858f5eb965b3
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - options
+_core:
+  default_config_hash: yliwS-utygulUpWC84bHCCTIcAWQZ-5Pb7EhbYvPwsk
+id: paragraph.field_lib_v4_cards_group_ref
+field_name: field_lib_v4_cards_group_ref
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid-3
+      label: '3 Columnas'
+    -
+      value: grid-4
+      label: '4 Columnas'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

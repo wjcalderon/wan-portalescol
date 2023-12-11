@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_categorybox
+label: 'Caja de categorias'
+revision: 0
+description: 'Componente de caja de pestañas con categorias v2'

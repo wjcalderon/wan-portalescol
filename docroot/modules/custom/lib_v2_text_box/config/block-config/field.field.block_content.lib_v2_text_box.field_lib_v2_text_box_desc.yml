@@ -1,0 +1,21 @@
+uuid: 4b5cfae3-5964-4eba-ad17-0b929d9e56f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_text_box
+    - field.storage.block_content.field_lib_v2_text_box_desc
+  module:
+    - text
+id: block_content.lib_v2_text_box.field_lib_v2_text_box_desc
+field_name: field_lib_v2_text_box_desc
+entity_type: block_content
+bundle: lib_v2_text_box
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

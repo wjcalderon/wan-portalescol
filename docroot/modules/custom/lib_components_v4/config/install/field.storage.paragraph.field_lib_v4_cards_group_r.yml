@@ -1,0 +1,21 @@
+uuid: fb981131-0c42-48eb-ab15-989c6767a3ec
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: t-e4f_nBFCzS2phN0u8i8BmTZp4XJmOQ5Zfvswl2j4Q
+id: paragraph.field_lib_v4_cards_group_r
+field_name: field_lib_v4_cards_group_r
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: paragraph
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

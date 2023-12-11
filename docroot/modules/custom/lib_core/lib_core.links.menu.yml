@@ -1,0 +1,5 @@
+lib_core.environmentvars.settings:
+  title: Configuraciones Variables de Entorno Liberty
+  parent: lib_migrate.admin_index
+  route_name: lib_core.environmentvars.settings
+  weight: -10

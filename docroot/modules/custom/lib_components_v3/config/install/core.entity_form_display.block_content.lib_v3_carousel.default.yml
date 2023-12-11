@@ -1,0 +1,56 @@
+uuid: abdd7fea-7173-4166-ba9d-2ed52de9035e
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_carousel
+    - field.field.block_content.lib_v3_carousel.field_lib_v3_carousel_group_num
+    - field.field.block_content.lib_v3_carousel.field_lib_v3_carousel_group_ref
+  module:
+    - inline_entity_form
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+_core:
+  default_config_hash: wEPgkDLDl29DFDowQ7-_vPkEnbZdldc_-gWX-2FOuGo
+id: block_content.lib_v3_carousel.default
+targetEntityType: block_content
+bundle: lib_v3_carousel
+mode: default
+content:
+  field_lib_v3_carousel_group_num:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lib_v3_carousel_group_ref:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Card
+      label_plural: Cards
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

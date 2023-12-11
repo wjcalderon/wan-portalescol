@@ -1,0 +1,11 @@
+uuid: db4e96db-4986-4e82-9473-394854a60b11
+langcode: es
+status: true
+dependencies: {  }
+id: lista_card_texto
+block_id: 'inline_block:card_list_basic'
+category: multiples
+label: 'Lista Card Texto'
+image_path: ''
+image_alt: ''
+weight: -1

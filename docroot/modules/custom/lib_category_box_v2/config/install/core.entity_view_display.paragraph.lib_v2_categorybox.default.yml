@@ -1,0 +1,24 @@
+uuid: 1b15f565-717d-469e-8e69-96d5ea19c89f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_categorybox.field_lib_v2_categorybox_group_r
+    - paragraphs.paragraphs_type.lib_v2_categorybox
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_v2_categorybox.default
+targetEntityType: paragraph
+bundle: lib_v2_categorybox
+mode: default
+content:
+  field_lib_v2_categorybox_group_r:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

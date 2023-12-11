@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_banner_main
+label: 'Banner principal'
+revision: 0
+description: 'Nueva version de modulo principal, con ajustes de color de fondo y de boton'

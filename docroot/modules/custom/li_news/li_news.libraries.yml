@@ -1,0 +1,26 @@
+li_news_styles:
+  css:
+    component:
+      css/news.css: {}
+
+datepicker:
+  css:
+    component:
+      libraries/simplepicker/dist/simplepicker.css: {}
+      libraries/jquery-nice-select/css/nice-select.css: {}
+  js:
+    libraries/simplepicker/dist/simplepicker.js: {}
+    libraries/jquery-nice-select/js/jquery.nice-select.min.js: {}
+    scripts/datepicker.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+inphography_modal:
+  js:
+    scripts/inphography_modal.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,11 @@
+uuid: c1250469-4e76-4976-9f22-db4b5ce2be88
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.customer
+id: node.customer
+target_entity_type_id: node
+target_bundle: customer
+default_langcode: site_default
+language_alterable: false

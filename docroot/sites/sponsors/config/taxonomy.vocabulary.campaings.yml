@@ -1,0 +1,8 @@
+uuid: b07e1d77-272c-4455-8c1a-9dd0cdd4b7d4
+langcode: es
+status: true
+dependencies: {  }
+name: Ramos
+vid: campaings
+description: 'Ramos para las landing'
+weight: 0

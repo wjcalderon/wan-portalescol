@@ -1,0 +1,23 @@
+lib_migrate.admin_index:
+  path: '/admin/config/liberty'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Liberty'
+  requirements:
+    _permission: 'access config liberty'
+
+lib_migrate.content:
+  path: '/admin/config/liberty/import-csv'
+  defaults:
+    _controller: '\Drupal\lib_migrate\Controller\ImportCSV::content'
+    _title: 'Importación prestador red medica'
+  requirements:
+    _permission: 'access import lenders'
+
+lib_migrate.config:
+  path: '/admin/config/liberty/config/lat-lng'
+  defaults:
+    _form: '\Drupal\lib_migrate\Form\ApiConfigLatLngForm'
+    _title: 'Configuración API latitud y longitud'
+  requirements:
+    _permission: 'administer site configuration'

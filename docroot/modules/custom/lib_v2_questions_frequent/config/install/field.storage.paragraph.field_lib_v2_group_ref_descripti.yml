@@ -1,0 +1,19 @@
+uuid: 168d224d-1927-44c2-b3aa-9718da6a956d
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_lib_v2_group_ref_descripti
+field_name: field_lib_v2_group_ref_descripti
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,152 @@
+// Colors ///////////////
+// colores principales
+$amarillo-pr: #ffd000;
+$azul-cl-pr: #78e1e1;
+$azul-os-pr: #1a1446;
+$gris-pr: #565656;
+$petroleo-pr: #006675;
+// colores secundarios
+$amarillo-tr: #ffdb50;
+$amarillo-sc: #ffe280;
+$amarillo-cu: #ffeaa9;
+$azul-cl-sc: #a3e6e9;
+$azul-cl-tr: #aeeded;
+$azul-cl-cu: #c9f3f4;
+$azul-os-sc: #29254f;
+$negro: #333740;
+$negro-sc: #404040;
+$gris-cu: #666666;
+$gris-sc: #c0bfc0;
+$gris-tr: #e6e6e6;
+$blanco: #f4f4f4;
+$blanco-sc: #f5f5f5;
+$rojo: #d0182d;
+$azul-hielo: #e6f4f4;
+$petroleo-sc: #037b86;
+$petroleo-tr: #28a3af; //#27646a;
+$azul-hielo-tr: #99e5ea;
+$azul-hielo-sc: #f0fbfc;
+$charcoal-grey: #343741;
+$gris-qi: #808080;
+$verde: #008040;
+$rojo-sc: #dd133c;
+$rojo-tr: #d43900;
+$pale: #ffecdb;
+$naranja: #ee7000;
+$rojo-cu: #e92243;
+$rosado: #fff4f5;
+$blanco-pl: #ffffff;
+$nc-darkteal: #06748C;
+$negro-pl: #000000;
+$blanco-pl-opa: rgba($blanco-pl, .2);
+$azul-os-pr-opa: rgba($azul-os-pr, .1);
+// variables colores  ///////////////
+$heading: $azul-os-pr;
+$link: $azul-os-pr;
+// Fonts ///////////////
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+$roboto: 'Roboto',
+sans-serif;
+$heading_font: $roboto;
+$body_font: $roboto;
+$font-size-pr: 16px;
+$font-size-mb: 15px;
+// Susy config ///////////////
+$susy: ( columns: 12, // The number of columns in your grid
+gutters: 1/4, // The size of a gutter in relation to a single column
+);
+// Flexbox grid config /////////////
+// Set the number of columns you want to use on your layout.
+$flexboxgrid-grid-columns: 12 !default;
+// Set the gutter between columns.
+$flexboxgrid-gutter-width: 1rem !default;
+// Set a margin for the container sides.
+$flexboxgrid-outer-margin: 2rem !default;
+// Create or remove breakpoints for your project
+// Syntax:
+// name SIZErem,
+$flexboxgrid-breakpoints: sm 62em 61rem,
+md 64em 63rem !default;
+$flexboxgrid-max-width: 1200px !default;
+// Breakpoints & MQ's ///////////////
+$screen: "only screen" !default;
+$small-max: 979px !default;
+$medium-max: 1023px !default;
+$small: $screen max-width $small-max;
+$up-sm: $screen $small-max+1;
+$medium: $screen $small-max+1 $medium-max;
+$large: $screen $medium-max+1;
+// EXAMPLE FOR MQ REFERENCES =>
+
+/*
+body {
+  background: green !important;
+  @include breakpoint($small)  { background: orange !important; }
+  @include breakpoint($medium) { background: teal !important; }
+  @include breakpoint($large)  { background: orchid !important; }
+  @include breakpoint($up-sm)  { background: aliceblue !important; }
+}
+*/
+
+// Example Mixins ///////////////
+@mixin opac-color($r,
+$g,
+$b,
+$pertc) {
+    background: rgb($r, $g, $b);
+    background: rgba($r, $g, $b, $pertc);
+}
+
+@mixin region-spacer($color,
+$direction: bottom) {
+    border-top: 1px dotted $color;
+    @if $direction==top {
+        padding-top: 25px;
+        margin-top: 25px;
+    }
+    @else {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+@mixin borderradius($px: .3rem) {
+    border-radius: $px;
+    // background-clip: padding-box;
+}
+
+@mixin browser($browsers: Mozilla) {
+    @each $browser in $browsers {
+        html[data-browser*="#{$browser}"] & {
+            @content;
+        }
+    }
+}
+
+// Example Placeholders ///////////////
+.no-ul-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    >li {
+        display: inline-block;
+        list-style-type: none;
+        margin: 2px;
+    }
+}
+
+.tmp-shadow {
+    box-shadow: 0 0 2px 0 rgba($gris-pr, 1);
+}
+
+.tmp-shadow-none {
+    box-shadow: none;
+}
+
+.blocked-style {
+    border: 1px solid $blanco;
+    padding: 12px;
+    border-radius: 5px;
+    background: $amarillo-pr;
+    @extend .tmp-shadow;
+}

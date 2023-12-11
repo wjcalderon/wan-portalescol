@@ -1,0 +1,35 @@
+uuid: 87aa2b26-ba1e-496d-b225-6a719983256f
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_carousel
+    - field.field.block_content.lib_v3_carousel.field_lib_v3_carousel_group_num
+    - field.field.block_content.lib_v3_carousel.field_lib_v3_carousel_group_ref
+  module:
+    - options
+_core:
+  default_config_hash: Hyse54Sxi3aGKbvgiuaDTmOF5H54zCqXlvJeevUqzkM
+id: block_content.lib_v3_carousel.default
+targetEntityType: block_content
+bundle: lib_v3_carousel
+mode: default
+content:
+  field_lib_v3_carousel_group_num:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_v3_carousel_group_ref:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

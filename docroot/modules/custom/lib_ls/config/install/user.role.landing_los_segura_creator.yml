@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: landing_los_segura_creator
+label: 'Landing Los Segura creator'
+weight: 33
+is_admin: false

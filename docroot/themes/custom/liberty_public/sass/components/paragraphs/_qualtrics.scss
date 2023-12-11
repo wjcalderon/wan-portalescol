@@ -1,0 +1,20 @@
+.content-qualtrics {
+  position: relative;
+  margin-bottom: -.5rem;
+  img {
+    width: 100vw;
+  }
+  iframe {
+    border: none;
+    height: 55rem;
+    width: 60vw;
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    @include breakpoint($small) {
+      width: 100%;
+    }
+  }
+}

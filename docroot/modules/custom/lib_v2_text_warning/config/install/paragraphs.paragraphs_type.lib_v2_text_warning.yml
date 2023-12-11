@@ -1,0 +1,10 @@
+uuid: c0550682-ba5e-4e8e-96b0-9463b7bb71a0
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_text_warning
+label: 'Texto Advertencia'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

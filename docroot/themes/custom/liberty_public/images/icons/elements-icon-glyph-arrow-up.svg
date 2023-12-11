@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="17px" viewBox="0 0 30 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="15.0041012 7 0 22.0030759 1.8127136 23.8157895 15.0041012 10.6244019 28.1872864 23.8075871 30 21.9948735"></polygon>
+    </defs>
+    <g id="z" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Elements-/-Icon-/-Glyph-/-Arrow-Up" transform="translate(0.000000, -7.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#1A1446" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,8 @@
+uuid: 8f61852a-ed8f-43d3-b0c5-3ef52276c646
+langcode: es
+status: true
+dependencies: {  }
+id: card_icon_list
+label: 'Card List - Card Icon'
+revision: 0
+description: ''

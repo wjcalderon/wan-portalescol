@@ -1,0 +1,21 @@
+uuid: 42eb721b-8551-48bf-ac38-0f3a1b4270b8
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: 27kziqAAdR8ko_olbDHiCVzx96utNIAK35GhByv4ZPo
+id: block_content.field_lib_v2_categorybox_group_r
+field_name: field_lib_v2_categorybox_group_r
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

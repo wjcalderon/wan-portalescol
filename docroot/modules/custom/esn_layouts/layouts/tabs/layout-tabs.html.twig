@@ -1,0 +1,100 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a two-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('esn_layouts/tabs-bootstrap') }}
+
+{%
+  set classes = [
+    'layout',
+    'layout-tabs',
+    'content-container-default',
+    'mx-auto'
+  ]
+%}
+
+{%
+  set classes_grid = [
+    'tab-content',
+    'layout-content',
+  ]
+%}
+
+{%
+  set classes_content_container = [
+    'tabs-content',
+    settings.content_container ? settings.content_container ~ " mx-auto" : '',
+  ]
+%}
+
+{% set tab_id_global = random() %}
+{% set tab_id_content = random() %}
+{% set accordion__parent = 'accTabs' ~ random() %}
+
+<div{{attributes.addClass(classes)}}>
+  <div class="{{ classes_content_container|join(' ') }}">
+    {% embed "themes/custom/liberty_public/templates/new-components/components/molecules/tabs-bootstrap/tabs-bootstrap.twig" with {
+        tabs: content,
+        tab_id_global: tab_id_global,
+        tab_id_content: tab_id_content,
+        tabs_orientation: orientation|default('vertical'),
+        accordion__parent: accordion__parent,
+        content_attributes: content_attributes,
+        classes_grid: classes_grid,
+      }
+    %}
+
+      {% block tabs_header %}
+        {% for key, tab in content['#settings'].tabs if key|first != '#' %}
+          {{}}
+          {% set key = key + 1 %}
+          {% include "@molecules/tabs-bootstrap/_tab-item-bootstrap.twig" with {
+            tab_text: tab.detail.label,
+            tab_icon: '',
+            tab_icon_svg: '',
+            tab_link: false,
+            tab_id: tab.detail.label|clean_class,
+          } %}
+        {% endfor %}
+      {% endblock %}
+
+      {% block tabs_content %}
+        {% set content_keys = [] %}
+        {% for key, tab in content['#settings'].tabs if key|first != '#' %}
+          {% set content_keys = content_keys|merge([key]) %}
+        {% endfor %}
+        {% for key, item in content if key|first != '#' %}
+          {% set key_dup = key|last %}
+          {% set key_content = content_keys[key_dup - 1] %}
+
+          {% set active_class = "" %}
+          {% if key_dup == 1 %}
+            {% set active_class = "show active" %}
+          {% endif %}
+          {% set tab_pane_classes = [
+              "tab-pane",
+              "tab-pane_content",
+              "fade",
+              active_class,
+            ] %}
+            <div
+              {{ region_attributes[key].addClass(tab_pane_classes) }}
+              id="tab-{{ content['#settings']['tabs'][key_content].detail.label|clean_class }}"
+              role="tabpanel"
+              aria-labelledby="tab-{{ content['#settings']['tabs'][key_content].detail.label|clean_class }}"
+            >
+              {{ item }}
+            </div>
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+</div>

@@ -1,0 +1,22 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categorybox
+    - field.field.block_content.lib_v2_categorybox.field_lib_v2_categorybox_group_r
+id: block_content.lib_v2_categorybox.default
+targetEntityType: block_content
+bundle: lib_v2_categorybox
+mode: default
+content:
+  field_lib_v2_categorybox_group_r:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

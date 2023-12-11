@@ -1,0 +1,19 @@
+uuid: dd7f39a8-5c26-4a57-ad47-a63dc6d1847d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url_google_analitics
+    - node.type.campaign
+id: node.campaign.field_url_google_analitics
+field_name: field_url_google_analitics
+entity_type: node
+bundle: campaign
+label: 'Url google analitics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

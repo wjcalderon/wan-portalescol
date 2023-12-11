@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% if content.field_p_card_foto['#items']|length == 0 %}
+    {% set drag = false %}
+{% endif %}
+
+<div {{ bem(card_list_base_class, card_list_modifiers, card_list_blockname) }}>
+	{{ title_prefix }}
+	{{ title_suffix }}
+	{% block content %}
+    {{ attach_library('liberty_public/carousel') }}
+    {% embed 'themes/custom/liberty_public/templates/new-components/components/organisms/carousel/carousel.twig'
+            with {
+              items: link_items,
+              items_per_page: 2,
+              carousel_id: 'card-link-carousel-' ~ random(),
+              destroy: true,
+              splide_arrows: true,
+              drag: drag|default(true),
+              carousel_modifiers: ['card-link','autofit'],
+            }
+          %}
+      {% block carousel_content %}
+        {% for item in link_items %}
+          <div class="splide__slide">
+            {{ item|render }}
+          </div>
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+</div>
+

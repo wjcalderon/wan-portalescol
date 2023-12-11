@@ -1,0 +1,13 @@
+uuid: c9b8afa5-6564-4c0d-b47f-9fcdc8585de4
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_carousel
+_core:
+  default_config_hash: lXsn4a46A4SRPse72bgIQw5eIROFBsivzl8FySZrC08
+id: block_content.lib_v3_carousel
+target_entity_type_id: block_content
+target_bundle: lib_v3_carousel
+default_langcode: site_default
+language_alterable: false

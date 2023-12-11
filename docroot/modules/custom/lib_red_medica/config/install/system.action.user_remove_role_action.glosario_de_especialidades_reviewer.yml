@@ -1,0 +1,17 @@
+uuid: aed802d5-84ed-4123-9c77-56c88bc3cb2f
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - user.role.glosario_de_especialidades_reviewer
+  module:
+    - user
+id: user_remove_role_action.glosario_de_especialidades_reviewer
+label: 'Elimina el rol Glosario de especialidades reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: glosario_de_especialidades_reviewer

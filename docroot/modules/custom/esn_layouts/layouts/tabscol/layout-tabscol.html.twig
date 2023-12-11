@@ -1,0 +1,109 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a one-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('esn_layouts/tabs-bootstrap') }}
+
+
+{%
+  set classes = [
+    'layout',
+    'layout-tabscol',
+		settings.container_type ? settings.container_type ~ " mx-auto" : '',
+    settings.section_classes,
+		settings.background_color,
+    settings.background_container_color,
+		settings.top_padding,
+		settings.bottom_padding,
+    settings.left_right_paddings,
+		settings.top_bottom_paddings,
+  ]
+%}
+
+{%
+  set classes_grid = [
+    'tab-content',
+    'layout-content',
+  ]
+%}
+
+{%
+  set classes_content_container = [
+    'tabs-content',
+    settings.content_container ? settings.content_container ~ " mx-auto" : '',
+  ]
+%}
+
+
+
+{% set tab_id_global = random() %}
+{% set tab_id_content = random() %}
+{% set accordion__parent = 'accTabs' ~ random() %}
+{# docroot/modules/custom/esn_layouts/templates/tabs-bootstrap/_tab-item-bootstrap.twig #}
+<div{{attributes.addClass(classes)}}>
+  <div class="{{ classes_content_container|join(' ') }}">
+    {% embed "modules/custom/esn_layouts/templates/tabs-bootstrap/tabs-bootstrap.twig" with {
+        tabs: content,
+        tab_id_global: tab_id_global,
+        tab_id_content: tab_id_content,
+        tabs_orientation: settings.orientation|default('vertical'),
+        accordion__parent: accordion__parent,
+        content_attributes: content_attributes,
+        classes_grid: classes_grid,
+        }
+      %}
+
+			{% block tabs_header %}
+				{% for key, tab in settings.tabs %}
+          {% set key = key + 1 %}
+          {% set tci_title = tab_id_content + key %}
+          {% set attribute_link = settings.attribute_link[key - 1] ? "target=" ~ settings.attribute_link[key - 1] : "" %}
+
+          {% include "modules/custom/esn_layouts/templates/tabs-bootstrap/_tab-item-bootstrap.twig" with {
+            tab_text: tab,
+            tab_icon: settings.icon_attributes[key - 1]['attributes']['class'][0],
+            tab_icon_svg: settings.media_icon[key - 1],
+            tab_link: settings.links[key - 1] ? settings.links[key - 1] : false,
+            tab_id: tab|clean_class|replace({'á':'e'})|replace({'é':'e'})|replace({'í':'i'})|replace({'ó':'o'})|replace({'ú':'u'}),
+          } %}
+				{% endfor %}
+			{% endblock %}
+
+      {% block tabs_content %}
+          {% for key, item in settings.tabs %}
+            {% set key = key + 1 %}
+            {% set tci_content = tab_id_content + key %}
+            {% set type_content = 'tab_' ~ key %}
+            {% set active_class = "" %}
+            {% if key == 1 %}
+              {% set active_class = "show active" %}
+            {% endif %}
+            {% set tab_pane_classes = [
+              "tab-pane",
+              "tab-pane_content",
+              "fade",
+              active_class,
+            ] %}
+              <div
+                {{ region_attributes[type_content].addClass(tab_pane_classes) }}
+                id="tab-{{ item|clean_class|replace({'á':'e'})|replace({'é':'e'})|replace({'í':'i'})|replace({'ó':'o'})|replace({'ú':'u'}) }}"
+                role="tabpanel"
+                aria-labelledby="tab-{{ item|clean_class|replace({'á':'e'})|replace({'é':'e'})|replace({'í':'i'})|replace({'ó':'o'})|replace({'ú':'u'}) }}"
+              >
+                {{ content[type_content] }}
+              </div>
+          {% endfor %}
+      {% endblock %}
+
+		{% endembed %}
+  </div>
+</div>

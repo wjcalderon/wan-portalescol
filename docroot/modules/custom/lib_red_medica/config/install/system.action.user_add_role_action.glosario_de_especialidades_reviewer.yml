@@ -1,0 +1,17 @@
+uuid: c206a9c6-f9ca-4333-b3f3-010134e90462
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  config:
+    - user.role.glosario_de_especialidades_reviewer
+  module:
+    - user
+id: user_add_role_action.glosario_de_especialidades_reviewer
+label: 'Añade el rol Glosario de especialidades reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: glosario_de_especialidades_reviewer

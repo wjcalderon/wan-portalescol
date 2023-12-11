@@ -1,0 +1,72 @@
+uuid: f7b47ff5-b322-4787-b399-8987f116aecd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_backgro
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_heading
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_image
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_link
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_link_co
+    - field.field.paragraph.lib_v2_banner_main.field_lib_v2_banner_main_subhead
+    - paragraphs.paragraphs_type.lib_v2_banner_main
+  module:
+    - link
+    - options
+id: paragraph.lib_v2_banner_main.default
+targetEntityType: paragraph
+bundle: lib_v2_banner_main
+mode: default
+content:
+  field_lib_v2_banner_main_backgro:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_lib_v2_banner_main_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_v2_banner_main_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_v2_banner_main_link:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_v2_banner_main_link_co:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_lib_v2_banner_main_subhead:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

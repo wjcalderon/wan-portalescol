@@ -1,0 +1,221 @@
+.email_nodisplay {
+  display: none !important;
+}
+
+.email_nodisplay_label {
+  display: none !important;
+}
+
+.ajax-progress {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00205bdb;
+  z-index: 10000;
+  background-image: url("../images/loading.png");
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+}
+
+.ajax_display {
+  display: none;
+}
+
+.grid--col1 {
+  grid-template-columns: repeat(1, 1fr);
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.nodisplay {
+  display: none !important;
+}
+
+.lds-roller {
+  margin: auto;
+  width: 85px;
+  height: 81px;
+}
+
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd100;
+  margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 100px;
+  left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 102px;
+  left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 104px;
+  left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 105px;
+  left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 105px;
+  left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 104px;
+  left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 102px;
+  left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 100px;
+  left: 12px;
+}
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+ * Ocultarlo siendo accesible
+ */
+.custom-radio,
+.form-checkbox {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+}
+
+/*
+ * Dejar espacio a la 'label' para posicionar el checkbox hecho con pseudoelementos
+ */
+.form-checkbox + label {
+  position: relative;
+  padding-left: 16px;
+}
+
+/*
+ * El pseudoelemento que emulará el input
+ */
+.form-checkbox + .single:before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: -100%;
+  top: -10px;
+  margin-top: 0;
+  background-color: white;
+  border-radius: 2px;
+  border: 2px solid #c1c1c1;
+}
+
+.form-checkbox:checked + .single:before {
+  background-image: url(../images/check.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+/*
+ * Fondo para cuando se pasa el ratón por encima
+ */
+.custom-radio + label:hover:before,
+.form-checkbox + label:hover:before {
+  background: #fafafa;
+}
+
+/*
+ * Fondo para cuando se está haciendo click
+ * Con filtros para ie9
+ */
+.custom-radio + label:active:before,
+.form-checkbox + label:active:before {
+  background: #f2f2f2;
+  background-image: -webkit-gradient(
+    linear,
+    50% 0%,
+    50% 100%,
+    color-stop(0%, #dddddd),
+    color-stop(100%, #ffffff)
+  );
+  background-image: -webkit-linear-gradient(#dddddd, #ffffff);
+  background-image: -moz-linear-gradient(#dddddd, #ffffff);
+  background-image: -o-linear-gradient(#dddddd, #ffffff);
+  background-image: linear-gradient(#dddddd, #ffffff);
+  zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dddddd, endColorstr=#ffffff);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff')";
+}
+
+/*
+ * Estilos focus para la gente que navega con el teclado, etc
+ */
+.custom-radio:focus + label:before,
+.form-checkbox:focus + label:before {
+  outline: 1px dotted;
+}

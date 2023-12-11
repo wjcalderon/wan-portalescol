@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains loi.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lib_migrate_csv_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.lib_migrate':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allow uploading csv to a Drupal 8') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,0 +1,28 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categorybox
+    - block_content.type.lib_v2_categtabs
+    - field.storage.block_content.field_lib_v2_categorybox_group_r
+id: block_content.lib_v2_categorybox.field_lib_v2_categorybox_group_r
+field_name: field_lib_v2_categorybox_group_r
+entity_type: block_content
+bundle: lib_v2_categorybox
+label: 'Adicionar pestañas'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      lib_v2_categtabs: lib_v2_categtabs
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

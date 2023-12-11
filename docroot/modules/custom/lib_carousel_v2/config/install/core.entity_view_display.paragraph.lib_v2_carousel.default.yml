@@ -1,0 +1,24 @@
+uuid: 453d558e-078a-4475-9634-68db5c782eb7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_carousel.field_lib_v2_carousel_group_ref
+    - paragraphs.paragraphs_type.lib_v2_carousel
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_v2_carousel.default
+targetEntityType: paragraph
+bundle: lib_v2_carousel
+mode: default
+content:
+  field_lib_v2_carousel_group_ref:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

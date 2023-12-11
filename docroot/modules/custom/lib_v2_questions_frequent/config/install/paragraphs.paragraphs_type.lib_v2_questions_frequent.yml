@@ -1,0 +1,10 @@
+uuid: a6102312-57f4-4783-9d55-0b8118ceef52
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_questions_frequent
+label: 'Preguntas frecuentes'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

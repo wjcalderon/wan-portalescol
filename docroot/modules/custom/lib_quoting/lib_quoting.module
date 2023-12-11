@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Created by PhpStorm.
+ */
+
+/**
+ * Hook theme.
+ */
+function lib_quoting_theme($existing, $type, $theme, $path) {
+  return [
+    'quote_pdf' => [
+      'variables' => [
+        'ramo' => NULL,
+        'quotation' => NULL,
+        'place' => NULL,
+        'from' => NULL,
+        'to' => NULL,
+        'person_name' => NULL,
+        'person_identification' => NULL,
+        'person_phone' => NULL,
+        'person_city' => NULL,
+        'person_address' => NULL,
+        'person_age' => NULL,
+        'person_ocupation' => NULL,
+        'person_gender' => NULL,
+        'person_civil_status' => NULL,
+        'vehicle_cod' => NULL,
+        'vehicle_brand' => NULL,
+        'vehicle_class' => NULL,
+        'vehicle_type' => NULL,
+        'vehicle_model' => NULL,
+        'vehicle_plate' => NULL,
+        'vehicle_use' => NULL,
+        'vehicle_engine' => NULL,
+        'vehicle_chassis' => NULL,
+        'vehicle_displacement' => NULL,
+        'vehicle_number_doors' => NULL,
+        'vehicle_weight' => NULL,
+        'vehicle_type_box' => NULL,
+        'vehicle_service' => NULL,
+        'vehicle_transmission' => NULL,
+        'protection' => NULL,
+        'experience_years' => NULL,
+        'discount' => NULL,
+        'payment' => NULL,
+        'observations' => NULL,
+        'protections' => NULL,
+        "data" => NULL,
+        'host' => NULL,
+      ],
+    ],
+  ];
+}

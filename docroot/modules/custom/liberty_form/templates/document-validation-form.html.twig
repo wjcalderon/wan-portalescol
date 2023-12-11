@@ -1,0 +1,21 @@
+{% set forms__base_class = 'forms' %}
+
+<div {{ bem(forms__base_class, forms__modifiers, forms__blockname, forms__extra_classes) }}>
+    <div {{ bem('welcome', [], forms__base_class) }}>
+        {% if welcome__heading %}
+        {{ title_prefix }}
+        
+        {{ title_suffix }}
+        {% endif %}
+        <div {{ bem('body', [], forms__base_class) }}>
+            {{ welcome__body }}
+        </div>
+        {% block form__content %}
+           {{form}}
+        {% endblock %}
+    </div>
+
+    <div {{ bem('message', [], forms__base_class) }}>
+      
+    </div>
+</div>

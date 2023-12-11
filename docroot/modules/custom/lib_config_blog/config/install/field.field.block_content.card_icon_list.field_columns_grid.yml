@@ -1,0 +1,21 @@
+uuid: 21f8cbc0-cc6f-49eb-b880-19ac5f419871
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_icon_list
+    - field.storage.block_content.field_columns_grid
+  module:
+    - options
+id: block_content.card_icon_list.field_columns_grid
+field_name: field_columns_grid
+entity_type: block_content
+bundle: card_icon_list
+label: Columnas
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

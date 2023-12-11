@@ -1,0 +1,76 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.field.block_content.cta.field_big_image
+    - field.field.block_content.cta.field_descripcion_cta
+    - field.field.block_content.cta.field_link
+    - field.field.block_content.cta.field_small_image
+    - field.field.block_content.cta.field_target_blank
+  module:
+    - link
+    - svg_image
+id: block_content.cta.default
+targetEntityType: block_content
+bundle: cta
+mode: default
+content:
+  field_big_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_descripcion_cta:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_link:
+    type: link_separate
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 220
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+  field_small_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_target_blank:
+    type: boolean
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

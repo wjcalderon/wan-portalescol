@@ -1,0 +1,20 @@
+uuid: df078c6f-92a9-4253-87a0-cc96ccb32e2a
+langcode: es
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_lib_v2_carousel_group_ref
+field_name: field_lib_v2_carousel_group_ref
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

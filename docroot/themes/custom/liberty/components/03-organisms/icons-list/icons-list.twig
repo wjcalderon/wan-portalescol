@@ -1,0 +1,9 @@
+{% set icons_list_base_class = icons_list_base_class|default('icons-list') %}
+
+<div {{ bem(icons_list_base_class, icons_list_modifiers, icons_list_blockname) }}>
+  {% block icons_content %}
+    {% for item in items %}
+      {% include "@organisms/icons-list/_icons-list-items.twig" %}
+    {% endfor %}
+  {% endblock %}
+</div>

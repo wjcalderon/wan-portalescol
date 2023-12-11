@@ -1,0 +1,31 @@
+lib_rm.citiesAutocomplete:
+  path: "cities-autocomplete/{plan_tid}/{name_city}"
+  defaults:
+    _controller: '\Drupal\lib_rm\Controller\LibRmController::citiesAutocomplete'
+    plan_tid: "none"
+    name_city: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_rm.specialty_select:
+  path: "specialty-select/{plan_tid}/{city_tid}/{term}"
+  defaults:
+    _controller: '\Drupal\lib_rm\Controller\LibRmController::specialtiesSelect'
+    plan_tid: "none"
+    city_tid: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_rm.wordAutocomplete:
+  path: "word-autocomplete/{word}/{plan_tid}/{city_tid}/{specialty_tid}"
+  defaults:
+    _controller: '\Drupal\lib_rm\Controller\LibRmController::wordAutocomplete'
+    word: "none"
+    plan_tid: "none"
+    city_tid: "none"
+    specialty_tid: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"

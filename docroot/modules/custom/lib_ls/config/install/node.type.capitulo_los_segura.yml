@@ -1,0 +1,19 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  lightning_workflow:
+    workflow: editorial
+name: 'Capítulo Los Segura'
+type: capitulo_los_segura
+description: 'Capítulo de temporada'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

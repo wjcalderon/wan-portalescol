@@ -1,0 +1,20 @@
+uuid: 8b2d93df-ed3e-4fc5-b2e6-cf6dceabe7ce
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_lib_v2_categcard_icon
+field_name: field_lib_v2_categcard_icon
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

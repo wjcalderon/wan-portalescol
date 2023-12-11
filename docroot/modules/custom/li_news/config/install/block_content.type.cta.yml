@@ -1,0 +1,9 @@
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zCmvbZXaTiifroFQW2QF2GsffD4cbED8xZu0ufN9Ijk
+id: cta
+label: CTA
+revision: 0
+description: 'Call to action custom block'

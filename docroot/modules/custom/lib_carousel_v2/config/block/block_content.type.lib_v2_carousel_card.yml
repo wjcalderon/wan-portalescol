@@ -1,0 +1,8 @@
+uuid: 6d8698f2-2c81-4b43-b82d-08cf6b07f101
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_carousel_card
+label: 'Card Carrusel'
+revision: 0
+description: 'Carousel con imagen, texto y un botón de enlace a cualquier sitio activo.'

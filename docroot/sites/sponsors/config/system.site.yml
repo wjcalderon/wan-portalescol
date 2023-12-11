@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+langcode: es
+uuid: 3c47c1b4-cb07-4cd5-b0a7-5a4261ed26c8
+name: 'Liberty Sponsors'
+mail: soporte@esinergia.co
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: es
+mail_notification: ''

@@ -1,0 +1,49 @@
+id: health_provider
+label: Health Provider
+
+source:
+  plugin: csv
+  path: modules/custom/lib_rm/data/directorio_web.csv
+  header_row_count: 1
+  delimiter: ;
+  keys:
+    - nombre
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: lender
+  title: nombre
+  field_network_address: direccionred
+  field_google_maps_address: direcciongooglemaps
+  field_dv: dv
+  field_latitude: latitud
+  field_longitude: longitud
+  field_consulting_room: consultorio
+  field_oficina: oficina
+  field_phone: telefono1
+  field_extension: ext1
+  field_health: saluds
+  field_arp_atep_: arp
+  field_essential: esencial
+  field_web_page: paginaweb
+  field_identification: cedula
+  field_speciality:
+    plugin: migration_lookup
+    migration: speciality
+    source: codigoreps
+  field_provider_type:
+    plugin: migration_lookup
+    migration: provider_type
+    source: name
+  uid:
+    plugin: default_value
+    default_value: 1
+
+migration_dependencies:
+  required:
+    - provider_type
+    - speciality

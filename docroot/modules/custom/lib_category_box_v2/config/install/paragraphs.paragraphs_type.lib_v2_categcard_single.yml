@@ -1,0 +1,10 @@
+uuid: fc602385-85d9-4635-a0d9-52c81e5ee8d3
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_categcard_single
+label: 'card single'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

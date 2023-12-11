@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_banner_main
+    - field.storage.block_content.field_lib_v2_banner_main_link_co
+  module:
+    - options
+id: block_content.lib_v2_banner_main.field_lib_v2_banner_main_link_co
+field_name: field_lib_v2_banner_main_link_co
+entity_type: block_content
+bundle: lib_v2_banner_main
+label: 'Color del boton'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

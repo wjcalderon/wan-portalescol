@@ -1,0 +1,10 @@
+uuid: 1740c2ef-0c65-4923-b554-0b691041ba1f
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_questions_frequent_items
+label: 'Items Preguntas'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

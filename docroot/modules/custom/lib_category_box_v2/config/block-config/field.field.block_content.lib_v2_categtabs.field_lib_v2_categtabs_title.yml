@@ -1,0 +1,18 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_categtabs
+    - field.storage.block_content.field_lib_v2_categtabs_title
+id: block_content.lib_v2_categtabs.field_lib_v2_categtabs_title
+field_name: field_lib_v2_categtabs_title
+entity_type: block_content
+bundle: lib_v2_categtabs
+label: Titulo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

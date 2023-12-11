@@ -1,0 +1,13 @@
+liberty_claims.settings_form:
+  title: 'Claims Module settings'
+  route_name: liberty_claims.settings_form
+  description: 'Form with all configuration of the module Liberty Claims'
+  parent: system.admin_config_system
+  weight: 99
+
+liberty_claims.logs:
+  title: 'Claims Logs'
+  route_name: liberty_claims.logs
+  description: 'Liberty logs page'
+  parent: system.admin_reports
+  weight: 3

@@ -1,0 +1,94 @@
+.container-login {
+  padding: 0 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-login .content-login h2 {
+  color: #1a1446;
+  font-family: "Roboto", arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  width: auto;
+}
+.container-login .content-login span {
+  color: #1a1446;
+  margin: 0 0 1em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: justify;
+}
+.content-login {
+  flex: 1;
+  padding: 20px;
+  max-width: 300px;
+}
+.content-login .custom-login-form {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.content-login .btn.btn-primary {
+  background-color: #f9d104;
+  color: #1a1446 !important;
+  border: none;
+  border-radius: 3rem;
+  box-shadow: unset;
+  transition: all 0.5s ease-in-out;
+}
+.content-login .btn.btn-primary:hover {
+  background-color: #06748c !important;
+  color: white !important;
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+  box-shadow: unset;
+}
+.image-login {
+  flex: 1;
+  text-align: right;
+  padding-left: 3rem;
+  max-width: 650px;
+}
+.text-document {
+  background-color: gray;
+  border: none !important;
+  margin-bottom: 1.5rem;
+}
+.text-document::placeholder {
+  color: #999 !important;
+}
+.text-document:focus {
+  outline: none;
+}
+.main input[type="text"],
+main input[type="password"],
+main input[type="date"],
+main textarea,
+main select,
+main .select2 {
+  background-color: gray !important;
+}
+.form-text {
+  background-color: #f0f0f0 !important;
+}
+@media (max-width: 767px) {
+  .container-login {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0;
+    padding-right: 1rem;
+  }
+  .content-login {
+    text-align: center;
+    max-width: 100%;
+  }
+  .image-login {
+    text-align: center;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}

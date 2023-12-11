@@ -1,0 +1,36 @@
+services:
+  logger.channel.liberty_claims:
+    parent: logger.channel_base
+    arguments: ["liberty_claims"]
+  claims.services:
+    class: Drupal\liberty_claims\ClaimServices
+    arguments:
+      [
+        "@plugin.manager.mail",
+        "@config.factory",
+        "@oauth2_client.service",
+        "@module_handler",
+        "@cache.data",
+        "@liberty.logger",
+        "@logger.factory",
+        "@file_system",
+      ]
+  liberty.logger:
+    class: Drupal\liberty_claims\LoggerService
+    arguments: ["@logger.factory"]
+  liberty_claims.log_manager:
+    class: Drupal\liberty_claims\Service\LibertyClaimsLogManager
+    arguments: ["@file_system"]
+  liberty_claims.claim_notification_controller:
+    class: Drupal\liberty_claims\Controller\ClaimNotificationController
+    arguments:
+      [
+        "@liberty_claims.log_manager",
+        "@plugin.manager.mail",
+        "@module_handler",
+        "@config.factory",
+        "@session",
+        "@claims.services",
+        "@file_system",
+        "@liberty.logger",
+      ]

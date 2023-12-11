@@ -1,0 +1,25 @@
+uuid: 1ac1acab-d886-4576-b2bf-bb9bbc67de71
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lib_v4_carousel_card
+    - field.storage.paragraph.field_lib_v4_carousel_link_color
+  module:
+    - options
+_core:
+  default_config_hash: 8CmGErkBFUSO3UHH0hCe0sERD3BfEymq8GVYcA6i3vU
+id: paragraph.lib_v4_carousel_card.field_lib_v4_carousel_link_color
+field_name: field_lib_v4_carousel_link_color
+entity_type: paragraph
+bundle: lib_v4_carousel_card
+label: 'Color Botón'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

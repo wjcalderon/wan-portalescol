@@ -1,0 +1,13 @@
+uuid: e29aa293-238a-4b3c-b74d-d10d551c7243
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_moreinfo_group
+_core:
+  default_config_hash: fr4sAKxDHNUpf_cF-Mm4hHKHFurjxZGNMNHJWKHSwv8
+id: block_content.lib_v3_moreinfo_group
+target_entity_type_id: block_content
+target_bundle: lib_v3_moreinfo_group
+default_langcode: site_default
+language_alterable: false

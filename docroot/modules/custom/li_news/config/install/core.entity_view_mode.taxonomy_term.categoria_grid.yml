@@ -1,0 +1,13 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.categoria_grid
+label: 'Categoría grid'
+targetEntityType: taxonomy_term
+cache: true

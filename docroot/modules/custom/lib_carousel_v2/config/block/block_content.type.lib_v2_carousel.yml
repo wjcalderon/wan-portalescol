@@ -1,0 +1,8 @@
+uuid: be12e277-44c9-4acb-bb2d-7b8dc166763f
+langcode: es
+status: true
+dependencies: {  }
+id: lib_v2_carousel
+label: Carrusel
+revision: 0
+description: 'Grupo de Card Carusel'

@@ -1,0 +1,6 @@
+li_news.news_config_form:
+  title: 'News config form'
+  route_name: li_news.news_config_form
+  description: 'Configuration of new module'
+  parent: system.admin_config_system
+  weight: 99

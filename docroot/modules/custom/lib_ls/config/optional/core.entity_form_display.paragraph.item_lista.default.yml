@@ -1,0 +1,44 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_lista.field_c_image
+    - field.field.paragraph.item_lista.field_c_title
+    - field.field.paragraph.item_lista.field_vineta
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.item_lista
+  module:
+    - svg_image
+id: paragraph.item_lista.default
+targetEntityType: paragraph
+bundle: item_lista
+mode: default
+content:
+  field_c_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_c_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_vineta:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,41 @@
+uuid: 9389d083-1a2c-406a-9a3a-b9a5e51380a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_text_box
+    - field.field.block_content.lib_v2_text_box.field_lib_v2_text_box_desc
+    - field.field.block_content.lib_v2_text_box.field_lib_v2_text_box_title
+  module:
+    - text
+id: block_content.lib_v2_text_box.default
+targetEntityType: block_content
+bundle: lib_v2_text_box
+mode: default
+content:
+  field_lib_v2_text_box_desc:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_v2_text_box_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

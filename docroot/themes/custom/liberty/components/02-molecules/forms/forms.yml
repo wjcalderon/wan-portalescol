@@ -1,0 +1,8 @@
+welcome__heading: "Bienvenido"
+welcome__body: "Un sitio diseñado especialmente para clientes. Ingresa tu tipo y número de identificación y comienza a disfrutar de todos los beneficios que ofrecemos."
+box__body: "Diligencia los siguientes datos para que un asesor se ponga en contacto contigo:"
+form__button__text: "Ingresar"
+form__button__send: "Enviar información"
+alert__message: "<b>Los datos ingresados son incorrectos</b> Por favor ingresa los datos nuevamente."
+form__icon: "form"
+forms__extra_classes: "login-form-content"

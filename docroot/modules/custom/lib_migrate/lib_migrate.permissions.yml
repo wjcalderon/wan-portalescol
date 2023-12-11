@@ -1,0 +1,4 @@
+access import lenders:
+  title: 'Import lenders'
+  description: 'Import lenders'
+  restrict access: TRUE

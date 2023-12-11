@@ -1,0 +1,3 @@
+liberty__form__heading: 'Los datos ingresados son incorrectos'
+liberty__form__summary: 'Por favor ingresa los datos nuevamente.'
+liberty__form__type: 'error'

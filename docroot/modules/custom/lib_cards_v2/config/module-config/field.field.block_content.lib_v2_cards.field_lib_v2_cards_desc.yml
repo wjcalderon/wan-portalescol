@@ -1,0 +1,21 @@
+uuid: 9200ebc4-2c6a-4386-baf1-f51ab4aee777
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v2_cards
+    - field.storage.block_content.field_lib_v2_cards_desc
+_core:
+  default_config_hash: DdH5trxv7k9ntDboQwfuS58C7bXt-WH5SiT1u0ZFY1A
+id: block_content.lib_v2_cards.field_lib_v2_cards_desc
+field_name: field_lib_v2_cards_desc
+entity_type: block_content
+bundle: lib_v2_cards
+label: Descripción
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

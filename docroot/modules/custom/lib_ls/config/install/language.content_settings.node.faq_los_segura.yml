@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.faq_los_segura
+id: node.faq_los_segura
+target_entity_type_id: node
+target_bundle: faq_los_segura
+default_langcode: site_default
+language_alterable: false

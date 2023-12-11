@@ -1,0 +1,223 @@
+uuid: de465856-234b-424a-9ebe-73d3f6a41e14
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - field.storage.block_content.field_accordion_items
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - entity_reference_revisions
+id: block_content.accordion.field_accordion_items
+field_name: field_accordion_items
+entity_type: block_content
+bundle: accordion
+label: Items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordion_item: accordion_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 66
+        enabled: true
+      acordeon:
+        weight: 67
+        enabled: false
+      assistance_item:
+        weight: 68
+        enabled: false
+      banner:
+        weight: 69
+        enabled: false
+      banner_cards:
+        weight: 70
+        enabled: false
+      card:
+        weight: 71
+        enabled: false
+      card_grid_accordion:
+        weight: 74
+        enabled: false
+      card_list_mmedia:
+        weight: 75
+        enabled: false
+      card_media:
+        weight: 76
+        enabled: false
+      card_person:
+        weight: 77
+        enabled: false
+      card_person_list:
+        weight: 78
+        enabled: false
+      cards:
+        weight: 72
+        enabled: false
+      cards_reports:
+        weight: 73
+        enabled: false
+      column:
+        weight: 79
+        enabled: false
+      columns:
+        weight: 80
+        enabled: false
+      componentes_v2:
+        weight: 81
+        enabled: false
+      documents:
+        weight: 82
+        enabled: false
+      drupal_block:
+        weight: 83
+        enabled: false
+      drupal_view:
+        weight: 84
+        enabled: false
+      grid_accordion:
+        weight: 85
+        enabled: false
+      image:
+        weight: 86
+        enabled: false
+      item_acordeon:
+        weight: 87
+        enabled: false
+      item_lista:
+        weight: 88
+        enabled: false
+      item_report_card:
+        weight: 89
+        enabled: false
+      item_scroll:
+        weight: 90
+        enabled: false
+      item_tab_multi:
+        weight: 91
+        enabled: false
+      lib_banner_promo_icons:
+        weight: 92
+        enabled: false
+      lib_breaker:
+        weight: 93
+        enabled: false
+      lib_card:
+        weight: 94
+        enabled: false
+      lib_card_list:
+        weight: 95
+        enabled: false
+      lib_card_list_out:
+        weight: 96
+        enabled: false
+      lib_hero:
+        weight: 97
+        enabled: false
+      lib_hero_carousel:
+        weight: 98
+        enabled: false
+      lib_tab_item:
+        weight: 100
+        enabled: false
+      lib_tabs:
+        weight: 99
+        enabled: false
+      lib_v2_banner_main:
+        weight: 101
+        enabled: false
+      lib_v2_cards:
+        weight: 102
+        enabled: false
+      lib_v2_cards_group:
+        weight: 103
+        enabled: false
+      lib_v2_carousel:
+        weight: 104
+        enabled: false
+      lib_v2_carousel_card:
+        weight: 105
+        enabled: false
+      lib_v2_categcard_single:
+        weight: 106
+        enabled: false
+      lib_v2_categorybox:
+        weight: 107
+        enabled: false
+      lib_v2_categtabs:
+        weight: 108
+        enabled: false
+      lib_v2_questions_frequent:
+        weight: 109
+        enabled: false
+      lib_v2_questions_frequent_items:
+        weight: 110
+        enabled: false
+      lib_v2_text_box:
+        weight: 111
+        enabled: false
+      lib_v2_text_warning:
+        weight: 112
+        enabled: false
+      lista:
+        weight: 113
+        enabled: false
+      microsite:
+        weight: 114
+        enabled: false
+      multi_tabs:
+        weight: 115
+        enabled: false
+      plan_list:
+        weight: 116
+        enabled: false
+      qualtrics_embed:
+        weight: 117
+        enabled: false
+      scrollspy:
+        weight: 118
+        enabled: false
+      select_cta:
+        weight: 119
+        enabled: false
+      shorcut:
+        weight: 120
+        enabled: false
+      shorcuts:
+        weight: 121
+        enabled: false
+      short_banner:
+        weight: 122
+        enabled: false
+      single_text:
+        weight: 123
+        enabled: false
+      slider:
+        weight: 124
+        enabled: false
+      tab_item:
+        weight: 126
+        enabled: false
+      tabs:
+        weight: 125
+        enabled: false
+      testimonies:
+        weight: 127
+        enabled: false
+      testimony_item:
+        weight: 128
+        enabled: false
+      video:
+        weight: 129
+        enabled: false
+      webform:
+        weight: 130
+        enabled: false
+field_type: entity_reference_revisions

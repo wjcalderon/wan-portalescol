@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_core.install.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Programatically add "Proveedores" page.
+ */
+function lib_core_update_8001(&$sandbox) {
+  // Save Image in local from remote data.
+  $data = file_get_contents("sites/default/files/2019-05/shutterstock_475391413.jpg");
+  $file = file_save_data($data, "public://2020-09/proveedores.png", FILE_EXISTS_REPLACE);
+
+  // Create multiple new paragraphs.
+  $banner = Paragraph::create([
+    'type' => 'banner',
+    'field_c_title' => 'Proveedores',
+    'field_c_image' => [
+      'target_id' => $file->id(),
+      'alt' => 'Sample',
+      'title' => 'Sample File',
+    ],
+    'field_c_classes' => 'cp-banner',
+    'field_c_width' => 'edge2edge',
+  ]);
+  $banner->save();
+
+  $slider = Paragraph::create([
+    'type' => 'slider',
+    'field_banner_item' => [
+      'target_id' => $banner->id(),
+      'target_revision_id' => $banner->getRevisionId(),
+    ],
+    'field_c_width' => 'edge2edge',
+  ]);
+  $slider->save();
+
+  $cards = Paragraph::create([
+    'type' => 'cards',
+    'field_c_title' => 'En Liberty nos interesa poder resolver de form fácil y oportuna todas tus dudas o sugerencias',
+  ]);
+  $cards->save();
+
+  // Create node object and save it.
+  $node = Node::create([
+    'type'        => 'landing_page',
+    'title'       => 'Proveedores',
+    'field_p_components' => [
+      [
+        'target_id' => $slider->id(),
+        'target_revision_id' => $slider->getRevisionId(),
+      ],
+      [
+        'target_id' => $cards->id(),
+        'target_revision_id' => $cards->getRevisionId(),
+      ],
+    ],
+  ]);
+  $node->save();
+}

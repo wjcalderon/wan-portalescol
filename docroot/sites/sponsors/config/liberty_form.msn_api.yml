@@ -1,0 +1,8 @@
+url_token: 'https://test-apis.libertymutual.com/oauth/access-token'
+client_id: JwOjPsVASwS5BMDtWKRx2OnD7oXdDyO0
+client_secret_key: 9zV0srkDmtQyoYu7
+cuerpo_del_mensaje: null
+langcode: es
+sender_id: LIBERTYSEG
+sms_type: Promotional
+provider: AWS

@@ -1,0 +1,20 @@
+uuid: 43caa160-a49a-47de-b184-ffe6d120c922
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lib_red_medica
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Glosario de especialidades'
+type: glosario_de_especialidades
+description: 'Glosario de especialidades'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

@@ -1,0 +1,8 @@
+name: 'Migrate medical network'
+type: module
+description: 'This module allow uploading xls of to medical network providers'
+core_version_requirement: ^8.8 || ^9
+package: 'Custom'
+dependencies:
+  - drupal:migrate
+  - drupal:lib_core

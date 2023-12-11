@@ -1,0 +1,172 @@
+{% set sinister_type = {
+  CLAIM_TYPE_PPD: 'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.',
+  CLAIM_TYPE_PPH: 'Hurto de cualquier parte o accesorio de su vehículo.',
+  CLAIM_TYPE_PTH: 'Hurto de su vehículo.',
+  CLAIM_TYPE_AC: 'Pequeños accesorios.',
+  CLAIM_TYPE_PL: 'Perdida de llaves.',
+  CLAIM_TYPE_LR: 'Llantas estalladas.',
+  THIRD_PARTY: 'Daños ocasionados por un asegurado de Liberty.',
+} %}
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="IE=edge" http-equiv="X-UA-Compatible">
+		<title>Liberty - ¡Tu siniestro ha sido radicado!</title>
+		<style>
+			html,
+			body {
+				color: #565656;
+				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 10px;
+				line-height: 1;
+			}
+			.container {
+				background-color: #ffffff;
+				display: block;
+			}
+			header {
+				height: 2rem;
+				background-color: #ffd000;
+				padding: 1rem 0 2rem;
+				text-align: center;
+			}
+			header img {
+				height: 3rem;
+			}
+			footer {
+				background-color: #1a1446;
+				color: #ffffff;
+				display: block;
+				padding: 2rem;
+				position: relative;
+				vertical-align: middle;
+			}
+			footer p {
+				margin: 0;
+			}
+			footer h2 {
+				font-size: 1rem;
+				font-weight: bolder;
+			}
+			footer img {
+				vertical-align: middle;
+				width: 1.5rem;
+			}
+			footer .signature {
+				color: rgba(255, 255, 255, 0.5);
+				padding: 12px 0;
+			}
+			.container {
+				text-align: center;
+			}
+			.container .content {
+				margin-bottom: 2rem;
+			}
+			.container h1 {
+				color: #343741;
+				font-size: 2rem;
+				font-weight: bolder;
+			}
+			.container h3 {
+				color: #565656;
+				font-weight: lighter;
+				line-height: .5;
+			}
+			.container .ilustracion {
+				height: 15rem;
+				margin-top: 2rem;
+			}
+			.container p {
+				font-size: 1.2rem;
+				line-height: 1.2;
+				margin-top: -1rem;
+			}
+			.container p.radicado {
+				font-size: 1.6rem;
+				margin-top: 1.6rem;
+			}
+			.container div.description {
+				padding: 2rem;
+				border: 1px solid #e4e4e4;
+				margin: 1rem 1rem 3rem;
+				text-align: left;
+			}
+			.container div.description div.header {
+				border-bottom: 1px solid #e4e4e4;
+				margin-bottom: 1rem;
+				padding-bottom: 0.5rem;
+			}
+			.container div.description div.header img,
+			.container div.description div.header h3 {
+				display: inline;
+			}
+			.container div.description div.header img {
+				margin-right: 1rem;
+				vertical-align: middle;
+				width: 1.5rem;
+			}
+			.container div.description div.header h3 {
+				font-weight: bolder;
+			}
+			.container div.description p {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<img src="{{ data.url }}/img/Email/lb_main_logo.png">
+			</header>
+			<div class="content">
+				<h1>¡Tu siniestro ha sido radicado!</h1>
+				<h3>En Liberty queremos que est&eacute;s tranquilo mientras nos encargamos de tu proceso.</h3>
+				<h3>A continuaci&oacute;n te mostramos toda la informaci&oacute;n de tu siniestro:</h3>
+				<img src="{{ data.url }}/img/Email/Ilustracion-autos.png" class="ilustracion">
+				<p class="radicado">
+					N&uacute;mero de radicado:
+					<b>{{ data.number }}</b>
+				</p>
+				<p>
+					Placa del veh&iacute;culo:
+					<b>{{ data.plate }}</b><br>
+					Motivo de la reclamaci&oacute;n:
+					<b>{{ sinister_type[data.claimType] }}</b><br>
+					Fecha de radicaci&oacute;n:
+					<b>{{ data.radicate_date }}</b>
+				</p>
+				<div class="description">
+					<div class="header">
+						<img src="{{ data.url }}/img/Email/t1-pasos-sini.png" alt="Descripci&oacute;n de los hechos">
+						<h3>Descripci&oacute;n de los hechos</h3>
+					</div>
+					<p>{{ data.description }}</p>
+				</div>
+				<p>
+					Te hemos enviado un correo electr&oacute;nico con toda la informaci&oacute;n para continuar con tu proceso.<br>
+					Para m&aacute;s informaci&oacute;n escr&iacute;benos por
+					<b>Whatsapp al 316 482 1802</b>
+					de Lunes a Viernes<br>
+					de 7 a.m. a 5 p.m. y S&aacute;bados de 8 a.m. a 12 p.m.
+				</p>
+			</div>
+			<footer>
+				{# <img src="{{ data.url }}/img/Email/vigilado_logo.png" alt="Vigilado por la superintendencia bancaria de Colombia"> #}
+				<p>
+					<b>L&iacute;neas de atenci&oacute;n</b>&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="{{ data.url }}/img/Email/call-outline-bl.png" alt="L&iacute;neas de atenci&oacute;n">&nbsp;&nbsp;
+															Bogot&aacute;:
+					<b>(57 1) 3077050 - #224</b>&nbsp;&nbsp;&nbsp;&nbsp;
+																	Resto del Pa&iacute;s:
+					<b>01 8000 113390</b>
+				</p>
+				{# <p class="signature">
+													Liberty seguros
+													{{ data.year }}
+												</p> #}
+			</footer>
+		</div>
+	</body>
+</html>

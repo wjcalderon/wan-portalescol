@@ -1,0 +1,66 @@
+global:
+  css:
+    theme:
+      dist/style.css: {}
+  js: 
+    liberty_form/liberty-js: {}
+    
+main-menu:
+  js:
+    dist/js/02-molecules/menus/main-menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+
+# IE 11 support for SVG use - disable if not needed.
+# See also components/01-atoms/images/icons/_icon.twig to remove attach_library.
+sprite:
+  js:
+    components/01-atoms/images/icons/svgxuse.min.js:
+      { attributes: { defer: true } }
+
+tabs:
+  js:
+    dist/js/02-molecules/tabs/tabs.js: {}
+  dependencies:
+    - core/drupal
+
+coverages:
+  js:
+    dist/js/02-molecules/coverage/coverage.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+
+cardservice:
+  js:
+    dist/js/02-molecules/card/cardservice.js: {}
+  dependencies:
+    - core/drupal
+
+jquery-validation:
+  js:
+    libraries/jquery-validation/dist/jquery.validate.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
+login-js:
+  js:
+    libraries/login-js/login.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
+accordion-term:
+  js:
+    dist/js/02-molecules/accordion-term/accordion-term.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once

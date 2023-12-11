@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains lib_v2_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lib_v2_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lib_v2_core module.
+    case 'help.page.lib_v2_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Core Components Lib v2') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lib_v2_core_theme() {
+  return [
+    'lib_v2_core' => [
+      'render element' => 'children',
+    ],
+  ];
+}
