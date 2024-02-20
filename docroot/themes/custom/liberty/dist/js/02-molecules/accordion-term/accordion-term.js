@@ -1,9 +1,5 @@
 /******/ (function() { // webpackBootstrap
-<<<<<<< HEAD
-/******/ 	var __webpack_modules__ = ({
-=======
 /******/ 	let __webpack_modules__ = ({
->>>>>>> main
 
 /***/ "./components/02-molecules/accordion-term/accordion-term.js":
 /*!******************************************************************!*\
@@ -21,11 +17,7 @@
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-<<<<<<< HEAD
-/******/ 	var __webpack_exports__ = {};
-=======
 /******/ 	let __webpack_exports__ = {};
->>>>>>> main
 /******/ 	__webpack_modules__["./components/02-molecules/accordion-term/accordion-term.js"]();
 /******/ 	
 /******/ })()

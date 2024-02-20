@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: da18f27b-63b5-4481-9128-afdd0184b026
-=======
 uuid: 18369c56-0846-4a5a-b7f3-9c51f95bbd9c
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -22,22 +18,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-    weight: 0
-=======
     weight: 1
->>>>>>> main
     region: content
   field_title_card:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-    weight: 1
-=======
     weight: 0
->>>>>>> main
     region: content
 hidden:
   search_api_excerpt: true

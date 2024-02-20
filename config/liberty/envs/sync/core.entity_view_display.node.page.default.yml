@@ -6,10 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_p_components
-<<<<<<< HEAD
-=======
     - field.field.node.page.layout_builder__layout
->>>>>>> main
     - field.field.node.page.layout_selection
     - node.type.page
   module:
@@ -103,13 +100,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
-<<<<<<< HEAD
-          4bab413c-a6d8-4a9d-a20b-352be03bad95:
-            uuid: 4bab413c-a6d8-4a9d-a20b-352be03bad95
-=======
           4118c235-438a-437d-98a3-f65c2fa3a479:
             uuid: 4118c235-438a-437d-98a3-f65c2fa3a479
->>>>>>> main
             region: content
             configuration:
               id: 'field_block:node:page:title'
@@ -181,10 +173,7 @@ hidden:
   content_moderation_control: true
   created: true
   langcode: true
-<<<<<<< HEAD
-=======
   layout_builder__layout: true
->>>>>>> main
   layout_selection: true
   search_api_excerpt: true
   uid: true

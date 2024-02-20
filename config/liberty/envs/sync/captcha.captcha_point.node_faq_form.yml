@@ -4,8 +4,4 @@ status: false
 dependencies: {  }
 formId: node_faq_form
 captchaType: default
-<<<<<<< HEAD
-label: null
-=======
 label: node_faq_form
->>>>>>> main

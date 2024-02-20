@@ -3,10 +3,6 @@
 namespace Drupal\lib_ls\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-<<<<<<< HEAD
-use Drupal\Core\Form\FormInterface;
-=======
->>>>>>> main
 
 /**
  * Provides a 'LSGlossaryFormBlock' block.

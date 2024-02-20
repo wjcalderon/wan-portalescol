@@ -1,10 +1,6 @@
 uuid: e2394d28-d6c8-4175-9bb6-434c787b4add
 langcode: es
-<<<<<<< HEAD
-status: false
-=======
 status: true
->>>>>>> main
 dependencies:
   module:
     - search_api_db

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 0b1e9737-2721-4648-9de6-6a61a6de1d4c
-=======
 uuid: 604eda47-3889-47b9-a18a-c1721a8fb071
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -17,11 +13,7 @@ entity_type: paragraph
 bundle: lib_banner_promo_icons
 label: Estilo
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: false
 default_value:
   -

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: fb4ccf3b-9a04-447f-9ce7-235de96191f3
-=======
 uuid: 6211347b-93c8-4c61-bff8-bfbfff317765
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -10,11 +6,8 @@ dependencies:
     - file
     - media
     - svg_image_field
-<<<<<<< HEAD
-=======
 _core:
   default_config_hash: xM286Or3TH832GUA2Aoef-hpwrKA-yy8D6ETbYe1zjQ
->>>>>>> main
 id: media.field_media_svg
 field_name: field_media_svg
 entity_type: media

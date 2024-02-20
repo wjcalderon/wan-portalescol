@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 2a6cdfba-3354-4096-82ce-64f1f72ec8ec
-=======
 uuid: 7cd27bec-f41a-445d-93c2-9c18a41c039d
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -20,11 +16,7 @@ mode: default
 content:
   field_grid_single:
     type: entity_reference_revisions_entity_view
-<<<<<<< HEAD
-    label: above
-=======
     label: hidden
->>>>>>> main
     settings:
       view_mode: default
       link: ''
@@ -33,11 +25,7 @@ content:
     region: content
   field_title_card:
     type: text_default
-<<<<<<< HEAD
-    label: above
-=======
     label: hidden
->>>>>>> main
     settings: {  }
     third_party_settings: {  }
     weight: 0

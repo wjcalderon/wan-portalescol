@@ -34,12 +34,8 @@
         label="¿En que día ocurrió?"
         locale="es"
         min-date="1900-01-01 00:00"
-<<<<<<< HEAD
-        :max-date="getMaxDate">
-=======
         :max-date="getMaxDate"
         strict='true'>
->>>>>>> main
       </datepicker>
        <span class="ayudas">Día/ Mes/ Año</span>
       <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>
@@ -214,21 +210,13 @@ export default {
               document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-0';
             }
             else {
-<<<<<<< HEAD
-              
-=======
 
->>>>>>> main
               if (data.body.GMFChevrolet) {
                 localStorage.setItem('GMFChevrolet-codigoConcesionario', data.body.GMFChevrolet.codigoConcesionario)
               }else{
                 localStorage.removeItem('GMFChevrolet-codigoConcesionario');
               }
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> main
               this.casualtyData.policy = data.body.token;
               this.casualtyData.personalData = data.body.personalInfo;
               this.casualtyData.guarantees = data.body.guarantees;

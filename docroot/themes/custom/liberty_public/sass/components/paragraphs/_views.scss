@@ -297,11 +297,7 @@
     }
   }
   h2 {
-<<<<<<< HEAD
-    margin: 1rem 0 .5rem;
-=======
     margin: 1rem 0 0.5rem;
->>>>>>> main
     font-size: 1.5rem;
     line-height: 1.5rem;
     min-height: 25%;
@@ -395,10 +391,6 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 300px;
-<<<<<<< HEAD
-      text-align: center;
-=======
->>>>>>> main
       height: 225px;
       position: relative;
       text-align: center;
@@ -539,10 +531,6 @@
           background-size: 685%;
           border-bottom: 2px solid #626262;
           border-right: 2px solid #626262;
-<<<<<<< HEAD
-          background: transparent;
-=======
->>>>>>> main
         }
       }
     }
@@ -1199,10 +1187,6 @@
       z-index: 100;
     }
     .content__map {
-<<<<<<< HEAD
-      position: relative;
-=======
->>>>>>> main
       overflow: hidden;
       height: 70vh;
       width: 90%;
@@ -1807,19 +1791,9 @@
         margin-top: 0rem;
         margin-bottom: 0;
         padding-bottom: 2rem;
-<<<<<<< HEAD
-        // @include browser(Trident) {
-        //     margin-top: 7rem;
-        // }
         @include breakpoint($small) {
           margin-top: 0rem;
           font-size: 1.5rem;
-          padding: 0;
-=======
-        @include breakpoint($small) {
-          margin-top: 0rem;
-          font-size: 1.5rem;
->>>>>>> main
           line-height: 1.5;
           padding: 2rem 0;
         }
@@ -1942,11 +1916,7 @@
     }
     .view-content {
       display: grid;
-<<<<<<< HEAD
-      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));;
-=======
       grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
->>>>>>> main
       grid-template-rows: max-content;
       grid-gap: 1rem;
       grid-auto-flow: row;
@@ -1958,19 +1928,6 @@
         padding: 1.7rem;
         position: relative;
         &:before {
-<<<<<<< HEAD
-            content: '';
-            background-image: url(../images/icons/svg-car.svg);
-            background-repeat: no-repeat;
-            position: absolute;
-            width: 5rem;
-            height: 5rem;
-            left: calc(50% - 3rem);
-            background-position: 1rem 0;
-            background-size: 4rem;
-            top: 1rem;
-          }
-=======
           content: "";
           background-image: url(../images/icons/svg-car.svg);
           background-repeat: no-repeat;
@@ -1982,7 +1939,6 @@
           background-size: 4rem;
           top: 1rem;
         }
->>>>>>> main
         .views-field-title,
         .views-field-field-ubicacion {
           color: #1a1446;
@@ -1992,11 +1948,7 @@
           margin-top: 4rem;
         }
         .views-field-field-ubicacion {
-<<<<<<< HEAD
-          font-size: .875rem;
-=======
           font-size: 0.875rem;
->>>>>>> main
           font-weight: bolder;
         }
         .views-field-nothing {
@@ -2009,19 +1961,11 @@
         .views-field-field-nombre,
         .views-field-field-telefono {
           color: $charcoal-grey;
-<<<<<<< HEAD
-          font-size: .875rem;
-          padding-left: 2rem;
-          background-repeat: no-repeat;
-          background-size: .8rem;
-          background-position: 0 .3rem
-=======
           font-size: 0.875rem;
           padding-left: 2rem;
           background-repeat: no-repeat;
           background-size: 0.8rem;
           background-position: 0 0.3rem;
->>>>>>> main
         }
         .views-field-field-direccion {
           background-image: url(../images/icons/map-mb.svg);
@@ -2035,8 +1979,4 @@
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

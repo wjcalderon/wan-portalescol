@@ -7,9 +7,6 @@ dependencies:
     - field.field.block_content.block_image.field_b_image
     - image.style.thumbnail
   module:
-<<<<<<< HEAD
-    - svg_image
-=======
     - field_layout
     - layout_discovery
     - svg_image
@@ -18,7 +15,6 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
->>>>>>> main
 id: block_content.block_image.default
 targetEntityType: block_content
 bundle: block_image

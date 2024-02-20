@@ -1,8 +1,4 @@
 access config liberty:
   title: 'Access liberty config'
   description: 'Access liberty config'
-<<<<<<< HEAD
   restrict access: TRUE
-=======
-  restrict access: TRUE
->>>>>>> main

@@ -9,9 +9,6 @@ dependencies:
     - field.field.block_content.attention_lines.field_operadores
     - field.field.block_content.attention_lines.field_resto_pais
   module:
-<<<<<<< HEAD
-    - text
-=======
     - field_layout
     - layout_discovery
     - text
@@ -20,7 +17,6 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
->>>>>>> main
 id: block_content.attention_lines.default
 targetEntityType: block_content
 bundle: attention_lines
@@ -66,8 +62,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-<<<<<<< HEAD
-=======
   langcode:
     type: language_select
     weight: 2
@@ -75,6 +69,5 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
->>>>>>> main
 hidden:
   moderation_state: true

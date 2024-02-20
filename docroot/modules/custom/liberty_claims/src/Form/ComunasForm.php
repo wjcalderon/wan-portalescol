@@ -2,19 +2,11 @@
 
 namespace Drupal\liberty_claims\Form;
 
-<<<<<<< HEAD
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Messenger\Messenger;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-=======
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\Messenger;
 use Symfony\Component\DependencyInjection\ContainerInterface;
->>>>>>> main
 
 /**
  * Provides a Liberty GPS Request form.
@@ -85,13 +77,8 @@ class ComunasForm extends FormBase {
 
     $form['help'] = [
       '#type' => 'markup',
-<<<<<<< HEAD
-      '#markup' => '<span>Descargue la plantilla de carga <a href="/modules/custom/lib_gps/file/plantilla.csv">aqui</a</span><hr/>',
-
-=======
       '#markup' => '<span>Descargue la plantilla de carga ' .
       '<a href="/modules/custom/lib_gps/file/plantilla.csv">aqui</a</span><hr/>',
->>>>>>> main
     ];
 
     $form['submit'] = [
@@ -116,10 +103,6 @@ class ComunasForm extends FormBase {
     $num = 0;
     $uriFile = $destination->getFileUri();
     $file = fopen($uriFile, 'r');
-<<<<<<< HEAD
-    $delimiter = ';';
-=======
->>>>>>> main
     $empty_fields = 0;
     $id_failed = [];
     $file_name = 'failed' . date('d-m-Y-h:ia') . '.csv';
@@ -144,23 +127,6 @@ class ComunasForm extends FormBase {
         $sucursal = $customers[9];
 
         if ($field_errors == 0) {
-<<<<<<< HEAD
-        
-            $term = $this->entityTypeManager->getStorage('taxonomy_term')->create([
-              'name' => $name,
-              'field_codtaller' => $codTaller,
-              'field_aixis' => $aixis ,
-              'field_nit' => $nit,
-              'field_direccion' => $direccion,
-              'field_ciudad' => $ciudad,
-              'field_cod_ciudad' => $cod_ciudad,
-              'field_email' => $email,
-              'field_telefono' => $telefono,
-              'field_sucursal' => $sucursal,
-              'vid' => 'talleres_chevrolet',
-            ])->save();
-          
-=======
 
           $this->entityTypeManager->getStorage('taxonomy_term')->create([
             'name' => $name,
@@ -176,7 +142,6 @@ class ComunasForm extends FormBase {
             'vid' => 'talleres_chevrolet',
           ])->save();
 
->>>>>>> main
         }
         else {
           if ($field_errors >= 1) {
@@ -205,17 +170,11 @@ class ComunasForm extends FormBase {
       $file->save();
 
       $error_data = ($error_data + $empty_fields);
-<<<<<<< HEAD
-      $this->messenger()->addWarning($empty_fields . ' Comuna no han sido creada(s) debido a que les hace falta información requerida por la base de datos.');
-      $replacements['@info_file'] = $file_name;
-      $this->messenger()->addWarning($this->t('Para descargar el registro de errores por favor dar click : <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
-=======
       $this->messenger()->addWarning($empty_fields .
       ' Comuna no han sido creada(s) debido a que les hace falta información requerida por la base de datos.');
       $replacements['@info_file'] = $file_name;
       $this->messenger()->addWarning(
         $this->t('Para descargar el registro de errores por favor dar click : <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
->>>>>>> main
 
     }
 

@@ -3,16 +3,6 @@
 namespace Drupal\liberty_claims;
 
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
-<<<<<<< HEAD
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\RotatingFileHandler;
-
-/**
- * Class LoggerService.
- */
-class LoggerService implements LoggerServiceInterface {
-=======
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 
@@ -21,23 +11,15 @@ use Monolog\Logger;
  */
 class LoggerService implements LoggerServiceInterface {
 
->>>>>>> main
   /**
    * Drupal\Core\Logger\LoggerChannelFactoryInterface definition.
    *
    * @var \Drupal\Core\Logger\LoggerChannelInterface
    */
-<<<<<<< HEAD
-  protected $drupal_logger;
-
-  /**
-   * Monolog object
-=======
   protected $drupalLogger;
 
   /**
    * Monolog object.
->>>>>>> main
    *
    * @var Monolog\Logger
    */
@@ -46,13 +28,8 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * Constructs a new LoggerService object.
    */
-<<<<<<< HEAD
-  public function __construct(LoggerChannelFactoryInterface $drupal_logger) {
-    $this->drupal_logger = $drupal_logger->get('claims_log');
-=======
   public function __construct(LoggerChannelFactoryInterface $drupalLogger) {
     $this->drupal_logger = $drupalLogger->get('claims_log');
->>>>>>> main
     $this->logger = new Logger('liberty_claims');
 
     $path = \Drupal::service('file_system')->realpath(\Drupal::config('system.file')->get('default_scheme') . "://");
@@ -77,21 +54,12 @@ class LoggerService implements LoggerServiceInterface {
   public function logActivity(string $plate, string $token) {
     try {
       $this->logger->info(json_encode([
-<<<<<<< HEAD
-          'token' => $token . $plate,
-          'plate' => $plate,
-          'has_files' => 0,
-          'status' => 1,
-          'timestamp' => time()
-        ])
-=======
         'token' => $token . $plate,
         'plate' => $plate,
         'has_files' => 0,
         'status' => 1,
         'timestamp' => time(),
       ])
->>>>>>> main
       );
     }
     catch (\Exception $e) {
@@ -105,17 +73,10 @@ class LoggerService implements LoggerServiceInterface {
   public function set(string $field, string $value, $token) {
     try {
       $this->logger->debug(json_encode([
-<<<<<<< HEAD
-          $field => $value,
-          'timestamp' => time(),
-          'token' => $token
-        ])
-=======
         $field => $value,
         'timestamp' => time(),
         'token' => $token,
       ])
->>>>>>> main
       );
     }
     catch (\Exception $e) {
@@ -123,13 +84,9 @@ class LoggerService implements LoggerServiceInterface {
     }
   }
 
-<<<<<<< HEAD
-
-=======
   /**
    * Custom get.
    */
->>>>>>> main
   public function get(string $field, $token) {
     try {
       $result = $this->database->select('liberty_log', 'l')
@@ -137,11 +94,7 @@ class LoggerService implements LoggerServiceInterface {
         ->condition('token', $token)
         ->execute()->fetchAll();
 
-<<<<<<< HEAD
-        return $result[0];
-=======
       return $result[0];
->>>>>>> main
     }
     catch (\Exception $e) {
       $this->drupal_logger->error($e->getMessage());

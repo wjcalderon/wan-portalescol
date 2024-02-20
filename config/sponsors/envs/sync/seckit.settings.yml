@@ -9,33 +9,19 @@ seckit_xss:
       webkit: false
     report-only: false
     base-uri: '''self'''
-<<<<<<< HEAD
-    default-src: '''self'''
-    script-src: '''self'' ''unsafe-eval'' ''unsafe-inline'' *.google-analytics.com *.google.com *.googletagmanager.com *.gstatic.com *.zscalerthree.net *.akamaihd.net *.google.com *.gstatic.com *.newrelic.com *.nr-data.net *.cloudflare.com unpkg.com *.jsdelivr.net'
-=======
     default-src: ''
     script-src: ' ''self'' ''unsafe-eval'' ''unsafe-inline'' *.hotjar.com google-analytics.com www.google-analytics.com www.google.com www.googletagmanager.com www.gstatic.com *.zscalerthree.net *.akamaihd.net www.google.com/recaptcha www.gstatic.com/recaptcha *.newrelic.com cdnjs.cloudflare.com cdn.jsdelivr.net unpkg.com *.qualtrics.com *.nr-data.net *.qualtrics.com'
->>>>>>> main
     object-src: '''self'''
     style-src: '''self'' ''unsafe-inline'' fonts.googleapis.com *.zscalerthree.net cdn.jsdelivr.net cdnjs.cloudflare.com '
     img-src: ''
     manifest-src: '''self'''
     media-src: '''self'' *.zscalerthree.net *.google-analytics.com'
-<<<<<<< HEAD
-    form-action: '''self'''
-    frame-src: '''self'' www.google.com https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha'
-    frame-ancestors: '''self'''
-    child-src: '''self'''
-    font-src: fonts.gstatic.com
-    connect-src: '''self'' *.google-analytics.com *.doubleclick.net *.nr-data.net'
-=======
     form-action: '''self'' *.qualtrics.com'
     frame-src: '''self'' ''unsafe-inline'' www.google.com https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha *.qualtrics.com'
     frame-ancestors: '''self'''
     child-src: '''self'''
     font-src: fonts.gstatic.com
     connect-src: '''self'' *.google-analytics.com *.hotjar.com *.doubleclick.net *.nr-data.net *.qualtrics.com'
->>>>>>> main
     report-uri: /report-csp-violation
     upgrade-req: true
     policy-uri: '''none'''
@@ -56,11 +42,7 @@ seckit_clickjacking:
 seckit_ssl:
   hsts: true
   hsts_subdomains: false
-<<<<<<< HEAD
-  hsts_max_age: 2592000
-=======
   hsts_max_age: 31536000
->>>>>>> main
   hsts_preload: false
 seckit_ct:
   expect_ct: false

@@ -8,11 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class vip.
  */
-<<<<<<< HEAD
-class vip extends ConfigFormBase {
-=======
 class Vip extends ConfigFormBase {
->>>>>>> main
 
   /**
    * {@inheritdoc}
@@ -51,12 +47,7 @@ class Vip extends ConfigFormBase {
       '#size' => 64,
       '#default_value' => $config->get('variable_get_value'),
     ];
-<<<<<<< HEAD
-    
-    
-=======
 
->>>>>>> main
     return parent::buildForm($form, $form_state);
   }
 

@@ -2,8 +2,4 @@ libraries:
   version: VERSION
   css:
     component:
-<<<<<<< HEAD
       css/index.css : {}
-=======
-      css/index.css : {}
->>>>>>> main

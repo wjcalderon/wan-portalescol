@@ -5,10 +5,7 @@ dependencies:
   config:
     - filter.format.restricted_html
   module:
-<<<<<<< HEAD
-=======
     - block
->>>>>>> main
     - comment
     - contact
     - content_moderation
@@ -25,10 +22,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
-<<<<<<< HEAD
-=======
   - 'administer blocks'
->>>>>>> main
   - 'use text format restricted_html'
   - 'view any unpublished content'
   - 'view media'

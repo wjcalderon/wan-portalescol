@@ -1,19 +1,10 @@
 (function ($, Drupal, window, document) {
-<<<<<<< HEAD
-  'use strict';
-=======
   "use strict";
->>>>>>> main
 
   // Example of Drupal behavior loaded.
   Drupal.behaviors.themeChatJS = {
     attach: function (context, settings) {
-<<<<<<< HEAD
-
-      // var chatSettings = {
-=======
       // let chatSettings = {
->>>>>>> main
       //   header_text: 'Web Chat',
       //   header_status: 'En linea',
       //   login_text: 'Comenzar',
@@ -36,13 +27,8 @@
       //   geo_active: true,
       // };
 
-<<<<<<< HEAD
-      // var startChat = function () {
-      //   var chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
-=======
       // let startChat = function () {
       //   let chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
->>>>>>> main
       //   chat.init();
       //   chat.expandChat();
       // };
@@ -54,37 +40,6 @@
       //   }
       // });
 
-<<<<<<< HEAD
-$('.closeButton').click(function(e){
-       if ($('.embeddedServiceSidebarHeader').not('noAnimate')) {
-          alert('va');
-        }
-});
-      $('#block-buscasayuda ul.menu li a.chat').click(function(e){
-        e.preventDefault();
-        $(this).parent("li").addClass('is-hidden');
-        $('#blocks-necesecitas-ayuda .menu').addClass('is-hidden');
-        $('#show-menu-help').removeClass('active');
-        $('.helpButton').removeClass('d-none');
-        $('.helpButton').css("display","block");
-
-
-       
-        // $('#block-buscasayuda ul.menu').addClass('is-hidden');
-        // $('#block-buscasayuda #show-menu-help').removeClass('active');
-        // $('.overlay-buscayuda').remove();
-        // if ($('#webchat-widget-container').length > 0) {
-        //   $('#block-buscasayuda #show-menu-help #show-menu-help').click();
-        // }
-        // else {
-        //   startChat();
-        // }
-
-      });
-    }
-  };
-}) (jQuery, Drupal, this, this.document);
-=======
       $(".closeButton").click(function (e) {
         if ($(".embeddedServiceSidebarHeader").not("noAnimate")) {
           alert("va");
@@ -95,4 +50,3 @@ $('.closeButton').click(function(e){
     },
   };
 })(jQuery, Drupal, this, this.document);
->>>>>>> main

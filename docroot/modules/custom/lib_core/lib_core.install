@@ -1,11 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\node\Entity\Node;
-use Drupal\file\Entity\File;
-use Drupal\menu_link_content\Entity\MenuLinkContent;
-=======
 /**
  * @file
  * Contains lib_core.install.
@@ -13,36 +7,23 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
->>>>>>> main
 
 /**
  * Programatically add "Proveedores" page.
  */
 function lib_core_update_8001(&$sandbox) {
-<<<<<<< HEAD
-  //Save Image in local from remote data.
-  $data = file_get_contents("sites/default/files/2019-05/shutterstock_475391413.jpg");
-  $file = file_save_data($data, "public://2020-09/proveedores.png", FILE_EXISTS_REPLACE);
-
-  // Create multiple new paragraphs
-=======
   // Save Image in local from remote data.
   $data = file_get_contents("sites/default/files/2019-05/shutterstock_475391413.jpg");
   $file = file_save_data($data, "public://2020-09/proveedores.png", FILE_EXISTS_REPLACE);
 
   // Create multiple new paragraphs.
->>>>>>> main
   $banner = Paragraph::create([
     'type' => 'banner',
     'field_c_title' => 'Proveedores',
     'field_c_image' => [
       'target_id' => $file->id(),
       'alt' => 'Sample',
-<<<<<<< HEAD
-      'title' => 'Sample File'
-=======
       'title' => 'Sample File',
->>>>>>> main
     ],
     'field_c_classes' => 'cp-banner',
     'field_c_width' => 'edge2edge',
@@ -77,60 +58,8 @@ function lib_core_update_8001(&$sandbox) {
       [
         'target_id' => $cards->id(),
         'target_revision_id' => $cards->getRevisionId(),
-<<<<<<< HEAD
-      ]
-=======
       ],
->>>>>>> main
     ],
   ]);
   $node->save();
 }
-<<<<<<< HEAD
-
-/**
- * Programatically update "Superior Lateral" menu links.
- */
-function lib_core_update_8002(&$sandbox) {
-  $ingresar_link = MenuLinkContent::create([
-    'title' => 'Ingresar',
-    'link' => [
-      'uri' => 'internal:/',
-      'title' => 'Ingresar',
-    ],
-    'menu_name' => 'menu-branding',
-    'expanded' => TRUE,
-    'enabled' => TRUE,
-    'parent' => NULL,
-    'description' => NULL,
-    'weight' => 10,
-    'langcode' => 'es',
-  ]);
-  $ingresar_link->save();
-  $ingresar_link_id = 'menu_link_content:' . $ingresar_link->uuid();
-  $proveedores_link = MenuLinkContent::create([
-    'title' => 'Proveedor',
-    'link' => [
-      'uri' => 'internal:/proveedores',
-      'title' => 'Proveedores',
-    ],
-    'menu_name' => 'menu-branding',
-    'expanded' => TRUE,
-    'enabled' => TRUE,
-    'parent' => $ingresar_link_id,
-    'description' => NULL,
-    'weight' => 10,
-    'langcode' => 'es',
-  ])->save();
-  // Brookers.
-  $menu_link = MenuLinkContent::load(111);
-  $menu_link->set('parent', $ingresar_link_id);
-  // Acceso de Empleados
-  $menu_link = MenuLinkContent::load(666);
-  $menu_link->set('parent', $ingresar_link_id);
-  // Mail de Empleados
-  $menu_link = MenuLinkContent::load(676);
-  $menu_link->set('parent', $ingresar_link_id);
-}
-=======
->>>>>>> main

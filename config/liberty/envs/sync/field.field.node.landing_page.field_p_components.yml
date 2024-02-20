@@ -10,22 +10,12 @@ dependencies:
     - paragraphs.paragraphs_type.card
     - paragraphs.paragraphs_type.card_grid_accordion
     - paragraphs.paragraphs_type.card_list_mmedia
-<<<<<<< HEAD
-=======
     - paragraphs.paragraphs_type.card_media
->>>>>>> main
     - paragraphs.paragraphs_type.cards
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.drupal_block
     - paragraphs.paragraphs_type.drupal_view
     - paragraphs.paragraphs_type.image
-<<<<<<< HEAD
-    - paragraphs.paragraphs_type.lib_banner_promo_icons
-    - paragraphs.paragraphs_type.lib_breaker
-    - paragraphs.paragraphs_type.lib_card_list_out
-    - paragraphs.paragraphs_type.lib_hero_carousel
-    - paragraphs.paragraphs_type.lib_tabs
-=======
     - paragraphs.paragraphs_type.item_scroll
     - paragraphs.paragraphs_type.lib_banner_promo_icons
     - paragraphs.paragraphs_type.lib_breaker
@@ -43,15 +33,11 @@ dependencies:
     - paragraphs.paragraphs_type.lib_v2_questions_frequent
     - paragraphs.paragraphs_type.lib_v2_text_box
     - paragraphs.paragraphs_type.lib_v2_text_warning
->>>>>>> main
     - paragraphs.paragraphs_type.microsite
     - paragraphs.paragraphs_type.multi_tabs
     - paragraphs.paragraphs_type.plan_list
     - paragraphs.paragraphs_type.qualtrics_embed
-<<<<<<< HEAD
-=======
     - paragraphs.paragraphs_type.scrollspy
->>>>>>> main
     - paragraphs.paragraphs_type.select_cta
     - paragraphs.paragraphs_type.single_text
     - paragraphs.paragraphs_type.slider
@@ -91,18 +77,6 @@ settings:
       webform: webform
       qualtrics_embed: qualtrics_embed
       columns: columns
-<<<<<<< HEAD
-      card_grid_accordion: card_grid_accordion
-      microsite: microsite
-      banner_cards: banner_cards
-      card_list_mmedia: card_list_mmedia
-      lib_banner_promo_icons: lib_banner_promo_icons
-      lib_breaker: lib_breaker
-      lib_card_list_out: lib_card_list_out
-      lib_hero_carousel: lib_hero_carousel
-      lib_tabs: lib_tabs
-      plan_list: plan_list
-=======
       microsite: microsite
       banner_cards: banner_cards
       card_list_mmedia: card_list_mmedia
@@ -127,7 +101,6 @@ settings:
       lib_v2_text_box: lib_v2_text_box
       lib_v2_categorybox: lib_v2_categorybox
       lib_v2_text_warning: lib_v2_text_warning
->>>>>>> main
     negate: 0
     target_bundles_drag_drop:
       acordeon:
@@ -146,16 +119,6 @@ settings:
         weight: 11
         enabled: true
       card_grid_accordion:
-<<<<<<< HEAD
-        weight: 45
-        enabled: true
-      card_list_mmedia:
-        weight: 58
-        enabled: true
-      card_media:
-        weight: 59
-        enabled: false
-=======
         weight: 59
         enabled: true
       card_list_mmedia:
@@ -164,7 +127,6 @@ settings:
       card_media:
         weight: 58
         enabled: true
->>>>>>> main
       card_person:
         weight: 39
         enabled: false
@@ -183,12 +145,9 @@ settings:
       columns:
         weight: 31
         enabled: true
-<<<<<<< HEAD
-=======
       componentes_v2:
         weight: 69
         enabled: false
->>>>>>> main
       documents:
         weight: 39
         enabled: false
@@ -199,11 +158,7 @@ settings:
         weight: 5
         enabled: true
       grid_accordion:
-<<<<<<< HEAD
-        weight: 53
-=======
         weight: 69
->>>>>>> main
         enabled: false
       image:
         weight: 15
@@ -217,44 +172,13 @@ settings:
       item_report_card:
         weight: 45
         enabled: false
-<<<<<<< HEAD
-=======
       item_scroll:
         weight: 70
         enabled: true
->>>>>>> main
       item_tab_multi:
         weight: 34
         enabled: false
       lib_banner_promo_icons:
-<<<<<<< HEAD
-        weight: 59
-        enabled: true
-      lib_breaker:
-        weight: 67
-        enabled: true
-      lib_card:
-        weight: 60
-        enabled: false
-      lib_card_list:
-        weight: 69
-        enabled: false
-      lib_card_list_out:
-        weight: 70
-        enabled: true
-      lib_hero:
-        weight: 71
-        enabled: false
-      lib_hero_carousel:
-        weight: 72
-        enabled: true
-      lib_tab_item:
-        weight: 74
-        enabled: false
-      lib_tabs:
-        weight: 73
-        enabled: true
-=======
         weight: 72
         enabled: true
       lib_breaker:
@@ -317,7 +241,6 @@ settings:
       lib_v2_text_warning:
         weight: 110
         enabled: true
->>>>>>> main
       lista:
         weight: 32
         enabled: false
@@ -328,21 +251,14 @@ settings:
         weight: 21
         enabled: true
       plan_list:
-<<<<<<< HEAD
-        weight: 85
-=======
         weight: 84
->>>>>>> main
         enabled: true
       qualtrics_embed:
         weight: 30
         enabled: true
-<<<<<<< HEAD
-=======
       scrollspy:
         weight: 86
         enabled: true
->>>>>>> main
       select_cta:
         weight: 23
         enabled: true

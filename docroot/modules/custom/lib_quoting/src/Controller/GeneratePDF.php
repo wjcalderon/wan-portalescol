@@ -1,23 +1,4 @@
 <?php
-<<<<<<< HEAD
-/**
- * Created by PhpStorm.
- * User: esinergia1
- * Date: 6/5/19
- * Time: 3:23 PM
- */
-
-namespace Drupal\lib_quoting\Controller;
-
-use Drupal\Core\Controller\ControllerBase;
-use Drupal\lib_quoting\Controller\QuotingApi;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Dompdf\Dompdf;
-use Dompdf\Options;
-
-class GeneratePDF extends ControllerBase {
-
-=======
 
 namespace Drupal\lib_quoting\Controller;
 
@@ -34,7 +15,6 @@ class GeneratePDF extends ControllerBase {
   /**
    * Create PDF.
    */
->>>>>>> main
   public function generate() {
 
     $data = \Drupal::request()->request->all();
@@ -44,15 +24,9 @@ class GeneratePDF extends ControllerBase {
     $counter = rand(10000, 50000);
 
     $vid = 'policy';
-<<<<<<< HEAD
-    $terms =\Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
-      ->loadTree($vid, 0, null, true);
-=======
     $terms = \Drupal::entityTypeManager()
       ->getStorage('taxonomy_term')
       ->loadTree($vid, 0, NULL, TRUE);
->>>>>>> main
 
     $build = [
       '#theme' => 'quote_pdf',
@@ -67,15 +41,6 @@ class GeneratePDF extends ControllerBase {
     $html = \Drupal::service('renderer')->render($build);
 
     $options = new Options();
-<<<<<<< HEAD
-    $options->setIsRemoteEnabled(true);
-    $options->setIsHtml5ParserEnabled(true);
-    $options->setIsJavascriptEnabled(false);
-    $options->set('tempDir', '/tmp');
-
-// echo $html;
-// die();
-=======
     $options->setIsRemoteEnabled(TRUE);
     $options->setIsHtml5ParserEnabled(TRUE);
     $options->setIsJavascriptEnabled(FALSE);
@@ -83,20 +48,14 @@ class GeneratePDF extends ControllerBase {
 
     // Echo $html;
     // die();
->>>>>>> main
     $dompdf = new Dompdf($options);
 
     $contxt = \stream_context_create([
       'ssl' => [
         'verify_peer' => FALSE,
         'verify_peer_name' => FALSE,
-<<<<<<< HEAD
-        'allow_self_signed'=> TRUE
-      ]
-=======
         'allow_self_signed' => TRUE,
       ],
->>>>>>> main
     ]);
     $dompdf->setHttpContext($contxt);
 
@@ -104,16 +63,9 @@ class GeneratePDF extends ControllerBase {
     $dompdf->setPaper('letter', 'portrait');
     $dompdf->render();
     $date = date('d-m-Y');
-<<<<<<< HEAD
-    $dompdf->stream('poliza-' . $date .'.pdf');
-    exit();
-    return true;
-  }
-=======
     $dompdf->stream('poliza-' . $date . '.pdf');
     exit();
     return TRUE;
   }
 
->>>>>>> main
 }

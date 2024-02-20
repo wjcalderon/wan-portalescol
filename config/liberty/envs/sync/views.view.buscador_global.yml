@@ -129,11 +129,6 @@ display:
         type: none
         options: {  }
       cache:
-<<<<<<< HEAD
-        type: tag
-        options: {  }
-      empty: {  }
-=======
         type: none
         options: {  }
       empty:
@@ -150,7 +145,6 @@ display:
             value: "<div class=\"block-facet-blockcontent-type\" style=\"display:block; margin:80px 0;\">\r\n <h2>Lo sentimos, no hemos encontrado resultados para la búsqueda ingresada.</h2>\r\n</div>"
             format: html
           tokenize: false
->>>>>>> main
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -243,11 +237,7 @@ display:
               page: resultado_buscador
               product: resultado_buscador
       query:
-<<<<<<< HEAD
-        type: views_query
-=======
         type: search_api_query
->>>>>>> main
         options:
           bypass_access: false
           skip_access: false
@@ -262,14 +252,10 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-<<<<<<< HEAD
-      tags: {  }
-=======
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.content'
         - 'search_api_list:content'
->>>>>>> main
   page_1:
     id: page_1
     display_title: Page
@@ -289,11 +275,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-<<<<<<< HEAD
-      tags: {  }
-=======
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.content'
         - 'search_api_list:content'
->>>>>>> main

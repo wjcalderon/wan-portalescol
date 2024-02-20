@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 6785435b-95f4-4a57-a0c9-5ed77e3a041e
-=======
 uuid: 38dadfa7-5068-461e-8c93-6ef965067bd7
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -25,11 +21,7 @@ id: node.informes.field_p_components
 field_name: field_p_components
 entity_type: node
 bundle: informes
-<<<<<<< HEAD
-label: 'Components infomres'
-=======
 label: 'Components informes'
->>>>>>> main
 description: ''
 required: false
 translatable: true

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 54c5c7c9-d0e0-4473-b89e-48f1fda713c8
-=======
 uuid: 89a1112a-a84f-4651-85b7-31d150de5065
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,10 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.lib_tabs
   module:
     - paragraphs
-<<<<<<< HEAD
-=======
     - paragraphs_features
->>>>>>> main
 id: paragraph.lib_tabs.default
 targetEntityType: paragraph
 bundle: lib_tabs
@@ -38,9 +31,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-<<<<<<< HEAD
-    third_party_settings: {  }
-=======
     third_party_settings:
       paragraphs_features:
         add_in_between: false
@@ -48,7 +38,6 @@ content:
         delete_confirmation: false
         split_text: false
         show_drag_and_drop: true
->>>>>>> main
 hidden:
   created: true
   status: true

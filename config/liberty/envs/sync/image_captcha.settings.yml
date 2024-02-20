@@ -3,12 +3,8 @@ _core:
 langcode: es
 image_captcha_fonts_preview_map_cache: {  }
 image_captcha_fonts:
-<<<<<<< HEAD
-  BUILTIN: BUILTIN
-=======
   - 986462a9e165423b12587d83a363091b837f54db5d7337cb3da3f97f54104fbb
   - 3dbed886c81a681a313bc6297f53db5699401194490d38621f05c7bdf06cf1f5
->>>>>>> main
 image_captcha_font_size: 36
 image_captcha_character_spacing: '0.75'
 image_captcha_image_allowed_chars: aAbBCdEeFfGHhijKLMmNPQRrSTtWXYZ23456789

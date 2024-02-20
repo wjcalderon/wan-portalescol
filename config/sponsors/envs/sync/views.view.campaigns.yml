@@ -16,10 +16,7 @@ dependencies:
     - user.role.administrator
     - user.role.ls_administrator
   module:
-<<<<<<< HEAD
-=======
     - content_moderation
->>>>>>> main
     - node
     - taxonomy
     - user
@@ -506,8 +503,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-<<<<<<< HEAD
-=======
         moderation_state:
           id: moderation_state
           table: node_field_data
@@ -571,7 +566,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
->>>>>>> main
         operations:
           id: operations
           table: node

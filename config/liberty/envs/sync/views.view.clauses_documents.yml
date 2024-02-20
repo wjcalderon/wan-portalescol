@@ -380,30 +380,14 @@ display:
     display_options:
       title: '<h2>{{ drupal_field(''name'', ''taxonomy_term'', arguments.field_category_doc_target_id) }}</h2>'
       sorts:
-<<<<<<< HEAD
-        title:
-          id: title
-          table: node_field_data
-          field: title
-=======
         created:
           id: created
           table: node_field_data
           field: created
->>>>>>> main
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-<<<<<<< HEAD
-          entity_field: title
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: ''
-            field_identifier: title
-          exposed: false
-=======
           entity_field: created
           plugin_id: date
           order: DESC
@@ -412,7 +396,6 @@ display:
             field_identifier: ''
           exposed: false
           granularity: second
->>>>>>> main
       defaults:
         title: false
         sorts: false

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: aae54712-3f72-4521-a92f-3b248eb659a2
-=======
 uuid: 4ae78644-5f4c-4e9a-8b7b-fbf848d2c9a8
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -16,11 +12,7 @@ bundle: lib_banner_promo_icons
 label: Summary
 description: ''
 required: false
-<<<<<<< HEAD
-translatable: false
-=======
 translatable: true
->>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

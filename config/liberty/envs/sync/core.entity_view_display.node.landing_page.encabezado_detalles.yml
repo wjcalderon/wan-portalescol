@@ -7,26 +7,16 @@ dependencies:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_p_components
-<<<<<<< HEAD
-=======
     - field.field.node.landing_page.field_video_embed
     - field.field.node.landing_page.field_video_media
->>>>>>> main
     - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - entity_reference_revisions
-<<<<<<< HEAD
-    - metatag
-    - panelizer
-    - text
-    - user
-=======
     - manage_display
     - metatag
     - panelizer
     - text
->>>>>>> main
 third_party_settings:
   panelizer:
     enable: false
@@ -69,8 +59,6 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-<<<<<<< HEAD
-=======
   title:
     type: title
     label: hidden
@@ -80,7 +68,6 @@ content:
     third_party_settings: {  }
     weight: -50
     region: content
->>>>>>> main
   workbench_moderation_control:
     settings: {  }
     third_party_settings: {  }
@@ -89,10 +76,6 @@ content:
 hidden:
   addtoany: true
   content_moderation_control: true
-<<<<<<< HEAD
-  langcode: true
-  panelizer: true
-=======
   created: true
   field_video_embed: true
   field_video_media: true
@@ -100,4 +83,3 @@ hidden:
   panelizer: true
   search_api_excerpt: true
   uid: true
->>>>>>> main

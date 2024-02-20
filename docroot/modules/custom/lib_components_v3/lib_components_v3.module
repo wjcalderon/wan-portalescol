@@ -33,16 +33,6 @@ function lib_components_v3_theme() {
     ],
   ];
 }
-<<<<<<< HEAD
-/**
-* Implements hook_theme_suggestions_block_alter().
-*/
-function lib_components_v3_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook)
-{
-   if (isset($variables['elements']['content']['#block_content'])) {
-       array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
-   }
-=======
 
 /**
  * Implements hook_theme_suggestions_block_alter().
@@ -51,5 +41,4 @@ function lib_components_v3_theme_suggestions_block_alter(array &$suggestions, ar
   if (isset($variables['elements']['content']['#block_content'])) {
     array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
   }
->>>>>>> main
 }

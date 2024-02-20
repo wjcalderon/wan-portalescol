@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: cde22d81-99a7-48b7-9c31-dfc89d7569c2
-=======
 uuid: 8c73816f-9ea7-4472-bd22-61424c504620
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -18,11 +14,7 @@ settings:
   is_ascii: false
 module: core
 locked: false
-<<<<<<< HEAD
-cardinality: 1
-=======
 cardinality: -1
->>>>>>> main
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 035f47d8-f85e-40b0-9fe0-e678f202104d
-=======
 uuid: 65c75c5d-69b1-4dc7-befb-db8aadf0fa64
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -16,11 +12,7 @@ bundle: card_media
 label: Título
 description: ''
 required: false
-<<<<<<< HEAD
-translatable: true
-=======
 translatable: false
->>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

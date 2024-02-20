@@ -6,11 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
-<<<<<<< HEAD
- * Class KeyApiMarketingCloud.
-=======
  * Class key api fot marketing cloud .
->>>>>>> main
  */
 class KeyApiMarketingCloud extends ConfigFormBase {
 
@@ -53,35 +49,20 @@ class KeyApiMarketingCloud extends ConfigFormBase {
     ];
     $form['api_service_auth'] = [
       '#type' => 'textfield',
-<<<<<<< HEAD
-      '#title' => t('Clave Secreta'),
-=======
       '#title' => $this->t('Clave Secreta'),
->>>>>>> main
       '#default_value' => $config->get('api_service_auth'),
       '#maxlength' => 255,
       '#weight' => 1,
     ];
-<<<<<<< HEAD
-  
-    $form['api_client_id'] = [
-      '#type' => 'textfield',
-      '#title' => t("Id Cliente"),
-=======
 
     $form['api_client_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t("Id Cliente"),
->>>>>>> main
       '#default_value' => $config->get('api_client_id'),
       '#maxlength' => 255,
       '#weight' => 1,
     ];
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> main
     return parent::buildForm($form, $form_state);
   }
 

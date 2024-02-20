@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 765ea7a1-9372-4981-a870-9360ee7f89ad
-=======
 uuid: 447f386b-f298-4a43-b1c6-029d9c9dc2cf
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -16,11 +12,7 @@ entity_type: paragraph
 bundle: lib_breaker
 label: Imagen
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''

@@ -6,10 +6,6 @@ dependencies:
     - field.storage.node.field_p_components
     - node.type.page
     - paragraphs.paragraphs_type.banner
-<<<<<<< HEAD
-    - paragraphs.paragraphs_type.card_grid_accordion
-=======
->>>>>>> main
     - paragraphs.paragraphs_type.cards
     - paragraphs.paragraphs_type.cards_reports
     - paragraphs.paragraphs_type.drupal_view
@@ -38,10 +34,6 @@ settings:
       cards_reports: cards_reports
       single_text: single_text
       tabs: tabs
-<<<<<<< HEAD
-      card_grid_accordion: card_grid_accordion
-=======
->>>>>>> main
       tab_item: tab_item
     negate: 0
     target_bundles_drag_drop:
@@ -57,12 +49,6 @@ settings:
       card:
         weight: 27
         enabled: false
-<<<<<<< HEAD
-      card_grid_accordion:
-        weight: 43
-        enabled: true
-=======
->>>>>>> main
       card_person:
         weight: 41
         enabled: false
@@ -90,12 +76,6 @@ settings:
       drupal_view:
         weight: 32
         enabled: true
-<<<<<<< HEAD
-      grid_accordion:
-        weight: 51
-        enabled: false
-=======
->>>>>>> main
       image:
         weight: 33
         enabled: false

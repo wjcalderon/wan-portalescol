@@ -11,11 +11,7 @@
   padding: 0 1rem;
 
   @media screen and (min-width: $small-max) {
-<<<<<<< HEAD
-    padding: .4rem 4rem;
-=======
     padding: 0.4rem 4rem;
->>>>>>> main
   }
   ul {
     display: flex;
@@ -212,10 +208,6 @@ header {
         background: $blanco-pl;
         border: none;
         box-shadow: none;
-<<<<<<< HEAD
-        border-radius: 5px;
-=======
->>>>>>> main
         margin: 0;
         font-size: 1rem;
         color: $azul-os-pr;
@@ -261,10 +253,6 @@ header {
         box-shadow: none;
         pointer-events: none;
         padding-right: 18px;
-<<<<<<< HEAD
-        padding: 0;
-=======
->>>>>>> main
       }
     }
   }
@@ -379,11 +367,7 @@ span.addtoany_list {
 .menu--menu-navegacion {
   width: 100%;
 }
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> main
 #navegacion .menu--menu-clientes {
   ul {
     display: flex;
@@ -399,8 +383,4 @@ span.addtoany_list {
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

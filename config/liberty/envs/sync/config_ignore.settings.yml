@@ -2,10 +2,6 @@ _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: es
 ignored_config_entities:
-<<<<<<< HEAD
-  - lib_red_medical.settings
-  - SettingsEmalForm.settings
-=======
   - 'webform.webform.*'
   - 'core.entity_form_display.media.instagram.*'
   - 'field.field.media.instagram.*'
@@ -22,4 +18,3 @@ ignored_config_entities:
   - SettingsEmalForm.settings
   - emalform.settings
   - settings.emalform.settings
->>>>>>> main

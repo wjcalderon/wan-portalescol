@@ -4,19 +4,9 @@ langcode: es
 ignored_config_entities:
   - 'liberty_form.*'
   - 'recaptcha.*'
-<<<<<<< HEAD
-  - 'liberty_form.dwh.*'
-  - 'liberty_form.KeyApiMarketingCloud.*'
-  - 'liberty_form.marketing_cloud.*'
-  - 'liberty_form.msn_api.*'
-  - 'liberty_form.vip.*'
-  - 'liberty.settings.*'
-  - 'block.*'
-=======
   - liberty_form.dwh
   - liberty_form.KeyApiMarketingCloud
   - liberty_form.marketing_cloud
   - liberty_form.msn_api
   - liberty_form.vip
   - liberty.settings
->>>>>>> main

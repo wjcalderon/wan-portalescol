@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 6d065e31-aed6-4e3e-9938-a93fef7cabb0
-=======
 uuid: dc65990a-ed51-4158-b774-d8c0b62ce3e8
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -10,11 +6,7 @@ dependencies:
     - field.field.paragraph.lib_card_list_out.field_lib_card_style
     - field.field.paragraph.lib_card_list_out.field_lib_columns
     - field.field.paragraph.lib_card_list_out.field_lib_heading
-<<<<<<< HEAD
-    - field.field.paragraph.lib_card_list_out.field_lib_p_items
-=======
     - field.field.paragraph.lib_card_list_out.field_lib_p_card_items
->>>>>>> main
     - paragraphs.paragraphs_type.lib_card_list_out
   module:
     - entity_reference_revisions
@@ -46,11 +38,7 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-<<<<<<< HEAD
-  field_lib_p_items:
-=======
   field_lib_p_card_items:
->>>>>>> main
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:

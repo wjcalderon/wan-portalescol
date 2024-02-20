@@ -8,8 +8,4 @@ forms:
       https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css: {type: external}
   dependencies:
     - core/jquery
-<<<<<<< HEAD
     - core/drupalSettings
-=======
-    - core/drupalSettings
->>>>>>> main

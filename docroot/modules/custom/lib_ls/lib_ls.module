@@ -6,21 +6,13 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-<<<<<<< HEAD
-use Drupal\editor\Entity\Editor;
-=======
->>>>>>> main
 
 /**
  * Implements hook_help().
  */
 function lib_ls_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-<<<<<<< HEAD
-      // Main module help for the lib_los_segura module.
-=======
     // Main module help for the lib_los_segura module.
->>>>>>> main
     case 'help.page.co_core':
       $output = '';
       $output .= '<h3>' . t('Acerca de') . '</h3>';
@@ -38,16 +30,9 @@ function lib_ls_theme() {
   return [
     'los_segura_video_embed_block' => [
       'variables' => [
-<<<<<<< HEAD
-        'content' => NULL
-      ],
-      'render element' => 'children',
-    ]
-=======
         'content' => NULL,
       ],
       'render element' => 'children',
     ],
->>>>>>> main
   ];
 }

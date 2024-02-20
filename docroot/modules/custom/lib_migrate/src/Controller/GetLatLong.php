@@ -10,24 +10,11 @@ use Drupal\Core\Controller\ControllerBase;
 class GetLatLong extends ControllerBase {
 
   /**
-<<<<<<< HEAD
-   * Get_lat_long_by_address.
-   *
-   * @param [type] $address
-   *   [description].
-   *
-   * @return [type]          [description]
-   */
-  public function get_lat_long_by_address($address, $cc) {
-
-    $api_key = $this->get_api_key();
-=======
    * GetLatLongByAddress.
    */
   public function getLatLongByAddress($address, $cc) {
 
     $api_key = $this->getApiKey();
->>>>>>> main
     $lat = $long = NULL;
     $msg_pref = 'Google WS Lat-Long';
     $msg = $msg_pref . ' - No hay api key configurada en la plataforma';
@@ -55,13 +42,8 @@ class GetLatLong extends ControllerBase {
       $msg = $msg_pref . ' - ' . $resp_content->error_message;
       }
       }*/
-<<<<<<< HEAD
-      $this->save_log_in_txt_file($address, $cc);
-      $this->save_counter();
-=======
       $this->saveLogInTxtFile($address, $cc);
       $this->saveCounter();
->>>>>>> main
     }
 
     // Borrar.
@@ -78,17 +60,9 @@ class GetLatLong extends ControllerBase {
   }
 
   /**
-<<<<<<< HEAD
-   * Save_counter.
-   *
-   * @return [type] [description]
-   */
-  private function save_counter() {
-=======
    * SaveCounter.
    */
   private function saveCounter() {
->>>>>>> main
     $config = \Drupal::config('lib_migrate.settings');
     $count = $config->get('config.count_reqs_lat_lng');
     $tot = $count + 1;
@@ -99,22 +73,9 @@ class GetLatLong extends ControllerBase {
   }
 
   /**
-<<<<<<< HEAD
-   * Save_log_in_txt_file.
-   *
-   * @param [type] $address
-   *   [description].
-   * @param [type] $cc
-   *   [description].
-   *
-   * @return [type]          [description]
-   */
-  private function save_log_in_txt_file($address, $cc) {
-=======
    * SaveLogInTxtFile.
    */
   private function saveLogInTxtFile($address, $cc) {
->>>>>>> main
     $serv_system = \Drupal::service('file_system');
     $dir_file = $serv_system->realpath(\Drupal::config('system.file')->get('default_scheme') . "://");
     $name_txt = 'log';
@@ -129,17 +90,9 @@ class GetLatLong extends ControllerBase {
   }
 
   /**
-<<<<<<< HEAD
-   * Get_api_key.
-   *
-   * @return [string] $api_key
-   */
-  private function get_api_key() {
-=======
    * GetApiKey.
    */
   private function getApiKey() {
->>>>>>> main
     $config = \Drupal::config('lib_migrate.settings');
     $api_key = $config->get('config.api_key_lat_lng');
     return $api_key;

@@ -38,10 +38,6 @@ h4,
 h5,
 h6 {
   color: $heading;
-<<<<<<< HEAD
-  font-weight: 500;
-=======
->>>>>>> main
   font-family: $heading_font;
   padding: 0;
   margin: 0;
@@ -449,13 +445,7 @@ main {
 .ui-dialog {
   .ui-dialog-content {
     position: relative;
-<<<<<<< HEAD
-    border: 0;
     padding: 0.5em 1em;
-    background: none;
-=======
-    padding: 0.5em 1em;
->>>>>>> main
     overflow: auto;
     background: #f0fbfc;
     border: 1px solid #eaeaea;
@@ -465,11 +455,7 @@ main {
   .ui-dialog-titlebar {
     padding: 0.4em 1em;
     position: relative;
-<<<<<<< HEAD
-    top: 40px;
-=======
     top: 0;
->>>>>>> main
     z-index: 2;
   }
 
@@ -520,13 +506,7 @@ button {
 
   .ui-dialog-content {
     position: relative;
-<<<<<<< HEAD
-    border: 0;
     padding: 0.5em 1em;
-    background: none;
-=======
-    padding: 0.5em 1em;
->>>>>>> main
     overflow: auto;
     background: #f0fbfc;
     border: 1px solid #eaeaea;
@@ -550,11 +530,7 @@ button {
     }
 
     &::before {
-<<<<<<< HEAD
-      content: ' ';
-=======
       content: " ";
->>>>>>> main
       text-indent: 0;
       margin-right: 10px;
       display: block;
@@ -567,11 +543,7 @@ button {
     }
 
     &::after {
-<<<<<<< HEAD
-      content: ' ';
-=======
       content: " ";
->>>>>>> main
       height: 20px;
       width: 3px;
       background: gray;
@@ -658,10 +630,6 @@ button {
     width: 100% !important;
     height: unset !important;
     border: 1px solid #c0bfc0;
-<<<<<<< HEAD
-    height: unset;
-=======
->>>>>>> main
     padding-top: 15px;
     padding-right: 25px;
     padding-bottom: 9px;
@@ -670,11 +638,6 @@ button {
     margin-left: 20px;
 
     @media screen and (max-width: 480px) {
-<<<<<<< HEAD
-      margin-right: 0px;
-      margin-left: 0px;
-=======
->>>>>>> main
       float: left;
       margin: 10px;
       padding: 5px;
@@ -685,11 +648,6 @@ button {
       top: 17px;
 
       @media screen and (max-width: 480px) {
-<<<<<<< HEAD
-        left: 3rem;
-        top: 6px;
-=======
->>>>>>> main
         left: 29px;
         top: 8px;
       }
@@ -733,11 +691,7 @@ button {
 }
 
 .tooltip .tiptext::after {
-<<<<<<< HEAD
-  content: '';
-=======
   content: "";
->>>>>>> main
   position: absolute;
   border-width: 5px;
   border-style: solid;

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: dcced9ca-db50-4957-b7aa-204911459272
-=======
 uuid: 98fc5222-24d1-4aff-8ea3-3188516aaa9c
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -15,11 +11,7 @@ entity_type: taxonomy_term
 bundle: talleres_chevrolet
 label: Direccion
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: false
 default_value: {  }
 default_value_callback: ''

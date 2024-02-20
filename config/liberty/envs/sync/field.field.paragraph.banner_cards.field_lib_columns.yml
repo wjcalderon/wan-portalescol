@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 3b98f9e2-af07-43ea-824d-142f516b151c
-=======
 uuid: a2d03537-67a6-4342-904e-ad9fdadd742a
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -17,13 +13,8 @@ entity_type: paragraph
 bundle: banner_cards
 label: 'No. Columnas'
 description: ''
-<<<<<<< HEAD
-required: false
-translatable: true
-=======
 required: true
 translatable: false
->>>>>>> main
 default_value:
   -
     value: '3'

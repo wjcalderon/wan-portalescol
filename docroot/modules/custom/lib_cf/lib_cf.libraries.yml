@@ -3,8 +3,4 @@ captcha:
     js/captcha1.js: {}
   dependencies:
     - core/drupal
-<<<<<<< HEAD
     - core/jquery
-=======
-    - core/jquery
->>>>>>> main

@@ -6,16 +6,6 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
-<<<<<<< HEAD
-use Drupal\taxonomy\Entity\Term;
-use Drupal\webform\Entity\WebformSubmission;
-use Drupal\webform\Entity\Webform;
-use Drupal\Core\Url;
-use Drupal\node\NodeInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\webform\Plugin\WebformHandlerInterface;
-use Drupal\path_alias\Entity\PathAlias;
-=======
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
@@ -23,29 +13,11 @@ use Drupal\path_alias\Entity\PathAlias;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\Entity\WebformSubmission;
->>>>>>> main
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
-<<<<<<< HEAD
- * Implements hook_webform_handler_invoke_post_save_alter().
- */
-function liberty_form_webform_handler_invoke_post_save_alter(WebformHandlerInterface $handler, array &$args) {
-  $webform = $handler->getWebform();
-
-  $webform_submission = $handler->getWebformSubmission();
-
-  $webform_id = $webform->id();
-
-  $handler_id = $handler->getHandlerId();
-
-}
-
-/**
-=======
->>>>>>> main
  * Implements hook_theme().
  */
 function liberty_form_theme($existing, $type, $theme, $path) {
@@ -72,21 +44,6 @@ function liberty_form_theme($existing, $type, $theme, $path) {
 function liberty_form_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
 
   $field_definition = $context['items']->getFieldDefinition();
-<<<<<<< HEAD
-  if ("field_cover_caracteristic" == $field_definition->getName()) {
-    if ($context['delta'] < 3) {
-      $element['value']['#attributes']['class'][] = 'required_custom';
-      $element['value']['#required'] = TRUE;
-    }
-  }
-
-  if ("field_benefits" == $field_definition->getName()) {
-    if ($context['delta'] < 3) {
-      $element['value']['#attributes']['class'][] = 'required_custom';
-      $element['value']['#required'] = TRUE;
-    }
-
-=======
   if ("field_cover_caracteristic" == $field_definition->getName() && $context['delta'] < 3) {
     $element['value']['#attributes']['class'][] = 'required_custom';
     $element['value']['#required'] = TRUE;
@@ -95,17 +52,12 @@ function liberty_form_field_widget_form_alter(&$element, FormStateInterface $for
   if ("field_benefits" == $field_definition->getName() && $context['delta'] < 3) {
     $element['value']['#attributes']['class'][] = 'required_custom';
     $element['value']['#required'] = TRUE;
->>>>>>> main
   }
 
 }
 
 /**
-<<<<<<< HEAD
- * FUNCTION CUSTOM .
-=======
  * Function custom.
->>>>>>> main
  */
 function liberty_form_c_liberty_formnode_delete_confirm_submit($form, &$form_state) {
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -121,10 +73,6 @@ function liberty_form_c_liberty_formnode_delete_confirm_submit($form, &$form_sta
     $nids = $res_initial;
     foreach ($nids as $nid) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
-<<<<<<< HEAD
-      // Check if node exists with the given nid.
-=======
->>>>>>> main
       if ($node) {
         $node->delete();
       }
@@ -163,19 +111,9 @@ function liberty_form_preprocess_menu_local_tasks(&$variables) {
  */
 function liberty_form_form_alter(&$form, &$form_state, $form_id) {
   if ("LibertyDatabaseMigratorForm" == $form_id) {
-<<<<<<< HEAD
-
-    $form['description']['#markup'] = "<div class='font_major'>Esta acción no se pude deshacer</div>";
-
-    $form['actions']['submit']['#value'] = "Importar";
-
-    $form['#attached']['library'][] = 'liberty_form/css_custom';
-
-=======
     $form['description']['#markup'] = "<div class='font_major'>Esta acción no se pude deshacer</div>";
     $form['actions']['submit']['#value'] = "Importar";
     $form['#attached']['library'][] = 'liberty_form/css_custom';
->>>>>>> main
   }
 
   if ("node_campaign_delete_form" == $form_id) {
@@ -185,20 +123,11 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
     $form['description']['#markup'] = t("Recuerda que al eliminar la campaña también eliminas la base de datos asociada y perderás esta información. \n  Esta accion no se puede deshacer!!!");
     $form['actions']['cancel']['#title'] = "No estoy seguro";
     $form['actions']['submit']['#value'] = "Sí, eliminar";
-<<<<<<< HEAD
-
-=======
->>>>>>> main
   }
 
   if ($form_id == "node_campaign_edit_form") {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
-<<<<<<< HEAD
-      // You can get nid and anything else you need from the node object.
-      $nid = $node->id();
-=======
->>>>>>> main
       $fecha_actual = date("d-m-Y");
       $created = $node->get('created')->value;
       $form['#attached']['library'][] = 'liberty_form/liberty-css';
@@ -209,10 +138,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
     }
     $form['moderation_state']['widget'][0]['state']['#options']['default'] = "Seleccione una opción";
     $form['moderation_state']['widget'][0]['state']['#default_value'] = 'default';
-<<<<<<< HEAD
-
-=======
->>>>>>> main
   }
 
   if ($form_id === "node_campaign_form") {
@@ -224,37 +149,11 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
       case 'prod':
         if ($form_id === "webform_submission_call_center__node_55666_add_form") {
           $form['#attributes']['id'][] = 'webform_submission_call_center';
-<<<<<<< HEAD
-
-=======
->>>>>>> main
           $form['actions']['submit_cancel'] = [
             '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
             '#suffix' => '</a>',
           ];
 
-<<<<<<< HEAD
-          if (isset($_COOKIE['type_id']) && isset($_COOKIE['user_id'])) {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
-            if ($_COOKIE['type_id'] == 1) {
-              $document_type = 'Cedula de ciudadania';
-            }
-            if ($_COOKIE['type_id'] == 2) {
-              $document_type = 'Cedula de extranjeria';
-            }
-            if ($_COOKIE['type_id'] == 3) {
-              $document_type = 'Pasaporte';
-            }
-            $form['elements']['id_type']['#value'] = $document_type;
-            $form['elements']['id_number']['#value'] = $_COOKIE['user_id'];
-            $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
-            $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
-
-          }
-          else {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-
-=======
           if ($cookie_type_id = \Drupal::request()->cookies->get('type_id')) {
             $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
 
@@ -285,7 +184,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
 
           else {
             $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
->>>>>>> main
           }
           $form['#attached']['drupalSettings']['enviroment'] = 'prod';
         }
@@ -300,29 +198,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
             '#suffix' => '</a>',
           ];
 
-<<<<<<< HEAD
-          if (isset($_COOKIE['type_id']) && isset($_COOKIE['user_id'])) {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
-            if ($_COOKIE['type_id'] == 1) {
-              $document_type = 'Cedula de ciudadania';
-            }
-            if ($_COOKIE['type_id'] == 2) {
-              $document_type = 'Cedula de extranjeria';
-            }
-            if ($_COOKIE['type_id'] == 3) {
-              $document_type = 'Pasaporte';
-            }
-            $form['elements']['id_type']['#value'] = $document_type;
-            $form['elements']['id_number']['#value'] = $_COOKIE['user_id'];
-            $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
-            $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
-
-          }
-          else {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-          }
-
-=======
           if ($type_id_cookie = \Drupal::request()->cookies->get('type_id')) {
             if ($user_id_cookie = \Drupal::request()->cookies->get('user_id')) {
               $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
@@ -354,7 +229,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
           else {
             $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
           }
->>>>>>> main
         }
         break;
     }
@@ -368,24 +242,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
         '#suffix' => '</a>',
       ];
 
-<<<<<<< HEAD
-      if (isset($_COOKIE['type_id']) && isset($_COOKIE['user_id'])) {
-        $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
-        if ($_COOKIE['type_id'] == 1) {
-          $document_type = 'Cedula de ciudadania';
-        }
-        if ($_COOKIE['type_id'] == 2) {
-          $document_type = 'Cedula de extranjeria';
-        }
-        if ($_COOKIE['type_id'] == 3) {
-          $document_type = 'Pasaporte';
-        }
-        $form['elements']['id_type']['#value'] = $document_type;
-        $form['elements']['id_number']['#value'] = $_COOKIE['user_id'];
-        $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
-        $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
-
-=======
       if ($type_id = \Drupal::request()->cookies->get('type_id')) {
         $user_id = \Drupal::request()->cookies->get('user_id');
 
@@ -407,7 +263,6 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
         $form['elements']['id_number']['#value'] = $user_id;
         $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
         $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
->>>>>>> main
       }
       else {
         $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
@@ -443,40 +298,21 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
       ];
       if ($form['field_cover']) {
         $items = $form['field_cover']['widget'][0]['subform']['field_cover_caracteristic']['widget'];
-<<<<<<< HEAD
-      }
-
-      $add_more = $items['add_more'];
-      $items['#max_delta'] = 4;
-      $form['#attached']['library'][] = 'liberty_form/cover-caracteristic';
-      break;
-
-=======
         $items['#max_delta'] = 4;
         $form['#attached']['library'][] = 'liberty_form/cover-caracteristic';
       }
       break;
->>>>>>> main
   }
 
 }
 
 /**
-<<<<<<< HEAD
- * Implements hook_theme_preprocess_region.
- */
-function liberty_form_preprocess_region(&$variables) {
-
-  if (!isset($_COOKIE['dmVyaWZpY'])) {
-    setcookie('dmVyaWZpY', "c2kgdGllbmU", time() + (3600), '/');
-=======
  * Liberty form preprocess region.
  */
 function liberty_form_preprocess_region(&$variables) {
   $requestStack = \Drupal::requestStack();
   if (!\Drupal::request()->cookies->get('dmVyaWZpY')) {
     setcookie('dmVyaWZpY', "c2kgdGllbmU", time() + 3600, '/');
->>>>>>> main
   }
 
   $path = \Drupal::request()->getpathInfo();
@@ -498,9 +334,6 @@ function liberty_form_preprocess_region(&$variables) {
         $node = $node_storage->load($node_id);
         if ($node->getType() == "campaign") {
           if ($node->get('field_monitored')->getValue()) {
-<<<<<<< HEAD
-            $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
-=======
             if ($node->hasField('field_monitored_page') && !$node->get('field_monitored_page')->isEmpty()) {
               $field_values = $node->get('field_monitored_page')->getValue();
               if (!empty($field_values[0]['uri'])) {
@@ -514,7 +347,6 @@ function liberty_form_preprocess_region(&$variables) {
               $variables['url_vigilado_privado'] = '';
             }
 
->>>>>>> main
             $furi = $node->get('field_monitored')->entity->getFileUri();
             $furi = file_create_url($furi);
             $variables['logo_vigilado_privado'] = $furi;
@@ -536,9 +368,6 @@ function liberty_form_preprocess_region(&$variables) {
       $node = $node_storage->load($node_id);
       if ($node->getType() == "campaign") {
         if ($node->get('field_monitored')->getValue()) {
-<<<<<<< HEAD
-          $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
-=======
           if ($node->hasField('field_monitored_page') && !$node->get('field_monitored_page')->isEmpty()) {
             $field_values = $node->get('field_monitored_page')->getValue();
             if (!empty($field_values[0]['uri'])) {
@@ -551,7 +380,6 @@ function liberty_form_preprocess_region(&$variables) {
           else {
             $variables['url_vigilado_privado'] = '';
           }
->>>>>>> main
           $furi = $node->get('field_monitored')->entity->getFileUri();
           $furi = file_create_url($furi);
           $variables['logo_vigilado_privado'] = $furi;
@@ -609,25 +437,6 @@ function liberty_form_preprocess_region(&$variables) {
         header("Location: /es/" . $term_name_replace . "/login/" . $node_id, TRUE, 301);
         exit();
 
-<<<<<<< HEAD
-        if ($node) {
-          if ($node->getType() == "campaign") {
-            if ($node->get('field_monitored')->getValue()) {
-              $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
-              $furi = $node->get('field_monitored')->entity->getFileUri();
-              $furi = file_create_url($furi);
-              $variables['logo_vigilado_privado'] = $furi;
-            }
-            $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
-            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
-            $media_field = $term->get('field_logo')->entity->getFileUri();
-            $media_field = file_create_url($media_field);
-            $variables['url_logo_header'] = $media_field;
-          }
-        }
-
-=======
->>>>>>> main
       }
       $tempstore = \Drupal::service('tempstore.private')->get('LibertySession');
       $some_data = $tempstore->get('landingaccess');
@@ -641,29 +450,6 @@ function liberty_form_preprocess_region(&$variables) {
       }
     }
     elseif (end($arg) == "formulario") {
-<<<<<<< HEAD
-      if ($_REQUEST['nid']) {
-        $node_id = base64_decode($_REQUEST['nid']);
-        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
-        $node = $node_storage->load($node_id);
-        if ($node) {
-          if ($node->getType() == "campaign") {
-            if ($node->get('field_monitored')->getValue()) {
-              $furi = $node->get('field_monitored')->entity->getFileUri();
-              $furi = file_create_url($furi);
-              $variables['logo_vigilado_privado'] = $furi;
-              $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
-            }
-            $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
-            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
-            $media_field = $term->get('field_logo')->entity->getFileUri();
-            $media_field = file_create_url($media_field);
-            $variables['url_logo_header'] = $media_field;
-
-            $variables['#attached']['drupalSettings']['sponsors']['value'] = $node->get('field_sponsor')->getValue()[0]['target_id'];
-            $variables['#attached']['drupalSettings']['ramo']['value'] = $node->get('field_campaing_tax')->getValue()[0]['target_id'];
-
-=======
       // Verifica si el valor 'nid' está presente en la solicitud actual.
       $request = $requestStack->getCurrentRequest();
       $nid = $request->get('nid') ?? FALSE;
@@ -702,44 +488,10 @@ function liberty_form_preprocess_region(&$variables) {
             $variables['#attached']['drupalSettings']['sponsors']['value'] = $sponsor_id;
             $campaign_tax = $node->get('field_campaing_tax')->target_id;
             $variables['#attached']['drupalSettings']['ramo']['value'] = $campaign_tax;
->>>>>>> main
           }
         }
       }
       else {
-<<<<<<< HEAD
-        $response = new RedirectResponse("/");
-        $response->send();
-      }
-    }
-    elseif (end($arg) == "formulario") {
-
-      if (!isset($_COOKIE['dmVyaWZpY'])) {
-        header('Location: /not-access');
-        exit;
-      }
-
-      if ($_REQUEST['nid']) {
-        $node_id = base64_decode($_REQUEST['nid']);
-        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
-        $node = $node_storage->load($node_id);
-        if ($node) {
-          if ($node->getType() == "campaign") {
-            if ($node->get('field_monitored')->getValue()) {
-              $furi = $node->get('field_monitored')->entity->getFileUri();
-              $furi = file_create_url($furi);
-              $variables['logo_vigilado_privado'] = $furi;
-              $variables['url_vigilado_privado'] = $node->get('field_monitored_page')->getValue()[0]['uri'];
-            }
-            $sponsor_id = $node->get('field_sponsor')->getValue()[0]['target_id'];
-            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($sponsor_id);
-            $media_field = $term->get('field_logo')->entity->getFileUri();
-            $media_field = file_create_url($media_field);
-            $variables['url_logo_header'] = $media_field;
-
-            $variables['#attached']['drupalSettings']['sponsors']['value'] = $node->get('field_sponsor')->getValue()[0]['target_id'];
-            $variables['#attached']['drupalSettings']['ramo']['value'] = $node->get('field_campaing_tax')->getValue()[0]['target_id'];
-=======
         // $response = new RedirectResponse("/");
         // $response->send();
       }
@@ -798,18 +550,11 @@ function liberty_form_preprocess_region(&$variables) {
             if ($campaign_tax) {
               $variables['#attached']['drupalSettings']['ramo']['value'] = $campaign_tax->target_id;
             }
->>>>>>> main
           }
         }
       }
     }
   }
-<<<<<<< HEAD
-  else {
-
-  }
-=======
->>>>>>> main
 
 }
 
@@ -821,10 +566,6 @@ function liberty_form_import_customers_csv($item, &$context) {
   $message = 'Importando todos los cientes ...';
   $context['sandbox']['current_item'] = $item;
   $context['message'] = $message;
-<<<<<<< HEAD
-  $results = [];
-=======
->>>>>>> main
   $context['message'] = $message;
   $context['results'][] = $item;
 
@@ -838,10 +579,6 @@ function liberty_form_sending_sms($item, &$context) {
   $message = 'Enviando mensajes de texto a clientes. Esto puede tomar mucho tiempo, por favor no cierre esta página ni abandone el proceso ...';
   $context['sandbox']['current_item'] = $item;
   $context['message'] = $message;
-<<<<<<< HEAD
-  $results = [];
-=======
->>>>>>> main
   $context['message'] = $message;
   $context['results'][] = $item;
 
@@ -855,25 +592,12 @@ function liberty_form_form_libertydocumentvalidationform_alter(&$form, &$form_st
 }
 
 /**
-<<<<<<< HEAD
- * Implements hook_cron.
- */
-function liberty_form_cron() {
-  // $validacion_day = date('l H');
-  // if ($validacion_day == "Sunday 12") {
-  // variables conexion sftp dwh
-  $config = \Drupal::config('liberty_form.dwh');
-  if ($config) {
-    $user_sftp = $config->get('user_sftp');
-    $pass_sftp = $config->get('pass_sftp');
-=======
  * Liberty form cron.
  */
 function liberty_form_cron() {
   $config = \Drupal::config('liberty_form.dwh');
   if ($config) {
     $user_sftp = $config->get('user_sftp');
->>>>>>> main
     $port_sftp = $config->get('port_sftp');
     $path_sftp = $config->get('path_sftp');
     $host_sftp = $config->get('host_sftp');
@@ -929,12 +653,6 @@ function liberty_form_cron() {
         $submission = WebformSubmission::load($item);
         $submission_data = $submission->getData();
         $send_email = $submission_data['send_email'];
-<<<<<<< HEAD
-        if (isset($submission_data['id_rand'])) {
-          $id_rand = $submission_data['id_rand'];
-        }
-=======
->>>>>>> main
 
         if ($send_email == FALSE) {
           // Load submission.
@@ -1053,18 +771,10 @@ function liberty_form_cron() {
             if ($count_customer !== 0) {
               foreach ($results_customer as $key => $item_customer) {
                 $entity = \Drupal::entityTypeManager()->getStorage('node')->load($item_customer);
-<<<<<<< HEAD
-                $country = $entity->get('field_country')->getValue()[0]['value'];
-=======
->>>>>>> main
                 $field_bussiness_key = $entity->get('field_bussiness_key')->getValue()[0]['value'];
                 $field_city = $entity->get('field_city')->getValue()[0]['value'];
                 $field_birth_day = $entity->get('field_birth_day')->getValue()[0]['value'];
                 $field_gender = $entity->get('field_gender')->getValue()[0]['value'];
-<<<<<<< HEAD
-                $created = date("Y-m-d H:i:s", $entity->get('created')->getValue()[0]['value']);
-=======
->>>>>>> main
               }
               array_push($array_single, $country_campaign, $term_name_sponsor, $field_bussiness_key, $term_name_ramo, $campanas, $id_type, $id_number, $name, $last_name, $email, $phone, $field_city, $placa, $field_birth_day, $field_gender, "Url Enviada Por Correo", $created_sunmission, $item, 'TRUE');
 
@@ -1119,15 +829,8 @@ function liberty_form_cron() {
   }
 }
 
-<<<<<<< HEAD
-// }
-
-/**
- * Implements hook_ENTITY_TYPE_update.
-=======
 /**
  * Liberty form node update.
->>>>>>> main
  */
 function liberty_form_node_update(EntityInterface $entity) {
 
@@ -1200,20 +903,12 @@ function liberty_form_node_update(EntityInterface $entity) {
         'langcode' => 'es',
       ])->execute();
 
-<<<<<<< HEAD
-      // kint($query3);.
-=======
->>>>>>> main
     }
     else {
       $con->update('node__field_url_google_analitics')->fields([
         'field_url_google_analitics_value' => $gaurl,
       ])->condition('entity_id', $nid)->execute();
     }
-<<<<<<< HEAD
-    // die();
-=======
->>>>>>> main
   }
 }
 
@@ -1221,10 +916,7 @@ function liberty_form_node_update(EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_insert().
  */
 function liberty_form_node_insert(EntityInterface $entity) {
-<<<<<<< HEAD
-=======
 
->>>>>>> main
   if ($entity->getType() === 'campaign') {
     // Variables vip.
     $config = \Drupal::config('liberty_form.vip');
@@ -1280,12 +972,6 @@ function liberty_form_node_insert(EntityInterface $entity) {
       'delta' => 0,
       'langcode' => 'es',
     ])->execute();
-<<<<<<< HEAD
-
-    // kint($query3);
-    // die();
-=======
->>>>>>> main
   }
 
 }
@@ -1336,25 +1022,8 @@ function liberty_form_webform_third_party_settings_form_alter(&$form, &$form_sta
  */
 function liberty_form_webform_submission_form_alter(&$form, &$form_state, $form_id) {
 
-<<<<<<< HEAD
-  // Cargar la entidad actual del formulario web y su configuración de terceros.
   $third_party_settings = \Drupal::config('liberty_form.KeyApiMarketingCloud');
 
-  // // Replace original submits for custom submit.
-  // if (isset($third_party_settings) && !empty($third_party_settings)) {
-  // $form['actions']['submit']['#submit'] =
-  // [
-  // '_liberty_form_webform_submission_form_submit'
-  // ];
-  // $form['actions']['submit']['#submit'][1] = "::confirmForm";
-  // }
-  // kint($form);
-  // Replace original submits for custom submit.
-  // kint($form);
-=======
-  $third_party_settings = \Drupal::config('liberty_form.KeyApiMarketingCloud');
-
->>>>>>> main
   if (isset($third_party_settings) && !empty($third_party_settings)) {
     $form['actions']['submit']['#submit'][0] = "_liberty_form_webform_submission_form_submit";
     $form['actions']['submit']['#submit'][1] = "::save";
@@ -1366,19 +1035,9 @@ function liberty_form_webform_submission_form_alter(&$form, &$form_state, $form_
 
 /**
  * Send API call in custom submit.
-<<<<<<< HEAD
- *
- * @param array $form
- *   The form that will be altered.
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- *   FormState Object.
- */
-function _liberty_form_webform_submission_form_submit(array &$form, FormStateInterface &$form_state) {
-=======
  */
 function _liberty_form_webform_submission_form_submit(array &$form, FormStateInterface &$form_state) {
   $requestStack = \Drupal::requestStack();
->>>>>>> main
 
   // $form['actions']['submit']['#submit'] = "::confirmForm";
   // Cargar la entidad actual del formulario web y su configuración de terceros.
@@ -1395,11 +1054,7 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   $api_client_id = $config->get('api_client_id');
   $api_client_secret = $config->get('api_service_auth');
   $api_service_params = [];
-<<<<<<< HEAD
-  // kint($values);
-=======
 
->>>>>>> main
   foreach ($third_party_settings['params'] as $param) {
     $api_service_params[$param['ws_param_ws_parameter']] = $values[$param['ws_param_webform_field']];
   }
@@ -1410,29 +1065,12 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
     "client_secret" => $api_client_secret,
     "account_id" => "518002376",
   ];
-<<<<<<< HEAD
-  // Request token to the auth url.
-  $access_token = "";
-  // Url contra la que atacamos.
-  $ch = curl_init("https://" . $api_service_auth);
-  // A true, obtendremos una respuesta de la url, en otro caso,
-  // true si es correcto, false si no lo es.
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-  // Establecemos el verbo http que queremos utilizar para la petición.
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  // Enviamos el array data.
-  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-  // Obtenemos la respuesta.
-  $response = curl_exec($ch);
-  // Se cierra el recurso CURL y se liberan los recursos del sistema.
-=======
   $access_token = "";
   $ch = curl_init("https://" . $api_service_auth);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
   $response = curl_exec($ch);
->>>>>>> main
   curl_close($ch);
 
   if (!$response) {
@@ -1453,19 +1091,6 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   if (isset($tempstorenumber)) {
     $identification_number = $tempstorenumber->get('LibertySessionNumber');
   }
-<<<<<<< HEAD
-
-  $path = \Drupal::request()->getpathInfo();
-  $arg = explode('/', $path);
-  if (end($arg) == "formulario") {
-    if ($_REQUEST['nid']) {
-      $node_id = base64_decode($_REQUEST['nid']);
-      $node_storage = \Drupal::entityTypeManager()->getStorage('node');
-      $node = $node_storage->load($node_id);
-      $correo = $node->get('field_mail_call_center')->getValue();
-      $pais = $node->get('field_campaign_country')->getValue()[0]['value'];
-      $field_business_key = $node->get('field_business_key')->getValue()[0]['value'];
-=======
   $path = \Drupal::request()->getpathInfo();
   $arg = explode('/', $path);
   if (end($arg) == "formulario") {
@@ -1485,15 +1110,10 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
           $field_business_key = $business_key ? $business_key->value : NULL;
         }
       }
->>>>>>> main
     }
 
   }
 
-<<<<<<< HEAD
-  // Trae la informacion del usuario si existe.
-=======
->>>>>>> main
   if (isset($identification_number)) {
     $query = \Drupal::entityQuery('node')
       ->condition('type', 'customer')
@@ -1501,18 +1121,9 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
     $results_customer = $query->execute();
     foreach ($results_customer as $key => $item_customer) {
       $entity = \Drupal::entityTypeManager()->getStorage('node')->load($item_customer);
-<<<<<<< HEAD
-      // $country=$entity->get('field_country')->getValue()[0]['value'];
-      // $field_bussiness_key=$entity->get('field_bussiness_key')->getValue()[0]['value'];
       $field_city = $entity->get('field_city')->getValue()[0]['value'];
       $field_birth_day = $entity->get('field_birth_day')->getValue()[0]['value'];
       $field_gender = $entity->get('field_gender')->getValue()[0]['value'];
-      $created = date("Y-m-d H:i:s", $entity->get('created')->getValue()[0]['value']);
-=======
-      $field_city = $entity->get('field_city')->getValue()[0]['value'];
-      $field_birth_day = $entity->get('field_birth_day')->getValue()[0]['value'];
-      $field_gender = $entity->get('field_gender')->getValue()[0]['value'];
->>>>>>> main
       $origen_ingreso = "Url Enviada";
 
     }
@@ -1532,20 +1143,11 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   // Fecha actual.
   $hoy = date("d/m/Y");
   $data4 = [];
-<<<<<<< HEAD
-  // kint($correo);
-  foreach ($correo as $valor) {
-    // kint($valor);
-    array_push($data4, [
-      "contactKey" => $api_service_params['id_type'] . $api_service_params['id_number'],
-      "to" => $valor['value'],
-=======
   $correo = explode(", ", $correo);
   foreach ($correo as $valor) {
     array_push($data4, [
       "contactKey" => $api_service_params['id_type'] . $api_service_params['id_number'],
       "to" => $valor,
->>>>>>> main
       "attributes" => [
         "NombreSponsor" => $term_name_sponsor1,
         "NumeroDocumentoCliente" => $api_service_params['id_number'],
@@ -1655,11 +1257,8 @@ function _liberty_form_filters_kill_nbsp_tips($filter, $format, $long = FALSE) {
  * Preprocess node.
  */
 function liberty_form_preprocess_node(&$variables) {
-<<<<<<< HEAD
-=======
   $requestStack = \Drupal::requestStack();
 
->>>>>>> main
   $nid = $variables['node']->id();
   $nodeType = $variables['node']->getType();
   $variables['#cache']['max-age'] = 0;
@@ -1757,11 +1356,6 @@ function liberty_form_preprocess_node(&$variables) {
       break;
 
     case 'webform':
-<<<<<<< HEAD
-
-      $nid = $_REQUEST['nid'];
-      $valor_product_token = $_REQUEST['valor_product_token'];
-=======
       $nid = 0;
       $valor_product_token = "";
 
@@ -1769,7 +1363,6 @@ function liberty_form_preprocess_node(&$variables) {
       $nid = $request->get('nid') ?? FALSE;
       $valor_product_token = $request->get('valor_product_token') ?? FALSE;
 
->>>>>>> main
       $term_name = $_SESSION["term_name"];
       $term_name_replace = str_replace(" ", "_", $term_name);
 
@@ -1796,11 +1389,7 @@ function liberty_form_preprocess_node(&$variables) {
 }
 
 /**
-<<<<<<< HEAD
- * @param $variables
-=======
  * Liberty form preprocess page.
->>>>>>> main
  */
 function liberty_form_preprocess_page(&$variables) {
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {

@@ -6,12 +6,6 @@ dependencies:
     - block_class
   theme:
     - liberty_public
-<<<<<<< HEAD
-third_party_settings:
-  block_class:
-    classes: null
-=======
->>>>>>> main
 _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
 id: liberty_public_local_tasks

@@ -52,17 +52,10 @@
 
 {# Width. #}
 {% if content.field_c_width|render %}
-<<<<<<< HEAD
-  {% set c_width = content.field_c_width['#items'].getString() %}
-    {% if c_width == 'edge2edge' %}
-      {% set add_container = false %}
-    {% endif %}
-=======
 	{% set c_width = content.field_c_width['#items'].getString() %}
 	{% if c_width == 'edge2edge' %}
 		{% set add_container = false %}
 	{% endif %}
->>>>>>> main
 {% endif %}
 
 {# Sets Unique ID for paragraph from Paragraph ID. #}
@@ -77,11 +70,7 @@
 {# Sets paragraph title status for paragraph. #}
 {% set paragraph_title_status = true %}
 {% if 'On' in content.field_c_title_status[0] %}
-<<<<<<< HEAD
-  {% set paragraph_title_status = false %}
-=======
 	{% set paragraph_title_status = false %}
->>>>>>> main
 {% endif %}
 
 {# Add custom paragraph CSS class(es). #}
@@ -90,147 +79,6 @@
 {% set select_mobile_class = false %}
 {% set popup_class = false %}
 {% if c_clasess %}
-<<<<<<< HEAD
-  {% set striped_custom_classes = c_clasess|striptags|lower %}
-  {% set split_custom_classes = striped_custom_classes|split(' ') %}
-  {% for custom_class in split_custom_classes %}
-
-    {% if custom_class|trim == 'component__card--cifras' %}
-      {% set js_slider_class = 'js-slider' %}
-    {% endif %}
-
-    {% if custom_class|trim == 'component__tab--content-select-mb' %}
-      {% set select_mobile_class = true %}
-    {% endif %}
-
-    {% if custom_class|trim == 'popup-no-tabs' %}
-      {% set popup_class = true %}
-    {% endif %}
-
-    {% set clened_custom_class = [ custom_class|clean_class ] %}
-    {% set classes = classes|merge(clened_custom_class) %}
-  {%  endfor %}
-{% endif %}
-
-{% set paragraph_tabs = content.field_tab_item %}
-<section{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
-
-    {% if paragraph_title and paragraph_title_status %}
-      <div class="component__heading">
-          {% if add_container %}<div class="cog--mq">{% endif %}
-            <h2 class="component__title">{{- paragraph_title -}}</h2>
-            {% if paragraph_subtitle %}
-              <h3 class="component__subtitle">{{- paragraph_subtitle -}}</h3>
-            {% endif %}
-          {% if add_container %}</div>{% endif %}
-      </div>
-    {% endif %}
-
-  <div class="component__content cp-cards__list siniestros_card">
-    <div class="cp-tabs {{ striped_custom_classes|trim }}">
-      {% if select_mobile_class %}
-        <div class="cog--mq cog--flex is-desktop">
-      {% else %}
-        <div class="cog--mq cog--flex">
-      {% endif %}
-      <ul class="main-links header-tabs">
-        {% for key, item in paragraph_tabs['#items'] %}
-          <li>
-            {% if item.entity.field_cta is not empty %}
-            <div class="component__card">
-
-                {# Button tabs #}
-                {% if item.entity.field_image is not empty %}
-                   {% if item.entity.field_class_wrapper_image is not empty %}
-                      <div class="{{ item.entity.field_class_wrapper_image.value }}">
-                   {% endif %}
-                    <img src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
-                   {% if item.entity.field_class_wrapper_image is not empty %}
-                      </div>
-                   {% endif %}
-                {% endif %}
-                {% if item.entity.field_name is not empty %}
-                  <h4 class="name">{{ item.entity.field_name.value }}</h4>
-                {% endif %}
-                {% if item.entity.field_lead is not empty %}
-                  <p class="lead">{{ item.entity.field_lead.value }}</p>
-                {% endif %}
-                <p class="cta">
-                  {% if popup_class %}
-                    <a  href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
-                  {% else %}
-                    <a  href="#tab-{{key}}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
-                  {% endif %}
-                </p>
-              </div>
-              {% else %}
-                {# Normal tabs #}
-                <div class="normal-tab">
-                <a  href="#tab-{{key}}">
-
-                  {% if item.entity.field_image is not empty %}
-                     {% if item.entity.field_class_wrapper_image is not empty %}
-                        <div class="{{ item.entity.field_class_wrapper_image.value }}">
-                     {% endif %}
-                      <img src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
-                     {% if item.entity.field_class_wrapper_image is not empty %}
-                        </div>
-                     {% endif %}
-                  {% endif %}
-                  {% if item.entity.field_name is not empty %}
-                    {{ item.entity.field_name.value }}
-                  {% endif %}
-                </a>
-                </div>
-              {% endif %}
-
-          </li>
-
-        {% endfor %}
-      </ul>
-      </div>
-
-      {% if select_mobile_class %}
-        <div class="component__heading--mb is-mobile">
-          <div class="cog--mq">
-              <div class="form-item">
-                <select class="select--tabs">
-                  {% set selected = false %}
-                  {% for key ,item in paragraph_tabs['#items'] %}
-                    {% if key == 0 %}
-                      <option value="tab-{{ key }}" selected>
-                    {% else %}
-                      <option value="tab-{{ key }}">
-                    {% endif %}
-                      {{ item.entity.field_name.value }}
-                    </option>
-                  {% endfor %}
-                </select>
-              </div>
-          </div>
-        </div>
-      {% endif %}
-
-      {% for key, item in paragraph_tabs['#items'] %}
-        {% if item.entity.field_body %}
-          {% set class = "tabs" %}
-          {% if item.entity.field_c_image is not empty %}
-            {% set class = "tabs tab-img-bg" %}
-          {% endif %}
-
-          <div id="tab-{{key}}" class="{{class}}" {% if item.entity.field_c_image is not empty %} style="background-image:url({{- file_url(item.entity.field_c_image.entity.uri.value)  -}}); background-repeat:no-repeat; background-size:cover;" {% endif %}>
-            {% for key, value in item.entity.field_body %}
-              {{ drupal_entity('paragraph', value.target_id) }}
-            {% endfor %}
-          </div>
-        {% endif %}
-
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-=======
 	{% set striped_custom_classes = c_clasess|striptags|lower %}
 	{% set split_custom_classes = striped_custom_classes|split(' ') %}
 	{% for custom_class in split_custom_classes %}
@@ -382,4 +230,3 @@
 				</div>
 			</div>
 		</section>
->>>>>>> main

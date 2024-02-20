@@ -67,44 +67,6 @@
 
 /* global require */
 
-<<<<<<< HEAD
-var gulp = require('gulp');
-// Setting pattern this way allows non gulp- plugins to be loaded as well.
-var plugins = require('gulp-load-plugins')({
-  pattern: '*',
-  rename: {
-    'node-sass-import-once': 'importOnce',
-    'gulp-sass-glob': 'sassGlob',
-    'run-sequence': 'runSequence',
-    'gulp-clean-css': 'cleanCSS',
-    'gulp-stylelint': 'gulpStylelint',
-    'gulp-eslint': 'gulpEslint',
-    'gulp-babel': 'babel',
-    'gulp-util': 'gutil'
-  }
-});
-
-// Used to generate relative paths for style guide output.
-var path = require('path');
-
-// These are used in the options below.
-var paths = {
-  styles: {
-    source: 'sass/',
-    destination: 'css/'
-  },
-  scripts: {
-    source: 'js/src',
-    destination: 'js/dist'
-  },
-  images: 'img/',
-  styleGuide: 'styleguide'
-};
-
-// These are passed to each task.
-var options = {
-
-=======
 let gulp = require("gulp");
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 let plugins = require("gulp-load-plugins")({
@@ -140,7 +102,6 @@ let paths = {
 
 // These are passed to each task.
 let options = {
->>>>>>> main
   // ----- Browsersync ----- //
 
   browserSync: {
@@ -149,104 +110,49 @@ let options = {
     // proxy: {
     //   target: 'http://local.example.com'
     // },
-<<<<<<< HEAD
-    open: 'external',
-    xip: true,
-    logConnections: true
-=======
     open: "external",
     xip: true,
     logConnections: true,
->>>>>>> main
   },
 
   // ----- CSS ----- //
 
   css: {
-<<<<<<< HEAD
-    files: path.join(paths.styles.destination, '**/*.css'),
-    file: path.join(paths.styles.destination, '/styles.css'),
-    destination: path.join(paths.styles.destination)
-=======
     files: path.join(paths.styles.destination, "**/*.css"),
     file: path.join(paths.styles.destination, "/styles.css"),
     destination: path.join(paths.styles.destination),
->>>>>>> main
   },
 
   // ----- Sass ----- //
 
   sass: {
-<<<<<<< HEAD
-    files: path.join(paths.styles.source, '**/*.scss'),
-    file: path.join(paths.styles.source, 'styles.scss'),
-    destination: path.join(paths.styles.destination)
-=======
     files: path.join(paths.styles.source, "**/*.scss"),
     file: path.join(paths.styles.source, "styles.scss"),
     destination: path.join(paths.styles.destination),
->>>>>>> main
   },
 
   // ----- JS ----- //
   js: {
-<<<<<<< HEAD
-    files: path.join(paths.scripts.source, '**/*.js'),
-    destination: path.join(paths.scripts.destination)
-=======
     files: path.join(paths.scripts.source, "**/*.js"),
     destination: path.join(paths.scripts.destination),
->>>>>>> main
   },
 
   // ----- Images ----- //
   images: {
-<<<<<<< HEAD
-    files: paths.images + '**/*.{png,gif,jpg,svg}',
-    destination: paths.images
-=======
     files: paths.images + "**/*.{png,gif,jpg,svg}",
     destination: paths.images,
->>>>>>> main
   },
 
   // ----- eslint ----- //
   jsLinting: {
     files: {
-<<<<<<< HEAD
-      theme: [
-        paths.scripts + '**/*.js',
-        '!' + paths.scripts + '**/*.min.js'
-      ],
-      gulp: [
-        'gulpfile.js',
-        'gulp-tasks/**/*'
-      ]
-    }
-
-=======
       theme: [paths.scripts + "**/*.js", "!" + paths.scripts + "**/*.min.js"],
       gulp: ["gulpfile.js", "gulp-tasks/**/*"],
     },
->>>>>>> main
   },
 
   // ----- KSS Node ----- //
   styleGuide: {
-<<<<<<< HEAD
-    source: [
-      paths.styles.source
-    ],
-    builder: 'builder/twig',
-    destination: 'styleguide/',
-    css: [
-      path.relative(paths.styleGuide, paths.styles.destination + 'styles.css'),
-      path.relative(paths.styleGuide, paths.styles.destination + 'style-guide-only/kss-only.css')
-    ],
-    js: [],
-    homepage: 'style-guide-only/homepage.md',
-    title: 'Living Style Guide'
-=======
     source: [paths.styles.source],
     builder: "builder/twig",
     destination: "styleguide/",
@@ -260,71 +166,24 @@ let options = {
     js: [],
     homepage: "style-guide-only/homepage.md",
     title: "Living Style Guide",
->>>>>>> main
   },
 
   // ------ pa11y ----- //
   pa11y: {
-<<<<<<< HEAD
-    urls: [ // An array of urls to test.
-=======
     urls: [
       // An array of urls to test.
->>>>>>> main
       // For testing in a travis environment:
       // 'http://127.0.0.1:8888',
       // 'http://127.0.0.1:8888/themes/custom/yourtheme/styleguide'
     ],
     failOnError: true, // fail the build on error
     showFailedOnly: true, // show errors only and override reporter
-<<<<<<< HEAD
-    reporter: 'console',
-=======
     reporter: "console",
->>>>>>> main
     includeWarnings: true, // including warnings by default. - set it to false to disable
     includeNotices: true, // including notices by default. - set it to false to disable
     log: {
       debug: console.log.bind(console),
       error: console.error.bind(console),
-<<<<<<< HEAD
-      info: console.info.bind(console)
-    },
-    standard: 'WCAG2AA', // choose from Section508, WCAG2A, WCAG2AA, and WCAG2AAA
-    page: {
-      settings: {
-        loadImages: false,
-        userName: '', // .htacess username
-        password: '' // .htaccess password
-      }
-    },
-    threshold: { // Set to -1 for no threshold.
-      errors: 1,
-      warnings: 10,
-      notices: -1
-    }
-  }
-
-};
-
-// Tasks
-require('./gulp-tasks/browser-sync')(gulp, plugins, options);
-require('./gulp-tasks/build')(gulp, plugins, options);
-require('./gulp-tasks/clean')(gulp, plugins, options);
-require('./gulp-tasks/clean-css')(gulp, plugins, options);
-require('./gulp-tasks/clean-styleguide')(gulp, plugins, options);
-require('./gulp-tasks/compile-sass')(gulp, plugins, options);
-require('./gulp-tasks/compile-js')(gulp, plugins, options);
-require('./gulp-tasks/compile-styleguide')(gulp, plugins, options);
-require('./gulp-tasks/default')(gulp, plugins, options);
-require('./gulp-tasks/lint-js')(gulp, plugins, options);
-require('./gulp-tasks/lint-css')(gulp, plugins, options);
-require('./gulp-tasks/minify-css')(gulp, plugins, options);
-require('./gulp-tasks/serve')(gulp, plugins, options);
-require('./gulp-tasks/test-css')(gulp, plugins, options);
-require('./gulp-tasks/watch')(gulp, plugins, options);
-require('./gulp-tasks/pa11y')(gulp, plugins, options);
-=======
       info: console.info.bind(console),
     },
     standard: "WCAG2AA", // choose from Section508, WCAG2A, WCAG2AA, and WCAG2AAA
@@ -361,7 +220,6 @@ require("./gulp-tasks/serve")(gulp, plugins, options);
 require("./gulp-tasks/test-css")(gulp, plugins, options);
 require("./gulp-tasks/watch")(gulp, plugins, options);
 require("./gulp-tasks/pa11y")(gulp, plugins, options);
->>>>>>> main
 
 // Credits:
 //

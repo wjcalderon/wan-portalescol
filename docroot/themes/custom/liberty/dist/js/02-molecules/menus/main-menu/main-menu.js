@@ -1,9 +1,5 @@
 /******/ (function() { // webpackBootstrap
-<<<<<<< HEAD
-var __webpack_exports__ = {};
-=======
 let __webpack_exports__ = {};
->>>>>>> main
 /*!**************************************************************!*\
   !*** ./components/02-molecules/menus/main-menu/main-menu.js ***!
   \**************************************************************/

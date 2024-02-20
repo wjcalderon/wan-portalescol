@@ -6,8 +6,4 @@ package: 'Esinergia'
 dependencies:
   - lib_v2_core
   - media
-<<<<<<< HEAD
   - media_library
-=======
-  - media_library
->>>>>>> main

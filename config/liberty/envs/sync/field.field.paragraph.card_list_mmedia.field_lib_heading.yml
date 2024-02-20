@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 8cf30c44-fee8-4552-a390-d2a64ff10b70
-=======
 uuid: 431bd297-bad6-4103-afb5-6190cb69a816
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -15,11 +11,7 @@ entity_type: paragraph
 bundle: card_list_mmedia
 label: Título
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 8a5bd54e-e5d9-47af-8a67-e312b66e8564
-=======
 uuid: 8450b451-6d48-47b9-bb01-819525966575
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -30,11 +26,7 @@ content:
     weight: 1
     region: content
   field_lib_link:
-<<<<<<< HEAD
-    type: link
-=======
     type: link_separate
->>>>>>> main
     label: hidden
     settings:
       trim_length: 80

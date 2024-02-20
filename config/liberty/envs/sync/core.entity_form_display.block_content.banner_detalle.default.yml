@@ -6,9 +6,6 @@ dependencies:
     - block_content.type.banner_detalle
     - field.field.block_content.banner_detalle.field_banner
   module:
-<<<<<<< HEAD
-    - paragraphs
-=======
     - field_layout
     - layout_discovery
     - paragraphs
@@ -17,7 +14,6 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
->>>>>>> main
 id: block_content.banner_detalle.default
 targetEntityType: block_content
 bundle: banner_detalle

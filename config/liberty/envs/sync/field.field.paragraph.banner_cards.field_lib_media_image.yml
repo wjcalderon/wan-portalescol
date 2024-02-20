@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 2f866a5a-00ca-4b03-bf72-a9a17c31ac78
-=======
 uuid: ce92d9f9-99fd-4349-803f-48d47fc65385
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -16,11 +12,7 @@ entity_type: paragraph
 bundle: banner_cards
 label: Banner
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''

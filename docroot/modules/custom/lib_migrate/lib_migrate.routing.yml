@@ -20,8 +20,4 @@ lib_migrate.config:
     _form: '\Drupal\lib_migrate\Form\ApiConfigLatLngForm'
     _title: 'Configuración API latitud y longitud'
   requirements:
-<<<<<<< HEAD
     _permission: 'administer site configuration'
-=======
-    _permission: 'administer site configuration'
->>>>>>> main

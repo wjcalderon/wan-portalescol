@@ -1,13 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-/**
- * @file
- * Contains \Drupal\ckeditor_videodetector\Plugin\CKEditorPlugin\VideoDetectorCKEditorButton.
- */
-
-=======
->>>>>>> main
 namespace Drupal\ckeditor_videodetector\Plugin\CKEditorPlugin;
 
 use Drupal\ckeditor\CKEditorPluginBase;
@@ -35,21 +27,12 @@ class VideoDetectorCKEditorButton extends CKEditorPluginBase {
    * editor.ui.addRichCombo() functions in the plugin.js file.
    */
   public function getButtons() {
-<<<<<<< HEAD
-    return array(
-      'VideoDetector' => array(
-        'label' => t('Video detector ckeditor button'),
-        'image' => 'libraries/videodetector/icons/videodetector.svg',
-      ),
-    );
-=======
     return [
       'VideoDetector' => [
         'label' => t('Video detector ckeditor button'),
         'image' => 'libraries/videodetector/icons/videodetector.svg',
       ],
     ];
->>>>>>> main
   }
 
   /**
@@ -63,47 +46,29 @@ class VideoDetectorCKEditorButton extends CKEditorPluginBase {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
-  function isInternal() {
-=======
   public function isInternal() {
->>>>>>> main
     return FALSE;
   }
 
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
-  function getDependencies(Editor $editor) {
-    return array();
-=======
   public function getDependencies(Editor $editor) {
     return [];
->>>>>>> main
   }
 
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
-  function getLibraries(Editor $editor) {
-    return array();
-=======
   public function getLibraries(Editor $editor) {
     return [];
->>>>>>> main
   }
 
   /**
    * {@inheritdoc}
    */
   public function getConfig(Editor $editor) {
-<<<<<<< HEAD
-    return array();
-=======
     return [];
->>>>>>> main
   }
 
 }

@@ -141,31 +141,19 @@
         <div
           @click="updateVehicle('Liviano')"
           v-bind:class="{col: true, button: true, liviano: true, selected: casualtyData.vehicleType === 'Liviano'}">
-<<<<<<< HEAD
-          <b>Liviano</b>
-=======
           <strong>Liviano</strong>
->>>>>>> main
           <p>Automovíl, camioneta, SUV's</p>
         </div>
         <div
           @click="updateVehicle('Pesado')"
           v-bind:class="{col: true, button: true, pesado: true, selected: casualtyData.vehicleType === 'Pesado'}">
-<<<<<<< HEAD
-          <b>Pesado</b>
-=======
           <strong>Pesado</strong>
->>>>>>> main
           <p>Bus, camión, remolcador, furgon, volqueta, chasis</p>
         </div>
         <div
           @click="updateVehicle('Moto')"
           v-bind:class="{col: true, button: true, moto: true, selected: casualtyData.vehicleType === 'Moto'}">
-<<<<<<< HEAD
-          <b>Moto</b>
-=======
           <strong>Moto</strong>
->>>>>>> main
           <p>Motocarro, motocicleta</p>
         </div>
       </div>
@@ -266,11 +254,7 @@ export default {
           match: {
             /* regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g, */
             regExp: /^\D+$/g,
-<<<<<<< HEAD
-            msg: 'El campo solo debe contenter letras y caracteres especiales.'
-=======
             msg: 'El campo solo debe contener letras y caracteres especiales.'
->>>>>>> main
           }
         },
         lastname: {
@@ -278,11 +262,7 @@ export default {
          match: {
             /* regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g, */
             regExp: /^\D+$/g,
-<<<<<<< HEAD
-            msg: 'El campo solo debe contenter letras y caracteres especiales.'
-=======
             msg: 'El campo solo debe contener letras y caracteres especiales.'
->>>>>>> main
           }
         },
         phone: {
@@ -293,11 +273,7 @@ export default {
           },
           match: {
             regExp: /^[0-9 ]+$/i,
-<<<<<<< HEAD
-            msg: 'El campo solo debe contenter números.'
-=======
             msg: 'El campo solo debe contener números.'
->>>>>>> main
           }
         },
         email: {
@@ -315,11 +291,7 @@ export default {
           },
           match: {
             regExp: /^[a-zA-Z0-9]+$/i,
-<<<<<<< HEAD
-            msg: 'El campo solo debe contenter números o letras.'
-=======
             msg: 'El campo solo debe contener números o letras.'
->>>>>>> main
           }
         },
         address: {
@@ -344,8 +316,4 @@ export default {
     }
   }
 }
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> main

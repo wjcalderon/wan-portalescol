@@ -3,15 +3,9 @@
 namespace Drupal\nbsp\Plugin\CKEditorPlugin;
 
 use Drupal\ckeditor\CKEditorPluginBase;
-<<<<<<< HEAD
-use Drupal\editor\Entity\Editor;
-use Drupal\ckeditor\CKEditorPluginInterface;
-use Drupal\ckeditor\CKEditorPluginButtonsInterface;
-=======
 use Drupal\ckeditor\CKEditorPluginButtonsInterface;
 use Drupal\ckeditor\CKEditorPluginInterface;
 use Drupal\editor\Entity\Editor;
->>>>>>> main
 
 /**
  * Defines the "NBSP" plugin.
@@ -62,13 +56,9 @@ class Nbsp extends CKEditorPluginBase implements CKEditorPluginInterface, CKEdit
     return [
       'DrupalNbsp' => [
         'label' => $this->t('Non-breaking space'),
-<<<<<<< HEAD
-        'image' => drupal_get_path('module', 'nbsp') . '/plugins/' . $this->getPluginId() . '/icons/' . $this->getPluginId() . '.png',
-=======
         'image' => drupal_get_path('module', 'nbsp') .
         '/plugins/' . $this->getPluginId() . '/icons/' .
         $this->getPluginId() . '.png',
->>>>>>> main
       ],
     ];
   }

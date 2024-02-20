@@ -9,11 +9,6 @@ dependencies:
     - image.style.medium
     - media.type.image
   module:
-<<<<<<< HEAD
-    - image_widget_crop
-    - lightning_media
-    - path
-=======
     - field_layout
     - image_widget_crop
     - layout_discovery
@@ -24,7 +19,6 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
->>>>>>> main
 _core:
   default_config_hash: iVmRBD7y3Gmddt29sSx9DwwH6Q4UaROqMu7FLyy_bvQ
 id: media.image.media_browser
@@ -78,8 +72,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-=======
   revision_log_message:
     type: string_textarea
     weight: 25
@@ -88,7 +80,6 @@ content:
       rows: 4
       placeholder: ''
     third_party_settings: {  }
->>>>>>> main
   status:
     type: boolean_checkbox
     weight: 100

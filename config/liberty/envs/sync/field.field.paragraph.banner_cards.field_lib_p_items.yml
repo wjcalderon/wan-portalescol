@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 91851eae-6e9d-4076-b16f-610e6b86ed32
-=======
 uuid: c734c4b9-ef67-44f6-b058-3a3b5825b859
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -18,11 +14,7 @@ entity_type: paragraph
 bundle: banner_cards
 label: Items
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -34,21 +26,6 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       acordeon:
-<<<<<<< HEAD
-        weight: 50
-        enabled: false
-      assistance_item:
-        weight: 51
-        enabled: false
-      banner:
-        weight: 52
-        enabled: false
-      banner_cards:
-        weight: 53
-        enabled: false
-      card:
-        weight: 54
-=======
         weight: 42
         enabled: false
       assistance_item:
@@ -62,141 +39,11 @@ settings:
         enabled: false
       card:
         weight: 46
->>>>>>> main
         enabled: false
       card_grid_accordion:
         weight: 57
         enabled: false
       card_list_mmedia:
-<<<<<<< HEAD
-        weight: 58
-        enabled: false
-      card_media:
-        weight: 59
-        enabled: false
-      card_person:
-        weight: 60
-        enabled: false
-      card_person_list:
-        weight: 61
-        enabled: false
-      cards:
-        weight: 55
-        enabled: false
-      cards_reports:
-        weight: 56
-        enabled: false
-      column:
-        weight: 62
-        enabled: false
-      columns:
-        weight: 63
-        enabled: false
-      documents:
-        weight: 64
-        enabled: false
-      drupal_block:
-        weight: 65
-        enabled: false
-      drupal_view:
-        weight: 66
-        enabled: false
-      grid_accordion:
-        weight: 67
-        enabled: false
-      image:
-        weight: 68
-        enabled: false
-      item_acordeon:
-        weight: 69
-        enabled: false
-      item_lista:
-        weight: 70
-        enabled: false
-      item_report_card:
-        weight: 71
-        enabled: false
-      item_tab_multi:
-        weight: 72
-        enabled: false
-      lib_banner_promo_icons:
-        weight: 73
-        enabled: false
-      lib_breaker:
-        weight: 74
-        enabled: false
-      lib_card:
-        weight: 75
-        enabled: true
-      lib_card_list:
-        weight: 76
-        enabled: false
-      lib_card_list_out:
-        weight: 77
-        enabled: false
-      lib_hero:
-        weight: 78
-        enabled: false
-      lib_hero_carousel:
-        weight: 79
-        enabled: false
-      lib_tab_item:
-        weight: 81
-        enabled: false
-      lib_tabs:
-        weight: 80
-        enabled: false
-      lista:
-        weight: 82
-        enabled: false
-      microsite:
-        weight: 83
-        enabled: false
-      multi_tabs:
-        weight: 84
-        enabled: false
-      plan_list:
-        weight: 85
-        enabled: false
-      qualtrics_embed:
-        weight: 86
-        enabled: false
-      select_cta:
-        weight: 87
-        enabled: false
-      shorcut:
-        weight: 88
-        enabled: false
-      shorcuts:
-        weight: 89
-        enabled: false
-      short_banner:
-        weight: 90
-        enabled: false
-      single_text:
-        weight: 91
-        enabled: false
-      slider:
-        weight: 92
-        enabled: false
-      tab_item:
-        weight: 94
-        enabled: false
-      tabs:
-        weight: 93
-        enabled: false
-      testimonies:
-        weight: 95
-        enabled: false
-      testimony_item:
-        weight: 96
-        enabled: false
-      video:
-        weight: 97
-        enabled: false
-      webform:
-        weight: 98
-=======
         weight: 57
         enabled: false
       card_media:
@@ -330,6 +177,5 @@ settings:
         enabled: false
       webform:
         weight: 82
->>>>>>> main
         enabled: false
 field_type: entity_reference_revisions

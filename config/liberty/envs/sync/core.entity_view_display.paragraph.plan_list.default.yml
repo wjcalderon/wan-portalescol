@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 8b06059d-7a5d-477d-b287-2a67114799ab
-=======
 uuid: 314cc9dd-81d6-408d-bd37-5c05153d960d
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -14,10 +10,7 @@ dependencies:
     - field.field.paragraph.plan_list.field_lib_summary
     - paragraphs.paragraphs_type.plan_list
   module:
-<<<<<<< HEAD
-=======
     - ds
->>>>>>> main
     - entity_reference_revisions
     - options
 id: paragraph.plan_list.default
@@ -26,19 +19,11 @@ bundle: plan_list
 mode: default
 content:
   field_lib_columns:
-<<<<<<< HEAD
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-=======
     type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 4
->>>>>>> main
     region: content
   field_lib_heading:
     type: string
@@ -52,19 +37,6 @@ content:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-<<<<<<< HEAD
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_lib_plan_style:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-=======
       view_mode: lib_plan
       link: ''
     third_party_settings:
@@ -78,7 +50,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
->>>>>>> main
     region: content
   field_lib_summary:
     type: basic_string

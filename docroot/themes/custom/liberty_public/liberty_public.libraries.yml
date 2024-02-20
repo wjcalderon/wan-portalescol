@@ -123,9 +123,6 @@ liberty-card-accordion:
     - core/drupal
     - core/drupalSettings
     - core/jquery
-<<<<<<< HEAD
-    - core/jquery.once
-=======
     - core/jquery.once
 
 splidejs:
@@ -172,4 +169,3 @@ carousel:
     js/src/03-organisms/carousel/carousel.js: {}
   dependencies:
     - liberty_seguros/splidejs
->>>>>>> main

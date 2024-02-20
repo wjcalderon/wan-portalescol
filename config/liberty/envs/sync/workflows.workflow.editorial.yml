@@ -5,20 +5,14 @@ dependencies:
   config:
     - node.type.capitulo_los_segura
     - node.type.faq_los_segura
-<<<<<<< HEAD
-=======
     - node.type.footer_prueba
->>>>>>> main
     - node.type.glosario_los_segura
     - node.type.informes
     - node.type.landing_html
     - node.type.landing_los_segura
     - node.type.landing_page
     - node.type.page
-<<<<<<< HEAD
-=======
     - node.type.page_layout
->>>>>>> main
     - node.type.taller
   module:
     - content_moderation
@@ -90,19 +84,13 @@ type_settings:
     node:
       - capitulo_los_segura
       - faq_los_segura
-<<<<<<< HEAD
-=======
       - footer_prueba
->>>>>>> main
       - glosario_los_segura
       - informes
       - landing_html
       - landing_los_segura
       - landing_page
       - page
-<<<<<<< HEAD
-=======
       - page_layout
->>>>>>> main
       - taller
   default_moderation_state: draft

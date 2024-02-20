@@ -35,17 +35,6 @@
 %}
 {% set base_url = url('<front>')|render|split('/')|join('/') %}
 <div id="buscador">
-<<<<<<< HEAD
-  <span class="close" id="buscador__close"><img src="{{ base_url ~ directory }}/images/icons/close-form.svg"></span>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-=======
 	<span class="close" id="buscador__close"><img alt="" src="{{ base_url ~ directory }}/images/icons/close-form.svg"></span>
 	{{ title_prefix }}
 	{% if label %}
@@ -55,5 +44,4 @@
 	{% block content %}
 		{{ content }}
 	{% endblock %}
->>>>>>> main
 </div>

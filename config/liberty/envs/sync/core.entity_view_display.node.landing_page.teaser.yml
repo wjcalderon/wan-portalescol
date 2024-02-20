@@ -7,14 +7,6 @@ dependencies:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_p_components
-<<<<<<< HEAD
-    - field.field.node.landing_page.panelizer
-    - node.type.landing_page
-  module:
-    - metatag
-    - text
-    - user
-=======
     - field.field.node.landing_page.field_video_embed
     - field.field.node.landing_page.field_video_media
     - field.field.node.landing_page.panelizer
@@ -23,7 +15,6 @@ dependencies:
     - manage_display
     - metatag
     - text
->>>>>>> main
 _core:
   default_config_hash: FRp6zjyWMGM2zPiyyrxZG3ftzsqIizslb7G2H8RbxcE
 id: node.landing_page.teaser
@@ -51,8 +42,6 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-<<<<<<< HEAD
-=======
   title:
     type: title
     label: hidden
@@ -62,7 +51,6 @@ content:
     third_party_settings: {  }
     weight: -50
     region: content
->>>>>>> main
   workbench_moderation_control:
     settings: {  }
     third_party_settings: {  }
@@ -71,11 +59,6 @@ content:
 hidden:
   addtoany: true
   content_moderation_control: true
-<<<<<<< HEAD
-  field_p_components: true
-  langcode: true
-  panelizer: true
-=======
   created: true
   field_p_components: true
   field_video_embed: true
@@ -84,4 +67,3 @@ hidden:
   panelizer: true
   search_api_excerpt: true
   uid: true
->>>>>>> main

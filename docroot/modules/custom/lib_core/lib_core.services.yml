@@ -1,8 +1,5 @@
 services:
   lib_core.chat_manager:
-<<<<<<< HEAD
-    class: Drupal\lib_core\ChatManager
-=======
     class: Drupal\lib_core\ChatManager
   custom_https_baseurl_subscriber:
     class: Drupal\lib_core\EventSubscriber\CustomHttpsBaseUrlSubscriber
@@ -12,4 +9,3 @@ services:
     class: Drupal\lib_core\Controller\LibCoreControllerMain
     arguments:
       - '@liberty_claims.claim_notification_controller'
->>>>>>> main

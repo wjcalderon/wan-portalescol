@@ -4,8 +4,4 @@ status: false
 dependencies: {  }
 formId: node_office_form
 captchaType: default
-<<<<<<< HEAD
-label: null
-=======
 label: node_office_form
->>>>>>> main

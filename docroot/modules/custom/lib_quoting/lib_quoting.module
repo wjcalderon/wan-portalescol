@@ -1,13 +1,4 @@
 <?php
-<<<<<<< HEAD
-/**
- * Created by PhpStorm.
- * User: esinergia1
- * Date: 6/5/19
- * Time: 4:11 PM
- */
-
-=======
 
 /**
  * @file
@@ -17,7 +8,6 @@
 /**
  * Hook theme.
  */
->>>>>>> main
 function lib_quoting_theme($existing, $type, $theme, $path) {
   return [
     'quote_pdf' => [

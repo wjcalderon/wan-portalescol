@@ -39,16 +39,6 @@ class LibNewsController extends ControllerBase {
     $body = json_decode($request->getContent());
 
     $timezone = drupal_get_user_timezone();
-<<<<<<< HEAD
-    $timezoneObject = new \DateTimeZone($timezone);
-    $date = \DateTime::createFromFormat('d-m-Y G:i:s', $body->date, $timezoneObject);
-    $time = $date->getTimestamp();
-
-    $formattedDate = \Drupal::service('date.formatter')->format($time, 'custom', 'd/M/Y');
-
-    $response = [
-      'formatted_date' => $formattedDate
-=======
     $timezone_object = new \DateTimeZone($timezone);
     $date = \DateTime::createFromFormat('d-m-Y G:i:s', $body->date, $timezone_object);
     $time = $date->getTimestamp();
@@ -57,7 +47,6 @@ class LibNewsController extends ControllerBase {
 
     $response = [
       'formatted_date' => $formatted_date,
->>>>>>> main
     ];
 
     return new JsonResponse($response);

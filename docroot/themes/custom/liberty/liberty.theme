@@ -2,17 +2,6 @@
 
 use Drupal\Core\Database\Database;
 
-<<<<<<< HEAD
-function liberty_preprocess_page(&$variables)
-{
-    $hoy = date("D, d M Y");
-    header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
-    header('Cache-Control:must-revalidate,private,no-cache,no-store,must-revalidate,pre-check=0,post-check=0');
-
-}
-
-=======
->>>>>>> main
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */

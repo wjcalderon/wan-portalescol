@@ -98,21 +98,12 @@ export default {
     dropzoneOptions: function() {
       if (this.userData) {
         return {
-<<<<<<< HEAD
-          url: '/claim/files/' + this.userData.documentId + '/save/',
-          thumbnailWidth: 150,
-          acceptedFiles: 'image/jpeg, application/pdf',
-          addRemoveLinks: true,
-          resizeWidth: 600,
-          resizeHeight: 400,
-=======
           url: '/claim/files/' + this.userData.documentId + '/save',
           thumbnailWidth: 150,
           acceptedFiles: 'image/jpeg, application/pdf',
           addRemoveLinks: true,
           /*resizeWidth: 600,
           resizeHeight: 400,*/
->>>>>>> main
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           createImageThumbnails: false,
           headers: {

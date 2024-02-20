@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 2d476acc-a663-4783-92d4-06d43392954e
-=======
 uuid: f427d45f-3058-45e0-b04f-cedcb5507586
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -35,21 +31,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-<<<<<<< HEAD
-    weight: 4
-=======
     weight: 3
->>>>>>> main
     region: content
   field_lib_media_image:
     type: entity_reference_entity_view
     label: hidden
     settings:
-<<<<<<< HEAD
-      view_mode: '3_1'
-=======
       view_mode: lib_3_1
->>>>>>> main
       link: false
     third_party_settings: {  }
     weight: 0
@@ -70,11 +58,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-    weight: 3
-=======
     weight: 4
->>>>>>> main
     region: content
 hidden:
   search_api_excerpt: true

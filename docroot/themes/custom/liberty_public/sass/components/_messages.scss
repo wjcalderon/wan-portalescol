@@ -38,25 +38,14 @@
     display: inline-block;
     width: 250px;
     height: 210px;
-<<<<<<< HEAD
-    background: url('../images/no-resultados.png') no-repeat;
-=======
     background: url("../images/no-resultados.png") no-repeat;
->>>>>>> main
   }
 
   p {
     color: $azul-os-pr;
     font-size: 1.125rem;
     &.subtitle {
-<<<<<<< HEAD
-      font-size: .875rem;
-    }
-  }
-}
-=======
       font-size: 0.875rem;
     }
   }
 }
->>>>>>> main

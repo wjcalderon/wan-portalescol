@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: fc3244f6-bad0-47b5-b41c-15a697909928
-=======
 uuid: cd3d5da7-daf1-4fb0-a538-2b5c6453afed
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -13,11 +9,8 @@ dependencies:
   module:
     - path
     - svg_image_field
-<<<<<<< HEAD
-=======
 _core:
   default_config_hash: buPLYcuyN2yMLwnjERMFAqXNU9hBOF8W1AbWVPUeKnI
->>>>>>> main
 id: media.vector_image.default
 targetEntityType: media
 bundle: vector_image
@@ -25,11 +18,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-<<<<<<< HEAD
-    weight: 3
-=======
     weight: 2
->>>>>>> main
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -51,21 +40,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-<<<<<<< HEAD
-    weight: 4
-=======
     weight: 3
->>>>>>> main
     region: content
     settings: {  }
     third_party_settings: {  }
   revision_log_message:
     type: string_textarea
-<<<<<<< HEAD
-    weight: 6
-=======
     weight: 25
->>>>>>> main
     region: content
     settings:
       rows: 4
@@ -73,11 +54,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-<<<<<<< HEAD
-    weight: 5
-=======
     weight: 4
->>>>>>> main
     region: content
     settings:
       display_label: true

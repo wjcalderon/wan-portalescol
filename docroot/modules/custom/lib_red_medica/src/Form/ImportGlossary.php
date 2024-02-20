@@ -2,61 +2,12 @@
 
 namespace Drupal\lib_red_medica\Form;
 
-<<<<<<< HEAD
-=======
 use Drupal\Core\File\FileSystem;
->>>>>>> main
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-<<<<<<< HEAD
-class ImportGlossary extends FormBase
-{
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getFormId()
-    {
-        return 'import_glossary_form';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(array $form, FormStateInterface $form_state)
-    {
-
-        $form['import_file'] = [
-            '#type' => 'managed_file',
-            '#title' => t('Subir archivo'),
-            '#upload_location' => 'public://',
-            '#default_value' => '',
-            "#upload_validators" => [
-                "file_validate_extensions" => ["xls xlsx"],
-            ],
-            '#states' => [
-                'visible' => [
-                    ':input[name="File_type"]' => [
-                        'value' => t('Subir archivo'),
-                    ],
-                ],
-            ],
-        ];
-
-        $form['actions']['#type'] = 'actions';
-
-        $form['actions']['submit'] = [
-            '#type' => 'submit',
-            '#value' => $this->t('Importar'),
-            '#button_type' => 'primary',
-        ];
-
-        $form['description'] = [
-            '#markup' => '<div class="ayudas">
-=======
 /**
  * Import glossary.
  */
@@ -101,7 +52,6 @@ class ImportGlossary extends FormBase {
 
     $form['description'] = [
       '#markup' => '<div class="ayudas">
->>>>>>> main
         <p>Tenga en cuenta estas instrucciones para cuando vaya a realizar un cargue de registros</p>
         <ul>
         <li><b>NO</b> se van a actulizar registros.</li>
@@ -109,63 +59,6 @@ class ImportGlossary extends FormBase {
         <li>Descargue la plantilla base <a  href="/modules/custom/lib_red_medica/data/glosario-especialidades.xlsx" target="_blank" rel="noreferrer">Aquí</a></li>
         </ul>
         </div>',
-<<<<<<< HEAD
-        ];
-
-        return $form;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function submitForm(array &$form, FormStateInterface $form_state)
-    {
-        $csv_file = $form_state->getValue('import_file');
-        $file = File::load($csv_file[0]);
-
-        if ($file) {
-            // File realpath
-            $import_file = \Drupal\Core\File\FileSystem::realpath($file->getFileUri());
-
-            // Create reader
-            $type = IOFactory::identify($import_file);
-            $reader = IOFactory::createReader($type);
-            $reader->setReadDataOnly(true);
-
-            $workbook = $reader->load($import_file);
-            $sheetData = $workbook->getActiveSheet();
-            $rowIterator = $sheetData->getRowIterator();
-
-            // Set batch operations
-            $row = [];
-            foreach ($rowIterator as $row) {
-                if ($row->getRowIndex() == 1) {
-                    continue;
-                }
-                $cellIterator = $row->getCellIterator();
-                foreach ($cellIterator as $cell) {
-                    $data[$row->getRowIndex()][$cell->getColumn()] = $cell->getCalculatedValue();
-                }
-                $row = $data[$row->getRowIndex()];
-                $operations[] = [
-                    '\Drupal\lib_red_medica\Import\Glossary::ImportItem',
-                    [$row],
-                ];
-            }
-
-            // Run batch job
-            $batch = array(
-                'title' => t('Importing Data...'),
-                'operations' => $operations,
-                'init_message' => t('Import is starting.'),
-                'finished' => '\Drupal\lib_red_medica\Import\Glossary::ImportItemCallback',
-            );
-            batch_set($batch);
-        } else {
-            drupal_set_message('Error al cargar archivo');
-        }
-    }
-=======
     ];
 
     return $form;
@@ -222,5 +115,4 @@ class ImportGlossary extends FormBase {
     }
   }
 
->>>>>>> main
 }

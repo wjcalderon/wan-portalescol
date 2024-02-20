@@ -53,16 +53,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import Api from '@/helpers/Api'
-
-import ResultsList from './ResultsList'
-import ResultsMap from './ResultsMap'
-import NoResults from './NoResults'
-
-export default {
-  name: 'SearchResult',
-=======
 import Api from "@/helpers/Api";
 
 import ResultsList from "./ResultsList";
@@ -71,7 +61,6 @@ import NoResults from "./NoResults";
 
 export default {
   name: "SearchResult",
->>>>>>> main
   data: function () {
     return {
       results: {},
@@ -83,36 +72,13 @@ export default {
       show_no_results: false,
       show_results_list: true,
       show_results_map: false,
-<<<<<<< HEAD
-    }
-  },
-  props: ['isMobile'],
-=======
     };
   },
   props: ["isMobile"],
->>>>>>> main
   components: { ResultsList, ResultsMap, NoResults },
   computed: {
     showResults: function () {
       if (this.show_results && this.show_results_list) {
-<<<<<<< HEAD
-        return ResultsList
-      }
-      return null
-    },
-    showMap: function () {
-      if (this.show_results && this.show_results_map) {
-        return ResultsMap
-      }
-      return null
-    },
-    showNoResults: function () {
-      if (this.show_no_results) {
-        return NoResults
-      }
-      return null
-=======
         return ResultsList;
       }
       return null;
@@ -128,71 +94,10 @@ export default {
         return NoResults;
       }
       return null;
->>>>>>> main
     },
   },
   created: function () {
     this.$store.subscribe((mutation) => {
-<<<<<<< HEAD
-      if (mutation.type === 'setSearchData' || mutation.type === 'setPage') {
-        if (this.$store.state.data.show_results === true) {
-          this.search(this.$store.state.data)
-        }
-        this.show_results = true
-      }
-    })
-  },
-  methods: {
-    searchList: function () {
-      this.show_results_list = true
-      this.show_results_map = false
-      this.search(this.$store.state.data, 'list')
-    },
-    searchMap: function () {
-      this.show_results_list = false
-      this.show_results_map = true
-      this.search(this.$store.state.data, 'map')
-    },
-    search: function (data, type) {
-      if (type == 'map') {
-        this.show_results_map = false
-      }
-
-      let search_data = []
-      Object.keys(data).map(function (key) {
-        if (data[key]) {
-          search_data.push(key + '=' + data[key])
-        }
-      })
-
-      let res = Api.get(
-        type == 'map' ? 'search_map?' : 'search?',
-        search_data.join('&'),
-      )
-
-      res.then((result) => {
-        if (type == 'map') {
-          this.results = result.rows
-        } else {
-          this.results = result.rows
-          this.pager = result.pager
-        }
-        if (this.results.length > 0) {
-          this.show_results = true
-          this.show_no_results = false
-        } else {
-          this.show_results = true
-          this.show_no_results = true
-        }
-
-        if (type == 'map') {
-          this.show_results_map = true
-        }
-      })
-    },
-  },
-}
-=======
       if (mutation.type === "setSearchData" || mutation.type === "setPage") {
         if (this.$store.state.data.show_results === true) {
           this.search(this.$store.state.data);
@@ -251,5 +156,4 @@ export default {
     },
   },
 };
->>>>>>> main
 </script>

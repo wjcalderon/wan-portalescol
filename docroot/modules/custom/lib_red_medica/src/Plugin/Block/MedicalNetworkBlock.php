@@ -15,11 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class MedicalNetworkBlock extends BlockBase implements
-<<<<<<< HEAD
-    ContainerFactoryPluginInterface {
-=======
   ContainerFactoryPluginInterface {
->>>>>>> main
   /**
    * Drupal\Core\Config\ConfigFactoryInterface definition.
    *
@@ -96,19 +92,10 @@ class MedicalNetworkBlock extends BlockBase implements
 
   /**
    * Create an array with module configuration.
-<<<<<<< HEAD
-   *
-   * @return array
-   */
-  private function getConfig() {
-    // Get module settings.
-    $config = $this->configFactory->get('lib_red_medical.settings');
-=======
    */
   private function getConfig() {
     // Get module settings.
     $config = $this->configFactory->get('lib_red_medica.settings');
->>>>>>> main
     $configuration = [];
 
     $i = 0;

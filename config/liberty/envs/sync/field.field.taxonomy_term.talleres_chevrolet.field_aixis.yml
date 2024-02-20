@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: 1b4bf653-227c-4f40-a0e6-80b48ee75148
-=======
 uuid: 1643b407-0bbf-422a-9de6-75fb97448e83
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -15,11 +11,7 @@ entity_type: taxonomy_term
 bundle: talleres_chevrolet
 label: 'Codigo Aixis'
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: false
 default_value: {  }
 default_value_callback: ''

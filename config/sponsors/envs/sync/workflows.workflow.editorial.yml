@@ -18,14 +18,11 @@ type_settings:
       weight: 5
       published: false
       default_revision: true
-<<<<<<< HEAD
-=======
     default:
       label: Activado
       weight: 6
       published: true
       default_revision: true
->>>>>>> main
     draft:
       label: Borrador
       weight: -5
@@ -37,15 +34,12 @@ type_settings:
       published: true
       default_revision: true
   transitions:
-<<<<<<< HEAD
-=======
     ac:
       label: 'actived - default'
       from:
         - published
       to: default
       weight: 6
->>>>>>> main
     archive:
       label: Archivo
       from:
@@ -71,8 +65,6 @@ type_settings:
         - published
       to: draft
       weight: 0
-<<<<<<< HEAD
-=======
     default_actived:
       label: 'Default - Actived'
       from:
@@ -91,7 +83,6 @@ type_settings:
         - default
       to: archived
       weight: 8
->>>>>>> main
     publish:
       label: Publicar
       from:

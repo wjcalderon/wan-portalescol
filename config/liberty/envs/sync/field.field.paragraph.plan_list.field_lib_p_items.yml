@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: b6beab81-a719-4408-abd7-576876145b91
-=======
 uuid: 45dcc462-5564-475b-abdb-efde5c92fe9b
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -18,11 +14,7 @@ entity_type: paragraph
 bundle: plan_list
 label: Items
 description: ''
-<<<<<<< HEAD
-required: false
-=======
 required: true
->>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -42,13 +34,6 @@ settings:
       banner:
         weight: 51
         enabled: false
-<<<<<<< HEAD
-      card:
-        weight: 52
-        enabled: false
-      card_grid_accordion:
-        weight: 55
-=======
       banner_cards:
         weight: 52
         enabled: false
@@ -57,7 +42,6 @@ settings:
         enabled: false
       card_grid_accordion:
         weight: 57
->>>>>>> main
         enabled: false
       card_list_mmedia:
         weight: 56
@@ -72,17 +56,10 @@ settings:
         weight: 59
         enabled: false
       cards:
-<<<<<<< HEAD
-        weight: 53
-        enabled: false
-      cards_reports:
-        weight: 54
-=======
         weight: 54
         enabled: false
       cards_reports:
         weight: 55
->>>>>>> main
         enabled: false
       column:
         weight: 60
@@ -100,20 +77,6 @@ settings:
         weight: 64
         enabled: false
       grid_accordion:
-<<<<<<< HEAD
-        weight: 65
-        enabled: false
-      image:
-        weight: 66
-        enabled: false
-      item_acordeon:
-        weight: 67
-        enabled: false
-      item_lista:
-        weight: 68
-        enabled: false
-      item_report_card:
-=======
         weight: 69
         enabled: false
       image:
@@ -129,7 +92,6 @@ settings:
         weight: 68
         enabled: false
       item_scroll:
->>>>>>> main
         weight: 69
         enabled: false
       item_tab_multi:
@@ -177,12 +139,9 @@ settings:
       qualtrics_embed:
         weight: 84
         enabled: false
-<<<<<<< HEAD
-=======
       scrollspy:
         weight: 86
         enabled: false
->>>>>>> main
       select_cta:
         weight: 85
         enabled: false

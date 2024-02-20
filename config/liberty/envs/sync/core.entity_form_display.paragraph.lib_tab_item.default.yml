@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: abb47a20-3226-4abd-acb9-ee42b51d8edf
-=======
 uuid: b8864fac-c059-42a7-8cec-432f783843c2
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -16,10 +12,7 @@ dependencies:
   module:
     - link
     - paragraphs
-<<<<<<< HEAD
-=======
     - paragraphs_features
->>>>>>> main
 id: paragraph.lib_tab_item.default
 targetEntityType: paragraph
 bundle: lib_tab_item
@@ -59,9 +52,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-<<<<<<< HEAD
-    third_party_settings: {  }
-=======
     third_party_settings:
       paragraphs_features:
         add_in_between: false
@@ -69,7 +59,6 @@ content:
         delete_confirmation: false
         split_text: false
         show_drag_and_drop: true
->>>>>>> main
   field_lib_summary:
     type: string_textarea
     weight: 2

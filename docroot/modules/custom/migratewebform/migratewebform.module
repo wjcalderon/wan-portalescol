@@ -10,20 +10,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-<<<<<<< HEAD
-function migratewebform_help($route_name, RouteMatchInterface $route_match)
-{
-    switch ($route_name) {
-        // Main module help for the migratewebform module.
-        case 'help.page.migratewebform':
-            $output = '';
-            $output .= '<h3>' . t('About') . '</h3>';
-            $output .= '<p>' . t('Migrate Data Webform to Webform') . '</p>';
-            return $output;
-
-        default:
-    }
-=======
 function migratewebform_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the migratewebform module.
@@ -35,36 +21,11 @@ function migratewebform_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
->>>>>>> main
 }
 
 /**
  * Implements hook_theme().
  */
-<<<<<<< HEAD
-function migratewebform_theme()
-{
-    return [
-        'migratewebform' => [
-            'render element' => 'children',
-        ],
-    ];
-}
-
-function delete_nodes_finished($success, $results, $operations) {
-    // The 'success' parameter means no fatal PHP errors were detected. All
-    // other error management should be handled using 'results'.
-    if ($success) {
-        $message = \Drupal::translation()->formatPlural(
-            count($results),
-            'One post processed.', '@count posts processed.'
-        );
-    }
-    else {
-        $message = t('Finished with an error.');
-    }
-    \Drupal::messenger()->addStatus($message);
-=======
 function migratewebform_theme() {
   return [
     'migratewebform' => [
@@ -89,5 +50,4 @@ function migratewebform_delete_nodes_finished($success, $results, $operations) {
     $message = t('Finished with an error.');
   }
   \Drupal::messenger()->addStatus($message);
->>>>>>> main
 }

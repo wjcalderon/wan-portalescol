@@ -10,11 +10,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-<<<<<<< HEAD
-function migrate_csv_help($route_name, RouteMatchInterface $route_match) {
-=======
 function lib_migrate_csv_help($route_name, RouteMatchInterface $route_match) {
->>>>>>> main
   switch ($route_name) {
     case 'help.page.lib_migrate':
       $output = '';
@@ -24,8 +20,4 @@ function lib_migrate_csv_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

@@ -1,28 +1,10 @@
-<<<<<<< HEAD
-uuid: 85f8ade3-2820-435e-bbde-596899710c72
-langcode: es
-=======
 uuid: d907737d-e22d-4a6d-85a3-8c4be91e444c
 langcode: en
->>>>>>> main
 status: true
 dependencies:
   content:
     - 'block_content:block_image:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
   module:
-<<<<<<< HEAD
-    - block_class
-    - block_content
-  theme:
-    - liberty_public
-third_party_settings:
-  block_class:
-    classes: null
-id: superintendenciafinanciera
-theme: liberty_public
-region: footer_left
-weight: -41
-=======
     - block_content
   theme:
     - liberty_public
@@ -30,7 +12,6 @@ id: superintendenciafinanciera
 theme: liberty_public
 region: footer_left
 weight: 0
->>>>>>> main
 provider: null
 plugin: 'block_content:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
 settings:

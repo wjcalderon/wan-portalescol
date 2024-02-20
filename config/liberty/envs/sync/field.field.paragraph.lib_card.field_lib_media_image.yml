@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: ea809601-ccf6-4167-92b3-67d03a780d6b
-=======
 uuid: a44931d7-256f-46a7-bc8e-c3e313215808
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -17,11 +13,7 @@ bundle: lib_card
 label: Imagen
 description: ''
 required: false
-<<<<<<< HEAD
-translatable: true
-=======
 translatable: false
->>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings:

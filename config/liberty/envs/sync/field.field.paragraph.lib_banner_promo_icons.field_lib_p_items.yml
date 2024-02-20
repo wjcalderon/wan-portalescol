@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: c5c0fc49-3bd1-4f1e-9d2a-d7b975dc1300
-=======
 uuid: 646ed6f6-63e8-43f1-b2a7-eb5ebc38e37a
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -18,13 +14,8 @@ entity_type: paragraph
 bundle: lib_banner_promo_icons
 label: Items
 description: ''
-<<<<<<< HEAD
-required: false
-translatable: false
-=======
 required: true
 translatable: true
->>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -35,121 +26,6 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       acordeon:
-<<<<<<< HEAD
-        weight: 39
-        enabled: false
-      assistance_item:
-        weight: 40
-        enabled: false
-      banner:
-        weight: 41
-        enabled: false
-      card:
-        weight: 42
-        enabled: false
-      card_grid_accordion:
-        weight: 45
-        enabled: false
-      card_person:
-        weight: 46
-        enabled: false
-      card_person_list:
-        weight: 47
-        enabled: false
-      cards:
-        weight: 43
-        enabled: false
-      cards_reports:
-        weight: 44
-        enabled: false
-      column:
-        weight: 48
-        enabled: false
-      columns:
-        weight: 49
-        enabled: false
-      documents:
-        weight: 50
-        enabled: false
-      drupal_block:
-        weight: 51
-        enabled: false
-      drupal_view:
-        weight: 52
-        enabled: false
-      grid_accordion:
-        weight: 53
-        enabled: false
-      image:
-        weight: 54
-        enabled: false
-      item_acordeon:
-        weight: 55
-        enabled: false
-      item_lista:
-        weight: 56
-        enabled: false
-      item_report_card:
-        weight: 57
-        enabled: false
-      item_tab_multi:
-        weight: 58
-        enabled: false
-      lib_banner_promo_icons:
-        weight: 59
-        enabled: false
-      lib_card:
-        weight: 60
-        enabled: true
-      lista:
-        weight: 61
-        enabled: false
-      microsite:
-        weight: 62
-        enabled: false
-      multi_tabs:
-        weight: 63
-        enabled: false
-      qualtrics_embed:
-        weight: 64
-        enabled: false
-      select_cta:
-        weight: 65
-        enabled: false
-      shorcut:
-        weight: 66
-        enabled: false
-      shorcuts:
-        weight: 67
-        enabled: false
-      short_banner:
-        weight: 68
-        enabled: false
-      single_text:
-        weight: 69
-        enabled: false
-      slider:
-        weight: 70
-        enabled: false
-      tab_item:
-        weight: 72
-        enabled: false
-      tabs:
-        weight: 71
-        enabled: false
-      testimonies:
-        weight: 73
-        enabled: false
-      testimony_item:
-        weight: 74
-        enabled: false
-      video:
-        weight: 75
-        enabled: false
-      webform:
-        weight: 76
-        enabled: false
-=======
         weight: 44
         enabled: false
       assistance_item:
@@ -302,5 +178,4 @@ settings:
       webform:
         weight: 86
         enabled: false
->>>>>>> main
 field_type: entity_reference_revisions

@@ -3,33 +3,18 @@ langcode: es
 status: true
 dependencies:
   config:
-<<<<<<< HEAD
-    - search_api.server.acquia_search_server
-    - core.entity_view_mode.node.full
-  module:
-    - acquia_search
-=======
     - search_api.server.database
     - core.entity_view_mode.node.full
   module:
->>>>>>> main
     - search_api_solr
     - node
     - search_api
 third_party_settings:
-<<<<<<< HEAD
-  acquia_search:
-    use_edismax: 1
-=======
->>>>>>> main
   search_api_solr:
     finalize: false
     commit_before_finalize: false
     commit_after_finalize: false
-<<<<<<< HEAD
-=======
     debug_finalize: false
->>>>>>> main
     highlighter:
       maxAnalyzedChars: 51200
       fragmenter: gap
@@ -66,14 +51,11 @@ third_party_settings:
     multilingual:
       limit_to_content_language: false
       include_language_independent: true
-<<<<<<< HEAD
-=======
       use_language_undefined_as_fallback_language: false
       specific_languages:
         en: '0'
         es: '0'
       use_universal_collation: false
->>>>>>> main
 _core:
   default_config_hash: qEX0c8Yf878jYMC-3TrFlGSSNQeGbl3u0Hs6GJfxA38
 id: content
@@ -102,21 +84,14 @@ field_settings:
     type: text
     configuration:
       roles:
-<<<<<<< HEAD
-        anonymous: anonymous
-=======
         - anonymous
->>>>>>> main
       view_mode:
         'entity:node':
           capitulo_los_segura: default
           document: default
           faq: default
           faq_los_segura: default
-<<<<<<< HEAD
-=======
           footer_prueba: default
->>>>>>> main
           glosario_de_especialidades: default
           glosario_los_segura: default
           informes: default
@@ -129,10 +104,7 @@ field_settings:
           news_inphography: default
           office: default
           page: default
-<<<<<<< HEAD
-=======
           page_layout: default
->>>>>>> main
           payment_points: default
           precio_vehiculo: default
           product: default
@@ -201,27 +173,18 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-<<<<<<< HEAD
-  content_access:
-    weights:
-      preprocess_query: -10
-=======
   auto_aggregated_fulltext_field: {  }
   content_access:
     weights:
       preprocess_query: -10
   entity_type: {  }
->>>>>>> main
   highlight:
     weights:
       postprocess_query: 0
     prefix: '<strong>'
     suffix: '</strong>'
     excerpt: true
-<<<<<<< HEAD
-=======
     excerpt_always: false
->>>>>>> main
     excerpt_length: 256
     exclude_fields: {  }
     highlight: always
@@ -324,8 +287,4 @@ options:
   cron_limit: 50
   index_directly: true
   track_changes_in_references: true
-<<<<<<< HEAD
-server: acquia_search_server
-=======
 server: database
->>>>>>> main

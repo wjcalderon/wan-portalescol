@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-uuid: f38839e1-dee9-4463-b443-408dc3b00ee1
-=======
 uuid: 28671073-6c5b-4115-9b72-5e3228b8ed2c
->>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -17,17 +13,11 @@ entity_type: paragraph
 bundle: plan_list
 label: 'Plan Style'
 description: ''
-<<<<<<< HEAD
-required: false
-translatable: false
-default_value: {  }
-=======
 required: true
 translatable: false
 default_value:
   -
     value: default
->>>>>>> main
 default_value_callback: ''
 settings: {  }
 field_type: list_string

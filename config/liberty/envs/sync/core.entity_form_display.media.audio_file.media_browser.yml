@@ -8,10 +8,6 @@ dependencies:
     - field.field.media.audio_file.field_media_in_library
     - media.type.audio_file
   module:
-<<<<<<< HEAD
-    - file
-    - path
-=======
     - field_layout
     - file
     - layout_discovery
@@ -21,7 +17,6 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
->>>>>>> main
 _core:
   default_config_hash: Vrdgai9kwD_ZilqzZCL2xnDI9c4_3s9ccRacwMQgOLc
 id: media.audio_file.media_browser
@@ -64,8 +59,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-=======
   revision_log_message:
     type: string_textarea
     weight: 25
@@ -74,7 +67,6 @@ content:
       rows: 4
       placeholder: ''
     third_party_settings: {  }
->>>>>>> main
   status:
     type: boolean_checkbox
     weight: 3

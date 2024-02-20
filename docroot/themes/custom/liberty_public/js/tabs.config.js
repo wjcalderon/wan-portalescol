@@ -1,23 +1,9 @@
 (function ($, Drupal, window, document) {
-<<<<<<< HEAD
-  'use strict';
-=======
   "use strict";
->>>>>>> main
 
   // Example of Drupal behavior loaded.
   Drupal.behaviors.tabsJS = {
     attach: function (context, settings) {
-<<<<<<< HEAD
-
-      $('.cp-tabs').not('.is-shorcut, .popup-no-tabs').tabs();
-
-      if ($('body').hasClass('js-mobile')) {
-        // Asistencias view more
-        $('.sub-tab__row').each(function () {
-          var row = $(this),
-            steps = row.find('.sub-tab__content ol li'),
-=======
       $(".cp-tabs").not(".is-shorcut, .popup-no-tabs").tabs();
 
       if ($("body").hasClass("js-mobile")) {
@@ -25,94 +11,23 @@
         $(".sub-tab__row").each(function () {
           let row = $(this),
             steps = row.find(".sub-tab__content ol li"),
->>>>>>> main
             num_steps = steps.length,
             visible_steps = steps.slice(0, 3);
           //row.children('.view-more').hide();
           if (num_steps > 3) {
             steps.each(function () {
-<<<<<<< HEAD
-              $(this).hide()
-=======
               $(this).hide();
->>>>>>> main
             });
             visible_steps.each(function () {
               $(this).show();
             });
-<<<<<<< HEAD
-            row.children('.view-more').css('visibility', 'visible');
-=======
             row.children(".view-more").css("visibility", "visible");
->>>>>>> main
           }
         });
 
         // Tabs contact
         if ($(".component__tabs--contact").length > 0) {
           // Add click card in mobile
-<<<<<<< HEAD
-          $('.component__tabs--contact .cp-tabs .component__card').on('click', function () {
-            var id_tab = $(this).children('.cta').children('a').attr('href');
-            if ($(this).parents('.cp-tabs').hasClass('popup-no-tabs')) {
-              window.location.replace(id_tab);
-              return false;
-            }
-            $(this).parents('.cp-tabs').children(id_tab).addClass('active');
-          });
-        }
-      }
-
-      var fix_subtabs_assistances = (function (select, tab) {
-        select
-          .find('option:eq(0)')
-          .attr('selected', 'selected')
-          .trigger('change');
-        select.triggerHandler('focus');
-        if (tab.find('.sub-tabs').tabs('instance') !== undefined) {
-          if (tab.parents('.block-tabs-assistances, .block-tabs-documents-required').length > 0) {
-            tab.find('.sub-tabs').tabs('destroy');
-          }
-        }
-      });
-
-      $(function () {
-        var id_tab = $('#tabs .component__heading ul li.ui-state-active a')
-          .attr('href'),
-          tab = $(id_tab),
-          select = tab.find('.select--tabs');
-
-        fix_subtabs_assistances(select, tab);
-      });
-
-      $('.cp-tabs ul li a').on('click', function (e) {
-        var el = $(this),
-          id_body_tab = el.attr('href'),
-          body_tab = el.parents('.cp-tabs').children(id_body_tab),
-          js_slider = body_tab.find('.js-slider-mobile'),
-          select = body_tab.find('.select--tabs');
-
-        if (select.length > 0) {
-          fix_subtabs_assistances(select, $(id_body_tab));
-        }
-
-        if (js_slider.length > 0) {
-          setTimeout(function () {
-            js_slider.find('.cog--items').slick('setPosition');
-          }, 10);
-        }
-      });
-
-      var getUrlParameter = function (sParam) {
-        var sPageURL = window.location.search.substring(1),
-          sURLVariables = sPageURL.split('&'),
-          sParameterName, i;
-        for (i = 0; i < sURLVariables.length; i++) {
-          sParameterName = sURLVariables[i].split('=');
-
-          if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-=======
           $(".component__tabs--contact .cp-tabs .component__card").on(
             "click",
             function () {
@@ -140,14 +55,10 @@
             ).length > 0
           ) {
             tab.find(".sub-tabs").tabs("destroy");
->>>>>>> main
           }
         }
       };
 
-<<<<<<< HEAD
-      var active_tab = getUrlParameter("tab");
-=======
       $(function () {
         let id_tab = $(
             "#tabs .component__heading ul li.ui-state-active a"
@@ -196,24 +107,11 @@
       };
 
       let active_tab = getUrlParameter("tab");
->>>>>>> main
 
       if (active_tab !== undefined) {
         $('a[href="#tabs-' + active_tab + '"]').click();
       }
 
-<<<<<<< HEAD
-      $('.cp-tabs.is-shorcut .normal-tab a').on('click', function (e) {
-        e.preventDefault();
-        $('.cp-tabs.is-shorcut .normal-tab a').removeClass('active');
-        $(this).addClass('active');
-        var strAncla = $(this).attr('href'); //id del ancla
-
-        $(strAncla).offset().top;
-        $('html, body').stop(true, true).animate({
-          scrollTop: $(strAncla).offset().top - 70
-        }, 1000);
-=======
       $(".cp-tabs.is-shorcut .normal-tab a").on("click", function (e) {
         e.preventDefault();
         $(".cp-tabs.is-shorcut .normal-tab a").removeClass("active");
@@ -230,20 +128,10 @@
             },
             1000
           );
->>>>>>> main
       });
 
       // Tabs
       $(".select--tabs").change(function () {
-<<<<<<< HEAD
-        if ($(this).parent().parent().parent().parent().find('.sub-tab__container').length > 0) {
-          $(this).parent().parent().parent().parent().find('.sub-tab__container').hide();
-          var id = $(this).val();
-          $('#' + id).show();
-        } else {
-          $('.tabs').hide();
-          $('#' + $(this).val()).show();
-=======
         if (
           $(this)
             .parent()
@@ -264,34 +152,12 @@
         } else {
           $(".tabs").hide();
           $("#" + $(this).val()).show();
->>>>>>> main
         }
       });
 
       // Tabs contact
       if ($(".component__tabs--contact").length > 0) {
         // Add active tabs contact
-<<<<<<< HEAD
-        $('.component__tabs--contact .cp-tabs li').removeClass('ui-tabs-active ui-state-active');
-        $('.component__tabs--contact .cp-tabs li .component__card a').click(function (e) {
-          e.preventDefault();
-          $(this).parents('.component__tabs--contact .cp-tabs li').addClass('ui-tabs-active ui-state-active');
-          var $id_tab = $(this).attr('href');
-          $id_tab = $id_tab.substr(1);
-          $(this).parents('.cp-tabs').find('.tabs').removeClass('active');
-          $(this).parents('.cp-tabs').find('#' + $id_tab).addClass('active');
-        });
-        $('.component__tabs--contact .cp-tabs .tabs form #close').click(function (e) {
-          $(this).parents('.tabs').removeClass('active');
-        });
-      }
-
-      // Hide subtabs if only exist 1 tab, show arrows on enterprise assitances
-      $('#sub-tabs .component__heading').each(function () {
-        var sub_tab = $(this),
-          select = sub_tab.find('.select--tabs'),
-          product_sub_tabs = select.find('option').length;
-=======
         $(".component__tabs--contact .cp-tabs li").removeClass(
           "ui-tabs-active ui-state-active"
         );
@@ -324,74 +190,36 @@
         let sub_tab = $(this),
           select = sub_tab.find(".select--tabs"),
           product_sub_tabs = select.find("option").length;
->>>>>>> main
 
         if (product_sub_tabs === 1) {
           sub_tab.hide();
         }
       });
 
-<<<<<<< HEAD
-      $('.sub-tab__row .view-more').on('click', function (e) {
-        e.preventDefault();
-        var parent = $(this).parents('.sub-tab__row');
-        parent.addClass('popup');
-        parent.find('.sub-tab__heading-img').addClass('card__img--oval');
-        parent.find('.sub-tab__content ol li').each(function () {
-=======
       $(".sub-tab__row .view-more").on("click", function (e) {
         e.preventDefault();
         let parent = $(this).parents(".sub-tab__row");
         parent.addClass("popup");
         parent.find(".sub-tab__heading-img").addClass("card__img--oval");
         parent.find(".sub-tab__content ol li").each(function () {
->>>>>>> main
           $(this).show();
         });
       });
 
-<<<<<<< HEAD
-      $('.sub-tab__row .popup-close').on('click', function (e) {
-        e.preventDefault();
-        var parent = $(this).parents('.sub-tab__row');
-        parent.find('.sub-tab__heading-img').removeClass('card__img--oval');
-        parent.find('.sub-tab__content ol li').each(function (ind) {
-=======
       $(".sub-tab__row .popup-close").on("click", function (e) {
         e.preventDefault();
         let parent = $(this).parents(".sub-tab__row");
         parent.find(".sub-tab__heading-img").removeClass("card__img--oval");
         parent.find(".sub-tab__content ol li").each(function (ind) {
->>>>>>> main
           if (ind > 2) {
             $(this).hide();
           }
         });
-<<<<<<< HEAD
-        parent.removeClass('popup');
-=======
         parent.removeClass("popup");
->>>>>>> main
       });
 
       $(function () {
         // Componente menutabs fixed scroll detalle producto
-<<<<<<< HEAD
-        var menu = $(".is-shorcut .main-links");
-        if (menu.length > 0) {
-          var menuFixed = Math.ceil(menu.offset().top),
-            menuFixedheight = menuFixed + 16;
-
-          $(window).scroll(function () {
-            var windowHeight = $(window).scrollTop();
-            if (windowHeight > menuFixedheight) {
-              menu.addClass('fixed')
-                .parent('.cog--mq').css('margin-bottom', '11.25rem');
-            }
-            else {
-              menu.removeClass('fixed')
-                .parent('.cog--mq').css('margin-bottom', '');
-=======
         let menu = $(".is-shorcut .main-links");
         if (menu.length > 0) {
           let menuFixed = Math.ceil(menu.offset().top),
@@ -409,7 +237,6 @@
                 .removeClass("fixed")
                 .parent(".cog--mq")
                 .css("margin-bottom", "");
->>>>>>> main
             }
           });
         }
@@ -417,52 +244,25 @@
 
       $(function () {
         // Highlight actual component link on scroll
-<<<<<<< HEAD
-        var menu = $(".is-shorcut");
-        if (menu.length > 0) {
-          $(window).scroll(function () {
-            menu.find('div.tabs').each(function () {
-              var el = $(this),
-                id = el.attr('id'),
-=======
         let menu = $(".is-shorcut");
         if (menu.length > 0) {
           $(window).scroll(function () {
             menu.find("div.tabs").each(function () {
               let el = $(this),
                 id = el.attr("id"),
->>>>>>> main
                 menuFixed = Math.ceil(el.offset().top) - 80,
                 menuFixedheight = menuFixed,
                 windowHeight = $(window).scrollTop();
 
               if (windowHeight > menuFixedheight) {
-<<<<<<< HEAD
-                menu.find('a.active').removeClass('active');
-                menu.find('a[href="#' + id + '"]').addClass('active');
-=======
                 menu.find("a.active").removeClass("active");
                 menu.find('a[href="#' + id + '"]').addClass("active");
->>>>>>> main
               }
             });
           });
         }
       });
 
-<<<<<<< HEAD
-      $('.component__shorcuts .sticky-item a').on('click', function (e) {
-        e.preventDefault();
-        $('.component__shorcuts .sticky-item, .component__shorcuts .sticky-item a').removeClass('active');
-        $(this).parent().addClass('active');
-        $(this).addClass('active');
-        var strAncla = $(this).attr('href'); //id del ancla
-
-        $(strAncla).offset().top;
-        $('html, body').stop(true, true).animate({
-          scrollTop: $(strAncla).offset().top - 70
-        }, 1000);
-=======
       $(".component__shorcuts .sticky-item a").on("click", function (e) {
         e.preventDefault();
         $(
@@ -482,28 +282,11 @@
             },
             1000
           );
->>>>>>> main
         e.stopPropagation();
       });
 
       $(function () {
         // Componente menutabs fixed scroll detalle producto
-<<<<<<< HEAD
-        var menu = $(".component__shorcuts .sticky-wrapper");
-        if (menu.length > 0) {
-          var menuFixed = Math.ceil(menu.offset().top),
-            menuFixedheight = menuFixed + 16;
-
-          $(window).scroll(function () {
-            var windowHeight = $(window).scrollTop();
-            if (windowHeight > menuFixedheight) {
-              menu.addClass('is-fixed')
-                .parent('.sticky-container').css('margin-bottom', '11.25rem');
-            }
-            else {
-              menu.removeClass('is-fixed')
-                .parent('.sticky-container').css('margin-bottom', '');
-=======
         let menu = $(".component__shorcuts .sticky-wrapper");
         if (menu.length > 0) {
           let menuFixed = Math.ceil(menu.offset().top),
@@ -521,7 +304,6 @@
                 .removeClass("is-fixed")
                 .parent(".sticky-container")
                 .css("margin-bottom", "");
->>>>>>> main
             }
           });
         }
@@ -529,32 +311,17 @@
 
       $(function () {
         // Highlight actual component link on scroll
-<<<<<<< HEAD
-        var menu = $(".block-system-main-block");
-        if (menu.length > 0) {
-          $(window).scroll(function () {
-            menu.find('div.shortcut-item').each(function () {
-              var el = $(this),
-                id = el.attr('id'),
-=======
         let menu = $(".block-system-main-block");
         if (menu.length > 0) {
           $(window).scroll(function () {
             menu.find("div.shortcut-item").each(function () {
               let el = $(this),
                 id = el.attr("id"),
->>>>>>> main
                 menuFixed = Math.ceil(el.offset().top) - 80,
                 menuFixedheight = menuFixed,
                 windowHeight = $(window).scrollTop();
 
               if (windowHeight > menuFixedheight) {
-<<<<<<< HEAD
-                menu.find('.sticky-item').removeClass('active');
-                menu.find('.sticky-item a').removeClass('active');
-                menu.find('.sticky-item a[href="#' + id + '"]').parent().addClass('active');
-                menu.find('.sticky-item a[href="#' + id + '"]').addClass('active');
-=======
                 menu.find(".sticky-item").removeClass("active");
                 menu.find(".sticky-item a").removeClass("active");
                 menu
@@ -564,27 +331,18 @@
                 menu
                   .find('.sticky-item a[href="#' + id + '"]')
                   .addClass("active");
->>>>>>> main
               }
             });
           });
         }
       });
 
-<<<<<<< HEAD
-      $(window).bind('hashchange', function (e) {
-=======
       $(window).bind("hashchange", function (e) {
->>>>>>> main
         location.reload(true);
       });
 
       // Agregando tabindex a cada tab
-<<<<<<< HEAD
-      $('.cp-tabs').find('ul').children('li[role="tab"]').attr('tabindex', '0');
-=======
       $(".cp-tabs").find("ul").children('li[role="tab"]').attr("tabindex", "0");
->>>>>>> main
 
       //menu mobile
       $(".tabs--menu-mobile .tab--first a").click(function (e) {
@@ -617,15 +375,6 @@
 
         $(".tabs__formas-de-pago #tab-0 .component").removeClass("is-hide-mb");
         if ($(this).hasClass("item-first")) {
-<<<<<<< HEAD
-          $(".tabs__formas-de-pago #tab-0 .js-item-second, .tabs__formas-de-pago #tab-0 .js-item-third").addClass("is-hide-mb");
-        }
-        if ($(this).hasClass("item-second")) {
-          $(".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-third").addClass("is-hide-mb");
-        }
-        if ($(this).hasClass("item-third")) {
-          $(".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-second").addClass("is-hide-mb");
-=======
           $(
             ".tabs__formas-de-pago #tab-0 .js-item-second, .tabs__formas-de-pago #tab-0 .js-item-third"
           ).addClass("is-hide-mb");
@@ -639,7 +388,6 @@
           $(
             ".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-second"
           ).addClass("is-hide-mb");
->>>>>>> main
         }
       });
 
@@ -650,15 +398,6 @@
 
         $(".tabs__formas-de-pago #tab-1 .component").removeClass("is-hide-mb");
         if ($(this).hasClass("item-first")) {
-<<<<<<< HEAD
-          $(".tabs__formas-de-pago #tab-1 .js-item-second, .tabs__formas-de-pago #tab-1 .js-item-third").addClass("is-hide-mb");
-        }
-        if ($(this).hasClass("item-second")) {
-          $(".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-third").addClass("is-hide-mb");
-        }
-        if ($(this).hasClass("item-third")) {
-          $(".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-second").addClass("is-hide-mb");
-=======
           $(
             ".tabs__formas-de-pago #tab-1 .js-item-second, .tabs__formas-de-pago #tab-1 .js-item-third"
           ).addClass("is-hide-mb");
@@ -672,33 +411,11 @@
           $(
             ".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-second"
           ).addClass("is-hide-mb");
->>>>>>> main
         }
       });
 
       $(".tabs--otras-formas-pago .component__card").click(function (e) {
         e.preventDefault();
-<<<<<<< HEAD
-        $(".tabs--otras-formas-pago .component__card").removeClass("item-active");
-        $(this).addClass("item-active");
-
-        $(".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)").hide();
-        if ($(this).hasClass("item-first")) {
-          $(".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)").hide();
-          $(".canales-pago .payment-row:nth-child(1)").show();
-        }
-        if ($(this).hasClass("item-second")) {
-          $(".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(3)").hide();
-          $(".canales-pago .payment-row:nth-child(2)").show();
-        }
-        if ($(this).hasClass("item-third")) {
-          $(".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(2)").hide();
-          $(".canales-pago .payment-row:nth-child(3)").show();
-        }
-      });
-    }
-  }
-=======
         $(".tabs--otras-formas-pago .component__card").removeClass(
           "item-active"
         );
@@ -728,5 +445,4 @@
       });
     },
   };
->>>>>>> main
 })(jQuery, Drupal, this, this.document);

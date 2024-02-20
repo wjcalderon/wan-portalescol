@@ -35,11 +35,8 @@ field_type:
           catenateAll: 0
           catenateWords: 1
         -
-<<<<<<< HEAD
-=======
           class: solr.FlattenGraphFilterFactory
         -
->>>>>>> main
           class: solr.LengthFilterFactory
           min: 2
           max: 100

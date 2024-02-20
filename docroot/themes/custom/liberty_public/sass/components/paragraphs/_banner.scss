@@ -432,11 +432,7 @@
     .component__banner {
       .cp-banner__heading {
         @include breakpoint($small) {
-<<<<<<< HEAD
-          argin-top: -4rem;
-=======
           margin-bottom: -4rem;
->>>>>>> main
           margin-left: 2%;
           margin-right: 0;
         }

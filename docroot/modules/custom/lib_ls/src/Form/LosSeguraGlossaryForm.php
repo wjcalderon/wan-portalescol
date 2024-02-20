@@ -66,11 +66,7 @@ class LosSeguraGlossaryForm extends FormBase {
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Enviar'),
-<<<<<<< HEAD
-      '#attributes' => array('class' => array('button--primary button-large')),
-=======
       '#attributes' => ['class' => ['button--primary button-large']],
->>>>>>> main
     ];
 
     return $form;
@@ -81,11 +77,7 @@ class LosSeguraGlossaryForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     foreach ($form_state->getValues() as $key => $value) {
-<<<<<<< HEAD
-      // @TODO: Validate fields.
-=======
       // @todo Validate fields.
->>>>>>> main
     }
     parent::validateForm($form, $form_state);
   }

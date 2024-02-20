@@ -42,32 +42,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-<<<<<<< HEAD
-          5d747727-c060-4217-86d3-7cf5a0169f7c:
-            uuid: 5d747727-c060-4217-86d3-7cf5a0169f7c
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:block_content:block_image:field_b_image'
-              formatter:
-                type: image
-                label: above
-                settings:
-                  image_link: ''
-                  image_style: ''
-                  svg_attributes:
-                    width: null
-                    height: null
-                  svg_render_as_image: true
-                  image_loading:
-                    attribute: lazy
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-=======
->>>>>>> main
         third_party_settings: {  }
   layout_library:
     enable: false

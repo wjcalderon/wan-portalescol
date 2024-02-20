@@ -300,11 +300,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: entity_link
-<<<<<<< HEAD
-          label: Operations
-=======
           label: Operaciones
->>>>>>> main
           exclude: false
           alter:
             alter_text: false
@@ -362,34 +358,20 @@ display:
             last: 'Último »'
           expose:
             items_per_page: false
-<<<<<<< HEAD
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50, 100, 200'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-=======
             items_per_page_label: 'Elementos por página'
             items_per_page_options: '5, 10, 25, 50, 100, 200'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Todo -'
             offset: false
             offset_label: Desplazamiento
->>>>>>> main
           quantity: 9
       exposed_form:
         type: basic
         options:
           submit_button: Apply
           reset_button: false
-<<<<<<< HEAD
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-=======
           reset_button_label: Restablecer
           exposed_sorts_label: 'Ordenar por'
->>>>>>> main
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -1149,11 +1131,7 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: entity_operations
-<<<<<<< HEAD
-          label: Operations
-=======
           label: Operaciones
->>>>>>> main
           exclude: false
           alter:
             alter_text: false
@@ -2074,11 +2052,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: entity_link
-<<<<<<< HEAD
-          label: Operations
-=======
           label: Operaciones
->>>>>>> main
           exclude: false
           alter:
             alter_text: false
@@ -2131,11 +2105,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: entity_link_edit
-<<<<<<< HEAD
-          label: Operations
-=======
           label: Operaciones
->>>>>>> main
           exclude: false
           alter:
             alter_text: false
@@ -2916,11 +2886,7 @@ display:
           admin_label: ''
           entity_type: webform_submission
           plugin_id: entity_link
-<<<<<<< HEAD
-          label: Operations
-=======
           label: Operaciones
->>>>>>> main
           exclude: false
           alter:
             alter_text: false

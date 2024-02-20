@@ -1,15 +1,6 @@
 services:
   logger.channel.liberty_claims:
     parent: logger.channel_base
-<<<<<<< HEAD
-    arguments: ['liberty_claims']
-  claims.services:
-    class: Drupal\liberty_claims\ClaimServices
-    arguments: ['@plugin.manager.mail','@config.factory', '@oauth2_client.service', '@module_handler', '@cache.data', '@liberty.logger', '@logger.factory','@file_system']
-  liberty.logger:
-    class: Drupal\liberty_claims\LoggerService
-    arguments: ['@logger.factory']
-=======
     arguments: ["liberty_claims"]
   claims.services:
     class: Drupal\liberty_claims\ClaimServices
@@ -43,4 +34,3 @@ services:
         "@file_system",
         "@liberty.logger",
       ]
->>>>>>> main

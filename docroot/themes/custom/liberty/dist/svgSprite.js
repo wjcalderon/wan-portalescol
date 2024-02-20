@@ -1,9 +1,5 @@
 /******/ (function() { // webpackBootstrap
-<<<<<<< HEAD
-/******/ 	var __webpack_modules__ = ({
-=======
 /******/ 	let __webpack_modules__ = ({
->>>>>>> main
 
 /***/ "./images sync recursive \\.svg$":
 /*!*****************************!*\
@@ -11,11 +7,7 @@
   \*****************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var map = {
-=======
 let map = {
->>>>>>> main
 	"./footer.svg": "./images/footer.svg",
 	"./icons/Icon-Left.svg": "./images/icons/Icon-Left.svg",
 	"./icons/Icon-Plus.svg": "./images/icons/Icon-Plus.svg",
@@ -41,20 +33,12 @@ let map = {
 
 
 function webpackContext(req) {
-<<<<<<< HEAD
-	var id = webpackContextResolve(req);
-=======
 	let id = webpackContextResolve(req);
->>>>>>> main
 	return __webpack_require__(id);
 }
 function webpackContextResolve(req) {
 	if(!__webpack_require__.o(map, req)) {
-<<<<<<< HEAD
-		var e = new Error("Cannot find module '" + req + "'");
-=======
 		let e = new Error("Cannot find module '" + req + "'");
->>>>>>> main
 		e.code = 'MODULE_NOT_FOUND';
 		throw e;
 	}
@@ -75,11 +59,7 @@ webpackContext.id = "./images sync recursive \\.svg$";
   \****************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-=======
 let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
->>>>>>> main
 
 module.exports = function (it) {
   if (!isObject(it) && it !== null) {
@@ -96,21 +76,12 @@ module.exports = function (it) {
   \**************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
-var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
-
-var UNSCOPABLES = wellKnownSymbol('unscopables');
-var ArrayPrototype = Array.prototype;
-=======
 let wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
 let create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
 let definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
 
 let UNSCOPABLES = wellKnownSymbol('unscopables');
 let ArrayPrototype = Array.prototype;
->>>>>>> main
 
 // Array.prototype[@@unscopables]
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
@@ -135,11 +106,7 @@ module.exports = function (key) {
   \*****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-=======
 let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
->>>>>>> main
 
 module.exports = function (it) {
   if (!isObject(it)) {
@@ -156,19 +123,6 @@ module.exports = function (it) {
   \**********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
-var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
-var toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ "./node_modules/core-js/internals/to-absolute-index.js");
-
-// `Array.prototype.{ indexOf, includes }` methods implementation
-var createMethod = function (IS_INCLUDES) {
-  return function ($this, el, fromIndex) {
-    var O = toIndexedObject($this);
-    var length = toLength(O.length);
-    var index = toAbsoluteIndex(fromIndex, length);
-    var value;
-=======
 let toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
 let toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
 let toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ "./node_modules/core-js/internals/to-absolute-index.js");
@@ -180,7 +134,6 @@ let createMethod = function (IS_INCLUDES) {
     let length = toLength(O.length);
     let index = toAbsoluteIndex(fromIndex, length);
     let value;
->>>>>>> main
     // Array#includes uses SameValueZero equality algorithm
     // eslint-disable-next-line no-self-compare -- NaN check
     if (IS_INCLUDES && el != el) while (length > index) {
@@ -212,11 +165,7 @@ module.exports = {
   \*******************************************************/
 /***/ (function(module) {
 
-<<<<<<< HEAD
-var toString = {}.toString;
-=======
 let toString = {}.toString;
->>>>>>> main
 
 module.exports = function (it) {
   return toString.call(it).slice(8, -1);
@@ -231,19 +180,6 @@ module.exports = function (it) {
   \***********************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var ownKeys = __webpack_require__(/*! ../internals/own-keys */ "./node_modules/core-js/internals/own-keys.js");
-var getOwnPropertyDescriptorModule = __webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js");
-var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
-
-module.exports = function (target, source) {
-  var keys = ownKeys(source);
-  var defineProperty = definePropertyModule.f;
-  var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
-=======
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
 let ownKeys = __webpack_require__(/*! ../internals/own-keys */ "./node_modules/core-js/internals/own-keys.js");
 let getOwnPropertyDescriptorModule = __webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js");
@@ -255,7 +191,6 @@ module.exports = function (target, source) {
   let getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
   for (let i = 0; i < keys.length; i++) {
     let key = keys[i];
->>>>>>> main
     if (!has(target, key)) defineProperty(target, key, getOwnPropertyDescriptor(source, key));
   }
 };
@@ -269,11 +204,7 @@ module.exports = function (target, source) {
   \********************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
->>>>>>> main
 
 module.exports = !fails(function () {
   function F() { /* empty */ }
@@ -292,18 +223,6 @@ module.exports = !fails(function () {
 
 "use strict";
 
-<<<<<<< HEAD
-var IteratorPrototype = (__webpack_require__(/*! ../internals/iterators-core */ "./node_modules/core-js/internals/iterators-core.js").IteratorPrototype);
-var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
-var createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
-var setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ "./node_modules/core-js/internals/set-to-string-tag.js");
-var Iterators = __webpack_require__(/*! ../internals/iterators */ "./node_modules/core-js/internals/iterators.js");
-
-var returnThis = function () { return this; };
-
-module.exports = function (IteratorConstructor, NAME, next) {
-  var TO_STRING_TAG = NAME + ' Iterator';
-=======
 let IteratorPrototype = (__webpack_require__(/*! ../internals/iterators-core */ "./node_modules/core-js/internals/iterators-core.js").IteratorPrototype);
 let create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
 let createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
@@ -314,7 +233,6 @@ let returnThis = function () { return this; };
 
 module.exports = function (IteratorConstructor, NAME, next) {
   let TO_STRING_TAG = NAME + ' Iterator';
->>>>>>> main
   IteratorConstructor.prototype = create(IteratorPrototype, { next: createPropertyDescriptor(1, next) });
   setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
   Iterators[TO_STRING_TAG] = returnThis;
@@ -330,15 +248,9 @@ module.exports = function (IteratorConstructor, NAME, next) {
   \**************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
-var createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
-=======
 let DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
 let definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
 let createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
->>>>>>> main
 
 module.exports = DESCRIPTORS ? function (object, key, value) {
   return definePropertyModule.f(object, key, createPropertyDescriptor(1, value));
@@ -376,28 +288,6 @@ module.exports = function (bitmap, value) {
 
 "use strict";
 
-<<<<<<< HEAD
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var createIteratorConstructor = __webpack_require__(/*! ../internals/create-iterator-constructor */ "./node_modules/core-js/internals/create-iterator-constructor.js");
-var getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ "./node_modules/core-js/internals/object-get-prototype-of.js");
-var setPrototypeOf = __webpack_require__(/*! ../internals/object-set-prototype-of */ "./node_modules/core-js/internals/object-set-prototype-of.js");
-var setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ "./node_modules/core-js/internals/set-to-string-tag.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-var IS_PURE = __webpack_require__(/*! ../internals/is-pure */ "./node_modules/core-js/internals/is-pure.js");
-var Iterators = __webpack_require__(/*! ../internals/iterators */ "./node_modules/core-js/internals/iterators.js");
-var IteratorsCore = __webpack_require__(/*! ../internals/iterators-core */ "./node_modules/core-js/internals/iterators-core.js");
-
-var IteratorPrototype = IteratorsCore.IteratorPrototype;
-var BUGGY_SAFARI_ITERATORS = IteratorsCore.BUGGY_SAFARI_ITERATORS;
-var ITERATOR = wellKnownSymbol('iterator');
-var KEYS = 'keys';
-var VALUES = 'values';
-var ENTRIES = 'entries';
-
-var returnThis = function () { return this; };
-=======
 let $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
 let createIteratorConstructor = __webpack_require__(/*! ../internals/create-iterator-constructor */ "./node_modules/core-js/internals/create-iterator-constructor.js");
 let getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ "./node_modules/core-js/internals/object-get-prototype-of.js");
@@ -418,16 +308,11 @@ let VALUES = 'values';
 let ENTRIES = 'entries';
 
 let returnThis = function () { return this; };
->>>>>>> main
 
 module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
   createIteratorConstructor(IteratorConstructor, NAME, next);
 
-<<<<<<< HEAD
-  var getIterationMethod = function (KIND) {
-=======
   let getIterationMethod = function (KIND) {
->>>>>>> main
     if (KIND === DEFAULT && defaultIterator) return defaultIterator;
     if (!BUGGY_SAFARI_ITERATORS && KIND in IterablePrototype) return IterablePrototype[KIND];
     switch (KIND) {
@@ -437,17 +322,6 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
     } return function () { return new IteratorConstructor(this); };
   };
 
-<<<<<<< HEAD
-  var TO_STRING_TAG = NAME + ' Iterator';
-  var INCORRECT_VALUES_NAME = false;
-  var IterablePrototype = Iterable.prototype;
-  var nativeIterator = IterablePrototype[ITERATOR]
-    || IterablePrototype['@@iterator']
-    || DEFAULT && IterablePrototype[DEFAULT];
-  var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
-  var anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
-  var CurrentIteratorPrototype, methods, KEY;
-=======
   let TO_STRING_TAG = NAME + ' Iterator';
   let INCORRECT_VALUES_NAME = false;
   let IterablePrototype = Iterable.prototype;
@@ -457,7 +331,6 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   let defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
   let anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
   let CurrentIteratorPrototype, methods, KEY;
->>>>>>> main
 
   // fix native
   if (anyNativeIterator) {
@@ -514,11 +387,7 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   \*******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
->>>>>>> main
 
 // Detect IE8's incomplete defineProperty implementation
 module.exports = !fails(function () {
@@ -534,21 +403,12 @@ module.exports = !fails(function () {
   \*******************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-
-var document = global.document;
-// typeof document.createElement is 'object' in old IE
-var EXISTS = isObject(document) && isObject(document.createElement);
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
 
 let document = global.document;
 // typeof document.createElement is 'object' in old IE
 let EXISTS = isObject(document) && isObject(document.createElement);
->>>>>>> main
 
 module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
@@ -628,15 +488,6 @@ module.exports = [
   \**************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var getOwnPropertyDescriptor = (__webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js").f);
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
-var copyConstructorProperties = __webpack_require__(/*! ../internals/copy-constructor-properties */ "./node_modules/core-js/internals/copy-constructor-properties.js");
-var isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules/core-js/internals/is-forced.js");
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let getOwnPropertyDescriptor = (__webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js").f);
 let createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
@@ -644,7 +495,6 @@ let redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/
 let setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
 let copyConstructorProperties = __webpack_require__(/*! ../internals/copy-constructor-properties */ "./node_modules/core-js/internals/copy-constructor-properties.js");
 let isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules/core-js/internals/is-forced.js");
->>>>>>> main
 
 /*
   options.target      - name of the target object
@@ -661,17 +511,10 @@ let isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules
   options.noTargetGet - prevent calling a getter on target
 */
 module.exports = function (options, source) {
-<<<<<<< HEAD
-  var TARGET = options.target;
-  var GLOBAL = options.global;
-  var STATIC = options.stat;
-  var FORCED, target, key, targetProperty, sourceProperty, descriptor;
-=======
   let TARGET = options.target;
   let GLOBAL = options.global;
   let STATIC = options.stat;
   let FORCED, target, key, targetProperty, sourceProperty, descriptor;
->>>>>>> main
   if (GLOBAL) {
     target = global;
   } else if (STATIC) {
@@ -726,17 +569,10 @@ module.exports = function (exec) {
   \********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var path = __webpack_require__(/*! ../internals/path */ "./node_modules/core-js/internals/path.js");
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-
-var aFunction = function (variable) {
-=======
 let path = __webpack_require__(/*! ../internals/path */ "./node_modules/core-js/internals/path.js");
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 
 let aFunction = function (variable) {
->>>>>>> main
   return typeof variable == 'function' ? variable : undefined;
 };
 
@@ -754,11 +590,7 @@ module.exports = function (namespace, method) {
   \**************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var check = function (it) {
-=======
 let check = function (it) {
->>>>>>> main
   return it && it.Math == Math && it;
 };
 
@@ -781,11 +613,7 @@ module.exports =
   \***********************************************/
 /***/ (function(module) {
 
-<<<<<<< HEAD
-var hasOwnProperty = {}.hasOwnProperty;
-=======
 let hasOwnProperty = {}.hasOwnProperty;
->>>>>>> main
 
 module.exports = function (it, key) {
   return hasOwnProperty.call(it, key);
@@ -811,11 +639,7 @@ module.exports = {};
   \************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js/internals/get-built-in.js");
-=======
 let getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js/internals/get-built-in.js");
->>>>>>> main
 
 module.exports = getBuiltIn('document', 'documentElement');
 
@@ -828,15 +652,9 @@ module.exports = getBuiltIn('document', 'documentElement');
   \**********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-var createElement = __webpack_require__(/*! ../internals/document-create-element */ "./node_modules/core-js/internals/document-create-element.js");
-=======
 let DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 let createElement = __webpack_require__(/*! ../internals/document-create-element */ "./node_modules/core-js/internals/document-create-element.js");
->>>>>>> main
 
 // Thank's IE8 for his funny defineProperty
 module.exports = !DESCRIPTORS && !fails(function () {
@@ -854,17 +672,10 @@ module.exports = !DESCRIPTORS && !fails(function () {
   \**********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-
-var split = ''.split;
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 let classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
 
 let split = ''.split;
->>>>>>> main
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 module.exports = fails(function () {
@@ -884,15 +695,9 @@ module.exports = fails(function () {
   \**********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules/core-js/internals/shared-store.js");
-
-var functionToString = Function.toString;
-=======
 let store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules/core-js/internals/shared-store.js");
 
 let functionToString = Function.toString;
->>>>>>> main
 
 // this helper broken in `3.4.1-3.4.4`, so we can't use `shared` helper
 if (typeof store.inspectSource != 'function') {
@@ -912,27 +717,6 @@ module.exports = store.inspectSource;
   \**********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/native-weak-map */ "./node_modules/core-js/internals/native-weak-map.js");
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var objectHas = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var shared = __webpack_require__(/*! ../internals/shared-store */ "./node_modules/core-js/internals/shared-store.js");
-var sharedKey = __webpack_require__(/*! ../internals/shared-key */ "./node_modules/core-js/internals/shared-key.js");
-var hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ "./node_modules/core-js/internals/hidden-keys.js");
-
-var WeakMap = global.WeakMap;
-var set, get, has;
-
-var enforce = function (it) {
-  return has(it) ? get(it) : set(it, {});
-};
-
-var getterFor = function (TYPE) {
-  return function (it) {
-    var state;
-=======
 let NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/native-weak-map */ "./node_modules/core-js/internals/native-weak-map.js");
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
@@ -952,7 +736,6 @@ let enforce = function (it) {
 let getterFor = function (TYPE) {
   return function (it) {
     let state;
->>>>>>> main
     if (!isObject(it) || (state = get(it)).type !== TYPE) {
       throw TypeError('Incompatible receiver, ' + TYPE + ' required');
     } return state;
@@ -960,17 +743,10 @@ let getterFor = function (TYPE) {
 };
 
 if (NATIVE_WEAK_MAP) {
-<<<<<<< HEAD
-  var store = shared.state || (shared.state = new WeakMap());
-  var wmget = store.get;
-  var wmhas = store.has;
-  var wmset = store.set;
-=======
   let store = shared.state || (shared.state = new WeakMap());
   let wmget = store.get;
   let wmhas = store.has;
   let wmset = store.set;
->>>>>>> main
   set = function (it, metadata) {
     metadata.facade = it;
     wmset.call(store, it, metadata);
@@ -983,11 +759,7 @@ if (NATIVE_WEAK_MAP) {
     return wmhas.call(store, it);
   };
 } else {
-<<<<<<< HEAD
-  var STATE = sharedKey('state');
-=======
   let STATE = sharedKey('state');
->>>>>>> main
   hiddenKeys[STATE] = true;
   set = function (it, metadata) {
     metadata.facade = it;
@@ -1019,36 +791,18 @@ module.exports = {
   \*****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-
-var replacement = /#|\.prototype\./;
-
-var isForced = function (feature, detection) {
-  var value = data[normalize(feature)];
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 
 let replacement = /#|\.prototype\./;
 
 let isForced = function (feature, detection) {
   let value = data[normalize(feature)];
->>>>>>> main
   return value == POLYFILL ? true
     : value == NATIVE ? false
     : typeof detection == 'function' ? fails(detection)
     : !!detection;
 };
 
-<<<<<<< HEAD
-var normalize = isForced.normalize = function (string) {
-  return String(string).replace(replacement, '.').toLowerCase();
-};
-
-var data = isForced.data = {};
-var NATIVE = isForced.NATIVE = 'N';
-var POLYFILL = isForced.POLYFILL = 'P';
-=======
 let normalize = isForced.normalize = function (string) {
   return String(string).replace(replacement, '.').toLowerCase();
 };
@@ -1056,7 +810,6 @@ let normalize = isForced.normalize = function (string) {
 let data = isForced.data = {};
 let NATIVE = isForced.NATIVE = 'N';
 let POLYFILL = isForced.POLYFILL = 'P';
->>>>>>> main
 
 module.exports = isForced;
 
@@ -1095,23 +848,6 @@ module.exports = false;
 
 "use strict";
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-var getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ "./node_modules/core-js/internals/object-get-prototype-of.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-var IS_PURE = __webpack_require__(/*! ../internals/is-pure */ "./node_modules/core-js/internals/is-pure.js");
-
-var ITERATOR = wellKnownSymbol('iterator');
-var BUGGY_SAFARI_ITERATORS = false;
-
-var returnThis = function () { return this; };
-
-// `%IteratorPrototype%` object
-// https://tc39.es/ecma262/#sec-%iteratorprototype%-object
-var IteratorPrototype, PrototypeOfArrayIteratorPrototype, arrayIterator;
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 let getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ "./node_modules/core-js/internals/object-get-prototype-of.js");
 let createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
@@ -1127,7 +863,6 @@ let returnThis = function () { return this; };
 // `%IteratorPrototype%` object
 // https://tc39.es/ecma262/#sec-%iteratorprototype%-object
 let IteratorPrototype, PrototypeOfArrayIteratorPrototype, arrayIterator;
->>>>>>> main
 
 if ([].keys) {
   arrayIterator = [].keys();
@@ -1139,13 +874,8 @@ if ([].keys) {
   }
 }
 
-<<<<<<< HEAD
-var NEW_ITERATOR_PROTOTYPE = IteratorPrototype == undefined || fails(function () {
-  var test = {};
-=======
 let NEW_ITERATOR_PROTOTYPE = IteratorPrototype == undefined || fails(function () {
   let test = {};
->>>>>>> main
   // FF44- legacy iterators case
   return IteratorPrototype[ITERATOR].call(test) !== test;
 });
@@ -1182,11 +912,7 @@ module.exports = {};
   \*********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-=======
 let fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
->>>>>>> main
 
 module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
   // Chrome 38 Symbol has incorrect toString conversion
@@ -1203,17 +929,10 @@ module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
   \***********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./node_modules/core-js/internals/inspect-source.js");
-
-var WeakMap = global.WeakMap;
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./node_modules/core-js/internals/inspect-source.js");
 
 let WeakMap = global.WeakMap;
->>>>>>> main
 
 module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSource(WeakMap));
 
@@ -1226,25 +945,6 @@ module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSour
   \*********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
-var defineProperties = __webpack_require__(/*! ../internals/object-define-properties */ "./node_modules/core-js/internals/object-define-properties.js");
-var enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
-var hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ "./node_modules/core-js/internals/hidden-keys.js");
-var html = __webpack_require__(/*! ../internals/html */ "./node_modules/core-js/internals/html.js");
-var documentCreateElement = __webpack_require__(/*! ../internals/document-create-element */ "./node_modules/core-js/internals/document-create-element.js");
-var sharedKey = __webpack_require__(/*! ../internals/shared-key */ "./node_modules/core-js/internals/shared-key.js");
-
-var GT = '>';
-var LT = '<';
-var PROTOTYPE = 'prototype';
-var SCRIPT = 'script';
-var IE_PROTO = sharedKey('IE_PROTO');
-
-var EmptyConstructor = function () { /* empty */ };
-
-var scriptTag = function (content) {
-=======
 let anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
 let defineProperties = __webpack_require__(/*! ../internals/object-define-properties */ "./node_modules/core-js/internals/object-define-properties.js");
 let enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
@@ -1262,40 +962,24 @@ let IE_PROTO = sharedKey('IE_PROTO');
 let EmptyConstructor = function () { /* empty */ };
 
 let scriptTag = function (content) {
->>>>>>> main
   return LT + SCRIPT + GT + content + LT + '/' + SCRIPT + GT;
 };
 
 // Create object with fake `null` prototype: use ActiveX Object with cleared prototype
-<<<<<<< HEAD
-var NullProtoObjectViaActiveX = function (activeXDocument) {
-  activeXDocument.write(scriptTag(''));
-  activeXDocument.close();
-  var temp = activeXDocument.parentWindow.Object;
-=======
 let NullProtoObjectViaActiveX = function (activeXDocument) {
   activeXDocument.write(scriptTag(''));
   activeXDocument.close();
   let temp = activeXDocument.parentWindow.Object;
->>>>>>> main
   activeXDocument = null; // avoid memory leak
   return temp;
 };
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
-<<<<<<< HEAD
-var NullProtoObjectViaIFrame = function () {
-  // Thrash, waste and sodomy: IE GC bug
-  var iframe = documentCreateElement('iframe');
-  var JS = 'java' + SCRIPT + ':';
-  var iframeDocument;
-=======
 let NullProtoObjectViaIFrame = function () {
   // Thrash, waste and sodomy: IE GC bug
   let iframe = documentCreateElement('iframe');
   let JS = 'java' + SCRIPT + ':';
   let iframeDocument;
->>>>>>> main
   iframe.style.display = 'none';
   html.appendChild(iframe);
   // https://github.com/zloirock/core-js/issues/475
@@ -1312,23 +996,14 @@ let NullProtoObjectViaIFrame = function () {
 // see https://github.com/es-shims/es5-shim/issues/150
 // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
 // avoid IE GC bug
-<<<<<<< HEAD
-var activeXDocument;
-var NullProtoObject = function () {
-=======
 let activeXDocument;
 let NullProtoObject = function () {
->>>>>>> main
   try {
     /* global ActiveXObject -- old IE */
     activeXDocument = document.domain && new ActiveXObject('htmlfile');
   } catch (error) { /* ignore */ }
   NullProtoObject = activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) : NullProtoObjectViaIFrame();
-<<<<<<< HEAD
-  var length = enumBugKeys.length;
-=======
   let length = enumBugKeys.length;
->>>>>>> main
   while (length--) delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
   return NullProtoObject();
 };
@@ -1338,11 +1013,7 @@ hiddenKeys[IE_PROTO] = true;
 // `Object.create` method
 // https://tc39.es/ecma262/#sec-object.create
 module.exports = Object.create || function create(O, Properties) {
-<<<<<<< HEAD
-  var result;
-=======
   let result;
->>>>>>> main
   if (O !== null) {
     EmptyConstructor[PROTOTYPE] = anObject(O);
     result = new EmptyConstructor();
@@ -1362,33 +1033,19 @@ module.exports = Object.create || function create(O, Properties) {
   \********************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
-var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
-var objectKeys = __webpack_require__(/*! ../internals/object-keys */ "./node_modules/core-js/internals/object-keys.js");
-=======
 let DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
 let definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
 let anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
 let objectKeys = __webpack_require__(/*! ../internals/object-keys */ "./node_modules/core-js/internals/object-keys.js");
->>>>>>> main
 
 // `Object.defineProperties` method
 // https://tc39.es/ecma262/#sec-object.defineproperties
 module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
-<<<<<<< HEAD
-  var keys = objectKeys(Properties);
-  var length = keys.length;
-  var index = 0;
-  var key;
-=======
   let keys = objectKeys(Properties);
   let length = keys.length;
   let index = 0;
   let key;
->>>>>>> main
   while (length > index) definePropertyModule.f(O, key = keys[index++], Properties[key]);
   return O;
 };
@@ -1402,21 +1059,12 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
   \******************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ "./node_modules/core-js/internals/ie8-dom-define.js");
-var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
-var toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ "./node_modules/core-js/internals/to-primitive.js");
-
-var nativeDefineProperty = Object.defineProperty;
-=======
 let DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
 let IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ "./node_modules/core-js/internals/ie8-dom-define.js");
 let anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
 let toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ "./node_modules/core-js/internals/to-primitive.js");
 
 let nativeDefineProperty = Object.defineProperty;
->>>>>>> main
 
 // `Object.defineProperty` method
 // https://tc39.es/ecma262/#sec-object.defineproperty
@@ -1441,17 +1089,6 @@ exports.f = DESCRIPTORS ? nativeDefineProperty : function defineProperty(O, P, A
   \******************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var propertyIsEnumerableModule = __webpack_require__(/*! ../internals/object-property-is-enumerable */ "./node_modules/core-js/internals/object-property-is-enumerable.js");
-var createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
-var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
-var toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ "./node_modules/core-js/internals/to-primitive.js");
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ "./node_modules/core-js/internals/ie8-dom-define.js");
-
-var nativeGetOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-=======
 let DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
 let propertyIsEnumerableModule = __webpack_require__(/*! ../internals/object-property-is-enumerable */ "./node_modules/core-js/internals/object-property-is-enumerable.js");
 let createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
@@ -1461,7 +1098,6 @@ let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/in
 let IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ "./node_modules/core-js/internals/ie8-dom-define.js");
 
 let nativeGetOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
->>>>>>> main
 
 // `Object.getOwnPropertyDescriptor` method
 // https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
@@ -1483,17 +1119,10 @@ exports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnProper
   \*************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var internalObjectKeys = __webpack_require__(/*! ../internals/object-keys-internal */ "./node_modules/core-js/internals/object-keys-internal.js");
-var enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
-
-var hiddenKeys = enumBugKeys.concat('length', 'prototype');
-=======
 let internalObjectKeys = __webpack_require__(/*! ../internals/object-keys-internal */ "./node_modules/core-js/internals/object-keys-internal.js");
 let enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
 
 let hiddenKeys = enumBugKeys.concat('length', 'prototype');
->>>>>>> main
 
 // `Object.getOwnPropertyNames` method
 // https://tc39.es/ecma262/#sec-object.getownpropertynames
@@ -1521,15 +1150,6 @@ exports.f = Object.getOwnPropertySymbols;
   \*******************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
-var sharedKey = __webpack_require__(/*! ../internals/shared-key */ "./node_modules/core-js/internals/shared-key.js");
-var CORRECT_PROTOTYPE_GETTER = __webpack_require__(/*! ../internals/correct-prototype-getter */ "./node_modules/core-js/internals/correct-prototype-getter.js");
-
-var IE_PROTO = sharedKey('IE_PROTO');
-var ObjectPrototype = Object.prototype;
-=======
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
 let toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
 let sharedKey = __webpack_require__(/*! ../internals/shared-key */ "./node_modules/core-js/internals/shared-key.js");
@@ -1537,7 +1157,6 @@ let CORRECT_PROTOTYPE_GETTER = __webpack_require__(/*! ../internals/correct-prot
 
 let IE_PROTO = sharedKey('IE_PROTO');
 let ObjectPrototype = Object.prototype;
->>>>>>> main
 
 // `Object.getPrototypeOf` method
 // https://tc39.es/ecma262/#sec-object.getprototypeof
@@ -1558,18 +1177,6 @@ module.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O)
   \****************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
-var indexOf = (__webpack_require__(/*! ../internals/array-includes */ "./node_modules/core-js/internals/array-includes.js").indexOf);
-var hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ "./node_modules/core-js/internals/hidden-keys.js");
-
-module.exports = function (object, names) {
-  var O = toIndexedObject(object);
-  var i = 0;
-  var result = [];
-  var key;
-=======
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
 let toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
 let indexOf = (__webpack_require__(/*! ../internals/array-includes */ "./node_modules/core-js/internals/array-includes.js").indexOf);
@@ -1580,7 +1187,6 @@ module.exports = function (object, names) {
   let i = 0;
   let result = [];
   let key;
->>>>>>> main
   for (key in O) !has(hiddenKeys, key) && has(O, key) && result.push(key);
   // Don't enum bug & hidden keys
   while (names.length > i) if (has(O, key = names[i++])) {
@@ -1598,13 +1204,8 @@ module.exports = function (object, names) {
   \*******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var internalObjectKeys = __webpack_require__(/*! ../internals/object-keys-internal */ "./node_modules/core-js/internals/object-keys-internal.js");
-var enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
-=======
 let internalObjectKeys = __webpack_require__(/*! ../internals/object-keys-internal */ "./node_modules/core-js/internals/object-keys-internal.js");
 let enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ "./node_modules/core-js/internals/enum-bug-keys.js");
->>>>>>> main
 
 // `Object.keys` method
 // https://tc39.es/ecma262/#sec-object.keys
@@ -1623,28 +1224,16 @@ module.exports = Object.keys || function keys(O) {
 
 "use strict";
 
-<<<<<<< HEAD
-var nativePropertyIsEnumerable = {}.propertyIsEnumerable;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-
-// Nashorn ~ JDK8 bug
-var NASHORN_BUG = getOwnPropertyDescriptor && !nativePropertyIsEnumerable.call({ 1: 2 }, 1);
-=======
 let nativePropertyIsEnumerable = {}.propertyIsEnumerable;
 let getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 
 // Nashorn ~ JDK8 bug
 let NASHORN_BUG = getOwnPropertyDescriptor && !nativePropertyIsEnumerable.call({ 1: 2 }, 1);
->>>>>>> main
 
 // `Object.prototype.propertyIsEnumerable` method implementation
 // https://tc39.es/ecma262/#sec-object.prototype.propertyisenumerable
 exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
-<<<<<<< HEAD
-  var descriptor = getOwnPropertyDescriptor(this, V);
-=======
   let descriptor = getOwnPropertyDescriptor(this, V);
->>>>>>> main
   return !!descriptor && descriptor.enumerable;
 } : nativePropertyIsEnumerable;
 
@@ -1658,27 +1247,16 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /* eslint-disable no-proto -- safe */
-<<<<<<< HEAD
-var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
-var aPossiblePrototype = __webpack_require__(/*! ../internals/a-possible-prototype */ "./node_modules/core-js/internals/a-possible-prototype.js");
-=======
 let anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
 let aPossiblePrototype = __webpack_require__(/*! ../internals/a-possible-prototype */ "./node_modules/core-js/internals/a-possible-prototype.js");
->>>>>>> main
 
 // `Object.setPrototypeOf` method
 // https://tc39.es/ecma262/#sec-object.setprototypeof
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
-<<<<<<< HEAD
-  var CORRECT_SETTER = false;
-  var test = {};
-  var setter;
-=======
   let CORRECT_SETTER = false;
   let test = {};
   let setter;
->>>>>>> main
   try {
     setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;
     setter.call(test, []);
@@ -1702,17 +1280,6 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
   \****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js/internals/get-built-in.js");
-var getOwnPropertyNamesModule = __webpack_require__(/*! ../internals/object-get-own-property-names */ "./node_modules/core-js/internals/object-get-own-property-names.js");
-var getOwnPropertySymbolsModule = __webpack_require__(/*! ../internals/object-get-own-property-symbols */ "./node_modules/core-js/internals/object-get-own-property-symbols.js");
-var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
-
-// all object keys, includes non-enumerable and symbols
-module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
-  var keys = getOwnPropertyNamesModule.f(anObject(it));
-  var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
-=======
 let getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js/internals/get-built-in.js");
 let getOwnPropertyNamesModule = __webpack_require__(/*! ../internals/object-get-own-property-names */ "./node_modules/core-js/internals/object-get-own-property-names.js");
 let getOwnPropertySymbolsModule = __webpack_require__(/*! ../internals/object-get-own-property-symbols */ "./node_modules/core-js/internals/object-get-own-property-symbols.js");
@@ -1722,7 +1289,6 @@ let anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules
 module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   let keys = getOwnPropertyNamesModule.f(anObject(it));
   let getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
->>>>>>> main
   return getOwnPropertySymbols ? keys.concat(getOwnPropertySymbols(it)) : keys;
 };
 
@@ -1735,11 +1301,7 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   \************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
->>>>>>> main
 
 module.exports = global;
 
@@ -1752,24 +1314,6 @@ module.exports = global;
   \****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
-var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./node_modules/core-js/internals/inspect-source.js");
-var InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ "./node_modules/core-js/internals/internal-state.js");
-
-var getInternalState = InternalStateModule.get;
-var enforceInternalState = InternalStateModule.enforce;
-var TEMPLATE = String(String).split('String');
-
-(module.exports = function (O, key, value, options) {
-  var unsafe = options ? !!options.unsafe : false;
-  var simple = options ? !!options.enumerable : false;
-  var noTargetGet = options ? !!options.noTargetGet : false;
-  var state;
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
@@ -1786,7 +1330,6 @@ let TEMPLATE = String(String).split('String');
   let simple = options ? !!options.enumerable : false;
   let noTargetGet = options ? !!options.noTargetGet : false;
   let state;
->>>>>>> main
   if (typeof value == 'function') {
     if (typeof key == 'string' && !has(value, 'name')) {
       createNonEnumerableProperty(value, 'name', key);
@@ -1837,13 +1380,8 @@ module.exports = function (it) {
   \******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
->>>>>>> main
 
 module.exports = function (key, value) {
   try {
@@ -1862,19 +1400,11 @@ module.exports = function (key, value) {
   \*************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f);
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-
-var TO_STRING_TAG = wellKnownSymbol('toStringTag');
-=======
 let defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f);
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
 let wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
 
 let TO_STRING_TAG = wellKnownSymbol('toStringTag');
->>>>>>> main
 
 module.exports = function (it, TAG, STATIC) {
   if (it && !has(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
@@ -1891,17 +1421,10 @@ module.exports = function (it, TAG, STATIC) {
   \******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var shared = __webpack_require__(/*! ../internals/shared */ "./node_modules/core-js/internals/shared.js");
-var uid = __webpack_require__(/*! ../internals/uid */ "./node_modules/core-js/internals/uid.js");
-
-var keys = shared('keys');
-=======
 let shared = __webpack_require__(/*! ../internals/shared */ "./node_modules/core-js/internals/shared.js");
 let uid = __webpack_require__(/*! ../internals/uid */ "./node_modules/core-js/internals/uid.js");
 
 let keys = shared('keys');
->>>>>>> main
 
 module.exports = function (key) {
   return keys[key] || (keys[key] = uid(key));
@@ -1916,19 +1439,11 @@ module.exports = function (key) {
   \********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
-
-var SHARED = '__core-js_shared__';
-var store = global[SHARED] || setGlobal(SHARED, {});
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
 
 let SHARED = '__core-js_shared__';
 let store = global[SHARED] || setGlobal(SHARED, {});
->>>>>>> main
 
 module.exports = store;
 
@@ -1941,13 +1456,8 @@ module.exports = store;
   \**************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var IS_PURE = __webpack_require__(/*! ../internals/is-pure */ "./node_modules/core-js/internals/is-pure.js");
-var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules/core-js/internals/shared-store.js");
-=======
 let IS_PURE = __webpack_require__(/*! ../internals/is-pure */ "./node_modules/core-js/internals/is-pure.js");
 let store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules/core-js/internals/shared-store.js");
->>>>>>> main
 
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
@@ -1966,27 +1476,16 @@ let store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
   \*************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var toInteger = __webpack_require__(/*! ../internals/to-integer */ "./node_modules/core-js/internals/to-integer.js");
-
-var max = Math.max;
-var min = Math.min;
-=======
 let toInteger = __webpack_require__(/*! ../internals/to-integer */ "./node_modules/core-js/internals/to-integer.js");
 
 let max = Math.max;
 let min = Math.min;
->>>>>>> main
 
 // Helper for a popular repeating case of the spec:
 // Let integer be ? ToInteger(index).
 // If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
 module.exports = function (index, length) {
-<<<<<<< HEAD
-  var integer = toInteger(index);
-=======
   let integer = toInteger(index);
->>>>>>> main
   return integer < 0 ? max(integer + length, 0) : min(integer, length);
 };
 
@@ -2000,13 +1499,8 @@ module.exports = function (index, length) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 // toObject with fallback for non-array-like ES3 strings
-<<<<<<< HEAD
-var IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
-var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
-=======
 let IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
 let requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
->>>>>>> main
 
 module.exports = function (it) {
   return IndexedObject(requireObjectCoercible(it));
@@ -2021,13 +1515,8 @@ module.exports = function (it) {
   \******************************************************/
 /***/ (function(module) {
 
-<<<<<<< HEAD
-var ceil = Math.ceil;
-var floor = Math.floor;
-=======
 let ceil = Math.ceil;
 let floor = Math.floor;
->>>>>>> main
 
 // `ToInteger` abstract operation
 // https://tc39.es/ecma262/#sec-tointeger
@@ -2044,15 +1533,9 @@ module.exports = function (argument) {
   \*****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var toInteger = __webpack_require__(/*! ../internals/to-integer */ "./node_modules/core-js/internals/to-integer.js");
-
-var min = Math.min;
-=======
 let toInteger = __webpack_require__(/*! ../internals/to-integer */ "./node_modules/core-js/internals/to-integer.js");
 
 let min = Math.min;
->>>>>>> main
 
 // `ToLength` abstract operation
 // https://tc39.es/ecma262/#sec-tolength
@@ -2069,11 +1552,7 @@ module.exports = function (argument) {
   \*****************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
-=======
 let requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
->>>>>>> main
 
 // `ToObject` abstract operation
 // https://tc39.es/ecma262/#sec-toobject
@@ -2090,11 +1569,7 @@ module.exports = function (argument) {
   \********************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-=======
 let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
->>>>>>> main
 
 // `ToPrimitive` abstract operation
 // https://tc39.es/ecma262/#sec-toprimitive
@@ -2102,11 +1577,7 @@ let isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules
 // and the second argument - flag - preferred type is a string
 module.exports = function (input, PREFERRED_STRING) {
   if (!isObject(input)) return input;
-<<<<<<< HEAD
-  var fn, val;
-=======
   let fn, val;
->>>>>>> main
   if (PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
   if (typeof (fn = input.valueOf) == 'function' && !isObject(val = fn.call(input))) return val;
   if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
@@ -2122,13 +1593,8 @@ module.exports = function (input, PREFERRED_STRING) {
   \***********************************************/
 /***/ (function(module) {
 
-<<<<<<< HEAD
-var id = 0;
-var postfix = Math.random();
-=======
 let id = 0;
 let postfix = Math.random();
->>>>>>> main
 
 module.exports = function (key) {
   return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);
@@ -2143,11 +1609,7 @@ module.exports = function (key) {
   \*************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ "./node_modules/core-js/internals/native-symbol.js");
-=======
 let NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ "./node_modules/core-js/internals/native-symbol.js");
->>>>>>> main
 
 module.exports = NATIVE_SYMBOL
   /* global Symbol -- safe */
@@ -2163,18 +1625,6 @@ module.exports = NATIVE_SYMBOL
   \*************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var shared = __webpack_require__(/*! ../internals/shared */ "./node_modules/core-js/internals/shared.js");
-var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
-var uid = __webpack_require__(/*! ../internals/uid */ "./node_modules/core-js/internals/uid.js");
-var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ "./node_modules/core-js/internals/native-symbol.js");
-var USE_SYMBOL_AS_UID = __webpack_require__(/*! ../internals/use-symbol-as-uid */ "./node_modules/core-js/internals/use-symbol-as-uid.js");
-
-var WellKnownSymbolsStore = shared('wks');
-var Symbol = global.Symbol;
-var createWellKnownSymbol = USE_SYMBOL_AS_UID ? Symbol : Symbol && Symbol.withoutSetter || uid;
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let shared = __webpack_require__(/*! ../internals/shared */ "./node_modules/core-js/internals/shared.js");
 let has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
@@ -2185,7 +1635,6 @@ let USE_SYMBOL_AS_UID = __webpack_require__(/*! ../internals/use-symbol-as-uid *
 let WellKnownSymbolsStore = shared('wks');
 let Symbol = global.Symbol;
 let createWellKnownSymbol = USE_SYMBOL_AS_UID ? Symbol : Symbol && Symbol.withoutSetter || uid;
->>>>>>> main
 
 module.exports = function (name) {
   if (!has(WellKnownSymbolsStore, name)) {
@@ -2205,17 +1654,6 @@ module.exports = function (name) {
 
 "use strict";
 
-<<<<<<< HEAD
-var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
-var addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ "./node_modules/core-js/internals/add-to-unscopables.js");
-var Iterators = __webpack_require__(/*! ../internals/iterators */ "./node_modules/core-js/internals/iterators.js");
-var InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ "./node_modules/core-js/internals/internal-state.js");
-var defineIterator = __webpack_require__(/*! ../internals/define-iterator */ "./node_modules/core-js/internals/define-iterator.js");
-
-var ARRAY_ITERATOR = 'Array Iterator';
-var setInternalState = InternalStateModule.set;
-var getInternalState = InternalStateModule.getterFor(ARRAY_ITERATOR);
-=======
 let toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
 let addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ "./node_modules/core-js/internals/add-to-unscopables.js");
 let Iterators = __webpack_require__(/*! ../internals/iterators */ "./node_modules/core-js/internals/iterators.js");
@@ -2225,7 +1663,6 @@ let defineIterator = __webpack_require__(/*! ../internals/define-iterator */ "./
 let ARRAY_ITERATOR = 'Array Iterator';
 let setInternalState = InternalStateModule.set;
 let getInternalState = InternalStateModule.getterFor(ARRAY_ITERATOR);
->>>>>>> main
 
 // `Array.prototype.entries` method
 // https://tc39.es/ecma262/#sec-array.prototype.entries
@@ -2247,17 +1684,10 @@ module.exports = defineIterator(Array, 'Array', function (iterated, kind) {
 // `%ArrayIteratorPrototype%.next` method
 // https://tc39.es/ecma262/#sec-%arrayiteratorprototype%.next
 }, function () {
-<<<<<<< HEAD
-  var state = getInternalState(this);
-  var target = state.target;
-  var kind = state.kind;
-  var index = state.index++;
-=======
   let state = getInternalState(this);
   let target = state.target;
   let kind = state.kind;
   let index = state.index++;
->>>>>>> main
   if (!target || index >= target.length) {
     state.target = undefined;
     return { value: undefined, done: true };
@@ -2286,21 +1716,6 @@ addToUnscopables('entries');
   \**********************************************************************/
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
-<<<<<<< HEAD
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ "./node_modules/core-js/internals/dom-iterables.js");
-var ArrayIteratorMethods = __webpack_require__(/*! ../modules/es.array.iterator */ "./node_modules/core-js/modules/es.array.iterator.js");
-var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-
-var ITERATOR = wellKnownSymbol('iterator');
-var TO_STRING_TAG = wellKnownSymbol('toStringTag');
-var ArrayValues = ArrayIteratorMethods.values;
-
-for (var COLLECTION_NAME in DOMIterables) {
-  var Collection = global[COLLECTION_NAME];
-  var CollectionPrototype = Collection && Collection.prototype;
-=======
 let global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 let DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ "./node_modules/core-js/internals/dom-iterables.js");
 let ArrayIteratorMethods = __webpack_require__(/*! ../modules/es.array.iterator */ "./node_modules/core-js/modules/es.array.iterator.js");
@@ -2314,7 +1729,6 @@ let ArrayValues = ArrayIteratorMethods.values;
 for (let COLLECTION_NAME in DOMIterables) {
   let Collection = global[COLLECTION_NAME];
   let CollectionPrototype = Collection && Collection.prototype;
->>>>>>> main
   if (CollectionPrototype) {
     // some Chrome versions have non-configurable methods on DOMTokenList
     if (CollectionPrototype[ITERATOR] !== ArrayValues) try {
@@ -2325,11 +1739,7 @@ for (let COLLECTION_NAME in DOMIterables) {
     if (!CollectionPrototype[TO_STRING_TAG]) {
       createNonEnumerableProperty(CollectionPrototype, TO_STRING_TAG, COLLECTION_NAME);
     }
-<<<<<<< HEAD
-    if (DOMIterables[COLLECTION_NAME]) for (var METHOD_NAME in ArrayIteratorMethods) {
-=======
     if (DOMIterables[COLLECTION_NAME]) for (let METHOD_NAME in ArrayIteratorMethods) {
->>>>>>> main
       // some Chrome versions have non-configurable methods on DOMTokenList
       if (CollectionPrototype[METHOD_NAME] !== ArrayIteratorMethods[METHOD_NAME]) try {
         createNonEnumerableProperty(CollectionPrototype, METHOD_NAME, ArrayIteratorMethods[METHOD_NAME]);
@@ -2731,29 +2141,17 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-<<<<<<< HEAD
-/******/ 	var __webpack_module_cache__ = {};
-=======
 /******/ 	let __webpack_module_cache__ = {};
->>>>>>> main
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-<<<<<<< HEAD
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-=======
 /******/ 		let cachedModule = __webpack_module_cache__[moduleId];
->>>>>>> main
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-<<<<<<< HEAD
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-=======
 /******/ 		let module = __webpack_module_cache__[moduleId] = {
->>>>>>> main
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -2771,11 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = function(module) {
-<<<<<<< HEAD
-/******/ 			var getter = module && module.__esModule ?
-=======
 /******/ 			let getter = module && module.__esModule ?
->>>>>>> main
 /******/ 				function() { return module['default']; } :
 /******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -2787,11 +2181,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
 /******/ 		__webpack_require__.d = function(exports, definition) {
-<<<<<<< HEAD
-/******/ 			for(var key in definition) {
-=======
 /******/ 			for(let key in definition) {
->>>>>>> main
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
@@ -2829,24 +2219,14 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
-<<<<<<< HEAD
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-=======
 /******/ 		let scriptUrl;
 /******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
 /******/ 		let document = __webpack_require__.g.document;
->>>>>>> main
 /******/ 		if (!scriptUrl && document) {
 /******/ 			if (document.currentScript)
 /******/ 				scriptUrl = document.currentScript.src
 /******/ 			if (!scriptUrl) {
-<<<<<<< HEAD
-/******/ 				var scripts = document.getElementsByTagName("script");
-=======
 /******/ 				let scripts = document.getElementsByTagName("script");
->>>>>>> main
 /******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
 /******/ 			}
 /******/ 		}
@@ -2858,11 +2238,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}();
 /******/ 	
 /************************************************************************/
-<<<<<<< HEAD
-var __webpack_exports__ = {};
-=======
 let __webpack_exports__ = {};
->>>>>>> main
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
 "use strict";
@@ -2870,13 +2246,8 @@ let __webpack_exports__ = {};
   !*** ./webpack/svgSprite.js ***!
   \******************************/
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0__);
-=======
 /* harmony import */ let core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
 /* harmony import */ let core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_0__);
->>>>>>> main
 function requireAll(a){a.keys().forEach(a)}requireAll(__webpack_require__("./images sync recursive \\.svg$"));
 }();
 /******/ })()

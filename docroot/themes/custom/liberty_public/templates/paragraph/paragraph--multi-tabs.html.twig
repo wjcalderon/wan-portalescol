@@ -135,12 +135,8 @@
                       <li>
                         <a href='#tabs-{{ key }}'>
                           {% if item.entity.field_image is not empty %}
-<<<<<<< HEAD
-                            <img src="{{ file_url(item.entity.field_image.entity.fileuri)}}">
-=======
 <img alt="" src="{{ file_url(item.entity.field_image.entity.fileuri)}}">
 
->>>>>>> main
                           {% endif %}
                           {% if item.entity.field_name is not empty %}
                             {{ item.entity.field_name.value }}

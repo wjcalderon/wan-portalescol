@@ -37,19 +37,11 @@
 {% set base_url = url('<front>')|render|split('/')|join('/') %}
   {% block content %}
     <div class="footer__info-cont">
-<<<<<<< HEAD
-        <label>Líneas de atención <img src="{{ base_url ~ directory }}/images/icons/call-outline-bl.svg" width="20"></label>
-        <p>Bogotá: {{ content.field_bogota }}</p>
-        <label>Resto del País: </label>
-        <p>{{ content.field_resto_pais }}</p>
-        <label><img src="{{ base_url ~ directory }}/images/icons/phone.svg" height="16"></label>
-=======
         <label>Líneas de atención <img alt="" src="{{ base_url ~ directory }}/images/icons/call-outline-bl.svg" width="20"></label>
         <p>Bogotá: {{ content.field_bogota }}</p>
         <label>Resto del País: </label>
         <p>{{ content.field_resto_pais }}</p>
         <label><img alt="" src="{{ base_url ~ directory }}/images/icons/phone.svg" height="16"></label>
->>>>>>> main
         <p><strong>{{ content.field_numero_mst }}</strong></p>
     </div>
   {% endblock %}

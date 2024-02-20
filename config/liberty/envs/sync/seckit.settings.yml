@@ -8,18 +8,6 @@ seckit_xss:
       x: false
       webkit: false
     report-only: false
-<<<<<<< HEAD
-    base-uri: ''
-    default-src: ''
-    script-src: '''self'' ''unsafe-inline'' ''unsafe-eval'' *.youtube.com *.force.com:* *.googleapis.com:* *.salesforce.com:* *.jsdelivr.net:* *.gstatic.com:* *.google.com:* *.qualtrics.com:* *.salesforceliveagent.co:*  *.google-analytics.com:* *.newrelic.com:* *.cloudflare.com:* *.nr-data.net:* *.googletagmanager.com:* *.addtoany.com:* *.salesforceliveagent.com:* *.zscalerthree.net *.googleoptimize.com *.hotjar.com *.facebook.net *.metricool.com *.akamaihd.net'
-    object-src: '''self'' ''unsafe-inline'''
-    style-src: ''
-    img-src: ''
-    manifest-src: ''
-    media-src: ''
-    form-action: ''
-    frame-src: '''self'' ''unsafe-inline'' *.youtube.com *.force.com *.salesforce.com *.google.com *.addtoany.com *.qualtrics.com *.hotjar.com'
-=======
     default-src: ''
     script-src: '''self'' ''unsafe-inline'' ''unsafe-eval'' *.akamaihd.net *.youtube.com *.force.com *.salesforce.com *.tfaforms.net *.my.salesforce-sites.com cdn.jsdelivr.net *.gstatic.com *.google.com siteintercept.qualtrics.com *.qualtrics.com *.salesforceliveagent.co *.salesforceliveagent.com service.force.com *.google-analytics.com *.newrelic.com cdnjs.cloudflare.com *.nr-data.net *.googletagmanager.com *.addtoany.com *.googleapis.com *.hotjar.com *.facebook.net *.metricool.com'
     object-src: '''self'' ''unsafe-inline'''
@@ -27,7 +15,6 @@ seckit_xss:
     img-src: ''
     media-src: ''
     frame-src: '''self'' *.force.com *.youtube.com  *.tfaforms.net *.my.salesforce-sites.com *.salesforce.com *.google.com *.addtoany.com *.qualtrics.com'
->>>>>>> main
     frame-ancestors: ''
     child-src: ''
     font-src: ''
@@ -35,42 +22,26 @@ seckit_xss:
     report-uri: /report-csp-violation
     upgrade-req: true
     policy-uri: ''
-<<<<<<< HEAD
-  x_xss:
-=======
     base-uri: ''
     manifest-src: ''
     form-action: ''
   x_xss:
     select: 2
->>>>>>> main
     seckit_x_xss_option_disable: Disabled
     seckit_x_xss_option_0: '0'
     seckit_x_xss_option_1: 1;
     seckit_x_xss_option_1_block: '1; mode=block'
-<<<<<<< HEAD
-    select: 2
-=======
->>>>>>> main
 seckit_csrf:
   origin: false
   origin_whitelist: ''
 seckit_clickjacking:
-<<<<<<< HEAD
-  js_css_noscript: false
-=======
   js_css_noscript: true
->>>>>>> main
   noscript_message: 'Sorry, you need to enable JavaScript to visit this website.'
   x_frame: '1'
   x_frame_allow_from: ''
 seckit_ssl:
   hsts: true
-<<<<<<< HEAD
-  hsts_subdomains: false
-=======
   hsts_subdomains: true
->>>>>>> main
   hsts_max_age: 31536000
   hsts_preload: false
 seckit_ct:
@@ -81,12 +52,6 @@ seckit_ct:
 seckit_fp:
   feature_policy: false
   feature_policy_policy: ''
-<<<<<<< HEAD
-seckit_various:
-  from_origin: false
-  from_origin_destination: same
-  referrer_policy: false
-=======
 seckit_pp:
   permissions_policy: true
   permissions_policy_policy: geolocation=()
@@ -94,6 +59,5 @@ seckit_various:
   from_origin: false
   from_origin_destination: same
   referrer_policy: true
->>>>>>> main
   referrer_policy_policy: no-referrer-when-downgrade
   disable_autocomplete: true

@@ -5,13 +5,9 @@ namespace Drupal\lib_migrate\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-<<<<<<< HEAD
-
-=======
 /**
  * Form custom api config.
  */
->>>>>>> main
 class ApiConfigLatLngForm extends ConfigFormBase {
 
   const SETTINGS = 'lib_migrate.settings';
@@ -53,16 +49,6 @@ class ApiConfigLatLngForm extends ConfigFormBase {
       '#default_value' => $dflt_count,
     ];
     $form['markup_reqs_lat_lng'] = [
-<<<<<<< HEAD
-      'label' => array(
-        '#prefix' => '<p><strong>',
-        '#suffix' => '</strong></p>',
-        '#markup' => 'Número de peticiones realizadas : ',
-        'count' => array(
-          '#markup' => $dflt_count
-        )
-      )
-=======
       'label' => [
         '#prefix' => '<p><strong>',
         '#suffix' => '</strong></p>',
@@ -71,7 +57,6 @@ class ApiConfigLatLngForm extends ConfigFormBase {
           '#markup' => $dflt_count,
         ],
       ],
->>>>>>> main
     ];
 
     $form['markup_reqs_lat_lng']['label']['reset_count'] = [
@@ -79,11 +64,7 @@ class ApiConfigLatLngForm extends ConfigFormBase {
       '#suffix' => '</p>',
       '#type' => 'submit',
       '#value' => 'Reiniciar contador',
-<<<<<<< HEAD
-      '#name' => 'restart'
-=======
       '#name' => 'restart',
->>>>>>> main
     ];
 
     return parent::buildForm($form, $form_state);
@@ -96,16 +77,6 @@ class ApiConfigLatLngForm extends ConfigFormBase {
     $count_reqs_lat_lng = $form_state->getValue('count_reqs_lat_lng');
     $trigger_element = $form_state->getTriggeringElement();
     $submit_name = $trigger_element['#name'];
-<<<<<<< HEAD
-    
-    if ($submit_name == 'restart') {
-      $config = $this->configFactory->getEditable(static::SETTINGS)
-      ->set('config.count_reqs_lat_lng', 0)
-      ->save();
-    }
-    else {
-      $config = $this->configFactory->getEditable(static::SETTINGS)
-=======
 
     if ($submit_name == 'restart') {
       $this->configFactory->getEditable(static::SETTINGS)
@@ -114,15 +85,11 @@ class ApiConfigLatLngForm extends ConfigFormBase {
     }
     else {
       $this->configFactory->getEditable(static::SETTINGS)
->>>>>>> main
         ->set('config.api_key_lat_lng', $form_state->getValue('api_key_lat_lng'))
         ->set('config.count_reqs_lat_lng', $count_reqs_lat_lng)
         ->save();
     }
     parent::submitForm($form, $form_state);
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 }

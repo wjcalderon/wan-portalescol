@@ -86,11 +86,7 @@ liberty_claims.get_carshops:
     model: '[0-9]{4}'
     type: '[a-zA-Z]+'
   options:
-<<<<<<< HEAD
-    no_cache: 'TRUE'
-=======
     no_cache: TRUE
->>>>>>> main
 
 liberty_claims.settings_form:
   path: '/admin/config/liberty_claims/settings'
@@ -138,11 +134,7 @@ liberty_claims.settings_email_form:
   path: '/admin/config/liberty_claims/settings/send_email'
   defaults:
     _form: '\Drupal\liberty_claims\Form\SettingsEmailForm'
-<<<<<<< HEAD
-    _title: 'Claims Settings Email Form '
-=======
     _title: 'Formulario de correo electrónico de configuración de reclamaciones'
->>>>>>> main
   requirements:
     _permission: 'access administration pages'
   options:
@@ -154,9 +146,6 @@ liberty_claims.comunas:
     _title: 'Comunas'
     _form: 'Drupal\liberty_claims\Form\ComunasForm'
   requirements:
-<<<<<<< HEAD
-    _permission: 'administer content types'
-=======
     _permission: 'administer content types'
 
 liberty_claims.list_log_hurto:
@@ -166,4 +155,3 @@ liberty_claims.list_log_hurto:
     _controller: '\Drupal\liberty_claims\Controller\LoggerReportHurtoController::build'
   requirements:
     _permission: 'access administration pages'
->>>>>>> main

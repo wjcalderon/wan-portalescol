@@ -18,8 +18,4 @@ lib_migrate.config:
   parent: lib_migrate.admin_index
   description: 'Configuración de api latitud y longitud'
   weight: -10
-<<<<<<< HEAD
   route_name: lib_migrate.config
-=======
-  route_name: lib_migrate.config
->>>>>>> main

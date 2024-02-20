@@ -50,11 +50,7 @@ class DownloadPdfController extends ControllerBase {
         'verify_peer' => FALSE,
         'verify_peer_name' => FALSE,
         'allow_self_signed' => TRUE,
-<<<<<<< HEAD
-      ]
-=======
       ],
->>>>>>> main
     ]);
     $dompdf->setHttpContext($contxt);
 
@@ -64,9 +60,5 @@ class DownloadPdfController extends ControllerBase {
     $dompdf->stream('Report.pdf', ["Attachment" => TRUE]);
     exit();
   }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> main

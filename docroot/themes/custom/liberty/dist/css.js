@@ -1,10 +1,6 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
-<<<<<<< HEAD
-/******/ 	var __webpack_modules__ = ({
-=======
 /******/ 	let __webpack_modules__ = ({
->>>>>>> main
 
 /***/ "./components/style.scss":
 /*!*******************************!*\
@@ -21,29 +17,17 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-<<<<<<< HEAD
-/******/ 	var __webpack_module_cache__ = {};
-=======
 /******/ 	let __webpack_module_cache__ = {};
->>>>>>> main
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-<<<<<<< HEAD
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-=======
 /******/ 		let cachedModule = __webpack_module_cache__[moduleId];
->>>>>>> main
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-<<<<<<< HEAD
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-=======
 /******/ 		let module = __webpack_module_cache__[moduleId] = {
->>>>>>> main
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -69,22 +53,14 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}();
 /******/ 	
 /************************************************************************/
-<<<<<<< HEAD
-var __webpack_exports__ = {};
-=======
 let __webpack_exports__ = {};
->>>>>>> main
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
 /*!************************!*\
   !*** ./webpack/css.js ***!
   \************************/
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var _components_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/style.scss */ "./components/style.scss");
-=======
 /* harmony import */ let _components_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/style.scss */ "./components/style.scss");
->>>>>>> main
 
 }();
 /******/ })()
