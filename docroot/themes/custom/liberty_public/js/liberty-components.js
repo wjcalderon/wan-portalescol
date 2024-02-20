@@ -2,10 +2,17 @@
 
 Drupal.behaviors.tab = {
   attach(context) {
+<<<<<<< HEAD
     const el = context.querySelectorAll('.tab');
     const newLocal = '.tab-nav';
     const tabNavigationLinks = context.querySelectorAll(newLocal);
     const newLocal_1 = '.tab-item';
+=======
+    const el = context.querySelectorAll(".tab");
+    const newLocal = ".tab-nav";
+    const tabNavigationLinks = context.querySelectorAll(newLocal);
+    const newLocal_1 = ".tab-item";
+>>>>>>> main
     const tabContentContainers = context.querySelectorAll(newLocal_1);
     let activeIndex = 0;
 
@@ -20,10 +27,17 @@ Drupal.behaviors.tab = {
         index >= 0 &&
         index <= tabNavigationLinks.length
       ) {
+<<<<<<< HEAD
         tabNavigationLinks[activeIndex].classList.remove('is-active');
         tabNavigationLinks[index].classList.add('is-active');
         tabContentContainers[activeIndex].classList.remove('is-active');
         tabContentContainers[index].classList.add('is-active');
+=======
+        tabNavigationLinks[activeIndex].classList.remove("is-active");
+        tabNavigationLinks[index].classList.add("is-active");
+        tabContentContainers[activeIndex].classList.remove("is-active");
+        tabContentContainers[index].classList.add("is-active");
+>>>>>>> main
         activeIndex = index;
       }
     }
@@ -36,7 +50,11 @@ Drupal.behaviors.tab = {
      * @param {Number} index The index of that link
      */
     function handleClick(link, index) {
+<<<<<<< HEAD
       link.addEventListener('click', (e) => {
+=======
+      link.addEventListener("click", (e) => {
+>>>>>>> main
         e.preventDefault();
         goToTab(index);
       });
@@ -49,7 +67,11 @@ Drupal.behaviors.tab = {
      *   Returns nothing.
      */
     for (let e = 0; e < el.length; e += 1) {
+<<<<<<< HEAD
       el[e].classList.remove('no-js');
+=======
+      el[e].classList.remove("no-js");
+>>>>>>> main
     }
 
     for (let i = 0; i < tabNavigationLinks.length; i += 1) {
@@ -61,10 +83,17 @@ Drupal.behaviors.tab = {
 
 Drupal.behaviors.hero = {
   attach(context) {
+<<<<<<< HEAD
     const el = context.querySelectorAll('.hero-breaker');
     const newLocal = '.breaker-nav';
     const breakerNavigationLinks = context.querySelectorAll(newLocal);
     const newLocal_1 = '.breaker-item';
+=======
+    const el = context.querySelectorAll(".hero-breaker");
+    const newLocal = ".breaker-nav";
+    const breakerNavigationLinks = context.querySelectorAll(newLocal);
+    const newLocal_1 = ".breaker-item";
+>>>>>>> main
     const breakerContentContainers = context.querySelectorAll(newLocal_1);
     let activeIndex = 0;
 
@@ -74,23 +103,38 @@ Drupal.behaviors.hero = {
         index >= 0 &&
         index <= breakerNavigationLinks.length
       ) {
+<<<<<<< HEAD
         breakerNavigationLinks[activeIndex].classList.remove('is-active');
         breakerNavigationLinks[index].classList.add('is-active');
         breakerContentContainers[activeIndex].classList.remove('is-active');
         breakerContentContainers[index].classList.add('is-active');
+=======
+        breakerNavigationLinks[activeIndex].classList.remove("is-active");
+        breakerNavigationLinks[index].classList.add("is-active");
+        breakerContentContainers[activeIndex].classList.remove("is-active");
+        breakerContentContainers[index].classList.add("is-active");
+>>>>>>> main
         activeIndex = index;
       }
     }
 
     function handleClick(link, index) {
+<<<<<<< HEAD
       link.addEventListener('click', (e) => {
+=======
+      link.addEventListener("click", (e) => {
+>>>>>>> main
         e.preventDefault();
         goToSlide(index);
       });
     }
 
     for (let e = 0; e < el.length; e += 1) {
+<<<<<<< HEAD
       el[e].classList.remove('no-js');
+=======
+      el[e].classList.remove("no-js");
+>>>>>>> main
     }
 
     for (let i = 0; i < breakerNavigationLinks.length; i += 1) {
@@ -102,6 +146,7 @@ Drupal.behaviors.hero = {
 
 Drupal.behaviors.scrollspy = {
   attach(context) {
+<<<<<<< HEAD
 
     window.onscroll = function () { scrollspy() };
 
@@ -111,11 +156,28 @@ Drupal.behaviors.scrollspy = {
     function scrollspy() {
       if (window.pageYOffset >= sticky) {
         scrollnav.classList.add("sticky")
+=======
+    window.onscroll = function () {
+      scrollspy();
+    };
+
+    let scrollnav = document.getElementById("scrollnav");
+    let sticky = scrollnav.offsetTop;
+
+    function scrollspy() {
+      if (window.pageYOffset >= sticky) {
+        scrollnav.classList.add("sticky");
+>>>>>>> main
       } else {
         // scrollnav.classList.remove("sticky");
       }
     }
+<<<<<<< HEAD
 
   },
 };
 
+=======
+  },
+};
+>>>>>>> main

@@ -70,7 +70,11 @@ var LuceneHighlightRules = function () {
             }, {
                 token: "string.regexp.end",
                 regex: "/[sxngimy]*",
+<<<<<<< HEAD
                 next: "no_regex"
+=======
+                next: "start"
+>>>>>>> main
             }, {
                 token: "invalid",
                 regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/
@@ -90,7 +94,11 @@ var LuceneHighlightRules = function () {
             }, {
                 token: "empty",
                 regex: "$",
+<<<<<<< HEAD
                 next: "no_regex"
+=======
+                next: "start"
+>>>>>>> main
             }, {
                 defaultToken: "string.regexp"
             }
@@ -109,9 +117,15 @@ var LuceneHighlightRules = function () {
             }, {
                 token: "empty",
                 regex: "$",
+<<<<<<< HEAD
                 next: "no_regex"
             }, {
                 defaultToken: "string.regexp.charachterclass"
+=======
+                next: "start"
+            }, {
+                defaultToken: "string.regexp.characterclass"
+>>>>>>> main
             }
         ]
     };

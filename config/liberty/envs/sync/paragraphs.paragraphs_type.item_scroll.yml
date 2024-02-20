@@ -1,0 +1,10 @@
+uuid: f9fa9681-b3c6-4fa5-9095-540b059beade
+langcode: es
+status: true
+dependencies: {  }
+id: item_scroll
+label: 'Menu Item'
+icon_uuid: null
+icon_default: null
+description: 'Menu item scroll.'
+behavior_plugins: {  }

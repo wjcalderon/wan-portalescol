@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 4deab773-4903-4ed5-978e-32495b16373b
+=======
+uuid: c6d11d7c-64ce-4794-b417-e16fb486e176
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,6 +15,10 @@ dependencies:
   module:
     - link
     - paragraphs
+<<<<<<< HEAD
+=======
+    - paragraphs_features
+>>>>>>> main
 id: paragraph.lib_card_list.default
 targetEntityType: paragraph
 bundle: lib_card_list
@@ -37,6 +45,7 @@ content:
     weight: 0
     region: content
     settings:
+<<<<<<< HEAD
       title: Párrafo
       title_plural: Parráfos
       edit_mode: open
@@ -50,6 +59,28 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+=======
+      title: Card
+      title_plural: Cards
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: all
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: lib_card_list
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+>>>>>>> main
   field_lib_summary:
     type: string_textarea
     weight: 2

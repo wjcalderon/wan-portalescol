@@ -1,0 +1,6 @@
+services:
+  lib_login_corredores.middleware.custom_login:
+    class: Drupal\lib_login_corredores\Middleware\CustomLoginMiddleware
+    arguments: ['@current_user']
+    tags:
+      - { name: http_middleware }

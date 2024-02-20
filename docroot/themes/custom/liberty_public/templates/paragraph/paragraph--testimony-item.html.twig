@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 {#
 /**
  * @file
@@ -51,6 +54,7 @@
 {# Sets Unique ID for paragraph from Paragraph ID. #}
 {% set paragraph_id = 'component-' ~ paragraph.id.value %}
 {% set score = content.field_score[0]['#markup'] %}
+<<<<<<< HEAD
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
     <div class="score">
     {% for i in 1..5 %}
@@ -71,3 +75,32 @@
     </div>
 </div>
 
+=======
+<div{{attributes.addClass(classes).setAttribute('id',paragraph_id)}}>
+	<div class="score">
+		{% for i in 1..5 %}
+			{% if i > score %}
+				<img alt="" src="{{ base_url ~ directory }}/images/icons/star-outline.svg">
+
+			{% else %}
+				<img alt="" src="{{ base_url ~ directory }}/images/icons/star-solid.svg">
+
+			{% endif %}
+		{% endfor %}
+	</div>
+	<h5>{{ content.field_heading|field_value }}</h5>
+	{{ content|without('field_user','field_date', 'field_score', 'field_heading') }}
+	<div class="user">
+		<div class="icon">
+			<img alt="" src="{{ base_url ~ directory }}/images/icons/user-coment.svg">
+
+		</div>
+		<h6>
+			{{ content.field_user|field_value }}
+			<span>
+				{{ content.field_date|field_value }}
+			</span>
+		</h6>
+	</div>
+</div>
+>>>>>>> main

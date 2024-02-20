@@ -87,6 +87,11 @@ display:
               width: null
               height: null
             svg_render_as_image: true
+<<<<<<< HEAD
+=======
+            image_loading:
+              attribute: lazy
+>>>>>>> main
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -655,6 +660,11 @@ display:
               width: null
               height: null
             svg_render_as_image: true
+<<<<<<< HEAD
+=======
+            image_loading:
+              attribute: lazy
+>>>>>>> main
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -1062,6 +1072,11 @@ display:
               width: null
               height: null
             svg_render_as_image: true
+<<<<<<< HEAD
+=======
+            image_loading:
+              attribute: lazy
+>>>>>>> main
           group_column: ''
           group_columns: {  }
           group_rows: true

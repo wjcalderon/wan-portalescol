@@ -185,7 +185,11 @@ module.exports = function normalizeComponent (
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+<<<<<<< HEAD
   props: ['value', 'step'],
+=======
+  props: ["value", "step"],
+>>>>>>> main
   components: {
     FloatLabel: __WEBPACK_IMPORTED_MODULE_1_vue_float_label_components_FloatLabel__["a" /* default */],
     Alert: __WEBPACK_IMPORTED_MODULE_2__components_commons_alert__["a" /* default */]
@@ -193,6 +197,7 @@ module.exports = function normalizeComponent (
   methods: {
     nextStep: function nextStep() {
       this.submited = true;
+<<<<<<< HEAD
 
       if (this.isFormOk()) {
         document.getElementById("steps").scrollIntoView(true);
@@ -201,11 +206,24 @@ module.exports = function normalizeComponent (
       } else {
         // Scroll the page to the first input with errors.
         var inputsWithErrors = document.getElementsByClassName('field error');
+=======
+      if (this.isFormOk()) {
+        document.getElementById("steps").scrollIntoView(true);
+        this.$emit("nextStep", this.step + 1);
+        this.$emit("input", this.casualtyData);
+      } else {
+        // Scroll the page to the first input with errors.
+        var inputsWithErrors = document.getElementsByClassName("field error");
+>>>>>>> main
         if (inputsWithErrors.length > 0) {
           var first = inputsWithErrors[0];
 
           var observer = new MutationObserver(function () {
+<<<<<<< HEAD
             if (first.style.display != 'none') {
+=======
+            if (first.style.display != "none") {
+>>>>>>> main
               first.scrollIntoView({ behavior: "smooth" });
             }
           });
@@ -218,11 +236,18 @@ module.exports = function normalizeComponent (
       return !this.validationRules || !__WEBPACK_IMPORTED_MODULE_0__validator__["a" /* validator */].validateForm(this.casualtyData, this.validationRules);
     },
     prevStep: function prevStep() {
+<<<<<<< HEAD
 
       if (this.step === 4 && typeof this.claimType !== 'undefined' && this.claimType === 'CLAIM_TYPE_PTH') {
         this.$emit('prevStep', 2);
       } else {
         this.$emit('prevStep', this.step - 1);
+=======
+      if (this.step === 4 && typeof this.claimType !== "undefined" && this.claimType === "CLAIM_TYPE_PTH") {
+        this.$emit("prevStep", 2);
+      } else {
+        this.$emit("prevStep", this.step - 1);
+>>>>>>> main
       }
     },
     hasError: function hasError(field) {
@@ -239,8 +264,13 @@ module.exports = function normalizeComponent (
           this.$refs.dropzoneEl.removeFile(file);
 
           var kbSize = Math.round(file.size / 1000);
+<<<<<<< HEAD
           this.modalTitle = 'IMAGEN NO VALIDA';
           this.modalBody = 'El peso de la imagen ' + kbSize + ' KB sobrepasa el limite ' + imageLimitKB + ' KB';
+=======
+          this.modalTitle = "IMAGEN NO VÁLIDA";
+          this.modalBody = "El peso de la imagen " + kbSize + " KB sobrepasa el limite " + imageLimitKB + " KB";
+>>>>>>> main
           this.modal = true;
         }
       } else if (file.type === "application/pdf") {
@@ -248,6 +278,7 @@ module.exports = function normalizeComponent (
           var mbSize = Math.round(file.size / 1000 / 1000);
           this.$refs.dropzoneEl.removeFile(file);
 
+<<<<<<< HEAD
           this.modalTitle = 'PDF NO VALIDO';
           this.modalBody = 'El peso del PDF ' + mbSize + ' MB sobrepasa el limite ' + pdfLimitMB + ' MB';
           this.modal = true;
@@ -256,6 +287,22 @@ module.exports = function normalizeComponent (
         this.$refs.dropzoneTS.removeFile(file);
         this.modalTitle = 'FORMATO DE ARCHIVO NO VALIDO';
         this.modalBody = 'Solo se permiten archivos PDF e im\xE1genes JPG';
+=======
+          this.modalTitle = "PDF NO VÁLIDO";
+          this.modalBody = "El peso del PDF " + mbSize + " MB sobrepasa el limite " + pdfLimitMB + " MB";
+          this.modal = true;
+        }
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          var base64String = event.target.result;
+          file.dataURL = base64String;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        this.$refs.dropzoneTS.removeFile(file);
+        this.modalTitle = "FORMATO DE ARCHIVO NO VÁLIDO";
+        this.modalBody = "Solo se permiten archivos PDF e im\xE1genes JPG";
+>>>>>>> main
         this.modal = true;
       }
     },
@@ -264,6 +311,7 @@ module.exports = function normalizeComponent (
       this.casualtyData.files.push(file);
 
       if (this.errorMsg) {
+<<<<<<< HEAD
         var msg = 'Has cargado ' + this.casualtyData.files.length;
         var total = this.validationRules.files.length.min;
         this.errorMsg = msg + ' de ' + total + ' documentos obligatorios.';
@@ -271,12 +319,26 @@ module.exports = function normalizeComponent (
     },
     fileRemoved: function fileRemoved(file, error, xhr) {
       this.$http.post('/claim/files/' + this.userData.documentId + '/delete/', {
+=======
+        var msg = "Has cargado " + this.casualtyData.files.length;
+        var total = this.validationRules.files.length.min;
+        this.errorMsg = msg + " de " + total + " documentos obligatorios.";
+      }
+    },
+    fileRemoved: function fileRemoved(file, error, xhr) {
+      this.$http.post("/claim/files/" + this.userData.documentId + "/delete", {
+>>>>>>> main
         fileName: file.name,
         fileId: file.fileId
       }, {
         headers: {
+<<<<<<< HEAD
           'token': this.drupalSettings.token,
           'Content-Type': 'application/json'
+=======
+          token: this.drupalSettings.token,
+          "Content-Type": "application/json"
+>>>>>>> main
         }
       }).then(function (data) {
         var tempFiles = this.casualtyData.files.filter(function (obj, index, list) {
@@ -294,6 +356,7 @@ module.exports = function normalizeComponent (
       submited: false,
       drupalSettings: {},
       documentTypes: {
+<<<<<<< HEAD
         '¿Cuál es tu tipo de documento?': 0,
         'Cédula de ciudadanía': 36,
         'Cédula de Extranjería': 33,
@@ -302,6 +365,16 @@ module.exports = function normalizeComponent (
         'Pasaporte': 40,
         'Registro Civil': 35,
         'Tarjeta de Identidad': 34
+=======
+        "¿Cuál es tu tipo de documento?": 0,
+        "Cédula de ciudadanía": 36,
+        "Cédula de Extranjería": 33,
+        "Carnet Diplomático": 44,
+        "Número de Identificación Tributaria": 37,
+        Pasaporte: 40,
+        "Registro Civil": 35,
+        "Tarjeta de Identidad": 34
+>>>>>>> main
       }
     };
   },
@@ -1065,6 +1138,7 @@ var update = __webpack_require__(8)("85afa21c", content, true, {});
 /* 20 */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -1073,6 +1147,16 @@ function _typeof(obj) {
   } : function (obj) {
     return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+=======
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+>>>>>>> main
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -1368,8 +1452,13 @@ module.exports = baseAssignValue;
 /* unused harmony export watchPostEffect */
 /* unused harmony export watchSyncEffect */
 /*!
+<<<<<<< HEAD
  * Vue.js v2.7.14
  * (c) 2014-2022 Evan You
+=======
+ * Vue.js v2.7.15
+ * (c) 2014-2023 Evan You
+>>>>>>> main
  * Released under the MIT License.
  */
 var emptyObject = Object.freeze({});
@@ -1609,9 +1698,13 @@ var identity = function (_) { return _; };
  */
 function genStaticKeys$1(modules) {
     return modules
+<<<<<<< HEAD
         .reduce(function (keys, m) {
         return keys.concat(m.staticKeys || []);
     }, [])
+=======
+        .reduce(function (keys, m) { return keys.concat(m.staticKeys || []); }, [])
+>>>>>>> main
         .join(',');
 }
 /**
@@ -2248,7 +2341,11 @@ methodsToPatch.forEach(function (method) {
 });
 
 var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
+<<<<<<< HEAD
 var NO_INIITIAL_VALUE = {};
+=======
+var NO_INITIAL_VALUE = {};
+>>>>>>> main
 /**
  * In some cases we may want to disable observation inside a component's
  * update computation.
@@ -2307,7 +2404,11 @@ var Observer = /** @class */ (function () {
             var keys = Object.keys(value);
             for (var i = 0; i < keys.length; i++) {
                 var key = keys[i];
+<<<<<<< HEAD
                 defineReactive(value, key, NO_INIITIAL_VALUE, undefined, shallow, mock);
+=======
+                defineReactive(value, key, NO_INITIAL_VALUE, undefined, shallow, mock);
+>>>>>>> main
             }
         }
     }
@@ -2354,7 +2455,11 @@ function defineReactive(obj, key, val, customSetter, shallow, mock) {
     var getter = property && property.get;
     var setter = property && property.set;
     if ((!getter || setter) &&
+<<<<<<< HEAD
         (val === NO_INIITIAL_VALUE || arguments.length === 2)) {
+=======
+        (val === NO_INITIAL_VALUE || arguments.length === 2)) {
+>>>>>>> main
         val = obj[key];
     }
     var childOb = !shallow && observe(val, false, mock);
@@ -4191,6 +4296,115 @@ function eventsMixin(Vue) {
     };
 }
 
+<<<<<<< HEAD
+=======
+var activeEffectScope;
+var EffectScope = /** @class */ (function () {
+    function EffectScope(detached) {
+        if (detached === void 0) { detached = false; }
+        this.detached = detached;
+        /**
+         * @internal
+         */
+        this.active = true;
+        /**
+         * @internal
+         */
+        this.effects = [];
+        /**
+         * @internal
+         */
+        this.cleanups = [];
+        this.parent = activeEffectScope;
+        if (!detached && activeEffectScope) {
+            this.index =
+                (activeEffectScope.scopes || (activeEffectScope.scopes = [])).push(this) - 1;
+        }
+    }
+    EffectScope.prototype.run = function (fn) {
+        if (this.active) {
+            var currentEffectScope = activeEffectScope;
+            try {
+                activeEffectScope = this;
+                return fn();
+            }
+            finally {
+                activeEffectScope = currentEffectScope;
+            }
+        }
+        else if (false) {
+            warn$2("cannot run an inactive effect scope.");
+        }
+    };
+    /**
+     * This should only be called on non-detached scopes
+     * @internal
+     */
+    EffectScope.prototype.on = function () {
+        activeEffectScope = this;
+    };
+    /**
+     * This should only be called on non-detached scopes
+     * @internal
+     */
+    EffectScope.prototype.off = function () {
+        activeEffectScope = this.parent;
+    };
+    EffectScope.prototype.stop = function (fromParent) {
+        if (this.active) {
+            var i = void 0, l = void 0;
+            for (i = 0, l = this.effects.length; i < l; i++) {
+                this.effects[i].teardown();
+            }
+            for (i = 0, l = this.cleanups.length; i < l; i++) {
+                this.cleanups[i]();
+            }
+            if (this.scopes) {
+                for (i = 0, l = this.scopes.length; i < l; i++) {
+                    this.scopes[i].stop(true);
+                }
+            }
+            // nested scope, dereference from parent to avoid memory leaks
+            if (!this.detached && this.parent && !fromParent) {
+                // optimized O(1) removal
+                var last = this.parent.scopes.pop();
+                if (last && last !== this) {
+                    this.parent.scopes[this.index] = last;
+                    last.index = this.index;
+                }
+            }
+            this.parent = undefined;
+            this.active = false;
+        }
+    };
+    return EffectScope;
+}());
+function effectScope(detached) {
+    return new EffectScope(detached);
+}
+/**
+ * @internal
+ */
+function recordEffectScope(effect, scope) {
+    if (scope === void 0) { scope = activeEffectScope; }
+    if (scope && scope.active) {
+        scope.effects.push(effect);
+    }
+}
+function getCurrentScope() {
+    return activeEffectScope;
+}
+function onScopeDispose(fn) {
+    if (activeEffectScope) {
+        activeEffectScope.cleanups.push(fn);
+    }
+    else if (false) {
+        warn$2("onScopeDispose() is called when there is no active effect scope" +
+            " to be associated with.");
+    }
+}
+
+>>>>>>> main
 var activeInstance = null;
 var isUpdatingChildComponent = false;
 function setActiveInstance(vm) {
@@ -4493,7 +4707,12 @@ function callHook$1(vm, hook, args, setContext) {
     if (setContext === void 0) { setContext = true; }
     // #7573 disable dep collection when invoking lifecycle hooks
     pushTarget();
+<<<<<<< HEAD
     var prev = currentInstance;
+=======
+    var prevInst = currentInstance;
+    var prevScope = getCurrentScope();
+>>>>>>> main
     setContext && setCurrentInstance(vm);
     var handlers = vm.$options[hook];
     var info = "".concat(hook, " hook");
@@ -4505,7 +4724,14 @@ function callHook$1(vm, hook, args, setContext) {
     if (vm._hasHookEvent) {
         vm.$emit('hook:' + hook);
     }
+<<<<<<< HEAD
     setContext && setCurrentInstance(prev);
+=======
+    if (setContext) {
+        setCurrentInstance(prevInst);
+        prevScope && prevScope.on();
+    }
+>>>>>>> main
     popTarget();
 }
 
@@ -4893,6 +5119,7 @@ function doWatch(source, cb, _a) {
     };
 }
 
+<<<<<<< HEAD
 var activeEffectScope;
 var EffectScope = /** @class */ (function () {
     function EffectScope(detached) {
@@ -4999,6 +5226,8 @@ function onScopeDispose(fn) {
     }
 }
 
+=======
+>>>>>>> main
 function provide(key, value) {
     if (!currentInstance) {
         if (false) {
@@ -5303,7 +5532,11 @@ function defineAsyncComponent(source) {
     suspensible = _b === void 0 ? false : _b, // in Vue 3 default is true
     userOnError = source.onError;
     if (false) {
+<<<<<<< HEAD
         warn$2("The suspensiblbe option for async components is not supported in Vue2. It is ignored.");
+=======
+        warn$2("The suspensible option for async components is not supported in Vue2. It is ignored.");
+>>>>>>> main
     }
     var pendingRequest = null;
     var retries = 0;
@@ -5407,7 +5640,11 @@ function onErrorCaptured(hook, target) {
 /**
  * Note: also update dist/vue.runtime.mjs when adding new exports to this file.
  */
+<<<<<<< HEAD
 var version = '2.7.14';
+=======
+var version = '2.7.15';
+>>>>>>> main
 /**
  * @internal type is manually declared in <root>/types/v3-define-component.d.ts
  */
@@ -7630,7 +7867,11 @@ function isUnknownElement(tag) {
     }
     var el = document.createElement(tag);
     if (tag.indexOf('-') > -1) {
+<<<<<<< HEAD
         // http://stackoverflow.com/a/28210364/1070244
+=======
+        // https://stackoverflow.com/a/28210364/1070244
+>>>>>>> main
         return (unknownElementCache[tag] =
             el.constructor === window.HTMLUnknownElement ||
                 el.constructor === window.HTMLElement);
@@ -8503,8 +8744,16 @@ function createPatchFunction(backend) {
                             var insert_1 = ancestor.data.hook.insert;
                             if (insert_1.merged) {
                                 // start at index 1 to avoid re-invoking component mounted hook
+<<<<<<< HEAD
                                 for (var i_10 = 1; i_10 < insert_1.fns.length; i_10++) {
                                     insert_1.fns[i_10]();
+=======
+                                // clone insert hooks to avoid being mutated during iteration.
+                                // e.g. for customed directives under transition group.
+                                var cloned = insert_1.fns.slice(1);
+                                for (var i_10 = 0; i_10 < cloned.length; i_10++) {
+                                    cloned[i_10]();
+>>>>>>> main
                                 }
                             }
                         }
@@ -10893,7 +11142,11 @@ function parseHTML(html, options) {
                         return "continue";
                     }
                 }
+<<<<<<< HEAD
                 // http://en.wikipedia.org/wiki/Conditional_comment#Downlevel-revealed_conditional_comment
+=======
+                // https://en.wikipedia.org/wiki/Conditional_comment#Downlevel-revealed_conditional_comment
+>>>>>>> main
                 if (conditionalComment.test(html)) {
                     var conditionalEnd = html.indexOf(']>');
                     if (conditionalEnd >= 0) {
@@ -13721,6 +13974,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+>>>>>>> main
 
 
 
@@ -40538,6 +40795,10 @@ var Component = normalizeComponent(
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+>>>>>>> main
 
 
 
@@ -40918,7 +41179,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           match: {
             /* regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g, */
             regExp: /^\D+$/g,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras y caracteres especiales.'
+=======
+            msg: 'El campo solo debe contener letras y caracteres especiales.'
+>>>>>>> main
           }
         },
         lastname: {
@@ -40926,7 +41191,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           match: {
             /* regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g, */
             regExp: /^\D+$/g,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras y caracteres especiales.'
+=======
+            msg: 'El campo solo debe contener letras y caracteres especiales.'
+>>>>>>> main
           }
         },
         phone: {
@@ -40937,7 +41206,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: 'El campo solo debe contener números.'
+>>>>>>> main
           }
         },
         email: {
@@ -40955,7 +41228,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[a-zA-Z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: 'El campo solo debe contener números o letras.'
+>>>>>>> main
           }
         },
         address: {
@@ -46242,7 +46519,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g,
             /* regExp: /^\D+$/g, */
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
+=======
+            msg: 'El campo solo debe contener letras.'
+          },
+          length: {
+            max: 35,
+            min: 3
+>>>>>>> main
           }
         },
         lastname: {
@@ -46250,14 +46535,26 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g,
             /* regExp: /^\D+$/g, */
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
+=======
+            msg: 'El campo solo debe contener letras.'
+          },
+          length: {
+            max: 35,
+            min: 3
+>>>>>>> main
           }
         },
         phone: {
           required: {},
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: 'El campo solo debe contener números.'
+>>>>>>> main
           },
           length: {
             max: 10,
@@ -46275,7 +46572,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           required: {},
           match: {
             regExp: /^[a-zA-Z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: 'El campo solo debe contener números o letras.'
+>>>>>>> main
           },
           length: {
             max: 20,
@@ -46303,7 +46604,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+<<<<<<< HEAD
             msg: 'Este dato no corresponde con un formato de placa valido.'
+=======
+            msg: 'Este dato no corresponde con un formato de placa válido.'
+>>>>>>> main
           }
         },
         repairCity: {
@@ -46597,6 +46902,597 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> main
 
 
 
@@ -46606,33 +47502,57 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_steps__["a" /* default */]],
+<<<<<<< HEAD
   props: ['userData', 'claimType'],
   components: {
     'p-check': __WEBPACK_IMPORTED_MODULE_0_pretty_checkbox_vue_check___default.a,
     'dropzone': __WEBPACK_IMPORTED_MODULE_1_vue2_dropzone___default.a,
+=======
+  props: ["userData", "claimType"],
+  components: {
+    "p-check": __WEBPACK_IMPORTED_MODULE_0_pretty_checkbox_vue_check___default.a,
+    dropzone: __WEBPACK_IMPORTED_MODULE_1_vue2_dropzone___default.a,
+>>>>>>> main
     Alert: __WEBPACK_IMPORTED_MODULE_4__components_commons_alert__["a" /* default */]
   },
   methods: {
     getData: function getData() {
+<<<<<<< HEAD
       if (localStorage.getItem('GMFChevrolet-codigoConcesionario')) {
         this.$http.get('/claim-data/cities-carshops/chevrolet').then(function (data) {
+=======
+      if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/chevrolet").then(function (data) {
+>>>>>>> main
           this.cities = Object.entries(data.body).sort(function (a, b) {
             if (a[1] > b[1]) return 1;
             if (a[1] < b[1]) return -1;
             return 0;
           });
+<<<<<<< HEAD
           this.cities.unshift([0, 'Ciudad']);
+=======
+          this.cities.unshift([0, "Ciudad"]);
+>>>>>>> main
         }, function (params) {
           this.cities = {};
         });
       } else {
+<<<<<<< HEAD
         this.$http.get('/claim-data/cities-carshops').then(function (data) {
+=======
+        this.$http.get("/claim-data/cities-carshops").then(function (data) {
+>>>>>>> main
           this.cities = Object.entries(data.body).sort(function (a, b) {
             if (a[1] > b[1]) return 1;
             if (a[1] < b[1]) return -1;
             return 0;
           });
+<<<<<<< HEAD
           this.cities.unshift([0, 'Ciudad']);
+=======
+          this.cities.unshift([0, "Ciudad"]);
+>>>>>>> main
         }, function (params) {
           this.cities = {};
         });
@@ -46640,8 +47560,79 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
 
     changeRules: function changeRules(field, required, opt) {
+<<<<<<< HEAD
       this.validationRules[required] = opt ? { diff: { val: 0 } } : {};
       this.casualtyData[required] = opt ? this.casualtyData[required] : 0;
+=======
+      var fieldsToReset = ["plateThirdPartyInvolved", "plateThirdPartyInvolvedName", "plateThirdPartyInvolvedIdentificaction", "plateThirdPartyInvolvedTypeIdentificaction"];
+      var platesValidation = [{
+        plateThirdPartyInvolvedIdentificaction: {
+          required: {},
+          match: {
+            regExp: /^[a-zA-Z0-9]+$/i,
+            msg: "El campo solo debe contener números o letras."
+          },
+          length: {
+            max: 20,
+            min: 3
+          }
+        }
+      }, {
+        plateThirdPartyInvolvedName: {
+          required: {},
+          length: {
+            max: 50
+          },
+          match: {
+            regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
+            msg: "El campo solo debe contener letras."
+          }
+        }
+      }, {
+        plateThirdPartyInvolved: {
+          required: {},
+          length: {
+            equal: 6
+          },
+          match: {
+            regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+            msg: "Este dato no corresponde con un formato de placa válido."
+          }
+        }
+      }, {
+        plateThirdPartyInvolvedTypeIdentificaction: {
+          diff: {
+            val: 0
+          }
+        }
+      }];
+      console.log(required);
+      if (fieldsToReset.includes(required)) {
+        this.casualtyData[required] = opt ? this.casualtyData[required] : "";
+
+        var desiredValidation = platesValidation.find(function (item) {
+          return Object.keys(item)[0] === required;
+        });
+
+        this.validationRules[required] = opt ? desiredValidation[required] : {};
+      } else {
+        this.casualtyData[required] = opt ? this.casualtyData[required] : 0;
+        this.validationRules[required] = opt ? { diff: { val: 0 } } : {};
+      }
+      if (required == "withThirdPartyInvolved" && opt == false) {
+        var _desiredValidation = platesValidation;
+        for (var x = 0; x < _desiredValidation.length; x++) {
+          var element = _desiredValidation[x];
+          for (var key in element) {
+            this.validationRules[key] = opt ? false : {};
+          }
+        }
+      }
+      if (required == "withThirdPartyInvolved" && opt == true) {
+        this.validationRules[required] = {};
+      }
+      console.log(this.validationRules);
+>>>>>>> main
       this.yesNoOptions(field, opt);
     },
     yesNoOptions: function yesNoOptions(field, opt) {
@@ -46649,11 +47640,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     isDriver: function isDriver(val) {
       if (val) {
+<<<<<<< HEAD
         this.casualtyData.driverName = this.userData.name + ' ' + this.userData.lastname;
+=======
+        this.casualtyData.driverName = this.userData.name + " " + this.userData.lastname;
+>>>>>>> main
         this.casualtyData.driverPhone = this.userData.phone;
         this.casualtyData.driverDocType = this.userData.docType;
         this.casualtyData.driverDocumentId = this.userData.documentId;
       } else {
+<<<<<<< HEAD
         this.casualtyData.driverName = '';
         this.casualtyData.driverPhone = '';
         this.casualtyData.driverDocType = 0;
@@ -46670,11 +47666,35 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         this.casualtyData.declarantPhone = '';
       }
       this.yesNoOptions('isDeclarant', val);
+=======
+        this.casualtyData.driverName = "";
+        this.casualtyData.driverPhone = "";
+        this.casualtyData.driverDocType = 0;
+        this.casualtyData.driverDocumentId = "";
+      }
+      this.yesNoOptions("isDriver", val);
+    },
+    isDeclarant: function isDeclarant(val) {
+      if (val) {
+        this.casualtyData.declarantName = this.userData.name + " " + this.userData.lastname;
+        this.casualtyData.declarantPhone = this.userData.phone;
+      } else {
+        this.casualtyData.declarantName = "";
+        this.casualtyData.declarantPhone = "";
+      }
+      this.yesNoOptions("isDeclarant", val);
+>>>>>>> main
     },
     closeModal: function closeModal() {
       this.modal = false;
     },
     countDown: function countDown() {
+<<<<<<< HEAD
+=======
+      var description = this.casualtyData.description;
+      var sanitizedDescription = description.replace(/\s+/g, " ");
+      this.casualtyData.description = sanitizedDescription;
+>>>>>>> main
       this.countDownVal = this.validationRules.description.length.max - this.casualtyData.description.length;
     }
   },
@@ -46687,11 +47707,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return "*".repeat(mask) + id;
     },
     carImage: function carImage() {
+<<<<<<< HEAD
       return this.drupalSettings.assetsPath ? '/' + this.drupalSettings.assetsPath + 'car-form.png' : 'src/assets/car-form.png';
+=======
+      return this.drupalSettings.assetsPath ? "/" + this.drupalSettings.assetsPath + "car-form.png" : "src/assets/car-form.png";
+>>>>>>> main
     },
     dropzoneOptions: function dropzoneOptions() {
       if (this.userData) {
         return {
+<<<<<<< HEAD
           url: '/claim/files/' + this.userData.documentId + '/save/',
           thumbnailWidth: 150,
           acceptedFiles: 'image/jpeg, application/pdf',
@@ -46702,6 +47727,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           headers: {
             'token': this.drupalSettings.token
+=======
+          url: "/claim/files/" + this.userData.documentId + "/save",
+          thumbnailWidth: 150,
+          acceptedFiles: "image/jpeg,application/pdf",
+          addRemoveLinks: true,
+          capture: false,
+          /*resizeWidth: 600,
+          resizeHeight: 400,*/
+          dictFileTooBig: "El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.",
+          headers: {
+            token: this.drupalSettings.token
+>>>>>>> main
           }
         };
       } else {
@@ -46711,6 +47748,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   },
   created: function created() {
     this.countDown();
+<<<<<<< HEAD
     delete this.documentTypes['¿Cuál es tu tipo de documento?'];
     this.documentTypes['Tipo de documento'] = 0;
   },
@@ -46719,19 +47757,37 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       this.validationRules.damages = {
         required: {
           msg: this.claimType == 'CLAIM_TYPE_PPD' ? 'Debes seleccionar la(s) zona(s) de daño(s).' : 'Debes seleccionar la(s) zona(s) de hurto(s)'
+=======
+    delete this.documentTypes["¿Cuál es tu tipo de documento?"];
+    this.documentTypes["Tipo de documento"] = 0;
+  },
+  updated: function updated() {
+    if (this.claimType == "CLAIM_TYPE_PPD" || this.claimType == "CLAIM_TYPE_PPH") {
+      this.validationRules.damages = {
+        required: {
+          msg: this.claimType == "CLAIM_TYPE_PPD" ? "Debes seleccionar la(s) zona(s) de daño(s)." : "Debes seleccionar la(s) zona(s) de hurto(s)"
+>>>>>>> main
         }
       };
     } else {
       this.validationRules.damages = {};
     }
+<<<<<<< HEAD
     if (this.claimType === 'CLAIM_TYPE_PTH') {
       this.validationRules.files = { required: { msg: 'Debes adjuntar la denuncia del robo de tu vehículo.' } };
+=======
+    if (this.claimType === "CLAIM_TYPE_PTH") {
+      this.validationRules.files = {
+        required: { msg: "Debes adjuntar la denuncia del robo de tu vehículo." }
+      };
+>>>>>>> main
     }
   },
   data: function data() {
     return {
       casualtyData: {
         city: 0,
+<<<<<<< HEAD
         description: '',
         driverName: '',
         driverPhone: '',
@@ -46740,12 +47796,37 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         declarantName: '',
         declarantPhone: '',
         whereAddress: '',
+=======
+        description: "",
+        driverName: "",
+        driverPhone: "",
+        driverDocType: 0,
+        driverDocumentId: "",
+        declarantName: "",
+        declarantPhone: "",
+        whereAddress: "",
+>>>>>>> main
         isDriver: false,
         isDeclarant: false,
         withDeaths: false,
         withInjured: false,
         withPolice: false,
+<<<<<<< HEAD
         casualties: 0,
+=======
+        withInvolved: false,
+        withThirdPartyInvolvedPlate: false,
+        withThirdPartyInvolvedName: false,
+        withThirdPartyInvolvedTypeIdentificaction: false,
+        withThirdPartyInvolvedIdentificaction: false,
+        casualties: 0,
+        withThirdPartyInvolved: false,
+        thirdaInvolved: 0,
+        plateThirdPartyInvolved: "",
+        plateThirdPartyInvolvedName: "",
+        plateThirdPartyInvolvedTypeIdentificaction: "",
+        plateThirdPartyInvolvedIdentificaction: "",
+>>>>>>> main
         deaths: 0,
         damages: [],
         files: []
@@ -46765,7 +47846,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
+=======
+            msg: "El campo solo debe contener letras."
+>>>>>>> main
           }
         },
         driverPhone: {
@@ -46775,7 +47860,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: "El campo solo debe contener números."
+>>>>>>> main
           }
         },
         driverDocumentId: {
@@ -46786,7 +47875,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[A-Za-z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: "El campo solo debe contener números o letras."
+>>>>>>> main
           }
         },
         declarantName: {
@@ -46796,7 +47889,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
+=======
+            msg: "El campo solo debe contener letras."
+>>>>>>> main
           }
         },
         declarantPhone: {
@@ -46806,7 +47903,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: "El campo solo debe contener números."
+>>>>>>> main
           }
         },
         driverDocType: {
@@ -46821,7 +47922,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[A-Za-z0-9# -]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números,letras o estos caracteres (#, -)'
+=======
+            msg: "El campo solo debe contener números,letras o estos caracteres (#, -)"
+>>>>>>> main
           }
         },
         city: {
@@ -46831,6 +47936,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }
       },
       cities: {},
+<<<<<<< HEAD
       counts: [{ value: 0, label: '¿Cuántos?' }, { value: 1, label: '1' }, { value: 'more', label: 'Mas de uno' }],
       damages: ['Sección delantera', 'Lateral delantero derecho', 'Lateral delantero izquierdo', 'Lateral trasero derecho', 'Lateral trasero izquierdo', 'Sección posterior', 'Techo', 'Por debajo'],
       modal: false,
@@ -46839,6 +47945,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       countDownVal: 0,
       helpMessage: 'Ej: Me dirig\xEDa v\xEDa la Calera y al llegar al CAI de la Calera, impacto\n\n                    con el veh\xEDculo de placas XXX111, el cual me choca por la parte\n\n                    trasera da\xF1ando el parachoque.',
       cityHelpMessage: 'Si tu ciudad no se encuentra en el listado seleccióna la ciudad más cercana.'
+=======
+      counts: [{ value: 0, label: "¿Cuántos?" }, { value: 1, label: "1" }, { value: "more", label: "Mas de uno" }],
+      damages: ["Sección delantera", "Lateral delantero derecho", "Lateral delantero izquierdo", "Lateral trasero derecho", "Lateral trasero izquierdo", "Sección posterior", "Techo", "Por debajo"],
+      modal: false,
+      modalBody: "",
+      modalTitle: "",
+      countDownVal: 0,
+      helpMessage: "Ej: Me dirig\xEDa v\xEDa la Calera y al llegar al CAI de la Calera, impacto\n\n                    con el veh\xEDculo de placas XXX111, el cual me choca por la parte\n\n                    trasera da\xF1ando el parachoque.",
+      cityHelpMessage: "Si tu ciudad no se encuentra en el listado seleccióna la ciudad más cercana."
+>>>>>>> main
     };
   }
 });
@@ -47004,6 +48120,89 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> main
 
 
 
@@ -47011,11 +48210,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
+<<<<<<< HEAD
     'pop-up-assign': __WEBPACK_IMPORTED_MODULE_1__components_popUpCarShops__["a" /* default */],
     'pop-up-change': __WEBPACK_IMPORTED_MODULE_2__components_popUpChangeCarShop__["a" /* default */]
   },
   mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_steps__["a" /* default */]],
   props: ['vehicleData', 'claimCity', 'claimType', 'isBroker'],
+=======
+    "pop-up-assign": __WEBPACK_IMPORTED_MODULE_1__components_popUpCarShops__["a" /* default */],
+    "pop-up-change": __WEBPACK_IMPORTED_MODULE_2__components_popUpChangeCarShop__["a" /* default */]
+  },
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_steps__["a" /* default */]],
+  props: ["vehicleData", "claimCity", "claimType", "isBroker"],
+>>>>>>> main
   data: function data() {
     return {
       assigned: null,
@@ -47029,7 +48236,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       offset: 4,
       showError: false,
       defaultCS: null,
+<<<<<<< HEAD
       noWorkshopsCities: []
+=======
+      noWorkshopsCities: [],
+      ciudad_original: false
+>>>>>>> main
     };
   },
 
@@ -47044,7 +48256,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return this.carShops.length;
     },
     noResultsImage: function noResultsImage() {
+<<<<<<< HEAD
       return this.drupalSettings.assetsPath ? '/' + this.drupalSettings.assetsPath + 'not-foundGuy.svg' : 'src/assets/not-foundGuy.svg';
+=======
+      return this.drupalSettings.assetsPath ? "/" + this.drupalSettings.assetsPath + "not-foundGuy.svg" : "src/assets/not-foundGuy.svg";
+>>>>>>> main
     },
     totalPages: function totalPages() {
       return Math.ceil(this.carShops.length / this.offset);
@@ -47056,9 +48272,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     buttonLabel: function buttonLabel(current) {
       if (current === this.assigned) {
+<<<<<<< HEAD
         return 'Asignado';
       }
       return 'Asignar Taller';
+=======
+        return "Asignado";
+      }
+      return "Asignar Taller";
+>>>>>>> main
     },
     findCarShops: function findCarShops() {
       if (this.vehicleData && this.vehicleData.brand) {
@@ -47071,14 +48293,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         this.selected = {};
         this.casualtyData = {};
 
+<<<<<<< HEAD
         var brand = this.vehicleData.brand.replace(/\s+/g, '--');
         brand = brand.replace(/[\/]/g, '++');
+=======
+        var brand = this.vehicleData.brand.replace(/\s+/g, "--");
+        brand = brand.replace(/[\/]/g, "++");
+>>>>>>> main
         var model = this.vehicleData.model;
 
         if (this.isBroker && this.vehicleData.model >= this.drupalSettings.lastModel - 5) {
           model = this.drupalSettings.lastModel;
         }
         if (brand.includes("GREAT--WALL--MOTOR")) {
+<<<<<<< HEAD
           brand = 'GREAT--WALL';
         }
         var path = '/' + this.claimCity + '/' + brand + '/' + model + '/' + this.vehicleData.vehicleType;
@@ -47089,10 +48317,22 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             var vm = this;
             if (localStorage.getItem('GMFChevrolet-codigoConcesionario')) {
+=======
+          brand = "GREAT--WALL";
+        }
+        var path = "/" + this.claimCity + "/" + brand + "/" + model + "/" + this.vehicleData.vehicleType;
+        this.$http.get("/claim-data/carshops" + path).then(function (data) {
+          var _this = this;
+
+          if (data.statusCode != 401 && Array.isArray(data.body)) {
+            var vm = this;
+            if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
+>>>>>>> main
               vm.defaultCS = data.body;
             }
 
             var result = data.body.filter(function (carShop) {
+<<<<<<< HEAD
               if (carShop.nombre.includes('Taller para Arreglo Directo') && carShop.codExternal === undefined) {
                 vm.defaultCS = carShop;
               }
@@ -47106,12 +48346,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
               if (a.nombre.includes('PREFERENCIAL') && b.nombre.includes('PREFERENCIAL')) {
                 return 0;
               } else if (a.nombre.includes('PREFERENCIAL')) {
+=======
+              if (carShop.nombre.includes("Taller para Arreglo Directo") && carShop.codExternal === undefined) {
+                vm.defaultCS = carShop;
+              }
+              if (_this.claimType === "CLAIM_TYPE_LR") {
+                return carShop.nombre.includes("LLANTAS ESTALLADAS");
+              } else {
+                return !carShop.nombre.includes("(LLANTAS ESTALLADAS)") && !carShop.nombre.includes("(INACTIVO)") && !carShop.nombre.includes("Taller para PTH") && !carShop.nombre.includes("Taller para RCDBT") && !carShop.nombre.includes("Taller para Arreglo Directo");
+              }
+            });
+            result.sort(function (a, b) {
+              if (a.nombre.includes("PREFERENCIAL") && b.nombre.includes("PREFERENCIAL")) {
+                return 0;
+              } else if (a.nombre.includes("PREFERENCIAL")) {
+>>>>>>> main
                 return -1;
               }
               return 1;
             });
 
+<<<<<<< HEAD
             console.log(result);
+=======
+>>>>>>> main
             this.carShops = result;
           } else {
             this.claimCity = 0;
@@ -47131,26 +48389,44 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           };
           loader.hide();
         });
+<<<<<<< HEAD
         console.log(this.carShops);
+=======
+>>>>>>> main
       }
     },
     openModal: function openModal(item) {
       this.selected = item;
       if (this.assigned === null || this.assigned === item.codTaller) {
+<<<<<<< HEAD
         this.modal = 'pop-up-assign';
       } else {
         this.modal = 'pop-up-change';
+=======
+        this.modal = "pop-up-assign";
+      } else {
+        this.modal = "pop-up-change";
+>>>>>>> main
       }
     },
     assign: function assign(cod) {
       if (cod !== 0) {
+<<<<<<< HEAD
         if (this.modal === 'pop-up-change') {
           this.modal = 'pop-up-assign';
+=======
+        if (this.modal === "pop-up-change") {
+          this.modal = "pop-up-assign";
+>>>>>>> main
         } else {
           this.assigned = cod;
           this.casualtyData = this.selected;
 
+<<<<<<< HEAD
           if ('codExternal' in this.selected) {
+=======
+          if ("codExternal" in this.selected) {
+>>>>>>> main
             this.casualtyData.repairCity = this.selected.codExternal;
           } else {
             this.casualtyData.repairCity = this.claimCity;
@@ -47169,7 +48445,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     validateCarShop: function validateCarShop() {
       // Validates whether the clam type requires assignation of carshop.
+<<<<<<< HEAD
       if (this.claimType !== 'CLAIM_TYPE_PTH' && this.assigned === null) {
+=======
+      if (this.claimType !== "CLAIM_TYPE_PTH" && this.assigned === null) {
+>>>>>>> main
         if (this.carShopsLength === 0) {
           this.showError = false;
           this.assignTRD();
@@ -47183,8 +48463,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
     },
     getData: function getData() {
+<<<<<<< HEAD
       if (localStorage.getItem('GMFChevrolet-codigoConcesionario')) {
         this.$http.get('/claim-data/cities-carshops/chevrolet').then(function (data) {
+=======
+      if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/chevrolet").then(function (data) {
+>>>>>>> main
           this.cities = Object.entries(data.body).sort(function (a, b) {
             if (a[1] > b[1]) return 1;
             if (a[1] < b[1]) return -1;
@@ -47192,6 +48477,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           });
         }, function (params) {
           this.cities = {
+<<<<<<< HEAD
             '63001': 'ARMENIA',
             '08001': 'BARRANQUILLA',
             '11001': 'BOGOTA'
@@ -47199,6 +48485,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         });
       } else {
         this.$http.get('/claim-data/cities-carshops').then(function (data) {
+=======
+            "63001": "ARMENIA",
+            "08001": "BARRANQUILLA",
+            "11001": "BOGOTA"
+          };
+        });
+      } else {
+        this.$http.get("/claim-data/cities-carshops").then(function (data) {
+>>>>>>> main
           this.cities = Object.entries(data.body).sort(function (a, b) {
             if (a[1] > b[1]) return 1;
             if (a[1] < b[1]) return -1;
@@ -47206,16 +48501,26 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           });
         }, function (params) {
           this.cities = {
+<<<<<<< HEAD
             '63001': 'ARMENIA',
             '08001': 'BARRANQUILLA',
             '11001': 'BOGOTA'
+=======
+            "63001": "ARMENIA",
+            "08001": "BARRANQUILLA",
+            "11001": "BOGOTA"
+>>>>>>> main
           };
         });
       }
     }
   },
   created: function created() {
+<<<<<<< HEAD
     this.$http.get('/claim-data/cities-carshops').then(function (data) {
+=======
+    this.$http.get("/claim-data/cities-carshops").then(function (data) {
+>>>>>>> main
       this.cities = Object.entries(data.body).sort(function (a, b) {
         if (a[1] > b[1]) return 1;
         if (a[1] < b[1]) return -1;
@@ -47223,16 +48528,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       });
     }, function (params) {
       this.cities = {
+<<<<<<< HEAD
         '63001': 'ARMENIA',
         '08001': 'BARRANQUILLA',
         '11001': 'BOGOTA'
       };
     });
+=======
+        "63001": "ARMENIA",
+        "08001": "BARRANQUILLA",
+        "11001": "BOGOTA"
+      };
+    });
+    this.findCarShops();
+>>>>>>> main
   },
 
   watch: {
     claimCity: function claimCity(val, oldVal) {
+<<<<<<< HEAD
       if (this.claimType !== 'CLAIM_TYPE_PTH' && !oldVal && val) {
+=======
+      this.findCarShops();
+      if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
+>>>>>>> main
         this.findCarShops();
       }
     }
@@ -47488,6 +48807,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+>>>>>>> main
 
 
 
@@ -47624,7 +48948,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           //@todo Validar si el mail no se pudo enviar.
           loader.hide();
         }, function (error) {
+<<<<<<< HEAD
           console.log(error);
+=======
+>>>>>>> main
           this.modal = null;
           loader.hide();
         });
@@ -47975,11 +49302,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
 //
 //
+=======
+>>>>>>> main
 
 
 
@@ -48022,6 +49352,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       this.modal = false;
     },
     countDown: function countDown() {
+<<<<<<< HEAD
+=======
+      var description = this.casualtyData.description;
+      var sanitizedDescription = description.replace(/\s+/g, ' ');
+      this.casualtyData.description = sanitizedDescription;
+>>>>>>> main
       this.countDownVal = this.validationRules.description.length.max - this.casualtyData.description.length;
     }
   },
@@ -48032,6 +49368,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     dropzoneOptions: function dropzoneOptions() {
       if (this.userData) {
         return {
+<<<<<<< HEAD
           url: '/claim/files/' + this.userData.documentId + '/save/',
           thumbnailWidth: 150,
           acceptedFiles: 'image/jpeg, application/pdf',
@@ -48041,6 +49378,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           headers: {
             'token': this.drupalSettings.token
+=======
+          url: '/claim/files/' + this.userData.documentId + '/save',
+          thumbnailWidth: 150,
+          acceptedFiles: 'image/jpeg, application/pdf',
+          capture: false,
+          addRemoveLinks: true,
+          /*resizeWidth: 600,
+          resizeHeight: 400,*/
+          dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
+          headers: {
+            token: this.drupalSettings.token
+>>>>>>> main
           }
         };
       } else {
@@ -48086,6 +49435,36 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         files: []
       },
       validationRules: {
+<<<<<<< HEAD
+=======
+        plateThirdPartyInvolvedIdentificaction: {
+          required: {},
+          match: {
+            regExp: /^[a-zA-Z0-9]+$/i,
+            msg: 'El campo solo debe contener números o letras.'
+          },
+          length: {
+            max: 20,
+            min: 3
+          }
+        },
+        plateThirdPartyInvolvedName: {
+          required: {},
+          length: {
+            max: 70
+          }
+        },
+        plateThirdPartyInvolved: {
+          required: {},
+          length: {
+            equal: 6
+          },
+          match: {
+            regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+            msg: 'Este dato no corresponde con un formato de placa valido.'
+          }
+        },
+>>>>>>> main
         description: {
           required: {},
           length: {
@@ -48097,7 +49476,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           required: {},
           match: {
             regExp: /^[A-Za-z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: 'El campo solo debe contener números o letras.'
+>>>>>>> main
           },
           length: {
             max: 20,
@@ -48107,11 +49490,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         declarantName: {
           required: {},
           length: {
+<<<<<<< HEAD
             max: 60
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
             msg: 'El campo solo debe contenter letras.'
+=======
+            max: 70
+          },
+          match: {
+            regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
+            msg: 'El campo solo debe contener letras.'
+>>>>>>> main
           }
         },
         declarantPhone: {
@@ -48121,7 +49512,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: 'El campo solo debe contener números.'
+>>>>>>> main
           }
         },
         declarantDocType: {
@@ -48136,7 +49531,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           },
           match: {
             regExp: /^[A-Za-z0-9# -]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números,letras o estos caracteres (#, -)'
+=======
+            msg: 'El campo solo debe contener números,letras o estos caracteres (#, -)'
+>>>>>>> main
           }
         },
         city: {
@@ -48271,12 +49670,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     dropzoneOptions: function dropzoneOptions() {
       if (this.userData) {
         return {
+<<<<<<< HEAD
           url: '/claim/files/' + this.userData.documentId + '/save/',
           thumbnailWidth: 150,
           acceptedFiles: 'image/jpeg, application/pdf',
           addRemoveLinks: true,
           resizeWidth: 600,
           resizeHeight: 400,
+=======
+          url: '/claim/files/' + this.userData.documentId + '/save',
+          thumbnailWidth: 150,
+          acceptedFiles: 'image/jpeg, application/pdf',
+          addRemoveLinks: true,
+          /*resizeWidth: 600,
+          resizeHeight: 400,*/
+>>>>>>> main
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           createImageThumbnails: false,
           headers: {
@@ -48337,11 +49745,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var _typeof = __webpack_require__(20)["default"];
 var toPrimitive = __webpack_require__(127);
+<<<<<<< HEAD
 function _toPropertyKey(arg) {
   var key = toPrimitive(arg, "string");
   return _typeof(key) === "symbol" ? key : String(key);
 }
 module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+=======
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : String(i);
+}
+module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+>>>>>>> main
 
 /***/ }),
 /* 56 */
@@ -49472,7 +50888,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__ = __webpack_require__(32);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fc34cc74_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7a414dea_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49489,7 +50909,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fc34cc74_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7a414dea_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -49560,6 +50984,7 @@ var validator = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     validateField: function validateField(field, rules) {
       for (var rule in rules) {
         switch (rule) {
+<<<<<<< HEAD
           case 'required':
             if (!field || Array.isArray(field) && field.length === 0) {
               return rules[rule].hasOwnProperty('msg') ? rules[rule].msg : 'Este campo es requerido.';
@@ -49589,6 +51014,37 @@ var validator = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
             if (rules[rule].hasOwnProperty('max')) {
               if (field.length > rules[rule].max) {
                 return rules[rule].hasOwnProperty('msg') ? rules[rule].msg : 'El campo debe tener máximo ' + rules[rule].max + ' caractéres.';
+=======
+          case "required":
+            if (!field || Array.isArray(field) && field.length === 0) {
+              return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "Este campo es requerido.";
+            }
+            break;
+          case "diff":
+            if (field == rules[rule].val) {
+              return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "Seleccione una opción.";
+            }
+            break;
+          case "match":
+            if (!field.match(rules[rule].regExp)) {
+              return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "El formato del campo es incorrecto.";
+            }
+            break;
+          case "length":
+            if (rules[rule].hasOwnProperty("equal")) {
+              if (!(field.length === rules[rule].equal)) {
+                return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "El campo debe tener " + rules[rule].equal + " caracteres.";
+              }
+            }
+            if (rules[rule].hasOwnProperty("min")) {
+              if (field.length < rules[rule].min) {
+                return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "El campo debe tener mínimo " + rules[rule].min + " caracteres.";
+              }
+            }
+            if (rules[rule].hasOwnProperty("max")) {
+              if (field.length > rules[rule].max) {
+                return rules[rule].hasOwnProperty("msg") ? rules[rule].msg : "El campo debe tener máximo " + rules[rule].max + " caracteres.";
+>>>>>>> main
               }
             }
             break;
@@ -49600,7 +51056,13 @@ var validator = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     },
     validateForm: function validateForm(fields, rules) {
       for (var field in fields) {
+<<<<<<< HEAD
 
+=======
+        if (field == "codTaller") {
+          return false;
+        }
+>>>>>>> main
         if (this.validateField(fields[field], rules[field])) {
           return true;
         }
@@ -49710,7 +51172,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane first-step"},[_c('h1',[_vm._v("Comienza aquí")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('tellus'), filled: _vm.casualtyData.tellus}},[_c('float-label',{attrs:{"label":"¿Qué nos quieres contar?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.tellus),expression:"casualtyData.tellus"}],attrs:{"name":"tellus","id":"tellus"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "tellus", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.tellusOptions),function(option,index){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('tellus')),expression:"submited && hasError('tellus')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('tellus')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plate'), filled: _vm.casualtyData.plate}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plate),expression:"casualtyData.plate"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plate","placeholder":"¿Cuál es la placa de tu vehículo?"},domProps:{"value":(_vm.casualtyData.plate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plate", $event.target.value)}}})]),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Ejemplo: FOV 575")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plate')),expression:"submited && hasError('plate')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plate')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('date')}},[_c('datepicker',{directives:[{name:"show",rawName:"v-show",value:(_vm.page),expression:"page"}],attrs:{"format":"YYYY-MM-DD HH:mm","label":"¿En que día ocurrió?","locale":"es","min-date":"1900-01-01 00:00","max-date":_vm.getMaxDate},model:{value:(_vm.casualtyData.date),callback:function ($$v) {_vm.$set(_vm.casualtyData, "date", $$v)},expression:"casualtyData.date"}}),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Día/ Mes/ Año")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('date')),expression:"submited && hasError('date')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('date')))])],1),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{attrs:{"type":"button"},on:{"click":_vm.getPolicy}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate","cancelLabel":_vm.cancelLabel,"cancel":_vm.hasCancelLink,"buttonLabel":_vm.buttonLabel,"button":true},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[(_vm.modal == 'no-guarantee')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no tiene la cobertura seleccionada")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'invalid')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no nos permite continuar con el proceso")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'not-in-time')?_c('div',[_c('h2',[_vm._v("Ups, no hemos encontrado pólizas asociadas a la fecha que indica")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'error')?_c('div',[_c('h2',[_vm._v("Ups, en este momento el sistema no esta en funcionamiento")]),_vm._v(" "),_c('p',[_vm._v("Intente más tarde.")])]):(_vm.modal == 'theft')?_c('div',[_c('h2',[_vm._v("Recuerda que para completar tu solicitud debes tener el documento de la denuncia del robo")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"footer-popup",attrs:{"slot":"footer"},slot:"footer"},[_c('span',[_vm._v("Para más información comunícate por "),_c('strong',[_vm._v("Whatsapp al 316 4821802")])]),_vm._v(" "),_c('span',[_vm._v("de lunes A viernes de 7 A.m. a 5 p.m. y Sábados de 8 a.m. a 12 p.m")])])])],1)}
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane first-step"},[_c('h1',[_vm._v("Comienza aquí")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('tellus'), filled: _vm.casualtyData.tellus}},[_c('float-label',{attrs:{"label":"¿Qué nos quieres contar?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.tellus),expression:"casualtyData.tellus"}],attrs:{"name":"tellus","id":"tellus"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "tellus", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.tellusOptions),function(option,index){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('tellus')),expression:"submited && hasError('tellus')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('tellus')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plate'), filled: _vm.casualtyData.plate}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plate),expression:"casualtyData.plate"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plate","placeholder":"¿Cuál es la placa de tu vehículo?"},domProps:{"value":(_vm.casualtyData.plate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plate", $event.target.value)}}})]),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Ejemplo: FOV 575")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plate')),expression:"submited && hasError('plate')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plate')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('date')}},[_c('datepicker',{directives:[{name:"show",rawName:"v-show",value:(_vm.page),expression:"page"}],attrs:{"format":"YYYY-MM-DD HH:mm","label":"¿En que día ocurrió?","locale":"es","min-date":"1900-01-01 00:00","max-date":_vm.getMaxDate,"strict":"true"},model:{value:(_vm.casualtyData.date),callback:function ($$v) {_vm.$set(_vm.casualtyData, "date", $$v)},expression:"casualtyData.date"}}),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Día/ Mes/ Año")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('date')),expression:"submited && hasError('date')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('date')))])],1),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{attrs:{"type":"button"},on:{"click":_vm.getPolicy}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate","cancelLabel":_vm.cancelLabel,"cancel":_vm.hasCancelLink,"buttonLabel":_vm.buttonLabel,"button":true},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[(_vm.modal == 'no-guarantee')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no tiene la cobertura seleccionada")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'invalid')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no nos permite continuar con el proceso")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'not-in-time')?_c('div',[_c('h2',[_vm._v("Ups, no hemos encontrado pólizas asociadas a la fecha que indica")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'error')?_c('div',[_c('h2',[_vm._v("Ups, en este momento el sistema no esta en funcionamiento")]),_vm._v(" "),_c('p',[_vm._v("Intente más tarde.")])]):(_vm.modal == 'theft')?_c('div',[_c('h2',[_vm._v("Recuerda que para completar tu solicitud debes tener el documento de la denuncia del robo")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"footer-popup",attrs:{"slot":"footer"},slot:"footer"},[_c('span',[_vm._v("Para más información comunícate por "),_c('strong',[_vm._v("Whatsapp al 316 4821802")])]),_vm._v(" "),_c('span',[_vm._v("de lunes A viernes de 7 A.m. a 5 p.m. y Sábados de 8 a.m. a 12 p.m")])])])],1)}
+>>>>>>> main
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -49722,7 +51188,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStepThirdParty_vue__ = __webpack_require__(39);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_522a1038_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStepThirdParty_vue__ = __webpack_require__(92);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cf02b2b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStepThirdParty_vue__ = __webpack_require__(92);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49739,7 +51209,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStepThirdParty_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_522a1038_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStepThirdParty_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cf02b2b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStepThirdParty_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -49754,7 +51228,11 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane first-step"},[_c('h1',[_vm._v("Comienza aquí")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('tellus'), filled: _vm.casualtyData.tellus}},[_c('float-label',{attrs:{"label":"¿Qué nos quieres contar?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.tellus),expression:"casualtyData.tellus"}],attrs:{"name":"tellus","id":"tellus"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "tellus", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.tellusOptions),function(option,index){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('tellus')),expression:"submited && hasError('tellus')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('tellus')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plate'), filled: _vm.casualtyData.plate}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plate),expression:"casualtyData.plate"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plate","placeholder":"¿Cuál es la placa del vehículo que te afectó?"},domProps:{"value":(_vm.casualtyData.plate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plate", $event.target.value)}}})]),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Placa del vehículo asegurado por Liberty")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plate')),expression:"submited && hasError('plate')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plate')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('date')}},[_c('datepicker',{directives:[{name:"show",rawName:"v-show",value:(_vm.page),expression:"page"}],attrs:{"format":"YYYY-MM-DD HH:mm","label":"¿En que día ocurrió?","locale":"es","min-date":"1900-01-01 00:00 am","max-date":_vm.getMaxDate},model:{value:(_vm.casualtyData.date),callback:function ($$v) {_vm.$set(_vm.casualtyData, "date", $$v)},expression:"casualtyData.date"}}),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Día/ Mes/ Año")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('date')),expression:"submited && hasError('date')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('date')))])],1),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{attrs:{"type":"button"},on:{"click":_vm.getPolicy}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate","button":true},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[(_vm.modal == 'no-guarantee')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no tiene la cobertura seleccionada")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'invalid')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no nos permite continuar con el proceso")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'not-in-time')?_c('div',[_c('h2',[_vm._v("Ups, no hemos encontrado pólizas asociadas a la fecha que indica")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'error')?_c('div',[_c('h2',[_vm._v("Ups, en este momento el sistema no esta en funcionamiento")]),_vm._v(" "),_c('p',[_vm._v("Intente más tarde.")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"footer-popup",attrs:{"slot":"footer"},slot:"footer"},[_c('span',[_vm._v("Para más información comunícate por "),_c('strong',[_vm._v("Whatsapp al 316 4821802")])]),_vm._v(" "),_c('span',[_vm._v("de lunes A viernes de 7 A.m. a 5 p.m. y Sábados de 8 a.m. a 12 p.m")])])])],1)}
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane first-step"},[_c('h1',[_vm._v("Comienza aquí")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('tellus'), filled: _vm.casualtyData.tellus}},[_c('float-label',{attrs:{"label":"¿Qué nos quieres contar?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.tellus),expression:"casualtyData.tellus"}],attrs:{"name":"tellus","id":"tellus"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "tellus", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.tellusOptions),function(option,index){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('tellus')),expression:"submited && hasError('tellus')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('tellus')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plate'), filled: _vm.casualtyData.plate}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plate),expression:"casualtyData.plate"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plate","placeholder":"¿Cuál es la placa del vehículo que te afectó?"},domProps:{"value":(_vm.casualtyData.plate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plate", $event.target.value)}}})]),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Placa del vehículo asegurado por Liberty")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plate')),expression:"submited && hasError('plate')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plate')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('date')}},[_c('datepicker',{directives:[{name:"show",rawName:"v-show",value:(_vm.page),expression:"page"}],attrs:{"format":"YYYY-MM-DD HH:mm","label":"¿En que día ocurrió?","locale":"es","min-date":"1900-01-01 00:00","max-date":_vm.getMaxDate,"strict":"true"},model:{value:(_vm.casualtyData.date),callback:function ($$v) {_vm.$set(_vm.casualtyData, "date", $$v)},expression:"casualtyData.date"}}),_vm._v(" "),_c('span',{staticClass:"ayudas"},[_vm._v("Día/ Mes/ Año")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('date')),expression:"submited && hasError('date')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('date')))])],1),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{attrs:{"type":"button"},on:{"click":_vm.getPolicy}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate","button":true},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[(_vm.modal == 'no-guarantee')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no tiene la cobertura seleccionada")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'invalid')?_c('div',[_c('h2',[_vm._v("Ups, la placa que ingresaste no nos permite continuar con el proceso")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'not-in-time')?_c('div',[_c('h2',[_vm._v("Ups, no hemos encontrado pólizas asociadas a la fecha que indica")]),_vm._v(" "),_c('p',[_vm._v("Verifica la información e inténtalo nuevamente.")])]):(_vm.modal == 'error')?_c('div',[_c('h2',[_vm._v("Ups, en este momento el sistema no esta en funcionamiento")]),_vm._v(" "),_c('p',[_vm._v("Intente más tarde.")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"footer-popup",attrs:{"slot":"footer"},slot:"footer"},[_c('span',[_vm._v("Para más información comunícate por "),_c('strong',[_vm._v("Whatsapp al 316 4821802")])]),_vm._v(" "),_c('span',[_vm._v("de lunes A viernes de 7 A.m. a 5 p.m. y Sábados de 8 a.m. a 12 p.m")])])])],1)}
+>>>>>>> main
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -49766,7 +51244,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStep_vue__ = __webpack_require__(40);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3c98ce94_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStep_vue__ = __webpack_require__(95);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_56dedbe0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStep_vue__ = __webpack_require__(95);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49783,7 +51265,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStep_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3c98ce94_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStep_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_56dedbe0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStep_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -49824,7 +51310,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStepThirdParty_vue__ = __webpack_require__(43);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_25fa5149_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__ = __webpack_require__(97);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6e342dfa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__ = __webpack_require__(97);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49841,7 +51331,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStepThirdParty_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_25fa5149_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6e342dfa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -49868,7 +51362,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__ = __webpack_require__(44);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7c93b376_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e4c5ee6a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49885,7 +51383,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7c93b376_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e4c5ee6a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -49914,7 +51416,140 @@ exports.push([module.i, "@-webkit-keyframes passing-through{0%{opacity:0;-webkit
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane third-step"},[_c('h1',[_vm._v("Cuéntanos lo sucedido")]),_vm._v(" "),_c('p',[_vm._v("Describe todo lo ocurrido con el mayor detalle posible.")]),_vm._v(" "),_c('div',{staticClass:"help-box"},[_c('p',{staticClass:"help-text"},[_vm._v("Relata como ocurrió el siniestro, indicando el lugar, otros involucrados, partes del vehículo que observas con daños\n    en lo posible entregar el mayor detalle de los hechos.")]),_vm._v(" "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({content: _vm.helpMessage, placement: 'top-center'}),expression:"{content: helpMessage, placement: 'top-center'}"}]},[_vm._v("Help")])]),_vm._v(" "),_c('div',{class:{field: true, descrip: true, error: _vm.submited && _vm.hasError('description')}},[_c('float-label',{attrs:{"label":"Descripción de los hechos."}},[_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.description),expression:"casualtyData.description"}],attrs:{"name":"description","cols":"30","rows":"5","placeholder":"Descripción de los hechos, piezas afectadas, lugares etc.","tabindex":"1"},domProps:{"value":(_vm.casualtyData.description)},on:{"click":_vm.getData,"keyup":_vm.countDown,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "description", $event.target.value)}}})]),_vm._v(" "),_c('p',{staticClass:"countdown"},[_vm._v("Ingresa mínimo "+_vm._s(_vm.validationRules.description.length.min)+" caracteres contando espacios "),_c('span',{staticClass:"remain"},[_vm._v(_vm._s(_vm.countDownVal))])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('description')),expression:"submited && hasError('description')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('description')))])],1),_vm._v(" "),(_vm.claimType === 'CLAIM_TYPE_PTH')?_c('div',{staticClass:"label label-img-adj"},[_vm._v("Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf - 2MB, jpg - 60KB  (obligatorio)")]):_c('div',{staticClass:"label label-img-adj"},[_vm._v("Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf - 2MB, jpg - 60KB (opcional)")]),_vm._v(" "),(_vm.userData)?_c('dropzone',{ref:"dropzoneEl",class:{error: _vm.submited && _vm.hasError('files')},attrs:{"id":"dropzone","options":_vm.dropzoneOptions,"useCustomSlot":true,"duplicateCheck":true},on:{"vdropzone-success":_vm.fileUploaded,"vdropzone-removed-file":_vm.fileRemoved,"vdropzone-file-added":_vm.fileAdded}},[_c('span',{staticClass:"arch-desck"},[_vm._v("Arrastra tus archivos para adjuntar, o "),_c('strong',[_vm._v("búscalos aquí")])]),_vm._v(" "),_c('span',{staticClass:"arch-mobile"},[_vm._v("Adjunta tus archivos aquí")])]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('files')),expression:"submited && hasError('files')"}],staticClass:"error-message dropzone-error",attrs:{"tabindex":"2"}},[_vm._v("\n    "+_vm._s(_vm.hasError('files'))+"\n  ")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El conductor es el mismo asegurado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.isDriver === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDriver(true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.isDriver === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDriver(false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb segundo-nivel"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('driverName'), filled: _vm.casualtyData.driverName}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.driverName),expression:"casualtyData.driverName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del conductor","tabindex":"3"},domProps:{"value":(_vm.casualtyData.driverName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "driverName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverName')),expression:"submited && hasError('driverName')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('driverName')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('driverPhone'), filled: _vm.casualtyData.driverPhone}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.driverPhone),expression:"casualtyData.driverPhone",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono","tabindex":"5"},domProps:{"value":(_vm.casualtyData.driverPhone)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "driverPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverPhone')),expression:"submited && hasError('driverPhone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('driverPhone')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('driverDocType'), filled: _vm.casualtyData.driverDocType}},[_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.driverDocType),expression:"casualtyData.driverDocType"}],attrs:{"tabindex":"4"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "driverDocType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"selected":index === 0,"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverDocType')),expression:"submited && hasError('driverDocType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('driverDocType')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('driverDocumentId'), filled: _vm.casualtyData.driverDocumentId}},[_c('float-label',[(_vm.casualtyData.isDriver)?_c('input',{attrs:{"type":"text","name":"id","tabindex":"6","disabled":""},domProps:{"value":_vm.idMask}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.driverDocumentId),expression:"casualtyData.driverDocumentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento","tabindex":"6"},domProps:{"value":(_vm.casualtyData.driverDocumentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "driverDocumentId", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverDocumentId')),expression:"submited && hasError('driverDocumentId')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('driverDocumentId')))])],1)]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El declarante es el mismo asegurado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.isDeclarant === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.isDeclarant === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb tercer-nivel"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantName'), filled: _vm.casualtyData.declarantName}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.declarantName),expression:"casualtyData.declarantName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del declarante","tabindex":"7"},domProps:{"value":(_vm.casualtyData.declarantName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "declarantName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantName')),expression:"submited && hasError('declarantName')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantName')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantPhone'), filled: _vm.casualtyData.declarantPhone}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantPhone),expression:"casualtyData.declarantPhone"}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono","tabindex":"9"},domProps:{"value":(_vm.casualtyData.declarantPhone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantPhone')),expression:"submited && hasError('declarantPhone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantPhone')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('city'), filled: _vm.casualtyData.city}},[_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n          ¿En  que  ciudad  vas  a  reparar  tu vehículo?\n          "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({content: _vm.cityHelpMessage, placement: 'top-center'}),expression:"{content: cityHelpMessage, placement: 'top-center'}"}]},[_vm._v("Help")])]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.city),expression:"casualtyData.city"}],attrs:{"name":"city","tabindex":"8"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "city", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('city')),expression:"submited && hasError('city')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('city')))])],1),_vm._v(" "),_c('div',{class:{field: true, address: true, error: _vm.submited && _vm.hasError('whereAddress'), filled: _vm.casualtyData.whereAddress}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.whereAddress),expression:"casualtyData.whereAddress"}],attrs:{"type":"text","name":"address","placeholder":"Dirección o Ciudad de ocurrencia","tabindex":"10"},domProps:{"value":(_vm.casualtyData.whereAddress)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "whereAddress", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('whereAddress')),expression:"submited && hasError('whereAddress')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('whereAddress')))])],1)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.claimType === 'CLAIM_TYPE_PPD' || _vm.claimType === 'CLAIM_TYPE_LR'),expression:"claimType === 'CLAIM_TYPE_PPD' || claimType === 'CLAIM_TYPE_LR'"}],staticClass:"extra-info"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo heridos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withInjured === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withInjured === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('casualties'), filled: _vm.casualtyData.casualties}},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('casualties')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo muertos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withDeaths === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withDeaths === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-muerte"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('deaths'), filled: _vm.casualtyData.deaths}},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.deaths),expression:"casualtyData.deaths"}],attrs:{"disabled":_vm.casualtyData.withDeaths === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "deaths", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('deaths')),expression:"submited && hasError('deaths')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('deaths')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Intervino policía de tránsito?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withPolice === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withPolice === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})])]),_vm._v(" "),(_vm.claimType !== 'CLAIM_TYPE_PTH' && _vm.claimType !== 'CLAIM_TYPE_PL')?_c('div',{staticClass:"damages-section"},[_c('h2',[_vm._v("Marca las zonas afectadas de tu vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('damages')),expression:"submited && hasError('damages')"}],staticClass:"field error"},[_c('div',{staticClass:"error-message",attrs:{"tabindex":"11"}},[_vm._v("\n        "+_vm._s(_vm.hasError('damages'))+"\n      ")])]),_vm._v(" "),_c('div',{staticClass:"image-car"},[_c('img',{attrs:{"src":_vm.carImage,"alt":"Daños en el vehículo"}}),_vm._v(" "),_vm._l((_vm.damages),function(option,index){return _c('p-check',{key:option,staticClass:"p-default p-round p-thick",attrs:{"color":"primary-o","value":index},model:{value:(_vm.casualtyData.damages),callback:function ($$v) {_vm.$set(_vm.casualtyData, "damages", $$v)},expression:"casualtyData.damages"}},[_c('i',{staticClass:"icon mdi mdi-check",attrs:{"slot":"extra"},slot:"extra"}),_vm._v("\n        "+_vm._s(option)+"\n      ")])})],2)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate"},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[_c('div',[_c('h2',[_vm._v(_vm._s(_vm.modalTitle))]),_vm._v(" "),_c('p',[_vm._v(" "+_vm._s(_vm.modalBody))])])])])],1)}
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane third-step"},[_c('h1',[_vm._v("Cuéntanos lo sucedido")]),_vm._v(" "),_c('p',[_vm._v("Describe todo lo ocurrido con el mayor detalle posible.")]),_vm._v(" "),_c('div',{staticClass:"help-box"},[_c('p',{staticClass:"help-text"},[_vm._v("\n      Relata como ocurrió el siniestro, indicando el lugar, otros\n      involucrados, partes del vehículo que observas con daños en lo posible\n      entregar el mayor detalle de los hechos.\n    ")]),_vm._v(" "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({ content: _vm.helpMessage, placement: 'top-center' }),expression:"{ content: helpMessage, placement: 'top-center' }"}]},[_vm._v("\n      Help\n    ")])]),_vm._v(" "),_c('div',{class:{
+      field: true,
+      descrip: true,
+      error: _vm.submited && _vm.hasError('description')
+    }},[_c('float-label',{attrs:{"label":"Descripción de los hechos."}},[_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.description),expression:"casualtyData.description"}],attrs:{"name":"description","cols":"30","rows":"5","placeholder":"Descripción de los hechos, piezas afectadas, lugares etc.","tabindex":"1"},domProps:{"value":(_vm.casualtyData.description)},on:{"click":_vm.getData,"keyup":_vm.countDown,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "description", $event.target.value)}}})]),_vm._v(" "),_c('p',{staticClass:"countdown"},[_vm._v("\n      Ingresa mínimo "+_vm._s(_vm.validationRules.description.length.min)+" caracteres\n      contando espacios "),_c('span',{staticClass:"remain"},[_vm._v(_vm._s(_vm.countDownVal))])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('description')),expression:"submited && hasError('description')"}],staticClass:"error-message"},[_vm._v("\n      "+_vm._s(_vm.hasError("description"))+"\n    ")])],1),_vm._v(" "),(_vm.claimType === 'CLAIM_TYPE_PTH')?_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n    Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo\n    permitido: pdf - 2MB, jpg - 60KB (obligatorio)\n  ")]):_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n    Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo\n    permitido: pdf - 2MB, jpg - 60KB (opcional)\n  ")]),_vm._v(" "),(_vm.userData)?_c('dropzone',{ref:"dropzoneEl",class:{ error: _vm.submited && _vm.hasError('files') },attrs:{"id":"dropzone","options":_vm.dropzoneOptions,"useCustomSlot":true,"duplicateCheck":true},on:{"vdropzone-success":_vm.fileUploaded,"vdropzone-removed-file":_vm.fileRemoved,"vdropzone-file-added":_vm.fileAdded}},[_c('span',{staticClass:"arch-desck"},[_vm._v("Arrastra tus archivos para adjuntar, o\n      "),_c('strong',[_vm._v("búscalos aquí")])]),_vm._v(" "),_c('span',{staticClass:"arch-mobile"},[_vm._v("Adjunta tus archivos aquí")])]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('files')),expression:"submited && hasError('files')"}],staticClass:"error-message dropzone-error",attrs:{"tabindex":"2"}},[_vm._v("\n    "+_vm._s(_vm.hasError("files"))+"\n  ")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El conductor es el mismo asegurado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.isDriver === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDriver(true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.isDriver === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDriver(false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb segundo-nivel"},[_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('driverName'),
+        filled: _vm.casualtyData.driverName
+      }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.driverName),expression:"casualtyData.driverName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del conductor","tabindex":"3"},domProps:{"value":(_vm.casualtyData.driverName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "driverName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverName')),expression:"submited && hasError('driverName')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("driverName"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('driverPhone'),
+        filled: _vm.casualtyData.driverPhone
+      }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.driverPhone),expression:"casualtyData.driverPhone",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono","tabindex":"5"},domProps:{"value":(_vm.casualtyData.driverPhone)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "driverPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverPhone')),expression:"submited && hasError('driverPhone')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("driverPhone"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('driverDocType'),
+        filled: _vm.casualtyData.driverDocType
+      }},[_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.driverDocType),expression:"casualtyData.driverDocType"}],attrs:{"tabindex":"4"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "driverDocType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"selected":index === 0,"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverDocType')),expression:"submited && hasError('driverDocType')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("driverDocType"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('driverDocumentId'),
+        filled: _vm.casualtyData.driverDocumentId
+      }},[_c('float-label',[(_vm.casualtyData.isDriver)?_c('input',{attrs:{"type":"text","name":"id","tabindex":"6","disabled":""},domProps:{"value":_vm.idMask}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.driverDocumentId),expression:"casualtyData.driverDocumentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento","tabindex":"6"},domProps:{"value":(_vm.casualtyData.driverDocumentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "driverDocumentId", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('driverDocumentId')),expression:"submited && hasError('driverDocumentId')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("driverDocumentId"))+"\n      ")])],1)]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El declarante es el mismo asegurado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.isDeclarant === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.isDeclarant === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb tercer-nivel"},[_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('declarantName'),
+        filled: _vm.casualtyData.declarantName
+      }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.declarantName),expression:"casualtyData.declarantName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del declarante","tabindex":"7"},domProps:{"value":(_vm.casualtyData.declarantName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "declarantName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantName')),expression:"submited && hasError('declarantName')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("declarantName"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('declarantPhone'),
+        filled: _vm.casualtyData.declarantPhone
+      }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantPhone),expression:"casualtyData.declarantPhone"}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono","tabindex":"9"},domProps:{"value":(_vm.casualtyData.declarantPhone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantPhone')),expression:"submited && hasError('declarantPhone')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("declarantPhone"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        error: _vm.submited && _vm.hasError('city'),
+        filled: _vm.casualtyData.city
+      }},[_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n        ¿En que ciudad vas a reparar tu vehículo?\n        "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({ content: _vm.cityHelpMessage, placement: 'top-center' }),expression:"{ content: cityHelpMessage, placement: 'top-center' }"}]},[_vm._v("\n          Help\n        ")])]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.city),expression:"casualtyData.city"}],attrs:{"name":"city","tabindex":"8"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "city", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('city')),expression:"submited && hasError('city')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("city"))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{
+        field: true,
+        address: true,
+        error: _vm.submited && _vm.hasError('whereAddress'),
+        filled: _vm.casualtyData.whereAddress
+      }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.whereAddress),expression:"casualtyData.whereAddress"}],attrs:{"type":"text","name":"address","placeholder":"Dirección o Ciudad de ocurrencia","tabindex":"10"},domProps:{"value":(_vm.casualtyData.whereAddress)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "whereAddress", $event.target.value)}}}),_vm._v(" "),_c('span',{staticClass:"ayudas lh-normal"},[_vm._v("*Es importante que registres la dirección exacta en donde ocurrió\n          el siniestro")])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('whereAddress')),expression:"submited && hasError('whereAddress')"}],staticClass:"error-message"},[_vm._v("\n        "+_vm._s(_vm.hasError("whereAddress"))+"\n      ")])],1)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.claimType === 'CLAIM_TYPE_PPD' || _vm.claimType === 'CLAIM_TYPE_LR'),expression:"claimType === 'CLAIM_TYPE_PPD' || claimType === 'CLAIM_TYPE_LR'"}],staticClass:"extra-info"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo heridos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withInjured === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withInjured === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{
+            field: true,
+            error: _vm.submited && _vm.hasError('casualties'),
+            filled: _vm.casualtyData.casualties
+          }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label)+"\n              ")])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v("\n            "+_vm._s(_vm.hasError("casualties"))+"\n          ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n            ¿Hubo un tercero involucrado en el accidente?\n          ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withInvolved === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withInvolved === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', false)}}},[_vm._v("\n              No\n            ")])])])])]),_vm._v(" "),(_vm.casualtyData.withInvolved)?_c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Conoce la placa del tercero involucrado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
+                  selected: _vm.casualtyData.withThirdPartyInvolvedPlate === true
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedPlate',
+                    'plateThirdPartyInvolved',
+                    true
+                  )}}},[_vm._v("\n                Si\n              ")]),_vm._v(" "),_c('button',{class:{
+                  selected: _vm.casualtyData.withThirdPartyInvolvedPlate === false
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedPlate',
+                    'plateThirdPartyInvolved',
+                    false
+                  )}}},[_vm._v("\n                No\n              ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{
+              field: true,
+              error: _vm.submited && _vm.hasError('plateThirdPartyInvolved'),
+              filled: _vm.casualtyData.plateThirdPartyInvolved
+            }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plateThirdPartyInvolved),expression:"casualtyData.plateThirdPartyInvolved"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plateThirdPartyInvolved","disabled":_vm.casualtyData.withThirdPartyInvolvedPlate === false,"placeholder":"Ingresar placa patente"},domProps:{"value":(_vm.casualtyData.plateThirdPartyInvolved)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plateThirdPartyInvolved", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plateThirdPartyInvolved')),expression:"submited && hasError('plateThirdPartyInvolved')"}],staticClass:"error-message"},[_vm._v("\n              "+_vm._s(_vm.hasError("plateThirdPartyInvolved"))+"\n            ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n              ¿Conoce el nombre del tercero involucrado?\n            ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
+                  selected: _vm.casualtyData.withThirdPartyInvolvedName === true
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedName',
+                    'plateThirdPartyInvolvedName',
+                    true
+                  )}}},[_vm._v("\n                Si\n              ")]),_vm._v(" "),_c('button',{class:{
+                  selected: _vm.casualtyData.withThirdPartyInvolvedName === false
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedName',
+                    'plateThirdPartyInvolvedName',
+                    false
+                  )}}},[_vm._v("\n                No\n              ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{
+              field: true,
+              error: _vm.submited && _vm.hasError('plateThirdPartyInvolvedName'),
+              filled: _vm.casualtyData.plateThirdPartyInvolvedName
+            }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plateThirdPartyInvolvedName),expression:"casualtyData.plateThirdPartyInvolvedName"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plateThirdPartyInvolvedName","disabled":_vm.casualtyData.withThirdPartyInvolvedName === false,"placeholder":"Ingresar el nombre"},domProps:{"value":(_vm.casualtyData.plateThirdPartyInvolvedName)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plateThirdPartyInvolvedName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plateThirdPartyInvolvedName')),expression:"submited && hasError('plateThirdPartyInvolvedName')"}],staticClass:"error-message"},[_vm._v("\n              "+_vm._s(_vm.hasError("plateThirdPartyInvolvedName"))+"\n            ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n              ¿Conoce el tipo de identificación tercero involucrado?\n            ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
+                  selected:
+                    _vm.casualtyData.withThirdPartyInvolvedTypeIdentificaction ===
+                    true
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedTypeIdentificaction',
+                    'plateThirdPartyInvolvedTypeIdentificaction',
+                    true
+                  )}}},[_vm._v("\n                Si\n              ")]),_vm._v(" "),_c('button',{class:{
+                  selected:
+                    _vm.casualtyData.withThirdPartyInvolvedTypeIdentificaction ===
+                    false
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedTypeIdentificaction',
+                    'plateThirdPartyInvolvedTypeIdentificaction',
+                    false
+                  )}}},[_vm._v("\n                No\n              ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{
+              field: true,
+              error:
+                _vm.submited &&
+                _vm.hasError('plateThirdPartyInvolvedTypeIdentificaction'),
+              filled: _vm.casualtyData.plateThirdPartyInvolvedTypeIdentificaction
+            }},[_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(
+                  _vm.casualtyData.plateThirdPartyInvolvedTypeIdentificaction
+                ),expression:"\n                  casualtyData.plateThirdPartyInvolvedTypeIdentificaction\n                "}],attrs:{"disabled":_vm.casualtyData.withThirdPartyInvolvedTypeIdentificaction ===
+                    false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "plateThirdPartyInvolvedTypeIdentificaction", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"selected":index === 0,"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(
+                _vm.submited &&
+                  _vm.hasError('plateThirdPartyInvolvedTypeIdentificaction')
+              ),expression:"\n                submited &&\n                  hasError('plateThirdPartyInvolvedTypeIdentificaction')\n              "}],staticClass:"error-message"},[_vm._v("\n              "+_vm._s(_vm.hasError("plateThirdPartyInvolvedTypeIdentificaction"))+"\n            ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row align-items-end"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n              ¿Conoce el número de documento de identificación del tercero\n              involucrado?\n            ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
+                  selected:
+                    _vm.casualtyData.withThirdPartyInvolvedIdentificaction ===
+                    true
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedIdentificaction',
+                    'plateThirdPartyInvolvedIdentificaction',
+                    true
+                  )}}},[_vm._v("\n                Si\n              ")]),_vm._v(" "),_c('button',{class:{
+                  selected:
+                    _vm.casualtyData.withThirdPartyInvolvedIdentificaction ===
+                    false
+                },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
+                    'withThirdPartyInvolvedIdentificaction',
+                    'plateThirdPartyInvolvedIdentificaction',
+                    false
+                  )}}},[_vm._v("\n                No\n              ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{
+              field: true,
+              error:
+                _vm.submited &&
+                _vm.hasError('plateThirdPartyInvolvedIdentificaction'),
+              filled: _vm.casualtyData.plateThirdPartyInvolvedIdentificaction
+            }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plateThirdPartyInvolvedIdentificaction),expression:"casualtyData.plateThirdPartyInvolvedIdentificaction"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plateThirdPartyInvolvedIdentificaction","disabled":_vm.casualtyData.withThirdPartyInvolvedIdentificaction === false,"placeholder":"Ingresar la identificación"},domProps:{"value":(_vm.casualtyData.plateThirdPartyInvolvedIdentificaction)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plateThirdPartyInvolvedIdentificaction", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(
+                _vm.submited && _vm.hasError('plateThirdPartyInvolvedIdentificaction')
+              ),expression:"\n                submited && hasError('plateThirdPartyInvolvedIdentificaction')\n              "}],staticClass:"error-message"},[_vm._v("\n              "+_vm._s(_vm.hasError("plateThirdPartyInvolvedIdentificaction"))+"\n            ")])],1)])])]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo muertos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withDeaths === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withDeaths === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-muerte"},[_c('div',{class:{
+            field: true,
+            error: _vm.submited && _vm.hasError('deaths'),
+            filled: _vm.casualtyData.deaths
+          }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.deaths),expression:"casualtyData.deaths"}],attrs:{"disabled":_vm.casualtyData.withDeaths === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "deaths", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label)+"\n              ")])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('deaths')),expression:"submited && hasError('deaths')"}],staticClass:"error-message"},[_vm._v("\n            "+_vm._s(_vm.hasError("deaths"))+"\n          ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Intervino policía de tránsito?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withPolice === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withPolice === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})])]),_vm._v(" "),(_vm.claimType !== 'CLAIM_TYPE_PTH' && _vm.claimType !== 'CLAIM_TYPE_PL')?_c('div',{staticClass:"damages-section pt-2"},[_c('h2',[_vm._v("Marca las zonas afectadas de tu vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('damages')),expression:"submited && hasError('damages')"}],staticClass:"field error"},[_c('div',{staticClass:"error-message",attrs:{"tabindex":"11"}},[_vm._v("\n        "+_vm._s(_vm.hasError("damages"))+"\n      ")])]),_vm._v(" "),_c('div',{staticClass:"image-car"},[_c('img',{attrs:{"src":_vm.carImage,"alt":"Daños en el vehículo"}}),_vm._v(" "),_vm._l((_vm.damages),function(option,index){return _c('p-check',{key:option,staticClass:"p-default p-round p-thick",attrs:{"color":"primary-o","value":index},model:{value:(_vm.casualtyData.damages),callback:function ($$v) {_vm.$set(_vm.casualtyData, "damages", $$v)},expression:"casualtyData.damages"}},[_c('i',{staticClass:"icon mdi mdi-check",attrs:{"slot":"extra"},slot:"extra"}),_vm._v("\n        "+_vm._s(option)+"\n      ")])})],2)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate"},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[_c('div',[_c('h2',[_vm._v(_vm._s(_vm.modalTitle))]),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.modalBody))])])])])],1)}
+>>>>>>> main
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -49926,7 +51561,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__ = __webpack_require__(46);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d8a8e91a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_30da07d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -49943,7 +51582,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d8a8e91a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_30da07d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50046,8 +51689,16 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane fourth-step"},[_c('h1',[_vm._v("Estamos en donde nos necesitas")]),_vm._v(" "),_c('p',[_vm._v("Busca la ciudad de reparación que prefieras y asigna el taller más cercano")]),_vm._v(" "),_c('div',{staticClass:"search-bar"},[_c('div',{staticClass:"filters"},[_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Marca")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.brand))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Modelo")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.model))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Tipo")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.vehicleType))]):_vm._e()])]),_vm._v(" "),_c('div',{class:{field: true, filled: _vm.claimCity}},[_c('float-label',{attrs:{"label":"Buscar ciudad de reparación","fixed":""}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.claimCity),expression:"claimCity"}],ref:"citySelect",on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.claimCity=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.findCarShops],"click":_vm.getData}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)])],1)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showError),expression:"showError"}],staticClass:"error"},[_c('div',{staticClass:"error-message"},[_vm._v("Debes seleccionar un taller. ")])]),_vm._v(" "),_c('div',{staticClass:"list"},[(_vm.carShopsLength > 0)?_c('div',{staticClass:"car-shops"},[_c('p',{staticClass:"total"},[_vm._v("\n        Hemos encontrado "+_vm._s(_vm.carShopsLength)+" "),_c('strong',[_vm._v("talleres")]),_vm._v(" "),(_vm.carShops[0].hasOwnProperty('external'))?_c('span',[_vm._v(" en ciudades cercanas")]):_c('span',[_vm._v("para la búsqueda realizada")])]),_vm._v(" "),_c('ol',_vm._l((_vm.currentPage),function(item,index){return _c('li',{key:index,class:{ row: true, assigned: item.codTaller === _vm.assigned }},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"title"},[_c('h3',[_vm._v(_vm._s(item.nombre))]),_vm._v(" "),_c('h4',{directives:[{name:"show",rawName:"v-show",value:(item.hasOwnProperty('external')),expression:"item.hasOwnProperty('external')"}]},[_c('b',[_vm._v("Ciudad: "+_vm._s(item.external))])])]),_vm._v(" "),_c('div',{staticClass:"address"},[_vm._v("\n              "+_vm._s(item.direccion)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"phone"},[_vm._v("\n              "+_vm._s(item.telefono)+"\n            ")]),_vm._v(" "),_c('span',{staticClass:"label"},[_vm._v("Horario de atención:")]),_vm._v(" "),_vm._m(0,true)]),_vm._v(" "),_c('div',{staticClass:"col"},[_c('button',{class:{ assigned: item.codTaller === _vm.assigned },attrs:{"type":"button"},on:{"click":function($event){return _vm.openModal(item)}}},[_vm._v("\n              "+_vm._s(_vm.buttonLabel(item.codTaller))+"\n            ")])])])}),0),_vm._v(" "),(_vm.carShopsLength > _vm.offset )?_c('div',{staticClass:"pager"},[_c('ul',[_c('li',{staticClass:"page-item first-page"},[_c('a',{attrs:{"href":"0"},on:{"click":function($event){$event.preventDefault();return _vm.changePage(1)}}},[_vm._v("first")])]),_vm._v(" "),_vm._l((_vm.totalPages),function(index){return _c('li',{key:index,class:{'page-item': true, current: index - 1 === _vm.page}},[_c('a',{attrs:{"href":index},on:{"click":function($event){$event.preventDefault();return _vm.changePage(index)}}},[_vm._v(_vm._s(index))])])}),_vm._v(" "),_c('li',{staticClass:"page-item last-page"},[_c('a',{attrs:{"href":_vm.totalPages},on:{"click":function($event){$event.preventDefault();return _vm.changePage(_vm.totalPages)}}},[_vm._v("last")])])],2)]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.carShopsLength > 0 && _vm.carShops[0].hasOwnProperty('external')),expression:"carShopsLength > 0 && carShops[0].hasOwnProperty('external')"}],staticClass:"trusted"},[_c('p',{staticClass:"total"},[_vm._v("O selecciona tu taller de confianza")]),_vm._v(" "),_c('ul',[_c('li',{class:{ row: true, assigned: _vm.defaultCS.codTaller === _vm.assigned }},[_vm._m(1),_vm._v(" "),_c('div',{staticClass:"col"},[_c('button',{class:{ assigned: _vm.defaultCS.codTaller === _vm.assigned },attrs:{"type":"button"},on:{"click":_vm.assignTRD}},[_vm._v("\n                "+_vm._s(_vm.buttonLabel(_vm.defaultCS.codTaller))+"\n              ")])])])])])]):(_vm.searchExecuted)?_c('div',{staticClass:"no-results"},[_c('h3',[_vm._v("Ups, lo sentimos no hemos encontrado talleres disponibles en esta ciudad")]),_vm._v(" "),_c('p',[_vm._v("Puedes seleccionar otra ciudad, o reparar tu vehículo en un taller de confianza.")]),_vm._v(" "),_c('p',[_vm._v("Posteriormente debes reunir los siguientes documentos:")]),_vm._v(" "),_vm._m(2)]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button","disabled":_vm.assigned || (!_vm.assigned && _vm.carShopsLength === 0)  ? _vm.disabled : ''},on:{"click":_vm.validateCarShop}},[_vm._v("Continuar")])]),_vm._v(" "),_c(_vm.modal,{tag:"component",attrs:{"item":_vm.selected},on:{"closeModal":function($event){return _vm.assign($event)}}}),_vm._v(" "),_c('div',{class:{overlay: true, hide: _vm.modal === null }})],1)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"info"},[_c('p',[_vm._v("Lunes a Sábado")]),_vm._v(" "),_c('p',[_vm._v("de 8:00 a.m. a 5:00 p.m.")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col"},[_c('div',{staticClass:"title"},[_c('h3',[_vm._v("Taller de confianza")]),_vm._v(" "),_c('h4',{staticStyle:{"display":"none"}},[_vm._v(" ")])]),_vm._v(" "),_c('div',{staticClass:"list"},[_c('dd',[_vm._v("\n                  1. "),_c('strong',[_vm._v("Copia el informe de tránsito")]),_vm._v(" (Croquis) o "),_c('strong',[_vm._v("Fallo o resolución de tránsito")]),_vm._v("\n                  o "),_c('strong',[_vm._v("acuerdo conciliatorio")]),_vm._v(" o "),_c('strong',[_vm._v("carta del asegurado")]),_vm._v(" donde indique la versión\n                  de los hechos, fotografías que demuestren concurrencia, fecha, lugar, nombre del conductor y autorización\n                  para afectar su poliza. Para este caso adjuntar copia de cédula del asegurado.\n                ")]),_vm._v(" "),_c('dd',[_vm._v("2. "),_c('strong',[_vm._v("Fotografías claras de los daños del vehículo.")])]),_vm._v(" "),_c('dd',[_vm._v("3. "),_c('strong',[_vm._v("Cotización de mano de obra y repuestos de tu taller de confianza.")])])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ol',[_c('li',[_c('strong',[_vm._v("Copia de informe de tránsito")]),_vm._v(" (croquis) o "),_c('strong',[_vm._v("Fallo o resolución de tránsito")]),_vm._v(" o\n          "),_c('strong',[_vm._v("Acuerdo conciliatorio")]),_vm._v(" o "),_c('strong',[_vm._v("Carta del asegurado")]),_vm._v(" donde indique la versión de los\n          hechos, fotografías que demuestren ocurrencia, fecha, lugar, nombre del conductor y autorización para afectar su póliza.\n          Para este caso adjuntar copia de cédula del asegurado.\n        ")]),_vm._v(" "),_c('li',[_c('strong',[_vm._v("Fotografías claras de los daños del vehículo.")])]),_vm._v(" "),_c('li',[_c('strong',[_vm._v("Cotización de mano de obra y repuestos de tu taller de confianza.")])])])}]
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane fourth-step"},[_c('h1',[_vm._v("Estamos en donde nos necesitas")]),_vm._v(" "),_c('p',[_vm._v("\n    Busca la ciudad de reparación que prefieras y asigna el taller más cercano\n  ")]),_vm._v(" "),_c('div',{staticClass:"search-bar"},[_c('div',{staticClass:"filters"},[_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Marca")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.brand))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Modelo")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.model))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"filter"},[_c('h4',[_vm._v("Tipo")]),_vm._v(" "),(_vm.vehicleData)?_c('span',[_vm._v(_vm._s(_vm.vehicleData.vehicleType))]):_vm._e()])]),_vm._v(" "),_c('div',{class:{ field: true, filled: _vm.claimCity }},[_c('float-label',{attrs:{"label":"Buscar ciudad de reparación","fixed":""}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.claimCity),expression:"claimCity"}],ref:"citySelect",on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.claimCity=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.findCarShops],"click":_vm.getData}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)])],1)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showError),expression:"showError"}],staticClass:"error"},[_c('div',{staticClass:"error-message"},[_vm._v("Debes seleccionar un taller.")])]),_vm._v(" "),_c('div',{staticClass:"list"},[(_vm.carShopsLength > 0)?_c('div',{staticClass:"car-shops"},[_c('p',{staticClass:"total"},[_vm._v("\n        Hemos encontrado "+_vm._s(_vm.carShopsLength)+" "),_c('strong',[_vm._v("talleres")]),_vm._v(" "),(_vm.carShops[0].hasOwnProperty('external'))?_c('span',[_vm._v("\n          en ciudades cercanas")]):_c('span',[_vm._v("para la búsqueda realizada")])]),_vm._v(" "),_c('ol',_vm._l((_vm.currentPage),function(item,index){return _c('li',{key:index,class:{ row: true, assigned: item.codTaller === _vm.assigned }},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"title"},[_c('h3',[_vm._v(_vm._s(item.nombre))]),_vm._v(" "),_c('h4',{directives:[{name:"show",rawName:"v-show",value:(item.hasOwnProperty('external')),expression:"item.hasOwnProperty('external')"}]},[_c('b',[_vm._v("Ciudad: "+_vm._s(item.external))])])]),_vm._v(" "),_c('div',{staticClass:"address"},[_vm._v("\n              "+_vm._s(item.direccion)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"phone"},[_vm._v("\n              "+_vm._s(item.telefono)+"\n            ")]),_vm._v(" "),_c('span',{staticClass:"label"},[_vm._v("Horario de atención:")]),_vm._v(" "),_vm._m(0,true)]),_vm._v(" "),_c('div',{staticClass:"col"},[_c('button',{class:{ assigned: item.codTaller === _vm.assigned },attrs:{"type":"button"},on:{"click":function($event){return _vm.openModal(item)}}},[_vm._v("\n              "+_vm._s(_vm.buttonLabel(item.codTaller))+"\n            ")])])])}),0),_vm._v(" "),(_vm.carShopsLength > _vm.offset)?_c('div',{staticClass:"pager"},[_c('ul',[_c('li',{staticClass:"page-item first-page"},[_c('a',{attrs:{"href":"0"},on:{"click":function($event){$event.preventDefault();return _vm.changePage(1)}}},[_vm._v("first")])]),_vm._v(" "),_vm._l((_vm.totalPages),function(index){return _c('li',{key:index,class:{ 'page-item': true, current: index - 1 === _vm.page }},[_c('a',{attrs:{"href":index},on:{"click":function($event){$event.preventDefault();return _vm.changePage(index)}}},[_vm._v(_vm._s(index))])])}),_vm._v(" "),_c('li',{staticClass:"page-item last-page"},[_c('a',{attrs:{"href":_vm.totalPages},on:{"click":function($event){$event.preventDefault();return _vm.changePage(_vm.totalPages)}}},[_vm._v("last")])])],2)]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.carShopsLength > 0 && _vm.carShops[0].hasOwnProperty('external')),expression:"carShopsLength > 0 && carShops[0].hasOwnProperty('external')"}],staticClass:"trusted"},[_c('p',{staticClass:"total"},[_vm._v("O selecciona tu taller de confianza")]),_vm._v(" "),_c('ul',[_c('li',{class:{
+              row: true,
+              assigned: _vm.defaultCS.codTaller === _vm.assigned
+            }},[_vm._m(1),_vm._v(" "),_c('div',{staticClass:"col"},[_c('button',{class:{ assigned: _vm.defaultCS.codTaller === _vm.assigned },attrs:{"type":"button"},on:{"click":_vm.assignTRD}},[_vm._v("\n                "+_vm._s(_vm.buttonLabel(_vm.defaultCS.codTaller))+"\n              ")])])])])])]):(_vm.searchExecuted)?_c('div',{staticClass:"no-results"},[_c('h3',[_vm._v("\n        Ups, lo sentimos no hemos encontrado talleres disponibles en esta\n        ciudad\n      ")]),_vm._v(" "),_c('p',[_vm._v("\n        Puedes seleccionar otra ciudad, o reparar tu vehículo en un taller de\n        confianza.\n      ")]),_vm._v(" "),_c('p',[_vm._v("Posteriormente debes reunir los siguientes documentos:")]),_vm._v(" "),_vm._m(2)]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button","disabled":_vm.assigned || (!_vm.assigned && _vm.carShopsLength === 0) ? _vm.disabled : ''},on:{"click":_vm.validateCarShop}},[_vm._v("\n      Continuar\n    ")])]),_vm._v(" "),_c(_vm.modal,{tag:"component",attrs:{"item":_vm.selected},on:{"closeModal":function($event){return _vm.assign($event)}}}),_vm._v(" "),_c('div',{class:{ overlay: true, hide: _vm.modal === null }})],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"info"},[_c('p',[_vm._v("Lunes a Sábado")]),_vm._v(" "),_c('p',[_vm._v("de 8:00 a.m. a 5:00 p.m.")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col"},[_c('div',{staticClass:"title"},[_c('h3',[_vm._v("Taller de confianza")]),_vm._v(" "),_c('h4',{staticStyle:{"display":"none"}},[_vm._v(" ")])]),_vm._v(" "),_c('div',{staticClass:"list"},[_c('dd',[_vm._v("\n                  1. "),_c('strong',[_vm._v("Copia el informe de tránsito")]),_vm._v(" (Croquis) o\n                  "),_c('strong',[_vm._v("Fallo o resolución de tránsito")]),_vm._v(" o\n                  "),_c('strong',[_vm._v("acuerdo conciliatorio")]),_vm._v(" o\n                  "),_c('strong',[_vm._v("carta del asegurado")]),_vm._v(" donde indique la\n                  versión de los hechos, fotografías que demuestren\n                  concurrencia, fecha, lugar, nombre del conductor y\n                  autorización para afectar su poliza. Para este caso adjuntar\n                  copia de cédula del asegurado.\n                ")]),_vm._v(" "),_c('dd',[_vm._v("\n                  2.\n                  "),_c('strong',[_vm._v("Fotografías claras de los daños del vehículo.")])]),_vm._v(" "),_c('dd',[_vm._v("\n                  3.\n                  "),_c('strong',[_vm._v("Cotización de mano de obra y repuestos de tu taller de\n                    confianza.")])])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ol',[_c('li',[_c('strong',[_vm._v("Copia de informe de tránsito")]),_vm._v(" (croquis) o\n          "),_c('strong',[_vm._v("Fallo o resolución de tránsito")]),_vm._v(" o\n          "),_c('strong',[_vm._v("Acuerdo conciliatorio")]),_vm._v(" o\n          "),_c('strong',[_vm._v("Carta del asegurado")]),_vm._v(" donde indique la versión de los\n          hechos, fotografías que demuestren ocurrencia, fecha, lugar, nombre\n          del conductor y autorización para afectar su póliza. Para este caso\n          adjuntar copia de cédula del asegurado.\n        ")]),_vm._v(" "),_c('li',[_c('strong',[_vm._v("Fotografías claras de los daños del vehículo.")])]),_vm._v(" "),_c('li',[_c('strong',[_vm._v("Cotización de mano de obra y repuestos de tu taller de\n            confianza.")])])])}]
+>>>>>>> main
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -50102,7 +51753,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_confirmation_vue__ = __webpack_require__(50);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_86d8b5c0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__ = __webpack_require__(112);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_f1af566a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__ = __webpack_require__(112);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50119,7 +51774,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_confirmation_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_86d8b5c0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_f1af566a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50136,7 +51795,11 @@ var Component = normalizeComponent(
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_popUpSendEmail_vue__ = __webpack_require__(51);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fcba1234_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_popUpSendEmail_vue__ = __webpack_require__(111);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_32b6f6fb_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_popUpSendEmail_vue__ = __webpack_require__(111);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50153,7 +51816,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_popUpSendEmail_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fcba1234_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_popUpSendEmail_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_32b6f6fb_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_popUpSendEmail_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50178,8 +51845,13 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane confirmation-page"},[_c('h2',[_vm._v("¡Hemos recibido la información!")]),_vm._v(" "),_c('h4',[_vm._v("En Liberty queremos que estés tranquilo mientras nos encargamos de tu proceso.")]),_vm._v(" "),_c('div',{staticClass:"icon"},[_c('img',{attrs:{"src":_vm.bgImage,"alt":"Resumen"}})]),_vm._v(" "),_c('h1',{staticClass:"number"},[_vm._v("\n    "+_vm._s(_vm.number)+"\n    "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({content: _vm.msg, placement: 'bottom-center'}),expression:"{content: msg, placement: 'bottom-center'}"}]},[_vm._v("Help")])]),_vm._v(" "),_c('h3',[_vm._v("Número de radicado")]),_vm._v(" "),_c('div',{staticClass:"links"},[_c('a',{staticClass:"download-pdf",attrs:{"target":"_blank","rel":"noreferrer","href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.download.apply(null, arguments)}}},[_vm._v("Descarga PDF")]),_vm._v(" "),_c('a',{staticClass:"send-email",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.sendEmail.apply(null, arguments)}}},[_vm._v("Enviar por correo")])]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{staticClass:"btn-secon",attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('href')}}},[_vm._v("Iniciar nuevo reporte")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('origin')}}},[_vm._v("Ir a inicio")])]),_vm._v(" "),_c(_vm.modal,{tag:"component",attrs:{"userData":_vm.user},on:{"closeModal":function($event){return _vm.close($event)}}}),_vm._v(" "),_c('div',{class:{overlay: true, hide: _vm.modal === null }})],1)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("\n    Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso. Para mas información escribenos por "),_c('strong',[_vm._v("Whatsapp al 3164821802")]),_vm._v(" de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m\n  ")])}]
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane confirmation-page"},[_c('h2',[_vm._v("¡Hemos recibido la información!")]),_vm._v(" "),_c('h4',[_vm._v("En Liberty queremos que estés tranquilo mientras nos encargamos de tu proceso.")]),_vm._v(" "),_c('div',{staticClass:"icon"},[_c('img',{attrs:{"src":_vm.bgImage,"alt":"Resumen"}})]),_vm._v(" "),_c('h1',{staticClass:"number"},[_vm._v("\n    "+_vm._s(_vm.number)+"\n    "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({ content: _vm.msg, placement: 'bottom-center' }),expression:"{ content: msg, placement: 'bottom-center' }"}]})]),_vm._v(" "),_c('h3',[_vm._v("Número de radicado")]),_vm._v(" "),_c('div',{staticClass:"links"},[_c('a',{staticClass:"download-pdf",attrs:{"target":"_blank","rel":"noreferrer","href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.download.apply(null, arguments)}}},[_vm._v("Descarga PDF")]),_vm._v(" "),_c('a',{staticClass:"send-email",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.sendEmail.apply(null, arguments)}}},[_vm._v("Enviar por correo")])]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{staticClass:"btn-secon",attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('href')}}},[_vm._v("Iniciar nuevo reporte")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('origin')}}},[_vm._v("Ir a inicio")])]),_vm._v(" "),_c(_vm.modal,{tag:"component",attrs:{"userData":_vm.user},on:{"closeModal":function($event){return _vm.close($event)}}}),_vm._v(" "),_c('div',{class:{ overlay: true, hide: _vm.modal === null }})],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("\n    Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso. Para\n    mas información escribenos por "),_c('strong',[_vm._v("Whatsapp al 3164821802")]),_vm._v(" de lunes a viernes de 7 a.m a 5 p.m y sabados\n    de 8 a.m a 12 p.m\n  ")])}]
+>>>>>>> main
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -50236,7 +51908,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStepThirdParty_vue__ = __webpack_require__(53);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eca73730_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStepThirdParty_vue__ = __webpack_require__(116);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0c8f90db_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStepThirdParty_vue__ = __webpack_require__(116);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50253,7 +51929,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStepThirdParty_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eca73730_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStepThirdParty_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0c8f90db_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStepThirdParty_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50268,7 +51948,11 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane third-step"},[_c('h1',[_vm._v("Cuéntanos lo sucedido")]),_vm._v(" "),_c('p',[_vm._v("Describe todo lo ocurrido con el mayor detalle posible.")]),_vm._v(" "),_c('div',{class:{field: true, descrip: true, error: _vm.submited && _vm.hasError('description')}},[_c('float-label',{attrs:{"label":"Descripción de los hechos."}},[_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.description),expression:"casualtyData.description"}],attrs:{"name":"description","cols":"30","rows":"5","placeholder":"Descripción de los hechos, piezas afectadas, lugares etc.","tabindex":"1"},domProps:{"value":(_vm.casualtyData.description)},on:{"keyup":_vm.countDown,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "description", $event.target.value)}}})]),_vm._v(" "),_c('p',{staticClass:"countdown"},[_vm._v("Ingresa mínimo "+_vm._s(_vm.validationRules.description.length.min)+" caracteres contando espacios "),_c('span',{staticClass:"remain"},[_vm._v(_vm._s(_vm.countDownVal))])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('description')),expression:"submited && hasError('description')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('description')))])],1),_vm._v(" "),_c('div',{staticClass:"label label-img-adj"},[_vm._v("Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf - 2MB, jpg - 60KB  (opcional)")]),_vm._v(" "),(_vm.userData)?_c('dropzone',{ref:"dropzoneEl",class:{error: _vm.submited && _vm.hasError('files')},attrs:{"id":"dropzone-affected","options":_vm.dropzoneOptions,"useCustomSlot":true,"duplicateCheck":true},on:{"vdropzone-success":_vm.fileUploaded,"vdropzone-removed-file":_vm.fileRemoved,"vdropzone-file-added":_vm.fileAdded}},[_c('span',{staticClass:"arch-desck"},[_vm._v("Arrastra tus archivos para adjuntar, o "),_c('strong',[_vm._v("búscalos aquí")])]),_vm._v(" "),_c('span',{staticClass:"arch-mobile"},[_vm._v("Adjunta tus archivos aquí")])]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('files')),expression:"submited && hasError('files')"}],staticClass:"error-message dropzone-error"},[_vm._v("\n    "+_vm._s(_vm.hasError('files'))+"\n  ")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El declarante es el mismo tercero afectado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.isDeclarant === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.isDeclarant === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb segundo-nivel tercer-afec"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantName'), filled: _vm.casualtyData.declarantName}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.declarantName),expression:"casualtyData.declarantName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del declarante"},domProps:{"value":(_vm.casualtyData.declarantName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "declarantName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantName')),expression:"submited && hasError('declarantName')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantName')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantPhone'), filled: _vm.casualtyData.declarantPhone}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantPhone),expression:"casualtyData.declarantPhone"}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono"},domProps:{"value":(_vm.casualtyData.declarantPhone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantPhone')),expression:"submited && hasError('declarantPhone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantPhone')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantDocType'), filled: _vm.casualtyData.declarantDocType}},[_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantDocType),expression:"casualtyData.declarantDocType"}],on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "declarantDocType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"selected":index === 0,"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantDocType')),expression:"submited && hasError('declarantDocType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantDocType')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('declarantDocumentId'), filled: _vm.casualtyData.declarantDocumentId}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantDocumentId),expression:"casualtyData.declarantDocumentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento"},domProps:{"value":(_vm.casualtyData.declarantDocumentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantDocumentId", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantDocumentId')),expression:"submited && hasError('declarantDocumentId')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantDocumentId')))])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('city'), filled: _vm.casualtyData.city}},[_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n          ¿En  que  ciudad  vas  a  reparar  tu vehículo?\n          "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({content: _vm.cityHelpMessage, placement: 'top-center'}),expression:"{content: cityHelpMessage, placement: 'top-center'}"}]},[_vm._v("Help")])]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.city),expression:"casualtyData.city"}],on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "city", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('city')),expression:"submited && hasError('city')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('city')))])],1),_vm._v(" "),_c('div',{class:{field: true, address: true, error: _vm.submited && _vm.hasError('whereAddress'), filled: _vm.casualtyData.whereAddress}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.whereAddress),expression:"casualtyData.whereAddress"}],attrs:{"type":"text","placeholder":"Dirección o Ciudad de ocurrencia"},domProps:{"value":(_vm.casualtyData.whereAddress)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "whereAddress", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('whereAddress')),expression:"submited && hasError('whereAddress')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('whereAddress')))])],1)]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo heridos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withInjured === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withInjured === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('casualties'), filled: _vm.casualtyData.casualties}},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('casualties')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo muertos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withDeaths === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withDeaths === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-muerte"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('deaths'), filled: _vm.casualtyData.deaths}},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.deaths),expression:"casualtyData.deaths"}],attrs:{"disabled":_vm.casualtyData.withDeaths === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "deaths", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('deaths')),expression:"submited && hasError('deaths')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('deaths')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Intervino policía de tránsito?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{selected: _vm.casualtyData.withPolice === true},attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{selected: _vm.casualtyData.withPolice === false},attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('h2',[_vm._v("Marca las zonas afectadas de tu vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('damages')),expression:"submited && hasError('damages')"}],staticClass:"error"},[_c('div',{staticClass:"error-message"},[_vm._v("\n      "+_vm._s(_vm.hasError('damages'))+"\n    ")])]),_vm._v(" "),_c('div',{staticClass:"image-car"},[_c('img',{attrs:{"src":_vm.carImage,"alt":"Daños en el vehículo"}}),_vm._v(" "),_vm._l((_vm.damages),function(option){return _c('p-check',{key:option,staticClass:"p-default p-round p-thick",attrs:{"color":"primary-o","value":option},model:{value:(_vm.casualtyData.damages),callback:function ($$v) {_vm.$set(_vm.casualtyData, "damages", $$v)},expression:"casualtyData.damages"}},[_c('i',{staticClass:"icon mdi mdi-check",attrs:{"slot":"extra"},slot:"extra"}),_vm._v("\n      "+_vm._s(option)+"\n    ")])})],2),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate"},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[_c('div',[_c('h2',[_vm._v(_vm._s(_vm.modalTitle))]),_vm._v(" "),_c('p',[_vm._v(" "+_vm._s(_vm.modalBody))])])])])],1)}
+=======
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane third-step"},[_c('h1',[_vm._v("Cuéntanos lo sucedido")]),_vm._v(" "),_c('p',[_vm._v("Describe todo lo ocurrido con el mayor detalle posible.")]),_vm._v(" "),_c('div',{class:{ field: true, descrip: true, error: _vm.submited && _vm.hasError('description') }},[_c('float-label',{attrs:{"label":"Descripción de los hechos."}},[_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.description),expression:"casualtyData.description"}],attrs:{"name":"description","cols":"30","rows":"5","placeholder":"Descripción de los hechos, piezas afectadas, lugares etc.","tabindex":"1"},domProps:{"value":(_vm.casualtyData.description)},on:{"keyup":_vm.countDown,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "description", $event.target.value)}}})]),_vm._v(" "),_c('p',{staticClass:"countdown"},[_vm._v("Ingresa mínimo "+_vm._s(_vm.validationRules.description.length.min)+" caracteres contando espacios "),_c('span',{staticClass:"remain"},[_vm._v(_vm._s(_vm.countDownVal))])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('description')),expression:"submited && hasError('description')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('description')))])],1),_vm._v(" "),_c('div',{staticClass:"label label-img-adj"},[_vm._v("Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf -\n    2MB, jpg - 60KB (opcional)")]),_vm._v(" "),(_vm.userData)?_c('dropzone',{ref:"dropzoneEl",class:{ error: _vm.submited && _vm.hasError('files') },attrs:{"id":"dropzone-affected","options":_vm.dropzoneOptions,"useCustomSlot":true,"duplicateCheck":true},on:{"vdropzone-success":_vm.fileUploaded,"vdropzone-removed-file":_vm.fileRemoved,"vdropzone-file-added":_vm.fileAdded}},[_c('span',{staticClass:"arch-desck"},[_vm._v("Arrastra tus archivos para adjuntar, o "),_c('strong',[_vm._v("búscalos aquí")])]),_vm._v(" "),_c('span',{staticClass:"arch-mobile"},[_vm._v("Adjunta tus archivos aquí")])]):_vm._e(),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('files')),expression:"submited && hasError('files')"}],staticClass:"error-message dropzone-error"},[_vm._v("\n    "+_vm._s(_vm.hasError('files'))+"\n  ")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿El declarante es el mismo tercero afectado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.isDeclarant === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.isDeclarant === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.isDeclarant(false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row flied-no-mb segundo-nivel tercer-afec"},[_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('declarantName'), filled: _vm.casualtyData.declarantName }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.declarantName),expression:"casualtyData.declarantName",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"Nombre del declarante"},domProps:{"value":(_vm.casualtyData.declarantName)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "declarantName", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantName')),expression:"submited && hasError('declarantName')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantName')))])],1),_vm._v(" "),_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('declarantPhone'), filled: _vm.casualtyData.declarantPhone }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantPhone),expression:"casualtyData.declarantPhone"}],attrs:{"type":"text","name":"phone","placeholder":"Teléfono"},domProps:{"value":(_vm.casualtyData.declarantPhone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantPhone", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantPhone')),expression:"submited && hasError('declarantPhone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantPhone')))])],1),_vm._v(" "),_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('declarantDocType'), filled: _vm.casualtyData.declarantDocType }},[_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantDocType),expression:"casualtyData.declarantDocType"}],on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "declarantDocType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"selected":index === 0,"value":index}},[_vm._v(_vm._s(option))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantDocType')),expression:"submited && hasError('declarantDocType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantDocType'))+"\n      ")])],1),_vm._v(" "),_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('declarantDocumentId'), filled: _vm.casualtyData.declarantDocumentId }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.declarantDocumentId),expression:"casualtyData.declarantDocumentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento"},domProps:{"value":(_vm.casualtyData.declarantDocumentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "declarantDocumentId", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('declarantDocumentId')),expression:"submited && hasError('declarantDocumentId')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('declarantDocumentId')))])],1),_vm._v(" "),_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('city'), filled: _vm.casualtyData.city }},[_c('div',{staticClass:"label label-img-adj"},[_vm._v("\n        ¿En que ciudad vas a reparar tu vehículo?\n        "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({ content: _vm.cityHelpMessage, placement: 'top-center' }),expression:"{ content: cityHelpMessage, placement: 'top-center' }"}]},[_vm._v("Help")])]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.city),expression:"casualtyData.city"}],on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "city", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('city')),expression:"submited && hasError('city')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('city')))])],1),_vm._v(" "),_c('div',{class:{ field: true, address: true, error: _vm.submited && _vm.hasError('whereAddress'), filled: _vm.casualtyData.whereAddress }},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.whereAddress),expression:"casualtyData.whereAddress"}],attrs:{"type":"text","placeholder":"Dirección o Ciudad de ocurrencia"},domProps:{"value":(_vm.casualtyData.whereAddress)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "whereAddress", $event.target.value)}}})]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('whereAddress')),expression:"submited && hasError('whereAddress')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('whereAddress')))])],1)]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo heridos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withInjured === true },attrs:{"type":"button"},on:{"click":function($event){"changeRules"('withInjured', 'casualties', true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withInjured === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInjured', 'casualties', false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-heridos"},[_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('casualties'), filled: _vm.casualtyData.casualties }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('casualties')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Hubo muertos?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withDeaths === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', true)}}},[_vm._v("\n            Si\n          ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withDeaths === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withDeaths', 'deaths', false)}}},[_vm._v("\n            No\n          ")])])])]),_vm._v(" "),_c('div',{staticClass:"col campo-muerte"},[_c('div',{class:{ field: true, error: _vm.submited && _vm.hasError('deaths'), filled: _vm.casualtyData.deaths }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.deaths),expression:"casualtyData.deaths"}],attrs:{"disabled":_vm.casualtyData.withDeaths === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "deaths", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('deaths')),expression:"submited && hasError('deaths')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('deaths')))])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Intervino policía de tránsito?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withPolice === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', true)}}},[_vm._v("Si")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withPolice === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.yesNoOptions('withPolice', false)}}},[_vm._v("No")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('h2',[_vm._v("Marca las zonas afectadas de tu vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('damages')),expression:"submited && hasError('damages')"}],staticClass:"error"},[_c('div',{staticClass:"error-message"},[_vm._v("\n      "+_vm._s(_vm.hasError('damages'))+"\n    ")])]),_vm._v(" "),_c('div',{staticClass:"image-car"},[_c('img',{attrs:{"src":_vm.carImage,"alt":"Daños en el vehículo"}}),_vm._v(" "),_vm._l((_vm.damages),function(option){return _c('p-check',{key:option,staticClass:"p-default p-round p-thick",attrs:{"color":"primary-o","value":option},model:{value:(_vm.casualtyData.damages),callback:function ($$v) {_vm.$set(_vm.casualtyData, "damages", $$v)},expression:"casualtyData.damages"}},[_c('i',{staticClass:"icon mdi mdi-check",attrs:{"slot":"extra"},slot:"extra"}),_vm._v("\n      "+_vm._s(option)+"\n    ")])})],2),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])]),_vm._v(" "),_c('alert',{attrs:{"open":_vm.modal,"icon":"invalid-plate"},on:{"closeModal":function($event){return _vm.closeModal($event)}}},[_c('div',{attrs:{"slot":"body"},slot:"body"},[_c('div',[_c('h2',[_vm._v(_vm._s(_vm.modalTitle))]),_vm._v(" "),_c('p',[_vm._v(" "+_vm._s(_vm.modalBody))])])])])],1)}
+>>>>>>> main
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -50280,7 +51964,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_DocumentsListThirdParty_vue__ = __webpack_require__(54);
 /* unused harmony namespace reexport */
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0a7a6664_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_DocumentsListThirdParty_vue__ = __webpack_require__(118);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59746fa7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_DocumentsListThirdParty_vue__ = __webpack_require__(118);
+>>>>>>> main
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50297,7 +51985,11 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_DocumentsListThirdParty_vue__["a" /* default */],
+<<<<<<< HEAD
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0a7a6664_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_DocumentsListThirdParty_vue__["a" /* default */],
+=======
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59746fa7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_DocumentsListThirdParty_vue__["a" /* default */],
+>>>>>>> main
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -51814,7 +53506,834 @@ if (typeof window !== 'undefined' && window.Vue && !window.Vue.resource) {
 /* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 !function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define("VueLoading",[],e):"object"==typeof exports?exports.VueLoading=e():t.VueLoading=e()}("undefined"!=typeof self?self:this,(function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,i),r.l=!0,r.exports}return i.m=t,i.c=e,i.d=function(t,e,n){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)i.d(n,r,function(e){return t[e]}.bind(null,r));return n},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=1)}([function(t,e,i){},function(t,e,i){"use strict";i.r(e);var n="undefined"!=typeof window?window.HTMLElement:Object,r={mounted:function(){this.enforceFocus&&document.addEventListener("focusin",this.focusIn)},methods:{focusIn:function(t){if(this.isActive&&t.target!==this.$el&&!this.$el.contains(t.target)){var e=this.container?this.container:this.isFullPage?null:this.$el.parentElement;(this.isFullPage||e&&e.contains(t.target))&&(t.preventDefault(),this.$el.focus())}}},beforeDestroy:function(){document.removeEventListener("focusin",this.focusIn)}};function a(t,e,i,n,r,a,o,s){var l,u="function"==typeof t?t.options:t;if(e&&(u.render=e,u.staticRenderFns=i,u._compiled=!0),n&&(u.functional=!0),a&&(u._scopeId="data-v-"+a),o?(l=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},u._ssrRegister=l):r&&(l=s?function(){r.call(this,(u.functional?this.parent:this).$root.$options.shadowRoot)}:r),l)if(u.functional){u._injectStyles=l;var c=u.render;u.render=function(t,e){return l.call(e),c(t,e)}}else{var d=u.beforeCreate;u.beforeCreate=d?[].concat(d,l):[l]}return{exports:t,options:u}}var o=a({name:"spinner",props:{color:{type:String,default:"#000"},height:{type:Number,default:64},width:{type:Number,default:64}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 38 38",xmlns:"http://www.w3.org/2000/svg",width:this.width,height:this.height,stroke:this.color}},[e("g",{attrs:{fill:"none","fill-rule":"evenodd"}},[e("g",{attrs:{transform:"translate(1 1)","stroke-width":"2"}},[e("circle",{attrs:{"stroke-opacity":".25",cx:"18",cy:"18",r:"18"}}),e("path",{attrs:{d:"M36 18c0-9.94-8.06-18-18-18"}},[e("animateTransform",{attrs:{attributeName:"transform",type:"rotate",from:"0 18 18",to:"360 18 18",dur:"0.8s",repeatCount:"indefinite"}})],1)])])])}),[],!1,null,null,null).exports,s=a({name:"dots",props:{color:{type:String,default:"#000"},height:{type:Number,default:240},width:{type:Number,default:60}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 120 30",xmlns:"http://www.w3.org/2000/svg",fill:this.color,width:this.width,height:this.height}},[e("circle",{attrs:{cx:"15",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"60",cy:"15",r:"9","fill-opacity":"0.3"}},[e("animate",{attrs:{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"105",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,l=a({name:"bars",props:{color:{type:String,default:"#000"},height:{type:Number,default:40},width:{type:Number,default:40}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 30 30",height:this.height,width:this.width,fill:this.color}},[e("rect",{attrs:{x:"0",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"10",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"20",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,u=a({name:"vue-loading",mixins:[r],props:{active:Boolean,programmatic:Boolean,container:[Object,Function,n],isFullPage:{type:Boolean,default:!0},enforceFocus:{type:Boolean,default:!0},lockScroll:{type:Boolean,default:!1},transition:{type:String,default:"fade"},canCancel:Boolean,onCancel:{type:Function,default:function(){}},color:String,backgroundColor:String,blur:{type:String,default:"2px"},opacity:Number,width:Number,height:Number,zIndex:Number,loader:{type:String,default:"spinner"}},data:function(){return{isActive:this.active}},components:{Spinner:o,Dots:s,Bars:l},beforeMount:function(){this.programmatic&&(this.container?(this.isFullPage=!1,this.container.appendChild(this.$el)):document.body.appendChild(this.$el))},mounted:function(){this.programmatic&&(this.isActive=!0),document.addEventListener("keyup",this.keyPress)},methods:{cancel:function(){this.canCancel&&this.isActive&&(this.hide(),this.onCancel.apply(null,arguments))},hide:function(){var t=this;this.$emit("hide"),this.$emit("update:active",!1),this.programmatic&&(this.isActive=!1,setTimeout((function(){var e;t.$destroy(),void 0!==(e=t.$el).remove?e.remove():e.parentNode.removeChild(e)}),150))},disableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.add("vld-shown")},enableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.remove("vld-shown")},keyPress:function(t){27===t.keyCode&&this.cancel()}},watch:{active:function(t){this.isActive=t},isActive:function(t){t?this.disableScroll():this.enableScroll()}},computed:{bgStyle:function(){return{background:this.backgroundColor,opacity:this.opacity,backdropFilter:"blur(".concat(this.blur,")")}}},beforeDestroy:function(){document.removeEventListener("keyup",this.keyPress)}},(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("transition",{attrs:{name:t.transition}},[i("div",{directives:[{name:"show",rawName:"v-show",value:t.isActive,expression:"isActive"}],staticClass:"vld-overlay is-active",class:{"is-full-page":t.isFullPage},style:{zIndex:t.zIndex},attrs:{tabindex:"0","aria-busy":t.isActive,"aria-label":"Loading"}},[i("div",{staticClass:"vld-background",style:t.bgStyle,on:{click:function(e){return e.preventDefault(),t.cancel(e)}}}),i("div",{staticClass:"vld-icon"},[t._t("before"),t._t("default",[i(t.loader,{tag:"component",attrs:{color:t.color,width:t.width,height:t.height}})]),t._t("after")],2)])])}),[],!1,null,null,null).exports,c=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};return{show:function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:e,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i,a={programmatic:!0},o=Object.assign({},e,n,a),s=new(t.extend(u))({el:document.createElement("div"),propsData:o}),l=Object.assign({},i,r);return Object.keys(l).map((function(t){s.$slots[t]=l[t]})),s}}};i(0);u.install=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},n=c(t,e,i);t.$loading=n,t.prototype.$loading=n};e.default=u}]).default}));
+=======
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("VueLoading", [], factory);
+	else if(typeof exports === 'object')
+		exports["VueLoading"] = factory();
+	else
+		root["VueLoading"] = factory();
+})(this, () => {
+return /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ src)
+});
+
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/js/Component.vue?vue&type=template&id=76669bf1&
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('transition', {
+    attrs: {
+      "name": _vm.transition
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.isActive,
+      expression: "isActive"
+    }],
+    staticClass: "vld-overlay is-active",
+    class: {
+      'is-full-page': _vm.isFullPage
+    },
+    style: {
+      zIndex: _vm.zIndex
+    },
+    attrs: {
+      "tabindex": "0",
+      "aria-busy": _vm.isActive,
+      "aria-label": "Loading"
+    }
+  }, [_c('div', {
+    staticClass: "vld-background",
+    style: _vm.bgStyle,
+    on: {
+      "click": function ($event) {
+        $event.preventDefault();
+        return _vm.cancel.apply(null, arguments);
+      }
+    }
+  }), _c('div', {
+    staticClass: "vld-icon"
+  }, [_vm._t("before"), _vm._t("default", function () {
+    return [_c(_vm.loader, {
+      tag: "component",
+      attrs: {
+        "color": _vm.color,
+        "width": _vm.width,
+        "height": _vm.height
+      }
+    })];
+  }), _vm._t("after")], 2)])]);
+};
+var staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./src/js/helpers.js
+const removeElement = el => {
+  if (typeof el.remove !== 'undefined') {
+    el.remove();
+  } else {
+    el.parentNode.removeChild(el);
+  }
+};
+const hasWindow = () => {
+  return typeof window !== 'undefined';
+};
+const HTMLElement = hasWindow() ? window.HTMLElement : Object;
+
+;// CONCATENATED MODULE: ./src/js/trapFocusMixin.js
+/* harmony default export */ const trapFocusMixin = ({
+  mounted() {
+    if (this.enforceFocus) {
+      document.addEventListener('focusin', this.focusIn);
+    }
+  },
+  methods: {
+    /**
+     * Trap focus event
+     *
+     * @param event
+     */
+    focusIn(event) {
+      // Ignore when loading is not active
+      if (!this.isActive) return;
+      if (
+      // Event target is the loading div element itself
+      event.target === this.$el ||
+      // Event target is inside the loading div
+      this.$el.contains(event.target)) return;
+
+      // Use container as parent when available otherwise use parent element when isFullPage is false
+      let parent = this.container ? this.container : this.isFullPage ? null : this.$el.parentElement;
+      if (
+      // Always prevent when loading is full screen
+      this.isFullPage ||
+      // When a parent exist means loader is running inside a container
+      // When loading is NOT full screen and event target is inside the given container
+      parent && parent.contains(event.target)) {
+        event.preventDefault();
+        this.$el.focus();
+      }
+    }
+  },
+  beforeDestroy() {
+    document.removeEventListener('focusin', this.focusIn);
+  }
+});
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/spinner.vue?vue&type=template&id=34adbf2c&
+var spinnervue_type_template_id_34adbf2c_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('svg', {
+    attrs: {
+      "viewBox": "0 0 38 38",
+      "xmlns": "http://www.w3.org/2000/svg",
+      "width": _vm.width,
+      "height": _vm.height,
+      "stroke": _vm.color
+    }
+  }, [_c('g', {
+    attrs: {
+      "fill": "none",
+      "fill-rule": "evenodd"
+    }
+  }, [_c('g', {
+    attrs: {
+      "transform": "translate(1 1)",
+      "stroke-width": "2"
+    }
+  }, [_c('circle', {
+    attrs: {
+      "stroke-opacity": ".25",
+      "cx": "18",
+      "cy": "18",
+      "r": "18"
+    }
+  }), _c('path', {
+    attrs: {
+      "d": "M36 18c0-9.94-8.06-18-18-18"
+    }
+  }, [_c('animateTransform', {
+    attrs: {
+      "attributeName": "transform",
+      "type": "rotate",
+      "from": "0 18 18",
+      "to": "360 18 18",
+      "dur": "0.8s",
+      "repeatCount": "indefinite"
+    }
+  })], 1)])])]);
+};
+var spinnervue_type_template_id_34adbf2c_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/spinner.vue?vue&type=script&lang=js&
+/* harmony default export */ const spinnervue_type_script_lang_js_ = ({
+  name: 'spinner',
+  props: {
+    color: {
+      type: String,
+      default: '#000'
+    },
+    height: {
+      type: Number,
+      default: 64
+    },
+    width: {
+      type: Number,
+      default: 64
+    }
+  }
+});
+;// CONCATENATED MODULE: ./src/loaders/spinner.vue?vue&type=script&lang=js&
+ /* harmony default export */ const loaders_spinnervue_type_script_lang_js_ = (spinnervue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/runtime/componentNormalizer.js
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent(
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */,
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options =
+    typeof scriptExports === 'function' ? scriptExports.options : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) {
+    // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () {
+          injectStyles.call(
+            this,
+            (options.functional ? this.parent : this).$root.$options.shadowRoot
+          )
+        }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functional component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection(h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing ? [].concat(existing, hook) : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+;// CONCATENATED MODULE: ./src/loaders/spinner.vue
+
+
+
+
+
+/* normalize component */
+;
+var component = normalizeComponent(
+  loaders_spinnervue_type_script_lang_js_,
+  spinnervue_type_template_id_34adbf2c_render,
+  spinnervue_type_template_id_34adbf2c_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ const spinner = (component.exports);
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/dots.vue?vue&type=template&id=3a9b75c1&
+var dotsvue_type_template_id_3a9b75c1_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('svg', {
+    attrs: {
+      "viewBox": "0 0 120 30",
+      "xmlns": "http://www.w3.org/2000/svg",
+      "fill": _vm.color,
+      "width": _vm.width,
+      "height": _vm.height
+    }
+  }, [_c('circle', {
+    attrs: {
+      "cx": "15",
+      "cy": "15",
+      "r": "15"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "r",
+      "from": "15",
+      "to": "15",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": "15;9;15",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "fill-opacity",
+      "from": "1",
+      "to": "1",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": "1;.5;1",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  })]), _c('circle', {
+    attrs: {
+      "cx": "60",
+      "cy": "15",
+      "r": "9",
+      "fill-opacity": "0.3"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "r",
+      "from": "9",
+      "to": "9",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": "9;15;9",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "fill-opacity",
+      "from": "0.5",
+      "to": "0.5",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": ".5;1;.5",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  })]), _c('circle', {
+    attrs: {
+      "cx": "105",
+      "cy": "15",
+      "r": "15"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "r",
+      "from": "15",
+      "to": "15",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": "15;9;15",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "fill-opacity",
+      "from": "1",
+      "to": "1",
+      "begin": "0s",
+      "dur": "0.8s",
+      "values": "1;.5;1",
+      "calcMode": "linear",
+      "repeatCount": "indefinite"
+    }
+  })])]);
+};
+var dotsvue_type_template_id_3a9b75c1_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/dots.vue?vue&type=script&lang=js&
+/* harmony default export */ const dotsvue_type_script_lang_js_ = ({
+  name: 'dots',
+  props: {
+    color: {
+      type: String,
+      default: '#000'
+    },
+    height: {
+      type: Number,
+      default: 240
+    },
+    width: {
+      type: Number,
+      default: 60
+    }
+  }
+});
+;// CONCATENATED MODULE: ./src/loaders/dots.vue?vue&type=script&lang=js&
+ /* harmony default export */ const loaders_dotsvue_type_script_lang_js_ = (dotsvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./src/loaders/dots.vue
+
+
+
+
+
+/* normalize component */
+;
+var dots_component = normalizeComponent(
+  loaders_dotsvue_type_script_lang_js_,
+  dotsvue_type_template_id_3a9b75c1_render,
+  dotsvue_type_template_id_3a9b75c1_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ const dots = (dots_component.exports);
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/bars.vue?vue&type=template&id=db670f7e&
+var barsvue_type_template_id_db670f7e_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('svg', {
+    attrs: {
+      "xmlns": "http://www.w3.org/2000/svg",
+      "viewBox": "0 0 30 30",
+      "height": _vm.height,
+      "width": _vm.width,
+      "fill": _vm.color
+    }
+  }, [_c('rect', {
+    attrs: {
+      "x": "0",
+      "y": "13",
+      "width": "4",
+      "height": "5"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "height",
+      "attributeType": "XML",
+      "values": "5;21;5",
+      "begin": "0s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "y",
+      "attributeType": "XML",
+      "values": "13; 5; 13",
+      "begin": "0s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  })]), _c('rect', {
+    attrs: {
+      "x": "10",
+      "y": "13",
+      "width": "4",
+      "height": "5"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "height",
+      "attributeType": "XML",
+      "values": "5;21;5",
+      "begin": "0.15s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "y",
+      "attributeType": "XML",
+      "values": "13; 5; 13",
+      "begin": "0.15s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  })]), _c('rect', {
+    attrs: {
+      "x": "20",
+      "y": "13",
+      "width": "4",
+      "height": "5"
+    }
+  }, [_c('animate', {
+    attrs: {
+      "attributeName": "height",
+      "attributeType": "XML",
+      "values": "5;21;5",
+      "begin": "0.3s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  }), _c('animate', {
+    attrs: {
+      "attributeName": "y",
+      "attributeType": "XML",
+      "values": "13; 5; 13",
+      "begin": "0.3s",
+      "dur": "0.6s",
+      "repeatCount": "indefinite"
+    }
+  })])]);
+};
+var barsvue_type_template_id_db670f7e_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/loaders/bars.vue?vue&type=script&lang=js&
+/* harmony default export */ const barsvue_type_script_lang_js_ = ({
+  name: 'bars',
+  props: {
+    color: {
+      type: String,
+      default: '#000'
+    },
+    height: {
+      type: Number,
+      default: 40
+    },
+    width: {
+      type: Number,
+      default: 40
+    }
+  }
+});
+;// CONCATENATED MODULE: ./src/loaders/bars.vue?vue&type=script&lang=js&
+ /* harmony default export */ const loaders_barsvue_type_script_lang_js_ = (barsvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./src/loaders/bars.vue
+
+
+
+
+
+/* normalize component */
+;
+var bars_component = normalizeComponent(
+  loaders_barsvue_type_script_lang_js_,
+  barsvue_type_template_id_db670f7e_render,
+  barsvue_type_template_id_db670f7e_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ const bars = (bars_component.exports);
+;// CONCATENATED MODULE: ./src/loaders/index.js
+
+
+
+/* harmony default export */ const loaders = ({
+  Spinner: spinner,
+  Dots: dots,
+  Bars: bars
+});
+;// CONCATENATED MODULE: ./node_modules/.pnpm/babel-loader@9.1.2_la66t7xldg4uecmyawueag5wkm/node_modules/babel-loader/lib/index.js!./node_modules/.pnpm/vue-loader@15.10.1_y5o36p7qrshhm4v7l6yk7rwfsu/node_modules/vue-loader/lib/index.js??vue-loader-options!./src/js/Component.vue?vue&type=script&lang=js&
+
+
+
+/* harmony default export */ const Componentvue_type_script_lang_js_ = ({
+  name: 'vue-loading',
+  mixins: [trapFocusMixin],
+  props: {
+    active: Boolean,
+    programmatic: Boolean,
+    container: [Object, Function, HTMLElement],
+    isFullPage: {
+      type: Boolean,
+      default: true
+    },
+    enforceFocus: {
+      type: Boolean,
+      default: true
+    },
+    lockScroll: {
+      type: Boolean,
+      default: false
+    },
+    transition: {
+      type: String,
+      default: 'fade'
+    },
+    /**
+     * Allow user to hide the loader
+     */
+    canCancel: Boolean,
+    /**
+     * Do something on cancel
+     */
+    onCancel: {
+      type: Function,
+      default: () => {}
+    },
+    color: String,
+    backgroundColor: String,
+    blur: {
+      type: String,
+      default: '2px'
+    },
+    opacity: Number,
+    width: Number,
+    height: Number,
+    zIndex: Number,
+    loader: {
+      type: String,
+      default: 'spinner'
+    }
+  },
+  data() {
+    return {
+      // Don't mutate the prop
+      isActive: this.active
+    };
+  },
+  components: loaders,
+  beforeMount() {
+    // Insert the component in DOM when called programmatically
+    if (this.programmatic) {
+      if (this.container) {
+        this.isFullPage = false;
+        this.container.appendChild(this.$el);
+      } else {
+        document.body.appendChild(this.$el);
+      }
+    }
+  },
+  mounted() {
+    // Activate immediately when called programmatically
+    if (this.programmatic) {
+      this.isActive = true;
+    }
+    document.addEventListener('keyup', this.keyPress);
+  },
+  methods: {
+    /**
+     * Proxy to hide() method.
+     * Gets called by ESC button or when click outside
+     */
+    cancel() {
+      if (!this.canCancel || !this.isActive) return;
+      this.hide();
+      this.onCancel.apply(null, arguments);
+    },
+    /**
+     * Hide and destroy component if it's programmatic.
+     */
+    hide() {
+      this.$emit('hide');
+      this.$emit('update:active', false);
+
+      // Timeout for the animation complete before destroying
+      if (this.programmatic) {
+        this.isActive = false;
+        setTimeout(() => {
+          this.$destroy();
+          removeElement(this.$el);
+        }, 150);
+      }
+    },
+    disableScroll() {
+      if (this.isFullPage && this.lockScroll) {
+        document.body.classList.add('vld-shown');
+      }
+    },
+    enableScroll() {
+      if (this.isFullPage && this.lockScroll) {
+        document.body.classList.remove('vld-shown');
+      }
+    },
+    /**
+     * Key press event to hide on ESC.
+     *
+     * @param event
+     */
+    keyPress(event) {
+      // todo keyCode is deprecated
+      if (event.keyCode === 27) this.cancel();
+    }
+  },
+  watch: {
+    active(value) {
+      this.isActive = value;
+    },
+    isActive(value) {
+      if (value) {
+        this.disableScroll();
+      } else {
+        this.enableScroll();
+      }
+    }
+  },
+  computed: {
+    bgStyle() {
+      return {
+        background: this.backgroundColor,
+        opacity: this.opacity,
+        backdropFilter: `blur(${this.blur})`
+      };
+    }
+  },
+  beforeDestroy() {
+    document.removeEventListener('keyup', this.keyPress);
+  }
+});
+;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=script&lang=js&
+ /* harmony default export */ const js_Componentvue_type_script_lang_js_ = (Componentvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./src/js/Component.vue
+
+
+
+
+
+/* normalize component */
+;
+var Component_component = normalizeComponent(
+  js_Componentvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ const Component = (Component_component.exports);
+;// CONCATENATED MODULE: ./src/js/api.js
+
+const Api = function (Vue) {
+  let globalProps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  let globalSlots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  return {
+    show() {
+      let props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : globalProps;
+      let slots = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : globalSlots;
+      const forceProps = {
+        programmatic: true
+      };
+      const propsData = Object.assign({}, globalProps, props, forceProps);
+      const instance = new (Vue.extend(Component))({
+        el: document.createElement('div'),
+        propsData
+      });
+      const mergedSlots = Object.assign({}, globalSlots, slots);
+      Object.keys(mergedSlots).map(name => {
+        instance.$slots[name] = mergedSlots[name];
+      });
+      return instance;
+    }
+  };
+};
+/* harmony default export */ const js_api = (Api);
+;// CONCATENATED MODULE: ./src/index.js
+
+
+
+const Plugin = function (Vue) {
+  let props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  let slots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  let api = js_api(Vue, props, slots);
+  Vue.$loading = api;
+  Vue.prototype.$loading = api;
+};
+Component.install = Plugin;
+/* harmony default export */ const src = (Component);
+__webpack_exports__ = __webpack_exports__["default"];
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
+>>>>>>> main
 
 /***/ }),
 /* 123 */
@@ -53940,6 +56459,7 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(20)["default"];
+<<<<<<< HEAD
 function _toPrimitive(input, hint) {
   if (_typeof(input) !== "object" || input === null) return input;
   var prim = input[Symbol.toPrimitive];
@@ -53951,6 +56471,19 @@ function _toPrimitive(input, hint) {
   return (hint === "string" ? String : Number)(input);
 }
 module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+=======
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r ? String : Number)(t);
+}
+module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+>>>>>>> main
 
 /***/ }),
 /* 128 */

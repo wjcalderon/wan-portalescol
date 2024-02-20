@@ -1,0 +1,11 @@
+uuid: 18d23c05-53fb-4637-8c30-b4dd44f0e3dd
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.footer_prueba
+id: node.footer_prueba
+target_entity_type_id: node
+target_bundle: footer_prueba
+default_langcode: site_default
+language_alterable: false

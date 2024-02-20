@@ -6,7 +6,18 @@ dependencies:
     - block_content.type.alert
     - field.field.block_content.alert.body
   module:
+<<<<<<< HEAD
     - text
+=======
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 id: block_content.alert.default
 targetEntityType: block_content
 bundle: alert

@@ -1,0 +1,23 @@
+uuid: 7df9cd1f-28af-4020-a42e-2f599d6e9310
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.footer_prueba
+  module:
+    - text
+id: node.footer_prueba.body
+field_name: body
+entity_type: node
+bundle: footer_prueba
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

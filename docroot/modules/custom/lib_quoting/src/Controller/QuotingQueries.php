@@ -6,25 +6,41 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
+<<<<<<< HEAD
  * Controller with queries of vehicles quoting
+=======
+ * Controller with queries of vehicles quoting.
+>>>>>>> main
  */
 class QuotingQueries extends ControllerBase {
 
   /**
+<<<<<<< HEAD
    * Return the minimum year to quoting
    * @return int
    */
   private function min_year() {
+=======
+   * Return the minimum year to quoting.
+   */
+  private function minYear() {
+>>>>>>> main
     $actual_date = new \DateTime();
     $actual_date->sub(new \DateInterval('P30Y'));
     return $actual_date->format('Y');
   }
 
   /**
+<<<<<<< HEAD
   * Query for brand autocomplete vehicles
   * @param $brand
   */
   public function circulation_city_autocomplete($city) {
+=======
+   * Query for brand autocomplete vehicles.
+   */
+  public function circulationCityAutocomplete($city) {
+>>>>>>> main
     $db = \Drupal::database();
     $city = strtoupper($db->escapeLike($city));
     $query = $db->query("SELECT
@@ -49,17 +65,27 @@ class QuotingQueries extends ControllerBase {
     $result = $query->fetchAll();
 
     if (!empty($result)) {
+<<<<<<< HEAD
       foreach ($result as $key => $value) {
         $opts[] = array(
           'id' => $value->tid,
           'value' => $value->city_name,
           'code' => $value->code
         );
+=======
+      foreach ($result as $value) {
+        $opts[] = [
+          'id' => $value->tid,
+          'value' => $value->city_name,
+          'code' => $value->code,
+        ];
+>>>>>>> main
       }
       return new JsonResponse($opts);
     }
   }
 
+<<<<<<< HEAD
 
   /**
   * Query for label autocomplete vehicles
@@ -71,6 +97,17 @@ class QuotingQueries extends ControllerBase {
       $db = \Drupal::database();
       $label = strtoupper($db->escapeLike($label));
       $min_year = $this->min_year();
+=======
+  /**
+   * Query for label autocomplete vehicles.
+   */
+  public function vehicleLabelAutocomplete($label) {
+    $opts = [];
+    if (!empty($label)) {
+      $db = \Drupal::database();
+      $label = strtoupper($db->escapeLike($label));
+      $minYear = $this->minYear();
+>>>>>>> main
 
       $query = $db->query("SELECT
           nfla.entity_id AS nid_vehicle_price,
@@ -89,7 +126,11 @@ class QuotingQueries extends ControllerBase {
         WHERE nfla.bundle = 'precio_vehiculo'
         AND UPPER(nfla.field_label_autocomplete_value) LIKE '%$label%'
         AND nfp.field_precio_value <= 200000000
+<<<<<<< HEAD
         AND ttfd.name >= $min_year
+=======
+        AND ttfd.name >= $minYear
+>>>>>>> main
         AND ttfd2.tid NOT IN (834, 825, 824, 823, 819, 828, 835, 817, 818, 830, 829)
         ORDER BY ttfd.name DESC
         LIMIT 25"
@@ -101,10 +142,17 @@ class QuotingQueries extends ControllerBase {
           if ($key === 0 && $value->field_um_value === 'F') {
             continue;
           }
+<<<<<<< HEAD
           $opts[] = array(
             'id' => $value->nid_vehicle_price,
             'value' => $value->label,
           );
+=======
+          $opts[] = [
+            'id' => $value->nid_vehicle_price,
+            'value' => $value->label,
+          ];
+>>>>>>> main
         }
       }
       return new JsonResponse($opts);
@@ -112,6 +160,7 @@ class QuotingQueries extends ControllerBase {
   }
 
   /**
+<<<<<<< HEAD
   * Query for get info vehicles by nid price
   * @param $brand
   */
@@ -120,6 +169,15 @@ class QuotingQueries extends ControllerBase {
     if ($nid_veh_price && is_numeric($nid_veh_price)) {
       $db = \Drupal::database();
       $min_year = $this->min_year();
+=======
+   * Query for get info vehicles by nid price.
+   */
+  public function vehicleGetInfoByNidPrice($nid_veh_price) {
+    $info = [];
+    if ($nid_veh_price && is_numeric($nid_veh_price)) {
+      $db = \Drupal::database();
+      $minYear = $this->minYear();
+>>>>>>> main
 
       $query = $db->query("SELECT nfd.title AS name_vehicle,
           ttfd1.name AS ref2,
@@ -161,16 +219,24 @@ class QuotingQueries extends ControllerBase {
         AND ttfd3.vid = 'modelo'
         AND nfv.bundle = 'precio_vehiculo'
         AND nfp.field_precio_value < 200000000
+<<<<<<< HEAD
         AND ttfd.name >= $min_year
+=======
+        AND ttfd.name >= $minYear
+>>>>>>> main
         AND ttfd2.tid NOT IN (834, 825, 824, 823, 819, 828, 835, 817, 818, 830, 829)
         AND nfv.entity_id = $nid_veh_price");
 
       $result = $query->fetchAll();
       if (!empty($result)) {
+<<<<<<< HEAD
         foreach ($result as $key => $value) {
           // if ($key === 0 && $value->um === 'F') {
           //   continue;
           // }
+=======
+        foreach ($result as $value) {
+>>>>>>> main
           $info[$nid_veh_price] = $value->name_vehicle;
           $info[$nid_veh_price] .= '|' . $value->clase;
           $info[$nid_veh_price] .= '|' . $value->ref2;
@@ -191,11 +257,22 @@ class QuotingQueries extends ControllerBase {
     }
   }
 
+<<<<<<< HEAD
   public function vehicle_get_info_by_code_fasecolda($code, $model) {
     $info = array();
     if ($code && is_numeric($code)) {
       $db = \Drupal::database();
       $min_year = $this->min_year();
+=======
+  /**
+   * Fucntion fasecolda.
+   */
+  public function vehicleGetInfoByCodeFasecolda($code, $model) {
+    $info = [];
+    if ($code && is_numeric($code)) {
+      $db = \Drupal::database();
+      $minYear = $this->minYear();
+>>>>>>> main
 
       $query = $db->query("SELECT
           nfd.title AS name_vehicle,
@@ -238,7 +315,11 @@ class QuotingQueries extends ControllerBase {
         AND nfc.bundle = 'vehiculo'
         AND ttfd2.tid NOT IN (834, 825, 824, 823, 819, 828, 835, 817, 818, 830, 829)
         AND nfp.field_precio_value < 200000000
+<<<<<<< HEAD
         AND ttfd3.name >= $min_year
+=======
+        AND ttfd3.name >= $minYear
+>>>>>>> main
         AND nfc.field_codigo_value = $code
         ORDER BY ttfd3.name DESC"
       );

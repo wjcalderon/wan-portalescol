@@ -37,9 +37,16 @@ function lib_v2_text_box_theme() {
 /**
  * Implements hook_theme_suggestions_block_alter().
  */
+<<<<<<< HEAD
 function lib_v2_text_box_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook)
 {
     if (isset($variables['elements']['content']['#block_content'])) {
         array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
     }
+=======
+function lib_v2_text_box_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+>>>>>>> main
 }

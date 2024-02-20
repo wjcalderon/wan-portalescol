@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (function($) {
     Drupal.behaviors.paymentMethods = {
         attach: function(context, settings) {
@@ -31,3 +32,15 @@
         }
     }
 })(jQuery);
+=======
+document.addEventListener("DOMContentLoaded", function () {
+  var enlace = document.getElementById("external");
+  enlace.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var href = this.getAttribute("href");
+
+    window.location.replace(href);
+  });
+});
+>>>>>>> main

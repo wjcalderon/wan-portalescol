@@ -92,6 +92,11 @@ display:
               width: 40
               height: 40
             svg_render_as_image: true
+<<<<<<< HEAD
+=======
+            image_loading:
+              attribute: lazy
+>>>>>>> main
           group_column: ''
           group_columns: {  }
           group_rows: true

@@ -1,15 +1,33 @@
+<<<<<<< HEAD
 uuid: 9c1aa7df-ac73-4196-956a-a1d1fbc2e18f
+=======
+uuid: b66641da-51a1-41f2-b7fe-2e355e8ae3da
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
   module:
+<<<<<<< HEAD
     - svg_image_field
+=======
+    - crop
+    - svg_image_field
+third_party_settings:
+  crop:
+    image_field: null
+_core:
+  default_config_hash: v5c8O8vxfxo-4NPpEVij5v6ldfxskwVecrIZqCA-QyI
+>>>>>>> main
 id: vector_image
 label: 'Vector Image'
 description: 'A locally hosted Scalable Vector Graphics file.'
 source: svg
 queue_thumbnail_downloads: false
+<<<<<<< HEAD
 new_revision: false
+=======
+new_revision: true
+>>>>>>> main
 source_configuration:
   source_field: field_media_svg
 field_map: {  }

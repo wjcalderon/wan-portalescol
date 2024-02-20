@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: d76a1780-5c82-4091-8b35-6841a270969c
+=======
+uuid: 20cddb33-919c-43ec-9c9c-f5d63706fbbc
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -14,6 +18,10 @@ dependencies:
     - link
     - media_library
     - paragraphs
+<<<<<<< HEAD
+=======
+    - paragraphs_features
+>>>>>>> main
 id: paragraph.lib_banner_promo_icons.default
 targetEntityType: paragraph
 bundle: lib_banner_promo_icons
@@ -57,7 +65,11 @@ content:
       title_plural: Cards
       edit_mode: open
       closed_mode: summary
+<<<<<<< HEAD
       autocollapse: none
+=======
+      autocollapse: all
+>>>>>>> main
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: lib_card_icon
@@ -66,7 +78,17 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+<<<<<<< HEAD
     third_party_settings: {  }
+=======
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+>>>>>>> main
   field_lib_summary:
     type: string_textarea
     weight: 2

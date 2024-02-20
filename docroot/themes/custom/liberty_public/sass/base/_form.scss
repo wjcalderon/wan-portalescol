@@ -168,15 +168,22 @@ main {
         display: none;
       }
       .select2-selection__rendered {
+<<<<<<< HEAD
         /*line-height: inherit;*/
+=======
+>>>>>>> main
         padding-top: 1rem;
       }
     }
   }
   textarea {
+<<<<<<< HEAD
     // line-height: 3.125rem;
     height: auto;
     padding-top: 0.5rem;
+=======
+    height: auto;
+>>>>>>> main
     line-height: 1.5;
     padding-top: 2rem;
     @include browser(Trident) {
@@ -730,7 +737,10 @@ main {
         // position: relative;
         label {
           padding-left: 1rem;
+<<<<<<< HEAD
           margin-top: 2rem;
+=======
+>>>>>>> main
           margin-left: 0;
           margin-top: 0;
           width: 100%;
@@ -841,7 +851,10 @@ main {
       justify-content: center;
       position: relative;
       border-top: 2px solid $gris-tr;
+<<<<<<< HEAD
       padding-top: 1rem;
+=======
+>>>>>>> main
       align-items: center;
       padding: 2rem 0;
       @include breakpoint($small) {
@@ -980,9 +993,26 @@ main {
 }
 
 .button--secondary {
+<<<<<<< HEAD
   background: $blanco-pl !important;
   color: $charcoal-grey !important;
   border-color: $charcoal-grey !important;
+=======
+  background: $amarillo-pr !important;
+  color: $charcoal-grey !important;
+  border-color: $amarillo-pr !important;
+  border-radius: 3rem;
+  &:hover {
+    transform: scale(1.05);
+    background-color: $azul-os-pr !important;
+    border: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+>>>>>>> main
 }
 
 .button--inverse {
@@ -1001,6 +1031,37 @@ main {
   background: $azul-hielo-tr !important;
   color: $charcoal-grey !important;
   border-color: $azul-hielo-tr !important;
+<<<<<<< HEAD
+=======
+  border-radius: 3rem;
+  &:hover {
+    transform: scale(1.05);
+    background-color: $nc-darkteal !important;
+    border: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.button--alpha{
+  background: $azul-os-pr;
+  color: $blanco-pl;
+  border-color: $azul-os-pr;
+  border-radius: 3rem;
+  &:hover {
+    transform: scale(1.05);
+    background-color: #06748C !important;
+    border: none;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+>>>>>>> main
 }
 
 .button--large {

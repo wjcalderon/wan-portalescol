@@ -38,7 +38,11 @@ third_party_settings:
       label: Teléfonos
       region: content
       parent_name: ''
+<<<<<<< HEAD
       weight: 19
+=======
+      weight: 16
+>>>>>>> main
       format_type: fieldset
       format_settings:
         classes: ''
@@ -52,10 +56,16 @@ third_party_settings:
       label: Identificación
       region: content
       parent_name: ''
+<<<<<<< HEAD
       weight: 20
       format_type: details
       format_settings:
         label: Identificación
+=======
+      weight: 18
+      format_type: details
+      format_settings:
+>>>>>>> main
         classes: ''
         id: ''
         open: true
@@ -73,7 +83,11 @@ content:
     third_party_settings: {  }
   field_consulting_room:
     type: string_textfield
+<<<<<<< HEAD
     weight: 14
+=======
+    weight: 13
+>>>>>>> main
     region: content
     settings:
       size: 60
@@ -95,7 +109,11 @@ content:
     third_party_settings: {  }
   field_google_maps_address:
     type: string_textarea
+<<<<<<< HEAD
     weight: 16
+=======
+    weight: 15
+>>>>>>> main
     region: content
     settings:
       rows: 5
@@ -109,14 +127,33 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+<<<<<<< HEAD
   field_location_map:
     type: geolocation_googlegeocoder
     weight: 27
+=======
+  field_lender_category:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_location_map:
+    type: geolocation_googlegeocoder
+    weight: 20
+>>>>>>> main
     region: content
     settings:
       auto_client_location: '0'
       auto_client_location_marker: '0'
       allow_override_map_settings: 0
+<<<<<<< HEAD
+=======
+      hide_textfield_form: false
+      centre:
+        fit_bounds:
+          enable: true
+>>>>>>> main
       google_map_settings:
         type: ROADMAP
         zoom: 10
@@ -138,6 +175,7 @@ content:
         preferScrollingToZooming: 0
         disableDoubleClickZoom: 0
         info_auto_display: 0
+<<<<<<< HEAD
       default_longitude: ''
       default_latitude: ''
       populate_address_field: ''
@@ -147,6 +185,12 @@ content:
   field_network_address:
     type: string_textfield
     weight: 13
+=======
+    third_party_settings: {  }
+  field_network_address:
+    type: string_textfield
+    weight: 12
+>>>>>>> main
     region: content
     settings:
       size: 60
@@ -154,7 +198,11 @@ content:
     third_party_settings: {  }
   field_oficina:
     type: string_textfield
+<<<<<<< HEAD
     weight: 15
+=======
+    weight: 14
+>>>>>>> main
     region: content
     settings:
       size: 60
@@ -170,7 +218,11 @@ content:
     third_party_settings: {  }
   field_provider_type:
     type: entity_reference_autocomplete
+<<<<<<< HEAD
     weight: 10
+=======
+    weight: 9
+>>>>>>> main
     region: content
     settings:
       match_operator: CONTAINS
@@ -180,13 +232,21 @@ content:
     third_party_settings: {  }
   field_schedules:
     type: options_select
+<<<<<<< HEAD
     weight: 51
+=======
+    weight: 22
+>>>>>>> main
     region: content
     settings: {  }
     third_party_settings: {  }
   field_speciality:
     type: entity_reference_autocomplete
+<<<<<<< HEAD
     weight: 12
+=======
+    weight: 11
+>>>>>>> main
     region: content
     settings:
       match_operator: CONTAINS
@@ -196,13 +256,21 @@ content:
     third_party_settings: {  }
   field_type_plan:
     type: options_select
+<<<<<<< HEAD
     weight: 11
+=======
+    weight: 10
+>>>>>>> main
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ubication:
     type: options_shs
+<<<<<<< HEAD
     weight: 26
+=======
+    weight: 19
+>>>>>>> main
     region: content
     settings:
       display_node_count: false
@@ -212,7 +280,11 @@ content:
     third_party_settings: {  }
   field_web_page:
     type: link_default
+<<<<<<< HEAD
     weight: 20
+=======
+    weight: 17
+>>>>>>> main
     region: content
     settings:
       placeholder_url: ''
@@ -277,11 +349,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
+<<<<<<< HEAD
     weight: 50
+=======
+    weight: 21
+>>>>>>> main
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+<<<<<<< HEAD
   field_lender_category: true
+=======
+>>>>>>> main
   field_telemedicine: true
   field_whatsapp: true

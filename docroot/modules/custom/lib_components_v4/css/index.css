@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
     --yellow-color: #FFD000;
     --primary-color: #1A1446;
     --button-color: #78E1E1;
@@ -38,10 +39,66 @@ h1, h2, h3, h4, h6 {
 }
 .lib4-comp-button__light-blue, .lib4-comp-button-light-blue, .lib4-comp-button--light-blue {
     background: var(--button-color);
+=======
+  --yellow-color: #ffd000;
+  --primary-color: #1a1446;
+  --button-color: #78e1e1;
+  --black-color: #333;
+  --gray-color: #ccc;
+  --desktop: 1140px;
+  --height-banner: 450px;
+  --white-color: #ffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  color: var(--primary-color);
+}
+
+.field--name-field-p-components {
+  background: whitesmoke;
+}
+
+.lib4-comp-button {
+  background: var(--button-color);
+  padding: 0.8rem 2rem;
+  margin: 1.5rem auto;
+  display: table;
+  text-align: center;
+  border-radius: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.lib4-comp-button__white,
+.lib4-comp-button-white,
+.lib4-comp-button--white {
+  background: white;
+}
+.lib4-comp-button__yellow,
+.lib4-comp-button-yellow,
+.lib4-comp-button--yellow {
+  background: var(--yellow-color);
+}
+.lib4-comp-button__blue,
+.lib4-comp-button-blue,
+.lib4-comp-button--blue {
+  background: var(--primary-color);
+  color: white;
+}
+.lib4-comp-button__light-blue,
+.lib4-comp-button-light-blue,
+.lib4-comp-button--light-blue {
+  background: var(--button-color);
+>>>>>>> main
 }
 
 /*Iniciar carrusel*/
 .lib4-comp-carrousel {
+<<<<<<< HEAD
     position: relative;
     height: var(--height-banner);
     overflow: hidden;
@@ -81,10 +138,49 @@ h1, h2, h3, h4, h6 {
 .lib4-comp-carrousel__default .field--name-field-lib4-v4-carousel-sec{
     font-size: 1rem;
     color: gray;
+=======
+  position: relative;
+  height: var(--height-banner);
+  overflow: hidden;
+}
+
+.lib4-comp-carrousel__nav {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.lib4-comp-carrousel__circle {
+  overflow: hidden;
+  text-indent: -9999px;
+  height: 15px;
+  width: 15px;
+  background: #ffd000;
+  border: 2px solid #ffd000;
+  margin: 5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.lib4-comp-carrousel__card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: var(--height-banner);
+  position: relative;
+}
+
+.lib4-comp-carrousel__default .field--name-field-lib4-v4-carousel-sec {
+  font-size: 1rem;
+  color: gray;
+>>>>>>> main
 }
 
 /*Fin carrusel*/
 
+<<<<<<< HEAD
 
 
 
@@ -133,10 +229,54 @@ h1, h2, h3, h4, h6 {
 .lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__circle{
     background-color: var(--primary-color);
     border-color: white;
+=======
+/*Carrusel 2*/
+.lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__image {
+  order: -1;
+  width: 100%;
+}
+
+.lib4-comp-carrousel__rightNavigation.lib4-comp-carrousel__content {
+  padding: 2rem 2rem 2rem 5rem;
+  max-width: 100%;
+}
+
+.lib4-comp-carrousel__rightNavigation.lib4-comp-carrousel__textwrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__title {
+  font-size: 2rem;
+}
+
+.lib4-comp-carrousel__rightNavigation .field--name-field-lib4-v4-carousel-sec {
+  font-size: 1rem;
+  color: gray;
+}
+
+.lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__nav {
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 15px;
+}
+
+.lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__circle {
+  background-color: var(--primary-color);
+  border-color: white;
+>>>>>>> main
 }
 /*Fin carrusel 2*/
 
 /*Nav carrusel 3*/
+<<<<<<< HEAD
     
 .lib4-comp-carrousel__leftNavigation .field--name-field-lib4-v4-carousel-sec{
     font-size: 1rem;
@@ -180,11 +320,51 @@ h1, h2, h3, h4, h6 {
 .lib4-comp-carrousel__content__white {
     background-color: var(--white-color);
     color: white;
+=======
+.lib4-comp-carrousel__leftNavigation .field--name-field-lib4-v4-carousel-sec {
+  font-size: 1rem;
+  color: gray;
+}
+
+.lib4-comp-carrousel__leftNavigation .lib4-comp-carrousel__nav {
+  left: 40px;
+  right: unset;
+  width: auto;
+}
+/*Fin nav carrusel 3*/
+
+.lib4-comp-carrousel__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  height: var(--height-banner);
+}
+
+.lib4-comp-carrousel__rightNavigation .lib4-comp-carrousel__content {
+  padding: 3rem 4rem 3rem 6rem;
+}
+
+.lib4-comp-carrousel__content__yellow {
+  background-color: var(--yellow-color);
+  color: var(--primary-color);
+}
+
+.lib4-comp-carrousel__content__blue {
+  background-color: var(--button-color);
+  color: #1a1446;
+}
+.lib4-comp-carrousel__content__white {
+  background-color: var(--white-color);
+  color: white;
+>>>>>>> main
 }
 
 .lib4-comp-carrousel__content__blue .lib4-comp-carrousel__subheading,
 .lib4-comp-carrousel__content__blue .lib4-comp-carrousel__title,
 .lib4-comp-carrousel__content__blue .lib4-comp-carrousel__subtitle {
+<<<<<<< HEAD
     color: #1A1446;
 }
 
@@ -218,17 +398,58 @@ h1, h2, h3, h4, h6 {
     padding: 0.5rem 0;
     text-align: left;
     direction: initial;
+=======
+  color: #1a1446;
+}
+
+.lib4-comp-carrousel__textwrap {
+  line-height: 1.4;
+}
+
+.lib4-comp-carrousel__subheading {
+  text-transform: uppercase;
+  color: var(--black-color);
+  font-size: 1rem;
+}
+
+.lib4-comp-carrousel__title {
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  direction: initial;
+}
+
+.lib4-comp-carrousel__subtitle {
+  font-size: 1.4rem;
+  text-transform: unset;
+  font-weight: 400;
+  color: var(--black-color);
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: left;
+  direction: initial;
+>>>>>>> main
 }
 
 .lib4-comp-carrousel__image .field__item,
 .lib4-comp-carrousel__image .field-media-image div {
+<<<<<<< HEAD
     height: var(--height-banner);
     width: auto;
+=======
+  height: var(--height-banner);
+  width: auto;
+>>>>>>> main
 }
 
 .lib4-comp-carrousel__image .field__item img,
 .lib4-comp-carrousel__image div img,
 .lib4-comp-carrousel__image img {
+<<<<<<< HEAD
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -492,10 +713,226 @@ h1, h2, h3, h4, h6 {
 .field--name-field-lib4-v4-contacts-contact{
     color: gray;
     font-size: 1rem;
+=======
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lib4-comp-carrousel__item {
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.lib4-comp-carrousel__item.is-active {
+  opacity: 1;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.lib4-comp-carrousel__image {
+  width: 50vw;
+}
+
+@media (max-width: 920px) {
+  .lib4-comp-carrousel__card {
+    grid-template-columns: repeat(1, 1fr);
+    min-height: auto;
+  }
+
+  .lib4-comp-carrousel__image {
+    width: 100%;
+  }
+
+  .lib4-comp-carrousel__image .field__item {
+    height: auto;
+  }
+
+  .lib4-comp-carrousel__content {
+    padding: 2rem;
+  }
+
+  .lib4-comp-carrousel {
+    height: 620px;
+    overflow: hidden;
+    background: transparent;
+  }
+}
+.lib4-comp-cardlist__container {
+  display: grid;
+  grid-gap: 2rem;
+  max-width: var(--desktop);
+  margin: 2rem auto 4rem;
+}
+
+.lib4-comp-cardlist__container.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lib4-comp-cardlist__container.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.lib4-comp-card {
+  border-radius: 30px;
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+
+.lib4-comp-card__image img {
+  width: 100%;
+  height: auto;
+}
+
+.lib4-comp-card__image .field__label {
+  display: none;
+}
+
+.lib4-comp-card__content {
+  background: white;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.lib4-comp-card__body {
+  padding-bottom: 1.5rem;
+}
+
+.lib-comp-carrousel__title {
+  max-width: var(--desktop);
+  margin: 3rem auto 0;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.contacts-group-main {
+  max-width: var(--desktop);
+  margin: 2rem auto 4rem;
+  grid-gap: 2rem;
+}
+
+@media (max-width: 1140px) {
+  .lib4-comp-cardlist__container {
+    margin: 4rem 2rem;
+  }
+
+  .lib4-comp-cardlist__container.grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lib4-comp-cardlist__container.grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .lib4-comp-cardlist__container.grid-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .lib4-comp-cardlist__container.grid-4 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .contacts-group-main {
+    margin: 2rem 2rem 4rem;
+  }
+
+  .lib-comp-carrousel__title {
+    margin: 3rem 2rem 0;
+  }
+}
+
+.lib4-comp-interested {
+  max-width: var(--desktop);
+  margin: 4rem auto;
+}
+
+.lib4-comp-interested__title {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+.lib4-comp-interested__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin: 4rem 0;
+}
+
+.lib4-comp-interested__card {
+  padding: 2rem;
+  display: flex;
+  border-radius: 30px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--primary-color);
+  background-color: #e6efef;
+  background-image: url(img/right.svg);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: 25px;
+}
+
+.lib4-comp-interested__icon {
+  padding-right: 10px;
+  display: inline-block;
+}
+
+/*Componente grid*/
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+/*Mobile v4*/
+@media (min-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contacts-group-main .contacts-group-main__item {
+  display: flex;
+  align-items: center;
+}
+
+.contacts-group-main .contacts-group-main__item img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.field--name-field-lib4-v4-contacts-title {
+  color: darkblue;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.field--name-field-lib4-v4-contacts-contact {
+  color: gray;
+  font-size: 1rem;
+>>>>>>> main
 }
 
 /*Mas informacion*/
 
+<<<<<<< HEAD
 .moreInfo-group-main{
     column-gap: 2rem;
     max-width: var(--desktop);
@@ -563,3 +1000,73 @@ h1, h2, h3, h4, h6 {
     grid-auto-flow: dense;
     direction: rtl;
 }
+=======
+.moreInfo-group-main {
+  column-gap: 2rem;
+  max-width: var(--desktop);
+  margin: 3rem auto;
+}
+
+.moreInfo-group-main .moreInfo-group-main__item {
+  background-color: white;
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  position: relative;
+}
+
+.moreInfo-group-main .moreInfo-group-main__item a {
+  font-weight: bold;
+}
+
+.moreInfo-group-main .moreInfo-group-main__item a::after {
+  content: ">";
+  background-color: var(--yellow-color);
+  border-radius: 50%;
+  height: 26px;
+  width: 26px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.moreInfo-group-main__item .field--name-field-lib4-v4-cardinfo-title {
+  font-size: 1.5rem;
+  background-color: var(--primary-color);
+}
+
+.moreInfo-group-main__item .field--name-field-lib4-v4-cardinfo-text-sup {
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.moreInfo-group-main .field--name-field-lib4-v4-cardinfo-link a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  background-color: var(--primary-color);
+}
+
+.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation {
+  max-width: var(--desktop);
+  margin: 3rem auto;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation
+  .lib4-comp-carrousel__image {
+  width: 100%;
+}
+
+.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation
+  .lib4-comp-carrousel__card {
+  grid-auto-flow: dense;
+  direction: rtl;
+}
+>>>>>>> main

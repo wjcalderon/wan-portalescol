@@ -217,18 +217,29 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 define("ace/mode/json",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/json_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle","ace/worker/worker_client"], function(require, exports, module){"use strict";
+=======
+define("ace/mode/json",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/json_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/cstyle","ace/worker/worker_client"], function(require, exports, module){"use strict";
+>>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var HighlightRules = require("./json_highlight_rules").JsonHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+<<<<<<< HEAD
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+=======
+>>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var WorkerClient = require("../worker/worker_client").WorkerClient;
 var Mode = function () {
     this.HighlightRules = HighlightRules;
     this.$outdent = new MatchingBraceOutdent();
+<<<<<<< HEAD
     this.$behaviour = new CstyleBehaviour();
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

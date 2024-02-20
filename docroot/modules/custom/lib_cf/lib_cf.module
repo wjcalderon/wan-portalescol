@@ -1,11 +1,24 @@
 <?php
 
+<<<<<<< HEAD
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Access\AccessResult;
+=======
+/**
+ * @file
+ * lib_cf.module
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+>>>>>>> main
 
 /**
  * Implements hook_forma_alter().
  */
+<<<<<<< HEAD
 function lib_cf_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
    //var_dump($form_id);
@@ -32,3 +45,34 @@ function lib_cf_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\
      }
    }
  }
+=======
+function lib_cf_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if (strpos($form_id, 'webform_submission_') === 0) {
+
+    $form['#attached']['library'][] = 'lib_cf/captcha';
+
+  }
+}
+
+/**
+ * Lib cf node access.
+ */
+function lib_cf_node_access(NodeInterface $node, $op, AccountInterface $account) {
+
+  $node_type = $node->getType();
+
+  if ($node_type == 'informes') {
+
+    // Roles Body Class.
+    $userRoles = $account->getRoles();
+    // Roles.
+    if (in_array('administrator', $userRoles)|| in_array('informes_rol', $userRoles)) {
+      return AccessResult::allowed()->cachePerPermissions();
+    }
+    else {
+      return AccessResult::forbidden();
+    }
+  }
+}
+>>>>>>> main

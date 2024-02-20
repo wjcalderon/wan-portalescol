@@ -1,0 +1,14 @@
+uuid: b25da65c-2435-4095-a16e-30b5eb0abaad
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.footer_prueba_creator
+  module:
+    - user
+id: user_add_role_action.footer_prueba_creator
+label: 'Añade el rol Footer_prueba creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: footer_prueba_creator

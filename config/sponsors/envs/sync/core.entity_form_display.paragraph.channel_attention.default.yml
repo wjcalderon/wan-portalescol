@@ -14,6 +14,7 @@ targetEntityType: paragraph
 bundle: channel_attention
 mode: default
 content:
+<<<<<<< HEAD
   field_contacts_phone:
     type: number
     weight: 2
@@ -24,6 +25,11 @@ content:
   field_description:
     type: text_textarea_with_counter
     weight: 3
+=======
+  field_description:
+    type: text_textarea_with_counter
+    weight: 0
+>>>>>>> main
     region: content
     settings:
       rows: 5
@@ -34,6 +40,7 @@ content:
       count_html_characters: false
       textcount_status_message: 'Maxlength: <span class="maxlength_count">@maxlength</span><br />Used: <span class="current_count">@current_length</span><br />Remaining: <span class="remaining_count">@remaining_count</span>'
     third_party_settings: {  }
+<<<<<<< HEAD
   field_office:
     type: string_textfield
     weight: 1
@@ -44,4 +51,10 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+=======
+hidden:
+  created: true
+  field_contacts_phone: true
+  field_office: true
+>>>>>>> main
   status: true

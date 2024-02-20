@@ -1,0 +1,13 @@
+uuid: a8909b81-4072-49d3-b0eb-7a35c1968ac3
+langcode: es
+status: true
+dependencies:
+  theme:
+    - liberty_public
+  menu:
+    - menu-blog-de-corredores
+id: menu-blog-de-corredores__liberty_public
+menu: menu-blog-de-corredores
+theme: liberty_public
+block_config: '{"animation":"none","duration":400,"delay":200,"style":"","auto-arrow":"1","always-show-submenu":"1","number-columns":null}'
+menu_config: '{"menu_link_content:dbe1b0fe-ae99-4337-9798-70c2be38d411":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}},"menu_link_content:dd931f32-c984-42ff-a7c0-34b6813d40bf":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}},"menu_link_content:6b290153-8b17-495e-b5e1-93d0e653a4c1":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}},"menu_link_content:c0e202be-b85c-451f-b07e-fe709b0c0b64":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}},"menu_link_content:562203d5-ea17-499e-b0c9-218c7c216b89":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}}}'

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 5bac44a0-12ce-4ad3-8ef8-5a1e15c4ec04
+=======
+uuid: 6c35d881-3807-4d5e-be20-5f7402402432
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -12,7 +16,11 @@ bundle: lib_card
 label: Título
 description: ''
 required: false
+<<<<<<< HEAD
 translatable: false
+=======
+translatable: true
+>>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

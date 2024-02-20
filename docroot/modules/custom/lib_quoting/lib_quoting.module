@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * Created by PhpStorm.
  * User: esinergia1
@@ -6,6 +7,17 @@
  * Time: 4:11 PM
  */
 
+=======
+
+/**
+ * @file
+ * Created by PhpStorm.
+ */
+
+/**
+ * Hook theme.
+ */
+>>>>>>> main
 function lib_quoting_theme($existing, $type, $theme, $path) {
   return [
     'quote_pdf' => [

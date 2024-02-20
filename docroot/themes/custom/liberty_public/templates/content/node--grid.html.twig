@@ -79,6 +79,7 @@
 
 {{ attach_library('bartik/classy.node') }}
 
+<<<<<<< HEAD
 <div {{ attributes.addClass(classes) }}>
   <header>
     {{ title_prefix }}
@@ -114,3 +115,45 @@
     <span class="item-noti__cta"><a href="{{ url }}">Ver más</a></span>
   </div>
 </div>
+=======
+{% set bodyText = content.body.0['#text']|split(' ')|slice(0, 130)|join(' ') %}
+<a href="{{ url }}"><div {{ attributes.addClass(classes) }}>
+	<header>
+		{{ title_prefix }}
+		{% if label and not page %}
+			<h2 {{ title_attributes.addClass('node__title') }}>
+				<a href="{{ url }}" rel="bookmark">{{ label }}</a>
+			</h2>
+		{% endif %}
+		{{ title_suffix }}
+		{% if display_submitted %}
+			<div class="node__meta">
+				{{ author_picture }}
+				<span {{ author_attributes }}>
+					{% trans %}Submitted by
+					{{ author_name }}
+					on
+					{{ date }}{% endtrans %}
+				</span>
+				{{ metadata }}
+			</div>
+		{% endif %}
+	</header>
+	<div class="item-noti__media">
+		{{ content.field_big_image }}
+		{{ content.field_small_image }}
+	</div>
+	<div class="item-noti__content">
+		<p class="item-noti__entra">
+			{{ node.label|slice(0, 80) }}
+		</p>
+		<span class="item-body">{{ content.body.0['#text']|slice(0, 200) }}</span>
+	</div>
+	<div class="item-noti__content-2">
+		<span class="item-noti__tag {{ cat_class }}">
+			{{ node.field_category.entity.label()|slice(0, 23) }}
+		</span>
+		<span class="item-noti__cta"></span>
+	</div>
+</div></a>
+>>>>>>> main

@@ -52,7 +52,11 @@ function liberty_claims_mail($key, &$message, $params) {
       $from = \Drupal::config('system.site')->get('mail');
 
       $message['headers']['MIME-Version'] = '1.0';
+<<<<<<< HEAD
       $message['headers']['Content-Type'] = 'multipart/mixed;';
+=======
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
+>>>>>>> main
       $message['headers']['Reply-To'] = $params['name'] . '<' . $params['email'] . '>';
       $message['headers']['From'] = $message['headers']['Sender'] = $from;
       $message['subject'] = $params['subject'];
@@ -60,7 +64,11 @@ function liberty_claims_mail($key, &$message, $params) {
       $theme_body = [
         '#theme' => 'notification-mail',
         '#data' => [
+<<<<<<< HEAD
           'url' => $base_root . $base_path . drupal_get_path('module', 'liberty_claims'),
+=======
+          'url' => $base_root . $base_path . \Drupal::service('extension.list.module')->getPath('liberty_claims'),
+>>>>>>> main
           'name' => $params['name'],
           'document' => $params['document'],
           'plate' => $params['plate'],
@@ -75,13 +83,20 @@ function liberty_claims_mail($key, &$message, $params) {
       break;
 
     case 'Error radicacion Iaxis':
+<<<<<<< HEAD
 
+=======
+    case 'Error radicacion Sipo':
+      $message['headers']['MIME-Version'] = '1.0';
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
+>>>>>>> main
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject2'];
       $message['body'][] = $params['message'];
 
       break;
 
+<<<<<<< HEAD
     case 'Error radicacion Sipo':
 
       $message['from'] = \Drupal::config('system.site')->get('mail');
@@ -91,6 +106,18 @@ function liberty_claims_mail($key, &$message, $params) {
       break;
   }
 
+=======
+    default:
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
+
+>>>>>>> main
 }
 
 /**
@@ -114,14 +141,66 @@ function liberty_claims_cron() {
     $directory = explode('/', $locale_directory);
     array_pop($directory);
     $uri = $directory[0] . '//' . $directory[2] . '/' . $directory[3];
+<<<<<<< HEAD
     if (is_dir($uri)) {
       if (!$file_system->scanDirectory($uri, '/.*/')) {
         $file_system->rmdir($uri);
       }
+=======
+    if (is_dir($uri) && !$file_system->scanDirectory($uri, '/.*/')) {
+      $file_system->rmdir($uri);
+>>>>>>> main
     }
 
   }
   $entities = $storage_handler->loadMultiple($files);
   $storage_handler->delete($entities);
+<<<<<<< HEAD
 
+=======
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function liberty_claims_token_info() {
+  $info = [];
+  $info['types']['liberty_claims'] = [
+    'name' => t('Custom Token for Liberty Claims'),
+    'description' => t('A custom token for CKEditor in Liberty Claims module'),
+  ];
+  $info['tokens']['liberty_claims']['plate'] = [
+    'name' => t('Placa'),
+    'description' => t('Número de placa del vehículo involucrado en el siniestro'),
+  ];
+  $info['tokens']['liberty_claims']['date'] = [
+    'name' => t('Fecha de ocurrencia'),
+    'description' => t('Fecha y hora en la que ocurrió el siniestro'),
+  ];
+  $info['tokens']['liberty_claims']['whereAddress'] = [
+    'name' => t('Dirección de ocurrencia'),
+    'description' => t('Dirección exacta donde ocurrió el siniestro'),
+  ];
+  $info['tokens']['liberty_claims']['description'] = [
+    'name' => t('Descripción de los hechos'),
+    'description' => t('Relato detallado de cómo ocurrió el siniestro, incluyendo lugar, otros involucrados, partes del vehículo dañadas, entre otros detalles'),
+  ];
+  $info['tokens']['liberty_claims']['lastname'] = [
+    'name' => t('Apellido'),
+    'description' => t('Apellido del conductor involucrado'),
+  ];
+  $info['tokens']['liberty_claims']['name'] = [
+    'name' => t('Nombre'),
+    'description' => t('Nombre del conductor involucrado'),
+  ];
+  $info['tokens']['liberty_claims']['phone'] = [
+    'name' => t('Celular'),
+    'description' => t('Número de celular del conductor involucrado'),
+  ];
+  $info['tokens']['liberty_claims']['PhoneFijo'] = [
+    'name' => t('Teléfono Fijo'),
+    'description' => t('Número de teléfono fijo del conductor involucrado'),
+  ];
+  return $info;
+>>>>>>> main
 }

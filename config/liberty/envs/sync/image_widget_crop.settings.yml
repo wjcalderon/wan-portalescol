@@ -2,12 +2,21 @@ _core:
   default_config_hash: JTiHOl3PIo9Nyv7j53xwY5OwbwJWwCItksgv_X-NcbE
 langcode: es
 settings:
+<<<<<<< HEAD
   library_url: libraries/cropper/dist/cropper.min.js
   css_url: libraries/cropper/dist/cropper.min.css
+=======
+  library_url: 'https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js'
+  css_url: 'https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.css'
+>>>>>>> main
   crop_preview_image_style: crop_thumbnail
   crop_list: {  }
   crop_types_required: {  }
   warn_multiple_usages: false
   show_default_crop: true
+<<<<<<< HEAD
+=======
+  show_crop_area: false
+>>>>>>> main
   notify_apply: false
   notify_update: true

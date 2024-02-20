@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 77501ef8-7a2d-4827-8f29-1334b24f266b
+=======
+uuid: 3acc1d7b-cc3a-40d7-9cfa-1de817cc8807
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -67,7 +71,11 @@ content:
     label: hidden
     settings:
       view_mode: default
+<<<<<<< HEAD
       link: true
+=======
+      link: false
+>>>>>>> main
     third_party_settings: {  }
     weight: 3
     region: content

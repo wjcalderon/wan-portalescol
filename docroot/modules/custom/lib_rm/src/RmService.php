@@ -7,8 +7,11 @@ namespace Drupal\lib_rm;
  */
 class RmService {
 
+<<<<<<< HEAD
   private $id_plan = 40;
 
+=======
+>>>>>>> main
   /**
    * Returns a cow sound.
    */
@@ -16,6 +19,7 @@ class RmService {
     return $this->sounds[array_rand($this->sounds)];
   }
 
+<<<<<<< HEAD
   function getChildrensTipoPlan($id){
       $options = [];
       $query = \Drupal::database()->select('taxonomy_term__parent', 'p');
@@ -50,3 +54,26 @@ class RmService {
      ', FALSE);
   }
 }
+=======
+  /**
+   * Get data childrens type plan.
+   */
+  public function getChildrensTipoPlan($id) {
+    $query = \Drupal::database()->select('taxonomy_term__parent', 'p');
+    $query->addField('p', 'entity_id', 'tid');
+    $query->condition('p.parent_target_id', $id);
+    $result = $query->execute()->fetchAll();
+    if (!empty($result)) {
+      foreach ($result as $value) {
+        $opts[] = $value->tid;
+      }
+    }
+    else {
+      $opts[] = $id;
+
+    }
+    return $opts;
+  }
+
+}
+>>>>>>> main

@@ -3,7 +3,11 @@ _core:
 langcode: es
 cache:
   page:
+<<<<<<< HEAD
     max_age: 0
+=======
+    max_age: 3600
+>>>>>>> main
 css:
   preprocess: false
   gzip: true

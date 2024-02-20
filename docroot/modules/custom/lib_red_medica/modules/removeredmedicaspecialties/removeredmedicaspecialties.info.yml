@@ -1,0 +1,7 @@
+name: Remove Red Medica Specialties
+type: module
+description: Delete all specialties to reload them again
+package: Esinergia
+core_version_requirement: ^9 || ^10
+dependencies:
+- lib_red_medica

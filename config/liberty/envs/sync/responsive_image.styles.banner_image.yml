@@ -3,14 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+<<<<<<< HEAD
     - image.style.3_1_large_1920_x_640_
     - image.style.3_1_medium_1200_x_400
 id: banner_image
 label: '3:1 Images'
+=======
+    - image.style.banner_full
+    - image.style.banner_medium
+    - image.style.banner_mobile
+  theme:
+    - liberty_public
+id: banner_image
+label: 'Banner image'
+>>>>>>> main
 image_style_mappings:
   -
     image_mapping_type: sizes
     image_mapping:
+<<<<<<< HEAD
       sizes: 100vw
       sizes_image_styles:
         - 3_1_large_1920_x_640_
@@ -19,3 +30,28 @@ image_style_mappings:
     multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: 3_1_medium_1200_x_400
+=======
+      sizes: 1440px
+      sizes_image_styles:
+        - banner_full
+    breakpoint_id: liberty_public.wide
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 768px
+      sizes_image_styles:
+        - banner_medium
+    breakpoint_id: liberty_public.narrow
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 320px
+      sizes_image_styles:
+        - banner_mobile
+    breakpoint_id: liberty_public.mobile
+    multiplier: 1x
+breakpoint_group: liberty_public
+fallback_image_style: banner_mobile
+>>>>>>> main

@@ -1,15 +1,30 @@
+<<<<<<< HEAD
 uuid: 238c11e7-abe4-4225-8bed-f2d2b2971121
+=======
+uuid: 2fbd356d-facc-491d-b43c-4312b69859d6
+>>>>>>> main
 langcode: es
 status: true
 dependencies: {  }
 name: lib_16_9_lg
+<<<<<<< HEAD
 label: '16:9 Large (1280 x 480)'
 effects:
   fb99e378-389a-4b11-9391-c320a1b8f290:
     uuid: fb99e378-389a-4b11-9391-c320a1b8f290
+=======
+label: '16:9 Large (1280 x 720)'
+effects:
+  a9ba5c9b-b614-4952-b43a-9ddac5405e9f:
+    uuid: a9ba5c9b-b614-4952-b43a-9ddac5405e9f
+>>>>>>> main
     id: image_scale_and_crop
     weight: 1
     data:
       width: 1280
+<<<<<<< HEAD
       height: 480
+=======
+      height: 720
+>>>>>>> main
       anchor: center-center

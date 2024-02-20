@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
     <title>COTIZACIÓN POLIZA SEGURO DE AUTOMOVILES</title>
@@ -410,4 +411,485 @@
     </tr>
 </table>
 </body>
+=======
+<!DOCTYPE>
+<html lang="es">
+	<head>
+		<title>COTIZACIÓN POLIZA SEGURO DE AUTOMOVILES</title>
+		<style type="text/css">
+			@page {
+				margin: 0 1cm;
+			}
+			body {
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 7pt;
+			}
+			table description="" {
+				width: 100%;
+				z-index: 5;
+			}
+			.radius {
+				border-spacing: 0;
+				border-radius: 7px;
+				overflow: hidden;
+				border: 1px solid #333;
+				padding: 0;
+
+			}
+
+			.radius td {
+				padding: 1pt 3pt;
+				font-size: 7pt;
+				border-left: 1px solid #333;
+				border-bottom: 1px solid #333;
+			}
+
+			.radius th {
+				background-color: #f2f2f2;
+				border-bottom: 1px solid #333;
+				border-left: 1px solid #333;
+				padding: 1pt 3pt;
+				font-size: 5pt;
+			}
+
+			.radius .no-border-bottom {
+				border-bottom: none;
+			}
+
+			.radius .no-border-left {
+				border-left: none;
+			}
+			.margin-bottom {
+				margin-bottom: 2pt;
+			}
+			.align-center {
+				text-align: center;
+			}
+			.align-right {
+				text-align: right;
+				padding-right: 20px: }
+			.vigilado {
+				position: fixed;
+				width: 0.5cm;
+				left: -0.7cm;
+				bottom: 8cm;
+				z-index: 1;
+			}
+			.watermark {
+				position: fixed;
+				left: 4cm;
+				top: 8cm;
+				z-index: 1;
+				width: 60%;
+			}
+			.side-text {
+				transform: rotate(270deg);
+				transform-origin: 50%;
+				position: fixed;
+				right: -5.5cm;
+				bottom: 10cm;
+				width: 10cm;
+				text-align: center;
+				font-size: 6pt;
+				z-index: 10
+			}
+		</style>
+	</head>
+	<body>
+
+		<img alt="" class="watermark" src="{{ host ~ file_url('public://Cotizacion.jpg') }}">
+		<img alt="" class="vigilado" src="{{ host ~ file_url('public://image_vigilado.jpg') }}">
+
+		<div class="side-text">
+			SOMOS GRANDES CONTRIBUYENTES SEGÚN RESOLUCIÓN NO. 000041 DEL 30-ENERO-2014<br>
+			ACTIVIDAD ECONÓMICA No.6511 IVA REGIMEN COMÚN
+		</div>
+		<table description="" align="center">
+			<caption></caption>
+			<th></th>
+			<tr>
+				<td>
+					<table description="" class="tg">
+						<caption></caption>
+						<th></th>
+						<tr>
+							<td class="align-center">
+								<p>COTIZACIÓN<br>
+									POLIZA SEGURO DE AUTOMOVILES</p>
+							</td>
+							<td rowspan="2" style="text-align: right;">
+								<img src="{{ host ~ file_url('public://liberty-seguros.jpg') }}" alt="" width="200">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table description="" class="radius">
+									<caption></caption>
+
+									<tr>
+										<th class="no-border-left">RAMO</th>
+										<th>PRODUCTO</th>
+										<th>No. COTIZACIÓN</th>
+									</tr>
+									<tr>
+										<td class="no-border-bottom no-border-left align-center">104
+										</td>
+										<td class="no-border-bottom align-center">AUTOS</td>
+										<td class="no-border-bottom align-center">{{ quotation }}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table description="" class="radius margin-bottom align-center" width="100%">
+						<caption></caption>
+
+						<tr>
+							<th id="" colspan="2" rowspan="2" class="no-border-left">LUGAR Y FECHA DE EXPEDICIÓN</th>
+							<th id="" rowspan="2">SUC / ADN</th>
+							<th id="" colspan="2">VIGENCIA DE LA COTIZACIÓN</th>
+							<th id="" rowspan="2">DÍAS</th>
+						</tr>
+						<tr>
+							<th id="">DESDE</th>
+							<th id="">HASTA</th>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">BOGOTÁ</td>
+							<td class="no-border-bottom">{{ "now"|date("Y-m-d") }}</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">{{ from }}</td>
+							<td class="no-border-bottom">{{ to }}</td>
+							<td class="no-border-bottom">30</td>
+						</tr>
+					</table>
+
+
+					<table description="" width="100%" class="radius margin-bottom ali">
+						<caption></caption>
+
+						<tr>
+							<th id="" class="no-border-left" colspan="8">SOLICITANTE</th>
+						</tr>
+						<tr>
+							<th id="" class="no-border-left">NOMBRE:</th>
+
+							<td colspan="7">{{ data.names }}
+								{{ data.lastnames }}</td>
+						</tr>
+						<tr>
+							<th id="" class="no-border-left">TIPO Y No. DE IDENTIFICACIÓN:</th>
+
+							<td>{{ data.type_doc }}:
+								{{ data.num_doc }}</td>
+							<th id="">TELÉFONO:</th>
+
+							<td>{{ data.cellphone }}</td>
+							<th id="" colspan="2">CIUDAD:</th>
+
+							<td colspan="2">{{ data.circulation_city }}</td>
+						</tr>
+						<tr>
+							<th id="" class="no-border-left">DIRECCIÓN:</th>
+
+							<td>{{ data.address }}</td>
+							<th id="">VINCULACIÓN:</th>
+
+							<td>prueba</td>
+							<th id="" colspan="2">EDAD:</th>
+
+							<td colspan="2">
+								{{ data.age }}</td>
+						</tr>
+						<tr>
+							<th id="" class="no-border-left no-border-bottom">ANTIGUEDAD CLIENTE EN LIBERTY:</th>
+
+							<td class="no-border-bottom">{{ data.experience }}</td>
+							<th id="" class="no-border-bottom">OCUPACIÓN:</th>
+
+							<td class="no-border-bottom">{{ data.ocupation_name }}</td>
+							<th id="" class="no-border-bottom">GENERO</th>
+
+							<td class="no-border-bottom">{{ data.gender }}</td>
+							<th id="" class="no-border-bottom">ESTADO CIVIL:</th>
+
+							<td class="no-border-bottom">{{ data.civil_status }}</td>
+						</tr>
+					</table>
+
+					<table description="" width="100%" class="radius margin-bottom align-center">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-left">COD</th>
+							<th>MARCA</th>
+							<th>CLASE</th>
+							<th>TIPO</th>
+							<th>MODELO P</th>
+							<th>PLACA</th>
+							<th>USO</th>
+							<th>MOTOR</th>
+							<th>CHASIS</th>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">{{ data.vehicle_cod }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_brand }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_class }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_type }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_model }}</td>
+							<td class="no-border-bottom">{{ data.num_plate }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_use }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_motor }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_chasis }}</td>
+						</tr>
+					</table>
+
+					<table description="" class="radius margin-bottom align-center" width="100%">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-left">CILINDRAJE
+							</th>
+							<th>No PUERTAS
+							</th>
+							<th>PESO VEHICULO</th>
+							<th>
+								TIPO DE
+							</th>
+							<th>TIPO CAJA VEHICULO
+							</th>
+							<th>SERVICIO
+							</th>
+							<th>TRASMISION VEHICULO
+							</th>
+							<th>TRANSPORTE DE COMBUSTIBLE</th>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">{{ data.vehicle_displacement }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_doors }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_weight }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_fuel }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_gear_box }}</td>
+							<td class="no-border-bottom">{{ vehicle_service }}</td>
+							<td class="no-border-bottom">{{ data.vehicle_transmition }}</td>
+							<td class="no-border-bottom"></td>
+						</tr>
+					</table>
+
+					<table description="" class="radius margin-bottom" width="100%">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-bottom no-border-left">ACCESORIOS:</th>
+							<th class="no-border-bottom">NO</th>
+							<th class="no-border-bottom">DISPOSITIVOS:</th>
+							<th class="no-border-bottom">NO</th>
+						</tr>
+					</table>
+
+					<table description="" class="radius">
+						<caption></caption>
+
+						<tr>
+							<th id="" class="no-border-left" rowspan="2">AMPAROS</th>
+
+							<th id="" rowspan="2">VALOR ASEGURADO</th>
+
+							<th id="" colspan="2">DEDUCIBLES</th>
+
+						</tr>
+						<tr>
+							<th id="">%</th>
+
+							<th id="">Mínimo S.M.M.L.V</th>
+
+						</tr>
+
+						{% for protection in  protections %}
+							{% if protection.field_hide_quoting.value == 0 %}
+								<tr>
+									<td class="no-border-left no-border-bottom">{{ protection.name.value }}</td>
+									{% if protection.field_policy_included.value == 1 %}
+										{% set value = 'Incluido' %}
+									{% else %}
+										{% if protection.field_insured_value.value is not empty %}
+											{% set value = '$ ' ~ protection.field_insured_value.value|number_format(0, ',', '.') %}
+										{% else %}
+											{% set value = '$ ' ~ data.vehicle_com_value|number_format(0, ',', '.') %}
+										{% endif %}
+									{% endif %}
+									<td class="no-border-bottom align-right">{{ value }}</td>
+									<td class="no-border-bottom align-center">{{ protection.field_deductible_percentage.value }}</td>
+									<td class="no-border-bottom align-center">{{ protection.field_deductible_salary.value }}</td>
+								</tr>
+							{% endif %}
+						{% endfor %}
+					</table>
+
+					<table description="" class="radius">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-left no-border-bottom">AÑOS DE EXPERIENCIA</th>
+							<th class="no-border-bottom">{{ data.experience }}</th>
+							<th class="no-border-bottom">DESCUENTO COMERCIAL:</th>
+							<th class="no-border-bottom">
+								{{ discount }}</th>
+						</tr>
+					</table>
+
+
+					<table description="" class="radius margin-bottom">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-left">FORMA DE COBRO</th>
+							<th>MENSUAL</th>
+							<th>TRIMESTRAL</th>
+							<th>SEMESTRAL</th>
+							<th>ANUAL</th>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">PRIMA TOTAL VIGENCIA</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">PRIMA VIGENCIA</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$
+								{{ data.price_anual|number_format(0, ',', '.') }}</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">TASA DE CAMBIO</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$ 1</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">TOTAL PRIMA PESOS</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$
+								{{ data.price_anual|number_format(0, ',', '.') }}</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+							<td class="no-border-bottom">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">GASTOS DE EXPEDICIÓN</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$
+								{{ data.price_expedition|number_format(0, ',', '.') }}</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">IVA</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$
+								{{ data.price_iva|number_format(0, ',', '.') }}</td>
+						</tr>
+						<tr>
+							<td class="no-border-bottom no-border-left">TOTAL A PAGAR</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom">$</td>
+							<td class="no-border-bottom align-right">$
+								{{ data.price_total|number_format(0, ',', '.') }}</td>
+						</tr>
+					</table>
+
+					<table description="" class="radius">
+						<caption></caption>
+
+						<tr>
+							<th class="no-border-left">OBSERVACIONES</th>
+							<th>CONDICIONES GENERALES</th>
+							<th>Versión Marzo 2018: 01/03/2018-1333-P-03-CAU-030-DR0I</th>
+						</tr>
+						<tr>
+							<td class="no-border-left no-border-bottom" colspan="3" height="40">{{ observations }}</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption></caption>
+						<tr>
+							<td>
+								<table description="" class="radius">
+									<caption></caption>
+									<tr>
+										<th class="no-border-left" colspan="4">PARTICIPACIÓN INTERMEDIARIO</th>
+									</tr>
+									<tr>
+										<td class="no-border-left">CLAVE
+										</td>
+										<td>INTERMEDIARIO
+										</td>
+										<td>TELÉFONO
+										</td>
+										<td>% PART.</td>
+									</tr>
+									<tr>
+										<td class="no-border-left no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+							<td></td>
+							<td>
+								<table description="" class="radius">
+									<caption></caption>
+
+									<tr>
+										<th class="no-border-left" colspan="4">PARTICIPACIÓN INTERMEDIARIO</th>
+									</tr>
+									<tr>
+										<td class="no-border-left">CLAVE
+										</td>
+										<td>INTERMEDIARIO
+										</td>
+										<td>TELÉFONO
+										</td>
+										<td>% PART.</td>
+									</tr>
+									<tr>
+										<td class="no-border-left no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+										<td class="no-border-bottom">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<p>
+						Esta cotización fue realizada de acuerdo a la información suministrada por el cliente y el cálculo de la prima se ha realizado de acuerdo a la tarifa vigente en el momento de su elaboración. La prima en el momento de la emisión esta condicionada a que las características del riesgo y todos los antecedentes indicados se mantengan y sean contratados.</p>
+					<p>Esta cotización tiene validez por treinta (30) días a partir de la fecha de su expedición. La presente cotización no supone asunción de riesgo por parte de Liberty Seguros S.A. y no genera responsabilidad alguna.</p>
+					<p>La aceptación del Contrato queda condicionada a la evaluación de la información contenida, al cumplimiento de los requisitos de asegurabilidad exigidos por Liberty Seguros S.A. y a la expedición del contrato de seguro respectivo.
+					</p>
+				</td>
+			</tr>
+		</table>
+	</body>
+>>>>>>> main
 </html>

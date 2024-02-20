@@ -17,11 +17,18 @@ dependencies:
     - node.type.product
   module:
     - entity_reference_revisions
+<<<<<<< HEAD
     - manage_display
+=======
+>>>>>>> main
     - options
     - panelizer
     - svg_image
     - text
+<<<<<<< HEAD
+=======
+    - user
+>>>>>>> main
 third_party_settings:
   panelizer:
     enable: false
@@ -38,7 +45,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 2
+=======
+    weight: 1
+>>>>>>> main
     region: content
   field_assistances:
     type: entity_reference_revisions_entity_view
@@ -47,7 +58,11 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 4
+=======
+    weight: 3
+>>>>>>> main
     region: content
   field_c_components:
     type: entity_reference_revisions_entity_view
@@ -56,7 +71,11 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 7
+=======
+    weight: 6
+>>>>>>> main
     region: content
   field_clauses:
     type: entity_reference_label
@@ -64,7 +83,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 10
+=======
+    weight: 9
+>>>>>>> main
     region: content
   field_doc_clauses:
     type: entity_reference_entity_view
@@ -73,7 +96,11 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 9
+=======
+    weight: 8
+>>>>>>> main
     region: content
   field_documents_required:
     type: string
@@ -81,7 +108,11 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 8
+=======
+    weight: 7
+>>>>>>> main
     region: content
   field_icon:
     type: image
@@ -93,10 +124,15 @@ content:
         width: null
         height: null
       svg_render_as_image: true
+<<<<<<< HEAD
       image_loading:
         attribute: lazy
     third_party_settings: {  }
     weight: 3
+=======
+    third_party_settings: {  }
+    weight: 2
+>>>>>>> main
     region: content
   field_person_type:
     type: entity_reference_label
@@ -104,7 +140,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 6
+=======
+    weight: 5
+>>>>>>> main
     region: content
   field_product_type:
     type: entity_reference_label
@@ -112,20 +152,29 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 5
+=======
+    weight: 4
+>>>>>>> main
     region: content
   field_weight:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 11
+=======
+    weight: 10
+>>>>>>> main
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
+<<<<<<< HEAD
   title:
     type: title
     label: hidden
@@ -142,3 +191,9 @@ hidden:
   langcode: true
   search_api_excerpt: true
   uid: true
+=======
+hidden:
+  addtoany: true
+  field_social_network_image: true
+  langcode: true
+>>>>>>> main

@@ -1,10 +1,18 @@
 
 ace.config.setModuleUrl('ace/ext/beautify', require('file-loader?esModule=false!./src-noconflict/ext-beautify.js'));
 ace.config.setModuleUrl('ace/ext/code_lens', require('file-loader?esModule=false!./src-noconflict/ext-code_lens.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/ext/command_bar', require('file-loader?esModule=false!./src-noconflict/ext-command_bar.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/ext/elastic_tabstops_lite', require('file-loader?esModule=false!./src-noconflict/ext-elastic_tabstops_lite.js'));
 ace.config.setModuleUrl('ace/ext/emmet', require('file-loader?esModule=false!./src-noconflict/ext-emmet.js'));
 ace.config.setModuleUrl('ace/ext/error_marker', require('file-loader?esModule=false!./src-noconflict/ext-error_marker.js'));
 ace.config.setModuleUrl('ace/ext/hardwrap', require('file-loader?esModule=false!./src-noconflict/ext-hardwrap.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/ext/inline_autocomplete', require('file-loader?esModule=false!./src-noconflict/ext-inline_autocomplete.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/ext/keyboard_menu', require('file-loader?esModule=false!./src-noconflict/ext-keybinding_menu.js'));
 ace.config.setModuleUrl('ace/ext/language_tools', require('file-loader?esModule=false!./src-noconflict/ext-language_tools.js'));
 ace.config.setModuleUrl('ace/ext/linking', require('file-loader?esModule=false!./src-noconflict/ext-linking.js'));
@@ -54,6 +62,10 @@ ace.config.setModuleUrl('ace/mode/csound_score', require('file-loader?esModule=f
 ace.config.setModuleUrl('ace/mode/csp', require('file-loader?esModule=false!./src-noconflict/mode-csp.js'));
 ace.config.setModuleUrl('ace/mode/css', require('file-loader?esModule=false!./src-noconflict/mode-css.js'));
 ace.config.setModuleUrl('ace/mode/curly', require('file-loader?esModule=false!./src-noconflict/mode-curly.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/mode/cuttlefish', require('file-loader?esModule=false!./src-noconflict/mode-cuttlefish.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/mode/c_cpp', require('file-loader?esModule=false!./src-noconflict/mode-c_cpp.js'));
 ace.config.setModuleUrl('ace/mode/d', require('file-loader?esModule=false!./src-noconflict/mode-d.js'));
 ace.config.setModuleUrl('ace/mode/dart', require('file-loader?esModule=false!./src-noconflict/mode-dart.js'));
@@ -136,6 +148,10 @@ ace.config.setModuleUrl('ace/mode/nsis', require('file-loader?esModule=false!./s
 ace.config.setModuleUrl('ace/mode/nunjucks', require('file-loader?esModule=false!./src-noconflict/mode-nunjucks.js'));
 ace.config.setModuleUrl('ace/mode/objectivec', require('file-loader?esModule=false!./src-noconflict/mode-objectivec.js'));
 ace.config.setModuleUrl('ace/mode/ocaml', require('file-loader?esModule=false!./src-noconflict/mode-ocaml.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/mode/odin', require('file-loader?esModule=false!./src-noconflict/mode-odin.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/mode/partiql', require('file-loader?esModule=false!./src-noconflict/mode-partiql.js'));
 ace.config.setModuleUrl('ace/mode/pascal', require('file-loader?esModule=false!./src-noconflict/mode-pascal.js'));
 ace.config.setModuleUrl('ace/mode/perl', require('file-loader?esModule=false!./src-noconflict/mode-perl.js'));
@@ -223,6 +239,10 @@ ace.config.setModuleUrl('ace/theme/dracula', require('file-loader?esModule=false
 ace.config.setModuleUrl('ace/theme/dreamweaver', require('file-loader?esModule=false!./src-noconflict/theme-dreamweaver.js'));
 ace.config.setModuleUrl('ace/theme/eclipse', require('file-loader?esModule=false!./src-noconflict/theme-eclipse.js'));
 ace.config.setModuleUrl('ace/theme/github', require('file-loader?esModule=false!./src-noconflict/theme-github.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/theme/github_dark', require('file-loader?esModule=false!./src-noconflict/theme-github_dark.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/theme/gob', require('file-loader?esModule=false!./src-noconflict/theme-gob.js'));
 ace.config.setModuleUrl('ace/theme/gruvbox', require('file-loader?esModule=false!./src-noconflict/theme-gruvbox.js'));
 ace.config.setModuleUrl('ace/theme/gruvbox_dark_hard', require('file-loader?esModule=false!./src-noconflict/theme-gruvbox_dark_hard.js'));
@@ -292,6 +312,10 @@ ace.config.setModuleUrl('ace/snippets/csound_score', require('file-loader?esModu
 ace.config.setModuleUrl('ace/snippets/csp', require('file-loader?esModule=false!./src-noconflict/snippets/csp.js'));
 ace.config.setModuleUrl('ace/snippets/css', require('file-loader?esModule=false!./src-noconflict/snippets/css.js'));
 ace.config.setModuleUrl('ace/snippets/curly', require('file-loader?esModule=false!./src-noconflict/snippets/curly.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/snippets/cuttlefish', require('file-loader?esModule=false!./src-noconflict/snippets/cuttlefish.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/snippets/c_cpp', require('file-loader?esModule=false!./src-noconflict/snippets/c_cpp.js'));
 ace.config.setModuleUrl('ace/snippets/d', require('file-loader?esModule=false!./src-noconflict/snippets/d.js'));
 ace.config.setModuleUrl('ace/snippets/dart', require('file-loader?esModule=false!./src-noconflict/snippets/dart.js'));
@@ -374,6 +398,10 @@ ace.config.setModuleUrl('ace/snippets/nsis', require('file-loader?esModule=false
 ace.config.setModuleUrl('ace/snippets/nunjucks', require('file-loader?esModule=false!./src-noconflict/snippets/nunjucks.js'));
 ace.config.setModuleUrl('ace/snippets/objectivec', require('file-loader?esModule=false!./src-noconflict/snippets/objectivec.js'));
 ace.config.setModuleUrl('ace/snippets/ocaml', require('file-loader?esModule=false!./src-noconflict/snippets/ocaml.js'));
+<<<<<<< HEAD
+=======
+ace.config.setModuleUrl('ace/snippets/odin', require('file-loader?esModule=false!./src-noconflict/snippets/odin.js'));
+>>>>>>> main
 ace.config.setModuleUrl('ace/snippets/partiql', require('file-loader?esModule=false!./src-noconflict/snippets/partiql.js'));
 ace.config.setModuleUrl('ace/snippets/pascal', require('file-loader?esModule=false!./src-noconflict/snippets/pascal.js'));
 ace.config.setModuleUrl('ace/snippets/perl', require('file-loader?esModule=false!./src-noconflict/snippets/perl.js'));

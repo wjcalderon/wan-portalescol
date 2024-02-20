@@ -8,16 +8,29 @@ dependencies:
     - search_api_solr.solr_cache.cache_filter_default_7_0_0
     - search_api_solr.solr_cache.cache_persegfilter_default_7_0_0
     - search_api_solr.solr_cache.cache_queryresult_default_7_0_0
+<<<<<<< HEAD
     - search_api_solr.solr_field_type.text_edge_und_6_0_0
     - search_api_solr.solr_field_type.text_edgestring_und_6_0_0
     - search_api_solr.solr_field_type.text_en_6_0_0
     - search_api_solr.solr_field_type.text_es_6_0_0
     - search_api_solr.solr_field_type.text_ngram_und_6_0_0
+=======
+    - search_api_solr.solr_field_type.text_edge_und_7_0_0
+    - search_api_solr.solr_field_type.text_edgestring_und_6_0_0
+    - search_api_solr.solr_field_type.text_en_7_0_0
+    - search_api_solr.solr_field_type.text_es_7_0_0
+    - search_api_solr.solr_field_type.text_ngram_und_7_0_0
+>>>>>>> main
     - search_api_solr.solr_field_type.text_ngramstring_und_6_0_0
     - search_api_solr.solr_field_type.text_phonetic_en_7_0_0
     - search_api_solr.solr_field_type.text_phonetic_es_7_0_0
     - search_api_solr.solr_field_type.text_phonetic_und_7_0_0
+<<<<<<< HEAD
     - search_api_solr.solr_field_type.text_und_6_0_0
+=======
+    - search_api_solr.solr_field_type.text_string_und_6_0_0
+    - search_api_solr.solr_field_type.text_und_7_0_0
+>>>>>>> main
     - search_api_solr.solr_request_dispatcher.request_dispatcher_httpcachingnever_default_7_0_0
     - search_api_solr.solr_request_handler.request_handler_autocomplete_default_7_0_0
     - search_api_solr.solr_request_handler.request_handler_extract_default_7_0_0
@@ -28,13 +41,20 @@ dependencies:
     - search_api_solr.solr_request_handler.request_handler_tvrh_default_7_0_0
   module:
     - acquia_search
+<<<<<<< HEAD
     - search_api_solr
+=======
+>>>>>>> main
 _core:
   default_config_hash: vAg7gjLiDUAbeZyfPfKEy0oxgHeO6lxGofgdDOiqiaU
 id: acquia_search_server
 name: 'Acquia Search API Solr server'
 description: ''
+<<<<<<< HEAD
 backend: search_api_solr
+=======
+backend: acquia_search_solr
+>>>>>>> main
 backend_config:
   retrieve_data: true
   highlight_data: true
@@ -44,6 +64,7 @@ backend_config:
   connector: solr_acquia_connector
   connector_config:
     scheme: https
+<<<<<<< HEAD
     timeout: '10'
     index_timeout: '10'
     optimize_timeout: '10'
@@ -53,3 +74,22 @@ backend_config:
     http_method: AUTO
     jmx: 0
   skip_schema_check: true
+=======
+    timeout: 10
+    index_timeout: 10
+    optimize_timeout: 10
+    finalize_timeout: 30
+    solr_version: ''
+    http_method: AUTO
+    commit_within: 1000
+    jmx: false
+  skip_schema_check: true
+  environment: default
+  optimize: false
+  fallback_multiple: false
+  rows: 10
+  index_single_documents_fallback_count: 10
+  index_empty_text_fields: false
+  suppress_missing_languages: false
+  overridden_by_acquia_search: 2
+>>>>>>> main

@@ -1,11 +1,19 @@
 (function ($, Drupal, window, document) {
+<<<<<<< HEAD
   'use strict';
+=======
+  "use strict";
+>>>>>>> main
 
   // Example of Drupal behavior loaded.
   Drupal.behaviors.themeChatJS = {
     attach: function (context, settings) {
+<<<<<<< HEAD
 
       // var chatSettings = {
+=======
+      // let chatSettings = {
+>>>>>>> main
       //   header_text: 'Web Chat',
       //   header_status: 'En linea',
       //   login_text: 'Comenzar',
@@ -28,8 +36,13 @@
       //   geo_active: true,
       // };
 
+<<<<<<< HEAD
       // var startChat = function () {
       //   var chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
+=======
+      // let startChat = function () {
+      //   let chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
+>>>>>>> main
       //   chat.init();
       //   chat.expandChat();
       // };
@@ -41,6 +54,7 @@
       //   }
       // });
 
+<<<<<<< HEAD
 $('.closeButton').click(function(e){
        if ($('.embeddedServiceSidebarHeader').not('noAnimate')) {
           alert('va');
@@ -70,3 +84,15 @@ $('.closeButton').click(function(e){
     }
   };
 }) (jQuery, Drupal, this, this.document);
+=======
+      $(".closeButton").click(function (e) {
+        if ($(".embeddedServiceSidebarHeader").not("noAnimate")) {
+          alert("va");
+        }
+      });
+
+      console.log("ok");
+    },
+  };
+})(jQuery, Drupal, this, this.document);
+>>>>>>> main

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 45633eca-e6e7-4b90-9017-fcc3e6b8f6f8
+=======
+uuid: 8f9a3017-49a4-438e-a95a-42d3868b30c9
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -40,7 +44,11 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
+<<<<<<< HEAD
       view_mode: '3_1'
+=======
+      view_mode: default
+>>>>>>> main
       link: false
     third_party_settings: {  }
     weight: 1

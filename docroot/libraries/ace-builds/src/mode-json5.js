@@ -272,17 +272,28 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 define("ace/mode/json5",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/json5_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+=======
+define("ace/mode/json5",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/json5_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+>>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var HighlightRules = require("./json5_highlight_rules").Json5HighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+<<<<<<< HEAD
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+=======
+>>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = HighlightRules;
     this.$outdent = new MatchingBraceOutdent();
+<<<<<<< HEAD
     this.$behaviour = new CstyleBehaviour();
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

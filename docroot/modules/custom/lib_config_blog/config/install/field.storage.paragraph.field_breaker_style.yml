@@ -1,0 +1,30 @@
+uuid: 3322f8e0-69ba-442b-a6e9-b7c29c0db0f3
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_breaker_style
+field_name: field_breaker_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 50-50
+      label: '50 / 50 (Por defecto)'
+    -
+      value: 40-60
+      label: '40 / 60'
+    -
+      value: 30-70
+      label: '30 / 70'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

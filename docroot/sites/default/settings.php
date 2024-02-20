@@ -409,7 +409,11 @@ $settings['hash_salt'] = 'F1EffTcvBW9Gl-hzLgRRIXy9TpFXTpJZt9XiKIdSUD29O02eODPOoy
  * After finishing the upgrade, be sure to open this file again and change the
  * TRUE back to a FALSE!
  */
+<<<<<<< HEAD
 $settings['update_free_access'] = FALSE;
+=======
+// $settings['update_free_access'] = FALSE;
+>>>>>>> main
 
 /**
  * External access proxy settings:
@@ -918,3 +922,13 @@ $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
 }
+<<<<<<< HEAD
+=======
+if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
+  include $app_root . '/' . $site_path . '/settings.platformsh.php';
+}
+
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
+>>>>>>> main

@@ -44,11 +44,19 @@
 
 {% set modifier_class = '' %}
 {% if layout == 'default' %}
+<<<<<<< HEAD
   {% set modifier_class = 'video--default' %}
 {% elseif layout == 'wide_right' %}
   {% set modifier_class = 'video--wide video--media-right' %}
 {% elseif layout == 'wide_left' %}
   {% set modifier_class = 'video--wide video--media-leftt' %}
+=======
+	{% set modifier_class = 'video--default' %}
+{% elseif layout == 'wide_right' %}
+	{% set modifier_class = 'video--wide video--media-right' %}
+{% elseif layout == 'wide_left' %}
+	{% set modifier_class = 'video--wide video--media-leftt' %}
+>>>>>>> main
 {% endif %}
 
 {%
@@ -64,16 +72,27 @@
 
 {# Width. #}
 {% if content.field_c_width|render %}
+<<<<<<< HEAD
   {% set c_width = content.field_c_width['#items'].getString() %}
   {% if c_width == 'edge2edge' %}
     {% set add_container = false %}
   {% endif %}
+=======
+	{% set c_width = content.field_c_width['#items'].getString() %}
+	{% if c_width == 'edge2edge' %}
+		{% set add_container = false %}
+	{% endif %}
+>>>>>>> main
 {% endif %}
 
 {# Sets Unique ID for paragraph from Paragraph ID. #}
 {% set c_container_title = '' %}
 {% if content.field_c_size_container|render %}
+<<<<<<< HEAD
   {% set c_container_title = content.field_c_size_container['#items'].getString() %}
+=======
+	{% set c_container_title = content.field_c_size_container['#items'].getString() %}
+>>>>>>> main
 {% endif %}
 
 {# Sets Unique ID for paragraph from Paragraph ID. #}
@@ -88,12 +107,17 @@
 {# Sets paragraph title status for paragraph. #}
 {% set paragraph_title_status = true %}
 {% if 'On' in content.field_c_title_status[0] %}
+<<<<<<< HEAD
   {% set paragraph_title_status = false %}
+=======
+	{% set paragraph_title_status = false %}
+>>>>>>> main
 {% endif %}
 
 {# Add custom paragraph CSS class(es). #}
 {%  set c_clasess = content.field_c_classes|render %}
 {% if c_clasess %}
+<<<<<<< HEAD
   {% set striped_custom_classes = c_clasess|striptags|lower %}
   {% set split_custom_classes = striped_custom_classes|split(' ') %}
   {% for custom_class in split_custom_classes %}
@@ -154,5 +178,97 @@
     </div>
   </div>
 {% endif %}
+=======
+	{% set striped_custom_classes = c_clasess|striptags|lower %}
+	{% set split_custom_classes = striped_custom_classes|split(' ') %}
+	{% for custom_class in split_custom_classes %}
+		{% set clened_custom_class = [ custom_class|clean_class ] %}
+		{% set classes = classes|merge(clened_custom_class) %}
+	{%  endfor %}
+{% endif %}
+
+<section{{attributes.addClass(classes).setAttribute('id',paragraph_id)}}>
+	{% if layout == 'default' %}
+		{% if paragraph_title and paragraph_title_status %}
+			<div class="component__heading">
+				{% if add_container %}
+					<div class="cog--mq">
+					{% endif %}
+					<h2 class="component__title">{{- paragraph_title -}}</h2>
+					{% if paragraph_subtitle is not empty %}
+						<p>{{- paragraph_subtitle -}}</p>
+					{% endif %}
+					{% if add_container %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		<div class="component__content">
+			{% if add_container %}
+				<div class="cog--mq">
+				{% endif %}
+				<div class="videoWrapper">
+					<div class="video-thumbnail">
+						<a href="#" class="video__link" data-atr="{{ video_embed_src }}"><img alt="" src="{{ thumbnail_youtube }}"/></a>
+
+						<div class="video__share">
+							<div class="share__item share__link">
+								<span>Compartir</span>
+							</div>
+							<a target="_blank" rel="noreferrer" href="http://www.facebook.com/share.php?u={{ url_youtube }}&title=Los+Segura!" class="share__item share__facebook">
+								<span>Compartir</span>
+							</a>
+							<a href="https://twitter.com/intent/tweet?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__twitter">
+								<span>Compartir</span>
+							</a>
+							<a href="https://www.linkedin.com/sharing/share-offsite/?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__linkedin">
+								<span>Compartir</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				{% if add_container %}
+				</div>
+			{% endif %}
+		</div>
+	{% else %}
+		<div class="cog--mq">
+			<div class="component__content">
+				<div class="component__heading">
+					{% if add_container %}
+						<div class="cog--mq">
+						{% endif %}
+						<h2 class="component__title">{{- paragraph_title -}}</h2>
+						{% if paragraph_subtitle is not empty %}
+							<p>{{- paragraph_subtitle -}}</p>
+						{% endif %}
+						{% if add_container %}
+						</div>
+					{% endif %}
+				</div>
+				<div class="videoWrapper">
+					<div class="video-thumbnail">
+						<a href="#" class="video__link" data-atr="{{ video_embed_src }}"><img alt="" src="{{ thumbnail_youtube }}"/></a>
+
+						<div class="video__share">
+							<a href="#" class="share__item share__link" data-atr="{{ video_embed_src }}">
+								<span>Compartir</span>
+							</a>
+							<a target="_blank" rel="noreferrer" href="http://www.facebook.com/share.php?u={{ url_youtube }}&title=Los+Segura!" class="share__item share__facebook">
+								<span>Compartir</span>
+							</a>
+							<a href="https://twitter.com/intent/tweet?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__twitter">
+								<span>Compartir</span>
+							</a>
+							<a href="https://www.linkedin.com/sharing/share-offsite/?&url={{ url_youtube }}" target="_blank" rel="noreferrer" class="share__item share__linkedin">
+								<span>Compartir</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+>>>>>>> main
 
 </section>

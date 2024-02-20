@@ -1,0 +1,6 @@
+lib_login_corredores.importUsers:
+  title: 'Importar Usuarios Blog'
+  route_name: lib_login_corredores.import
+  description: 'Gestión de reportes'
+  parent: system.admin
+  weight: -10

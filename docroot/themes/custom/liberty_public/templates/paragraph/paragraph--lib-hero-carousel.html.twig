@@ -28,6 +28,7 @@
 {{ attach_library('liberty_public/liberty-components') }}
 {% set classes = ['hero-breaker', 'centrado'] %}
 <div {{ attributes.addClass(classes) }}>
+<<<<<<< HEAD
   {{ title_prefix }}
   {% if label %}
     <h2 {{ title_attributes }}>
@@ -75,4 +76,52 @@
       {% endfor %}
     </ul>
   {% endblock %}
+=======
+	{{ title_prefix }}
+	{% if label %}
+		<h2 {{ title_attributes }}>
+			{{ label }}
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+		<div class="hero-breaker__content hero-breaker">
+			{% for key, item in content.field_lib_p_items if (key|first) != '#' %}
+				<div id="breaker-item{{ key + 1 }}" class="breaker breaker-content__item breaker-item breaker-item{{
+						          key
+						            + 1
+						          }} breaker{{ key + 1 }}{{ key == 0 ? ' is-active' }}">
+					<div class="breaker__wrapper">
+						<div class="breaker__image">
+							<img alt="" src="{{ items_imagen[key] }}"/>
+
+						</div>
+						<div class="breaker__info">
+							<h3>
+								{{ item['#paragraph'].field_lib_heading.value }}
+							</h3>
+							{{ item['#paragraph'].field_lib_summary.value }}
+							<div class="button-landing">
+								<a class="" href="{{ item['#paragraph'].field_lib_link.uri }}">
+									{{ item['#paragraph'].field_lib_link.title }}
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<ul class="hero-breaker__nav">
+			{% for key, item in content.field_lib_p_items if (key|first) != '#' %}
+				<li id="breaker-nav{{ key + 1 }}" class="breaker-nav__item breaker-nav breaker-nav{{
+						          key
+						            + 1
+						          }} breaker{{ key + 1 }}{{ key == 0 ? ' is-active' }}">
+					<a href="#">{{ item['#paragraph'].field_lib_tab_heading.value }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endblock %}
+>>>>>>> main
 </div>

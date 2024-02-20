@@ -3,7 +3,11 @@ _core:
 langcode: es
 check:
   disabled_extensions: false
+<<<<<<< HEAD
   interval_days: 1
+=======
+  interval_days: 7
+>>>>>>> main
 fetch:
   url: ''
   max_attempts: 2
@@ -11,4 +15,8 @@ fetch:
 notification:
   emails:
     - soporte@esinergia.co
+<<<<<<< HEAD
   threshold: all
+=======
+  threshold: security
+>>>>>>> main

@@ -2,12 +2,16 @@
 
 namespace Drupal\lib_rm\Plugin\Block;
 
+<<<<<<< HEAD
 use Drupal;
+=======
+>>>>>>> main
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 
+<<<<<<< HEAD
 
 /**
 * Provides a block with a simple text.
@@ -18,6 +22,18 @@ use Drupal\Core\Session\AccountInterface;
 * )
 */
 class SearchMnBlock extends BlockBase {
+=======
+/**
+ * Provides a block with a simple text.
+ *
+ * @Block(
+ * id = "search_medical_network",
+ * admin_label = @Translation("Search medical network"),
+ * )
+ */
+class SearchMnBlock extends BlockBase {
+
+>>>>>>> main
   /**
    * {@inheritdoc}
    */
@@ -55,4 +71,8 @@ class SearchMnBlock extends BlockBase {
   public function getCacheMaxAge() {
     return 0;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }

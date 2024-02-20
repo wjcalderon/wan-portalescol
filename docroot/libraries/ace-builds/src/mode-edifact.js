@@ -3,6 +3,7 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var DocCommentHighlightRules = function () {
     this.$rules = {
+<<<<<<< HEAD
         "start": [{
                 token: "comment.doc.tag",
                 regex: "@[\\w\\d_]+" // TODO: fix email addresses
@@ -12,6 +13,17 @@ var DocCommentHighlightRules = function () {
                 defaultToken: "comment.doc",
                 caseInsensitive: true
             }]
+=======
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc",
+                caseInsensitive: true
+            }
+        ]
+>>>>>>> main
     };
 };
 oop.inherits(DocCommentHighlightRules, TextHighlightRules);
@@ -111,6 +123,10 @@ var TextMode = require("./text").Mode;
 var EdifactHighlightRules = require("./edifact_highlight_rules").EdifactHighlightRules;
 var Mode = function () {
     this.HighlightRules = EdifactHighlightRules;
+<<<<<<< HEAD
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
 };
 oop.inherits(Mode, TextMode);
 (function () {

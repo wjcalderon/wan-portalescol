@@ -5,10 +5,16 @@ namespace Drupal\li_news\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+<<<<<<< HEAD
 use Drupal\node\Entity\Node;
 
 /**
  * Class NewsConfigForm.
+=======
+
+/**
+ * News Config Form.
+>>>>>>> main
  */
 class NewsConfigForm extends ConfigFormBase {
 
@@ -50,6 +56,7 @@ class NewsConfigForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('li_news.newsconfig');
 
+<<<<<<< HEAD
     $form['article'] = array(
       '#type' => 'fieldset',
       '#title' => $this->t('Article configurations'),
@@ -100,12 +107,53 @@ class NewsConfigForm extends ConfigFormBase {
     //     'target_bundles' => array('news_article', 'news_article_video', 'news_inphograpfy'),
     //   ),
     // ];
+=======
+    $form['article'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Article configurations'),
+      '#tree' => TRUE,
+    ];
+
+    $form['article']['quantity_images'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Images'),
+      '#default_value' => $config->get('article')['quantity_images'] ?? 5,
+    ];
+
+    $form['article_video'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Article with video configurations'),
+      '#tree' => TRUE,
+    ];
+
+    $form['article_video']['quantity_images'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Images'),
+      '#default_value' => $config->get('article_video')['quantity_images'] ?? 5,
+    ];
+
+    $form['article_video']['quantity_videos'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Videos'),
+      '#default_value' => $config->get('article_video')['quantity_videos'] ?? 1,
+    ];
+
+    $form['news_module'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('News module'),
+      '#tree' => TRUE,
+    ];
+>>>>>>> main
 
     $form['news_module']['quantity_news'] = [
       '#type' => 'number',
       '#title' => $this->t('Amount of news'),
+<<<<<<< HEAD
       '#default_value' => isset($config->get('news_module')['quantity_news']) ?
         $config->get('news_module')['quantity_news'] : 50,
+=======
+      '#default_value' => $config->get('news_module')['quantity_news'] ?? 50,
+>>>>>>> main
     ];
 
     return parent::buildForm($form, $form_state);

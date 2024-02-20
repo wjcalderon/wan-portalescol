@@ -1,0 +1,23 @@
+uuid: 58667d2d-4bcb-43e7-9c67-ff13b4d11e65
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_in_library
+    - media.type.svg_media
+id: media.svg_media.field_media_in_library
+field_name: field_media_in_library
+entity_type: media
+bundle: svg_media
+label: 'Show in media library'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Shown in media library'
+  off_label: 'Hidden in media library'
+field_type: boolean

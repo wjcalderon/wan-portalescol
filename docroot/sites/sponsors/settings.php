@@ -819,3 +819,22 @@ $databases['default']['default'] = array (
   'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
 );
 $settings['config_sync_directory'] = '../config/sponsors/envs/sync';
+<<<<<<< HEAD
+=======
+
+$settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_AWS_ELB |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST;
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
+$settings['reverse_proxy_header'] = 'HTTP_TRUE_CLIENT_IP';
+$settings['reverse_proxy_proto_header'] = 'HTTP_X_FORWARDED_PROTO';
+$settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
+
+$ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
+if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+  require $ddev_settings;
+}
+>>>>>>> main

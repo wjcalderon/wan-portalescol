@@ -1,0 +1,15 @@
+uuid: dbff6fad-8ab9-43a0-8513-aa5e42cdc024
+langcode: es
+status: true
+dependencies: {  }
+name: 3_1_banner
+label: '3:1 banner'
+effects:
+  9922e0a2-0409-432b-97d8-c2e7fd9deabe:
+    uuid: 9922e0a2-0409-432b-97d8-c2e7fd9deabe
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 427
+      anchor: center-center

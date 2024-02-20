@@ -4,6 +4,7 @@ namespace Drupal\lib_red_medica\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
 
 class MedicalNetworkController extends ControllerBase {
@@ -21,6 +22,23 @@ class MedicalNetworkController extends ControllerBase {
     // If both fields exists
     if ($plan_tid != '') {
       // Query
+=======
+
+/**
+ * Medical network controller.
+ */
+class MedicalNetworkController extends ControllerBase {
+
+  /**
+   * Search cities in plan type.
+   */
+  public function plan(int $plan_tid) {
+    $options = [];
+
+    // If both fields exists.
+    if ($plan_tid != '') {
+      // Query.
+>>>>>>> main
       $connection = \Drupal::database();
       $sql = "SELECT name
         FROM taxonomy_term_field_data
@@ -31,11 +49,19 @@ class MedicalNetworkController extends ControllerBase {
 
       $tids = $this->getChildTaxonomies($plan_tid);
 
+<<<<<<< HEAD
       // If exist data
       if (!empty($result)) {
         $options[] = [
           'name' => $result->name,
           'tid' => is_array($tids) ? \implode(', ', $tids) : $plan_tid
+=======
+      // If exist data.
+      if (!empty($result)) {
+        $options[] = [
+          'name' => $result->name,
+          'tid' => is_array($tids) ? \implode(', ', $tids) : $plan_tid,
+>>>>>>> main
         ];
       }
     }
@@ -44,6 +70,7 @@ class MedicalNetworkController extends ControllerBase {
   }
 
   /**
+<<<<<<< HEAD
    * Search cities in plan type
    *
    * @param integer $plan_tid
@@ -62,6 +89,22 @@ class MedicalNetworkController extends ControllerBase {
       $query_condition = $this->queryCondition($plan_tid);
 
       // Query
+=======
+   * Search cities in plan type.
+   */
+  public function cities(int $plan_tid, string $name_city) {
+    $options = [];
+
+    // If both fields exists.
+    if ($plan_tid != '') {
+      // Escape data from user.
+      $name_city = \Drupal::database()->escapeLike($name_city);
+
+      // Search child taxonomies.
+      $query_condition = $this->queryCondition($plan_tid);
+
+      // Query.
+>>>>>>> main
       $connection = \Drupal::database();
       $sql = "SELECT DISTINCT tfd.tid, tfd.name
         FROM taxonomy_term_field_data tfd
@@ -78,12 +121,21 @@ class MedicalNetworkController extends ControllerBase {
       $query = $connection->query($sql);
       $result = $query->fetchAll();
 
+<<<<<<< HEAD
       // If exist data
       if (!empty($result)) {
         foreach ($result as $key => $value) {
           $options[] = [
             'name' => $value->name,
             'tid' => $value->tid
+=======
+      // If exist data.
+      if (!empty($result)) {
+        foreach ($result as $value) {
+          $options[] = [
+            'name' => $value->name,
+            'tid' => $value->tid,
+>>>>>>> main
           ];
         }
       }
@@ -93,6 +145,7 @@ class MedicalNetworkController extends ControllerBase {
   }
 
   /**
+<<<<<<< HEAD
    * Search specialities
    *
    * @param integer $plan_tid
@@ -112,6 +165,22 @@ class MedicalNetworkController extends ControllerBase {
       $query_condition = $this->queryCondition($plan_tid);
 
       // Query
+=======
+   * Search specialities.
+   */
+  public function specialities(int $plan_tid, $city_tid, string $speciality) {
+    $options = [];
+
+    // If both fields exists.
+    if ($plan_tid != '' && $city_tid != NULL && $city_tid != '') {
+      // Escape data from user.
+      $speciality = \Drupal::database()->escapeLike($speciality);
+
+      // Search child taxonomies.
+      $query_condition = $this->queryCondition($plan_tid);
+
+      // Query.
+>>>>>>> main
       $connection = \Drupal::database();
       $sql = "SELECT DISTINCT tfd.tid, tfd.name
         FROM taxonomy_term_field_data tfd
@@ -130,12 +199,21 @@ class MedicalNetworkController extends ControllerBase {
       $query = $connection->query($sql);
       $result = $query->fetchAll();
 
+<<<<<<< HEAD
       // If exist data
       if (!empty($result)) {
         foreach ($result as $key => $value) {
           $options[] = [
             'name' => $value->name,
             'tid' => $value->tid
+=======
+      // If exist data.
+      if (!empty($result)) {
+        foreach ($result as $value) {
+          $options[] = [
+            'name' => $value->name,
+            'tid' => $value->tid,
+>>>>>>> main
           ];
         }
       }
@@ -144,6 +222,7 @@ class MedicalNetworkController extends ControllerBase {
     return new JsonResponse($options);
   }
 
+<<<<<<< HEAD
   public function institutions (int $plan_tid, string $institution) {
     $options = [];
 
@@ -156,6 +235,23 @@ class MedicalNetworkController extends ControllerBase {
       $query_condition = $this->queryCondition($plan_tid);
 
       // Query
+=======
+  /**
+   * Institutions .
+   */
+  public function institutions(int $plan_tid, string $institution) {
+    $options = [];
+
+    // If both fields exists.
+    if ($plan_tid != '' && $institution != '') {
+      // Escape data from user.
+      $institution = \Drupal::database()->escapeLike($institution);
+
+      // Search child taxonomies.
+      $query_condition = $this->queryCondition($plan_tid);
+
+      // Query.
+>>>>>>> main
       $connection = \Drupal::database();
       $sql = "SELECT DISTINCT TRIM(nfd.title) title
         FROM node_field_data nfd
@@ -170,11 +266,19 @@ class MedicalNetworkController extends ControllerBase {
       $query = $connection->query($sql);
       $result = $query->fetchAll();
 
+<<<<<<< HEAD
       // If exist data
       if (!empty($result)) {
         foreach ($result as $key => $value) {
           $options[] = [
             'title' => $value->title
+=======
+      // If exist data.
+      if (!empty($result)) {
+        foreach ($result as $value) {
+          $options[] = [
+            'title' => $value->title,
+>>>>>>> main
           ];
         }
       }
@@ -183,17 +287,26 @@ class MedicalNetworkController extends ControllerBase {
     return new JsonResponse($options);
   }
 
+<<<<<<< HEAD
 
   /**
    * Search child taxonomies
    *
    * @param integer $plan_tid
    * @return string
+=======
+  /**
+   * Search child taxonomies.
+>>>>>>> main
    */
   private function queryCondition(int $plan_tid) {
     $child_tids = $this->getChildTaxonomies($plan_tid);
 
+<<<<<<< HEAD
     // If exist data
+=======
+    // If exist data.
+>>>>>>> main
     if (is_array($child_tids)) {
       return " IN (" . \implode(', ', $child_tids) . ")";
     }
@@ -202,12 +315,19 @@ class MedicalNetworkController extends ControllerBase {
   }
 
   /**
+<<<<<<< HEAD
    * Get child taxonomies if exits
    *
    * @return int|array
    */
   private function getChildTaxonomies($plan_tid) {
     // Query
+=======
+   * Get child taxonomies if exits.
+   */
+  private function getChildTaxonomies($plan_tid) {
+    // Query.
+>>>>>>> main
     $connection = \Drupal::database();
     $sql = "SELECT entity_id
       FROM taxonomy_term__parent
@@ -219,7 +339,11 @@ class MedicalNetworkController extends ControllerBase {
 
     if (!empty($child_tids)) {
       $tids = [];
+<<<<<<< HEAD
       foreach ($child_tids as $key => $value) {
+=======
+      foreach ($child_tids as $value) {
+>>>>>>> main
         $tids[] = $value->entity_id;
       }
 
@@ -228,4 +352,8 @@ class MedicalNetworkController extends ControllerBase {
 
     return $plan_tid;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }

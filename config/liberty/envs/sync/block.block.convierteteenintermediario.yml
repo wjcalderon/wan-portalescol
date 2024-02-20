@@ -1,0 +1,30 @@
+uuid: 399e594e-e047-4592-9110-3ba97e871581
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:block_cta:899a0ebb-29d0-43ae-a759-35d0ce4df365'
+  module:
+    - block_content
+    - system
+  theme:
+    - liberty_public
+id: convierteteenintermediario
+theme: liberty_public
+region: footer_tool
+weight: 0
+provider: null
+plugin: 'block_content:899a0ebb-29d0-43ae-a759-35d0ce4df365'
+settings:
+  id: 'block_content:899a0ebb-29d0-43ae-a759-35d0ce4df365'
+  label: 'Conviértete en intermediario'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

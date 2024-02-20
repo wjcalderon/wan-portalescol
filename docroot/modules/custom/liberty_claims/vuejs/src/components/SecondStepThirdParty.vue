@@ -114,19 +114,31 @@
         <div
           @click="updateVehicle('Liviano')"
           v-bind:class="{col: true, button: true, liviano: true, selected: casualtyData.vehicleType === 'Liviano'}">
+<<<<<<< HEAD
           <b>Liviano</b>
+=======
+          <strong>Liviano</strong>
+>>>>>>> main
           <p>Automovíl, camioneta, SUV's</p>
         </div>
         <div
           @click="updateVehicle('Pesado')"
           v-bind:class="{col: true, button: true, pesado: true, selected: casualtyData.vehicleType === 'Pesado'}">
+<<<<<<< HEAD
           <b>Pesado</b>
+=======
+          <strong>Pesado</strong>
+>>>>>>> main
           <p>Bus, camión, remolcador, furgon, volqueta, chasis</p>
         </div>
         <div
           @click="updateVehicle('Moto')"
           v-bind:class="{col: true, button: true, moto: true, selected: casualtyData.vehicleType === 'Moto'}">
+<<<<<<< HEAD
           <b>Moto</b>
+=======
+          <strong>Moto</strong>
+>>>>>>> main
           <p>Motocarro, motocicleta</p>
         </div>
       </div>
@@ -225,22 +237,44 @@ export default {
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g,
             /* regExp: /^\D+$/g, */
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
           }
+=======
+            msg: 'El campo solo debe contener letras.'
+          },
+          length: {
+            max: 35,
+            min: 3,
+          },
+>>>>>>> main
         },
         lastname: {
           required: {},
          match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/g,
             /* regExp: /^\D+$/g, */
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter letras.'
           }
+=======
+            msg: 'El campo solo debe contener letras.'
+          },
+          length: {
+            max: 35,
+            min: 3,
+          },
+>>>>>>> main
         },
         phone: {
           required: {},
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: 'El campo solo debe contener números.'
+>>>>>>> main
           },
           length: {
             max: 10,
@@ -258,7 +292,11 @@ export default {
           required: {},
           match: {
             regExp: /^[a-zA-Z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: 'El campo solo debe contener números o letras.'
+>>>>>>> main
           },
           length: {
             max: 20,
@@ -286,7 +324,11 @@ export default {
           },
           match: {
             regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+<<<<<<< HEAD
             msg: 'Este dato no corresponde con un formato de placa valido.'
+=======
+            msg: 'Este dato no corresponde con un formato de placa válido.'
+>>>>>>> main
           }
         },
         repairCity: {

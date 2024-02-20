@@ -4,4 +4,8 @@ status: false
 dependencies: {  }
 formId: node_product_form
 captchaType: default
+<<<<<<< HEAD
 label: null
+=======
+label: node_product_form
+>>>>>>> main

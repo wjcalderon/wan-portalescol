@@ -1,0 +1,21 @@
+uuid: 2a21bf7e-b219-424a-9b5a-36db1b8e7b6d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_html
+    - paragraphs.paragraphs_type.hero
+  module:
+    - text
+id: paragraph.hero.field_title_html
+field_name: field_title_html
+entity_type: paragraph
+bundle: hero
+label: Título
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

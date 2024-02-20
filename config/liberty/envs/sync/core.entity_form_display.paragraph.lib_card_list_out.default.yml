@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 6d0bf2f6-d992-4d98-aad9-4f2d996992e7
+=======
+uuid: ff91299a-b0cb-4a32-82da-91ae3b8d55f8
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -6,10 +10,18 @@ dependencies:
     - field.field.paragraph.lib_card_list_out.field_lib_card_style
     - field.field.paragraph.lib_card_list_out.field_lib_columns
     - field.field.paragraph.lib_card_list_out.field_lib_heading
+<<<<<<< HEAD
     - field.field.paragraph.lib_card_list_out.field_lib_p_items
     - paragraphs.paragraphs_type.lib_card_list_out
   module:
     - paragraphs
+=======
+    - field.field.paragraph.lib_card_list_out.field_lib_p_card_items
+    - paragraphs.paragraphs_type.lib_card_list_out
+  module:
+    - paragraphs
+    - paragraphs_features
+>>>>>>> main
 id: paragraph.lib_card_list_out.default
 targetEntityType: paragraph
 bundle: lib_card_list_out
@@ -35,7 +47,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+<<<<<<< HEAD
   field_lib_p_items:
+=======
+  field_lib_p_card_items:
+>>>>>>> main
     type: paragraphs
     weight: 1
     region: content
@@ -53,7 +69,17 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+<<<<<<< HEAD
     third_party_settings: {  }
+=======
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+>>>>>>> main
 hidden:
   created: true
   status: true

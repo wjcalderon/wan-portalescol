@@ -3,7 +3,11 @@
     <h1>Cuéntanos lo sucedido</h1>
     <p>Describe todo lo ocurrido con el mayor detalle posible.</p>
 
+<<<<<<< HEAD
     <div v-bind:class="{field: true, descrip: true, error: submited && hasError('description')}">
+=======
+    <div v-bind:class="{ field: true, descrip: true, error: submited && hasError('description') }">
+>>>>>>> main
       <float-label label="Descripción de los hechos.">
         <textarea name="description" cols="30" rows="5" v-model="casualtyData.description" v-on:keyup="countDown"
           placeholder="Descripción de los hechos, piezas afectadas, lugares etc." tabindex=1>
@@ -14,6 +18,7 @@
       <div class="error-message" v-show="submited && hasError('description')">{{ hasError('description') }}</div>
     </div>
 
+<<<<<<< HEAD
     <div class="label label-img-adj">Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf - 2MB, jpg - 60KB  (opcional)</div>
     <dropzone
       id="dropzone-affected"
@@ -26,6 +31,13 @@
       @vdropzone-file-added="fileAdded"
       :class="{error: submited && hasError('files')}"
       v-if="userData">
+=======
+    <div class="label label-img-adj">Adjunta documentos o imagenes, formatos admitidos: pdf y jpg, máximo permitido: pdf -
+      2MB, jpg - 60KB (opcional)</div>
+    <dropzone id="dropzone-affected" ref="dropzoneEl" :options="dropzoneOptions" :useCustomSlot="true"
+      :duplicateCheck="true" @vdropzone-success="fileUploaded" @vdropzone-removed-file="fileRemoved"
+      @vdropzone-file-added="fileAdded" :class="{ error: submited && hasError('files') }" v-if="userData">
+>>>>>>> main
       <span class="arch-desck">Arrastra tus archivos para adjuntar, o <strong>búscalos aquí</strong></span>
       <span class="arch-mobile">Adjunta tus archivos aquí</span>
     </dropzone>
@@ -38,8 +50,15 @@
         <div class="option-buttons">
           <div class="label">¿El declarante es el mismo tercero afectado?</div>
           <div class="option-buttons-items">
+<<<<<<< HEAD
             <button type="button" v-on:click="isDeclarant(true)" v-bind:class="{selected: casualtyData.isDeclarant === true}">Si</button>
             <button type="button" v-on:click="isDeclarant(false)" v-bind:class="{selected: casualtyData.isDeclarant === false}">No</button>
+=======
+            <button type="button" v-on:click="isDeclarant(true)"
+              v-bind:class="{ selected: casualtyData.isDeclarant === true }">Si</button>
+            <button type="button" v-on:click="isDeclarant(false)"
+              v-bind:class="{ selected: casualtyData.isDeclarant === false }">No</button>
+>>>>>>> main
           </div>
         </div>
       </div>
@@ -48,6 +67,7 @@
 
     <div class="row flied-no-mb segundo-nivel tercer-afec">
 
+<<<<<<< HEAD
         <div v-bind:class="{field: true, error: submited && hasError('declarantName'), filled: casualtyData.declarantName}">
           <float-label>
             <input type="text" name="name" v-model.lazy="casualtyData.declarantName" placeholder="Nombre del declarante">
@@ -97,6 +117,66 @@
           </float-label>
           <div class="error-message" v-show="submited && hasError('whereAddress')">{{ hasError('whereAddress') }}</div>
         </div>
+=======
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantName'), filled: casualtyData.declarantName }">
+        <float-label>
+          <input type="text" name="name" v-model.lazy="casualtyData.declarantName" placeholder="Nombre del declarante">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantName')">{{ hasError('declarantName') }}</div>
+      </div>
+
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantPhone'), filled: casualtyData.declarantPhone }">
+        <float-label>
+          <input type="text" v-model="casualtyData.declarantPhone" name="phone" placeholder="Teléfono">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantPhone')">{{ hasError('declarantPhone') }}</div>
+      </div>
+
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantDocType'), filled: casualtyData.declarantDocType }">
+        <float-label label="Tipo de documento" :dispatch="false">
+          <select v-model="casualtyData.declarantDocType">
+            <option v-for="(index, option) in documentTypes" v-bind:key="index" :selected="index === 0"
+              v-bind:value="index">{{ option }}</option>
+          </select>
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantDocType')">{{ hasError('declarantDocType') }}
+        </div>
+      </div>
+
+      <div
+        v-bind:class="{ field: true, error: submited && hasError('declarantDocumentId'), filled: casualtyData.declarantDocumentId }">
+        <float-label>
+          <input type="text" name="id" v-model="casualtyData.declarantDocumentId"
+            placeholder="Escribe tu número de documento">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('declarantDocumentId')">{{ hasError('declarantDocumentId')
+        }}</div>
+      </div>
+
+      <div v-bind:class="{ field: true, error: submited && hasError('city'), filled: casualtyData.city }">
+        <div class="label label-img-adj">
+          ¿En que ciudad vas a reparar tu vehículo?
+          <button v-tooltip="{ content: cityHelpMessage, placement: 'top-center' }">Help</button>
+        </div>
+        <float-label label="Ciudad" :dispatch="false">
+          <select v-model="casualtyData.city">
+            <option v-for="item in cities" v-bind:key="item[0]" v-bind:value="item[0]">{{ item[1] }}</option>
+          </select>
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('city')">{{ hasError('city') }}</div>
+      </div>
+
+      <div
+        v-bind:class="{ field: true, address: true, error: submited && hasError('whereAddress'), filled: casualtyData.whereAddress }">
+        <float-label>
+          <input type="text" v-model="casualtyData.whereAddress" placeholder="Dirección o Ciudad de ocurrencia">
+        </float-label>
+        <div class="error-message" v-show="submited && hasError('whereAddress')">{{ hasError('whereAddress') }}</div>
+      </div>
+>>>>>>> main
     </div>
 
     <div class="row">
@@ -104,6 +184,7 @@
         <div class="option-buttons">
           <div class="label">¿Hubo heridos?</div>
           <div class="option-buttons-items">
+<<<<<<< HEAD
             <button
               type="button"
               v-on:click="changeRules('withInjured', 'casualties', true)"
@@ -114,13 +195,25 @@
               type="button"
               v-on:click="changeRules('withInjured', 'casualties', false)"
               v-bind:class="{selected: casualtyData.withInjured === false}">
+=======
+            <button type="button" v-on:click="`changeRules`('withInjured', 'casualties', true)"
+              v-bind:class="{ selected: casualtyData.withInjured === true }">
+              Si
+            </button>
+            <button type="button" v-on:click="changeRules('withInjured', 'casualties', false)"
+              v-bind:class="{ selected: casualtyData.withInjured === false }">
+>>>>>>> main
               No
             </button>
           </div>
         </div>
       </div>
       <div class="col campo-heridos">
+<<<<<<< HEAD
         <div v-bind:class="{field: true, error: submited && hasError('casualties'), filled: casualtyData.casualties}">
+=======
+        <div v-bind:class="{ field: true, error: submited && hasError('casualties'), filled: casualtyData.casualties }">
+>>>>>>> main
           <float-label label="¿Cuántos?">
             <select v-model="casualtyData.casualties" v-bind:disabled="casualtyData.withInjured === false">
               <option v-for="option in counts" v-bind:key="option.value" :value="option.value">{{ option.label }}</option>
@@ -131,11 +224,17 @@
       </div>
     </div>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
     <div class="row">
       <div class="col">
         <div class="option-buttons">
           <div class="label">¿Hubo muertos?</div>
           <div class="option-buttons-items">
+<<<<<<< HEAD
             <button
               type="button"
               v-on:click="changeRules('withDeaths', 'deaths', true)"
@@ -146,13 +245,25 @@
               type="button"
               v-on:click="changeRules('withDeaths', 'deaths', false)"
               v-bind:class="{selected: casualtyData.withDeaths === false}">
+=======
+            <button type="button" v-on:click="changeRules('withDeaths', 'deaths', true)"
+              v-bind:class="{ selected: casualtyData.withDeaths === true }">
+              Si
+            </button>
+            <button type="button" v-on:click="changeRules('withDeaths', 'deaths', false)"
+              v-bind:class="{ selected: casualtyData.withDeaths === false }">
+>>>>>>> main
               No
             </button>
           </div>
         </div>
       </div>
       <div class="col campo-muerte">
+<<<<<<< HEAD
         <div v-bind:class="{field: true, error: submited && hasError('deaths'), filled: casualtyData.deaths}">
+=======
+        <div v-bind:class="{ field: true, error: submited && hasError('deaths'), filled: casualtyData.deaths }">
+>>>>>>> main
           <float-label label="¿Cuántos?">
             <select v-model="casualtyData.deaths" v-bind:disabled="casualtyData.withDeaths === false">
               <option v-for="option in counts" v-bind:key="option.value" :value="option.value">{{ option.label }}</option>
@@ -168,8 +279,15 @@
         <div class="option-buttons">
           <div class="label">¿Intervino policía de tránsito?</div>
           <div class="option-buttons-items">
+<<<<<<< HEAD
             <button type="button" v-on:click="yesNoOptions('withPolice', true)" v-bind:class="{selected: casualtyData.withPolice === true}">Si</button>
             <button type="button" v-on:click="yesNoOptions('withPolice', false)" v-bind:class="{selected: casualtyData.withPolice === false}">No</button>
+=======
+            <button type="button" v-on:click="yesNoOptions('withPolice', true)"
+              v-bind:class="{ selected: casualtyData.withPolice === true }">Si</button>
+            <button type="button" v-on:click="yesNoOptions('withPolice', false)"
+              v-bind:class="{ selected: casualtyData.withPolice === false }">No</button>
+>>>>>>> main
           </div>
         </div>
       </div>
@@ -184,6 +302,7 @@
       </div>
     </div>
     <div class="image-car">
+<<<<<<< HEAD
       <img v-bind:src="carImage" alt="Daños en el vehículo"/>
       <p-check
         color="primary-o"
@@ -193,19 +312,34 @@
         v-bind:key="option"
         v-bind:value="option">
         <i class="icon mdi mdi-check" slot="extra"></i>
+=======
+      <img v-bind:src="carImage" alt="Daños en el vehículo" />
+      <p-check color="primary-o" class="p-default p-round p-thick" v-model="casualtyData.damages"
+        v-for="option in damages" v-bind:key="option" v-bind:value="option">
+        <em class="icon mdi mdi-check" slot="extra"></em>
+>>>>>>> main
         {{ option }}
       </p-check>
     </div>
 
     <div class="actions">
+<<<<<<< HEAD
       <a  href="#" v-on:click.prevent="prevStep">Volver</a>
+=======
+      <a href="#" v-on:click.prevent="prevStep">Volver</a>
+>>>>>>> main
       <button v-on:click="nextStep" type="button">Continuar</button>
     </div>
 
     <alert :open="modal" icon="invalid-plate" v-on:closeModal="closeModal($event)">
       <div slot="body">
+<<<<<<< HEAD
         <div >
           <h2>{{ modalTitle}}</h2>
+=======
+        <div>
+          <h2>{{ modalTitle }}</h2>
+>>>>>>> main
           <p> {{ modalBody }}</p>
         </div>
       </div>
@@ -258,6 +392,12 @@ export default {
       this.modal = false;
     },
     countDown: function () {
+<<<<<<< HEAD
+=======
+      const description = this.casualtyData.description;
+      const sanitizedDescription = description.replace(/\s+/g, ' ');
+      this.casualtyData.description = sanitizedDescription;
+>>>>>>> main
       this.countDownVal = this.validationRules.description.length.max - this.casualtyData.description.length;
     }
   },
@@ -265,6 +405,7 @@ export default {
     carImage: function () {
       return this.drupalSettings.assetsPath ? '/' + this.drupalSettings.assetsPath + 'car-form.png' : 'src/assets/car-form.png';
     },
+<<<<<<< HEAD
     dropzoneOptions: function() {
       if (this.userData) {
         return {
@@ -277,6 +418,21 @@ export default {
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           headers: {
             'token': this.drupalSettings.token
+=======
+    dropzoneOptions: function () {
+      if (this.userData) {
+        return {
+          url: '/claim/files/' + this.userData.documentId + '/save',
+          thumbnailWidth: 150,
+          acceptedFiles: 'image/jpeg, application/pdf',
+          capture: false,
+          addRemoveLinks: true,
+          /*resizeWidth: 600,
+          resizeHeight: 400,*/
+          dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
+          headers: {
+            token: this.drupalSettings.token
+>>>>>>> main
           }
         };
       }
@@ -325,6 +481,36 @@ export default {
         files: []
       },
       validationRules: {
+<<<<<<< HEAD
+=======
+        plateThirdPartyInvolvedIdentificaction: {
+          required: {},
+          match: {
+            regExp: /^[a-zA-Z0-9]+$/i,
+            msg: 'El campo solo debe contener números o letras.'
+          },
+          length: {
+            max: 20,
+            min: 3
+          },
+        },
+        plateThirdPartyInvolvedName: {
+          required: {},
+          length: {
+            max: 70,
+          },
+        },
+        plateThirdPartyInvolved: {
+          required: {},
+          length: {
+            equal: 6
+          },
+          match: {
+            regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+            msg: 'Este dato no corresponde con un formato de placa valido.'
+          }
+        },
+>>>>>>> main
         description: {
           required: {},
           length: {
@@ -336,7 +522,11 @@ export default {
           required: {},
           match: {
             regExp: /^[A-Za-z0-9]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números o letras.'
+=======
+            msg: 'El campo solo debe contener números o letras.'
+>>>>>>> main
           },
           length: {
             max: 20,
@@ -346,11 +536,19 @@ export default {
         declarantName: {
           required: {},
           length: {
+<<<<<<< HEAD
             max: 60
           },
           match: {
             regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
             msg: 'El campo solo debe contenter letras.'
+=======
+            max: 70
+          },
+          match: {
+            regExp: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ ]+$/i,
+            msg: 'El campo solo debe contener letras.'
+>>>>>>> main
           }
         },
         declarantPhone: {
@@ -360,7 +558,11 @@ export default {
           },
           match: {
             regExp: /^[0-9 ]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números.'
+=======
+            msg: 'El campo solo debe contener números.'
+>>>>>>> main
           }
         },
         declarantDocType: {
@@ -375,7 +577,11 @@ export default {
           },
           match: {
             regExp: /^[A-Za-z0-9# -]+$/i,
+<<<<<<< HEAD
             msg: 'El campo solo debe contenter números,letras o estos caracteres (#, -)'
+=======
+            msg: 'El campo solo debe contener números,letras o estos caracteres (#, -)'
+>>>>>>> main
           }
         },
         city: {
@@ -391,7 +597,11 @@ export default {
       counts: [
         { value: 0, label: '¿Cuántos?' },
         { value: 1, label: '1' },
+<<<<<<< HEAD
         { value: 'more', label: 'Mas de uno'}
+=======
+        { value: 'more', label: 'Mas de uno' }
+>>>>>>> main
       ],
       damages: [
         'Sección delantera',

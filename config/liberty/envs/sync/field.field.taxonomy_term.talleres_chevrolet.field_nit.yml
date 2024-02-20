@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 45d70a63-1931-4e75-a8cb-0393bdc24c54
+=======
+uuid: 2ef30a90-2535-4fb5-bd80-aefdefe5f3ee
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,7 +15,11 @@ entity_type: taxonomy_term
 bundle: talleres_chevrolet
 label: Nit
 description: ''
+<<<<<<< HEAD
 required: false
+=======
+required: true
+>>>>>>> main
 translatable: false
 default_value: {  }
 default_value_callback: ''

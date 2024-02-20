@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: fe6c8ae8-c591-41bd-aa66-853e9dd9a7a8
+=======
+uuid: 747c8af4-74eb-4393-8883-1b3a872c9728
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -7,6 +11,10 @@ dependencies:
     - paragraphs.paragraphs_type.lib_hero_carousel
   module:
     - paragraphs
+<<<<<<< HEAD
+=======
+    - paragraphs_features
+>>>>>>> main
 id: paragraph.lib_hero_carousel.default
 targetEntityType: paragraph
 bundle: lib_hero_carousel
@@ -30,7 +38,17 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+<<<<<<< HEAD
     third_party_settings: {  }
+=======
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        split_text: false
+        show_drag_and_drop: true
+>>>>>>> main
 hidden:
   created: true
   status: true

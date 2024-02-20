@@ -6,10 +6,15 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+<<<<<<< HEAD
+=======
+use Drupal\paragraphs\Entity\Paragraph;
+>>>>>>> main
 
 /**
  * Implements hook_help().
  */
+<<<<<<< HEAD
 function lib_v2_questions_frequent_help($route_name, RouteMatchInterface $route_match)
 {
     switch ($route_name) {
@@ -22,11 +27,25 @@ function lib_v2_questions_frequent_help($route_name, RouteMatchInterface $route_
 
         default:
     }
+=======
+function lib_v2_questions_frequent_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lib_v2_questions_frequent module.
+    case 'help.page.lib_v2_questions_frequent':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Drop-down tabs with text') . '</p>';
+      return $output;
+
+    default:
+  }
+>>>>>>> main
 }
 
 /**
  * Implements hook_theme().
  */
+<<<<<<< HEAD
 function lib_v2_questions_frequent_theme()
 {
     return [
@@ -34,11 +53,20 @@ function lib_v2_questions_frequent_theme()
             'render element' => 'children',
         ],
     ];
+=======
+function lib_v2_questions_frequent_theme() {
+  return [
+    'lib_v2_questions_frequent' => [
+      'render element' => 'children',
+    ],
+  ];
+>>>>>>> main
 }
 
 /**
  * Implements hook_theme_suggestions_block_alter().
  */
+<<<<<<< HEAD
 function lib_v2_questions_frequent_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook)
 {
     if (isset($variables['elements']['content']['#block_content'])) {
@@ -61,5 +89,30 @@ function lib_v2_questions_frequent_preprocess_paragraph(&$variables)
             $variables['questions_frequent'][$clave]['desc'] = $p->field_lib_v2_group_ref_descripti->getValue()[0]['value'];
         }
     }
+=======
+function lib_v2_questions_frequent_theme_suggestions_block_alter(array &$suggestions, array $variables, $hook) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+/**
+ * Lib v2 questions frequent preprocess paragraph.
+ */
+function lib_v2_questions_frequent_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  // Get the type.
+  $parentBundle = $paragraph->bundle();
+
+  if ("lib_v2_questions_frequent" == $parentBundle) {
+    foreach ($paragraph->get('field_lib_v2_group_ref')->getValue() as $clave => $element) {
+      $p = Paragraph::load($element['target_id']);
+      $variables['questions_frequent'][$clave]['title'] = $p->field_lib_v2_group_ref_title->getValue()[0]['value'];
+
+      $variables['questions_frequent'][$clave]['desc'] = $p->field_lib_v2_group_ref_descripti->getValue()[0]['value'];
+    }
+  }
+>>>>>>> main
 
 }

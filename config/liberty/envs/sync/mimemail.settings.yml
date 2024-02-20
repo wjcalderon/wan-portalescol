@@ -2,7 +2,11 @@ _core:
   default_config_hash: rpfRQVoEn2ZWd_lw-iULKPiuina5CqcmzXWlz1OjTwM
 langcode: es
 name: 'Liberty Seguros'
+<<<<<<< HEAD
 mail: admin.portal@libertyseguros.co
+=======
+mail: andres.alvarez@esinergia.co
+>>>>>>> main
 simple_address: false
 sitestyle: true
 textonly: false
@@ -12,4 +16,8 @@ format: rich_text
 preserve_class: false
 advanced:
   incoming: false
+<<<<<<< HEAD
   key: s99dYjSygkTtITBvIKeNr-5Ta3i8LlThvWdznnyttrk
+=======
+  key: iY-hPByzesyqWFv77tbxUWXkXtKhUimQPtCqIuZyyHo
+>>>>>>> main

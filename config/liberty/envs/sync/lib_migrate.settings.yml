@@ -1,3 +1,7 @@
 config:
   api_key_lat_lng: AIzaSyABNc2FdE1Z-FITJ72wKZ2KBUcHXwO92ZY
+<<<<<<< HEAD
   count_reqs_lat_lng: 927
+=======
+  count_reqs_lat_lng: 2671
+>>>>>>> main

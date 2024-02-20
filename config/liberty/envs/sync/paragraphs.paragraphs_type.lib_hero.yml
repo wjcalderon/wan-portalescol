@@ -1,10 +1,21 @@
+<<<<<<< HEAD
 uuid: 84541215-26d6-4813-b75f-639b18718f54
+=======
+uuid: 687f8ca3-242e-4bb6-8e7d-583633943cf0
+>>>>>>> main
 langcode: es
 status: true
 dependencies: {  }
 id: lib_hero
+<<<<<<< HEAD
 label: "Hero Banner\t"
 icon_uuid: null
 icon_default: null
 description: "\tHero Banner."
+=======
+label: 'Hero Banner'
+icon_uuid: null
+icon_default: null
+description: 'Hero Banner.'
+>>>>>>> main
 behavior_plugins: {  }

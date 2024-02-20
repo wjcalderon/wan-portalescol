@@ -2,8 +2,15 @@
 
 namespace Drupal\lib_core\Plugin\Block;
 
+<<<<<<< HEAD
 use Drupal\Core\Block\BlockBase;
 use Drupal\image\Entity\ImageStyle;
+=======
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Block\BlockBase;
+use Drupal\file\Entity\File;
+use Drupal\node\Entity\Node;
+>>>>>>> main
 
 /**
  * Provides a 'DefaultBlock' block.
@@ -19,7 +26,10 @@ class LibCoreBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+<<<<<<< HEAD
     $build = [];
+=======
+>>>>>>> main
     $current_path = \Drupal::request();
     $path_args = explode('/', $current_path);
     $tid = 0;
@@ -34,6 +44,7 @@ class LibCoreBlock extends BlockBase {
     $connection = \Drupal::database();
     $query = $connection->query("SELECT r.tid, r.name, i.field_icon_target_id as fid FROM {taxonomy_term_field_data} r inner join {taxonomy_term__field_person_type} t on t.entity_id = r.tid left join taxonomy_term__field_icon i on i.entity_id = r.tid where status = 1 and vid = 'product_type' and t.field_person_type_target_id = " . $tid);
     $result = $query->fetchAll();
+<<<<<<< HEAD
     $ramos = array();
     $products = array();
     foreach ($result as $tax) {
@@ -42,6 +53,16 @@ class LibCoreBlock extends BlockBase {
         $icon_ramo = \Drupal\file\Entity\File::load($tax->fid);
         if (isset($icon_ramo->uri->value)) {
           $uri = 	$icon_ramo->uri->value;
+=======
+    $ramos = [];
+    $products = [];
+    foreach ($result as $tax) {
+      $uri = '';
+      if (isset($tax->fid) && is_numeric($tax->fid) && $tax->tid > 0) {
+        $icon_ramo = File::load($tax->fid);
+        if (isset($icon_ramo->uri->value)) {
+          $uri = $icon_ramo->uri->value;
+>>>>>>> main
         }
       }
 
@@ -54,6 +75,7 @@ class LibCoreBlock extends BlockBase {
           and n.type = 'product'
           and t.field_product_type_target_id = " . $tax->tid);
       $resulta = $query->fetchAll();
+<<<<<<< HEAD
 // echo '<pre>';
 
       if (count($resulta) > 0) {
@@ -74,6 +96,18 @@ class LibCoreBlock extends BlockBase {
             $paragraphs = $node->field_assistances->getValue();
             $p = array();
             $content = array();
+=======
+      // Echo '<pre>';.
+      if (count($resulta) > 0) {
+        // print_r($resulta);
+        foreach ($resulta as $row) {
+          // print_r($row->nid . "\n");.
+          if (!empty($row->nid)) {
+            $ramos[$tax->tid] = ['icon' => $uri, 'name' => $tax->name];
+            $node = Node::load($row->nid);
+            $paragraphs = $node->field_assistances->getValue();
+            $content = [];
+>>>>>>> main
             // print_r($paragraphs);
             foreach ($paragraphs as $element) {
               // print_r($element);
@@ -88,7 +122,16 @@ class LibCoreBlock extends BlockBase {
                 }
                 $lead = $paragraph->get('field_lead')->getValue();
                 $steps = $paragraph->field_step->getValue();
+<<<<<<< HEAD
                 $content[] = array('heading' => $heading,'icon'=>$icon,'lead'=>$lead,'steps'=>$steps);
+=======
+                $content[] = [
+                  'heading' => $heading,
+                  'icon' => $icon,
+                  'lead' => $lead,
+                  'steps' => $steps,
+                ];
+>>>>>>> main
               }
             }
             if (!empty($node->field_icon->entity->uri)) {
@@ -96,7 +139,15 @@ class LibCoreBlock extends BlockBase {
               $title = $row->title;
             }
             if (count($content) > 0) {
+<<<<<<< HEAD
               $products[$tax->tid][] = array('title' => $title, 'nid'=>$row->nid, 'content' => $content);
+=======
+              $products[$tax->tid][] = [
+                'title' => $title,
+                'nid' => $row->nid,
+                'content' => $content,
+              ];
+>>>>>>> main
             }
 
           }
@@ -104,6 +155,7 @@ class LibCoreBlock extends BlockBase {
       }
     }
 
+<<<<<<< HEAD
 
     // echo '<pre>';
     // var_dump($ramos);
@@ -118,12 +170,38 @@ class LibCoreBlock extends BlockBase {
     $contact[] = array('label'=>$block->field_resto_pais->getFieldDefinition()->getLabel(), 'value'=> $block->get('field_resto_pais')->value);
 
      return array (
+=======
+    $block = BlockContent::load(3);
+
+    $contact = [];
+    $contact[] = [
+      'label' => 'Celular',
+      'value' => $block->get('field_numero_mst')->value,
+    ];
+    $contact[] = [
+      'label' => $block->field_bogota->getFieldDefinition()->getLabel(),
+      'value' => $block->get('field_bogota')->value,
+    ];
+    $contact[] = [
+      'label' => $block->field_resto_pais->getFieldDefinition()->getLabel(),
+      'value' => $block->get('field_resto_pais')->value,
+    ];
+
+    return [
+>>>>>>> main
       '#theme' => 'tabs_assistances',
       '#ramos' => $ramos,
       '#products' => $products,
       '#block_contact' => $contact,
       '#cache' => ['max-age' => 0],
+<<<<<<< HEAD
      );
 
     }
+=======
+    ];
+
+  }
+
+>>>>>>> main
 }

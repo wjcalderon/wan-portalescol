@@ -1,0 +1,21 @@
+uuid: 0777ec9c-0448-4d27-8c4f-aa2de41d2a78
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: Uj2UHNzXXWpnnmMqL5uniRtHaDSECBwDTlZHO7njDoc
+id: block_content.field_lib_v3_carousel_group_ref
+field_name: field_lib_v3_carousel_group_ref
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

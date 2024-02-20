@@ -1,0 +1,8 @@
+uuid: 000da9f2-5222-407f-a67a-6e9badf97039
+langcode: es
+status: true
+dependencies: {  }
+id: carousel_internal
+label: 'Carrusel - Breaker'
+revision: 0
+description: ''

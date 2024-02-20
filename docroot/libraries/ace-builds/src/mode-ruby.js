@@ -845,18 +845,29 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 define("ace/mode/ruby",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/ruby_highlight_rules","ace/mode/matching_brace_outdent","ace/range","ace/mode/behaviour/cstyle","ace/mode/folding/ruby"], function(require, exports, module){"use strict";
+=======
+define("ace/mode/ruby",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/ruby_highlight_rules","ace/mode/matching_brace_outdent","ace/range","ace/mode/folding/ruby"], function(require, exports, module){"use strict";
+>>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var RubyHighlightRules = require("./ruby_highlight_rules").RubyHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
 var Range = require("../range").Range;
+<<<<<<< HEAD
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+=======
+>>>>>>> main
 var FoldMode = require("./folding/ruby").FoldMode;
 var Mode = function () {
     this.HighlightRules = RubyHighlightRules;
     this.$outdent = new MatchingBraceOutdent();
+<<<<<<< HEAD
     this.$behaviour = new CstyleBehaviour();
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new FoldMode();
     this.indentKeywords = this.foldingRules.indentKeywords;
 };

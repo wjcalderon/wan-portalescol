@@ -1,0 +1,14 @@
+uuid: e18870ad-b84e-4331-930b-50bf6e9f5ab8
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.footer_prueba_reviewer
+  module:
+    - user
+id: user_remove_role_action.footer_prueba_reviewer
+label: 'Elimina el rol Footer_prueba reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: footer_prueba_reviewer

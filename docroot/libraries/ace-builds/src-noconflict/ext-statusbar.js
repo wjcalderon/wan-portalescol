@@ -1,6 +1,7 @@
 ace.define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/lang"], function(require, exports, module){"use strict";
 var dom = require("../lib/dom");
 var lang = require("../lib/lang");
+<<<<<<< HEAD
 var StatusBar = function (editor, parentNode) {
     this.element = dom.createElement("div");
     this.element.className = "ace_status-indicator";
@@ -15,6 +16,22 @@ var StatusBar = function (editor, parentNode) {
 };
 (function () {
     this.updateStatus = function (editor) {
+=======
+var StatusBar = /** @class */ (function () {
+    function StatusBar(editor, parentNode) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_status-indicator";
+        this.element.style.cssText = "display: inline-block;";
+        parentNode.appendChild(this.element);
+        var statusUpdate = lang.delayedCall(function () {
+            this.updateStatus(editor);
+        }.bind(this)).schedule.bind(null, 100);
+        editor.on("changeStatus", statusUpdate);
+        editor.on("changeSelection", statusUpdate);
+        editor.on("keyboardActivity", statusUpdate);
+    }
+    StatusBar.prototype.updateStatus = function (editor) {
+>>>>>>> main
         var status = [];
         function add(str, separator) {
             str && status.push(str, separator || "|");
@@ -34,7 +51,12 @@ var StatusBar = function (editor, parentNode) {
         status.pop();
         this.element.textContent = status.join("");
     };
+<<<<<<< HEAD
 }).call(StatusBar.prototype);
+=======
+    return StatusBar;
+}());
+>>>>>>> main
 exports.StatusBar = StatusBar;
 
 });                (function() {

@@ -241,7 +241,11 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: entity_operations
+<<<<<<< HEAD
           label: Operations
+=======
+          label: Operaciones
+>>>>>>> main
           exclude: false
           alter:
             alter_text: false
@@ -286,12 +290,20 @@ display:
       pager:
         type: full
         options:
+<<<<<<< HEAD
           items_per_page: 50
+=======
+          offset: 0
+          items_per_page: 100
+          total_pages: null
+          id: 0
+>>>>>>> main
           tags:
             next: 'Siguiente >'
             previous: '‹ Anterior'
             first: '« Primero'
             last: 'Último »'
+<<<<<<< HEAD
       exposed_form:
         type: basic
         options:
@@ -299,6 +311,24 @@ display:
           reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
+=======
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Filtro
+          reset_button: true
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+>>>>>>> main
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -625,7 +655,11 @@ display:
         - 'config:workflow_list'
   page_1:
     id: page_1
+<<<<<<< HEAD
     display_title: Page
+=======
+    display_title: Página
+>>>>>>> main
     display_plugin: page
     position: 1
     display_options:

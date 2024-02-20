@@ -1,0 +1,111 @@
+/* LB Global */
+.layout-builder {
+  padding: 0 1rem;
+}
+.layout-builder__region {
+  padding: 0.5rem;
+}
+
+.layout-builder__section {
+  display: block;
+  margin: 3rem 0;
+}
+.layout-builder__section a {
+  font-size: 14px;
+}
+.layout-builder__add-section {
+  width: 100%;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+.glb-canvas-form .form-item-layout-builder-style {
+  flex-grow: 1;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 21px;
+}
+
+.layout-builder__section:not(.gin-lb--disable-section-focus):hover:after {
+  border: 0 !important;
+}
+
+.glb-layout-builder-browser .layout-builder-browser-block-item {
+  width: calc(45% - 2px);
+  margin-bottom: 1rem !important;
+  text-decoration: none;
+}
+
+.glb-layout-builder-browser .layout-builder-browser-block-item img {
+  width: 90%;
+  margin-bottom: 0.5rem;
+}
+
+#drupal-off-canvas .glb-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#drupal-off-canvas .glb-form-actions .paragraphs-dropbutton-wrapper {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+}
+
+#drupal-off-canvas .glb-form-actions .paragraphs-dropbutton-wrapper .dropbutton-wrapper {
+  display: inline-flex;
+  border-radius: 2px;
+  width: auto;
+  min-width: 160px;
+}
+
+#drupal-off-canvas .glb-form-actions .paragraphs-dropbutton-wrapper .dropbutton-widget {
+  position: relative;
+  flex: 1 1 auto;
+  width: auto;
+  display: block;
+}
+
+#drupal-off-canvas .glb-form-actions .paragraphs-dropbutton-wrapper .dropbutton {
+  border: 2px solid #0550e6;
+  display: block;
+  overflow: visible;
+  margin: 0;
+  list-style: none;
+  width: auto;
+}
+
+#drupal-off-canvas .paragraphs-nested .dropbutton-multiple .dropbutton-widget .dropbutton--small {
+  height: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: 10px;
+  background-color: gray;
+}
+
+.ui-widget-content .ui-dialog-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-widget-content .ui-dialog-titlebar .ui-dialog-title {
+  width: 100%;
+}
+
+.ui-widget-content .ui-dialog-titlebar button.ui-dialog-titlebar-close::after {
+  content: "x";
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.ui-widget-content.ui-dialog-position-side .ui-dialog-titlebar button.ui-dialog-titlebar-close::after {
+  color: black;
+}
+
+#layout-builder-modal {
+  overflow: auto;
+}

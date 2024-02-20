@@ -147,6 +147,17 @@ parameters:
       #
       # @default []
       tags: []
+<<<<<<< HEAD
+=======
+    # Renderer cache debug:
+    #
+    # Allows cache debugging output for each rendered element.
+    #
+    # Enabling render cache debugging is not recommended in production
+    # environments.
+    # @default false
+    debug: false
+>>>>>>> main
   # Cacheability debugging:
   #
   # Responses with cacheability metadata (CacheableResponseInterface instances)
@@ -161,6 +172,7 @@ parameters:
   # @default false
   http.response.debug_cacheability_headers: false
   factory.keyvalue: {}
+<<<<<<< HEAD
     # Default key/value storage service to use.
     # @default keyvalue.database
     # default: keyvalue.database
@@ -170,6 +182,17 @@ parameters:
     # Default key/value expirable storage service to use.
     # @default keyvalue.database.expirable
     # default: keyvalue.database.expirable
+=======
+  # Default key/value storage service to use.
+  # @default keyvalue.database
+  # default: keyvalue.database
+  # Collection-specific overrides.
+  # state: keyvalue.database
+  factory.keyvalue.expirable: {}
+  # Default key/value expirable storage service to use.
+  # @default keyvalue.database.expirable
+  # default: keyvalue.database.expirable
+>>>>>>> main
   # Allowed protocols for URL generation.
   filter_protocols:
     - http
@@ -196,7 +219,12 @@ parameters:
     allowedHeaders: []
     # Specify allowed request methods, specify ['*'] to allow all possible ones.
     allowedMethods: []
+<<<<<<< HEAD
     # Configure requests allowed from specific origins.
+=======
+    # Configure requests allowed from specific origins. Do not include trailing
+    # slashes with URLs.
+>>>>>>> main
     allowedOrigins: ['*']
     # Sets the Access-Control-Expose-Headers header.
     exposedHeaders: false

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 9a36fe1c-5ab7-4e84-bedb-0c912e784f97
+=======
+uuid: 5438e53e-4cd6-4bf4-85ea-45c180aa1ff3
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -6,15 +10,24 @@ dependencies:
     - core.entity_view_mode.media.media_library
     - field.field.media.vector_image.field_media_in_library
     - field.field.media.vector_image.field_media_svg
+<<<<<<< HEAD
     - image.style.medium
     - media.type.vector_image
   module:
     - svg_image
+=======
+    - media.type.vector_image
+  module:
+    - svg_image_field
+_core:
+  default_config_hash: '-O6eY6va3TyHDepGsv16DbitUaSLphat7GdKEp-E5rI'
+>>>>>>> main
 id: media.vector_image.media_library
 targetEntityType: media
 bundle: vector_image
 mode: media_library
 content:
+<<<<<<< HEAD
   thumbnail:
     type: image
     label: hidden
@@ -25,6 +38,19 @@ content:
         width: null
         height: null
       svg_render_as_image: true
+=======
+  field_media_svg:
+    type: svg_image_field_formatter
+    label: hidden
+    settings:
+      inline: false
+      apply_dimensions: true
+      width: 200
+      height: 200
+      enable_alt: true
+      enable_title: true
+      link: ''
+>>>>>>> main
     third_party_settings: {  }
     weight: 0
     region: content
@@ -32,8 +58,15 @@ hidden:
   addtoany: true
   created: true
   field_media_in_library: true
+<<<<<<< HEAD
   field_media_svg: true
   langcode: true
   name: true
   search_api_excerpt: true
+=======
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+>>>>>>> main
   uid: true

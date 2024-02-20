@@ -5,7 +5,11 @@
     "license": "proprietary",
     "homepage": "https://libertyseguros.co",
     "require": {
+<<<<<<< HEAD
         "php": ">=7.4",
+=======
+        "php": ">=8.1",
+>>>>>>> main
         "ext-dom": "*",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.7",
@@ -15,7 +19,11 @@
         "drupal/acquia_purge": "^1.1",
         "drupal/acquia_search": "^3.0",
         "drupal/addtoany": "^1.14",
+<<<<<<< HEAD
         "drupal/admin_toolbar": "^3.0",
+=======
+        "drupal/admin_toolbar": "^3.4",
+>>>>>>> main
         "drupal/advagg": "^4.1",
         "drupal/ape": "^1.5",
         "drupal/auto_entitylabel": "^3.0@beta",
@@ -35,6 +43,7 @@
         "drupal/config_ignore": "^2.3",
         "drupal/config_split": "^2.0@RC",
         "drupal/config_update": "^1.7",
+<<<<<<< HEAD
         "drupal/core": "9.4",
         "drupal/core-composer-scaffold": "9.4",
         "drupal/core-project-message": "9.4",
@@ -42,6 +51,15 @@
         "drupal/core_context": "^1.0@beta",
         "drupal/devel": "^4.1",
         "drupal/devel_entity_updates": "^3.0",
+=======
+        "drupal/core": "^9",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
+        "drupal/core_context": "^1.0@beta",
+        "drupal/devel": "^4.1",
+        "drupal/devel_entity_updates": "^4.1",
+>>>>>>> main
         "drupal/diff": "^1.0",
         "drupal/drush_delete": "^3.0",
         "drupal/ds": "^3.9",
@@ -50,21 +68,34 @@
         "drupal/emulsify_drupal": "^2.2",
         "drupal/emulsify_twig": "^2.0",
         "drupal/entity_clone": "^1.0@beta",
+<<<<<<< HEAD
         "drupal/entity_embed": "^1.0.",
+=======
+        "drupal/entity_embed": "^1.0",
+>>>>>>> main
         "drupal/entity_update": "^2.0@RC",
         "drupal/entityqueue": "^1.2",
         "drupal/facets": "^2.0",
         "drupal/features": "^3.11",
         "drupal/field_group": "^3.1",
+<<<<<<< HEAD
+=======
+        "drupal/focal_point": "^2.0",
+>>>>>>> main
         "drupal/formassembly": "^1.3",
         "drupal/geocoder": "^3.31",
         "drupal/geolocation": "^3.2",
         "drupal/gin": "^3.0@alpha",
+<<<<<<< HEAD
+=======
+        "drupal/gin_lb": "^1.0@RC",
+>>>>>>> main
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/google_analytics": "^4.0",
         "drupal/honeypot": "^2.0",
         "drupal/hreflang": "^1.3",
         "drupal/http_cache_control": "^2.0",
+<<<<<<< HEAD
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/jquery_ui": "^1.4",
         "drupal/jquery_ui_accordion": "^1.1",
@@ -72,10 +103,28 @@
         "drupal/jquery_ui_datepicker": "^1.1",
         "drupal/jquery_ui_tabs": "^1.1",
         "drupal/libraries": "^3.0@beta",
+=======
+        "drupal/inline_block_title_automatic": "^1.0",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/jquery_ui": "^1.6",
+        "drupal/jquery_ui_accordion": "^1.1",
+        "drupal/jquery_ui_autocomplete": "^2.0",
+        "drupal/jquery_ui_datepicker": "^1.1",
+        "drupal/jquery_ui_tabs": "^1.1",
+        "drupal/layout_builder_additions": "^1.0",
+        "drupal/layout_builder_browser": "^1.5",
+        "drupal/layout_builder_modal": "^1.2",
+        "drupal/layout_builder_save_and_edit": "*",
+        "drupal/libraries": "^4.0",
+>>>>>>> main
         "drupal/lightning_api": "^4.4",
         "drupal/lightning_core": "^5.2",
         "drupal/lightning_layout": "^2.10",
         "drupal/lightning_media": "^4.6",
+<<<<<<< HEAD
+=======
+        "drupal/lightning_media_instagram": "^5.0",
+>>>>>>> main
         "drupal/lightning_workflow": "^3.14",
         "drupal/link_attributes": "^1.11",
         "drupal/link_class": "^2.0",
@@ -94,8 +143,15 @@
         "drupal/node_edit_protection": "^1.0",
         "drupal/noreferrer": "^1.14",
         "drupal/oauth2_client": "^3.0@beta",
+<<<<<<< HEAD
         "drupal/openapi": "^2.0@RC",
         "drupal/openapi_rest": "^2.0@RC",
+=======
+        "drupal/oauth2_server": "^2.0.x-dev@dev",
+        "drupal/openapi": "^2.0@RC",
+        "drupal/openapi_rest": "^2.0@RC",
+        "drupal/openid_connect": "^1.2",
+>>>>>>> main
         "drupal/pager_serializer": "^1.1",
         "drupal/paragraphs": "^1.12",
         "drupal/paragraphs_browser": "^1.0",
@@ -105,17 +161,29 @@
         "drupal/perimeter": "^2.0@RC",
         "drupal/permissionspolicy": "^1.0",
         "drupal/phpmailer_smtp": "^2.0",
+<<<<<<< HEAD
+=======
+        "drupal/phpspreadsheet": "^2.0",
+>>>>>>> main
         "drupal/profile_switcher": "^1.0-alpha5",
         "drupal/purge": "^3.1",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
         "drupal/remove_http_headers": "^1.0",
+<<<<<<< HEAD
+=======
+        "drupal/rest_api_authentication": "^2.0",
+>>>>>>> main
         "drupal/restui": "^1.19",
         "drupal/scheduler": "^1.3",
         "drupal/search404": "^2.0",
         "drupal/search_api_autocomplete": "^1.4",
         "drupal/search_api_solr": "^4.2",
+<<<<<<< HEAD
         "drupal/seckit": "^2.0",
+=======
+        "drupal/seckit": "^2.x-dev@dev",
+>>>>>>> main
         "drupal/securelogin": "^1.10",
         "drupal/security_review": "^1.0@alpha",
         "drupal/semanticviews": "^2.3",
@@ -123,17 +191,31 @@
         "drupal/sftp_client": "1.0.x-dev@dev",
         "drupal/shs": "^2.0@RC",
         "drupal/simple_oauth": "^5.2",
+<<<<<<< HEAD
         "drupal/simple_sitemap": "^3.11.0",
+=======
+        "drupal/simple_sitemap": "^4.1",
+>>>>>>> main
         "drupal/sitemap": "^2.0@beta",
         "drupal/slick": "^2.6",
         "drupal/slick_views": "^2.6",
         "drupal/social_media_links": "^2.7",
+<<<<<<< HEAD
         "drupal/stage_file_proxy": "^1.2",
+=======
+        "drupal/stage_file_proxy": "^2.0",
+>>>>>>> main
         "drupal/structure_sync": "^2.0",
         "drupal/svg_image": "^1.14",
         "drupal/svg_image_field": "^2.1",
         "drupal/tb_megamenu": "^1.2",
+<<<<<<< HEAD
         "drupal/textfield_counter": "^2.0",
+=======
+        "drupal/textfield_counter": "2.1",
+        "drupal/token": "^1.13",
+        "drupal/token_filter": "^2.1",
+>>>>>>> main
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/ultimate_cron": "^2.0@alpha",
@@ -141,6 +223,10 @@
         "drupal/upgrade_rector": "^1.0@alpha",
         "drupal/upgrade_status": "^3.18",
         "drupal/video_embed_field": "^2.0",
+<<<<<<< HEAD
+=======
+        "drupal/view_custom_table": "^2.0",
+>>>>>>> main
         "drupal/views_bulk_operations": "^4.1",
         "drupal/views_data_export": "^1.1",
         "drupal/views_field_view": "^1.0@beta",
@@ -155,6 +241,7 @@
         "drupal/xmlsitemap": "^1.0",
         "drupal/yaml_editor": "^1.1",
         "drupal/yoast_seo": "^1.7",
+<<<<<<< HEAD
         "grasmash/yaml-expander": "^3.0",
         "guzzlehttp/guzzle": "^6.5.2 || ^7.4.1",
         "kint-php/kint": "^3.3",
@@ -166,6 +253,29 @@
     },
     "require-dev": {
         "drush/drush": ">=9.7",
+=======
+        "drush/drush": "^11.6",
+        "grasmash/yaml-expander": "^3.0",
+        "guzzlehttp/guzzle": "^6.5.2 || ^7.4.1",
+        "kint-php/kint": "^3.3",
+        "lcobucci/jwt": "^4.3",
+        "mglaman/phpstan-drupal": "^1.2",
+        "monolog/monolog": "^2.3",
+        "mpdf/mpdf": "^8.0",
+        "neronmoon/scriptsdev": "^0.1.9",
+        "npm-asset/jquery-ui-touch-punch": "^0.2.3",
+        "phpro/grumphp": "*",
+        "phpro/grumphp-shim": "^2.1",
+        "phpseclib/phpseclib": "^2.0.29",
+        "phpstan/extension-installer": "^1.3",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
+        "platformsh/config-reader": "^2.4",
+        "setasign/fpdi": "^2.3"
+    },
+    "require-dev": {
+        "enlightn/security-checker": "^1.10",
+>>>>>>> main
         "phpspec/prophecy-phpunit": "^2"
     },
     "config": {
@@ -178,10 +288,28 @@
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
             "drupal/core-project-message": true,
+<<<<<<< HEAD
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
+=======
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp-shim": true,
+            "phpstan/extension-installer": true,
+            "neronmoon/scriptsdev": true
+        }
+    },
+    "extra": {
+        "scripts-dev": {
+            "post-install-cmd": [
+                "./vendor/bin/grumphp git:init"
+            ],
+            "post-update-cmd": [
+                "./vendor/bin/grumphp git:init"
+            ]
+        },
+>>>>>>> main
         "composer-exit-on-patch-failure": false,
         "drupal-scaffold": {
             "locations": {
@@ -245,6 +373,7 @@
             },
             "drupal/core": {
                 "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch",
+<<<<<<< HEAD
                 "Workaround for Call to a member function in layout builder": "https://www.drupal.org/files/issues/2020-04-08/2985882-field-85.patch",
                 "path-matcher": "https://www.drupal.org/files/issues/2022-07-18/ASGS-4866-php8-compatibility_3.patch",
                 "Component/Utility ": "https://www.drupal.org/files/issues/2022-03-18/fix-for-php-greater-8-1-3255637.patch",
@@ -253,6 +382,13 @@
             },
             "phpoffice/phpspreadsheet": {
                 "Error placeholder": "patches/fix_phpspreedsheet_xlsx_reader.patch"
+=======
+                "path-matcher": "https://www.drupal.org/files/issues/2022-07-18/ASGS-4866-php8-compatibility_3.patch",
+                "operations": "https://www.drupal.org/files/issues/2021-11-23/2473873-97.patch",
+                "claro templates": "https://www.drupal.org/files/issues/2022-09-28/3312270-claro-menu-twig-fix.patch",
+                "Undefined index: region on layout": "https://www.drupal.org/files/issues/2019-12-16/undefined_index_region_field_layout-3053906-30.patch",
+                "MethodNotAllowedException thrown on POST requests if user has set admin language in their profile": "https://www.drupal.org/files/issues/2019-04-15/route-method-exception-path-fix-3048288.patch"
+>>>>>>> main
             },
             "drupal/layout_builder_st": {
                 "ComponentPluginTranslate::isTranslation() must implement interface": "https://www.drupal.org/files/issues/2019-07-24/isTranslation-null-given.patch"
@@ -261,13 +397,33 @@
                 "Fix submenu rendering": "patches/tb_megamenu.patch"
             },
             "drupal/seckit": {
+<<<<<<< HEAD
                 "Add form-action directive": "https://www.drupal.org/files/issues/2021-10-21/3219294-8-add-missing-directives.patch"
+=======
+                "Change Feature Policy to Permissions Policy (D8/D9)": "https://www.drupal.org/files/issues/2023-08-11/seckit-3185024-permissions-policy-22_0.patch"
+>>>>>>> main
             },
             "drupal/ckeditor_videodetector": {
                 "Automated Drupal Rector fixes": "https://www.drupal.org/files/issues/2020-05-23/ckeditor_videodetector.1.x-dev.rector.patch"
             },
             "drupal/geolocation": {
                 "deg2rad fixes": "https://www.drupal.org/files/issues/2022-01-11/3257751-5.patch"
+<<<<<<< HEAD
+=======
+            },
+            "drupal/oauth2_server": {
+                "OAuth2Storage::setAuthorizationCode": "https://www.drupal.org/files/issues/2023-06-27/11.patch",
+                "php-8.1 compatibility": "https://www.drupal.org/files/issues/2023-06-07/3307940-php-8.1-compatibility-16.patch"
+            },
+            "drupal/gin_toolbar": {
+                "node local tasks iin toolbar": "https://www.drupal.org/files/issues/2022-02-11/3263805-41.patch"
+            },
+            "drupal/block_class": {
+                "TypeError: array_keys(): Argument #1 ($array) must be of type array": "https://www.drupal.org/files/issues/2023-07-11/third_party_settings_3343165.patch"
+            },
+            "drupal/layout_builder_browser": {
+                "Undefined array key in": "https://www.drupal.org/files/issues/2023-03-29/3351162.patch"
+>>>>>>> main
             }
         },
         "patches-ignore": {
@@ -295,11 +451,21 @@
     "scripts": {
         "post-install-cmd": [
             "cp docroot/.htaccess_dist docroot/.htaccess",
+<<<<<<< HEAD
             "cp scripts/git-hooks/pre-commit .git/hooks/pre-commit"
         ],
         "post-update-cmd": [
             "cp docroot/.htaccess_dist docroot/.htaccess",
             "cp scripts/git-hooks/pre-commit .git/hooks/pre-commit"
+=======
+            "echo '' > docroot/modules/contrib/jquery_ui/assets/vendor/jquery.ui/themes/base/theme.css",
+            "echo '' > docroot/core/modules/image/image.post_update.php"
+        ],
+        "post-update-cmd": [
+            "cp docroot/.htaccess_dist docroot/.htaccess",
+            "echo '' > docroot/modules/contrib/jquery_ui/assets/vendor/jquery.ui/themes/base/theme.css",
+            "echo '' > docroot/core/modules/image/image.post_update.php"
+>>>>>>> main
         ],
         "post-create-project-cmd": "rm -r -f .travis.yml .travis-ci",
         "quick-start": [
@@ -311,4 +477,8 @@
             "rm docroot/.htaccess.orig"
         ]
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

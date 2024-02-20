@@ -80,6 +80,7 @@ function date(dateFormat) {
     var str = new Date().toLocaleString("en-us", dateFormat);
     return str.length == 1 ? "0" + str : str;
 }
+<<<<<<< HEAD
 var SnippetManager = function () {
     this.snippetMap = {};
     this.snippetNameMap = {};
@@ -90,6 +91,18 @@ var SnippetManager = function () {
         return SnippetManager.$tokenizer || this.createTokenizer();
     };
     this.createTokenizer = function () {
+=======
+var SnippetManager = /** @class */ (function () {
+    function SnippetManager() {
+        this.snippetMap = {};
+        this.snippetNameMap = {};
+        this.variables = VARIABLES;
+    }
+    SnippetManager.prototype.getTokenizer = function () {
+        return SnippetManager.$tokenizer || this.createTokenizer();
+    };
+    SnippetManager.prototype.createTokenizer = function () {
+>>>>>>> main
         function TabstopToken(str) {
             str = str.substr(1);
             if (/^\d+$/.test(str))
@@ -209,12 +222,20 @@ var SnippetManager = function () {
         });
         return SnippetManager.$tokenizer;
     };
+<<<<<<< HEAD
     this.tokenizeTmSnippet = function (str, startState) {
+=======
+    SnippetManager.prototype.tokenizeTmSnippet = function (str, startState) {
+>>>>>>> main
         return this.getTokenizer().getLineTokens(str, startState).tokens.map(function (x) {
             return x.value || x;
         });
     };
+<<<<<<< HEAD
     this.getVariableValue = function (editor, name, indentation) {
+=======
+    SnippetManager.prototype.getVariableValue = function (editor, name, indentation) {
+>>>>>>> main
         if (/^\d+$/.test(name))
             return (this.variables.__ || {})[name] || "";
         if (/^[A-Z]\d+$/.test(name))
@@ -227,8 +248,12 @@ var SnippetManager = function () {
             value = this.variables[name](editor, name, indentation);
         return value == null ? "" : value;
     };
+<<<<<<< HEAD
     this.variables = VARIABLES;
     this.tmStrFormat = function (str, ch, editor) {
+=======
+    SnippetManager.prototype.tmStrFormat = function (str, ch, editor) {
+>>>>>>> main
         if (!ch.fmt)
             return str;
         var flag = ch.flag || "";
@@ -271,14 +296,22 @@ var SnippetManager = function () {
         });
         return formatted;
     };
+<<<<<<< HEAD
     this.tmFormatFunction = function (str, ch, editor) {
+=======
+    SnippetManager.prototype.tmFormatFunction = function (str, ch, editor) {
+>>>>>>> main
         if (ch.formatFunction == "upcase")
             return str.toUpperCase();
         if (ch.formatFunction == "downcase")
             return str.toLowerCase();
         return str;
     };
+<<<<<<< HEAD
     this.resolveVariables = function (snippet, editor) {
+=======
+    SnippetManager.prototype.resolveVariables = function (snippet, editor) {
+>>>>>>> main
         var result = [];
         var indentation = "";
         var afterNewLine = true;
@@ -337,6 +370,7 @@ var SnippetManager = function () {
         }
         return result;
     };
+<<<<<<< HEAD
     this.insertSnippetForSelection = function (editor, snippetText) {
         var cursor = editor.getCursorPosition();
         var line = editor.session.getLine(cursor.row);
@@ -457,11 +491,37 @@ var SnippetManager = function () {
             return self.insertSnippetForSelection(editor, snippetText);
         editor.forEachSelection(function () {
             self.insertSnippetForSelection(editor, snippetText);
+=======
+    SnippetManager.prototype.getDisplayTextForSnippet = function (editor, snippetText) {
+        var processedSnippet = processSnippetText.call(this, editor, snippetText);
+        return processedSnippet.text;
+    };
+    SnippetManager.prototype.insertSnippetForSelection = function (editor, snippetText, options) {
+        if (options === void 0) { options = {}; }
+        var processedSnippet = processSnippetText.call(this, editor, snippetText, options);
+        var range = editor.getSelectionRange();
+        var end = editor.session.replace(range, processedSnippet.text);
+        var tabstopManager = new TabstopManager(editor);
+        var selectionId = editor.inVirtualSelectionMode && editor.selection.index;
+        tabstopManager.addTabstops(processedSnippet.tabstops, range.start, end, selectionId);
+    };
+    SnippetManager.prototype.insertSnippet = function (editor, snippetText, options) {
+        if (options === void 0) { options = {}; }
+        var self = this;
+        if (editor.inVirtualSelectionMode)
+            return self.insertSnippetForSelection(editor, snippetText, options);
+        editor.forEachSelection(function () {
+            self.insertSnippetForSelection(editor, snippetText, options);
+>>>>>>> main
         }, null, { keepOrder: true });
         if (editor.tabstopManager)
             editor.tabstopManager.tabNext();
     };
+<<<<<<< HEAD
     this.$getScope = function (editor) {
+=======
+    SnippetManager.prototype.$getScope = function (editor) {
+>>>>>>> main
         var scope = editor.session.$mode.$id || "";
         scope = scope.split("/").pop();
         if (scope === "html" || scope === "php") {
@@ -483,7 +543,11 @@ var SnippetManager = function () {
         }
         return scope;
     };
+<<<<<<< HEAD
     this.getActiveScopes = function (editor) {
+=======
+    SnippetManager.prototype.getActiveScopes = function (editor) {
+>>>>>>> main
         var scope = this.$getScope(editor);
         var scopes = [scope];
         var snippetMap = this.snippetMap;
@@ -493,7 +557,11 @@ var SnippetManager = function () {
         scopes.push("_");
         return scopes;
     };
+<<<<<<< HEAD
     this.expandWithTab = function (editor, options) {
+=======
+    SnippetManager.prototype.expandWithTab = function (editor, options) {
+>>>>>>> main
         var self = this;
         var result = editor.forEachSelection(function () {
             return self.expandSnippetForSelection(editor, options);
@@ -502,7 +570,11 @@ var SnippetManager = function () {
             editor.tabstopManager.tabNext();
         return result;
     };
+<<<<<<< HEAD
     this.expandSnippetForSelection = function (editor, options) {
+=======
+    SnippetManager.prototype.expandSnippetForSelection = function (editor, options) {
+>>>>>>> main
         var cursor = editor.getCursorPosition();
         var line = editor.session.getLine(cursor.row);
         var before = line.substring(0, cursor.column);
@@ -526,7 +598,11 @@ var SnippetManager = function () {
         this.variables.M__ = this.variables.T__ = null;
         return true;
     };
+<<<<<<< HEAD
     this.findMatchingSnippet = function (snippetList, before, after) {
+=======
+    SnippetManager.prototype.findMatchingSnippet = function (snippetList, before, after) {
+>>>>>>> main
         for (var i = snippetList.length; i--;) {
             var s = snippetList[i];
             if (s.startRe && !s.startRe.test(before))
@@ -542,9 +618,13 @@ var SnippetManager = function () {
             return s;
         }
     };
+<<<<<<< HEAD
     this.snippetMap = {};
     this.snippetNameMap = {};
     this.register = function (snippets, scope) {
+=======
+    SnippetManager.prototype.register = function (snippets, scope) {
+>>>>>>> main
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
         var self = this;
@@ -612,7 +692,11 @@ var SnippetManager = function () {
         }
         this._signal("registerSnippets", { scope: scope });
     };
+<<<<<<< HEAD
     this.unregister = function (snippets, scope) {
+=======
+    SnippetManager.prototype.unregister = function (snippets, scope) {
+>>>>>>> main
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
         function removeSnippet(s) {
@@ -630,7 +714,11 @@ var SnippetManager = function () {
         else if (Array.isArray(snippets))
             snippets.forEach(removeSnippet);
     };
+<<<<<<< HEAD
     this.parseSnippetFile = function (str) {
+=======
+    SnippetManager.prototype.parseSnippetFile = function (str) {
+>>>>>>> main
         str = str.replace(/\r/g, "");
         var list = [], snippet = {};
         var re = /^#.*|^({[\s\S]*})\s*$|^(\S+) (.*)$|^((?:\n*\t.*)+)/gm;
@@ -669,7 +757,11 @@ var SnippetManager = function () {
         }
         return list;
     };
+<<<<<<< HEAD
     this.getSnippetByName = function (name, editor) {
+=======
+    SnippetManager.prototype.getSnippetByName = function (name, editor) {
+>>>>>>> main
         var snippetMap = this.snippetNameMap;
         var snippet;
         this.getActiveScopes(editor).some(function (scope) {
@@ -680,6 +772,7 @@ var SnippetManager = function () {
         }, this);
         return snippet;
     };
+<<<<<<< HEAD
 }).call(SnippetManager.prototype);
 var TabstopManager = function (editor) {
     if (editor.tabstopManager)
@@ -699,12 +792,152 @@ var TabstopManager = function (editor) {
         this.$openTabstops = null;
         this.selectedTabstop = null;
         this.editor = editor;
+=======
+    return SnippetManager;
+}());
+oop.implement(SnippetManager.prototype, EventEmitter);
+var processSnippetText = function (editor, snippetText, options) {
+    if (options === void 0) { options = {}; }
+    var cursor = editor.getCursorPosition();
+    var line = editor.session.getLine(cursor.row);
+    var tabString = editor.session.getTabString();
+    var indentString = line.match(/^\s*/)[0];
+    if (cursor.column < indentString.length)
+        indentString = indentString.slice(0, cursor.column);
+    snippetText = snippetText.replace(/\r/g, "");
+    var tokens = this.tokenizeTmSnippet(snippetText);
+    tokens = this.resolveVariables(tokens, editor);
+    tokens = tokens.map(function (x) {
+        if (x == "\n" && !options.excludeExtraIndent)
+            return x + indentString;
+        if (typeof x == "string")
+            return x.replace(/\t/g, tabString);
+        return x;
+    });
+    var tabstops = [];
+    tokens.forEach(function (p, i) {
+        if (typeof p != "object")
+            return;
+        var id = p.tabstopId;
+        var ts = tabstops[id];
+        if (!ts) {
+            ts = tabstops[id] = [];
+            ts.index = id;
+            ts.value = "";
+            ts.parents = {};
+        }
+        if (ts.indexOf(p) !== -1)
+            return;
+        if (p.choices && !ts.choices)
+            ts.choices = p.choices;
+        ts.push(p);
+        var i1 = tokens.indexOf(p, i + 1);
+        if (i1 === -1)
+            return;
+        var value = tokens.slice(i + 1, i1);
+        var isNested = value.some(function (t) { return typeof t === "object"; });
+        if (isNested && !ts.value) {
+            ts.value = value;
+        }
+        else if (value.length && (!ts.value || typeof ts.value !== "string")) {
+            ts.value = value.join("");
+        }
+    });
+    tabstops.forEach(function (ts) { ts.length = 0; });
+    var expanding = {};
+    function copyValue(val) {
+        var copy = [];
+        for (var i = 0; i < val.length; i++) {
+            var p = val[i];
+            if (typeof p == "object") {
+                if (expanding[p.tabstopId])
+                    continue;
+                var j = val.lastIndexOf(p, i - 1);
+                p = copy[j] || { tabstopId: p.tabstopId };
+            }
+            copy[i] = p;
+        }
+        return copy;
+    }
+    for (var i = 0; i < tokens.length; i++) {
+        var p = tokens[i];
+        if (typeof p != "object")
+            continue;
+        var id = p.tabstopId;
+        var ts = tabstops[id];
+        var i1 = tokens.indexOf(p, i + 1);
+        if (expanding[id]) {
+            if (expanding[id] === p) {
+                delete expanding[id];
+                Object.keys(expanding).forEach(function (parentId) {
+                    ts.parents[parentId] = true;
+                });
+            }
+            continue;
+        }
+        expanding[id] = p;
+        var value = ts.value;
+        if (typeof value !== "string")
+            value = copyValue(value);
+        else if (p.fmt)
+            value = this.tmStrFormat(value, p, editor);
+        tokens.splice.apply(tokens, [i + 1, Math.max(0, i1 - i)].concat(value, p));
+        if (ts.indexOf(p) === -1)
+            ts.push(p);
+    }
+    var row = 0, column = 0;
+    var text = "";
+    tokens.forEach(function (t) {
+        if (typeof t === "string") {
+            var lines = t.split("\n");
+            if (lines.length > 1) {
+                column = lines[lines.length - 1].length;
+                row += lines.length - 1;
+            }
+            else
+                column += t.length;
+            text += t;
+        }
+        else if (t) {
+            if (!t.start)
+                t.start = { row: row, column: column };
+            else
+                t.end = { row: row, column: column };
+        }
+    });
+    return {
+        text: text,
+        tabstops: tabstops,
+        tokens: tokens
+    };
+};
+var TabstopManager = /** @class */ (function () {
+    function TabstopManager(editor) {
+        this.index = 0;
+        this.ranges = [];
+        this.tabstops = [];
+        if (editor.tabstopManager)
+            return editor.tabstopManager;
+        editor.tabstopManager = this;
+        this.$onChange = this.onChange.bind(this);
+        this.$onChangeSelection = lang.delayedCall(this.onChangeSelection.bind(this)).schedule;
+        this.$onChangeSession = this.onChangeSession.bind(this);
+        this.$onAfterExec = this.onAfterExec.bind(this);
+        this.attach(editor);
+    }
+    TabstopManager.prototype.attach = function (editor) {
+        this.$openTabstops = null;
+        this.selectedTabstop = null;
+        this.editor = editor;
+        this.session = editor.session;
+>>>>>>> main
         this.editor.on("change", this.$onChange);
         this.editor.on("changeSelection", this.$onChangeSelection);
         this.editor.on("changeSession", this.$onChangeSession);
         this.editor.commands.on("afterExec", this.$onAfterExec);
         this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
     };
+<<<<<<< HEAD
     this.detach = function () {
         this.tabstops.forEach(this.removeTabstopMarkers, this);
         this.ranges = null;
@@ -723,6 +956,27 @@ var TabstopManager = function (editor) {
         var selectedTabstop = this.selectedTabstop || {};
         var parents = selectedTabstop.parents || {};
         var tabstops = (this.tabstops || []).slice();
+=======
+    TabstopManager.prototype.detach = function () {
+        this.tabstops.forEach(this.removeTabstopMarkers, this);
+        this.ranges.length = 0;
+        this.tabstops.length = 0;
+        this.selectedTabstop = null;
+        this.editor.off("change", this.$onChange);
+        this.editor.off("changeSelection", this.$onChangeSelection);
+        this.editor.off("changeSession", this.$onChangeSession);
+        this.editor.commands.off("afterExec", this.$onAfterExec);
+        this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler);
+        this.editor.tabstopManager = null;
+        this.session = null;
+        this.editor = null;
+    };
+    TabstopManager.prototype.onChange = function (delta) {
+        var isRemove = delta.action[0] == "r";
+        var selectedTabstop = this.selectedTabstop || {};
+        var parents = selectedTabstop.parents || {};
+        var tabstops = this.tabstops.slice();
+>>>>>>> main
         for (var i = 0; i < tabstops.length; i++) {
             var ts = tabstops[i];
             var active = ts == selectedTabstop || parents[ts.index];
@@ -739,16 +993,28 @@ var TabstopManager = function (editor) {
             }
             ts.rangeList.$onChange(delta);
         }
+<<<<<<< HEAD
         var session = this.editor.session;
         if (!this.$inChange && isRemove && session.getLength() == 1 && !session.getValue())
             this.detach();
     };
     this.updateLinkedFields = function () {
+=======
+        var session = this.session;
+        if (!this.$inChange && isRemove && session.getLength() == 1 && !session.getValue())
+            this.detach();
+    };
+    TabstopManager.prototype.updateLinkedFields = function () {
+>>>>>>> main
         var ts = this.selectedTabstop;
         if (!ts || !ts.hasLinkedRanges || !ts.firstNonLinked)
             return;
         this.$inChange = true;
+<<<<<<< HEAD
         var session = this.editor.session;
+=======
+        var session = this.session;
+>>>>>>> main
         var text = session.getTextRange(ts.firstNonLinked);
         for (var i = 0; i < ts.length; i++) {
             var range = ts[i];
@@ -760,11 +1026,19 @@ var TabstopManager = function (editor) {
         }
         this.$inChange = false;
     };
+<<<<<<< HEAD
     this.onAfterExec = function (e) {
         if (e.command && !e.command.readOnly)
             this.updateLinkedFields();
     };
     this.onChangeSelection = function () {
+=======
+    TabstopManager.prototype.onAfterExec = function (e) {
+        if (e.command && !e.command.readOnly)
+            this.updateLinkedFields();
+    };
+    TabstopManager.prototype.onChangeSelection = function () {
+>>>>>>> main
         if (!this.editor)
             return;
         var lead = this.editor.selection.lead;
@@ -780,10 +1054,17 @@ var TabstopManager = function (editor) {
         }
         this.detach();
     };
+<<<<<<< HEAD
     this.onChangeSession = function () {
         this.detach();
     };
     this.tabNext = function (dir) {
+=======
+    TabstopManager.prototype.onChangeSession = function () {
+        this.detach();
+    };
+    TabstopManager.prototype.tabNext = function (dir) {
+>>>>>>> main
         var max = this.tabstops.length;
         var index = this.index + (dir || 1);
         index = Math.min(Math.max(index, 1), max);
@@ -793,7 +1074,11 @@ var TabstopManager = function (editor) {
         if (index === 0)
             this.detach();
     };
+<<<<<<< HEAD
     this.selectTabstop = function (index) {
+=======
+    TabstopManager.prototype.selectTabstop = function (index) {
+>>>>>>> main
         this.$openTabstops = null;
         var ts = this.tabstops[this.index];
         if (ts)
@@ -822,7 +1107,11 @@ var TabstopManager = function (editor) {
         if (this.selectedTabstop && this.selectedTabstop.choices)
             this.editor.execCommand("startAutocomplete", { matches: this.selectedTabstop.choices });
     };
+<<<<<<< HEAD
     this.addTabstops = function (tabstops, start, end) {
+=======
+    TabstopManager.prototype.addTabstops = function (tabstops, start, end) {
+>>>>>>> main
         var useLink = this.useLink || !this.editor.getOption("enableMultiselect");
         if (!this.$openTabstops)
             this.$openTabstops = [];
@@ -874,21 +1163,35 @@ var TabstopManager = function (editor) {
             this.tabstops.splice.apply(this.tabstops, arg);
         }
     };
+<<<<<<< HEAD
     this.addTabstopMarkers = function (ts) {
         var session = this.editor.session;
+=======
+    TabstopManager.prototype.addTabstopMarkers = function (ts) {
+        var session = this.session;
+>>>>>>> main
         ts.forEach(function (range) {
             if (!range.markerId)
                 range.markerId = session.addMarker(range, "ace_snippet-marker", "text");
         });
     };
+<<<<<<< HEAD
     this.removeTabstopMarkers = function (ts) {
         var session = this.editor.session;
+=======
+    TabstopManager.prototype.removeTabstopMarkers = function (ts) {
+        var session = this.session;
+>>>>>>> main
         ts.forEach(function (range) {
             session.removeMarker(range.markerId);
             range.markerId = null;
         });
     };
+<<<<<<< HEAD
     this.removeRange = function (range) {
+=======
+    TabstopManager.prototype.removeRange = function (range) {
+>>>>>>> main
         var i = range.tabstop.indexOf(range);
         if (i != -1)
             range.tabstop.splice(i, 1);
@@ -898,7 +1201,11 @@ var TabstopManager = function (editor) {
         i = range.tabstop.rangeList.ranges.indexOf(range);
         if (i != -1)
             range.tabstop.splice(i, 1);
+<<<<<<< HEAD
         this.editor.session.removeMarker(range.markerId);
+=======
+        this.session.removeMarker(range.markerId);
+>>>>>>> main
         if (!range.tabstop.length) {
             i = this.tabstops.indexOf(range.tabstop);
             if (i != -1)
@@ -907,6 +1214,7 @@ var TabstopManager = function (editor) {
                 this.detach();
         }
     };
+<<<<<<< HEAD
     this.keyboardHandler = new HashHandler();
     this.keyboardHandler.bindKeys({
         "Tab": function (editor) {
@@ -924,6 +1232,26 @@ var TabstopManager = function (editor) {
         }
     });
 }).call(TabstopManager.prototype);
+=======
+    return TabstopManager;
+}());
+TabstopManager.prototype.keyboardHandler = new HashHandler();
+TabstopManager.prototype.keyboardHandler.bindKeys({
+    "Tab": function (editor) {
+        if (exports.snippetManager && exports.snippetManager.expandWithTab(editor))
+            return;
+        editor.tabstopManager.tabNext(1);
+        editor.renderer.scrollCursorIntoView();
+    },
+    "Shift-Tab": function (editor) {
+        editor.tabstopManager.tabNext(-1);
+        editor.renderer.scrollCursorIntoView();
+    },
+    "Esc": function (editor) {
+        editor.tabstopManager.detach();
+    }
+});
+>>>>>>> main
 var movePoint = function (point, diff) {
     if (point.row == 0)
         point.column += diff.column;
@@ -955,9 +1283,16 @@ var snippetManager = require("../snippets").snippetManager;
 var Range = require("../range").Range;
 var config = require("../config");
 var emmet, emmetPath;
+<<<<<<< HEAD
 function AceEmmetEditor() { }
 AceEmmetEditor.prototype = {
     setupContext: function (editor) {
+=======
+var AceEmmetEditor = /** @class */ (function () {
+    function AceEmmetEditor() {
+    }
+    AceEmmetEditor.prototype.setupContext = function (editor) {
+>>>>>>> main
         this.ace = editor;
         this.indentation = editor.session.getTabString();
         if (!emmet)
@@ -966,23 +1301,38 @@ AceEmmetEditor.prototype = {
         resources.setVariable("indentation", this.indentation);
         this.$syntax = null;
         this.$syntax = this.getSyntax();
+<<<<<<< HEAD
     },
     getSelectionRange: function () {
+=======
+    };
+    AceEmmetEditor.prototype.getSelectionRange = function () {
+>>>>>>> main
         var range = this.ace.getSelectionRange();
         var doc = this.ace.session.doc;
         return {
             start: doc.positionToIndex(range.start),
             end: doc.positionToIndex(range.end)
         };
+<<<<<<< HEAD
     },
     createSelection: function (start, end) {
+=======
+    };
+    AceEmmetEditor.prototype.createSelection = function (start, end) {
+>>>>>>> main
         var doc = this.ace.session.doc;
         this.ace.selection.setRange({
             start: doc.indexToPosition(start),
             end: doc.indexToPosition(end)
         });
+<<<<<<< HEAD
     },
     getCurrentLineRange: function () {
+=======
+    };
+    AceEmmetEditor.prototype.getCurrentLineRange = function () {
+>>>>>>> main
         var ace = this.ace;
         var row = ace.getCursorPosition().row;
         var lineLength = ace.session.getLine(row).length;
@@ -991,6 +1341,7 @@ AceEmmetEditor.prototype = {
             start: index,
             end: index + lineLength
         };
+<<<<<<< HEAD
     },
     getCaretPos: function () {
         var pos = this.ace.getCursorPosition();
@@ -1005,6 +1356,22 @@ AceEmmetEditor.prototype = {
         return this.ace.session.getLine(row);
     },
     replaceContent: function (value, start, end, noIndent) {
+=======
+    };
+    AceEmmetEditor.prototype.getCaretPos = function () {
+        var pos = this.ace.getCursorPosition();
+        return this.ace.session.doc.positionToIndex(pos);
+    };
+    AceEmmetEditor.prototype.setCaretPos = function (index) {
+        var pos = this.ace.session.doc.indexToPosition(index);
+        this.ace.selection.moveToPosition(pos);
+    };
+    AceEmmetEditor.prototype.getCurrentLine = function () {
+        var row = this.ace.getCursorPosition().row;
+        return this.ace.session.getLine(row);
+    };
+    AceEmmetEditor.prototype.replaceContent = function (value, start, end, noIndent) {
+>>>>>>> main
         if (end == null)
             end = start == null ? this.getContent().length : start;
         if (start == null)
@@ -1016,11 +1383,19 @@ AceEmmetEditor.prototype = {
         range.end = range.start;
         value = this.$updateTabstops(value);
         snippetManager.insertSnippet(editor, value);
+<<<<<<< HEAD
     },
     getContent: function () {
         return this.ace.getValue();
     },
     getSyntax: function () {
+=======
+    };
+    AceEmmetEditor.prototype.getContent = function () {
+        return this.ace.getValue();
+    };
+    AceEmmetEditor.prototype.getSyntax = function () {
+>>>>>>> main
         if (this.$syntax)
             return this.$syntax;
         var syntax = this.ace.session.$modeId.split("/").pop();
@@ -1038,8 +1413,13 @@ AceEmmetEditor.prototype = {
             }
         }
         return syntax;
+<<<<<<< HEAD
     },
     getProfileName: function () {
+=======
+    };
+    AceEmmetEditor.prototype.getProfileName = function () {
+>>>>>>> main
         var resources = emmet.resources || emmet.require("resources");
         switch (this.getSyntax()) {
             case "css": return "css";
@@ -1055,6 +1435,7 @@ AceEmmetEditor.prototype = {
                 var mode = this.ace.session.$mode;
                 return mode.emmetConfig && mode.emmetConfig.profile || "xhtml";
         }
+<<<<<<< HEAD
     },
     prompt: function (title) {
         return prompt(title); // eslint-disable-line no-alert
@@ -1066,6 +1447,19 @@ AceEmmetEditor.prototype = {
         return "";
     },
     $updateTabstops: function (value) {
+=======
+    };
+    AceEmmetEditor.prototype.prompt = function (title) {
+        return prompt(title); // eslint-disable-line no-alert
+    };
+    AceEmmetEditor.prototype.getSelection = function () {
+        return this.ace.session.getTextRange();
+    };
+    AceEmmetEditor.prototype.getFilePath = function () {
+        return "";
+    };
+    AceEmmetEditor.prototype.$updateTabstops = function (value) {
+>>>>>>> main
         var base = 1000;
         var zeroBase = 0;
         var lastZero = null;
@@ -1107,8 +1501,14 @@ AceEmmetEditor.prototype = {
             value = common.replaceSubstring(value, '${0}', lastZero[0], lastZero[1]);
         }
         return value;
+<<<<<<< HEAD
     }
 };
+=======
+    };
+    return AceEmmetEditor;
+}());
+>>>>>>> main
 var keymap = {
     expand_abbreviation: { "mac": "ctrl+alt+e", "win": "alt+e" },
     match_pair_outward: { "mac": "ctrl+d", "win": "ctrl+," },

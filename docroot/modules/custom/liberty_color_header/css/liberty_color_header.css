@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header-white{
     background-color: #ffffff !important;
 }
@@ -17,3 +18,24 @@
 .nodisplay {
     display: none !important;
 }
+=======
+.header-white {
+  background-color: #ffffff !important;
+}
+
+.header-blue {
+  background-color: #1a1446 !important;
+}
+
+.header-yellow {
+  background-color: #ffd000 !important;
+}
+
+.header-orange {
+  background-color: #ff6600 !important;
+}
+
+.nodisplay {
+  display: none !important;
+}
+>>>>>>> main

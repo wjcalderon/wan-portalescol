@@ -65,7 +65,10 @@
             line-height: 1rem;
             margin: .5rem auto;
             width: 20.125rem;
+<<<<<<< HEAD
             margin: auto;
+=======
+>>>>>>> main
             @include breakpoint($small) {
                 width: 100%;
             }
@@ -149,9 +152,13 @@
 .ui-dialog {
     .ui-dialog-content {
       position: relative;
+<<<<<<< HEAD
       border: 0;
       padding: .5em 1em;
       background: none;
+=======
+      padding: .5em 1em;
+>>>>>>> main
       overflow: auto;
       background: #F0FBFC;
       border: 1px solid #EAEAEA;

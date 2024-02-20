@@ -1,12 +1,17 @@
 {
   "name": "slick-carousel",
+<<<<<<< HEAD
   "version": "1.8.1",
+=======
+  "version": "1.8.0",
+>>>>>>> main
   "description": "the last carousel you'll ever need",
   "main": "slick/slick.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kenwheeler/slick.git"
   },
+<<<<<<< HEAD
   "keywords": [
     "carousel",
     "slick",
@@ -14,6 +19,9 @@
     "js",
     "slider"
   ],
+=======
+  "keywords": ["carousel", "slick", "responsive", "js", "slider"],
+>>>>>>> main
   "author": "Ken Wheeler <ken_wheeler@me.com>",
   "contributors": [
     {

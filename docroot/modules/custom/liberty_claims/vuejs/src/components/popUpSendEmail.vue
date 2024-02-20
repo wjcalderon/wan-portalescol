@@ -65,7 +65,10 @@ export default {
               loader.hide();
             },
             function(error) {
+<<<<<<< HEAD
               console.log(error);
+=======
+>>>>>>> main
               this.modal = null;
               loader.hide();
             }

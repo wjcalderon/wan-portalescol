@@ -1,0 +1,21 @@
+uuid: 2cfca2ab-9b78-4bfb-ba23-24578ac7354c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_html
+    - paragraphs.paragraphs_type.cta_basic
+  module:
+    - text
+id: paragraph.cta_basic.field_title_html
+field_name: field_title_html
+entity_type: paragraph
+bundle: cta_basic
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

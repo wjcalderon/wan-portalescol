@@ -1,0 +1,38 @@
+uuid: 8a6e886f-8fd9-406b-ad19-2f9642440d05
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_v2_questions_frequent.field_lib_v2_group_ref
+    - field.field.paragraph.lib_v2_questions_frequent.field_lib_v2_questions_title
+    - paragraphs.paragraphs_type.lib_v2_questions_frequent
+  module:
+    - paragraphs
+id: paragraph.lib_v2_questions_frequent.default
+targetEntityType: paragraph
+bundle: lib_v2_questions_frequent
+mode: default
+content:
+  field_lib_v2_group_ref:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_lib_v2_questions_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

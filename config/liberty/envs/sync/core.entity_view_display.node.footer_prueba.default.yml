@@ -1,0 +1,43 @@
+uuid: 5c64de13-7f49-4ffd-9401-21c60dee9ec0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.footer_prueba.body
+    - node.type.footer_prueba
+  module:
+    - manage_display
+    - text
+id: node.footer_prueba.default
+targetEntityType: node
+bundle: footer_prueba
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      linked: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -49
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  created: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

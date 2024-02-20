@@ -10,10 +10,18 @@ weight: -10
 module: liberty_form
 callback: liberty_form_cron
 scheduler:
+<<<<<<< HEAD
   id: simple
   configuration:
     rules:
       - '0+@ * * * *'
+=======
+  id: crontab
+  configuration:
+    rules:
+      - '15 4 * * SUN'
+    catch_up: 0
+>>>>>>> main
 launcher:
   id: serial
   configuration:

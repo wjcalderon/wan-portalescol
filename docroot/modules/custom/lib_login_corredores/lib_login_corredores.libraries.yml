@@ -1,0 +1,12 @@
+lib_login_corredores_css:
+  version: 1.x
+  css:
+    theme:
+      css/custom-login-form.css: {}
+  dependencies:
+    - core/drupal
+
+linkhome:
+  version: VERSION
+  js:
+    js/linkhome.js: {}

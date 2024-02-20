@@ -242,6 +242,7 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 define("ace/mode/jexl",["require","exports","module","ace/lib/oop","ace/mode/jexl_highlight_rules","ace/mode/text","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var JexlHighlightRules = require("./jexl_highlight_rules").JexlHighlightRules;
@@ -251,6 +252,16 @@ var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = JexlHighlightRules;
     this.$behaviour = new CstyleBehaviour();
+=======
+define("ace/mode/jexl",["require","exports","module","ace/lib/oop","ace/mode/jexl_highlight_rules","ace/mode/text","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+var oop = require("../lib/oop");
+var JexlHighlightRules = require("./jexl_highlight_rules").JexlHighlightRules;
+var TextMode = require("./text").Mode;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+var Mode = function () {
+    this.HighlightRules = JexlHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

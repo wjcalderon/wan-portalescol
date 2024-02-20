@@ -1,0 +1,27 @@
+uuid: 44be8277-7b72-4fd0-b556-54dd8ecfe2f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.footer_prueba
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - moderation_sidebar
+    - node
+    - toolbar
+id: footer_prueba_reviewer
+label: 'Footer_prueba reviewer'
+weight: 53
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any footer_prueba content'
+  - 'edit any footer_prueba content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

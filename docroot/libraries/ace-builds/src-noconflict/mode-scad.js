@@ -3,6 +3,7 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var DocCommentHighlightRules = function () {
     this.$rules = {
+<<<<<<< HEAD
         "start": [{
                 token: "comment.doc.tag",
                 regex: "@[\\w\\d_]+" // TODO: fix email addresses
@@ -12,6 +13,17 @@ var DocCommentHighlightRules = function () {
                 defaultToken: "comment.doc",
                 caseInsensitive: true
             }]
+=======
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc",
+                caseInsensitive: true
+            }
+        ]
+>>>>>>> main
     };
 };
 oop.inherits(DocCommentHighlightRules, TextHighlightRules);
@@ -286,17 +298,28 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 ace.define("ace/mode/scad",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/scad_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+=======
+ace.define("ace/mode/scad",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/scad_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+>>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var scadHighlightRules = require("./scad_highlight_rules").scadHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+<<<<<<< HEAD
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+=======
+>>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = scadHighlightRules;
     this.$outdent = new MatchingBraceOutdent();
+<<<<<<< HEAD
     this.$behaviour = new CstyleBehaviour();
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

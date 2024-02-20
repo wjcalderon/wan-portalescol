@@ -6,6 +6,7 @@
 //
 // Style guide: components.tabs
 .block-tabs {
+<<<<<<< HEAD
     margin: 1.5em 0;
     ul {
         display: block;
@@ -21,3 +22,20 @@
         }
     }
 }
+=======
+  margin: 1.5em 0;
+  ul {
+    display: block;
+    padding-left: 0;
+    border-bottom: 1px solid $gris-sc;
+    li {
+      display: inline-block;
+      a {
+        margin: 0;
+        padding: 0.4em;
+        text-decoration: none;
+      }
+    }
+  }
+}
+>>>>>>> main

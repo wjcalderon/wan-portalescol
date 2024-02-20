@@ -3,15 +3,22 @@ _core:
 langcode: es
 module:
   ace_editor: 0
+<<<<<<< HEAD
   acquia_connector: 0
   acquia_purge: 0
   acquia_search: 0
+=======
+>>>>>>> main
   addtoany: 0
   admin_toolbar: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   ape: 0
   autologout: 0
+<<<<<<< HEAD
+=======
+  backup_migrate: 0
+>>>>>>> main
   ban: 0
   better_exposed_filters: 0
   blazy: 0
@@ -25,9 +32,15 @@ module:
   ckeditor_videodetector: 0
   condition_query: 0
   config: 0
+<<<<<<< HEAD
   config_delete: 0
   config_filter: 0
   config_ignore: 0
+=======
+  config_filter: 0
+  config_ignore: 0
+  config_update: 0
+>>>>>>> main
   consumers: 0
   contact: 0
   contact_storage: 0
@@ -35,6 +48,10 @@ module:
   contextual: 0
   core_context: 0
   crop: 0
+<<<<<<< HEAD
+=======
+  csv_serialization: 0
+>>>>>>> main
   ctools: 0
   ctools_block: 0
   datetime: 0
@@ -46,6 +63,7 @@ module:
   editor: 0
   editor_advanced_link: 0
   embed: 0
+<<<<<<< HEAD
   entity_block: 0
   entity_browser: 0
   entity_embed: 0
@@ -54,18 +72,43 @@ module:
   facets: 0
   field: 0
   field_group: 0
+=======
+  emulsify_twig: 0
+  entity_block: 0
+  entity_browser: 0
+  entity_browser_block: 0
+  entity_embed: 0
+  entity_reference_revisions: 0
+  entityqueue: 0
+  esn_layouts: 0
+  facets: 0
+  features: 0
+  features_ui: 0
+  field: 0
+  field_group: 0
+  field_layout: 0
+>>>>>>> main
   field_ui: 0
   file: 0
   filter: 0
   geolocation: 0
   geolocation_google_maps: 0
   geolocation_google_places_api: 0
+<<<<<<< HEAD
+=======
+  gin_lb: 0
+  gin_toolbar: 0
+>>>>>>> main
   google_analytics: 0
   help: 0
   http_cache_control: 0
   image: 0
   image_captcha: 0
   image_widget_crop: 0
+<<<<<<< HEAD
+=======
+  inline_block_title_automatic: 0
+>>>>>>> main
   inline_entity_form: 0
   jquery_ui: 0
   jquery_ui_accordion: 0
@@ -80,7 +123,14 @@ module:
   jsonapi: 0
   language: 0
   layout_builder: 0
+<<<<<<< HEAD
   layout_builder_restrictions: 0
+=======
+  layout_builder_additions: 0
+  layout_builder_browser: 0
+  layout_builder_restrictions: 0
+  layout_builder_save_and_edit: 0
+>>>>>>> main
   layout_builder_styles: 0
   layout_discovery: 0
   layout_library: 0
@@ -119,6 +169,10 @@ module:
   mailsystem: 0
   maxlength: 0
   media: 0
+<<<<<<< HEAD
+=======
+  media_entity_instagram: 0
+>>>>>>> main
   media_entity_twitter: 0
   media_library: 0
   memcache: 0
@@ -132,6 +186,10 @@ module:
   migrate_spreadsheet: 0
   mimemail: 0
   moderation_sidebar: 0
+<<<<<<< HEAD
+=======
+  mysql: 0
+>>>>>>> main
   node: 0
   oauth2_client: 0
   openapi: 0
@@ -148,10 +206,15 @@ module:
   panels: 0
   panels_ipe: 0
   paragraphs_browser: 0
+<<<<<<< HEAD
+=======
+  paragraphs_features: 0
+>>>>>>> main
   password_policy_characters: 0
   password_policy_length: 0
   path: 0
   path_alias: 0
+<<<<<<< HEAD
   purge: 0
   purge_drush: 0
   purge_processor_cron: 0
@@ -159,11 +222,18 @@ module:
   purge_queuer_coretags: 0
   purge_tokens: 0
   purge_ui: 0
+=======
+  phpmailer_smtp: 0
+>>>>>>> main
   quickedit: 0
   rdf: 0
   recaptcha: 0
   redirect: 0
   remove_http_headers: 0
+<<<<<<< HEAD
+=======
+  removeredmedicaspecialties: 0
+>>>>>>> main
   responsive_image: 0
   rest: 0
   restui: 0
@@ -188,6 +258,10 @@ module:
   social_media_links: 0
   svg_image: 0
   svg_image_field: 0
+<<<<<<< HEAD
+=======
+  svg_image_field_media_bundle: 0
+>>>>>>> main
   syslog: 0
   system: 0
   taxonomy: 0
@@ -197,10 +271,21 @@ module:
   toolbar: 0
   twig_field_value: 0
   twig_tweak: 0
+<<<<<<< HEAD
   update: 0
   user: 0
   video_embed_field: 0
   video_embed_media: 0
+=======
+  ultimate_cron: 0
+  update: 0
+  upgrade_rector: 0
+  upgrade_status: 0
+  user: 0
+  video_embed_field: 0
+  video_embed_media: 0
+  views_data_export: 0
+>>>>>>> main
   views_field_view: 0
   views_infinite_scroll: 0
   views_ui: 0
@@ -233,4 +318,8 @@ theme:
   cog: 0
   liberty_public: 0
   claro: 0
+<<<<<<< HEAD
+=======
+  gin: 0
+>>>>>>> main
 profile: minimal

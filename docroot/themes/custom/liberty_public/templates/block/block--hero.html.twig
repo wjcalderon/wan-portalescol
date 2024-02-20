@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% set hero_style = content.field_hero_style[0]['#markup'] %}
+{% set hero_color_text = content.field_title_color[0]['#markup'] %}
+
+<div {{ bem('block') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% block content %}
+    {% embed 'themes/custom/liberty_public/templates/new-components/components/hero/hero.twig'
+      with {
+        hero__modifiers: [hero_style, hero_color_text],
+        hero__heading: content.field_title_html|field_value,
+        hero__body: content.body|field_value,
+        hero__button__url: content.field_link[0]['#url'],
+        hero__button__content: content.field_link[0]['#title']
+      }
+    %}
+      {% block hero__image %}
+        {{ content.field_media_image|field_value }}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+</div>

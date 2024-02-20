@@ -14,7 +14,11 @@
  */
 $.extend( $.validator.messages, {
 	required: "Detta f&auml;lt &auml;r obligatoriskt.",
+<<<<<<< HEAD
 	remote: "Var snäll och åtgärda detta fält.",
+=======
+	remote: "let snäll och åtgärda detta fält.",
+>>>>>>> main
 	maxlength: $.validator.format( "Du f&aring;r ange h&ouml;gst {0} tecken." ),
 	minlength: $.validator.format( "Du m&aring;ste ange minst {0} tecken." ),
 	rangelength: $.validator.format( "Ange minst {0} och max {1} tecken." ),

@@ -1,0 +1,102 @@
+esn_layouts_one_column:
+  label: '1 Columna'
+  path: layouts/onecol
+  template: layout-esn-onecol
+  library: esn_layouts/layout
+  category: 'Esinergia'
+  class: '\Drupal\esn_layouts\Plugin\Layout\LayoutOneColumn'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Main content
+esn_layouts_two_column:
+  label: '2 Columnas'
+  path: layouts/twocol
+  template: layout-esn-twocol
+  library: esn_layouts/layout
+  category: 'Esinergia'
+  class: '\Drupal\esn_layouts\Plugin\Layout\LayoutTwoColumn'
+  default_region: first
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+esn_layouts_three_column:
+  label: '3 Columnas'
+  path: layouts/threecol
+  template: layout-esn-threecol
+  library: esn_layouts/layout
+  category: 'Esinergia'
+  class: '\Drupal\esn_layouts\Plugin\Layout\LayoutThreeColumn'
+  default_region: first
+  icon_map:
+    - [first, second, third]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+esn_layouts_four_column:
+  label: '4 Columnas'
+  path: layouts/fourcol
+  template: layout-esn-fourcol
+  library: esn_layouts/layout
+  category: 'Esinergia'
+  class: '\Drupal\esn_layouts\Plugin\Layout\LayoutFourColumn'
+  default_region: first
+  icon_map:
+    - [first, second, third, fourth]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth
+esn_layouts_tabs_column:
+  label: 'Tabs / Pills'
+  path: layouts/tabscol
+  template: layout-tabscol
+  library: esn_layouts/layout
+  category: 'Esinergia'
+  class: '\Drupal\esn_layouts\Plugin\Layout\LayoutTabsColumn'
+  default_region: first
+  icon_map:
+    - [tab_1, tab_2, tab_3, tab_4, tab_5,]
+  regions:
+    tab_1:
+      label: Tab_1
+    tab_2:
+      label: Tab_2
+    tab_3:
+      label: Tab_3
+    tab_4:
+      label: Tab_4
+    tab_5:
+      label: Tab_5
+esn_layouts_tabs:
+  label: Tabs/Pills (old)
+  template: layouts/tabs/layout-tabs
+  icon_map:
+    - [title]
+    - [tab1, tab2, tab3]
+    - [content]
+    - [content]
+    - [content]
+  regions:
+    title:
+      label: Title
+    tab1:
+      label: Tab 1
+    tab2:
+      label: Tab 2
+  class: Drupal\esn_layouts\Plugin\Layout\Tabset

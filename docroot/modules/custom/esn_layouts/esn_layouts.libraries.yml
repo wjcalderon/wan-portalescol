@@ -1,0 +1,29 @@
+# CSS libraries for Layout plugins.
+core:
+  version: VERSION
+  css:
+    component:
+      css/esn-layout.css: {}
+      css/esn-layout.core.css: {}
+      css/esn-layout.lb.css: {}
+      css/esn-layout.link.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - field_group/element.horizontal_tabs
+
+layout_tabs:
+  css:
+    component:
+      css/esn-layouts-tabs.css: {}
+
+
+tabs-bootstrap:
+  version: VERSION
+  js:
+    templates/tabs-bootstrap/tabs-bootstrap.js: {}
+  dependencies:
+    - liberty_public/bootstrap

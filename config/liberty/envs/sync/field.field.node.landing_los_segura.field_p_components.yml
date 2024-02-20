@@ -9,11 +9,16 @@ dependencies:
     - paragraphs.paragraphs_type.card_person_list
     - paragraphs.paragraphs_type.drupal_block
     - paragraphs.paragraphs_type.drupal_view
+<<<<<<< HEAD
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.item_lista
     - paragraphs.paragraphs_type.shorcuts
     - paragraphs.paragraphs_type.short_banner
     - paragraphs.paragraphs_type.single_text
+=======
+    - paragraphs.paragraphs_type.shorcuts
+    - paragraphs.paragraphs_type.short_banner
+>>>>>>> main
     - paragraphs.paragraphs_type.tabs
     - paragraphs.paragraphs_type.testimonies
     - paragraphs.paragraphs_type.video
@@ -40,10 +45,14 @@ settings:
       drupal_block: drupal_block
       card_person_list: card_person_list
       drupal_view: drupal_view
+<<<<<<< HEAD
       image: image
       item_lista: item_lista
       shorcuts: shorcuts
       single_text: single_text
+=======
+      shorcuts: shorcuts
+>>>>>>> main
       tabs: tabs
       testimonies: testimonies
       video: video
@@ -90,13 +99,21 @@ settings:
         enabled: true
       image:
         weight: 42
+<<<<<<< HEAD
         enabled: true
+=======
+        enabled: false
+>>>>>>> main
       item_acordeon:
         weight: 43
         enabled: false
       item_lista:
         weight: 44
+<<<<<<< HEAD
         enabled: true
+=======
+        enabled: false
+>>>>>>> main
       item_report_card:
         weight: 45
         enabled: false
@@ -129,7 +146,11 @@ settings:
         enabled: true
       single_text:
         weight: 54
+<<<<<<< HEAD
         enabled: true
+=======
+        enabled: false
+>>>>>>> main
       slider:
         weight: 55
         enabled: false

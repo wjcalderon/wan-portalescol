@@ -1,0 +1,21 @@
+uuid: 1371ab6b-70d8-443a-b621-e7079ecd1452
+langcode: es
+status: true
+dependencies:
+  config:
+    - image.style.lib_3_1_lg
+    - image.style.lib_3_1_md
+id: lib_3_1_images
+label: '3:1 Images'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - lib_3_1_lg
+        - lib_3_1_md
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: lib_3_1_md

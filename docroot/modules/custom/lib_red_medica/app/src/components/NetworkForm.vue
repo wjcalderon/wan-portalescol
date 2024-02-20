@@ -18,6 +18,10 @@
         Atrás
       </span>
       <fieldset :class="['plan-types', 'row']">
+<<<<<<< HEAD
+=======
+        <legend></legend>
+>>>>>>> main
         <div
           :class="[
             'form-item',
@@ -55,6 +59,10 @@
       <fieldset
         :class="['form-lists', 'row', selected_plan_tids ? '' : 'hide-mobile']"
       >
+<<<<<<< HEAD
+=======
+        <legend></legend>
+>>>>>>> main
         <div
           class="form-item js-form-type-select form-type-select form-item-search-institution col-sm-12 col-md-5"
         >
@@ -88,10 +96,17 @@
             list="citiesList"
             @input="selectCity"
             @click="
+<<<<<<< HEAD
               selected_city = null
               selected_city_tid = null
               selected_speciality = null
               selected_speciality_tid = null
+=======
+              selected_city = null;
+              selected_city_tid = null;
+              selected_speciality = null;
+              selected_speciality_tid = null;
+>>>>>>> main
             "
             :disabled="!selected_plan"
             autocomplete="off"
@@ -117,8 +132,13 @@
             id="search-speciality"
             list="specialityList"
             @click="
+<<<<<<< HEAD
               selected_speciality = null
               selected_speciality_tid = null
+=======
+              selected_speciality = null;
+              selected_speciality_tid = null;
+>>>>>>> main
             "
             @input="selectSpeciality"
             :disabled="!selected_city_tid"
@@ -141,6 +161,10 @@
           selected_plan_tids ? '' : 'hide-mobile',
         ]"
       >
+<<<<<<< HEAD
+=======
+        <legend></legend>
+>>>>>>> main
         <div
           :class="[
             'col-sm-12',
@@ -193,6 +217,10 @@
       <fieldset
         :class="['bottom-form', 'row', selected_plan_tids ? '' : 'hide-mobile']"
       >
+<<<<<<< HEAD
+=======
+        <legend></legend>
+>>>>>>> main
         <div
           class="form-item form-type-checkbox form-item-search-telemedicine col-md-5 col-sm-12"
         >
@@ -274,7 +302,11 @@
           {{ selected_institution }}
           <span
             @click.self="
+<<<<<<< HEAD
               ;[(selected_institution = null), (selected_institution = null)]
+=======
+              [(selected_institution = null), (selected_institution = null)]
+>>>>>>> main
             "
             @click="search()"
           >
@@ -284,7 +316,11 @@
         <li v-show="selected_city_tid">
           {{ selected_city }}
           <span
+<<<<<<< HEAD
             @click.self=";[(selected_city_tid = null), (selected_city = null)]"
+=======
+            @click.self="[(selected_city_tid = null), (selected_city = null)]"
+>>>>>>> main
             @click="search()"
           >
             X
@@ -294,7 +330,11 @@
           {{ selected_speciality }}
           <span
             @click.self="
+<<<<<<< HEAD
               ;[(selected_speciality_tid = null), (selected_speciality = null)]
+=======
+              [(selected_speciality_tid = null), (selected_speciality = null)]
+>>>>>>> main
             "
             @click="search()"
           >
@@ -321,6 +361,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import Api from '../helpers/Api'
 
 import Glossary from './Glossary'
@@ -328,6 +369,15 @@ import PreferentialHelp from './PreferentialHelp'
 
 export default {
   name: 'NetworkForm',
+=======
+import Api from "../helpers/Api";
+
+import Glossary from "./Glossary";
+import PreferentialHelp from "./PreferentialHelp";
+
+export default {
+  name: "NetworkForm",
+>>>>>>> main
   data: function () {
     return {
       list: [],
@@ -349,13 +399,20 @@ export default {
       show_glossary: false,
       show_preferential: false,
       show_preferential_help: false,
+<<<<<<< HEAD
     }
   },
   props: ['plan_list', 'isMobile'],
+=======
+    };
+  },
+  props: ["plan_list", "isMobile"],
+>>>>>>> main
   components: { Glossary, PreferentialHelp },
   computed: {
     showGlossary: function () {
       if (this.show_glossary === true) {
+<<<<<<< HEAD
         document.querySelector('html').classList.add('is-modal')
         return Glossary
       }
@@ -373,19 +430,47 @@ export default {
   },
   mounted: function () {
     this.setPlanTypes()
+=======
+        document.querySelector("html").classList.add("is-modal");
+        return Glossary;
+      }
+      document.querySelector("html").classList.remove("is-modal");
+      return null;
+    },
+    preferentialHelp: function () {
+      if (this.show_preferential_help) {
+        document.querySelector("html").classList.add("is-modal");
+        return PreferentialHelp;
+      }
+      document.querySelector("html").classList.remove("is-modal");
+      return null;
+    },
+  },
+  mounted: function () {
+    this.setPlanTypes();
+>>>>>>> main
   },
   watch: {
     selected_plan: function () {
       if (!this.isMobile) {
+<<<<<<< HEAD
         this.resetForm()
       }
       for (let key in this.list) {
         if (this.list[key].tid === this.selected_plan) {
           this.selected_plan_tids = this.list[key].tids
+=======
+        this.resetForm();
+      }
+      for (let key in this.list) {
+        if (this.list[key].tid === this.selected_plan) {
+          this.selected_plan_tids = this.list[key].tids;
+>>>>>>> main
         }
       }
       if (this.selected_plan) {
         if (this.isMobile) {
+<<<<<<< HEAD
           document.querySelector('html').classList.add('is-modal')
           this.$refs.form_container.classList.add('modal-white')
         }
@@ -403,6 +488,25 @@ export default {
     },
     search_near: function () {
       this.getGeolocation()
+=======
+          document.querySelector("html").classList.add("is-modal");
+          this.$refs.form_container.classList.add("modal-white");
+        }
+        this.citieslist();
+      }
+    },
+    selected_institution: function () {
+      this.searchInstitution();
+    },
+    selected_city: function () {
+      this.searchCity();
+    },
+    selected_speciality: function () {
+      this.searchSpeciality();
+    },
+    search_near: function () {
+      this.getGeolocation();
+>>>>>>> main
     },
   },
   created: function () {},
@@ -414,6 +518,7 @@ export default {
           tid: this.plan_list[index].id,
           description: this.plan_list[index].description,
           name: null,
+<<<<<<< HEAD
         }
 
         // Search additional plan data
@@ -423,37 +528,71 @@ export default {
         })
 
         this.list.push(new_plan)
+=======
+        };
+
+        // Search additional plan data
+        Api.get("plan/", this.plan_list[index].id).then((result) => {
+          new_plan.name = result[0].name;
+          new_plan.tids = result[0].tid;
+        });
+
+        this.list.push(new_plan);
+>>>>>>> main
       }
     },
     // Get cities list
     citieslist: function () {
+<<<<<<< HEAD
       Api.get('cities/', this.selected_plan).then((result) => {
         this.cities_list = result
       })
+=======
+      Api.get("cities/", this.selected_plan).then((result) => {
+        this.cities_list = result;
+      });
+>>>>>>> main
     },
     // Get speciality list in city
     specialitylist: function () {
       Api.get(
+<<<<<<< HEAD
         'specialities/',
         this.selected_plan + '/' + this.selected_city_tid,
       ).then((result) => {
         this.specialities_list = result
       })
+=======
+        "specialities/",
+        this.selected_plan + "/" + this.selected_city_tid
+      ).then((result) => {
+        this.specialities_list = result;
+      });
+>>>>>>> main
     },
     // Search city by name
     searchCity: function () {
       if (this.selected_plan && this.selected_city && !this.selected_city_tid) {
+<<<<<<< HEAD
         Api.get('cities/', this.selected_plan + '/' + this.selected_city).then(
           (result) => {
             this.cities_list = result
           },
         )
+=======
+        Api.get("cities/", this.selected_plan + "/" + this.selected_city).then(
+          (result) => {
+            this.cities_list = result;
+          }
+        );
+>>>>>>> main
       }
     },
     // Search speciality by name with the selcted plan and city
     searchSpeciality: function () {
       if (this.selected_city_tid && !this.selected_speciality_tid) {
         Api.get(
+<<<<<<< HEAD
           'specialities/',
           this.selected_plan +
             '/' +
@@ -463,34 +602,69 @@ export default {
         ).then((result) => {
           this.specialities_list = result
         })
+=======
+          "specialities/",
+          this.selected_plan +
+            "/" +
+            this.selected_city_tid +
+            "/" +
+            this.selected_speciality
+        ).then((result) => {
+          this.specialities_list = result;
+        });
+>>>>>>> main
       }
     },
     // Search institution by name
     searchInstitution: function () {
       if (this.selected_plan && this.selected_institution) {
         Api.get(
+<<<<<<< HEAD
           'institutions/',
           this.selected_plan + '/' + this.selected_institution,
         ).then((result) => {
           this.institutions_list = result
         })
+=======
+          "institutions/",
+          this.selected_plan + "/" + this.selected_institution
+        ).then((result) => {
+          this.institutions_list = result;
+        });
+>>>>>>> main
       }
     },
     // Set city tid on select
     selectCity: function (e) {
       for (let key in this.cities_list) {
         if (this.cities_list[key].name === e.target.value) {
+<<<<<<< HEAD
           this.selected_city_tid = this.cities_list[key].tid
+=======
+          this.selected_city_tid = this.cities_list[key].tid;
+>>>>>>> main
         }
       }
 
       // Set the speciality list in selected city
+<<<<<<< HEAD
       this.specialitylist()
     },
     selectSpeciality: function (e) {
       for (let key in this.specialities_list) {
         if (this.specialities_list[key].name === e.target.value) {
           this.selected_speciality_tid = this.specialities_list[key].tid
+=======
+      this.specialitylist();
+    },
+    selectSpeciality: function (e) {
+      for (let key in this.specialities_list) {
+        this.specialities_list[key].name = this.specialities_list[key].name
+          .trim()
+          .slice(0, this.specialities_list[key].name.trimRight().length);
+        if (this.specialities_list[key].name === e.target.value) {
+          this.selected_speciality_tid = this.specialities_list[key].tid;
+>>>>>>> main
         }
       }
     },
@@ -501,6 +675,7 @@ export default {
           navigator.geolocation.getCurrentPosition(
             (pos) => {
               let max_distance =
+<<<<<<< HEAD
                 window.drupalSettings.medicalNetwork.max_distance
               this.location_cordinates =
                 pos.coords.latitude +
@@ -517,11 +692,30 @@ export default {
               console.log(err.message)
             },
           )
+=======
+                window.drupalSettings.medicalNetwork.max_distance;
+              this.location_cordinates =
+                pos.coords.latitude +
+                "," +
+                pos.coords.longitude +
+                "<=" +
+                max_distance +
+                "km";
+            },
+            (err) => {
+              this.error_location = true;
+              this.location_cordinates = {};
+              this.search_near = null;
+              console.log(err);
+            }
+          );
+>>>>>>> main
         }
       }
     },
     // Search for results
     searchMedicalNetwork: function (e) {
+<<<<<<< HEAD
       e.preventDefault()
 
       this.search()
@@ -530,12 +724,27 @@ export default {
         document.querySelector('html').classList.remove('is-modal')
         this.$refs.form_container.classList.remove('modal-white')
         this.$refs.search_form.classList.add('hide-mobile')
+=======
+      e.preventDefault();
+
+      this.search();
+
+      if (this.isMobile) {
+        document.querySelector("html").classList.remove("is-modal");
+        this.$refs.form_container.classList.remove("modal-white");
+        this.$refs.search_form.classList.add("hide-mobile");
+>>>>>>> main
       }
     },
     // Actual search
     search: function () {
+<<<<<<< HEAD
       this.show_preferential = true
       this.$store.commit('resetSearch')
+=======
+      this.show_preferential = true;
+      this.$store.commit("resetSearch");
+>>>>>>> main
 
       // if (
       //   this.institution_name === null ||
@@ -555,25 +764,42 @@ export default {
         institution_name: this.selected_institution,
         page: 0,
         show_results: true,
+<<<<<<< HEAD
       }
 
       // If selected telemedicine filter
       if (this.search_telemedicine) {
         payload['telemedicine'] = 1
+=======
+      };
+
+      // If selected telemedicine filter
+      if (this.search_telemedicine) {
+        payload["telemedicine"] = 1;
+>>>>>>> main
       }
 
       // If selected the category filter
       if (this.search_category) {
+<<<<<<< HEAD
         payload['category'] = this.search_category
+=======
+        payload["category"] = this.search_category;
+>>>>>>> main
       }
 
       // If selected  near search filter
       if (this.search_near) {
+<<<<<<< HEAD
         payload['map_proximity'] = this.location_cordinates
+=======
+        payload["map_proximity"] = this.location_cordinates;
+>>>>>>> main
       }
 
       // If no city is selected or institution name
       if (!this.selected_city_tid && !this.selected_institution) {
+<<<<<<< HEAD
         this.show_preferential = false
       }
 
@@ -617,4 +843,49 @@ export default {
     },
   },
 }
+=======
+        this.show_preferential = false;
+      }
+
+      // Set form data
+      this.$store.commit("setSearchData", payload);
+    },
+    resetForm: function () {
+      document.querySelector("html").classList.remove("is-modal");
+      this.$refs.form_container.classList.remove("modal-white");
+
+      if (this.isMobile) {
+        this.selected_plan = null;
+        this.selected_plan_tids = null;
+        this.$refs.search_form.classList.remove("hide-mobile");
+      }
+
+      this.cities_list = [];
+      this.specialities_list = [];
+      this.institutions_list = [];
+      this.error_location = false;
+      this.selected_city = null;
+      this.selected_city_tid = null;
+      this.selected_speciality = null;
+      this.selected_speciality_tid = null;
+      this.selected_institution = null;
+      this.search_telemedicine = null;
+      this.search_category = null;
+      this.search_near = null;
+      this.location_cordinates = null;
+      this.show_glossary = false;
+      this.show_preferential = false;
+      this.show_preferential_help = false;
+
+      this.$emit("reset");
+    },
+    showForm: function () {
+      this.$refs.search_form.classList.remove("hide-mobile");
+      this.$refs.form_container.classList.add("modal-white");
+      this.show_preferential = false;
+      this.$emit("hideResults");
+    },
+  },
+};
+>>>>>>> main
 </script>

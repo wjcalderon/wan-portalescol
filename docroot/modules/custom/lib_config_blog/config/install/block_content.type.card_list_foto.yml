@@ -1,0 +1,8 @@
+uuid: 4e9c7d3a-f818-46af-94e3-d3ed2f33ff80
+langcode: es
+status: true
+dependencies: {  }
+id: card_list_foto
+label: 'Card list - Card foto'
+revision: 0
+description: ''

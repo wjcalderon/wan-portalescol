@@ -1,0 +1,11 @@
+uuid: 90ba8901-6b62-4e38-8a53-30464bac474d
+langcode: es
+status: true
+dependencies: {  }
+id: lista_link_rapido
+block_id: 'inline_block:card_link_list'
+category: multiples
+label: 'Lista Link rápido'
+image_path: ''
+image_alt: ''
+weight: 1

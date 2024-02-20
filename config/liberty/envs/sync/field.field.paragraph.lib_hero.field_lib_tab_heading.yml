@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: d61d227c-a297-4eaa-a0ed-470637e2d2b1
+=======
+uuid: 7c641f67-d875-4bea-9216-821162c2dde7
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -12,7 +16,11 @@ bundle: lib_hero
 label: 'Tab Title'
 description: ''
 required: false
+<<<<<<< HEAD
 translatable: false
+=======
+translatable: true
+>>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

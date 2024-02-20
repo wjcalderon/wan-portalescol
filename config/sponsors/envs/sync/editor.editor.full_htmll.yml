@@ -20,7 +20,11 @@ settings:
       - numberedList
       - '|'
       - blockQuote
+<<<<<<< HEAD
       - uploadImage
+=======
+      - drupalInsertImage
+>>>>>>> main
       - '|'
       - sourceEditing
       - '|'

@@ -2,8 +2,13 @@
 
 namespace Drupal\liberty_claims\Form;
 
+<<<<<<< HEAD
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Component\Serialization\Yaml;
+=======
+use Drupal\Component\Serialization\Yaml;
+use Drupal\Core\Form\ConfigFormBase;
+>>>>>>> main
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\Yaml\Exception\ExceptionInterface;
 
@@ -159,7 +164,11 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Client_secret (Mutual)'),
       '#maxlength' => 64,
       '#size' => 64,
+<<<<<<< HEAD
       '#default_value' => $config->get('test')['client_secret'],
+=======
+      '#default_value' => $config->get('live')['client_secret'],
+>>>>>>> main
     ];
 
     $form['endpoint_settings']['live']['token_uri'] = [

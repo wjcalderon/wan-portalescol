@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 4efaa19e-257c-464c-97e9-e4ffe03be213
+=======
+uuid: b6189d0e-45f6-4d28-920d-d066ab1fadf6
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -13,8 +17,13 @@ entity_type: paragraph
 bundle: grid_accordion
 label: 'Titulo Tarjeta'
 description: ''
+<<<<<<< HEAD
 required: false
 translatable: true
+=======
+required: true
+translatable: false
+>>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

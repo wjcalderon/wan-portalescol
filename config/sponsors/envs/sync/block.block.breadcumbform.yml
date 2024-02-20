@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 uuid: ebec8d21-3bb5-4ba3-8e5c-55d366c3fdfc
+=======
+uuid: 3df2e77e-ee63-40bc-864e-7fefb3d634f0
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
   content:
+<<<<<<< HEAD
     - 'block_content:basic:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
+=======
+    - 'block_content:basic:c533fe43-52d9-474f-a067-1aba2f348e44'
+>>>>>>> main
   module:
     - block_content
     - node
@@ -12,11 +20,19 @@ dependencies:
 id: breadcumbform
 theme: liberty
 region: content
+<<<<<<< HEAD
 weight: 1
 provider: null
 plugin: 'block_content:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
 settings:
   id: 'block_content:cac48a9a-359c-4b78-9870-f7cdeeb23ab4'
+=======
+weight: 0
+provider: null
+plugin: 'block_content:c533fe43-52d9-474f-a067-1aba2f348e44'
+settings:
+  id: 'block_content:c533fe43-52d9-474f-a067-1aba2f348e44'
+>>>>>>> main
   label: breadcumbform
   label_display: '0'
   provider: block_content

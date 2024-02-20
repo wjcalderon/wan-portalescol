@@ -1,3 +1,7 @@
 services:
   sftp_mk:
+<<<<<<< HEAD
     class: 'Drupal\liberty_form\Services\LibertySftpMarketingController'
+=======
+    class: 'Drupal\liberty_form\Services\LibertySftpMarketingController'
+>>>>>>> main

@@ -7,7 +7,10 @@ dependencies:
     - filter.format.restricted_html
     - node.type.campaign
     - node.type.customer
+<<<<<<< HEAD
     - node.type.webform
+=======
+>>>>>>> main
     - taxonomy.vocabulary.campaings
     - taxonomy.vocabulary.sponsors
     - workflows.workflow.editorial
@@ -22,6 +25,10 @@ dependencies:
     - system
     - taxonomy
     - toolbar
+<<<<<<< HEAD
+=======
+    - update
+>>>>>>> main
     - webform
     - webform_node
 id: ls_administrator
@@ -54,6 +61,7 @@ permissions:
   - 'create terms in campaings'
   - 'create terms in sponsors'
   - 'create url aliases'
+<<<<<<< HEAD
   - 'create webform content'
   - 'edit any campaign content'
   - 'edit any webform'
@@ -67,5 +75,27 @@ permissions:
   - 'use text format restricted_html'
   - 'view any webform submission'
   - 'view the administration theme'
+=======
+  - 'edit any campaign content'
+  - 'edit any webform'
+  - 'edit own campaign content'
+  - 'edit terms in campaings'
+  - 'edit terms in sponsors'
+  - 'notify of path changes'
+  - 'use editorial transition ac'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition default_actived'
+  - 'use editorial transition default_default'
+  - 'use editorial transition default_desactivado_'
+  - 'use editorial transition publish'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view any unpublished content'
+  - 'view any webform submission'
+  - 'view the administration theme'
+  - 'view update notifications'
+>>>>>>> main
   - 'view webform submissions any node'
   - 'view webform submissions own node'

@@ -123,4 +123,53 @@ liberty-card-accordion:
     - core/drupal
     - core/drupalSettings
     - core/jquery
+<<<<<<< HEAD
     - core/jquery.once
+=======
+    - core/jquery.once
+
+splidejs:
+  js:
+    libraries/splide/js/splide.min.js: {}
+  css:
+    component:
+      libraries/splide/css/splide-core.min.css: {}
+  dependencies:
+    - core/drupal
+
+aos:
+  js:
+    libraries/aos/js/aos.js: {}
+    libraries/aos/js/aos-init.js: {}
+  css:
+    theme:
+      libraries/aos/css/aos.css: {}
+
+tabs-bootstrap:
+  js:
+    js/src/02-molecules/tabs-bootstrap/tabs-bootstrap.js: {}
+  dependencies:
+    - liberty_public/bootstrap
+
+bootstrap:
+  remote: https://github.com/twbs/bootstrap
+  version: 5.0.2
+  license:
+    name: MIT
+    url: https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE
+    gpl-compatible: true
+  js:
+    libraries/bootstrap/js/bootstrap.bundle.min.js: { minified: true }
+
+accordionnew:
+  js:
+    js/src/02-molecules/accordion/accordion.js: {}
+  dependencies:
+    - core/drupal
+
+carousel:
+  js:
+    js/src/03-organisms/carousel/carousel.js: {}
+  dependencies:
+    - liberty_seguros/splidejs
+>>>>>>> main

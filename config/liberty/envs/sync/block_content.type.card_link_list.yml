@@ -1,0 +1,8 @@
+uuid: 6886c332-dcc9-42ad-9bb3-277c49e98f66
+langcode: es
+status: true
+dependencies: {  }
+id: card_link_list
+label: 'Card List - Links rapidos'
+revision: 0
+description: 'Card List - Links rapidos'

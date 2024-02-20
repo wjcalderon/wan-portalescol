@@ -62,9 +62,17 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
             $sites['libertysegdev.prod.acquia-sites.com'] = 'default';
             $sites['aliados-dev.libertyseguros.co'] = 'sponsors';
             break;
+<<<<<<< HEAD
         case 'test':
             $sites['nonprodportal.libertyseguros.co'] = 'default';
             $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
+=======
+        case 'stage':
+            $sites['nonprodportal.libertyseguros.co'] = 'default';
+            $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
+            $sites['libertyseg.ddev.site'] = 'default';
+            $sites['sponsors.ddev.site'] = 'sponsors';
+>>>>>>> main
             break;
         case 'prod':
             $sites['libertyseguros.co'] = 'default';
@@ -72,5 +80,11 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
             $sites['aliados.libertyseguros.co'] = 'sponsors';
             $sites['libertyseg.prod.acquia-sites.com'] = 'default';
             break;
+<<<<<<< HEAD
 }
+=======
+        case 'local':
+            break;
+    }
+>>>>>>> main
 }

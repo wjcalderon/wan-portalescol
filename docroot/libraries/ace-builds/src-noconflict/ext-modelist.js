@@ -11,6 +11,7 @@ function getModeForPath(path) {
     }
     return mode;
 }
+<<<<<<< HEAD
 var Mode = function (name, caption, extensions) {
     this.name = name;
     this.caption = caption;
@@ -30,6 +31,30 @@ var Mode = function (name, caption, extensions) {
 Mode.prototype.supportsFile = function (filename) {
     return filename.match(this.extRe);
 };
+=======
+var Mode = /** @class */ (function () {
+    function Mode(name, caption, extensions) {
+        this.name = name;
+        this.caption = caption;
+        this.mode = "ace/mode/" + name;
+        this.extensions = extensions;
+        var re;
+        if (/\^/.test(extensions)) {
+            re = extensions.replace(/\|(\^)?/g, function (a, b) {
+                return "$|" + (b ? "^" : "^.*\\.");
+            }) + "$";
+        }
+        else {
+            re = "^.*\\.(" + extensions + ")$";
+        }
+        this.extRe = new RegExp(re, "gi");
+    }
+    Mode.prototype.supportsFile = function (filename) {
+        return filename.match(this.extRe);
+    };
+    return Mode;
+}());
+>>>>>>> main
 var supportedModes = {
     ABAP: ["abap"],
     ABC: ["abc"],
@@ -59,6 +84,10 @@ var supportedModes = {
     Csound_Score: ["sco"],
     CSS: ["css"],
     Curly: ["curly"],
+<<<<<<< HEAD
+=======
+    Cuttlefish: ["conf"],
+>>>>>>> main
     D: ["d|di"],
     Dart: ["dart"],
     Diff: ["diff|patch"],
@@ -140,6 +169,10 @@ var supportedModes = {
     Nunjucks: ["nunjucks|nunjs|nj|njk"],
     ObjectiveC: ["m|mm"],
     OCaml: ["ml|mli"],
+<<<<<<< HEAD
+=======
+    Odin: ["odin"],
+>>>>>>> main
     PartiQL: ["partiql|pql"],
     Pascal: ["pas|p"],
     Perl: ["pl|pm"],

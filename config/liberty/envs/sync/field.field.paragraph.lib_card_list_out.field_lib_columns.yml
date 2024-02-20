@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: d34798f0-3307-452e-8e61-c857b24cd1de
+=======
+uuid: 266df2b2-12c5-4ad6-9c99-8352bc0f0d6c
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -13,8 +17,13 @@ entity_type: paragraph
 bundle: lib_card_list_out
 label: 'No. Columnas'
 description: ''
+<<<<<<< HEAD
 required: false
 translatable: false
+=======
+required: true
+translatable: true
+>>>>>>> main
 default_value:
   -
     value: '3'

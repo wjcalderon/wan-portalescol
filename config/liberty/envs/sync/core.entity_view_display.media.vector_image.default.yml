@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 0c8fed17-a2c5-4695-86f6-6a2c11564f70
+=======
+uuid: e4d6e996-f428-42a1-8d53-361aa5fe41c4
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -8,6 +12,11 @@ dependencies:
     - media.type.vector_image
   module:
     - svg_image_field
+<<<<<<< HEAD
+=======
+_core:
+  default_config_hash: PT3jQd1NB43feufORG6rekhHOsDvv1gDY6slYytUkNQ
+>>>>>>> main
 id: media.vector_image.default
 targetEntityType: media
 bundle: vector_image
@@ -19,8 +28,13 @@ content:
     settings:
       inline: false
       apply_dimensions: true
+<<<<<<< HEAD
       width: 25
       height: 25
+=======
+      width: 400
+      height: 400
+>>>>>>> main
       enable_alt: true
       enable_title: true
       link: ''

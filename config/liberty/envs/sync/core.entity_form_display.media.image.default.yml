@@ -8,8 +8,20 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+<<<<<<< HEAD
     - image_widget_crop
     - path
+=======
+    - field_layout
+    - image_widget_crop
+    - layout_discovery
+    - path
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 _core:
   default_config_hash: kyoAHlZTGIuGTaQuBblGBk8EhfnVKOl19_0j5WbpQqM
 id: media.image.default
@@ -60,6 +72,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+<<<<<<< HEAD
+=======
+  revision_log_message:
+    type: string_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+>>>>>>> main
   status:
     type: boolean_checkbox
     weight: 100

@@ -1,0 +1,47 @@
+{% set tabs__base_class = "tabs-bootstrap" %}
+
+{% if not classes_grid %}
+  {%
+    set classes_grid = [
+      'tab-content',
+    ]
+  %}
+{% endif %}
+
+{% if not tabs__modifiers %}
+	{% set tabs__modifiers = [] %}
+{% endif %}
+
+{% if tabs_orientation %}
+	{% set tabs__modifiers = tabs__modifiers|merge([tabs_orientation]) %}
+{% endif %}
+
+<div {{ bem(tabs__base_class, tabs__modifiers, tabs__blockname, tabs__extra_classes) }} id="{{ tab_id_global }}">
+  <ul class="nav nav-tabs " id="tabGlobal-{{tab_id_global}}" role="tablist">
+    {% block tabs_header %}
+      {% for key, tab in tabs %}
+        {% include "themes/custom/liberty_public/templates/new-components/components/molecules/tabs-bootstrap/_tab-item-bootstrap.twig" with {
+          tab_link: tab.tab_link,
+          tab_text: tab.tab_text,
+          tab_icon: tab.tab_icon,
+          tab_svg: tab.tab_svg,
+          tab_id: tab.tab_id,
+        } %}
+      {% endfor %}
+    {% endblock %}
+  </ul>
+  <div class="tab-content" {{content_attributes.addClass(classes_grid)}} id="tabContent">
+    {% block tabs_content %}
+      {% for key, tab in tabs %}
+        <div
+          class="tab-pane fade{% if key == 1 %} show active{% endif %} tab-pane_content"
+          id="tab-{{tab.tab_id}}"
+          role="tabpanel"
+          aria-labelledby="tab-{{tab.tab_id}}"
+        >
+          {{ tab.tab_content }}
+        </div>
+      {% endfor %}
+    {% endblock %}
+  </div>
+</div>

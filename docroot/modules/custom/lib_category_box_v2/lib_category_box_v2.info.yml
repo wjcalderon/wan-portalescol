@@ -4,7 +4,14 @@ description: 'Caja de categorias v2'
 core_version_requirement: ^8 || ^9
 package: 'Esinergia'
 dependencies:
+<<<<<<< HEAD
   - lib_v2_core
   - svg_image_field
   - media
   - media_library
+=======
+  - drupal:lib_v2_core
+  - drupal:svg_image_field
+  - drupal:media
+  - drupal:media_library
+>>>>>>> main

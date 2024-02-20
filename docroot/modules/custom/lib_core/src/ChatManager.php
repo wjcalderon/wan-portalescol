@@ -3,7 +3,11 @@
 namespace Drupal\lib_core;
 
 /**
+<<<<<<< HEAD
  *
+=======
+ * Class Chat manager.
+>>>>>>> main
  */
 class ChatManager implements ChatManagerInterface {
 
@@ -11,7 +15,11 @@ class ChatManager implements ChatManagerInterface {
    * Construct method.
    */
   public function __construct() {
+<<<<<<< HEAD
     // @TODO. Inject dependencies.
+=======
+    // @todo . Inject dependencies.
+>>>>>>> main
   }
 
   /**

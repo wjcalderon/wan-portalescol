@@ -1,0 +1,8 @@
+uuid: b9b1bde4-6d30-445e-a10a-65ae4490c43e
+langcode: es
+status: true
+dependencies: {  }
+id: section_title
+label: 'Título de sección'
+revision: 0
+description: 'Título de sección'

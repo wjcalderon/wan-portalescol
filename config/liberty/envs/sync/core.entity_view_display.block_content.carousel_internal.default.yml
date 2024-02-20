@@ -1,0 +1,26 @@
+uuid: f93fec40-9e0d-4d52-99bc-d479f6571943
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel_internal
+    - field.field.block_content.carousel_internal.field_hero_internal
+  module:
+    - entity_reference_revisions
+id: block_content.carousel_internal.default
+targetEntityType: block_content
+bundle: carousel_internal
+mode: default
+content:
+  field_hero_internal:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -7,9 +7,17 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+<<<<<<< HEAD
 use Drupal\Core\GeneratedLink;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
+=======
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\GeneratedLink;
+use Drupal\views\ViewExecutable;
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\Entity\WebformSubmission;
+>>>>>>> main
 
 /**
  * Implements hook_views_pre_render().
@@ -25,6 +33,7 @@ function lib_core_views_pre_render(ViewExecutable $view) {
  */
 function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
+<<<<<<< HEAD
   // var_dump($form_id);
   /* if(strpos($form_id, 'webform_submission_') === 0){
   var_dump(1);
@@ -32,6 +41,8 @@ function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   }*/
 
+=======
+>>>>>>> main
   if ($form_id == 'webform_submission_solicitud_add_form' || $form_id == 'webform_submission_solicitud_paragraph_156_add_form') {
 
     $form['elements']['descripcion_de_auto']['#attributes']['class'][] = 'msg-description';
@@ -126,6 +137,7 @@ function lib_core_preprocess_file_link(&$variables) {
 }
 
 /**
+<<<<<<< HEAD
  * Update 8001.
  */
 function lib_core_update_8001() {
@@ -143,6 +155,8 @@ function lib_core_update_8001() {
 }
 
 /**
+=======
+>>>>>>> main
  * View alter.
  */
 function lib_core_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
@@ -173,7 +187,10 @@ function lib_core_cron() {
   foreach ($files as $file) {
     $locale_directory = $storage_handler->load($file)->get('uri')->getValue()[0]['value'];
     $directory = explode('/', $locale_directory);
+<<<<<<< HEAD
     $directoryD = array_pop($directory);
+=======
+>>>>>>> main
     $uri = $directory[0] . '//' . $directory[2] . '/';
     if (is_dir($uri)) {
       if (!$file_system->scanDirectory($uri, '/.*/')) {
@@ -186,3 +203,51 @@ function lib_core_cron() {
   $storage_handler->delete($entities);
 
 }
+<<<<<<< HEAD
+=======
+
+/**
+ * Create submission webform.
+ */
+function lib_core_createsubmit($webform_data) {
+
+  // Convert to webform values format.
+  $values = $webform_data;
+
+  $values['webform_id'] = $webform_data['webform_id'];
+  $values['entity_type'] = NULL;
+  $values['entity_id'] = NULL;
+
+  // Don't submit webform ID.
+  unset($values['data']['webform_id']);
+  unset($values['data']['back']);
+  unset($values['data']['next']);
+  unset($values['data']['form_build_id']);
+  unset($values['data']['form_token']);
+  unset($values['data']['form_token']);
+  unset($values['data']['form_id']);
+  unset($values['data']['debugEmail']);
+  unset($values['data']['debug']);
+  unset($values['data']['retURL']);
+  unset($values['data']['orgid']);
+
+  // Check for a valid webform.
+  $webform = Webform::load($values['webform_id']);
+
+  $submission = WebformSubmission::create([
+    'webform_id' => $webform->id(),
+  ]);
+
+  foreach ($values['data'] as $field_key => $field_value) {
+    $submission->setElementData(strtolower($field_key), $field_value);
+  }
+  $submission->save();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function lib_core_preprocess_node(&$variables) {
+  $variables['#attached']['library'][] = "lib_core/lib_core";
+}
+>>>>>>> main

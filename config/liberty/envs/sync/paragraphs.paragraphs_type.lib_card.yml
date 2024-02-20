@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: fc912342-1e0b-4ae9-93cd-1384e036663d
+=======
+uuid: 08437895-8838-4846-bfa8-f40b1e29e012
+>>>>>>> main
 langcode: es
 status: true
 dependencies: {  }

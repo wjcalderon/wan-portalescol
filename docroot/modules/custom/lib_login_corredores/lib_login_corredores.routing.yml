@@ -1,0 +1,15 @@
+lib_login_corredores.import:
+  path: '/admin/login-blog/import'
+  defaults:
+    _title: 'Registro de usuarios para Blog Corredores'
+    _form: 'Drupal\lib_login_corredores\Form\ImportForm'
+  requirements:
+    _permission: 'access content'
+
+lib_login_corredores.login:
+  path: '/blog/login'
+  defaults:
+    _form: '\Drupal\lib_login_corredores\Form\CustomLoginForm'
+    _template: 'custom-login-form'
+  requirements:
+    _permission: 'access content'

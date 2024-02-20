@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define("ace/occur",["require","exports","module","ace/lib/oop","ace/range","ace/search","ace/edit_session","ace/search_highlight","ace/lib/dom"], function(require, exports, module){"use strict";
 var oop = require("./lib/oop");
 var Range = require("./range").Range;
@@ -8,6 +9,34 @@ function Occur() { }
 oop.inherits(Occur, Search);
 (function () {
     this.enter = function (editor, options) {
+=======
+define("ace/occur",["require","exports","module","ace/lib/oop","ace/search","ace/edit_session","ace/search_highlight","ace/lib/dom"], function(require, exports, module){"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var oop = require("./lib/oop");
+var Search = require("./search").Search;
+var EditSession = require("./edit_session").EditSession;
+var SearchHighlight = require("./search_highlight").SearchHighlight;
+var Occur = /** @class */ (function (_super) {
+    __extends(Occur, _super);
+    function Occur() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Occur.prototype.enter = function (editor, options) {
+>>>>>>> main
         if (!options.needle)
             return false;
         var pos = editor.getCursorPosition();
@@ -16,7 +45,11 @@ oop.inherits(Occur, Search);
         editor.moveCursorToPosition(translatedPos);
         return true;
     };
+<<<<<<< HEAD
     this.exit = function (editor, options) {
+=======
+    Occur.prototype.exit = function (editor, options) {
+>>>>>>> main
         var pos = options.translatePosition && editor.getCursorPosition();
         var translatedPos = pos && this.occurToOriginalPosition(editor.session, pos);
         this.displayOriginalContent(editor);
@@ -24,12 +57,20 @@ oop.inherits(Occur, Search);
             editor.moveCursorToPosition(translatedPos);
         return true;
     };
+<<<<<<< HEAD
     this.highlight = function (sess, regexp) {
+=======
+    Occur.prototype.highlight = function (sess, regexp) {
+>>>>>>> main
         var hl = sess.$occurHighlight = sess.$occurHighlight || sess.addDynamicMarker(new SearchHighlight(null, "ace_occur-highlight", "text"));
         hl.setRegexp(regexp);
         sess._emit("changeBackMarker"); // force highlight layer redraw
     };
+<<<<<<< HEAD
     this.displayOccurContent = function (editor, options) {
+=======
+    Occur.prototype.displayOccurContent = function (editor, options) {
+>>>>>>> main
         this.$originalSession = editor.session;
         var found = this.matchingLines(editor.session, options);
         var lines = found.map(function (foundLine) { return foundLine.content; });
@@ -42,11 +83,19 @@ oop.inherits(Occur, Search);
         this.highlight(occurSession, options.re);
         occurSession._emit('changeBackMarker');
     };
+<<<<<<< HEAD
     this.displayOriginalContent = function (editor) {
         editor.setSession(this.$originalSession);
         this.$originalSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
     };
     this.originalToOccurPosition = function (session, pos) {
+=======
+    Occur.prototype.displayOriginalContent = function (editor) {
+        editor.setSession(this.$originalSession);
+        this.$originalSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
+    };
+    Occur.prototype.originalToOccurPosition = function (session, pos) {
+>>>>>>> main
         var lines = session.$occurMatchingLines;
         var nullPos = { row: 0, column: 0 };
         if (!lines)
@@ -57,13 +106,21 @@ oop.inherits(Occur, Search);
         }
         return nullPos;
     };
+<<<<<<< HEAD
     this.occurToOriginalPosition = function (session, pos) {
+=======
+    Occur.prototype.occurToOriginalPosition = function (session, pos) {
+>>>>>>> main
         var lines = session.$occurMatchingLines;
         if (!lines || !lines[pos.row])
             return pos;
         return { row: lines[pos.row].row, column: pos.column };
     };
+<<<<<<< HEAD
     this.matchingLines = function (session, options) {
+=======
+    Occur.prototype.matchingLines = function (session, options) {
+>>>>>>> main
         options = oop.mixin({}, options);
         if (!session || !options.needle)
             return [];
@@ -77,7 +134,12 @@ oop.inherits(Occur, Search);
                 lines.concat({ row: row, content: session.getLine(row) });
         }, []);
     };
+<<<<<<< HEAD
 }).call(Occur.prototype);
+=======
+    return Occur;
+}(Search));
+>>>>>>> main
 var dom = require('./lib/dom');
 dom.importCssString(".ace_occur-highlight {\n\
     border-radius: 4px;\n\
@@ -334,18 +396,40 @@ exports.IncrementalSearchKeyboardHandler = IncrementalSearchKeyboardHandler;
 
 });
 
+<<<<<<< HEAD
 define("ace/incremental_search",["require","exports","module","ace/lib/oop","ace/range","ace/search","ace/search_highlight","ace/commands/incremental_search_commands","ace/lib/dom","ace/commands/command_manager","ace/editor","ace/config"], function(require, exports, module){"use strict";
 var oop = require("./lib/oop");
+=======
+define("ace/incremental_search",["require","exports","module","ace/range","ace/search","ace/search_highlight","ace/commands/incremental_search_commands","ace/lib/dom","ace/commands/command_manager","ace/editor","ace/config"], function(require, exports, module){"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+>>>>>>> main
 var Range = require("./range").Range;
 var Search = require("./search").Search;
 var SearchHighlight = require("./search_highlight").SearchHighlight;
 var iSearchCommandModule = require("./commands/incremental_search_commands");
 var ISearchKbd = iSearchCommandModule.IncrementalSearchKeyboardHandler;
+<<<<<<< HEAD
 function IncrementalSearch() {
     this.$options = { wrap: false, skipCurrent: false };
     this.$keyboardHandler = new ISearchKbd(this);
 }
 oop.inherits(IncrementalSearch, Search);
+=======
+>>>>>>> main
 function isRegExp(obj) {
     return obj instanceof RegExp;
 }
@@ -367,8 +451,20 @@ function stringToRegExp(string, flags) {
 function objectToRegExp(obj) {
     return stringToRegExp(obj.expression, obj.flags);
 }
+<<<<<<< HEAD
 (function () {
     this.activate = function (editor, backwards) {
+=======
+var IncrementalSearch = /** @class */ (function (_super) {
+    __extends(IncrementalSearch, _super);
+    function IncrementalSearch() {
+        var _this = _super.call(this) || this;
+        _this.$options = { wrap: false, skipCurrent: false };
+        _this.$keyboardHandler = new ISearchKbd(_this);
+        return _this;
+    }
+    IncrementalSearch.prototype.activate = function (editor, backwards) {
+>>>>>>> main
         this.$editor = editor;
         this.$startPos = this.$currentPos = editor.getCursorPosition();
         this.$options.needle = '';
@@ -380,7 +476,11 @@ function objectToRegExp(obj) {
         this.selectionFix(editor);
         this.statusMessage(true);
     };
+<<<<<<< HEAD
     this.deactivate = function (reset) {
+=======
+    IncrementalSearch.prototype.deactivate = function (reset) {
+>>>>>>> main
         this.cancelSearch(reset);
         var editor = this.$editor;
         editor.keyBinding.removeKeyboardHandler(this.$keyboardHandler);
@@ -391,17 +491,29 @@ function objectToRegExp(obj) {
         editor.onPaste = this.$originalEditorOnPaste;
         this.message('');
     };
+<<<<<<< HEAD
     this.selectionFix = function (editor) {
+=======
+    IncrementalSearch.prototype.selectionFix = function (editor) {
+>>>>>>> main
         if (editor.selection.isEmpty() && !editor.session.$emacsMark) {
             editor.clearSelection();
         }
     };
+<<<<<<< HEAD
     this.highlight = function (regexp) {
+=======
+    IncrementalSearch.prototype.highlight = function (regexp) {
+>>>>>>> main
         var sess = this.$editor.session, hl = sess.$isearchHighlight = sess.$isearchHighlight || sess.addDynamicMarker(new SearchHighlight(null, "ace_isearch-result", "text"));
         hl.setRegexp(regexp);
         sess._emit("changeBackMarker"); // force highlight layer redraw
     };
+<<<<<<< HEAD
     this.cancelSearch = function (reset) {
+=======
+    IncrementalSearch.prototype.cancelSearch = function (reset) {
+>>>>>>> main
         var e = this.$editor;
         this.$prevNeedle = this.$options.needle;
         this.$options.needle = '';
@@ -415,7 +527,11 @@ function objectToRegExp(obj) {
         this.highlight(null);
         return Range.fromPoints(this.$currentPos, this.$currentPos);
     };
+<<<<<<< HEAD
     this.highlightAndFindWithNeedle = function (moveToNext, needleUpdateFunc) {
+=======
+    IncrementalSearch.prototype.highlightAndFindWithNeedle = function (moveToNext, needleUpdateFunc) {
+>>>>>>> main
         if (!this.$editor)
             return null;
         var options = this.$options;
@@ -440,7 +556,11 @@ function objectToRegExp(obj) {
         this.statusMessage(found);
         return found;
     };
+<<<<<<< HEAD
     this.addString = function (s) {
+=======
+    IncrementalSearch.prototype.addString = function (s) {
+>>>>>>> main
         return this.highlightAndFindWithNeedle(false, function (needle) {
             if (!isRegExp(needle))
                 return needle + s;
@@ -449,7 +569,11 @@ function objectToRegExp(obj) {
             return objectToRegExp(reObj);
         });
     };
+<<<<<<< HEAD
     this.removeChar = function (c) {
+=======
+    IncrementalSearch.prototype.removeChar = function (c) {
+>>>>>>> main
         return this.highlightAndFindWithNeedle(false, function (needle) {
             if (!isRegExp(needle))
                 return needle.substring(0, needle.length - 1);
@@ -458,7 +582,11 @@ function objectToRegExp(obj) {
             return objectToRegExp(reObj);
         });
     };
+<<<<<<< HEAD
     this.next = function (options) {
+=======
+    IncrementalSearch.prototype.next = function (options) {
+>>>>>>> main
         options = options || {};
         this.$options.backwards = !!options.backwards;
         this.$currentPos = this.$editor.getCursorPosition();
@@ -467,6 +595,7 @@ function objectToRegExp(obj) {
                 this.$prevNeedle || '' : needle;
         });
     };
+<<<<<<< HEAD
     this.onMouseDown = function (evt) {
         this.deactivate();
         return true;
@@ -475,29 +604,56 @@ function objectToRegExp(obj) {
         this.addString(text);
     };
     this.convertNeedleToRegExp = function () {
+=======
+    IncrementalSearch.prototype.onMouseDown = function (evt) {
+        this.deactivate();
+        return true;
+    };
+    IncrementalSearch.prototype.onPaste = function (text) {
+        this.addString(text);
+    };
+    IncrementalSearch.prototype.convertNeedleToRegExp = function () {
+>>>>>>> main
         return this.highlightAndFindWithNeedle(false, function (needle) {
             return isRegExp(needle) ? needle : stringToRegExp(needle, 'ig');
         });
     };
+<<<<<<< HEAD
     this.convertNeedleToString = function () {
+=======
+    IncrementalSearch.prototype.convertNeedleToString = function () {
+>>>>>>> main
         return this.highlightAndFindWithNeedle(false, function (needle) {
             return isRegExp(needle) ? regExpToObject(needle).expression : needle;
         });
     };
+<<<<<<< HEAD
     this.statusMessage = function (found) {
+=======
+    IncrementalSearch.prototype.statusMessage = function (found) {
+>>>>>>> main
         var options = this.$options, msg = '';
         msg += options.backwards ? 'reverse-' : '';
         msg += 'isearch: ' + options.needle;
         msg += found ? '' : ' (not found)';
         this.message(msg);
     };
+<<<<<<< HEAD
     this.message = function (msg) {
+=======
+    IncrementalSearch.prototype.message = function (msg) {
+>>>>>>> main
         if (this.$editor.showCommandLine) {
             this.$editor.showCommandLine(msg);
             this.$editor.focus();
         }
     };
+<<<<<<< HEAD
 }).call(IncrementalSearch.prototype);
+=======
+    return IncrementalSearch;
+}(Search));
+>>>>>>> main
 exports.IncrementalSearch = IncrementalSearch;
 var dom = require('./lib/dom');
 dom.importCssString("\n.ace_marker-layer .ace_isearch-result {\n  position: absolute;\n  z-index: 6;\n  box-sizing: border-box;\n}\ndiv.ace_isearch-result {\n  border-radius: 4px;\n  background-color: rgba(255, 200, 0, 0.5);\n  box-shadow: 0 0 4px rgb(255, 200, 0);\n}\n.ace_dark div.ace_isearch-result {\n  background-color: rgb(100, 110, 160);\n  box-shadow: 0 0 4px rgb(80, 90, 140);\n}", "incremental-search-highlighting", false);

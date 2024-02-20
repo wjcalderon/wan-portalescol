@@ -2,9 +2,15 @@
 
 namespace Drupal\nbsp\Plugin\Filter;
 
+<<<<<<< HEAD
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 use Drupal\Component\Utility\Html;
+=======
+use Drupal\Component\Utility\Html;
+use Drupal\filter\FilterProcessResult;
+use Drupal\filter\Plugin\FilterBase;
+>>>>>>> main
 
 /**
  * NBSP Cleaner Filter class. Implements process() method only.

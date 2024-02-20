@@ -25,7 +25,11 @@
               <li>
                 <a  href='#tabs-{{ key }}'>
                   {% if value['icon']|trim is not empty %}
+<<<<<<< HEAD
                     <img src="{{ file_url(value['icon']) }}">
+=======
+                    <img alt="" src="{{ file_url(value['icon']) }}">
+>>>>>>> main
                   {% endif %}
                   {{ value['name'] }}
                 </a>

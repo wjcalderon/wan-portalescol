@@ -185,6 +185,7 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 ace.define("ace/mode/mel",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/mel_highlight_rules","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
@@ -194,6 +195,16 @@ var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = MELHighlightRules;
     this.$behaviour = new CstyleBehaviour();
+=======
+ace.define("ace/mode/mel",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/mel_highlight_rules","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var MELHighlightRules = require("./mel_highlight_rules").MELHighlightRules;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+var Mode = function () {
+    this.HighlightRules = MELHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

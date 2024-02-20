@@ -8,7 +8,11 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class dwh.
  */
+<<<<<<< HEAD
 class dwh extends ConfigFormBase {
+=======
+class Dwh extends ConfigFormBase {
+>>>>>>> main
 
   /**
    * {@inheritdoc}
@@ -54,7 +58,11 @@ class dwh extends ConfigFormBase {
       '#default_value' => $config->get('pass_sftp'),
       '#rows' => 10,
       '#cols' => 60,
+<<<<<<< HEAD
       '#resizable' => TRUE, 
+=======
+      '#resizable' => TRUE,
+>>>>>>> main
     ];
     $form['port_sftp'] = [
       '#type' => 'textfield',
@@ -74,9 +82,14 @@ class dwh extends ConfigFormBase {
     ];
     $form['aviso'] = [
       '#type' => 'markup',
+<<<<<<< HEAD
       '#markup' => "<h5>Puede cambiar la periocidad ingresando a este <a rel='noreferrer' href='/es/admin/config/system/cron/jobs/manage/liberty_form_cron?destination=/es/admin/config/liberty/dwh'>Link</a></h5>"
     ];
   
+=======
+      '#markup' => "<h5>Puede cambiar la periocidad ingresando a este <a rel='noreferrer' href='/es/admin/config/system/cron/jobs/manage/liberty_form_cron?destination=/es/admin/config/liberty/dwh'>Link</a></h5>",
+    ];
+>>>>>>> main
 
     return parent::buildForm($form, $form_state);
   }

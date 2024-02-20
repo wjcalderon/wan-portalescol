@@ -2,6 +2,7 @@
 
 use Drupal\Core\Database\Database;
 
+<<<<<<< HEAD
 function liberty_preprocess_page(&$variables)
 {
     $hoy = date("D, d M Y");
@@ -10,6 +11,8 @@ function liberty_preprocess_page(&$variables)
 
 }
 
+=======
+>>>>>>> main
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */

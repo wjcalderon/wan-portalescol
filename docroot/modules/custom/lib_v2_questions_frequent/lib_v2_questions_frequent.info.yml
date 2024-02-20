@@ -4,4 +4,8 @@ description: 'Drop-down tabs with text'
 core_version_requirement: ^8 || ^9
 package: 'Esinergia'
 dependencies:
+<<<<<<< HEAD
   - lib_v2_core
+=======
+  - lib_v2_core
+>>>>>>> main

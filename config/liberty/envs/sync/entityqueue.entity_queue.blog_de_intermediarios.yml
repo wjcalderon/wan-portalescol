@@ -1,0 +1,25 @@
+uuid: 114bfc21-e628-42ec-bfcf-dd9d6160f253
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: blog_de_intermediarios
+label: 'Blog de intermediarios'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse: false

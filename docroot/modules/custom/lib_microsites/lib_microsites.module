@@ -1,27 +1,49 @@
 <?php
 
+<<<<<<< HEAD
 use Drupal\Core\StreamWrapper\PublicStream;
 use Drupal\Core\Archiver\Zip;
 use Drupal\Core\Archiver\ArchiverException;
 use Drupal\Core\Entity\EntityInterface;
+=======
+/**
+ * @file
+ * Hook and preprocess custom lib_microsites.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\StreamWrapper\PublicStream;
+>>>>>>> main
 use Drupal\file\Entity\File;
 
 /**
  * Implements hook_entity_presave().
  */
+<<<<<<< HEAD
 function lib_microsites_entity_presave(EntityInterface $entity)
 {
+=======
+function lib_microsites_entity_presave(EntityInterface $entity) {
+>>>>>>> main
   switch ($entity->bundle()) {
     case 'landing_page':
     case 'landing_html':
       $public_path = PublicStream::basePath();
 
+<<<<<<< HEAD
       // Check if folder exists and create if doesn't
+=======
+      // Check if folder exists and create if doesn't.
+>>>>>>> main
       if (!is_dir($public_path . '/microsites')) {
         mkdir('public://microsites');
       }
 
+<<<<<<< HEAD
       // Load paragraph
+=======
+      // Load paragraph.
+>>>>>>> main
       if ($paragraph_field_items = $entity->get('field_p_components')->getValue()) {
         $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
         // Get paragraph field's ids.
@@ -31,6 +53,7 @@ function lib_microsites_entity_presave(EntityInterface $entity)
         $paragraphs_objects = $paragraph_storage->loadMultiple($ids);
         foreach ($paragraphs_objects as $paragraph) {
           if ($paragraph->getParagraphType()->id == 'microsite') {
+<<<<<<< HEAD
             // Get file field
             $zip_fid = $paragraph->get('field_file_zip')->target_id;
 
@@ -38,10 +61,20 @@ function lib_microsites_entity_presave(EntityInterface $entity)
             $file = File::load($zip_fid);
 
             // Get file name witou extension
+=======
+            // Get file field.
+            $zip_fid = $paragraph->get('field_file_zip')->target_id;
+
+            // Load file entity.
+            $file = File::load($zip_fid);
+
+            // Get file name witou extension.
+>>>>>>> main
             $name = str_replace(['.zip', '.ZIP'], '', $file->getFilename());
             $name = preg_replace('/_(\d+)/i', '', $name);
             $name = $zip_fid . '-' . \str_replace(' ', '', $name);
 
+<<<<<<< HEAD
             // Real path of file
             $path = \Drupal::service('file_system')->realpath($file->getFileUri());
 
@@ -56,6 +89,22 @@ function lib_microsites_entity_presave(EntityInterface $entity)
             $zip->extractTo($public_path . '/microsites/' . $name);
             $zip->close();
             // Save microsite path
+=======
+            // Real path of file.
+            $path = \Drupal::service('file_system')->realpath($file->getFileUri());
+
+            // Check if folder exists.
+            if (is_dir($public_path . '/microsites/' . $name)) {
+              rmdir('public://microsites/' . $name);
+            }
+
+            // Unzip on folder.
+            $zip = new \ZipArchive();
+            $zip->open($path);
+            $zip->extractTo($public_path . '/microsites/' . $name);
+            $zip->close();
+            // Save microsite path.
+>>>>>>> main
             $paragraph->set('field_path', $public_path . '/microsites/' . $name . '/index.html');
             $paragraph->save();
           }

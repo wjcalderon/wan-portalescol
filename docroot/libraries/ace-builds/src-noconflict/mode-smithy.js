@@ -420,17 +420,28 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
+<<<<<<< HEAD
 ace.define("ace/mode/smithy",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/smithy_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+=======
+ace.define("ace/mode/smithy",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/smithy_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
+>>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var SmithyHighlightRules = require("./smithy_highlight_rules").SmithyHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+<<<<<<< HEAD
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+=======
+>>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = SmithyHighlightRules;
     this.$outdent = new MatchingBraceOutdent();
+<<<<<<< HEAD
     this.$behaviour = new CstyleBehaviour();
+=======
+    this.$behaviour = this.$defaultBehaviour;
+>>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

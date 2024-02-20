@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 ace.define("ace/ext/textarea",["require","exports","module","ace/lib/event","ace/lib/useragent","ace/lib/net","ace/ace"], function(require, exports, module){"use strict";
 var event = require("../lib/event");
 var UA = require("../lib/useragent");
 var net = require("../lib/net");
+=======
+ace.define("ace/ext/textarea",["require","exports","module","ace/lib/event","ace/lib/useragent","ace/ace"], function(require, exports, module){"use strict";
+var event = require("../lib/event");
+var UA = require("../lib/useragent");
+>>>>>>> main
 var ace = require("../ace");
 module.exports = exports = ace;
 var getCSSProperty = function (element, container, property) {
@@ -153,6 +159,7 @@ exports.transformTextarea = function (element, options) {
     });
     return editor;
 };
+<<<<<<< HEAD
 function load(url, module, callback) {
     net.loadScript(url, function () {
         require([module], callback);
@@ -161,6 +168,9 @@ function load(url, module, callback) {
 function setupApi(editor, editorDiv, settingDiv, ace, options) {
     var session = editor.getSession();
     var renderer = editor.renderer;
+=======
+function setupApi(editor, editorDiv, settingDiv, ace, options) {
+>>>>>>> main
     function toBool(value) {
         return value === "true" || value == true;
     }

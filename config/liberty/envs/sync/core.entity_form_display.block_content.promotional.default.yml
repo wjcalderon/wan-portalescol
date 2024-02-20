@@ -9,8 +9,20 @@ dependencies:
     - field.field.block_content.promotional.field_block_pro_teaser
     - image.style.thumbnail
   module:
+<<<<<<< HEAD
     - link_class
     - svg_image
+=======
+    - field_layout
+    - layout_discovery
+    - link_class
+    - svg_image
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 id: block_content.promotional.default
 targetEntityType: block_content
 bundle: promotional

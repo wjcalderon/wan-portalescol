@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: fcbc037d-d888-4e4c-a2d1-593b68e4107b
+=======
+uuid: 32bab850-a573-445a-a2d1-b2d6fad57905
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -13,7 +17,11 @@ entity_type: paragraph
 bundle: plan_list
 label: 'No. Columnas'
 description: ''
+<<<<<<< HEAD
 required: false
+=======
+required: true
+>>>>>>> main
 translatable: true
 default_value:
   -

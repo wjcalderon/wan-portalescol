@@ -1,0 +1,8 @@
+uuid: 2101511a-eee4-4766-bc54-7607509e8ffe
+langcode: es
+status: true
+dependencies: {  }
+id: menu-blog-de-corredores
+label: 'Menú blog de corredores'
+description: 'Menú blog de corredores'
+locked: false

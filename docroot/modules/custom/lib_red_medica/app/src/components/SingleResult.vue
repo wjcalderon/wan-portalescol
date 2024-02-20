@@ -32,6 +32,7 @@
       </div>
       <button class="report" @click="show_error_form = true">Reportar datos errados</button>
     </div>
+<<<<<<< HEAD
     <component
       :is="showMap"
       :latLong="data.field_location_map.split(', ')"
@@ -47,6 +48,11 @@
       @close="show_error_form = false"
       :isMobile="isMobile"
       />
+=======
+    <component :is="showMap" :latLong="data.field_location_map.split(', ')" :data="data" :services_list="services_list"
+      :plan_list="plan_list" @close="show_map = false" :isMobile="isMobile" />
+    <component :is="showErrorForm" :lender_name="data.title" @close="show_error_form = false" :isMobile="isMobile" />
+>>>>>>> main
   </article>
 </template>
 
@@ -65,7 +71,11 @@ export default {
       show_info: false
     }
   },
+<<<<<<< HEAD
   props: [ 'data', 'isMobile' ],
+=======
+  props: ['data', 'isMobile'],
+>>>>>>> main
   components: { SingleMap, ErrorForm },
   computed: {
     showMap: function () {
@@ -87,10 +97,23 @@ export default {
       return false
     }
   },
+<<<<<<< HEAD
   created: function() {
     this.servicesList()
     this.planTypes()
   },
+=======
+
+  created: function () {
+    this.servicesList()
+    this.planTypes()
+  },
+  watch: {
+    'data.field_speciality': function () {
+      this.servicesList();
+    }
+  },
+>>>>>>> main
   methods: {
     servicesList: function () {
       this.services_list = this.data.field_speciality.split('|').sort()

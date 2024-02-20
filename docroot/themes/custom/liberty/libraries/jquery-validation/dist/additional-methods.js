@@ -36,7 +36,11 @@
 	}, $.validator.format( "Please enter at least {0} words." ) );
 
 	$.validator.addMethod( "rangeWords", function( value, element, params ) {
+<<<<<<< HEAD
 		var valueStripped = stripHtml( value ),
+=======
+		let valueStripped = stripHtml( value ),
+>>>>>>> main
 			regex = /\b\w+\b/g;
 		return this.optional( element ) || valueStripped.match( regex ).length >= params[ 0 ] && valueStripped.match( regex ).length <= params[ 1 ];
 	}, $.validator.format( "Please enter between {0} and {1} words." ) );
@@ -50,9 +54,15 @@
  * an ACH bill payment.
  */
 $.validator.addMethod( "abaRoutingNumber", function( value ) {
+<<<<<<< HEAD
 	var checksum = 0;
 	var tokens = value.split( "" );
 	var length = tokens.length;
+=======
+	let checksum = 0;
+	let tokens = value.split( "" );
+	let length = tokens.length;
+>>>>>>> main
 
 	// Length Check
 	if ( length !== 9 ) {
@@ -61,7 +71,11 @@ $.validator.addMethod( "abaRoutingNumber", function( value ) {
 
 	// Calc the checksum
 	// https://en.wikipedia.org/wiki/ABA_routing_transit_number
+<<<<<<< HEAD
 	for ( var i = 0; i < length; i += 3 ) {
+=======
+	for ( let i = 0; i < length; i += 3 ) {
+>>>>>>> main
 		checksum +=	parseInt( tokens[ i ], 10 )     * 3 +
 					parseInt( tokens[ i + 1 ], 10 ) * 7 +
 					parseInt( tokens[ i + 2 ], 10 );
@@ -79,7 +93,11 @@ $.validator.addMethod( "abaRoutingNumber", function( value ) {
 $.validator.addMethod( "accept", function( value, element, param ) {
 
 	// Split mime on commas in case we have multiple types we can accept
+<<<<<<< HEAD
 	var typeParam = typeof param === "string" ? param.replace( /\s/g, "" ) : "image/*",
+=======
+	let typeParam = typeof param === "string" ? param.replace( /\s/g, "" ) : "image/*",
+>>>>>>> main
 		optionalValue = this.optional( element ),
 		i, file, regex;
 
@@ -136,7 +154,11 @@ $.validator.addMethod( "bankaccountNL", function( value, element ) {
 	}
 
 	// Now '11 check'
+<<<<<<< HEAD
 	var account = value.replace( / /g, "" ), // Remove spaces
+=======
+	let account = value.replace( / /g, "" ), // Remove spaces
+>>>>>>> main
 		sum = 0,
 		len = account.length,
 		pos, factor, digit;
@@ -230,8 +252,13 @@ $.validator.addMethod( "cifES", function( value, element ) {
 		return true;
 	}
 
+<<<<<<< HEAD
 	var cifRegEx = new RegExp( /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/gi );
 	var letter  = value.substring( 0, 1 ), // [ T ]
+=======
+	let cifRegEx = new RegExp( /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/gi );
+	let letter  = value.substring( 0, 1 ), // [ T ]
+>>>>>>> main
 		number  = value.substring( 1, 8 ), // [ P ][ P ][ N ][ N ][ N ][ N ][ N ]
 		control = value.substring( 8, 9 ), // [ C ]
 		all_sum = 0,
@@ -302,7 +329,11 @@ $.validator.addMethod( "cnhBR", function( value ) {
     return false;
   }
 
+<<<<<<< HEAD
   var sum = 0, dsc = 0, firstChar,
+=======
+  let sum = 0, dsc = 0, firstChar,
+>>>>>>> main
 		firstCN, secondCN, i, j, v;
 
   firstChar = value.charAt( 0 );
@@ -372,6 +403,7 @@ $.validator.addMethod( "cnpjBR", function( value, element ) {
 	}
 
 	// Valida DVs
+<<<<<<< HEAD
 	var tamanho = ( value.length - 2 );
 	var numeros = value.substring( 0, tamanho );
 	var digitos = value.substring( tamanho );
@@ -379,13 +411,26 @@ $.validator.addMethod( "cnpjBR", function( value, element ) {
 	var pos = tamanho - 7;
 
 	for ( var i = tamanho; i >= 1; i-- ) {
+=======
+	let tamanho = ( value.length - 2 );
+	let numeros = value.substring( 0, tamanho );
+	let digitos = value.substring( tamanho );
+	let soma = 0;
+	let pos = tamanho - 7;
+
+	for ( let i = tamanho; i >= 1; i-- ) {
+>>>>>>> main
 		soma += numeros.charAt( tamanho - i ) * pos--;
 		if ( pos < 2 ) {
 			pos = 9;
 		}
 	}
 
+<<<<<<< HEAD
 	var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+=======
+	let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+>>>>>>> main
 
 	if ( resultado !== parseInt( digitos.charAt( 0 ), 10 ) ) {
 		return false;
@@ -396,7 +441,11 @@ $.validator.addMethod( "cnpjBR", function( value, element ) {
 	soma = 0;
 	pos = tamanho - 7;
 
+<<<<<<< HEAD
 	for ( var il = tamanho; il >= 1; il-- ) {
+=======
+	for ( let il = tamanho; il >= 1; il-- ) {
+>>>>>>> main
 		soma += numeros.charAt( tamanho - il ) * pos--;
 		if ( pos < 2 ) {
 			pos = 9;
@@ -432,14 +481,22 @@ $.validator.addMethod( "cpfBR", function( value, element ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	var sum = 0,
+=======
+	let sum = 0,
+>>>>>>> main
 		firstCN, secondCN, checkResult, i;
 
 	firstCN = parseInt( value.substring( 9, 10 ), 10 );
 	secondCN = parseInt( value.substring( 10, 11 ), 10 );
 
 	checkResult = function( sum, cn ) {
+<<<<<<< HEAD
 		var result = ( sum * 10 ) % 11;
+=======
+		let result = ( sum * 10 ) % 11;
+>>>>>>> main
 		if ( ( result === 10 ) || ( result === 11 ) ) {
 			result = 0;
 		}
@@ -491,7 +548,11 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	var nCheck = 0,
+=======
+	let nCheck = 0,
+>>>>>>> main
 		nDigit = 0,
 		bEven = false,
 		n, cDigit;
@@ -531,7 +592,11 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 
 	value = value.replace( /\D/g, "" );
 
+<<<<<<< HEAD
 	var validTypes = 0x0000;
+=======
+	let validTypes = 0x0000;
+>>>>>>> main
 
 	if ( param.mastercard ) {
 		validTypes |= 0x0001;
@@ -619,7 +684,11 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
  *  }
  */
 $.validator.addMethod( "currency", function( value, element, param ) {
+<<<<<<< HEAD
     var isParamString = typeof param === "string",
+=======
+    let isParamString = typeof param === "string",
+>>>>>>> main
         symbol = isParamString ? param : param[ 0 ],
         soft = isParamString ? true : param[ 1 ],
         regex;
@@ -656,7 +725,11 @@ $.validator.addMethod( "dateFA", function( value, element ) {
  * @cat Plugins/Validate/Methods
  */
 $.validator.addMethod( "dateITA", function( value, element ) {
+<<<<<<< HEAD
 	var check = false,
+=======
+	let check = false,
+>>>>>>> main
 		re = /^\d{1,2}\/\d{1,2}\/\d{4}$/,
 		adata, gg, mm, aaaa, xdata;
 	if ( re.test( value ) ) {
@@ -694,7 +767,11 @@ $.validator.addMethod( "giroaccountNL", function( value, element ) {
 }, "Please specify a valid giro account number" );
 
 $.validator.addMethod( "greaterThan", function( value, element, param ) {
+<<<<<<< HEAD
     var target = $( param );
+=======
+    let target = $( param );
+>>>>>>> main
 
     if ( this.settings.onfocusout && target.not( ".validate-greaterThan-blur" ).length ) {
         target.addClass( "validate-greaterThan-blur" ).on( "blur.validate-greaterThan", function() {
@@ -706,7 +783,11 @@ $.validator.addMethod( "greaterThan", function( value, element, param ) {
 }, "Please enter a greater value." );
 
 $.validator.addMethod( "greaterThanEqual", function( value, element, param ) {
+<<<<<<< HEAD
     var target = $( param );
+=======
+    let target = $( param );
+>>>>>>> main
 
     if ( this.settings.onfocusout && target.not( ".validate-greaterThanEqual-blur" ).length ) {
         target.addClass( "validate-greaterThanEqual-blur" ).on( "blur.validate-greaterThanEqual", function() {
@@ -731,7 +812,11 @@ $.validator.addMethod( "iban", function( value, element ) {
 	}
 
 	// Remove spaces and to upper case
+<<<<<<< HEAD
 	var iban = value.replace( / /g, "" ).toUpperCase(),
+=======
+	let iban = value.replace( / /g, "" ).toUpperCase(),
+>>>>>>> main
 		ibancheckdigits = "",
 		leadingZeroes = true,
 		cRest = "",
@@ -743,7 +828,11 @@ $.validator.addMethod( "iban", function( value, element ) {
 	// country code ISO 3166-1 - two letters,
 	// two check digits,
 	// Basic Bank Account Number (BBAN) - up to 30 chars
+<<<<<<< HEAD
 	var minimalIBANlength = 5;
+=======
+	let minimalIBANlength = 5;
+>>>>>>> main
 	if ( iban.length < minimalIBANlength ) {
 		return false;
 	}
@@ -867,7 +956,11 @@ $.validator.addMethod( "ipv6", function( value, element ) {
 }, "Please enter a valid IP v6 address." );
 
 $.validator.addMethod( "lessThan", function( value, element, param ) {
+<<<<<<< HEAD
     var target = $( param );
+=======
+    let target = $( param );
+>>>>>>> main
 
     if ( this.settings.onfocusout && target.not( ".validate-lessThan-blur" ).length ) {
         target.addClass( "validate-lessThan-blur" ).on( "blur.validate-lessThan", function() {
@@ -879,7 +972,11 @@ $.validator.addMethod( "lessThan", function( value, element, param ) {
 }, "Please enter a lesser value." );
 
 $.validator.addMethod( "lessThanEqual", function( value, element, param ) {
+<<<<<<< HEAD
     var target = $( param );
+=======
+    let target = $( param );
+>>>>>>> main
 
     if ( this.settings.onfocusout && target.not( ".validate-lessThanEqual-blur" ).length ) {
         target.addClass( "validate-lessThanEqual-blur" ).on( "blur.validate-lessThanEqual", function() {
@@ -921,7 +1018,11 @@ $.validator.addMethod( "maxsize", function( value, element, param ) {
 
 	if ( $( element ).attr( "type" ) === "file" ) {
 		if ( element.files && element.files.length ) {
+<<<<<<< HEAD
 			for ( var i = 0; i < element.files.length; i++ ) {
+=======
+			for ( let i = 0; i < element.files.length; i++ ) {
+>>>>>>> main
 				if ( element.files[ i ].size > param ) {
 					return false;
 				}
@@ -940,9 +1041,15 @@ $.validator.addMethod( "maxsizetotal", function( value, element, param ) {
 
 	if ( $( element ).attr( "type" ) === "file" ) {
 		if ( element.files && element.files.length ) {
+<<<<<<< HEAD
 			var totalSize = 0;
 
 			for ( var i = 0; i < element.files.length; i++ ) {
+=======
+			let totalSize = 0;
+
+			for ( let i = 0; i < element.files.length; i++ ) {
+>>>>>>> main
 				totalSize += element.files[ i ].size;
 				if ( totalSize > param ) {
 					return false;
@@ -960,7 +1067,11 @@ $.validator.addMethod( "mobileNL", function( value, element ) {
 }, "Please specify a valid mobile number" );
 
 $.validator.addMethod( "mobileRU", function( phone_number, element ) {
+<<<<<<< HEAD
 	var ruPhone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+=======
+	let ruPhone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+>>>>>>> main
 	return this.optional( element ) || ruPhone_number.length > 9 && /^((\+7|7|8)+([0-9]){10})$/.test( ruPhone_number );
 }, "Please specify a valid mobile number" );
 
@@ -997,8 +1108,13 @@ $.validator.addMethod( "nieES", function( value, element ) {
 		return true;
 	}
 
+<<<<<<< HEAD
 	var nieRegEx = new RegExp( /^[MXYZ]{1}[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/gi );
 	var validChars = "TRWAGMYFPDXBNJZSQVHLCKET",
+=======
+	let nieRegEx = new RegExp( /^[MXYZ]{1}[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/gi );
+	let validChars = "TRWAGMYFPDXBNJZSQVHLCKET",
+>>>>>>> main
 		letter = value.substr( value.length - 1 ).toUpperCase(),
 		number;
 
@@ -1065,6 +1181,7 @@ $.validator.addMethod( "nipPL", function( value ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	var arrSteps = [ 6, 5, 7, 2, 3, 4, 5, 6, 7 ];
 	var intSum = 0;
 	for ( var i = 0; i < 9; i++ ) {
@@ -1072,6 +1189,15 @@ $.validator.addMethod( "nipPL", function( value ) {
 	}
 	var int2 = intSum % 11;
 	var intControlNr = ( int2 === 10 ) ? 0 : int2;
+=======
+	let arrSteps = [ 6, 5, 7, 2, 3, 4, 5, 6, 7 ];
+	let intSum = 0;
+	for ( let i = 0; i < 9; i++ ) {
+		intSum += arrSteps[ i ] * value[ i ];
+	}
+	let int2 = intSum % 11;
+	let intControlNr = ( int2 === 10 ) ? 0 : int2;
+>>>>>>> main
 
 	return ( intControlNr === parseInt( value[ 9 ], 10 ) );
 }, "Please specify a valid NIP number." );
@@ -1087,12 +1213,21 @@ $.validator.addMethod( "nipPL", function( value ) {
  * @link http://github.com/csmendonca Github of Cleiton da Silva Mendonça
  */
 $.validator.addMethod( "nisBR", function( value ) {
+<<<<<<< HEAD
 	var number;
 	var cn;
 	var sum = 0;
 	var dv;
 	var count;
 	var multiplier;
+=======
+	let number;
+	let cn;
+	let sum = 0;
+	let dv;
+	let count;
+	let multiplier;
+>>>>>>> main
 
 	// Removing special characters from value
 	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
@@ -1192,7 +1327,11 @@ $.validator.addMethod( "phoneNL", function( value, element ) {
  */
 $.validator.addMethod( "phonePL", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\s+/g, "" );
+<<<<<<< HEAD
 	var regexp = /^(?:(?:(?:\+|00)?48)|(?:\(\+?48\)))?(?:1[2-8]|2[2-69]|3[2-49]|4[1-68]|5[0-9]|6[0-35-9]|[7-8][1-9]|9[145])\d{7}$/;
+=======
+	let regexp = /^(?:(?:(?:\+|00)?48)|(?:\(\+?48\)))?(?:1[2-8]|2[2-69]|3[2-49]|4[1-68]|5[0-9]|6[0-35-9]|[7-8][1-9]|9[145])\d{7}$/;
+>>>>>>> main
 	return this.optional( element ) || regexp.test( phone_number );
 }, "Please specify a valid phone number" );
 
@@ -1308,7 +1447,11 @@ $.validator.addMethod( "postcodeUK", function( value, element ) {
  * options[1]: CSS selector that defines the group of conditionally required fields
  */
 $.validator.addMethod( "require_from_group", function( value, element, options ) {
+<<<<<<< HEAD
 	var $fields = $( options[ 1 ], element.form ),
+=======
+	let $fields = $( options[ 1 ], element.form ),
+>>>>>>> main
 		$fieldsFirst = $fields.eq( 0 ),
 		validator = $fieldsFirst.data( "valid_req_grp" ) ? $fieldsFirst.data( "valid_req_grp" ) : $.extend( {}, this ),
 		isValid = $fields.filter( function() {
@@ -1351,7 +1494,11 @@ $.validator.addMethod( "require_from_group", function( value, element, options )
  *
  */
 $.validator.addMethod( "skip_or_fill_minimum", function( value, element, options ) {
+<<<<<<< HEAD
 	var $fields = $( options[ 1 ], element.form ),
+=======
+	let $fields = $( options[ 1 ], element.form ),
+>>>>>>> main
 		$fieldsFirst = $fields.eq( 0 ),
 		validator = $fieldsFirst.data( "valid_skip" ) ? $fieldsFirst.data( "valid_skip" ) : $.extend( {}, this ),
 		numberFilled = $fields.filter( function() {
@@ -1408,7 +1555,11 @@ $.validator.addMethod( "skip_or_fill_minimum", function( value, element, options
  *
  */
 $.validator.addMethod( "stateUS", function( value, element, options ) {
+<<<<<<< HEAD
 	var isDefault = typeof options === "undefined",
+=======
+	let isDefault = typeof options === "undefined",
+>>>>>>> main
 		caseSensitive = ( isDefault || typeof options.caseSensitive === "undefined" ) ? false : options.caseSensitive,
 		includeTerritories = ( isDefault || typeof options.includeTerritories === "undefined" ) ? false : options.includeTerritories,
 		includeMilitary = ( isDefault || typeof options.includeMilitary === "undefined" ) ? false : options.includeMilitary,
@@ -1463,7 +1614,11 @@ $.validator.addMethod( "vinUS", function( v ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	var LL = [ "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ],
+=======
+	let LL = [ "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ],
+>>>>>>> main
 		VL = [ 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 7, 9, 2, 3, 4, 5, 6, 7, 8, 9 ],
 		FL = [ 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 ],
 		rs = 0,

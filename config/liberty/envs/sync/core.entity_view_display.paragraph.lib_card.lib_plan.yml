@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 343dfe6f-83ea-4a64-86fa-96472e23f87b
+=======
+uuid: f8e6eacc-267e-43a5-9998-a69bf810cd02
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -33,7 +37,11 @@ content:
     region: content
   field_lib_item_list:
     type: string
+<<<<<<< HEAD
     label: inline
+=======
+    label: hidden
+>>>>>>> main
     settings:
       link_to_entity: false
     third_party_settings: {  }

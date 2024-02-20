@@ -1,4 +1,5 @@
 (function ($, Drupal, window, document) {
+<<<<<<< HEAD
   'use strict';
 
   Drupal.behaviors.themeFormsJS = {
@@ -16,10 +17,33 @@
       // Mobile
       if ($('body').hasClass('js-mobile')) {
         if ($('body').find('.webform-confirmation').length > 0) {
+=======
+  "use strict";
+
+  Drupal.behaviors.themeFormsJS = {
+    attach: function (context, settings) {
+      // reload window
+      let reload_document = function (time) {
+        window.setTimeout(function () {
+          document.location.reload(true);
+        }, time);
+      };
+
+      $(".webform-section-wrapper")
+        .find("input")
+        .on("input", function (e) {
+          $(e.currentTarget).attr("data-empty", !e.currentTarget.value);
+        });
+
+      // Mobile
+      if ($("body").hasClass("js-mobile")) {
+        if ($("body").find(".webform-confirmation").length > 0) {
+>>>>>>> main
           reload_document(3500);
         }
       }
 
+<<<<<<< HEAD
       $(".form-text, .form-email, .form-number, .form-select, .form-item textarea, .form-item .select--tabs").each(function () {
         var el = $(this), item = el.parents('.form-item');
         if (el.parents('form').prop('autocomplete') !== 'off') {
@@ -35,10 +59,33 @@
 
           if (el.attr('autofocus') !== undefined) {
             setTimeout(function() {
+=======
+      $(
+        ".form-text, .form-email, .form-number, .form-select, .form-item textarea, .form-item .select--tabs"
+      ).each(function () {
+        let el = $(this),
+          item = el.parents(".form-item");
+        if (el.parents("form").prop("autocomplete") !== "off") {
+          el.parents("form").prop("autocomplete", "off");
+        }
+        el.prop("autocomplete", "off");
+
+        // if IE 11 add class to labels
+        if (
+          !!navigator.userAgent.match(/Trident.*rv\:11\./) &&
+          el.hasClass("form-select")
+        ) {
+          item.addClass("form__input--activo");
+          el.focus().trigger("click");
+        } else {
+          if (el.attr("autofocus") !== undefined) {
+            setTimeout(function () {
+>>>>>>> main
               el.focus();
             }, 50);
           }
 
+<<<<<<< HEAD
           el.on('focus', function () {
             item.addClass('form__input--activo');
           })
@@ -46,11 +93,20 @@
             var valorBucar = el.val().length;
             if (valorBucar === 0) {
               item.removeClass('form__input--activo');
+=======
+          el.on("focus", function () {
+            item.addClass("form__input--activo");
+          }).on("blur", function () {
+            let valorBucar = el.val().length;
+            if (valorBucar === 0) {
+              item.removeClass("form__input--activo");
+>>>>>>> main
             }
           });
         }
       });
 
+<<<<<<< HEAD
       $( ".webform-submission-form .messages--error" ).remove();
 
       $('.component__single-text--interesado .component__content .single_text_class p a').click(function (e) {
@@ -58,6 +114,17 @@
         $('.form-interesado').removeClass('is-hidden');
         $("body").addClass("no-scroll");
       })
+=======
+      $(".webform-submission-form .messages--error").remove();
+
+      $(
+        ".component__single-text--interesado .component__content .single_text_class p a"
+      ).click(function (e) {
+        e.preventDefault();
+        $(".form-interesado").removeClass("is-hidden");
+        $("body").addClass("no-scroll");
+      });
+>>>>>>> main
 
       // Detail product
       // Show webform
@@ -67,6 +134,7 @@
       //   $("body").addClass("no-scroll");
       // });
       // Hide webform
+<<<<<<< HEAD
       $('.form-interesado .form-confirmation, .form-interesado').on('click', '#close', function(e) {
         e.preventDefault();
         $('.form-interesado').addClass('is-hidden');
@@ -82,10 +150,32 @@
       $('.jsModalClose').click(function (e) {
         e.preventDefault();
         $('.form-glossary-word').removeClass('is-open');
+=======
+      $(".form-interesado .form-confirmation, .form-interesado").on(
+        "click",
+        "#close",
+        function (e) {
+          e.preventDefault();
+          $(".form-interesado").addClass("is-hidden");
+          $("body").removeClass("no-scroll");
+        }
+      );
+
+      $(".glosario-ls__link").click(function (e) {
+        e.preventDefault();
+        $(".form-glossary-word").addClass("is-open");
+        // $("body").addClass("no-scroll");
+      });
+
+      $(".jsModalClose").click(function (e) {
+        e.preventDefault();
+        $(".form-glossary-word").removeClass("is-open");
+>>>>>>> main
         // $("body").addClass("no-scroll");
       });
 
       // video modal component.
+<<<<<<< HEAD
       $('.video__link').click(function (e) {
         e.preventDefault();
         var src_iframe = $(this).attr('data-atr');
@@ -103,6 +193,21 @@
 
 
 
+=======
+      $(".video__link").click(function (e) {
+        e.preventDefault();
+        let src_iframe = $(this).attr("data-atr");
+        $(".videoModalOverlay iframe").attr("src", src_iframe);
+        $(".videoModalOverlay").addClass("is-open");
+      });
+
+      $(".videoModalClose").click(function (e) {
+        e.preventDefault();
+        $(this).closest(".videoModalOverlay").removeClass("is-open");
+        // $("body").addClass("no-scroll");
+      });
+
+>>>>>>> main
       //--------------------
       // PQR
       //--------------------
@@ -110,13 +215,20 @@
       // Pqr form - Add url action
       /*if ($('body').hasClass('alias--zona-de-cliente-contactanos')) {
         if ($(".salesforce-form-pqr").length > 0) {
+<<<<<<< HEAD
           var url_action = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
+=======
+          let url_action = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
+>>>>>>> main
           $(".salesforce-form-pqr").attr('action', url_action);
         }
       }*/
 
       if ($(".webform-submission-pqr-form").length > 0) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         // --------------------------
         // PQRS - FIELDS IDS SALEFORCE VALIDATION
         // --------------------------
@@ -146,8 +258,13 @@
         })
 
         // Pqr Implement Jquery validate
+<<<<<<< HEAD
         var form = $(".salesforce-form-pqr");
         var validate_rules = {
+=======
+        let form = $(".salesforce-form-pqr");
+        let validate_rules = {
+>>>>>>> main
           // Reconsideracion
           '00NG000000FWyn9': {
             required: true,
@@ -204,7 +321,11 @@
           },
         };
 
+<<<<<<< HEAD
         var validate_messages = {
+=======
+        let validate_messages = {
+>>>>>>> main
           // Reconsideracion
           '00NG000000FWyn9': {
             required: 'Este campo es requerido',
@@ -266,19 +387,27 @@
         });
         $.validator.addMethod("isValidEmailAddress",
           function(value, element) {
+<<<<<<< HEAD
             var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+=======
+            let pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+>>>>>>> main
             return pattern.test(value);
           }
         );*/
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
         // --------------------------
         // PQRS FIELDS NAMES VALIDATION
         // --------------------------
         // Pqr field states
 
         //if ($("#edit-reconsideracion").val() != 'SI') {
+<<<<<<< HEAD
           $("#edit-numero-caso").attr("disabled", 'disabled');
         //}
         $("#edit-reconsideracion").change(function(){
@@ -317,10 +446,50 @@
               scrllForm = parseInt(hb) + parseInt(hct);
             }
             $('html, body').animate( { scrollTop : scrllForm }, 900);
+=======
+        $("#edit-numero-caso").attr("disabled", "disabled");
+        //}
+        $("#edit-reconsideracion").change(function () {
+          if ($(this).val() != "SI") {
+            $("#edit-numero-caso").attr("disabled", "disabled");
+          } else {
+            $("#edit-numero-caso").removeAttr("disabled");
+          }
+        });
+        //if ($("#edit-producto--2").val() != 'AUTOS' || $("#edit-producto--2").val() != 'SOAT') {
+        $("#edit-placa").attr("disabled", "disabled");
+        //}
+        $("#edit-producto--2").change(function () {
+          if ($(this).val() == "AUTOS" || $(this).val() == "SOAT") {
+            $("#edit-placa").removeAttr("disabled");
+          } else {
+            $("#edit-placa").attr("disabled", "disabled");
+          }
+        });
+
+        let form = $(".webform-submission-pqr-form"),
+          msg_confirm = form.children(".webform-confirmation");
+
+        // Pqr show confirmation message
+        if (msg_confirm.length > 0) {
+          let ht_tab_pqr = $(
+            ".alias--zona-de-cliente-contactanos .cp-tabs .ui-tabs-nav li:nth-child(2)"
+          );
+          if (ht_tab_pqr.length > 0) {
+            ht_tab_pqr.find(".cta a").click();
+            let hb = $(".cp-banner__image").height(),
+              hct = $(".component__tabs .component__heading").height(),
+              scrllForm = 600;
+            if (hb && hct) {
+              scrllForm = parseInt(hb) + parseInt(hct);
+            }
+            $("html, body").animate({ scrollTop: scrllForm }, 900);
+>>>>>>> main
           }
         }
 
         // Pqr Implement Jquery validate
+<<<<<<< HEAD
         var validate_rules = {
           // Reconsideracion
           'reconsideracion': {
@@ -336,10 +505,28 @@
           },
           // Número identificacion
           'numero_de_identificacion': {
+=======
+        let validate_rules = {
+          // Reconsideracion
+          reconsideracion: {
+            required: true,
+          },
+          // Número de caso
+          numero_caso: {
+            required: $("#edit-numero-caso").val() != "SI",
+          },
+          // Tipo identificacion
+          tipo_de_identificacion: {
+            required: true,
+          },
+          // Número identificacion
+          numero_de_identificacion: {
+>>>>>>> main
             required: true,
             number: true,
           },
           // Nombres y apellidos
+<<<<<<< HEAD
           'nombres_y_apellidos_razon_social_': {
             required: true,
           },
@@ -357,10 +544,30 @@
           },
           // Correo
           'correo_electronico': {
+=======
+          nombres_y_apellidos_razon_social_: {
+            required: true,
+          },
+          // Ciudades
+          ciudad: {
+            required: true,
+          },
+          // Direccion
+          direccion_si: {
+            required: true,
+          },
+          // Celular
+          celular_contacto: {
+            required: true,
+          },
+          // Correo
+          correo_electronico: {
+>>>>>>> main
             required: true,
             isValidEmailAddress: true,
           },
           // Producto
+<<<<<<< HEAD
           'producto': {
             required: true,
           },
@@ -374,10 +581,26 @@
           },
           // Descripcion
           'descripcion': {
+=======
+          producto: {
+            required: true,
+          },
+          // Medio de envio
+          medio_envio: {
+            required: true,
+          },
+          // Placa
+          placa: {
+            required: true,
+          },
+          // Descripcion
+          descripcion: {
+>>>>>>> main
             required: true,
           },
         };
 
+<<<<<<< HEAD
         var validate_messages = {
           // Reconsideracion
           'reconsideracion': {
@@ -432,18 +655,81 @@
           // Descripcion
           'descripcion': {
             required: 'Este campo es requerido',
+=======
+        let validate_messages = {
+          // Reconsideracion
+          reconsideracion: {
+            required: "Este campo es requerido",
+          },
+          // Número de caso
+          numero_caso: {
+            required: "Este campo es requerido",
+          },
+          // Tipo identificacion
+          tipo_de_identificacion: {
+            required: "Este campo es requerido",
+          },
+          // Número identificacion
+          numero_de_identificacion: {
+            required: "Este campo es requerido",
+            number: "Debe ingresar solo números",
+          },
+          // Nombres y apellidos
+          nombres_y_apellidos_razon_social_: {
+            required: "Este campo es requerido",
+          },
+          // Ciudades
+          ciudad: {
+            required: "Este campo es requerido",
+          },
+          // Direccion
+          direccion_si: {
+            required: "Este campo es requerido",
+          },
+          // Celular
+          celular_contacto: {
+            required: "Este campo es requerido",
+          },
+          // Correo
+          correo_electronico: {
+            required: "Este campo es requerido",
+            isValidEmailAddress: "Correo electrónico no valido",
+          },
+          // Producto
+          producto: {
+            required: "Este campo es requerido",
+          },
+          // Medio de envio
+          medio_envio: {
+            required: "Este campo es requerido",
+          },
+          // Placa
+          placa: {
+            required: "Este campo es requerido",
+          },
+          // Descripcion
+          descripcion: {
+            required: "Este campo es requerido",
+>>>>>>> main
           },
         };
         form.validate({
           rules: validate_rules,
           messages: validate_messages,
         });
+<<<<<<< HEAD
         $.validator.addMethod("isValidEmailAddress",
           function(value, element) {
             var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
             return pattern.test(value);
           }
         );
+=======
+        $.validator.addMethod("isValidEmailAddress", function (value, element) {
+          let pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+          return pattern.test(value);
+        });
+>>>>>>> main
 
         // Redirect to page after submit
         /*form.on('submit', function(e) {
@@ -459,6 +745,7 @@
         });*/
       }
 
+<<<<<<< HEAD
 
 
 
@@ -473,10 +760,29 @@
               parent.find('.element-msn-error').remove();
               if (typeof msn_error !== typeof undefined && msn_error !== false) {
                 parent.append('<span class="element-msn-error">'+ msn_error +'</span>');
+=======
+      // Message webform ajax inline
+      $(".js-form-errors-inline .form-submit").click(function () {
+        $(document).ajaxComplete(function () {
+          $(".js-form-errors-inline .error").each(function () {
+            let el = $(this),
+              msn_error = el.attr("data-webform-required-error"),
+              parent = el.parents(".form-item");
+            if (el.hasClass("js-field-errors-inline")) {
+              parent.find(".element-msn-error").remove();
+              if (
+                typeof msn_error !== typeof undefined &&
+                msn_error !== false
+              ) {
+                parent.append(
+                  '<span class="element-msn-error">' + msn_error + "</span>"
+                );
+>>>>>>> main
               }
             }
           });
           // reload page on confirmation
+<<<<<<< HEAD
           if ($('body').find('.webform-confirmation').length > 0) {
             reload_document(6500);
           }
@@ -485,3 +791,13 @@
     }
   }
 }) (jQuery, Drupal, this, this.document);
+=======
+          if ($("body").find(".webform-confirmation").length > 0) {
+            reload_document(6500);
+          }
+        });
+      });
+    },
+  };
+})(jQuery, Drupal, this, this.document);
+>>>>>>> main

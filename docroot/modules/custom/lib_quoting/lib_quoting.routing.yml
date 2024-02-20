@@ -1,4 +1,5 @@
 lib_quoting.migrate:
+<<<<<<< HEAD
   path: '/admin/config/liberty/import-facecolda'
   defaults:
     _form: '\Drupal\lib_quoting\Form\LoadExcelForm'
@@ -88,3 +89,94 @@ lib_quoting.api_query_policy:
     _format: json
   requirements:
     _access: 'TRUE'
+=======
+  path: "/admin/config/liberty/import-facecolda"
+  defaults:
+    _form: '\Drupal\lib_quoting\Form\LoadExcelForm'
+    _title: "Importación códigos facecolda"
+  requirements:
+    _permission: "access import facecolda codes"
+
+lib_quoting.vehicle_label_autocomplete:
+  path: "vehicle-label-autocomplete/{label}"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingQueries::vehicleLabelAutocomplete'
+    label: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.vehicle_info:
+  path: "vehicle-get-info/{nid_veh_price}"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingQueries::vehicleGetInfoByNidPrice'
+    nid_veh_price: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.vehicle_info_facecolda:
+  path: "vehicle-get-info-fasecolda/{code}/{model}"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingQueries::vehicleGetInfoByCodeFasecolda'
+    code: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.circulation_city_autocomplete:
+  path: "vehicle-circulation-city-autocomplete/{city}"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingQueries::circulationCityAutocomplete'
+    city: "none"
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.generate_pdf:
+  path: "/quote/generate-pdf"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\GeneratePDF::generate'
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.config:
+  path: "/admin/config/liberty/config"
+  defaults:
+    _form: '\Drupal\lib_quoting\Form\ApiConfigForm'
+    _title: "Configuración API "
+  requirements:
+    _permission: "administer site configuration"
+
+lib_quoting.api_query_person:
+  path: "api/query_person"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingApi::queryPerson'
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.api_query_auto:
+  path: "api/query_auto"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingApi::queryAuto'
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.api_query_sisa_auto:
+  path: "api/query_auto_sisa"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingApi::queryAutoSisa'
+    _format: json
+  requirements:
+    _access: "TRUE"
+
+lib_quoting.api_query_policy:
+  path: "api/query_policy"
+  defaults:
+    _controller: '\Drupal\lib_quoting\Controller\QuotingApi::queryPolicy'
+    _format: json
+  requirements:
+    _access: "TRUE"
+>>>>>>> main

@@ -24,6 +24,15 @@
  * @see http://php.net/manual/en/features.commandline.webserver.php
  */
 
+<<<<<<< HEAD
+=======
+if (PHP_SAPI !== 'cli-server') {
+  // Bail out if this is not PHP's Development Server.
+  header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+  exit;
+}
+
+>>>>>>> main
 $url = parse_url($_SERVER['REQUEST_URI']);
 if (file_exists(__DIR__ . $url['path'])) {
   // Serve the requested resource as-is.

@@ -1,0 +1,23 @@
+uuid: bdd8a4e3-7026-4173-bc66-ba232988dd5c
+langcode: es
+status: true
+dependencies:
+  config:
+    - image.style.lib_16_9_lg
+    - image.style.lib_16_9_md
+    - image.style.lib_16_9_sm
+id: lib_16_9_images
+label: '16:9 Images'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - lib_16_9_lg
+        - lib_16_9_md
+        - lib_16_9_sm
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: lib_16_9_md

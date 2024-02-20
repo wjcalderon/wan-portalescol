@@ -39,6 +39,11 @@ field_type:
           catenateAll: 0
           catenateWords: 1
         -
+<<<<<<< HEAD
+=======
+          class: solr.FlattenGraphFilterFactory
+        -
+>>>>>>> main
           class: solr.LengthFilterFactory
           min: 2
           max: 100
@@ -106,7 +111,11 @@ spellcheck_field_type:
 collated_field_type:
   name: collated_und
   class: solr.ICUCollationField
+<<<<<<< HEAD
   locale: en
+=======
+  locale: null
+>>>>>>> main
   strength: primary
   caseLevel: false
 solr_configs:

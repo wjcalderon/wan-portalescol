@@ -242,7 +242,11 @@ handlers:
     settings:
       states:
         - completed
+<<<<<<< HEAD
       to_mail: 'juan.galindo@libertycolombia.com, cristian.hoyos@libertycolombia.com, yullie.gonzalez@libertycolombia.com, lizeth.bohorquez@libertycolombia.com, juan.calderon@libertycolombia.com'
+=======
+      to_mail: 'Freddy.Garcia@libertycolombia.com, JUAN.GALINDO@libertycolombia.com, Nelson.Rojas@libertycolombia.com, lizeth.bohorquez@libertycolombia.com'
+>>>>>>> main
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }

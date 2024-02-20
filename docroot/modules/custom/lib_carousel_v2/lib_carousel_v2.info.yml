@@ -4,6 +4,12 @@ description: 'Carousel of images'
 core_version_requirement: ^8 || ^9
 package: 'Esinergia'
 dependencies:
+<<<<<<< HEAD
   - media
   - media_library
   - lib_v2_core
+=======
+  - drupal:media
+  - drupal:media_library
+  - drupal:lib_v2_core
+>>>>>>> main

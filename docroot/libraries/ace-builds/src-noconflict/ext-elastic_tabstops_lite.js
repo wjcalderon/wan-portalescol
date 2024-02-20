@@ -1,4 +1,5 @@
 ace.define("ace/ext/elastic_tabstops_lite",["require","exports","module","ace/editor","ace/config"], function(require, exports, module){"use strict";
+<<<<<<< HEAD
 var ElasticTabstopsLite = function (editor) {
     this.$editor = editor;
     var self = this;
@@ -23,6 +24,32 @@ var ElasticTabstopsLite = function (editor) {
 };
 (function () {
     this.processRows = function (rows) {
+=======
+var ElasticTabstopsLite = /** @class */ (function () {
+    function ElasticTabstopsLite(editor) {
+        this.$editor = editor;
+        var self = this;
+        var changedRows = [];
+        var recordChanges = false;
+        this.onAfterExec = function () {
+            recordChanges = false;
+            self.processRows(changedRows);
+            changedRows = [];
+        };
+        this.onExec = function () {
+            recordChanges = true;
+        };
+        this.onChange = function (delta) {
+            if (recordChanges) {
+                if (changedRows.indexOf(delta.start.row) == -1)
+                    changedRows.push(delta.start.row);
+                if (delta.end.row != delta.start.row)
+                    changedRows.push(delta.end.row);
+            }
+        };
+    }
+    ElasticTabstopsLite.prototype.processRows = function (rows) {
+>>>>>>> main
         this.$inChange = true;
         var checkedRows = [];
         for (var r = 0, rowCount = rows.length; r < rowCount; r++) {
@@ -41,7 +68,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         this.$inChange = false;
     };
+<<<<<<< HEAD
     this.$findCellWidthsForBlock = function (row) {
+=======
+    ElasticTabstopsLite.prototype.$findCellWidthsForBlock = function (row) {
+>>>>>>> main
         var cellWidths = [], widths;
         var rowIter = row;
         while (rowIter >= 0) {
@@ -63,7 +94,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         return { cellWidths: cellWidths, firstRow: firstRow };
     };
+<<<<<<< HEAD
     this.$cellWidthsForRow = function (row) {
+=======
+    ElasticTabstopsLite.prototype.$cellWidthsForRow = function (row) {
+>>>>>>> main
         var selectionColumns = this.$selectionColumnsForRow(row);
         var tabs = [-1].concat(this.$tabsForRow(row));
         var widths = tabs.map(function (el) { return 0; }).slice(1);
@@ -77,7 +112,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         return widths;
     };
+<<<<<<< HEAD
     this.$selectionColumnsForRow = function (row) {
+=======
+    ElasticTabstopsLite.prototype.$selectionColumnsForRow = function (row) {
+>>>>>>> main
         var selections = [], cursor = this.$editor.getCursorPosition();
         if (this.$editor.session.getSelection().isEmpty()) {
             if (row == cursor.row)
@@ -85,7 +124,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         return selections;
     };
+<<<<<<< HEAD
     this.$setBlockCellWidthsToMax = function (cellWidths) {
+=======
+    ElasticTabstopsLite.prototype.$setBlockCellWidthsToMax = function (cellWidths) {
+>>>>>>> main
         var startingNewBlock = true, blockStartRow, blockEndRow, maxWidth;
         var columnInfo = this.$izip_longest(cellWidths);
         for (var c = 0, l = columnInfo.length; c < l; c++) {
@@ -114,7 +157,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         return cellWidths;
     };
+<<<<<<< HEAD
     this.$rightmostSelectionInCell = function (selectionColumns, cellRightEdge) {
+=======
+    ElasticTabstopsLite.prototype.$rightmostSelectionInCell = function (selectionColumns, cellRightEdge) {
+>>>>>>> main
         var rightmost = 0;
         if (selectionColumns.length) {
             var lengths = [];
@@ -128,14 +175,22 @@ var ElasticTabstopsLite = function (editor) {
         }
         return rightmost;
     };
+<<<<<<< HEAD
     this.$tabsForRow = function (row) {
+=======
+    ElasticTabstopsLite.prototype.$tabsForRow = function (row) {
+>>>>>>> main
         var rowTabs = [], line = this.$editor.session.getLine(row), re = /\t/g, match;
         while ((match = re.exec(line)) != null) {
             rowTabs.push(match.index);
         }
         return rowTabs;
     };
+<<<<<<< HEAD
     this.$adjustRow = function (row, widths) {
+=======
+    ElasticTabstopsLite.prototype.$adjustRow = function (row, widths) {
+>>>>>>> main
         var rowTabs = this.$tabsForRow(row);
         if (rowTabs.length == 0)
             return;
@@ -162,7 +217,11 @@ var ElasticTabstopsLite = function (editor) {
             }
         }
     };
+<<<<<<< HEAD
     this.$izip_longest = function (iterables) {
+=======
+    ElasticTabstopsLite.prototype.$izip_longest = function (iterables) {
+>>>>>>> main
         if (!iterables[0])
             return [];
         var longest = iterables[0].length;
@@ -185,7 +244,11 @@ var ElasticTabstopsLite = function (editor) {
         }
         return expandedSet;
     };
+<<<<<<< HEAD
     this.$izip = function (widths, tabs) {
+=======
+    ElasticTabstopsLite.prototype.$izip = function (widths, tabs) {
+>>>>>>> main
         var size = widths.length >= tabs.length ? tabs.length : widths.length;
         var expandedSet = [];
         for (var i = 0; i < size; i++) {
@@ -194,7 +257,12 @@ var ElasticTabstopsLite = function (editor) {
         }
         return expandedSet;
     };
+<<<<<<< HEAD
 }).call(ElasticTabstopsLite.prototype);
+=======
+    return ElasticTabstopsLite;
+}());
+>>>>>>> main
 exports.ElasticTabstopsLite = ElasticTabstopsLite;
 var Editor = require("../editor").Editor;
 require("../config").defineOptions(Editor.prototype, "editor", {

@@ -1,0 +1,8 @@
+uuid: 735cedf6-10c8-47d6-abcc-d539dc482c68
+langcode: es
+status: true
+dependencies: {  }
+id: call_to_action
+label: 'CTA (Call to action)'
+revision: 0
+description: 'CTA component'

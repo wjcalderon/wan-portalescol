@@ -33,8 +33,14 @@
         v-model="casualtyData.date"
         label="¿En que día ocurrió?"
         locale="es"
+<<<<<<< HEAD
         min-date="1900-01-01 00:00 am"
         :max-date="getMaxDate">
+=======
+        min-date="1900-01-01 00:00"
+        :max-date="getMaxDate"
+        strict='true'>
+>>>>>>> main
       </datepicker>
       <span class="ayudas">Día/ Mes/ Año</span>
       <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>

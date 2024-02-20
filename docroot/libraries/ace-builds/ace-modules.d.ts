@@ -1,11 +1,23 @@
 declare module 'ace-builds/webpack-resolver';
+<<<<<<< HEAD
 declare module 'ace-builds/src-noconflict/ace';
 declare module 'ace-builds/src-noconflict/ext-beautify';
 declare module 'ace-builds/src-noconflict/ext-code_lens';
+=======
+declare module 'ace-builds/esm-resolver';
+declare module 'ace-builds/src-noconflict/ace';
+declare module 'ace-builds/src-noconflict/ext-beautify';
+declare module 'ace-builds/src-noconflict/ext-code_lens';
+declare module 'ace-builds/src-noconflict/ext-command_bar';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/ext-elastic_tabstops_lite';
 declare module 'ace-builds/src-noconflict/ext-emmet';
 declare module 'ace-builds/src-noconflict/ext-error_marker';
 declare module 'ace-builds/src-noconflict/ext-hardwrap';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/ext-inline_autocomplete';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/ext-keybinding_menu';
 declare module 'ace-builds/src-noconflict/ext-language_tools';
 declare module 'ace-builds/src-noconflict/ext-linking';
@@ -55,6 +67,10 @@ declare module 'ace-builds/src-noconflict/mode-csound_score';
 declare module 'ace-builds/src-noconflict/mode-csp';
 declare module 'ace-builds/src-noconflict/mode-css';
 declare module 'ace-builds/src-noconflict/mode-curly';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/mode-cuttlefish';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/mode-c_cpp';
 declare module 'ace-builds/src-noconflict/mode-d';
 declare module 'ace-builds/src-noconflict/mode-dart';
@@ -137,6 +153,10 @@ declare module 'ace-builds/src-noconflict/mode-nsis';
 declare module 'ace-builds/src-noconflict/mode-nunjucks';
 declare module 'ace-builds/src-noconflict/mode-objectivec';
 declare module 'ace-builds/src-noconflict/mode-ocaml';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/mode-odin';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/mode-partiql';
 declare module 'ace-builds/src-noconflict/mode-pascal';
 declare module 'ace-builds/src-noconflict/mode-perl';
@@ -223,6 +243,10 @@ declare module 'ace-builds/src-noconflict/theme-dracula';
 declare module 'ace-builds/src-noconflict/theme-dreamweaver';
 declare module 'ace-builds/src-noconflict/theme-eclipse';
 declare module 'ace-builds/src-noconflict/theme-github';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/theme-github_dark';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/theme-gob';
 declare module 'ace-builds/src-noconflict/theme-gruvbox';
 declare module 'ace-builds/src-noconflict/theme-gruvbox_dark_hard';
@@ -281,6 +305,10 @@ declare module 'ace-builds/src-noconflict/snippets/csound_score';
 declare module 'ace-builds/src-noconflict/snippets/csp';
 declare module 'ace-builds/src-noconflict/snippets/css';
 declare module 'ace-builds/src-noconflict/snippets/curly';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/snippets/cuttlefish';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/snippets/c_cpp';
 declare module 'ace-builds/src-noconflict/snippets/d';
 declare module 'ace-builds/src-noconflict/snippets/dart';
@@ -363,6 +391,10 @@ declare module 'ace-builds/src-noconflict/snippets/nsis';
 declare module 'ace-builds/src-noconflict/snippets/nunjucks';
 declare module 'ace-builds/src-noconflict/snippets/objectivec';
 declare module 'ace-builds/src-noconflict/snippets/ocaml';
+<<<<<<< HEAD
+=======
+declare module 'ace-builds/src-noconflict/snippets/odin';
+>>>>>>> main
 declare module 'ace-builds/src-noconflict/snippets/partiql';
 declare module 'ace-builds/src-noconflict/snippets/pascal';
 declare module 'ace-builds/src-noconflict/snippets/perl';

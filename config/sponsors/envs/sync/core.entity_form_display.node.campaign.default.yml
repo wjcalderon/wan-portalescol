@@ -80,7 +80,10 @@ third_party_settings:
         required_fields: true
     group_campana:
       children:
+<<<<<<< HEAD
         - field_color_card
+=======
+>>>>>>> main
         - group_informacion_basica
         - group_contenido
         - group_productos
@@ -119,6 +122,10 @@ third_party_settings:
         - field_color_header
         - field_monitored
         - field_monitored_page
+<<<<<<< HEAD
+=======
+        - field_color_card
+>>>>>>> main
       label: Configuración
       region: hidden
       parent_name: group_campana

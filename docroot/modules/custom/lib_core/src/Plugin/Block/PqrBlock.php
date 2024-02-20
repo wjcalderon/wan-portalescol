@@ -2,12 +2,16 @@
 
 namespace Drupal\lib_core\Plugin\Block;
 
+<<<<<<< HEAD
 use Drupal;
+=======
+>>>>>>> main
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 
+<<<<<<< HEAD
 
 /**
 * Provides a block with a simple text.
@@ -20,6 +24,18 @@ use Drupal\Core\Session\AccountInterface;
 
 */
 class PqrBlock extends BlockBase {
+=======
+/**
+ * Provides a block with a simple text.
+ *
+ * @Block(
+ * id = "pqr",
+ * admin_label = @Translation("Pqr form"),
+ * )
+ */
+class PqrBlock extends BlockBase {
+
+>>>>>>> main
   /**
    * {@inheritdoc}
    */
@@ -41,8 +57,11 @@ class PqrBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
+<<<<<<< HEAD
     $config = $this->getConfiguration();
 
+=======
+>>>>>>> main
     return $form;
   }
 
@@ -52,4 +71,9 @@ class PqrBlock extends BlockBase {
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['my_block_settings'] = $form_state->getValue('my_block_settings');
   }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> main

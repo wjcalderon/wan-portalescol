@@ -10,9 +10,22 @@ dependencies:
     - field.field.block_content.card.field_title
     - image.style.thumbnail
   module:
+<<<<<<< HEAD
     - link
     - svg_image
     - text
+=======
+    - field_layout
+    - layout_discovery
+    - link
+    - svg_image
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 id: block_content.card.default
 targetEntityType: block_content
 bundle: card

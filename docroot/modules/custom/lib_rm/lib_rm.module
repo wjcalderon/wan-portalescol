@@ -1,7 +1,15 @@
 <?php
+<<<<<<< HEAD
 /**
  * Created by PhpStorm.
  * User: esinergia1
  * Date: 1/31/19
  * Time: 5:18 PM
  */
+=======
+
+/**
+ * @file
+ * lib_rm.module
+ */
+>>>>>>> main

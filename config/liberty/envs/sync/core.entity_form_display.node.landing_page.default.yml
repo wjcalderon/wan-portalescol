@@ -6,15 +6,37 @@ dependencies:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_p_components
+<<<<<<< HEAD
     - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - content_moderation
+=======
+    - field.field.node.landing_page.field_video_embed
+    - field.field.node.landing_page.field_video_media
+    - field.field.node.landing_page.panelizer
+    - node.type.landing_page
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - field_layout
+    - layout_discovery
+    - media_library
+>>>>>>> main
     - metatag
     - panelizer
     - paragraphs
     - path
     - text
+<<<<<<< HEAD
+=======
+    - video_embed_field
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 _core:
   default_config_hash: B48sIkDf3G7VjHI5lzy7OHgBG1x0Lj_FI4-197i4oPQ
 id: node.landing_page.default
@@ -63,6 +85,22 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+<<<<<<< HEAD
+=======
+  field_video_embed:
+    type: video_embed_field_textfield
+    weight: 105
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_video_media:
+    type: media_library_widget
+    weight: 106
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+>>>>>>> main
   langcode:
     type: language_select
     weight: 2

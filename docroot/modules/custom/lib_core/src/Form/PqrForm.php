@@ -22,8 +22,13 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+<<<<<<< HEAD
     // $form['#action'] =
     // 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
+=======
+    $config = \Drupal::config('lib_core.environmentvars.settings');
+
+>>>>>>> main
     $orgid = '00D0t0000008cUH';
     $pqr = '00N0t000000fmGY';
     $case_number = '00N0t000000f5zQ';
@@ -33,7 +38,11 @@ class PqrForm extends FormBase {
     if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
       // Prod <input type=hidden name="orgid" value="00DA0000000AD5W">.
       $orgid = '00DA0000000AD5W';
+<<<<<<< HEAD
       $pqr = $_ENV['PQRRegistroWebToCase'];
+=======
+      $pqr = $config->get('PQRRegistroWebToCase') ?? '';
+>>>>>>> main
       $case_number = '00n4a00000fkikp';
       $names = '00n4a00000fkiko';
       $product = '00N4A00000FkiL2';
@@ -41,9 +50,15 @@ class PqrForm extends FormBase {
     }
     else {
       // Staging <input type=hidden name="orgid" value="00D040000004eAH">.
+<<<<<<< HEAD
       $orgid = $_ENV['ENDPOINT_ORGID'];
       // $orgid = '00D040000004eAH';
       $pqr = $_ENV['PQRRegistroWebToCase'];
+=======
+      $orgid = $config->get('ENDPOINT_ORGID') ?? '';
+      // $orgid = '00D040000004eAH';
+      $pqr = $config->get('PQRRegistroWebToCase') ?? '';
+>>>>>>> main
       $case_number = '00n4a00000fkikp';
       $names = '00n4a00000fkiko';
       $product = '00N4A00000FkiL2';
@@ -91,7 +106,10 @@ class PqrForm extends FormBase {
     ];
 
     if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
+<<<<<<< HEAD
       // Test.
+=======
+>>>>>>> main
       $form['debug'] = [
         '#type' => 'hidden',
         '#value' => 1,
@@ -100,11 +118,17 @@ class PqrForm extends FormBase {
 
       $form['debugEmail'] = [
         '#type' => 'hidden',
+<<<<<<< HEAD
             // '#value' => 'lmacea@avanxo.com',
         '#value' => 'katiuska.lacruz@liberty.cl',
         '#name' => 'debugEmail',
       ];
       // ------- Fin test ----------
+=======
+        '#value' => 'andres.alvarez@esinergia.co',
+        '#name' => 'debugEmail',
+      ];
+>>>>>>> main
     }
 
     $form[$pqr] = [
@@ -490,8 +514,13 @@ class PqrForm extends FormBase {
     ];
 
     // City.
+<<<<<<< HEAD
     $LibCoreController = new LibCoreController();
     $opts_cities = $LibCoreController->sinisters_cities_select();
+=======
+    $libCoreController = new LibCoreController();
+    $opts_cities = $libCoreController->sinistersCitiesSelect();
+>>>>>>> main
     $form['step1']['ins_veh_info']['00ng000000fwynf'] = [
       '#type' => 'select',
       '#title' => 'Ciudad y departamento de reparación',
@@ -828,7 +857,10 @@ class PqrForm extends FormBase {
       '#type' => 'captcha',
       '#captcha_type' => 'recaptcha/reCAPTCHA',
     ];
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     $form['ctn_submits'] = [
       '#prefix' => '<div class="form-item form-actions">',
       '#suffix' => '</div>',
@@ -857,6 +889,7 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+<<<<<<< HEAD
 
     // adjuntar_archivos.
     if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
@@ -878,6 +911,16 @@ class PqrForm extends FormBase {
       $coreController = new LibCoreController();
       return $coreController->webformRestPost('pqr_webform', $values);
     }
+=======
+    $fid = $form_state->getValue(['adjuntar_archivos', 0]);
+    $form_state->setValue(['adjuntar_archivos'], $fid);
+    $values = $form_state->getValues();
+    $form_state->setRebuild(TRUE);
+
+    $coreController = new LibCoreController();
+
+    return $coreController->webformRestPost('pqr_webform', $values);
+>>>>>>> main
   }
 
 }

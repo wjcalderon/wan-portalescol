@@ -1,0 +1,148 @@
+<?php
+
+/**
+ * @file
+ * Contains esn_layouts.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\ui_patterns\Definition\PatternDefinition;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function esn_layouts_page_attachments(array &$attachments) {
+  if (gin_lb_is_layout_builder_route() && gin_lb_is_valid_theme()) {
+    $attachments['#attached']['library'][] = 'esn_layouts/core';
+  }
+}
+
+/**
+ * Implements hook_ui_patterns_layouts_display_settings_form_alter().
+ */
+function esn_layouts_ui_patterns_layouts_display_settings_form_alter(
+  &$form,
+  PatternDefinition $definition,
+  $configuration
+) {
+  $form['#type'] = 'container';
+  $form['field_templates']['#type'] = 'hidden';
+  $form['settings']['#type'] = 'container';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function esn_layouts_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (
+    $node instanceof NodeInterface &&
+    $form_id === 'node_' . $node->bundle() . '_layout_builder_form'
+  ) {
+    $add_template_to_library_url = Url::fromRoute(
+      'section_library.add_template_to_library',
+      [
+        'section_storage_type' => 'overrides',
+        'section_storage' => $node->getEntityTypeId() . '.' . $node->id(),
+        'delta' => 1,
+      ],
+      [
+        'attributes' => [
+          'class' => [
+            'glb-button ws-lb-button',
+            'use-ajax',
+          ],
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+        ],
+      ]
+    );
+    $form['actions']['add_to_library'] = [
+      '#type' => 'link',
+      '#weight' => 10,
+      '#url' => $add_template_to_library_url,
+      '#title' => ['#markup' => '<div class="ws-lb-button__icon"></div>' . t('Add to library')],
+      '#access' => $add_template_to_library_url->access(),
+    ];
+
+    $form['actions']['submit']['#value'] = t(
+      'Save and Preview'
+    );
+    $form['actions']['layout_builder_save_and_edit_layout']['#value'] = t(
+      'Save'
+    );
+  }
+  if (
+    in_array($form_id, [
+      'section_library_add_template_to_library',
+      'section_library_add_section_to_library',
+    ])
+  ) {
+    $form['#after_build'][] = 'gin_lb_after_build';
+    $form['#gin_lb_form'] = TRUE;
+    $form['#attributes']['class'][] = 'glb-form';
+  }
+}
+
+/**
+ * Implements hook_preprocess_esn_layouts_icon().
+ */
+function esn_layouts_preprocess_esn_layouts_icon(&$variables) {
+  $uri = $variables['uri'];
+  $type = $variables['icon_type'];
+  if ($uri === NULL) {
+    $filename = $type === 'block' ? 'block-empty-icon.svg' : 'section-empty-icon.svg';
+    $img_path = drupal_get_path(
+      'module',
+      'esn_layouts'
+    ) . '/images/' . $filename;
+    $variables['uri'] = file_url_transform_relative(file_create_url($img_path));
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function esn_layouts_theme($existing, $type, $theme, $path) {
+  return [
+    'esn_layouts_icon' => [
+      'variables' => [
+        'uri' => NULL,
+        'icon_type' => NULL,
+        'width' => NULL,
+        'height' => NULL,
+        'svg' => NULL,
+        'alt' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_hook().
+ */
+function esn_layouts_preprocess_layout_tabs(&$vars) {
+  $tabs = [];
+  $labels = $vars['layout']->getRegions();
+  $settings = $vars['settings'];
+  foreach (Element::children($vars['content']) as $ix => $region) {
+    $tabs[] = [
+      'id' => preg_replace('/[^a-z0-9_]+/', '_', mb_strtolower($labels[$region]['label'])),
+      'title' => $labels[$region]['label'],
+      'content' => $vars['content'][$region],
+      // 'icon_class' => $settings['tabs'][$ix]['detail']['icon'] ?? '',
+      'region' => $region,
+    ];
+  }
+  $vars['tabs'] = $tabs;
+  $vars['title'] = $settings['title'];
+  $vars['orientation'] = $settings['orientation'];
+  $vars['#attached']['library'][] = 'esn_layouts/layout_tabs';
+}

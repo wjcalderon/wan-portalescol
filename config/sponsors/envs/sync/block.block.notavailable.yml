@@ -2,10 +2,14 @@ uuid: ba15bcef-3b24-4293-8a36-fd1732d4af5d
 langcode: es
 status: true
 dependencies:
+<<<<<<< HEAD
   content:
     - 'block_content:basic:822462b5-6a10-454e-9e0f-65d7781019cf'
   module:
     - block_content
+=======
+  module:
+>>>>>>> main
     - node
   theme:
     - liberty

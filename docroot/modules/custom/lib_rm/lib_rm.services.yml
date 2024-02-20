@@ -1,4 +1,8 @@
 services:
     lib_rm.srm:
         class: Drupal\lib_rm\RmService
+<<<<<<< HEAD
         arguments: ['id']
+=======
+        arguments: ['id']
+>>>>>>> main

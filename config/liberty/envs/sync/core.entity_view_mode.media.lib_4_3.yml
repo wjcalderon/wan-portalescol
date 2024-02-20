@@ -1,0 +1,14 @@
+uuid: 17220973-fcec-44d7-8870-6386aedd56ff
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.lib_4_3
+label: '4:3'
+targetEntityType: media
+cache: true

@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a one-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'layout',
+    'layout-threecol',
+		settings.container_type ? settings.container_type ~ " mx-auto" : '',
+		settings.text_color,
+    	settings.aligment,
+		settings.background_color,
+		settings.top_padding,
+		settings.bottom_padding,
+		settings.left_right_paddings,
+		settings.top_bottom_paddings,
+		settings.pd_content_container,
+		settings.top_margin,
+		settings.bottom_margin,
+		settings.left_right_margins,
+		settings.top_bottom_margins,
+		'layout-threecol-' ~ settings.three_column_widths,
+		settings.section_classes,
+  ]
+%}
+
+{%
+  set classes_grid = [
+    'layout-content',
+    settings.column_gap,
+    settings.row_gap,
+    settings.content_container ? settings.content_container ~ " mx-auto" : '',
+    settings.align_items,
+  ]
+%}
+
+{% if content %}
+	{% if settings.section_id %}
+		<div
+			{{attributes.addClass(classes).setAttribute('id', settings.section_id)}}
+			{% if settings.section_scroll_effect %} data-aos="{{ settings.section_scroll_effect }}" {% endif %}
+		>
+	{% else %}
+		<div
+			{{attributes.addClass(classes)}}
+			{% if settings.section_scroll_effect %} data-aos="{{ settings.section_scroll_effect }}" {% endif %}
+		>
+	{% endif %}
+		<div{{content_attributes.addClass(classes_grid)}}>
+			<div {{ region_attributes.first.addClass('layout__region', 'layout__region--first') }}>
+				{{ content.first }}
+			</div>
+			<div {{ region_attributes.second.addClass('layout__region', 'layout__region--second') }}>
+				{{ content.second }}
+			</div>
+			<div {{ region_attributes.third.addClass('layout__region', 'layout__region--third') }}>
+				{{ content.third }}
+			</div>
+		</div>
+	</div>
+{% endif %}

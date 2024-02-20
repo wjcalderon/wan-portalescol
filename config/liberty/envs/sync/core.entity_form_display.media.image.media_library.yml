@@ -9,7 +9,18 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+<<<<<<< HEAD
     - svg_image
+=======
+    - field_layout
+    - layout_discovery
+    - svg_image
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 id: media.image.media_library
 targetEntityType: media
 bundle: image

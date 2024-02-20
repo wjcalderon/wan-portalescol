@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+langcode: es
+>>>>>>> main
 entity_type_groups:
   node:
     landing_page:

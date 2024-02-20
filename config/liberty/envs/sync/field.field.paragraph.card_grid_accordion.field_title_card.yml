@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 48221c9e-dcbb-431e-af8c-74946290c935
+=======
+uuid: aeb36f2a-5d81-4719-ae7e-c6d8d07cf65c
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -14,7 +18,11 @@ bundle: card_grid_accordion
 label: 'Titulo Sección'
 description: ''
 required: false
+<<<<<<< HEAD
 translatable: false
+=======
+translatable: true
+>>>>>>> main
 default_value: {  }
 default_value_callback: ''
 settings: {  }

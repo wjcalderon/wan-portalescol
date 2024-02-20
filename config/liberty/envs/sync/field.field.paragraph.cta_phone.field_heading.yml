@@ -1,0 +1,19 @@
+uuid: 20336da6-a8ef-4fab-92df-040998115e55
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.cta_phone
+id: paragraph.cta_phone.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: cta_phone
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

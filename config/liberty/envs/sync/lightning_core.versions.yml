@@ -8,7 +8,13 @@ admin_toolbar_search: 2.4.0
 admin_toolbar_tools: 1.25.0
 ape: 1.5.0
 autologout: 1.0.0
+<<<<<<< HEAD
 ban: 9.3.3
+=======
+automated_cron: 9.4.5
+backup_migrate: 5.0.3
+ban: 9.3.13
+>>>>>>> main
 better_exposed_filters: 5.0.0-beta1
 blazy: 1.0.0-rc3
 block: 8.6.3
@@ -21,9 +27,13 @@ ckeditor: 8.6.3
 ckeditor_videodetector: 1.0.0
 condition_query: 1.2.0
 config: 8.6.3
+<<<<<<< HEAD
 config_delete: 1.17.0
 config_filter: 2.4.0
 config_ignore: 2.3.0
+=======
+config_update: 1.7.0
+>>>>>>> main
 consumers: 1.2.0
 contact: 8.6.3
 contact_storage: 1.0.0-beta9
@@ -36,7 +46,12 @@ ctools: 3.0.0
 ctools_block: 3.0.0
 datetime: 8.6.3
 dblog: 8.9.13
+<<<<<<< HEAD
 devel: 2.1.0
+=======
+devel: 4.1.3
+devel_entity_updates: 4.1.1
+>>>>>>> main
 devel_generate: 1.2.0
 devel_php: 1.0.0
 diff: 1.0.0-rc2
@@ -56,6 +71,11 @@ entity_reference: 8.6.3
 entity_reference_revisions: 1.6.0
 entityqueue: 1.2.0
 facets: 1.2.0
+<<<<<<< HEAD
+=======
+features: 3.12.0
+features_ui: 3.12.0
+>>>>>>> main
 field: 8.6.3
 field_group: 1.0.0
 field_ui: 8.6.3
@@ -74,7 +94,10 @@ image_captcha: 1.0.0-beta1
 image_widget_crop: 2.2.0
 inline_entity_form: 1.0.0-rc1
 jquery_ui: 0.0.0
+<<<<<<< HEAD
 jquery_ui_accordion: 1.1.0
+=======
+>>>>>>> main
 jquery_ui_autocomplete: 1.1.0
 jquery_ui_datepicker: 1.0.0
 jquery_ui_draggable: 0.0.0
@@ -93,6 +116,11 @@ layout_discovery: 8.6.3
 layout_library: 0.0.0
 li_news: 0.0.0
 lib_ajax: 0.0.0
+<<<<<<< HEAD
+=======
+lib_carousel_v2: 0.0.0
+lib_category_box_v2: 0.0.0
+>>>>>>> main
 lib_cf: 0.0.0
 lib_core: 0.0.0
 lib_ls: 1.0.0
@@ -101,6 +129,13 @@ lib_migrate: 0.0.0
 lib_quoting: 0.0.0
 lib_red_medica: 0.0.0
 lib_rm: 0.0.0
+<<<<<<< HEAD
+=======
+lib_v2_core: 0.0.0
+lib_v2_questions_frequent: 0.0.0
+lib_v2_text_box: 0.0.0
+lib_v2_text_warning: 0.0.0
+>>>>>>> main
 liberty_claims: 0.0.0
 libraries: 3.0.0-alpha1
 lightning: 3.202.0
@@ -133,7 +168,11 @@ mailsystem: 4.3.0
 manage_display: 1.0.0-beta2
 maxlength: 1.0.0-rc1
 media: 8.6.3
+<<<<<<< HEAD
 media_entity_instagram: 2.0.0-alpha1
+=======
+media_entity_instagram: 3.0.7
+>>>>>>> main
 media_entity_twitter: 2.0.0-alpha2
 media_library: 8.6.3
 memcache: 2.0.0
@@ -150,6 +189,10 @@ migrate_spreadsheet: 1.0.0
 migratewebform: 0.0.0
 mimemail: 1.0.0-alpha4
 moderation_sidebar: 1.1.0
+<<<<<<< HEAD
+=======
+mysql: 9.5.10
+>>>>>>> main
 node: 8.6.3
 oauth2_client: 2.0.0-beta3
 openapi: 1.0.0-beta2
@@ -166,12 +209,21 @@ panels: 4.3.0
 panels_ipe: 4.3.0
 paragraphs: 1.5.0
 paragraphs_browser: 1.0.0-rc1
+<<<<<<< HEAD
+=======
+paragraphs_features: 1.15.0
+>>>>>>> main
 password_policy: 3.0.0-alpha4
 password_policy_characters: 3.0.0-alpha4
 password_policy_length: 3.0.0-alpha4
 path: 8.6.3
 path_alias: 8.x-dev
 pathauto: 1.3.0
+<<<<<<< HEAD
+=======
+perimeter: 2.0.0-rc2
+phpmailer_smtp: 2.0.3
+>>>>>>> main
 profile_switcher: 1.0.0-alpha5
 purge: 3.0.0-beta8
 purge_drush: 3.0.0-beta8
@@ -213,6 +265,10 @@ social_media_links: 2.6.0
 statistics: 8.6.5
 svg_image: 1.8.0
 svg_image_field: 2.1.0
+<<<<<<< HEAD
+=======
+svg_image_field_media_bundle: 2.1.0
+>>>>>>> main
 syslog: 8.6.16
 system: 8.6.3
 taxonomy: 8.6.3
@@ -222,7 +278,14 @@ token: 1.5.0
 toolbar: 8.6.3
 twig_field_value: 1.1.0
 twig_tweak: 2.1.0
+<<<<<<< HEAD
 update: 8.x-dev
+=======
+ultimate_cron: 2.0.0-alpha5
+update: 8.x-dev
+upgrade_rector: 1.0.0-alpha8
+upgrade_status: 3.17.0
+>>>>>>> main
 user: 8.6.3
 video_embed_field: 2.0.0
 video_embed_media: 2.0.0
@@ -240,7 +303,10 @@ webform_image_select: 5.0.0-rc29
 webform_node: 5.0.0-rc29
 webform_rest: 2.0.0-beta2
 webform_submission_export_import: 5.29.0
+<<<<<<< HEAD
 webform_submissions_delete: 1.0.0
+=======
+>>>>>>> main
 webform_templates: 5.0.0-rc29
 webform_ui: 5.0.0-rc29
 workflows: 8.6.3

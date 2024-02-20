@@ -1,0 +1,7 @@
+removeredmedicaspecialties.remove_specialties:
+  path: '/admin/remove-specialties'
+  defaults:
+    _title: 'Remove specialties'
+    _form: 'Drupal\removeredmedicaspecialties\Form\RemoveSpecialtiesForm'
+  requirements:
+    _role: 'administrator'

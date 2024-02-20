@@ -5,6 +5,10 @@ max_links: 2000
 cron_generate: true
 cron_generate_interval: 0
 generate_duration: 10000
+<<<<<<< HEAD
+=======
+entities_per_queue_item: 50
+>>>>>>> main
 remove_duplicates: true
 skip_untranslated: true
 base_url: ''
@@ -14,4 +18,7 @@ excluded_languages: {  }
 enabled_entity_types:
   - node
   - menu_link_content
+<<<<<<< HEAD
 entities_per_queue_item: 50
+=======
+>>>>>>> main

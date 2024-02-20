@@ -16,6 +16,23 @@
       overflow: hidden;
     }
   }
+<<<<<<< HEAD
+=======
+  #block-tabsasistencias {
+    .ui-tabs-panel {
+      .sub-tabs {
+        ul.ui-tabs-nav {
+          li {
+            a {
+              line-height: 1.1875rem;
+              min-height: 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+>>>>>>> main
 }
 
 .ui-tabs-tab {
@@ -68,12 +85,18 @@
     opacity: 0.3;
     width: 100%;
 
+<<<<<<< HEAD
     // max-width: 2.5rem;
+=======
+>>>>>>> main
     @media screen and (max-width: $medium-max) {
       margin-right: 0;
       display: block;
       width: 30%;
+<<<<<<< HEAD
       margin: auto;
+=======
+>>>>>>> main
       min-width: auto;
       max-width: 32px;
       height: 32px;
@@ -144,6 +167,15 @@
     @include breakpoint($small) {
       height: auto;
     }
+<<<<<<< HEAD
+=======
+
+    @media screen and (max-width: $medium-max) {
+      background: $azul-hielo-sc;
+      background-image: none !important;
+      padding: 1rem;
+    }
+>>>>>>> main
   }
 
   .ui-tabs-nav {
@@ -205,6 +237,7 @@
       font-weight: 300;
     }
   }
+<<<<<<< HEAD
 
   .tab-img-bg {
     @media screen and (max-width: $medium-max) {
@@ -213,6 +246,8 @@
       padding: 1rem;
     }
   }
+=======
+>>>>>>> main
 }
 
 .component__tabs--asistencias {
@@ -222,7 +257,11 @@
   }
 
   .tabs {
+<<<<<<< HEAD
     >.component__heading {
+=======
+    > .component__heading {
+>>>>>>> main
       box-shadow: 0px 4px 23px -4px rgba(52, 55, 65, 0.5);
       margin-bottom: 0;
       position: relative;
@@ -268,11 +307,17 @@
       p {
         color: $gris-pr;
         font-size: 1rem;
+<<<<<<< HEAD
         // font-weight: bold;
         margin: 0;
         vertical-align: middle;
 
         // margin-right: 3rem;
+=======
+        margin: 0;
+        vertical-align: middle;
+
+>>>>>>> main
         @media screen and (max-width: $medium-max) {
           padding: 0;
           padding-top: 1rem;
@@ -420,8 +465,11 @@
       font-size: 1.125rem;
       line-height: 1.5rem;
     }
+<<<<<<< HEAD
 
     //p {}
+=======
+>>>>>>> main
   }
 
   .sub-tab__content {
@@ -489,6 +537,7 @@
   }
 }
 
+<<<<<<< HEAD
 .alias--empresas-asistencias {
   #block-tabsasistencias {
     .ui-tabs-panel {
@@ -506,6 +555,8 @@
   }
 }
 
+=======
+>>>>>>> main
 .component__tabs--contact {
   .component__heading {
     margin-bottom: 0;
@@ -539,7 +590,10 @@
     color: $charcoal-grey;
     line-height: 1.6;
     margin: 0 auto;
+<<<<<<< HEAD
     padding-bottom: 2.06rem;
+=======
+>>>>>>> main
     padding: 1rem 1.5rem;
   }
 
@@ -627,11 +681,14 @@
             border-radius: unset;
           }
 
+<<<<<<< HEAD
           @media screen and (min-width: $small-max) {
             // width: 33.3%;
             // margin: 10px;
           }
 
+=======
+>>>>>>> main
           .component__card {
             display: flex;
             align-items: center;
@@ -665,9 +722,12 @@
             }
 
             .card__img--oval {
+<<<<<<< HEAD
 
               // width: 7rem;
               // height: 7rem;
+=======
+>>>>>>> main
               @media screen and (min-width: $small-max) {
                 width: 8.7rem;
                 height: 8.7rem;
@@ -839,7 +899,10 @@
       }
 
       .form-item {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         &:nth-child(2),
         #close {
           position: absolute;
@@ -1155,7 +1218,10 @@
       }
 
       @media screen and (min-width: $small-max) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         .form-item-_0n0t000000gzek,
         .form-item-_0n4a00000fkhwp {
           top: 75px;
@@ -1210,7 +1276,10 @@
 /* tab popup */
 
 .tabs {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
   &.active,
   .popup {
     @media screen and (max-width: $small-max) {
@@ -1239,7 +1308,11 @@
       .sub-tab__heading-img {
         padding: 0;
 
+<<<<<<< HEAD
         >img {
+=======
+        > img {
+>>>>>>> main
           width: 2.625rem;
         }
       }
@@ -1254,11 +1327,19 @@
         border-bottom: 1px solid $gris-tr;
         padding-bottom: 1rem;
 
+<<<<<<< HEAD
         >h5 {
           font-size: 1.25rem;
         }
 
         >p {
+=======
+        > h5 {
+          font-size: 1.25rem;
+        }
+
+        > p {
+>>>>>>> main
           display: block;
         }
       }
@@ -1296,7 +1377,11 @@
 }
 
 .block__contact-call {
+<<<<<<< HEAD
   >a {
+=======
+  > a {
+>>>>>>> main
     width: 71%;
     margin: auto;
   }
@@ -1394,8 +1479,12 @@
 }
 
 .component__tabs--producto-full {
+<<<<<<< HEAD
   >.component__heading {
 
+=======
+  > .component__heading {
+>>>>>>> main
     .component__title,
     .component__subtitle {
       text-align: left;
@@ -1468,7 +1557,10 @@
     .documents_requiered_tabs {
       .component__heading {
         .cog--mq {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
           .slick-prev,
           .slick-next {
             &::before {
@@ -1479,7 +1571,10 @@
               background-size: 685%;
               border-bottom: 2px solid #1a1446;
               border-right: 2px solid #1a1446;
+<<<<<<< HEAD
               background: transparent;
+=======
+>>>>>>> main
             }
           }
 
@@ -1816,7 +1911,10 @@
             border-radius: 20px;
             padding: 0.4rem 1.5rem;
             font-size: 0.8rem;
+<<<<<<< HEAD
             line-height: 2rem;
+=======
+>>>>>>> main
             font-weight: 500;
             background-color: rgba(245, 245, 245, 0.7);
             line-height: 1.4;
@@ -1855,12 +1953,18 @@
 
       .ui-tabs-tab {
         flex-grow: initial;
+<<<<<<< HEAD
         flex-grow: initial;
+=======
+>>>>>>> main
         list-style: none;
         text-align: center;
         border-bottom: 3px solid trasparent;
         margin: 0 0.8rem;
+<<<<<<< HEAD
         flex-basis: initial;
+=======
+>>>>>>> main
         -ms-flex-preferred-size: 25%;
         flex-basis: 1;
         align-self: initial;
@@ -1909,7 +2013,11 @@
     margin-bottom: 0;
 
     .cp-cards__list {
+<<<<<<< HEAD
       .cp-tabs>.cog--mq {
+=======
+      .cp-tabs > .cog--mq {
+>>>>>>> main
         background-color: white !important;
       }
 
@@ -1921,13 +2029,22 @@
   }
 }
 
+<<<<<<< HEAD
 .siniestros_card{
   .ui-tabs .ui-tabs-nav li{
+=======
+.siniestros_card {
+  .ui-tabs .ui-tabs-nav li {
+>>>>>>> main
     float: none;
     white-space: unset;
     padding: 1rem;
   }
   .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+<<<<<<< HEAD
     float: none; 
+=======
+    float: none;
+>>>>>>> main
   }
 }

@@ -32,6 +32,7 @@ class LibertyCoreSubscriber implements EventSubscriberInterface {
 
   /**
    * Kernel request event handler.
+<<<<<<< HEAD
    *
    * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
    *   Response event.
@@ -42,6 +43,15 @@ class LibertyCoreSubscriber implements EventSubscriberInterface {
     if (isset($_REQUEST['vip'])) {
         $vip = $_REQUEST['vip'];
         setcookie('vip_access', $vip, time() + (3600), '/');
+=======
+   */
+  public function onKernelRequest(GetResponseEvent $event) {
+    $request = \Drupal::requestStack()->getCurrentRequest();
+
+    if ($request->query->has('vip')) {
+      $vip = $request->query->get('vip');
+      setcookie('vip_access', $vip, time() + (3600), '/');
+>>>>>>> main
     }
   }
 

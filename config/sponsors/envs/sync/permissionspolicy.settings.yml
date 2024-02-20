@@ -3,6 +3,10 @@ _core:
 langcode: es
 enforce:
   enable: true
+<<<<<<< HEAD
   features:
     interest-cohort:
       base: ''
+=======
+  features: {  }
+>>>>>>> main

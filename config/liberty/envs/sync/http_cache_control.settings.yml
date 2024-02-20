@@ -11,6 +11,16 @@ cache:
     stale_while_revalidate: 86400
     stale_if_error: 86400
     vary: ''
+<<<<<<< HEAD
   surrogate:
     maxage: 86400
     nostore: null
+=======
+    mustrevalidate: 0
+    nocache: 0
+    nostore: 0
+    cookieextra: null
+  surrogate:
+    maxage: 86400
+    nostore: false
+>>>>>>> main

@@ -93,6 +93,13 @@ var ClojureHighlightRules = function () {
                 token: "keyword",
                 regex: "[\\[|\\]]"
             }, {
+<<<<<<< HEAD
+=======
+                token: "string.regexp",
+                regex: '#"',
+                next: "regex"
+            }, {
+>>>>>>> main
                 token: "keyword",
                 regex: "[\\{|\\}|\\#\\{|\\#\\}]"
             }, {
@@ -126,9 +133,12 @@ var ClojureHighlightRules = function () {
             }, {
                 token: "constant",
                 regex: /:[^()\[\]{}'"\^%`,;\s]+/
+<<<<<<< HEAD
             }, {
                 token: "string.regexp",
                 regex: '/#"(?:\\.|(?:\\")|[^""\n])*"/g'
+=======
+>>>>>>> main
             }
         ],
         "string": [
@@ -137,11 +147,55 @@ var ClojureHighlightRules = function () {
                 regex: "\\\\.|\\\\$"
             }, {
                 token: "string",
+<<<<<<< HEAD
                 regex: '[^"\\\\]+'
             }, {
                 token: "string",
                 regex: '"',
                 next: "start"
+=======
+                regex: '"',
+                next: "start"
+            }, {
+                defaultToken: "string"
+            }
+        ],
+        "regex": [
+            {
+                token: "regexp.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)"
+            }, {
+                token: "string.regexp",
+                regex: '"',
+                next: "start"
+            }, {
+                token: "constant.language.escape",
+                regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/
+            }, {
+                token: "constant.language.delimiter",
+                regex: /\|/
+            }, {
+                token: "constant.language.escape",
+                regex: /\[\^?/,
+                next: "regex_character_class"
+            }, {
+                defaultToken: "string.regexp"
+            }
+        ],
+        "regex_character_class": [
+            {
+                token: "regexp.charclass.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)"
+            }, {
+                token: "constant.language.escape",
+                regex: "]",
+                next: "regex"
+            }, {
+                token: "constant.language.escape",
+                regex: "-"
+            }, {
+                defaultToken: "string.regexp.charachterclass"
+>>>>>>> main
             }
         ]
     };

@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 uuid: 1f2a2511-d7ff-4b30-b2c0-905c57843e90
 langcode: es
 status: true
 dependencies: {  }
+=======
+uuid: f04a7bca-24ac-48b2-b7dc-efedbc00bd1d
+langcode: es
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: null
+>>>>>>> main
 id: remote_video
 label: 'Remote video'
 description: 'A remotely hosted video from YouTube or Vimeo.'

@@ -1,0 +1,184 @@
+// Sass map to define colors. Each set should have a "Dark" variation when required.
+// e.g. `default` and `default-dark`. Or `purple` and `purple-dark`.
+$button-colors: (
+  primary: (
+    text: clr(secondary),
+    bg: clr(accent-teal),
+    border: clr(accent-teal),
+    text-hover: clr(text-white),
+    bg-hover: clr(accent-teal-dark),
+    border-hover: clr(accent-teal-dark),
+    color-icon: clr(text-white),
+    icon-hover: clr(text-white)
+  ),
+  secondary: (
+    text: clr(secondary),
+    bg: clr(text-white),
+    border: clr(secondary),
+    text-hover: clr(text-white),
+    bg-hover: clr(accent-teal-dark),
+    border-hover: clr(accent-teal-dark),
+    color-icon: clr(text-white),
+    icon-hover: clr(text-white)
+  ),
+  alpha: (
+    text: clr(text-white),
+    bg: clr(secondary),
+    border: clr(secondary),
+    text-hover: clr(text-white),
+    bg-hover: clr(accent-teal-dark),
+    border-hover: clr(accent-teal-dark),
+    color-icon: clr(secondary),
+    icon-hover: clr(secondary)
+  )
+);
+
+// Mixin to define colors for one or more schemes.
+// Simply pass the color scheme to the mixin to get the colors defined in the map.
+// e.g. @include buttonColors(default) will get all of the colors defined in the "default" section.
+@mixin buttonColors(
+  $scheme,
+  $pallate: map-get($button-colors, $scheme),
+  $map: $button-colors
+) {
+  color: map-get($pallate, text);
+  background-color: map-get($pallate, bg);
+  border-color: map-get($pallate, border);
+
+  &:visited {
+    color: map-get($pallate, text);
+  }
+
+  &:hover {
+    color: map-get($pallate, text-hover);
+    background-color: map-get($pallate, bg-hover);
+    border-color: map-get($pallate, border-hover);
+
+    .icon{
+      stroke: map-get($pallate, icon-hover);
+    }
+  }
+
+  .icon{
+    stroke: map-get($pallate, color-icon);
+    height: 1.05rem;
+    width: 1.25rem;
+  }
+}
+
+// The button-base mixin contains styles that apply to all buttons
+// regardless of color or size.
+@mixin button-base {
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  transform: scale(1);
+  font-weight: bold;
+  text-transform: uppercase;
+
+  @include transition;
+
+  &:hover {
+    transform: scale(1.05);
+
+    @include transition;
+  }
+
+  &:disabled {
+    background-color: clr(gray-4);
+    border-color: clr(gray-4);
+    color: clr(gray-3);
+    pointer-events: none;
+  }
+
+  &--block {
+    display: block;
+  }
+}
+
+// Button color variations
+// Note how we include dark mode options for each
+@mixin button-color-primary {
+  @include buttonColors(primary);
+}
+
+@mixin button-color-secondary {
+  @include buttonColors(secondary);
+}
+@mixin button-color-alpha {
+  @include buttonColors(alpha);
+}
+
+// Button size variations
+@mixin button-small {
+  padding: 0 2rem;
+  border-radius: 25px;
+  font-size: 16px;
+  height: 36px;
+}
+
+@mixin button-medium {
+  padding: 0 2rem;
+  border-radius: 25px;
+  font-size: 16px;
+  height: 44px;
+}
+
+@mixin button-large {
+  padding: 0 2rem;
+  border-radius: 25px;
+  font-size: 16px;
+  height: 50px;
+}
+
+.button {
+  @include button-base;
+  @include button-color-primary;
+  @include button-medium;
+
+  &--small {
+    @include button-small;
+  }
+
+  &--large {
+    @include button-large;
+  }
+
+  &--secondary {
+    @include button-color-secondary;
+  }
+
+  &--alpha {
+    @include button-color-alpha;
+  }
+}
+
+// Demo
+.button-examples {
+  .h1--hero{
+    color: $blue;
+
+  }
+
+  .button-example {
+    padding: 0 2rem;
+
+    .heading{
+      margin-top: 0;
+    }
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button__item {
+    .paragraph {
+      margin-bottom: 0.25rem;
+    }
+  }
+}

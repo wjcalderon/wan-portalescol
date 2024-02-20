@@ -1,0 +1,21 @@
+uuid: f8a2ddf5-d6db-43ff-9fc8-1abb256c5b13
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.section_title
+    - field.storage.block_content.field_title_alignment
+  module:
+    - options
+id: block_content.section_title.field_title_alignment
+field_name: field_title_alignment
+entity_type: block_content
+bundle: section_title
+label: Alineación
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

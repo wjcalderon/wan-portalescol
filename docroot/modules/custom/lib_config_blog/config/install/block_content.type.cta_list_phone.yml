@@ -1,0 +1,8 @@
+uuid: 5a51a805-aad5-48fd-8d7e-4a5ac53d1d1e
+langcode: es
+status: true
+dependencies: {  }
+id: cta_list_phone
+label: 'CTA List Phone'
+revision: 0
+description: 'CTA List Phone'

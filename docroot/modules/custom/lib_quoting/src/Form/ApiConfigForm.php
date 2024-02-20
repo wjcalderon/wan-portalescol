@@ -5,7 +5,13 @@ namespace Drupal\lib_quoting\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Api config form custom.
+ */
+>>>>>>> main
 class ApiConfigForm extends ConfigFormBase {
 
   const SETTINGS = 'lib_quoting.settings';
@@ -31,7 +37,10 @@ class ApiConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS);
+<<<<<<< HEAD
 //dump($config->get('config'));
+=======
+>>>>>>> main
     $form['api_apigee_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('apigee url'),
@@ -90,7 +99,11 @@ class ApiConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+<<<<<<< HEAD
     $config = $this->configFactory->getEditable(static::SETTINGS)
+=======
+    $this->configFactory->getEditable(static::SETTINGS)
+>>>>>>> main
       ->set('config.apigee_url', $form_state->getValue('api_apigee_url'))
       ->set('config.api.client_id', $form_state->getValue('api_client_id'))
       ->set('config.api.client_secret', $form_state->getValue('api_client_secret'))
@@ -101,4 +114,8 @@ class ApiConfigForm extends ConfigFormBase {
       ->save();
     parent::submitForm($form, $form_state);
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }

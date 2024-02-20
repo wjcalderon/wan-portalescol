@@ -1,0 +1,14 @@
+uuid: 68daf8e0-a475-4ae6-88fc-dd334ab5a0d2
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.footer_prueba_creator
+  module:
+    - user
+id: user_remove_role_action.footer_prueba_creator
+label: 'Elimina el rol Footer_prueba creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: footer_prueba_creator

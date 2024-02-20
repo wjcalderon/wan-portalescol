@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: c2a67934-c375-4d9e-af55-a3c7d86e1071
+=======
+uuid: 621023c0-89b3-4ec8-a9b7-eab1017e515f
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,7 +15,11 @@ entity_type: taxonomy_term
 bundle: talleres_chevrolet
 label: Ciudad
 description: ''
+<<<<<<< HEAD
 required: false
+=======
+required: true
+>>>>>>> main
 translatable: false
 default_value: {  }
 default_value_callback: ''

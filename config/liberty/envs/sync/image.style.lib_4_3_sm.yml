@@ -1,0 +1,15 @@
+uuid: dea0b71e-f77d-4dd3-98cf-87a63c67e79f
+langcode: es
+status: true
+dependencies: {  }
+name: lib_4_3_sm
+label: '4:3 Small (600 x 450)'
+effects:
+  48a6ced9-1bd7-4eda-ab10-c9252f10e68b:
+    uuid: 48a6ced9-1bd7-4eda-ab10-c9252f10e68b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 450
+      anchor: center-center

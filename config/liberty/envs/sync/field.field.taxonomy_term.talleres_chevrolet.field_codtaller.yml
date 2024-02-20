@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 4fbec0e9-e9a8-4b6b-ae2c-99e08ca7a425
+=======
+uuid: bdbc9cd9-86f6-4585-9412-2759cea6abb8
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,7 +15,11 @@ entity_type: taxonomy_term
 bundle: talleres_chevrolet
 label: 'Codigo taller'
 description: ''
+<<<<<<< HEAD
 required: false
+=======
+required: true
+>>>>>>> main
 translatable: false
 default_value: {  }
 default_value_callback: ''

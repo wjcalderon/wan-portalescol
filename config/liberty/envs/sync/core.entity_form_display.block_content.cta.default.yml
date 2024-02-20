@@ -11,8 +11,20 @@ dependencies:
     - field.field.block_content.cta.field_target_blank
     - image.style.thumbnail
   module:
+<<<<<<< HEAD
     - link
     - svg_image
+=======
+    - field_layout
+    - layout_discovery
+    - link
+    - svg_image
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+>>>>>>> main
 id: block_content.cta.default
 targetEntityType: block_content
 bundle: cta

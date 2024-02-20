@@ -1,0 +1,8 @@
+uuid: c520342e-d1e2-48fb-80e1-0e60b1fcb71a
+langcode: es
+status: true
+dependencies: {  }
+id: text
+label: Text
+revision: 0
+description: 'Basic text'

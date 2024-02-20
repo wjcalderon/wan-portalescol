@@ -1,0 +1,15 @@
+uuid: f83209a3-ff80-4650-8744-02a846523be8
+langcode: es
+status: true
+dependencies: {  }
+name: lib_3_2_md
+label: '3:2 Medium (900 x 600)'
+effects:
+  8689f6a3-50b6-4f98-b128-7ebc229750fd:
+    uuid: 8689f6a3-50b6-4f98-b128-7ebc229750fd
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 600
+      anchor: center-center

@@ -35,6 +35,11 @@ field_type:
           catenateAll: 0
           catenateWords: 1
         -
+<<<<<<< HEAD
+=======
+          class: solr.FlattenGraphFilterFactory
+        -
+>>>>>>> main
           class: solr.LowerCaseFilterFactory
         -
           class: solr.StopFilterFactory
@@ -107,6 +112,11 @@ unstemmed_field_type:
           catenateAll: 0
           catenateWords: 1
         -
+<<<<<<< HEAD
+=======
+          class: solr.FlattenGraphFilterFactory
+        -
+>>>>>>> main
           class: solr.LowerCaseFilterFactory
         -
           class: solr.StopFilterFactory

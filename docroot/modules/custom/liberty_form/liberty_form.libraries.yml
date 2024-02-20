@@ -50,6 +50,10 @@ liberty-validations:
     - core/jquery
     - core/drupalSettings
     - core/once
+<<<<<<< HEAD
+=======
+    - core/drupal
+>>>>>>> main
     - liberty/jquery-validation
 
 liberty-callcenter-form-validation:

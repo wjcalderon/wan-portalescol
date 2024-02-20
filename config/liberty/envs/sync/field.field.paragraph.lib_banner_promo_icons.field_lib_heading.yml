@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 97ad790a-aec3-406a-8377-f7b85d136d91
+=======
+uuid: 7fc7c9d9-bd35-4085-b450-792e0672f034
+>>>>>>> main
 langcode: es
 status: true
 dependencies:
@@ -11,7 +15,11 @@ entity_type: paragraph
 bundle: lib_banner_promo_icons
 label: Título
 description: ''
+<<<<<<< HEAD
 required: false
+=======
+required: true
+>>>>>>> main
 translatable: true
 default_value: {  }
 default_value_callback: ''

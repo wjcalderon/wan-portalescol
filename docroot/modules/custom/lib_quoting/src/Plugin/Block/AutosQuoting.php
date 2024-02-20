@@ -21,4 +21,8 @@ class AutosQuoting extends BlockBase {
     $form = \Drupal::formBuilder()->getForm('Drupal\lib_quoting\Form\AutosQuoting');
     return $form;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }

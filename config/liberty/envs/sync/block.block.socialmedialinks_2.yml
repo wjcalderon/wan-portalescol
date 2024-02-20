@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+<<<<<<< HEAD
     - block_class
     - social_media_links
   theme:
@@ -10,6 +11,11 @@ dependencies:
 third_party_settings:
   block_class:
     classes: null
+=======
+    - social_media_links
+  theme:
+    - liberty_public
+>>>>>>> main
 id: socialmedialinks_2
 theme: liberty_public
 region: menu_mobile
@@ -23,11 +29,19 @@ settings:
   provider: social_media_links
   platforms:
     facebook:
+<<<<<<< HEAD
       value: LibertySegurosCO/
       description: ''
       weight: '-30'
     twitter:
       value: ''
+=======
+      value: asdasdasd
+      description: ''
+      weight: '-30'
+    twitter:
+      value: asdasda
+>>>>>>> main
       description: ''
       weight: '-29'
     behance:
@@ -63,11 +77,19 @@ settings:
       description: ''
       weight: '-21'
     linkedin:
+<<<<<<< HEAD
       value: company/68920073/admin/
       description: ''
       weight: '-20'
     instagram:
       value: ''
+=======
+      value: asdasdasd
+      description: ''
+      weight: '-20'
+    instagram:
+      value: asdasda
+>>>>>>> main
       description: ''
       weight: '-19'
     pinterest:
@@ -102,6 +124,7 @@ settings:
       value: ''
       description: ''
       weight: '-11'
+<<<<<<< HEAD
     gitlab:
       value: ''
       description: ''
@@ -122,6 +145,11 @@ settings:
     orientation: h
     show_name: 0
     suggestion: ''
+=======
+  appearance:
+    orientation: h
+    show_name: 0
+>>>>>>> main
   link_attributes:
     target: '<none>'
     rel: '<none>'
