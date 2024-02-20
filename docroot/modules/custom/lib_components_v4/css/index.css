@@ -6,7 +6,9 @@
   --gray-color: #ccc;
   --desktop: 1140px;
   --height-banner: 450px;
+  --white-color: #ffff;
 }
+
 h1,
 h2,
 h3,
@@ -230,10 +232,6 @@ h6 {
   object-fit: cover;
 }
 
-.lib4-comp-card__content {
-  padding: 0 1rem;
-}
-
 .lib4-comp-carrousel__item {
   opacity: 0;
   position: absolute;
@@ -317,6 +315,7 @@ h6 {
 .lib4-comp-card__content {
   background: white;
   width: 100%;
+  padding: 0 1rem;
 }
 
 .lib4-comp-card__body {
@@ -366,59 +365,6 @@ h6 {
   .lib-comp-carrousel__title {
     margin: 3rem 2rem 0;
   }
-}
-:root {
-  --yellow-color: #ffd000;
-  --primary-color: #1a1446;
-  --button-color: #78e1e1;
-  --black-color: #333;
-  --white-color: #ffff;
-  --gray-color: #ccc;
-  --desktop: 1140px;
-  --height-banner: 450px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h6 {
-  color: var(--primary-color);
-}
-
-.lib4-comp-button {
-  background: var(--button-color);
-  padding: 0.8rem 2rem;
-  margin: 1.5rem auto;
-  display: table;
-  text-align: center;
-  border-radius: 30px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--primary-color);
-}
-.lib4-comp-button__white,
-.lib4-comp-button-white,
-.lib4-comp-button--white {
-  background: white;
-}
-.lib4-comp-button__yellow,
-.lib4-comp-button-yellow,
-.lib4-comp-button--yellow {
-  background: var(--yellow-color);
-}
-
-.lib4-comp-button__blue,
-.lib4-comp-button-blue,
-.lib4-comp-button--blue {
-  background: var(--primary-color);
-  color: white !important;
-}
-
-.lib4-comp-button__light-blue,
-.lib4-comp-button-light-blue,
-.lib4-comp-button--light-blue {
-  background: var(--button-color);
 }
 
 .lib4-comp-interested {
@@ -556,11 +502,13 @@ h6 {
   overflow: hidden;
 }
 
-.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation .lib4-comp-carrousel__image {
+.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation
+  .lib4-comp-carrousel__image {
   width: 100%;
 }
 
-.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation .lib4-comp-carrousel__card {
+.lib4-comp-carrousel.lib-comp-carrousel__rightNavigation
+  .lib4-comp-carrousel__card {
   grid-auto-flow: dense;
   direction: rtl;
 }

@@ -1,110 +1,109 @@
 .component {
-    // padding-bottom: 4rem;
-    &.component__tabs--erescliente-home {
-        margin: 0;
-    }
+  // padding-bottom: 4rem;
+  &.component__tabs--erescliente-home {
+    margin: 0;
+  }
+  .component__heading {
+    text-align: center;
+  }
+  &.component__tabs--asistencias-zona-cliente {
     .component__heading {
-        text-align: center;
-    }
-    &.component__tabs--asistencias-zona-cliente {
-        .component__heading {
-            &>.cog--mq {
-                @media screen and (max-width: $small-max) {
-                    padding: 0;
-                    margin: 0;
-                    width: 100%;
-                    margin-bottom: 5.5rem;
-                }
-                ul {
-                    @media screen and (max-width: $small-max) {
-                        margin-bottom: 2rem;
-                        webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.37);
-                        -moz-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.37);
-                        box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.37);
-                    }
-                    a {
-                        @media screen and (max-width: $small-max) {
-                            line-height: 1.2;
-                            border: 0;
-                            margin-bottom: 1rem;
-                        }
-                    }
-                }
-            }
+      & > .cog--mq {
+        @media screen and (max-width: $small-max) {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          margin-bottom: 5.5rem;
         }
-    }
-    &:last-child {
         ul {
-            li {
-                margin-left: 1rem;
+          @media screen and (max-width: $small-max) {
+            margin-bottom: 2rem;
+            -moz-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.37);
+            box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.37);
+          }
+          a {
+            @media screen and (max-width: $small-max) {
+              line-height: 1.2;
+              border: 0;
+              margin-bottom: 1rem;
             }
+          }
         }
+      }
     }
-    // .has-margin-bottom {
-    //     // margin-bottom: 4rem;
-    //     padding: 0
-    // }
-    &.cog__items--center {
-        .cog--items {
-            justify-content: center;
-        }
+  }
+  &:last-child {
+    ul {
+      li {
+        margin-left: 1rem;
+      }
     }
+  }
+  // .has-margin-bottom {
+  //     // margin-bottom: 4rem;
+  //     padding: 0
+  // }
+  &.cog__items--center {
+    .cog--items {
+      justify-content: center;
+    }
+  }
 }
 
 .card__img--oval {
-    width: 5rem;
-    height: 5rem;
-    display: flex;
-    margin: 0 auto;
-    background-color: $azul-hielo-tr;
-    border-radius: 100%;
-    justify-content: center;
-    @include breakpoint($small) {
-        margin-bottom: 0.5rem;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  margin: 0 auto;
+  background-color: $azul-hielo-tr;
+  border-radius: 100%;
+  justify-content: center;
+  @include breakpoint($small) {
+    margin-bottom: 0.5rem;
+  }
+  img {
+    max-width: 2.5rem;
+  }
+  svg {
+    width: 100%;
+    max-width: 2.5rem;
+    padding: 0;
+    .cls-1 {
+      fill: #221e44;
     }
-    img {
-        max-width: 2.5rem;
+  }
+  .path {
+    fill: #221e44;
+    .cls-1 {
+      fill: #221e44;
     }
-    svg {
-        width: 100%;
-        max-width: 2.5rem;
-        padding: 0;
-        .cls-1 {
-            fill: #221e44;
-        }
-    }
-    .path {
-        fill: #221e44;
-        .cls-1 {
-            fill: #221e44;
-        }
-    }
+  }
 }
 
 .component__cards--cifras {
-    margin-top: -2rem;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    .component__heading {
-        .component__title {
-            margin-bottom: 0 !important;
-            padding-top: 4rem;
-        }
+  margin-top: -2rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .component__heading {
+    .component__title {
+      margin-bottom: 0 !important;
+      padding-top: 4rem;
     }
+  }
 }
 
 .alias--cotiza-en-linea {
-    .component__content {
-        .component {
-            padding-bottom: 0;
-        }
+  .component__content {
+    .component {
+      padding-bottom: 0;
     }
+  }
 }
 
 .documentos-frecuentes {
-    .component__heading {
-        .component__title {
-            text-align: center;
-        }
+  .component__heading {
+    .component__title {
+      text-align: center;
     }
+  }
 }

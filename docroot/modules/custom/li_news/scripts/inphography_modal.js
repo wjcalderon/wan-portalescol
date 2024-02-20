@@ -7,7 +7,6 @@
           const $container = $(item);
 
           const $img = $container.find("img");
-          const $closeButton = $container.find(".close-modal");
           console.log($img.attr("src"));
           const modal = `<div class="modal"><div class="content-modal"><div class="close-modal"></div><img src="${$img.attr(
             "src"

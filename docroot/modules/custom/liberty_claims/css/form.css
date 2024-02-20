@@ -45,15 +45,14 @@ body {
 }
 
 .list .no-results ol {
+  margin: 4rem auto;
   margin-top: 4rem;
   max-width: 665px;
-  margin: 4rem auto;
 }
 
 .list .no-results ol li {
   text-align: left;
   padding: 0;
-  text-align: left;
   font-size: 0.9rem;
   line-height: 1.5rem;
   margin-bottom: 1.5rem;
@@ -265,6 +264,8 @@ button.datepicker-day:focus {
 .field.error {
   border-radius: 5px;
   margin-bottom: 1rem;
+  border: none;
+  background-color: transparent;
 }
 
 .field.error .ayudas {
@@ -317,11 +318,6 @@ button.datepicker-day:focus {
   z-index: 1;
 }
 
-.field.error {
-  border: none;
-  background-color: transparent;
-}
-
 .field.error input,
 .field.error select {
   background-color: rgba(233, 34, 67, 0.10980392156862745) !important;
@@ -336,8 +332,7 @@ button.time-picker-column-item {
   line-height: initial !important;
 }
 
-.field .error-message,
-.error-message {
+.field .error-message {
   color: #e92243;
   background-image: url(../img/icon-exclamation.svg);
   background-repeat: no-repeat;
@@ -494,10 +489,6 @@ button.time-picker-column-item {
   margin-bottom: 3rem;
 }
 
-.vehicle-type .label {
-  margin-bottom: 0.5rem;
-}
-
 .vehicle-type .row button.selected,
 .vehicle-type .row .button.selected {
   background-color: #29a3af;
@@ -572,13 +563,15 @@ button.time-picker-column-item {
 
 .vehicle-type .label {
   display: block;
-  margin-bottom: 1.8rem;
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .pane .actions {
   width: 100%;
   margin-top: 2rem;
+  text-align: center;
+  display: block;
 }
 
 .pane .actions a {
@@ -801,10 +794,6 @@ button.time-picker-column-item {
   margin-top: 1.5rem;
 }
 
-.pane .actions {
-  text-align: center;
-}
-
 .pane .actions button {
   background: #99e5ea !important;
   color: #343741 !important;
@@ -992,6 +981,7 @@ button.time-picker-column-item {
 
 .vfl-label-on-input {
   top: 0;
+  z-index: 10;
   left: 17px !important;
 }
 
@@ -1488,7 +1478,6 @@ textarea {
 .confirmation-page .links a {
   font-weight: bold;
   color: #1a1345;
-  font-weight: bold;
   border-bottom: none;
 }
 
@@ -1576,13 +1565,11 @@ button.has-tooltip {
   margin-bottom: 0.7rem;
   margin-top: 1rem;
   text-align: left;
-  margin-top: 0.7rem;
   display: block;
   font-weight: 500;
   position: relative;
   left: 0;
   top: 0;
-  margin-bottom: 0;
 }
 
 .modal .icon-invalid-plate {
@@ -1824,10 +1811,6 @@ button.has-tooltip {
   transition: opacity 0.15s;
 }
 
-.pane .actions {
-  display: block;
-}
-
 .radiobutton-group {
   display: flex;
   flex-wrap: wrap;
@@ -1980,10 +1963,6 @@ button.has-tooltip {
   margin-top: 10px;
 }
 
-.vfl-label-on-input {
-  z-index: 10;
-}
-
 .ui.search.selection.dropdown > input.search {
   margin-top: 13px;
   width: 100%;
@@ -2030,10 +2009,6 @@ button.has-tooltip {
   height: 100px;
 }
 
-.descrip .vfl-label-on-input::nth-word(3) {
-  color: #29a3af;
-}
-
 .documents-step .dropzone {
   padding-bottom: 3px;
 }
@@ -2066,17 +2041,6 @@ button.has-tooltip {
     overflow-y: scroll !important;
   }
 
-  /* .time-picker-column{
-        height: 150px!important;
-    } */
-
-  /* .date-time-picker .flex-fixed{
-        position: fixed;
-        bottom: 0!important;
-        left: 0!important;
-        width: 100%;
-    } */
-
   .datepicker-container[data-v-4853a012] {
     width: 100%;
   }
@@ -2098,12 +2062,6 @@ button.has-tooltip {
     display: block;
     overflow-wrap: break-word;
   }
-
-  /* #chooseTypeMenu ol li.current, .form-steps .container-steps ul li.current {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    } */
 
   #chooseTypeMenu ol li.current,
   .form-steps .container-steps ul li.current {
@@ -2226,6 +2184,8 @@ button.has-tooltip {
 
   .pane .type {
     margin: 2rem auto;
+    max-width: 80%;
+    width: 80%;
   }
 
   .pane .type button {
@@ -2310,18 +2270,8 @@ button.has-tooltip {
     color: #ccc0;
     padding: 1.5rem;
     width: 40px;
-    padding: 0;
     height: 40px;
   }
-
-  .pane .type {
-    max-width: 80%;
-    width: 80%;
-  }
-
-  /* .pretty .state label{
-    color: transparent;
-} */
 
   .pane .image-car .p-default input:checked ~ .state label {
     display: block;

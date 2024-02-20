@@ -1,72 +1,72 @@
-;(($) => {
+(($) => {
   Drupal.behaviors.libertycallcenterform = {
     attach(context) {
       $(document).ready(function () {
-        $("label[for='edit-id-type']").css('display', 'none')
-        $("label[for='edit-id-number']").css('display', 'none')
-      })
+        $("label[for='edit-id-type']").css("display", "none");
+        $("label[for='edit-id-number']").css("display", "none");
+      });
 
       /**
        * @param String name
        * @return String
        */
       function getParameterByName(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
-          results = regex.exec(location.search)
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        let regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
         return results === null
-          ? ''
-          : decodeURIComponent(results[1].replace(/\+/g, ' '))
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
       }
 
-      const ramo = drupalSettings.ramo.value
-      $('.ramo_value').val(ramo)
+      const ramo = drupalSettings.ramo.value;
+      $(".ramo_value").val(ramo);
 
-      const sponsors = drupalSettings.sponsors.value
-      $('.sponsors_value').val(sponsors)
+      const sponsors = drupalSettings.sponsors.value;
+      $(".sponsors_value").val(sponsors);
 
-      var valor_product_token_url = getParameterByName('valor_product_token')
-      valor_product_token_url = atob(valor_product_token_url)
-      $('.product_value').val(valor_product_token_url)
+      let valor_product_token_url = getParameterByName("valor_product_token");
+      valor_product_token_url = atob(valor_product_token_url);
+      $(".product_value").val(valor_product_token_url);
 
       if (ramo != 2) {
         document
-          .getElementById('edit-placa')
-          .closest('.form-item').style.display = 'none'
+          .getElementById("edit-placa")
+          .closest(".form-item").style.display = "none";
       }
 
       //validation
       $.validator.addMethod(
-        'validar_nombre',
+        "validar_nombre",
         function (value, element) {
-          const name = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g
-          return name.test(value)
+          const name = /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/;
+          return name.test(value);
         },
-        'El nombre no es válido no puede contener números',
-      )
+        "El nombre no es válido no puede contener números"
+      );
       $.validator.addMethod(
-        'validar_apellido',
+        "validar_apellido",
         function (value, element) {
-          const lastname = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g
-          return lastname.test(value)
+          const name = /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/;
+          return lastname.test(value);
         },
-        'El apellido no es válido no puede contener números',
-      )
+        "El apellido no es válido no puede contener números"
+      );
       $.validator.addMethod(
-        'validar_email',
+        "validar_email",
         function (value, element) {
-          const email = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
-          return email.test(value)
+          const email = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+          return email.test(value);
         },
-        'El email no es válido',
-      )
-      const terminos_uso_text = 'El campo Aceptar Termino es obligatorio'
-      $('#webform_submission_call_center').validate({
+        "El email no es válido"
+      );
+      const terminos_uso_text = "El campo Aceptar Termino es obligatorio";
+      $("#webform_submission_call_center").validate({
         onfocusout: function (element) {
-          $(element).valid()
+          $(element).valid();
         },
         onsubmit: true,
-        ignore: '.ignore',
+        ignore: ".ignore",
         rules: {
           /*
           id_type: {
@@ -109,10 +109,10 @@
           //   required: "Se requiere un tipo de identificación",
           // },
           name: {
-            required: 'El nombre no puede quedar vacío',
+            required: "El nombre no puede quedar vacío",
           },
           last_name: {
-            required: 'El apellido no puede quedar vacío',
+            required: "El apellido no puede quedar vacío",
           },
           // id_number: {
           //   number: "El número de identificación debe ser sólo numérico",
@@ -121,29 +121,29 @@
           //   maxlength: "Este campo debe contener máximo 10 dígitos",
           // },
           phone: {
-            required: 'El teléfono no puede quedar vacío',
-            minlength: 'Este campo debe contener al menos 7 dígitos',
-            maxlength: 'Este campo debe contener máximo 10 dígitos',
-            number: 'El teléfono debe ser sólo numérico',
+            required: "El teléfono no puede quedar vacío",
+            minlength: "Este campo debe contener al menos 7 dígitos",
+            maxlength: "Este campo debe contener máximo 10 dígitos",
+            number: "El teléfono debe ser sólo numérico",
           },
           email: {
-            required: 'El email es requerido ',
-            email: 'Este campo debe ser un correo electrónico',
+            required: "El email es requerido ",
+            email: "Este campo debe ser un correo electrónico",
           },
           placa: {
-            maxlength: 'La placa no puede ser superior a 6 caracteres',
+            maxlength: "La placa no puede ser superior a 6 caracteres",
           },
           terminos_de_uso: {
             required: terminos_uso_text,
           },
         },
         errorPlacement: function (error, element) {
-          error.insertBefore('#edit-id-type')
+          error.insertBefore("#edit-id-type");
         },
         submitHandler: function (form) {
-          form.submit()
+          form.submit();
         },
-      })
+      });
     },
-  }
-})(jQuery)
+  };
+})(jQuery);

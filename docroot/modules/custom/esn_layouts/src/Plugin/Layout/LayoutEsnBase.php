@@ -32,7 +32,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $config_factory) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    ConfigFactoryInterface $config_factory
+    ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->configFactory = $config_factory;
   }
@@ -162,7 +167,10 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
           '#type' => 'entity_autocomplete',
           '#target_type' => 'node',
           '#title' => $this->t('URL TAB @number', ['@number' => $i + 1]),
-          '#default_value' => $this->configuration['links'][$i] ? static::getUriAsDisplayableString($this->configuration['links'][$i]) : "",
+          '#default_value' =>
+          $this->configuration['links'][$i] ?
+          static::getUriAsDisplayableString($this->configuration['links'][$i]) :
+          "",
           '#element_validate' => [[static::class, 'validateUriElement']],
           '#description' => $this->t('Si ingresa este campo la TAB dejará de ser contenido para ser un enlace.'),
           '#process_default_value' => FALSE,
@@ -175,7 +183,10 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
         $form['tabs_properties']['tabs_details']['attribute_link_' . $i] = [
           '#type' => 'select',
           '#title' => $this->t('Destino'),
-          '#default_value' => $this->configuration['attribute_link'][$i] ? $this->configuration['attribute_link'][$i] : "",
+          '#default_value' =>
+          $this->configuration['attribute_link'][$i] ?
+          $this->configuration['attribute_link'][$i] :
+          "",
           '#options' => [
             NULL => $this->t('- Ninguno -'),
             '_self' => $this->t('Same window (_self)'),
@@ -323,7 +334,8 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       '#title' => $this->t('Contenedor de contenido'),
       '#default_value' => $this->configuration['content_container'],
       '#options' => $this->getContentContainerOptions(),
-      '#description' => $this->t('Elija el tamaño del contenedor para el contenido de este diseño. Es bastante útil si desea un fondo de ancho completo y su contenido en el medio.'),
+      '#description' => $this->t('Elija el tamaño del contenedor para el contenido de este diseño.
+       Es bastante útil si desea un fondo de ancho completo y su contenido en el medio.'),
     ];
 
     // Text Styles.
@@ -430,7 +442,9 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
     }
     elseif ($scheme === 'entity') {
       [$entity_type, $entity_id] = explode('/', substr($uri, 7), 2);
-      if ($entity_type == 'node' && $entity = \Drupal::entityTypeManager()->getStorage($entity_type)->load($entity_id)) {
+      if (
+        $entity_type == 'node' &&
+        $entity = \Drupal::entityTypeManager()->getStorage($entity_type)->load($entity_id)) {
         $displayable_string = EntityAutocomplete::getEntityLabels([$entity]);
       }
     }
@@ -455,8 +469,8 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       '?',
       '#',
     ], TRUE) && substr($element['#value'], 0, 7) !== '<front>') {
-      $form_state->setError($element, t('Manually entered paths should start with one of the following characters: / ? #'));
-      return;
+      $form_state->setError($element, t('Manually entered paths should start with one of the
+      following characters: / ? #'));
     }
   }
 
@@ -499,10 +513,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
   /**
    * {@inheritdoc}
    */
-  public function submitConfigurationForm(
-        array &$form,
-        FormStateInterface $form_state
-    ) {
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
 
     $grid_properties = $form_state->getValue('grid_properties');
@@ -583,7 +594,8 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
         }
       }
 
-      $this->configuration['links'][$i] = $this->getDisplayableAsUri($tabs_properties['tabs_details']['link_' . $i]) ?? NULL;
+      $this->configuration['links'][$i] = $this->getDisplayableAsUri($tabs_properties['tabs_details']['link_' . $i]) ??
+      NULL;
       $this->configuration['attribute_link'][$i] = $tabs_properties['tabs_details']['attribute_link_' . $i] ?? NULL;
     }
   }
@@ -677,13 +689,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getColumnGapOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'gap-x-sm' => $this->t('Pequeño'),
       'gap-x-md' => $this->t('Mediano'),
       'gap-x-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -694,13 +705,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getRowGapOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'gap-y-sm' => $this->t('Pequeño'),
       'gap-y-md' => $this->t('Mediano'),
       'gap-y-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -711,14 +721,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getTopPaddingOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'pt-none' => $this->t('Ninguno'),
       'pt-sm' => $this->t('Pequeño'),
       'pt-md' => $this->t('Mediano'),
       'pt-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -729,14 +738,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getBottomPaddingOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'pb-none' => $this->t('Ninguno'),
       'pb-sm' => $this->t('Pequeño'),
       'pb-md' => $this->t('Mediano'),
       'pb-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -748,14 +756,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
   protected function getEqualLeftRightPaddingsOptions() {
 
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'px-none' => $this->t('Ninguno'),
       'px-sm' => $this->t('Pequeño'),
       'px-md' => $this->t('Mediano'),
       'px-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -767,14 +774,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
   protected function paddingsContentContainerOptions() {
 
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'p-c-none' => $this->t('Ninguno'),
       'p-c-sm' => $this->t('Pequeño'),
       'p-c-md' => $this->t('Mediano'),
       'p-c-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -786,14 +792,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
   protected function getEqualTopBottomPaddingsOptions() {
 
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'py-none' => $this->t('Ninguno'),
       'py-sm' => $this->t('Pequeño'),
       'py-md' => $this->t('Mediano'),
       'py-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -804,14 +809,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getTopMarginOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'mt-none' => $this->t('Ninguno'),
       'mt-sm' => $this->t('Pequeña'),
       'mt-md' => $this->t('Mediana'),
       'mt-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -822,14 +826,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getBottomMarginOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'mb-none' => $this->t('Ninguno'),
       'mb-sm' => $this->t('Pequeña'),
       'mb-md' => $this->t('Mediana'),
       'mb-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -840,14 +843,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getEqualLeftRightMarginsOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'mx-none' => $this->t('Ninguno'),
       'mx-sm' => $this->t('Pequeña'),
       'mx-md' => $this->t('Mediana'),
       'mx-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -858,14 +860,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getEqualTopBottomMarginsOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Seleccione'),
       'my-none' => $this->t('Ninguno'),
       'my-sm' => $this->t('Pequeña'),
       'my-md' => $this->t('Mediana'),
       'my-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -876,13 +877,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getDefaultContainerType() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'container-sm' => $this->t('Contenedor pequeño'),
       'container-default' => $this->t('Contenedor predeterminado'),
       'container-lg' => $this->t('Contenedor grande'),
     ];
-    return $options;
   }
 
   /**
@@ -893,13 +893,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getContentContainerOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'content-container-sm' => $this->t('Pequeño'),
       'content-container-default' => $this->t('Predeterminado'),
       'content-container-lg' => $this->t('Grande'),
     ];
-    return $options;
   }
 
   /**
@@ -910,7 +909,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getBackgroundContainer() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'bg-yellow' => $this->t('Amarillo'),
       'bg-blue' => $this->t('Azul Liberty'),
@@ -920,7 +919,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       'bg-gray-dark' => $this->t('Gris oscuro'),
       'bg-lightgray' => $this->t('Gris claro'),
     ];
-    return $options;
   }
 
   /**
@@ -931,7 +929,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getBackgroundColor() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'bg-yellow' => $this->t('Amarillo'),
       'bg-blue' => $this->t('Azul Liberty'),
@@ -941,7 +939,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       'bg-gray-dark' => $this->t('Gris oscuro'),
       'bg-lightgray' => $this->t('Gris claro'),
     ];
-    return $options;
   }
 
   /**
@@ -952,7 +949,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getScrollEffect() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'fade-up' => $this->t('Fade Up'),
       'fade-down' => $this->t('Fade Down'),
@@ -977,7 +974,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       'zoom-out-left' => $this->t('Zoom Out Left'),
       'zoom-out-right' => $this->t('Zoom Out Right'),
     ];
-    return $options;
   }
 
   /**
@@ -988,14 +984,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getTextColor() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       'text-light' => $this->t('Gris (predeterminado)'),
       'text-dark' => $this->t('Gris oscuro'),
       'text-white' => $this->t('Blanco'),
       'text-white-atmosphere' => $this->t('Blanco atmósfera'),
       'text-blue' => $this->t('Azul Liberty'),
     ];
-    return $options;
   }
 
   /**
@@ -1005,12 +1000,11 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    *   Return Options for getContainerType
    */
   protected function getHeightOptions() {
-    $options = [
+    return [
       '' => $this->t('Predeterminado'),
       'h-100vh' => $this->t('100vh'),
       'h-80vh' => $this->t('80vh'),
     ];
-    return $options;
   }
 
   /**
@@ -1021,7 +1015,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getAlignItems() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Normal'),
       'items-start' => $this->t('Start'),
       'items-end' => $this->t('End'),
@@ -1029,7 +1023,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       'items-baseline' => $this->t('Baseline'),
       'items-stretch' => $this->t('Stretch'),
     ];
-    return $options;
   }
 
   /**
@@ -1040,14 +1033,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getAlignmentOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'alignment-left' => $this->t('Izquierda'),
       'alignment-right' => $this->t('Derecha'),
       'alignment-center' => $this->t('Centrado'),
       'alignment-justify' => $this->t('Justificado'),
     ];
-    return $options;
   }
 
   /**
@@ -1077,13 +1069,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    *   Return the default background attachment option.
    */
   protected function getBackgroundAttachmentOptions() {
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'bg-local' => $this->t('Local'),
       'bg-scroll' => $this->t('Scroll'),
       'bg-fixed' => $this->t('Fixed'),
     ];
-    return $options;
   }
 
   /**
@@ -1093,7 +1084,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    *   Return the default background position option.
    */
   protected function getBackgroundPositionOptions() {
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'bg-bottom' => $this->t('Bottom'),
       'bg-center' => $this->t('Center'),
@@ -1105,7 +1096,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       'bg-right-top' => $this->t('Right top'),
       'bg-top' => $this->t('Top'),
     ];
-    return $options;
   }
 
   /**
@@ -1115,13 +1105,12 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    *   Return the default background size option.
    */
   protected function getBackgroundSizeOptions() {
-    $options = [
+    return [
       '' => $this->t('Ninguno'),
       'bg-auto' => $this->t('Auto'),
       'bg-cover' => $this->t('Cover'),
       'bg-contain' => $this->t('Contain'),
     ];
-    return $options;
   }
 
   /**
@@ -1131,14 +1120,13 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    *   Return the default background overlay option.
    */
   protected function getBackgroundOverlayOptions() {
-    $options = [
+    return [
       '' => $this->t('None'),
       'bg-overlay-dark-light' => $this->t('Light Dark'),
       'bg-overlay-dark' => $this->t('Dark'),
       'bg-overlay-darker' => $this->t('Darker'),
     ];
 
-    return $options;
   }
 
   /**
@@ -1149,7 +1137,7 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
    */
   protected function getNumberOfTabsOptions() {
     // Return the first available key from the list of options.
-    $options = [
+    return [
       NULL => $this->t('Seleccionar'),
       1 => $this->t('1'),
       2 => $this->t('2'),
@@ -1158,7 +1146,6 @@ abstract class LayoutEsnBase extends LayoutDefault implements ContainerFactoryPl
       5 => $this->t('5'),
     ];
 
-    return $options;
   }
 
   /**

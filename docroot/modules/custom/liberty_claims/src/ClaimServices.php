@@ -416,19 +416,19 @@ class ClaimServices {
 
         try {
           $response = $client->request(
-          'POST',
-          '/fnol/radicacionSiniestro',
-          [
-            'http_errors' => TRUE,
-            'headers' => [
-              'Content-Type' => 'application/json',
-              'Authorization' =>
-              'Bearer ' . $this->getMainToken(),
-              'country' => '1',
-            ],
-            'body' => $request,
-          ]
-            );
+            'POST',
+            '/fnol/radicacionSiniestro',
+            [
+              'http_errors' => TRUE,
+              'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' =>
+                'Bearer ' . $this->getMainToken(),
+                'country' => '1',
+              ],
+              'body' => $request,
+            ]
+          );
 
           $body = $response->getBody()->getContents();
 
@@ -436,21 +436,20 @@ class ClaimServices {
                 [
                   'response_iaxis' => $body,
                   'status' => 2,
-                ],
-                $token
-          );
+                ], $token);
         }
         catch (RequestException $e) {
+
           if ($e->hasResponse()) {
-            $error = (string) $e->getResponse()->getBody();
+            $response = $e->getResponse();
+            $error = $response->getBody()->getContents();
             $this->drupalLogger->error($error);
             $this->logger->set('response_iaxis', $error, $token);
           }
           $this->sendEmailErrorIaxis($data);
           unset($_SESSION['GMFChevrolet']);
         }
-
-        return json_decode($body, TRUE);
+        return json_decode($body ?? '{}', TRUE);
       }
     }
 
@@ -755,14 +754,32 @@ class ClaimServices {
               ];
               if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
                 $personal_data = $polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'];
-
-                $return['personalInfo'] = [
-                  'name' => isset($personal_data['primerNombre'])
+                // If personal_data have more than one, then use
+                // conductorPersonalData for name and lastname.
+                $name = '';
+                $lastname = '';
+                if (count($personal_data) > 1) {
+                  if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
+                    $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
+                    $name = isset($conductor_data['primerNombre'])
+                    ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
+                    : '';
+                    $lastname = isset($conductor_data['primerApellido'])
+                    ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
+                    : '';
+                  }
+                }
+                else {
+                  $name = isset($personal_data['primerNombre'])
                     ? $personal_data['primerNombre'] . ' ' . @$personal_data['segundoNombre']
-                    : '',
-                  'lastname' => isset($personal_data['primerApellido'])
-                    ? $personal_data['primerApellido'] . ' ' . $personal_data['segundoApellido']
-                    : '',
+                    : '';
+                  $lastname = isset($personal_data['primerApellido'])
+                  ? $personal_data['primerApellido'] . ' ' . $personal_data['segundoApellido']
+                  : '';
+                }
+                $return['personalInfo'] = [
+                  'name' => $name,
+                  'lastname' => $lastname,
                   'documentId' => $personal_data['numeroDocumento'] ?? '',
                   'docType' => isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
                     ? $doc_types[$personal_data['tipoDocumento']['codigo']]
@@ -1383,10 +1400,11 @@ class ClaimServices {
       'CLAIM_TYPE_LR' => 'Llantas estalladas.',
     ];
 
-    $subject = mb_encode_mimeheader('Error creación flujo asegurado IAXIS - ' . $data1['plate'], 'UTF-8');
+    $subject = 'Error creación flujo asegurado IAXIS - ' . $data1['plate'];
 
     $body = "Buen día,
-        Al momento de crear el siniestro en IAXIS en el flujo de asegurado hubo un error. La información relevante para su creación manual es:
+        Al momento de crear el siniestro en IAXIS en el flujo de asegurado hubo un error." .
+        " La información relevante para su creación manual es:
         Que te pasó: " . ($quetepaso[$data1['tellus']] ?? 'Tipo de reclamo desconocido') . "
         Fecha y hora: {$data1['date']}
         Siniestro: 0
@@ -1404,8 +1422,8 @@ class ClaimServices {
         Taller seleccionado: {$data1['nombre']}";
 
     $params = [
-      'subject' => $subject,
       'subject2' => $subject,
+      'subject' => 'Error radicacion Iaxis',
       'message' => nl2br($body),
     ];
 
@@ -1426,14 +1444,15 @@ class ClaimServices {
    * Send mail error sipo.
    */
   public function sendEmailErrorSipo($data, $data1) {
+
     $date = date('d/m/Y');
 
-    $subject =
-      mb_encode_mimeheader('Error creación siniestro SIPO - #' . $data['caso']['numeroSiniestroiAxis'], 'UTF-8');
+    $subject = 'Error creación siniestro SIPO - #' . $data['caso']['numeroSiniestroiAxis'];
 
     $body = "Buen día,
-        Al momento de crear el siniestro en SIPO, el flujo de asegurado presentó un error. La información relevante para su creación manual es:
-        Número de caso de iAxis: {$data['caso']['numeroSiniestroiAxis']}
+        Al momento de crear el siniestro en SIPO, el flujo de asegurado presentó un error." .
+        " La información relevante para su creación manual es:
+        Número de caso de Iaxis: {$data['caso']['numeroSiniestroiAxis']}
         Datos del asegurado: {$data['asegurado']['nombre']}
         Placa: {$data['vehiculo']['placa']}
         Taller Escogido:  {$data1}
@@ -1444,8 +1463,8 @@ class ClaimServices {
         Enviado desde el portal Liberty Seguros Colombia";
 
     $params = [
-      'subject' => $subject,
       'subject2' => $subject,
+      'subject' => 'Error radicacion Sipo',
       'message' => nl2br($body),
     ];
 

@@ -18,6 +18,7 @@
         Atrás
       </span>
       <fieldset :class="['plan-types', 'row']">
+        <legend></legend>
         <div
           :class="[
             'form-item',
@@ -55,6 +56,7 @@
       <fieldset
         :class="['form-lists', 'row', selected_plan_tids ? '' : 'hide-mobile']"
       >
+        <legend></legend>
         <div
           class="form-item js-form-type-select form-type-select form-item-search-institution col-sm-12 col-md-5"
         >
@@ -141,6 +143,7 @@
           selected_plan_tids ? '' : 'hide-mobile',
         ]"
       >
+        <legend></legend>
         <div
           :class="[
             'col-sm-12',
@@ -193,6 +196,7 @@
       <fieldset
         :class="['bottom-form', 'row', selected_plan_tids ? '' : 'hide-mobile']"
       >
+        <legend></legend>
         <div
           class="form-item form-type-checkbox form-item-search-telemedicine col-md-5 col-sm-12"
         >

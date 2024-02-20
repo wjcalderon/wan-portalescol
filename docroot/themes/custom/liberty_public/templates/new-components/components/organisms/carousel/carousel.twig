@@ -12,8 +12,16 @@
     {% set loop = true %}
 {% endif %}
 
+{% if not autoplay and autoplay is null == true %}
+    {% set autoplay = true %}
+{% endif %}
+
 {% if not destroy and destroy is null == true %}
     {% set destroy = false %}
+{% endif %}
+
+{% if not autoplay and autoplay is null == true %}
+    {% set autoplay = true %}
 {% endif %}
 
 {% if not splide_pagination and splide_pagination is null == true %}
@@ -41,6 +49,7 @@
             "gap":"1.5rem",
             "perPage":{{ items_per_page|default(2) }},
             "drag": {{ drag == false  ? 'false' : 'true' }},
+            "autoplay": {{ autoplay == false  ? 'false' : 'true' }},
             "mediaQuery": "min",
             "breakpoints": {
                 "0": {    

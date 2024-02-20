@@ -16,6 +16,20 @@
       overflow: hidden;
     }
   }
+  #block-tabsasistencias {
+    .ui-tabs-panel {
+      .sub-tabs {
+        ul.ui-tabs-nav {
+          li {
+            a {
+              line-height: 1.1875rem;
+              min-height: 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .ui-tabs-tab {
@@ -68,12 +82,10 @@
     opacity: 0.3;
     width: 100%;
 
-    // max-width: 2.5rem;
     @media screen and (max-width: $medium-max) {
       margin-right: 0;
       display: block;
       width: 30%;
-      margin: auto;
       min-width: auto;
       max-width: 32px;
       height: 32px;
@@ -144,6 +156,12 @@
     @include breakpoint($small) {
       height: auto;
     }
+
+    @media screen and (max-width: $medium-max) {
+      background: $azul-hielo-sc;
+      background-image: none !important;
+      padding: 1rem;
+    }
   }
 
   .ui-tabs-nav {
@@ -205,14 +223,6 @@
       font-weight: 300;
     }
   }
-
-  .tab-img-bg {
-    @media screen and (max-width: $medium-max) {
-      background: $azul-hielo-sc;
-      background-image: none !important;
-      padding: 1rem;
-    }
-  }
 }
 
 .component__tabs--asistencias {
@@ -222,7 +232,7 @@
   }
 
   .tabs {
-    >.component__heading {
+    > .component__heading {
       box-shadow: 0px 4px 23px -4px rgba(52, 55, 65, 0.5);
       margin-bottom: 0;
       position: relative;
@@ -268,11 +278,9 @@
       p {
         color: $gris-pr;
         font-size: 1rem;
-        // font-weight: bold;
         margin: 0;
         vertical-align: middle;
 
-        // margin-right: 3rem;
         @media screen and (max-width: $medium-max) {
           padding: 0;
           padding-top: 1rem;
@@ -420,8 +428,6 @@
       font-size: 1.125rem;
       line-height: 1.5rem;
     }
-
-    //p {}
   }
 
   .sub-tab__content {
@@ -489,23 +495,6 @@
   }
 }
 
-.alias--empresas-asistencias {
-  #block-tabsasistencias {
-    .ui-tabs-panel {
-      .sub-tabs {
-        ul.ui-tabs-nav {
-          li {
-            a {
-              line-height: 1.1875rem;
-              min-height: 5rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 .component__tabs--contact {
   .component__heading {
     margin-bottom: 0;
@@ -539,7 +528,6 @@
     color: $charcoal-grey;
     line-height: 1.6;
     margin: 0 auto;
-    padding-bottom: 2.06rem;
     padding: 1rem 1.5rem;
   }
 
@@ -627,11 +615,6 @@
             border-radius: unset;
           }
 
-          @media screen and (min-width: $small-max) {
-            // width: 33.3%;
-            // margin: 10px;
-          }
-
           .component__card {
             display: flex;
             align-items: center;
@@ -665,9 +648,6 @@
             }
 
             .card__img--oval {
-
-              // width: 7rem;
-              // height: 7rem;
               @media screen and (min-width: $small-max) {
                 width: 8.7rem;
                 height: 8.7rem;
@@ -839,7 +819,6 @@
       }
 
       .form-item {
-
         &:nth-child(2),
         #close {
           position: absolute;
@@ -1155,7 +1134,6 @@
       }
 
       @media screen and (min-width: $small-max) {
-
         .form-item-_0n0t000000gzek,
         .form-item-_0n4a00000fkhwp {
           top: 75px;
@@ -1210,7 +1188,6 @@
 /* tab popup */
 
 .tabs {
-
   &.active,
   .popup {
     @media screen and (max-width: $small-max) {
@@ -1239,7 +1216,7 @@
       .sub-tab__heading-img {
         padding: 0;
 
-        >img {
+        > img {
           width: 2.625rem;
         }
       }
@@ -1254,11 +1231,11 @@
         border-bottom: 1px solid $gris-tr;
         padding-bottom: 1rem;
 
-        >h5 {
+        > h5 {
           font-size: 1.25rem;
         }
 
-        >p {
+        > p {
           display: block;
         }
       }
@@ -1296,7 +1273,7 @@
 }
 
 .block__contact-call {
-  >a {
+  > a {
     width: 71%;
     margin: auto;
   }
@@ -1394,8 +1371,7 @@
 }
 
 .component__tabs--producto-full {
-  >.component__heading {
-
+  > .component__heading {
     .component__title,
     .component__subtitle {
       text-align: left;
@@ -1468,7 +1444,6 @@
     .documents_requiered_tabs {
       .component__heading {
         .cog--mq {
-
           .slick-prev,
           .slick-next {
             &::before {
@@ -1479,7 +1454,6 @@
               background-size: 685%;
               border-bottom: 2px solid #1a1446;
               border-right: 2px solid #1a1446;
-              background: transparent;
             }
           }
 
@@ -1816,7 +1790,6 @@
             border-radius: 20px;
             padding: 0.4rem 1.5rem;
             font-size: 0.8rem;
-            line-height: 2rem;
             font-weight: 500;
             background-color: rgba(245, 245, 245, 0.7);
             line-height: 1.4;
@@ -1855,12 +1828,10 @@
 
       .ui-tabs-tab {
         flex-grow: initial;
-        flex-grow: initial;
         list-style: none;
         text-align: center;
         border-bottom: 3px solid trasparent;
         margin: 0 0.8rem;
-        flex-basis: initial;
         -ms-flex-preferred-size: 25%;
         flex-basis: 1;
         align-self: initial;
@@ -1909,7 +1880,7 @@
     margin-bottom: 0;
 
     .cp-cards__list {
-      .cp-tabs>.cog--mq {
+      .cp-tabs > .cog--mq {
         background-color: white !important;
       }
 
@@ -1921,13 +1892,13 @@
   }
 }
 
-.siniestros_card{
-  .ui-tabs .ui-tabs-nav li{
+.siniestros_card {
+  .ui-tabs .ui-tabs-nav li {
     float: none;
     white-space: unset;
     padding: 1rem;
   }
   .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
-    float: none; 
+    float: none;
   }
 }

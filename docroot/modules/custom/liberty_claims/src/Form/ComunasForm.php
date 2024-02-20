@@ -77,8 +77,8 @@ class ComunasForm extends FormBase {
 
     $form['help'] = [
       '#type' => 'markup',
-      '#markup' => '<span>Descargue la plantilla de carga <a href="/modules/custom/lib_gps/file/plantilla.csv">aqui</a</span><hr/>',
-
+      '#markup' => '<span>Descargue la plantilla de carga ' .
+      '<a href="/modules/custom/lib_gps/file/plantilla.csv">aqui</a</span><hr/>',
     ];
 
     $form['submit'] = [
@@ -103,7 +103,6 @@ class ComunasForm extends FormBase {
     $num = 0;
     $uriFile = $destination->getFileUri();
     $file = fopen($uriFile, 'r');
-    $delimiter = ';';
     $empty_fields = 0;
     $id_failed = [];
     $file_name = 'failed' . date('d-m-Y-h:ia') . '.csv';
@@ -129,7 +128,7 @@ class ComunasForm extends FormBase {
 
         if ($field_errors == 0) {
 
-          $term = $this->entityTypeManager->getStorage('taxonomy_term')->create([
+          $this->entityTypeManager->getStorage('taxonomy_term')->create([
             'name' => $name,
             'field_codtaller' => $codTaller,
             'field_aixis' => $aixis ,
@@ -171,9 +170,11 @@ class ComunasForm extends FormBase {
       $file->save();
 
       $error_data = ($error_data + $empty_fields);
-      $this->messenger()->addWarning($empty_fields . ' Comuna no han sido creada(s) debido a que les hace falta información requerida por la base de datos.');
+      $this->messenger()->addWarning($empty_fields .
+      ' Comuna no han sido creada(s) debido a que les hace falta información requerida por la base de datos.');
       $replacements['@info_file'] = $file_name;
-      $this->messenger()->addWarning($this->t('Para descargar el registro de errores por favor dar click : <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
+      $this->messenger()->addWarning(
+        $this->t('Para descargar el registro de errores por favor dar click : <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
 
     }
 

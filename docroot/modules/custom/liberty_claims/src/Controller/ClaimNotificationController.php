@@ -83,7 +83,16 @@ class ClaimNotificationController extends ControllerBase {
   /**
    * Constructs a new SettingsForm object.
    */
-  public function __construct(LibertyClaimsLogManager $liberty_claims_log_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, ConfigFactory $config_factory, Session $session, ClaimServices $claim_services, FileSystemInterface $file_system, LoggerServiceInterface $liberty_logger) {
+  public function __construct(
+    LibertyClaimsLogManager $liberty_claims_log_manager,
+    MailManagerInterface $mail_manager,
+    ModuleHandlerInterface $module_handler,
+    ConfigFactory $config_factory,
+    Session $session,
+    ClaimServices $claim_services,
+    FileSystemInterface $file_system,
+    LoggerServiceInterface $liberty_logger
+    ) {
     $this->libertyClaimsLogManager = $liberty_claims_log_manager;
     $this->mailManager = $mail_manager;
     $this->moduleHandler = $module_handler;

@@ -11,7 +11,7 @@
   padding: 0 1rem;
 
   @media screen and (min-width: $small-max) {
-    padding: .4rem 4rem;
+    padding: 0.4rem 4rem;
   }
   ul {
     display: flex;
@@ -208,7 +208,6 @@ header {
         background: $blanco-pl;
         border: none;
         box-shadow: none;
-        border-radius: 5px;
         margin: 0;
         font-size: 1rem;
         color: $azul-os-pr;
@@ -254,7 +253,6 @@ header {
         box-shadow: none;
         pointer-events: none;
         padding-right: 18px;
-        padding: 0;
       }
     }
   }
@@ -369,7 +367,7 @@ span.addtoany_list {
 .menu--menu-navegacion {
   width: 100%;
 }
- 
+
 #navegacion .menu--menu-clientes {
   ul {
     display: flex;

@@ -52,7 +52,7 @@ function liberty_claims_mail($key, &$message, $params) {
       $from = \Drupal::config('system.site')->get('mail');
 
       $message['headers']['MIME-Version'] = '1.0';
-      $message['headers']['Content-Type'] = 'multipart/mixed;';
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
       $message['headers']['Reply-To'] = $params['name'] . '<' . $params['email'] . '>';
       $message['headers']['From'] = $message['headers']['Sender'] = $from;
       $message['subject'] = $params['subject'];
@@ -76,7 +76,8 @@ function liberty_claims_mail($key, &$message, $params) {
 
     case 'Error radicacion Iaxis':
     case 'Error radicacion Sipo':
-      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8\r\n';
+      $message['headers']['MIME-Version'] = '1.0';
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject2'];
       $message['body'][] = $params['message'];
@@ -84,12 +85,14 @@ function liberty_claims_mail($key, &$message, $params) {
       break;
 
     default:
-      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8\r\n';
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
       break;
   }
+
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; multipart/mixed;';
 
 }
 

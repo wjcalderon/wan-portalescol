@@ -32,7 +32,6 @@
   }
   .component__heading {
     h2 {
-      font-weight: normal;
       font-size: 2rem;
       font-weight: bold;
       @include breakpoint($small) {

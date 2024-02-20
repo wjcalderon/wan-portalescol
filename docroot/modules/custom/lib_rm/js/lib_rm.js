@@ -8,11 +8,11 @@
   Drupal.behaviors.lib_rm = {
     attach: function (context) {
       // Init functions
-      var form = $("form#search-medical-network-form .wrapper-form-search"),
+      let form = $("form#search-medical-network-form .wrapper-form-search"),
         args = null;
 
       // Default values specilities
-      var val_h_city = form.find(".h-city-rm").val(),
+      let val_h_city = form.find(".h-city-rm").val(),
         val_plan_type = form.find('input[name="plan_type"]:checked').val(),
         val_h_speciality = form.find(".h-specialty-rm").val(),
         btn_form_submit = form.find(".form-submit");
@@ -77,7 +77,7 @@
                 "#search-medical-network-form .wrapper-form-search #edit-plan-type"
               ).prepend('<a  class="close-filter" cdata="show">Atrás</a>');
             }
-            var pt = findGetParameter("pt");
+            let pt = findGetParameter("pt");
             if (pt == null) {
               $(
                 "#search-medical-network-form .wrapper-form-search .close-filter"
@@ -104,7 +104,7 @@
                   "#search-medical-network-form .wrapper-form-search"
                 ).removeClass("is-fixed transform-media transform-up");
               } else {
-                var action = $(this).attr("cdata");
+                let action = $(this).attr("cdata");
                 if (action == "show") {
                   $(
                     "#search-medical-network-form .wrapper-form-search"
@@ -159,7 +159,7 @@
           }
         })
         .click(function () {
-          var tipopl = $(this).val();
+          let tipopl = $(this).val();
           if (tipopl.length > 0) {
             $(this).trigger("change");
           }
@@ -167,19 +167,19 @@
 
       // Get geolocation
       if (navigator.geolocation) {
-        var lat, lng;
+        let lat, lng;
         if (typeof Storage !== undefined) {
           if (localStorage.getItem("long") !== null) {
             lng = localStorage.getItem("long");
             lat = localStorage.getItem("lat");
           }
         }
-        var data_browser = $("html").attr("data-browser");
+        let data_browser = $("html").attr("data-browser");
         const reg_browser = new RegExp("Trident");
 
         // Explorer internet
         if (reg_browser.test(data_browser)) {
-          var options = {
+          let options = {
             enableHighAccuracy: false,
           };
 
@@ -241,7 +241,7 @@
 
       // Check fields in submit
       $('input[name="around_me"]').click(function (e) {
-        var wrapper = $(this).parents(".wrapper-form-search");
+        let wrapper = $(this).parents(".wrapper-form-search");
         assignPositionFields(wrapper);
       });
 
@@ -249,7 +249,7 @@
       // if ($('ul.special-filters .item-filter').length > 0) {
       //    $('ul.special-filters .item-filter .link-filter').on('click', function(e){
       // 		e.preventDefault();
-      // 		var current_url = window.location.href,
+      // 		let current_url = window.location.href,
       // 		  url = current_url.substring(0, current_url.length - 1),
       // 		  removeKey = $(this).attr('cdata'),
       // 		  new_url = removeParamUrl(removeKey, url);
@@ -268,10 +268,10 @@
         $(".block-render-view-search-medical-network .view-search-rm").length >
         0
       ) {
-        var form_view = $(
+        let form_view = $(
           ".block-render-view-search-medical-network .view-search-rm"
         );
-        var vm = findGetParameter("vm");
+        let vm = findGetParameter("vm");
         form_view
           .children(".view-header")
           .find(".options-results-rm li." + vm)
@@ -281,7 +281,7 @@
           .find(".options-results-rm li.vm a")
           .click(function (e) {
             e.preventDefault();
-            var form = $(this)
+            let form = $(this)
               .parents(".component__view--render-search-map")
               .prev()
               .find(".wrapper-form-search");
@@ -293,13 +293,13 @@
 
       // Uncheck and hide on mobile
       if ($("body").hasClass("js-mobile")) {
-        var search_form = $("#search-medical-network-form");
+        let search_form = $("#search-medical-network-form");
         search_form.find(".form-radio:checked").removeAttr("checked");
         //search_form.find('.js-form-wrapper, .ctn-footer').hide();
         search_form.find(".form-radio").on("change", function () {
           search_form.find(".js-form-wrapper, .ctn-footer").show();
         });
-        var pt = findGetParameter("pt");
+        let pt = findGetParameter("pt");
         if (pt !== null) {
           $("#component-371").before('<div id="ancla-resultados"></div>');
           $(
@@ -335,7 +335,7 @@
                 "#search-medical-network-form .wrapper-form-search"
               ).removeClass("is-fixed transform-media transform-up");
             } else {
-              var action = $(this).attr("cdata");
+              let action = $(this).attr("cdata");
               if (action == "show") {
                 $(this).text("Ocultar filtros");
                 $(this).attr("cdata", "hide");
@@ -399,7 +399,7 @@
 
       // load specilities if the filter is removed
       if (findGetParameter("c") > 0 && findGetParameter("e") == null) {
-        var tid_city = form.find(".h-city-rm").val(),
+        let tid_city = form.find(".h-city-rm").val(),
           tid_plan = form.find(".plan-types:checked").val();
         specialty_select(tid_plan, tid_city);
       }
@@ -409,7 +409,7 @@
         if ($(this).hasClass("show-filter")) {
           return true;
         } else {
-          var form = $(this).parents(".wrapper-form-search");
+          let form = $(this).parents(".wrapper-form-search");
           form.find(".city-rm").val("");
           form.find(".speciality-rm-sr").val("");
           form.find(".search-word-rm").val("");
@@ -419,7 +419,7 @@
       });
 
       function addAttrPositionFields(position) {
-        var wrapper = $("#search-medical-network-form"),
+        let wrapper = $("#search-medical-network-form"),
           hideen_lat = wrapper.find(".h-lat"),
           hideen_long = wrapper.find(".h-long"),
           long,
@@ -470,7 +470,7 @@
 
       // Add value hidden to select specialties
       function add_value_hidden_of_select_specialties() {
-        var sl_specialty = form.find(".specialty-rm"),
+        let sl_specialty = form.find(".specialty-rm"),
           h_sl_specialty = form.find(".h-specialty-rm"),
           city_rm = form.find(".city-rm");
 
@@ -504,10 +504,11 @@
         dflt_val = dflt_val || null;
         if (
           tid_plan !== null &&
-          (tid_plan !== undefined) & (tid_city !== null) &&
+          tid_plan !== undefined &&
+          tid_city !== null &&
           tid_city !== undefined
         ) {
-          var url_json =
+          let url_json =
               "/specialty-select/" + tid_plan + "/" + tid_city + "/" + dflt_val,
             sl_specialty = null;
           $.getJSON(url_json, function (data) {
@@ -527,7 +528,7 @@
 
       // Autocomplete cities
       function citiesAutocomplete() {
-        var city = form.find(".city-rm"),
+        let city = form.find(".city-rm"),
           val_city = city.val(),
           tid_plan = form.find(".plan-types:checked").val(),
           url_json = "/cities-autocomplete/";
@@ -540,10 +541,10 @@
 
       // Autocomplete cities
       function speciality_autocomplete() {
-        var tid_city = form.find(".h-city-rm").val(),
+        let tid_city = form.find(".h-city-rm").val(),
           tid_plan = form.find(".plan-types:checked").val();
 
-        var speciality = form.find(".speciality-rm-sr"),
+        let speciality = form.find(".speciality-rm-sr"),
           val_speciality = speciality.val(),
           url_json = "/specialty-select/";
 
@@ -563,7 +564,7 @@
 
       // Search autocomplete
       function wordAutocomplete() {
-        var word = form.find(".search-word-rm"),
+        let word = form.find(".search-word-rm"),
           word_val = word.val(),
           tid_plan = form.find(".plan-types:checked").val(),
           tid_city = form.find(".h-city-rm").val(),
@@ -616,14 +617,14 @@
 
       // Remove param url
       function removeParamUrl(removeKey, sourceURL) {
-        var rtn = sourceURL.split("?")[0],
+        let rtn = sourceURL.split("?")[0],
           param,
           params_arr = [],
           queryString =
             sourceURL.indexOf("?") !== -1 ? sourceURL.split("?")[1] : "";
         if (queryString !== "") {
           params_arr = queryString.split("&");
-          for (var i = params_arr.length - 1; i >= 0; i -= 1) {
+          for (let i = params_arr.length - 1; i >= 0; i -= 1) {
             param = params_arr[i].split("=")[0];
             if (param === removeKey) {
               params_arr.splice(i, 1);
@@ -636,10 +637,10 @@
 
       // Find parameter get in url
       function findGetParameter(parameterName) {
-        var result = null,
+        let result = null,
           tmp = [];
-        var items = location.search.substr(1).split("&");
-        for (var index = 0; index < items.length; index++) {
+        let items = location.search.substr(1).split("&");
+        for (let index = 0; index < items.length; index++) {
           tmp = items[index].split("=");
           if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         }

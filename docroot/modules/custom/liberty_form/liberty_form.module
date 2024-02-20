@@ -44,19 +44,14 @@ function liberty_form_theme($existing, $type, $theme, $path) {
 function liberty_form_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
 
   $field_definition = $context['items']->getFieldDefinition();
-  if ("field_cover_caracteristic" == $field_definition->getName()) {
-    if ($context['delta'] < 3) {
-      $element['value']['#attributes']['class'][] = 'required_custom';
-      $element['value']['#required'] = TRUE;
-    }
+  if ("field_cover_caracteristic" == $field_definition->getName() && $context['delta'] < 3) {
+    $element['value']['#attributes']['class'][] = 'required_custom';
+    $element['value']['#required'] = TRUE;
   }
 
-  if ("field_benefits" == $field_definition->getName()) {
-    if ($context['delta'] < 3) {
-      $element['value']['#attributes']['class'][] = 'required_custom';
-      $element['value']['#required'] = TRUE;
-    }
-
+  if ("field_benefits" == $field_definition->getName() && $context['delta'] < 3) {
+    $element['value']['#attributes']['class'][] = 'required_custom';
+    $element['value']['#required'] = TRUE;
   }
 
 }
@@ -1059,7 +1054,7 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   $api_client_id = $config->get('api_client_id');
   $api_client_secret = $config->get('api_service_auth');
   $api_service_params = [];
-  // kint($values);
+
   foreach ($third_party_settings['params'] as $param) {
     $api_service_params[$param['ws_param_ws_parameter']] = $values[$param['ws_param_webform_field']];
   }
@@ -1096,7 +1091,6 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   if (isset($tempstorenumber)) {
     $identification_number = $tempstorenumber->get('LibertySessionNumber');
   }
-
   $path = \Drupal::request()->getpathInfo();
   $arg = explode('/', $path);
   if (end($arg) == "formulario") {
@@ -1120,7 +1114,6 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
 
   }
 
-  // Trae la informacion del usuario si existe.
   if (isset($identification_number)) {
     $query = \Drupal::entityQuery('node')
       ->condition('type', 'customer')
@@ -1150,12 +1143,11 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   // Fecha actual.
   $hoy = date("d/m/Y");
   $data4 = [];
-  // kint($correo);
+  $correo = explode(", ", $correo);
   foreach ($correo as $valor) {
-    // kint($valor);
     array_push($data4, [
       "contactKey" => $api_service_params['id_type'] . $api_service_params['id_number'],
-      "to" => $valor['value'],
+      "to" => $valor,
       "attributes" => [
         "NombreSponsor" => $term_name_sponsor1,
         "NumeroDocumentoCliente" => $api_service_params['id_number'],

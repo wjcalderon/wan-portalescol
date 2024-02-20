@@ -1,21 +1,21 @@
 .component__slider {
-    .slick-next,
-    .slick-prev {
-        width: auto;
-        height: auto;
-        top: calc(50% - 52px);
+  .slick-next,
+  .slick-prev {
+    width: auto;
+    height: auto;
+    top: calc(50% - 52px);
+  }
+  .slick-next {
+    right: 3rem;
+  }
+  .slick-prev {
+    left: 1rem;
+    z-index: 1;
+  }
+  .slick-dots {
+    bottom: 4rem;
+    @include breakpoint($small) {
+      bottom: 35px;
     }
-    .slick-next {
-        right: 3rem;
-    }
-    .slick-prev {
-        left: 1rem;
-        z-index: 1;
-    }
-    .slick-dots {
-        bottom: 4rem;
-        @include breakpoint($small) {
-            bottom: 35px;
-        }
-    }
+  }
 }

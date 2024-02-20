@@ -1,40 +1,31 @@
 <li class="nav-item" role="presentation">
-  <button
-      class="nav-link{% if key == 1 %} active {% endif %} nav-link_button"
-      id="tablist-{{tab_id}}"
-      data-bs-toggle="tab"
-      data-bs-target="#tab-{{tab_id}}"
-      type="button"
-      role="tab"
-      aria-controls="tab-{{tab_id}}"
-      aria-selected="true"
-  >
-    {% if tab_icon %}
-      <span class="fa fa-{{ tab_icon }} tabs__icon"></span>
-    {% endif %}
-    {% if tab_icon_svg %}
-      {% include "modules/custom/esn_layouts/templates/images/image/responsive-image.twig" with {
+	<button class="nav-link{% if key == 1 %} active {% endif %} nav-link_button" id="tablist-{{tab_id}}" data-bs-toggle="tab" data-bs-target="#tab-{{tab_id}}" type="button" role="tab" aria-controls="tab-{{tab_id}}" aria-selected="true">
+		{% if tab_icon %}
+			<span class="fa fa-{{ tab_icon }} tabs__icon"></span>
+		{% endif %}
+		{% if tab_icon_svg %}
+			{% include "modules/custom/esn_layouts/templates/images/image/responsive-image.twig" with {
         output_image_tag: card__image__output_image_tag,
         image_src: tab_icon_svg,
         image_alt: tab_alt,
         } %}
-    {% endif %}
-    {% if tab_link %}
-      {% include "modules/custom/esn_layouts/templates/links/link/link.twig" with {
+		{% endif %}
+		{% if tab_link %}
+			{% include "modules/custom/esn_layouts/templates/links/link/link.twig" with {
         link_base_class: card__link__base_class|default('link'),
         link_blockname: card__base_class,
         link_attributes: card__button__attributes,
         link_content: tab_text,
         link_url: tab_link,
         } %}
-    {% else %}
-      {% include "modules/custom/esn_layouts/templates/links/link/link.twig" with {
+		{% else %}
+			{% include "modules/custom/esn_layouts/templates/links/link/link.twig" with {
         link_base_class: card__link__base_class|default('link'),
         link_blockname: card__base_class,
         link_attributes: card__button__attributes,
         link_content: tab_text,
         link_url: "#" ~ tab_id,
         } %}
-    {% endif %}
-  </button>
+		{% endif %}
+	</button>
 </li>

@@ -4,6 +4,30 @@
 {% set carousel_modifiers = [] %}
 {% endif %}
 
+{% if not drag and drag is null == true %}
+    {% set drag = true %}
+{% endif %}
+
+{% if not autoplay and autoplay is null == true %}
+    {% set autoplay = true %}
+{% endif %}
+
+{% if not loop and loop is null == true %}
+    {% set loop = true %}
+{% endif %}
+
+{% if not destroy and destroy is null == true %}
+    {% set destroy = false %}
+{% endif %}
+
+{% if not splide_pagination and splide_pagination is null == true %}
+    {% set splide_pagination = false %}
+{% endif %}
+
+{% if not splide_arrows and splide_arrows is null == true %}
+    {% set splide_arrows = false %}
+{% endif %}
+
 {% if carousel_columns %}
 {% set carousel_modifiers = carousel_modifiers|merge([carousel_columns]) %}
 {% endif %}
@@ -15,46 +39,36 @@
 <div {{ bem(carousel_base_class, carousel_modifiers, carousel_blockname) }}>
     <div id="{{ carousel_id }}" class="carousel__items splide"
         data-splide='{
-            "pagination": "{{ splide_pagination }}",
-            "arrows": "{{ splide_arrows }}",
-            "gap":"3rem",
-            "type":"loop",
-            "autoplay": "true",
+            "pagination": {{ splide_pagination == false  ? 'false' : 'true' }},
+            "type": "{{ loop == false  ? "default" : "loop" }}",
+            "arrows": {{ splide_arrows == false  ? 'false' : 'true' }},
+            "gap":"1.5rem",
             "perPage":{{ items_per_page|default(2) }},
+            "drag": {{ drag == false  ? 'false' : 'true' }},
+            "autoplay": {{ autoplay == false  ? 'false' : 'true' }},
+            "mediaQuery": "min",
             "breakpoints": {
-                "768": {
+                "0": {    
                     "perPage": 1
+                },
+                "768": {
+                    "perPage": {{items_per_page|default(2)}}
+                },
+                "960": {
+                    "destroy": {{ destroy == false  ? 'false' : 'true' }}
                 }
             }
         }'>
         <div class="splide__track">
             <ul class="splide__list">
                 {% block carousel_content %}
-                {% for item in items %}
-                <li class="splide__slide">
-                    {% include "themes/custom/liberty_public/templates/new-components/components/organisms/carousel/_carousel-item.twig" %}
-                </li>
-                {% endfor %}
+                    {% for item in items %}
+                        <li class="splide__slide">
+                            {% include "themes/custom/liberty_public/templates/new-components/components/organisms/carousel/_carousel-item.twig" %}
+                        </li>
+                    {% endfor %}
                 {% endblock %}
             </ul>
         </div>
-        {# <div class="splide__arrows splide__arrows--ltr">
-            <button
-                class="splide__arrow splide__arrow--prev"
-                type="button"
-                aria-label="Previous slide"
-                aria-controls="splide01-track"
-            >
-               <
-            </button>
-            <button
-                class="splide__arrow splide__arrow--next"
-                type="button"
-                aria-label="Next slide"
-                aria-controls="splide01-track"
-            >
-                >
-            </button>
-        </div> #}
     </div>
 </div>

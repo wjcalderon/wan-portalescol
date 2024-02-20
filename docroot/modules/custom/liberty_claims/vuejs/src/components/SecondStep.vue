@@ -141,19 +141,19 @@
         <div
           @click="updateVehicle('Liviano')"
           v-bind:class="{col: true, button: true, liviano: true, selected: casualtyData.vehicleType === 'Liviano'}">
-          <b>Liviano</b>
+          <strong>Liviano</strong>
           <p>Automovíl, camioneta, SUV's</p>
         </div>
         <div
           @click="updateVehicle('Pesado')"
           v-bind:class="{col: true, button: true, pesado: true, selected: casualtyData.vehicleType === 'Pesado'}">
-          <b>Pesado</b>
+          <strong>Pesado</strong>
           <p>Bus, camión, remolcador, furgon, volqueta, chasis</p>
         </div>
         <div
           @click="updateVehicle('Moto')"
           v-bind:class="{col: true, button: true, moto: true, selected: casualtyData.vehicleType === 'Moto'}">
-          <b>Moto</b>
+          <strong>Moto</strong>
           <p>Motocarro, motocicleta</p>
         </div>
       </div>

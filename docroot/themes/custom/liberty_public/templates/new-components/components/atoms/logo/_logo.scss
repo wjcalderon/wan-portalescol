@@ -1,220 +1,214 @@
-.logo{
-    display: block;
+.logo {
+  display: block;
 
-    @include medium{
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+  @include medium {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    width: 100%;
+    height: 3.5rem;
+  }
+
+  &__slogan {
+    .h2 {
+      &--slogan {
+        font-size: 1.25rem;
+        font-weight: 300;
+        font-style: italic;
+        color: clr(secondary);
+        line-height: 1.6rem;
+        padding-left: 5.375rem;
+        margin-left: 6rem;
+        border-left: none;
+        margin-top: -50px;
+
+        @include medium {
+          font-size: 1.8rem;
+          font-weight: 300;
+          font-style: italic;
+          color: clr(secondary);
+          line-height: 3.43rem;
+          padding-left: 1.375rem;
+          margin-left: 1.375rem;
+          border-left: 1px solid $white;
+          margin-top: initial;
+        }
+      }
+    }
+  }
+
+  &__iso,
+  &__vertical {
+    display: none;
+  }
+
+  &--50 {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    .logo__iso {
+      display: none;
+
+      .icon {
+        width: 6rem;
+        height: 6rem;
+      }
     }
 
-    .icon{
+    .logo__50 {
+      display: block;
+      border-left: 1px solid $white;
+      padding: 0 1rem;
+    }
+
+    .logo__vertical {
+      display: block;
+      padding: 0 1rem;
+    }
+
+    .logo__logo {
+      display: none;
+    }
+
+    .logo__slogan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      border: none;
+      margin-top: 10px;
+
+      .h2--slogan {
+        color: $white;
+        border: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &--iso {
+    .logo__iso {
+      display: block;
+    }
+
+    .logo__50 {
+      display: none;
+    }
+
+    .logo__logo {
+      display: none;
+    }
+
+    .logo__slogan {
+      display: none;
+    }
+  }
+
+  &--vertical {
+    .logo__vertical {
+      display: block;
+    }
+
+    .logo__50 {
+      display: none;
+    }
+
+    .logo__logo {
+      display: none;
+    }
+
+    .logo__slogan {
+      display: none;
+    }
+  }
+
+  &--no-slogan {
+    .logo__slogan {
+      display: none;
+    }
+
+    .logo__50 {
+      display: none;
+    }
+  }
+
+  &--slogan-label {
+    .logo__slogan h2 {
+      font-size: 0.825rem;
+      color: $white;
+      font-style: normal;
+      text-decoration: none;
+      line-height: 2rem;
+      letter-spacing: 1px;
+      font-weight: normal;
+      margin-left: 3rem;
+      margin-bottom: 5px;
+
+      @include medium {
+        margin-left: 1.5rem;
+      }
+    }
+
+    .logo__50 {
+      display: none;
+    }
+
+    .logo__logo {
+      display: none;
+    }
+
+    .logo__iso {
+      display: block;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    @include medium {
+      .logo__logo {
+        display: block;
+      }
+
+      .logo__50 {
+        display: none;
+      }
+
+      .logo__iso {
+        display: none;
+      }
+
+      .icon {
         width: 100%;
         height: 3.5rem;
+      }
+    }
+  }
+
+  &--blue {
+    svg {
+      fill: clr(primary);
     }
 
-    &__slogan{
-
-        .h2{
-
-            &--slogan{
-                font-size: 1.25rem;
-                font-weight: 300;
-                font-style: italic;
-                color: clr(secondary);
-                line-height: 1.6rem;
-                padding-left: 5.375rem;
-                margin-left: 6rem;
-                border-left: none;
-                margin-top: -50px;
-
-                @include medium{
-                    font-size: 1.8rem;
-                    font-weight: 300;
-                    font-style: italic;
-                    color: clr(secondary);
-                    line-height: 3.43rem;
-                    padding-left: 1.375rem;
-                    margin-left: 1.375rem;
-                    border-left: 1px solid $white;
-                    margin-top: initial;
-                }
-            }
-        }
+    .logo__slogan h2 {
+      color: clr(primary);
+      border-left-color: clr(primary);
     }
+  }
 
-    &__iso, &__vertical{
-        display: none;
+  &--white {
+    svg {
+      fill: $white;
     }
+  }
 
-
-
-    &--50{
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-
-        .logo__iso{
-            display: none;
-
-            .icon{
-                width: 6rem;
-                height: 6rem;
-            }
-        }
-
-        .logo__50{
-            display: block;
-            border-left: 1px solid $white;
-            padding: 0 1rem;
-        }
-
-        .logo__vertical{
-            display: block;
-            padding: 0 1rem;
-        }
-
-        .logo__logo{
-            display: none;
-        }
-
-        .logo__slogan{
-            display: block;
-            width: 100%;
-            text-align: center;
-            border: none;
-            margin-top: 10px;
-
-            .h2--slogan{
-                color: $white;
-                border: none;
-                margin: 0;
-                padding: 0;
-                font-size: 1.5rem;
-            }
-
-        }
-    }
-
-    &--iso{
-        .logo__iso{
-            display: block;
-        }
-
-        .logo__50{
-            display: none;
-        }
-
-        .logo__logo{
-            display: none;
-        }
-
-        .logo__slogan{
-            display: none;
-        }
-    }
-
-
-    &--vertical{
-        .logo__vertical{
-            display: block;
-        }
-
-        .logo__50{
-            display: none;
-        }
-
-        .logo__logo{
-            display: none;
-        }
-
-        .logo__slogan{
-            display: none;
-        }
-    }
-
-    &--no-slogan{
-        .logo__slogan{
-            display: none;
-        }
-
-        .logo__50{
-            display: none;
-        }
-    }
-
-    &--slogan-label{
-        .logo__slogan h2{
-            font-size: 0.825rem;
-            font-weight:400;
-            color: $white;
-            font-style: normal;
-            text-decoration: none;
-            line-height: 2rem;
-            letter-spacing: 1px;
-            font-weight: normal;
-            margin-left: 3rem;
-            margin-bottom: 5px;
-
-            @include medium{
-                margin-left: 1.5rem;
-            }
-        }
-
-        .logo__50{
-            display: none;
-        }
-
-        .logo__logo{
-            display: none;
-        }
-
-        .logo__iso{
-            display: block;
-        }
-
-        .icon {
-            width: 50px;
-            height: 50px;
-        }
-
-        @include medium{
-            .logo__logo{
-                display: block;
-            }
-
-            .logo__50{
-                display: none;
-            }
-
-            .logo__iso{
-                display: none;
-            }
-
-            .icon {
-                width: 100%;
-                height: 3.5rem;
-            }
-        }
-    }
-
-    &--blue{
-        svg{
-            fill: clr(primary);
-        }
-
-        .logo__slogan h2{
-            color: clr(primary);
-            border-left-color: clr(primary);
-        }
-    }
-
-    &--white{
-        svg{
-            fill: $white;
-        }
-    }
-
-    &-link{
-        text-decoration: none;
-    }
+  &-link {
+    text-decoration: none;
+  }
 }

@@ -39,14 +39,14 @@ class LibNewsController extends ControllerBase {
     $body = json_decode($request->getContent());
 
     $timezone = drupal_get_user_timezone();
-    $timezoneObject = new \DateTimeZone($timezone);
-    $date = \DateTime::createFromFormat('d-m-Y G:i:s', $body->date, $timezoneObject);
+    $timezone_object = new \DateTimeZone($timezone);
+    $date = \DateTime::createFromFormat('d-m-Y G:i:s', $body->date, $timezone_object);
     $time = $date->getTimestamp();
 
-    $formattedDate = \Drupal::service('date.formatter')->format($time, 'custom', 'd/M/Y');
+    $formatted_date = \Drupal::service('date.formatter')->format($time, 'custom', 'd/M/Y');
 
     $response = [
-      'formatted_date' => $formattedDate,
+      'formatted_date' => $formatted_date,
     ];
 
     return new JsonResponse($response);

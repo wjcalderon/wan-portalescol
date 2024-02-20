@@ -4,6 +4,7 @@ namespace Drupal\lib_core\Controller;
 
 use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Controller\ControllerBase;
+use Guzzle\Http\Exception\RequestException;
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -47,14 +48,13 @@ class LibCoreController extends ControllerBase {
    */
   public function webformRestPost(string $webform_id, array $values) {
     $config = \Drupal::config('lib_core.environmentvars.settings');
-
-    $base_uri = \Drupal::request()->getHost();
-    $client = new Client([
-      'base_uri' => 'https://' . $base_uri,
-      'verify' => FALSE,
-    ]);
-
     try {
+      $base_uri = \Drupal::request()->getHost();
+      $client = new Client([
+        'base_uri' => 'https://' . $base_uri,
+        'verify' => FALSE,
+      ]);
+
       $csrfToken = $client->get('/session/token', [
         'headers' => ['Content-Type' => "application/json"],
         'verify' => FALSE,
@@ -64,7 +64,6 @@ class LibCoreController extends ControllerBase {
       foreach ($values as $k => $v) {
         $new_values[strtolower($k)] = $v;
       }
-
       $new_values['webform_id'] = $webform_id;
       $new_values['entity_type'] = NULL;
       $new_values['entity_id'] = NULL;
@@ -83,11 +82,10 @@ class LibCoreController extends ControllerBase {
         'verify' => FALSE,
       ];
 
-      // Post to webform.
       $client->post(
-          '/webform_rest/submit?_format=json',
-          $body,
-          $options
+        '/webform_rest/submit?_format=json',
+        $body,
+        $options
       );
 
       // Id from environment.
@@ -122,6 +120,7 @@ class LibCoreController extends ControllerBase {
       if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
         $values_env["orgid"] = $config->get('PQRorgId') ?? '';
         $values_env["debugEmail"] = $values['debugEmail'];
+        $values_env["debug"] = $values['debug'];
       }
 
       $values_env[$pqrRegistroWebToCase] = $values[$pqrRegistroWebToCase];
@@ -162,10 +161,13 @@ class LibCoreController extends ControllerBase {
 
       $sfUrl = $config->get('ENDPOINT_SALESFORCE') ?? '';
 
-      \Drupal::logger('lib_pqr')->error(json_encode($sfUrl));
-      \Drupal::logger('lib_pqr')->error(json_encode($values_env));
+      \Drupal::logger('lib_pqr')->notice(json_encode($sfUrl));
+      \Drupal::logger('lib_pqr')->notice(json_encode($values_env));
 
       try {
+        $client = new Client([
+          'verify' => FALSE,
+        ]);
         $sf = $client->request(
           'POST',
           $sfUrl,
@@ -177,12 +179,13 @@ class LibCoreController extends ControllerBase {
             'verify' => FALSE,
           ]
         );
+        $response = $sf->getBody()->getContents();
+        \Drupal::logger('lib_pqr')->notice($response);
       }
       catch (\Exception $e) {
         \Drupal::logger('lib_pqr')->error(json_encode($sf));
       }
 
-      // Redirect back to the specified URL after form submission.
       $response = new RedirectResponse($values['retURL']);
       return $response->send();
 

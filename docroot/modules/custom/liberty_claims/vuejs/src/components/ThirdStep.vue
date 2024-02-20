@@ -324,8 +324,8 @@
             tabindex="10"
           />
           <span class="ayudas lh-normal"
-            >*Es importante que registres la dirección exacta en donde ocurrió el
-            siniestro</span
+            >*Es importante que registres la dirección exacta en donde ocurrió
+            el siniestro</span
           >
         </float-label>
         <div
@@ -823,7 +823,7 @@
           v-bind:key="option"
           v-bind:value="index"
         >
-          <i class="icon mdi mdi-check" slot="extra"></i>
+          <em class="icon mdi mdi-check" slot="extra"></em>
           {{ option }}
         </p-check>
       </div>
@@ -1036,7 +1036,7 @@ export default {
         return {
           url: "/claim/files/" + this.userData.documentId + "/save",
           thumbnailWidth: 150,
-          acceptedFiles: "image/jpeg, application/pdf",
+          acceptedFiles: "image/jpeg,application/pdf",
           addRemoveLinks: true,
           capture: false,
           /*resizeWidth: 600,

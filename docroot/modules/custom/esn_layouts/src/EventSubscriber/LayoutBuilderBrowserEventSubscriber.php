@@ -31,39 +31,74 @@ class LayoutBuilderBrowserEventSubscriber implements EventSubscriberInterface {
     $route = $request->attributes->get('_route');
 
     if ($route == 'layout_builder.choose_block') {
-      $build['#attached']['library'][] = 'esn_layouts/core';
       $build = $event->getControllerResult();
+      $build['#attached']['library'][] = 'esn_layouts/core';
+
       if (is_array($build) && !isset($build['add_block'])) {
-        $build['block_categories']['#type'] = 'horizontal_tabs';
-        foreach (Element::children($build['block_categories']) as $child) {
-          foreach (Element::children(
-                $build['block_categories'][$child]['links']
-            ) as $link_id) {
-            $link = &$build['block_categories'][$child]['links'][$link_id];
-            $link['#attributes']['class'][] = 'ws-lb-link';
-            $link['#title']['image']['#theme'] = 'esn_layouts_icon';
-            $link['#title']['image']['#icon_type'] = 'block';
-            $link['#title']['label']['#markup'] = '<div class="ws-lb-link__label">' . $link['#title']['label']['#markup'] . '</div>';
-            if (($key = array_search(
-                  'layout-builder-browser-block-item',
-                  $link['#attributes']['class']
-              )) !== FALSE) {
-              unset($link['#attributes']['class'][$key]);
-            }
-          }
-        }
-
-        if (($key = array_search(
-              'layout-builder-browser',
-              $build['block_categories']['#attributes']['class']
-          )) !== FALSE) {
-          unset($build['block_categories']['#attributes']['class'][$key]);
-        }
-
-        $build['block_categories']['#attributes']['class'][] = 'ws-lb';
+        $build = $this->modifyBlockCategories($build);
         $event->setControllerResult($build);
       }
     }
+  }
+
+  /**
+   * Function custom.
+   */
+  private function modifyBlockCategories(array $build): array {
+    $build['block_categories']['#type'] = 'horizontal_tabs';
+
+    foreach (Element::children($build['block_categories']) as $child) {
+      $this->modifyLinks($build['block_categories'][$child]['links']);
+    }
+
+    $this->removeUnwantedAttributes($build);
+
+    return $build;
+  }
+
+  /**
+   * Function custom.
+   */
+  private function modifyLinks(array &$links): void {
+    foreach (Element::children($links) as $link_id) {
+      $link = &$links[$link_id];
+      $this->updateLinkAttributes($link);
+    }
+  }
+
+  /**
+   * Function custom.
+   */
+  private function updateLinkAttributes(array &$link): void {
+    $link['#attributes']['class'][] = 'ws-lb-link';
+    $link['#title']['image']['#theme'] = 'esn_layouts_icon';
+    $link['#title']['image']['#icon_type'] = 'block';
+    $link['#title']['label']['#markup'] = '<div class="ws-lb-link__label">' .
+        $link['#title']['label']['#markup'] . '</div>';
+
+    $this->removeUnwantedClass($link);
+  }
+
+  /**
+   * Function custom.
+   */
+  private function removeUnwantedClass(array &$element): void {
+    $class_key = array_search('layout-builder-browser-block-item', $element['#attributes']['class']);
+    if ($class_key !== FALSE) {
+      unset($element['#attributes']['class'][$class_key]);
+    }
+  }
+
+  /**
+   * Function custom.
+   */
+  private function removeUnwantedAttributes(array &$build): void {
+    $class_key = array_search('layout-builder-browser', $build['block_categories']['#attributes']['class']);
+    if ($class_key !== FALSE) {
+      unset($build['block_categories']['#attributes']['class'][$class_key]);
+    }
+
+    $build['block_categories']['#attributes']['class'][] = 'ws-lb';
   }
 
   /**

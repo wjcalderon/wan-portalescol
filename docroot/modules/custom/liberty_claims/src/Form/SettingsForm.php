@@ -159,7 +159,7 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Client_secret (Mutual)'),
       '#maxlength' => 64,
       '#size' => 64,
-      '#default_value' => $config->get('test')['client_secret'],
+      '#default_value' => $config->get('live')['client_secret'],
     ];
 
     $form['endpoint_settings']['live']['token_uri'] = [

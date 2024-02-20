@@ -4,7 +4,7 @@ payment-methods:
     component:
       css/lib_core.css: {}
   js:
-    js/lib_core.js: {}
+    js/lib_payment.js: {}
 
 sinister_notice:
   version: 9.5.102
@@ -20,3 +20,8 @@ pqr_version_new:
     js/lib_core_pqr.js: {}
   dependencies:
     - core/drupal.message
+
+lib_core:
+  version: VERSION
+  js:
+    js/lib_core.js: {}

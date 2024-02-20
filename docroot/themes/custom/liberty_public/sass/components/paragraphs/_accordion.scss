@@ -79,7 +79,6 @@
   .option:last-child {
     @media screen and (max-width: $small-max) {
       border-bottom-style: none;
-      margin-bottom: 1rem;
       margin: 1rem 0;
     }
   }

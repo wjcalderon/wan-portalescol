@@ -187,7 +187,7 @@
       <img v-bind:src="carImage" alt="Daños en el vehículo" />
       <p-check color="primary-o" class="p-default p-round p-thick" v-model="casualtyData.damages"
         v-for="option in damages" v-bind:key="option" v-bind:value="option">
-        <i class="icon mdi mdi-check" slot="extra"></i>
+        <em class="icon mdi mdi-check" slot="extra"></em>
         {{ option }}
       </p-check>
     </div>

@@ -1,211 +1,215 @@
 .introjs-overlay {
-    position: absolute;
-    box-sizing: content-box;
-    z-index: 999999;
-    background-color: #1a1446;
-    opacity: 0;
-    filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000',endColorstr='#e6000000',GradientType=1)";
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=50);
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 999999;
+  background-color: #1a1446;
+  opacity: 0;
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000',endColorstr='#e6000000',GradientType=1)";
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .introjs-fixParent {
-    /* z-index: auto !important; */
-    opacity: 1.0 !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
-    transform: none !important;
+  /* z-index: auto !important; */
+  opacity: 1 !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform: none !important;
 }
 
 .introjs-showElement,
-tr.introjs-showElement>td,
-tr.introjs-showElement>th {
-    z-index: 9999999 !important;
+tr.introjs-showElement > td,
+tr.introjs-showElement > th {
+  z-index: 9999999 !important;
 }
 
 .introjs-disableInteraction {
-    z-index: 99999999 !important;
-    position: absolute;
-    background-color: white;
-    opacity: 0;
-    filter: alpha(opacity=0);
+  z-index: 99999999 !important;
+  position: absolute;
+  background-color: white;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 .introjs-relativePosition,
-tr.introjs-showElement>td,
-tr.introjs-showElement>th {
-    position: relative;
+tr.introjs-showElement > td,
+tr.introjs-showElement > th {
+  position: relative;
 }
 
 .introjs-helperLayer {
-    box-sizing: content-box;
-    position: absolute;
-    z-index: 9999998;
-    border: 1px solid #777;
-    border: 1px solid rgba(0, 0, 0, .5);
-    border-radius: 4px;
-    box-shadow: 0 2px 15px rgba(255, 255, 255, .4);
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+  box-sizing: content-box;
+  position: absolute;
+  z-index: 9999998;
+  border: 1px solid #777;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  box-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .introjs-tooltipReferenceLayer {
-    box-sizing: content-box;
-    position: absolute;
-    visibility: hidden;
-    z-index: 100000000;
-    background-color: transparent;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+  box-sizing: content-box;
+  position: absolute;
+  visibility: hidden;
+  z-index: 100000000;
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .introjs-helperLayer *,
 .introjs-helperLayer *:before,
 .introjs-helperLayer *:after {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -ms-box-sizing: content-box;
-    -o-box-sizing: content-box;
-    box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .introjs-helperNumberLayer {
-    display: none;
-    box-sizing: content-box;
-    position: absolute;
-    visibility: visible;
-    top: -16px;
-    left: -16px;
-    z-index: 9999999999 !important;
-    padding: 2px;
-    font-family: Arial, verdana, tahoma;
-    font-size: 13px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-    background: #ff3019;
-    /* Old browsers */
-    background: -webkit-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff3019), color-stop(100%, #cf0404));
-    /* Chrome,Safari4+ */
-    background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-    /* FF3.6+ */
-    background: -ms-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-    /* IE10+ */
-    background: -o-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-    /* Opera 11.10+ */
-    background: linear-gradient(to bottom, #ff3019 0%, #cf0404 100%);
-    /* W3C */
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    border: 3px solid white;
-    border-radius: 50%;
-    filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3019', endColorstr='#cf0404', GradientType=0)";
-    /* IE6-9 */
-    filter: "progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000)";
-    /* IE10 text shadows */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+  display: none;
+  box-sizing: content-box;
+  position: absolute;
+  visibility: visible;
+  top: -16px;
+  left: -16px;
+  z-index: 9999999999 !important;
+  padding: 2px;
+  font-family: Arial, verdana, tahoma, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  background: #ff3019;
+  /* Old browsers */
+  background: -webkit-linear-gradient(top, #ff3019 0%, #cf0404 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ff3019),
+    color-stop(100%, #cf0404)
+  );
+  /* Chrome,Safari4+ */
+  background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
+  /* FF3.6+ */
+  background: -ms-linear-gradient(top, #ff3019 0%, #cf0404 100%);
+  /* IE10+ */
+  background: -o-linear-gradient(top, #ff3019 0%, #cf0404 100%);
+  /* Opera 11.10+ */
+  background: linear-gradient(to bottom, #ff3019 0%, #cf0404 100%);
+  /* W3C */
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border: 3px solid white;
+  border-radius: 50%;
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3019', endColorstr='#cf0404', GradientType=0)";
+  /* IE6-9 */
+  filter: "progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000)";
+  /* IE10 text shadows */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .introjs-arrow {
-    content: " ";
-    position: absolute;
-    background-image: url(../../../images/icons/arrow-onboard-l.svg);
-    background-image: 70px;
-    background-repeat: no-repeat;
-    width: 70px;
-    height: 70px;
+  content: " ";
+  position: absolute;
+  background-image: url(../../../images/icons/arrow-onboard-l.svg);
+  background-image: 70px;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
 }
 
 .introjs-arrow.top {
-    top: -10px;
-    border-bottom-color: white;
+  top: -10px;
+  border-bottom-color: white;
 }
 
 .introjs-arrow.top-right {
-    top: -10px;
-    right: -70px;
-    background-image: url(../../../images/icons/arrow-onboard-r.svg);
+  top: -10px;
+  right: -70px;
+  background-image: url(../../../images/icons/arrow-onboard-r.svg);
 }
 
 .introjs-arrow.top-middle {
-    top: -10px;
-    left: 50%;
-    margin-left: -5px;
-    border-bottom-color: white;
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-color: white;
 }
 
 .introjs-top-left-aligned {
-    margin-bottom: 45px;
+  margin-bottom: 45px;
 }
 
 .introjs-top-left-aligned .bottom {
-    background-image: url(../../../images/icons/arrow-onboard-bl.svg);
-    margin-bottom: -40px;
+  background-image: url(../../../images/icons/arrow-onboard-bl.svg);
+  margin-bottom: -40px;
 }
 
 .introjs-arrow.right {
-    right: -10px;
-    top: 10px;
-    border-left-color: white;
+  right: -10px;
+  top: 10px;
+  border-left-color: white;
 }
 
 .introjs-arrow.right-bottom {
-    bottom: 10px;
-    right: -10px;
-    border-left-color: white;
+  bottom: 10px;
+  right: -10px;
+  border-left-color: white;
 }
 
 .introjs-arrow.bottom {
-    bottom: -10px;
-    border-top-color: white;
+  bottom: -10px;
+  border-top-color: white;
 }
 
 .introjs-arrow.bottom-right {
-    bottom: -10px;
-    right: 10px;
-    background-image: url(../../../images/icons/arrow-onboard-br.svg);
+  bottom: -10px;
+  right: 10px;
+  background-image: url(../../../images/icons/arrow-onboard-br.svg);
 }
 
 .introjs-arrow.bottom-middle {
-    bottom: -10px;
-    left: 50%;
-    margin-left: -5px;
-    border-top-color: white;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: white;
 }
 
 .introjs-arrow.left {
-    top: 0;
-    left: -80px;
-    border-right-color: white;
+  top: 0;
+  left: -80px;
+  border-right-color: white;
 }
 
 .introjs-arrow.left-bottom {
-    top: -10px;
-    left: -80px;
+  top: -10px;
+  left: -80px;
 }
 
 .introjs-bottom-left-aligned .top {
-    top: -10px;
-    left: -70px;
+  top: -10px;
+  left: -70px;
 }
-
 
 /*.introjs-tooltip.introjs-bottom-left-aligned:before{
   content: " ";
@@ -220,66 +224,65 @@ tr.introjs-showElement>th {
 }*/
 
 .introjs-tooltip.introjs-bottom-left-aligned {
-    margin-left: 70px;
+  margin-left: 70px;
 }
 
 .introjs-tooltip.introjs-bottom-right-aligned {
-    margin-right: 70px;
+  margin-right: 70px;
 }
 
 .introjs-tooltip {
-    box-sizing: content-box;
-    position: absolute;
-    visibility: visible;
-    padding: 10px;
-    color: #fff;
-    font-size: 34px;
-    width: calc(500px + 95px);
-    text-align: center;
-    min-width: 200px;
-    border-radius: 3px;
-    line-height: 40px;
-    -webkit-transition: opacity 0.1s ease-out;
-    -moz-transition: opacity 0.1s ease-out;
-    -ms-transition: opacity 0.1s ease-out;
-    -o-transition: opacity 0.1s ease-out;
-    transition: opacity 0.1s ease-out;
+  box-sizing: content-box;
+  position: absolute;
+  visibility: visible;
+  padding: 10px;
+  color: #fff;
+  font-size: 34px;
+  width: calc(500px + 95px);
+  text-align: center;
+  min-width: 200px;
+  border-radius: 3px;
+  line-height: 40px;
+  -webkit-transition: opacity 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out;
+  -ms-transition: opacity 0.1s ease-out;
+  -o-transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
 }
 
 .introjs-tooltip span {
-    color: #ffd000;
+  color: #ffd000;
 }
 
 .introjs-tooltipbuttons {
-    text-align: center;
-    white-space: nowrap;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .menu-burguer {
-    background-color: #ffd000;
-    width: 35px!important;
-    height: 35px!important;
-    border-radius: 50%;
-    margin-top: -3px;
-    margin-left: -3px;
+  background-color: #ffd000;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50%;
+  margin-top: -3px;
+  margin-left: -3px;
 }
 
 .menu-help-mobile {
-    box-shadow: 0 2px 10px 0 rgba(26, 20, 70, 0.3);
-    background-color: #28a3af;
-    border-color: #28a3af;
-    color: #ffffff;
-    margin-bottom: 0;
-    background-image: url(../../../images/icons/icon-ayudas-popup.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 24px;
-    padding-left: 1rem;
-    border-radius: 50%;
-    width: 40px!important;
-    height: 55px!important;
+  box-shadow: 0 2px 10px 0 rgba(26, 20, 70, 0.3);
+  background-color: #28a3af;
+  border-color: #28a3af;
+  color: #ffffff;
+  margin-bottom: 0;
+  background-image: url(../../../images/icons/icon-ayudas-popup.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  padding-left: 1rem;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 55px !important;
 }
-
 
 /*
  Buttons style by http://nicolasgallagher.com/lab/css3-github-buttons/
@@ -287,470 +290,468 @@ tr.introjs-showElement>th {
 */
 
 .introjs-button {
-    box-sizing: content-box;
-    position: relative;
-    overflow: visible;
-    display: inline-block;
-    padding: 0.3em 0.8em;
-    border: 1px solid #1a1446;
-    margin: 0;
-    text-decoration: none;
-    font: 14px/normal sans-serif;
-    color: #fff;
-    white-space: nowrap;
-    cursor: pointer;
-    outline: none;
-    background-color: #1a1446;
-    -webkit-background-clip: padding;
-    -moz-background-clip: padding;
-    -o-background-clip: padding-box;
-    /*background-clip: padding-box;*/
-    /* commented out due to Opera 11.10 bug */
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    /* IE hacks */
-    zoom: 1;
-    *display: inline;
-    margin-top: 10px;
+  box-sizing: content-box;
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border: 1px solid #1a1446;
+  margin: 0;
+  text-decoration: none;
+  font: 14px / normal sans-serif;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  background-color: #1a1446;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  /*background-clip: padding-box;*/
+  /* commented out due to Opera 11.10 bug */
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  /* IE hacks */
+  zoom: 1;
+  margin-top: 10px;
 }
 
 .introjs-button:hover {
-    text-decoration: none;
-    box-shadow: nonee;
+  text-decoration: none;
+  box-shadow: nonee;
 }
 
 .introjs-button:focus,
 .introjs-button:active {
-    background-color: #1a1446;
+  background-color: #1a1446;
 }
-
 
 /* overrides extra padding on button elements in Firefox */
 
 .introjs-button::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
 }
 
 .introjs-skipbutton {
-    position: absolute;
-    bottom: -40px;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 0;
-    border: none;
-    left: 50%;
-    transform: translateX(-50%);
-    background-image: url(../../../images/icons/icon-x-ob.svg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 14px;
-    padding-right: 1.5rem;
+  position: absolute;
+  bottom: -40px;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../../../images/icons/icon-x-ob.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px;
+  padding-right: 1.5rem;
 }
 
 .introjs-nextbutton {
-    background-image: url(../../../images/icons/icon-fle-ob.svg);
-    padding: 7px 12px;
-    padding-right: 1.5rem;
-    background-repeat: no-repeat;
-    background-position: 90% center;
-    background-size: 7px;
-    border-radius: 4px!important;
+  background-image: url(../../../images/icons/icon-fle-ob.svg);
+  padding: 7px 12px;
+  padding-right: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  background-size: 7px;
+  border-radius: 4px !important;
 }
 
 .introjs-prevbutton {
-    -webkit-border-radius: 0.2em 0 0 0.2em;
-    -moz-border-radius: 0.2em 0 0 0.2em;
-    border-radius: 0.2em 0 0 0.2em;
-    border-right: none;
+  -webkit-border-radius: 0.2em 0 0 0.2em;
+  -moz-border-radius: 0.2em 0 0 0.2em;
+  border-radius: 0.2em 0 0 0.2em;
+  border-right: none;
 }
 
 .introjs-prevbutton {
-    display: none;
+  display: none;
 }
 
 .introjs-nextbutton:focus {
-    border: none;
-    outline-style: none;
+  border: none;
+  outline-style: none;
 }
 
 .introjs-donebutton {
-    outline-style: none!important;
-    background-color: transparent!important;
+  outline-style: none !important;
+  background-color: transparent !important;
 }
 
 .introjs-prevbutton.introjs-fullbutton {
-    border: 1px solid #d4d4d4;
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
 }
 
 .introjs-nextbutton {
-    -webkit-border-radius: 0 0.2em 0.2em 0;
-    -moz-border-radius: 0 0.2em 0.2em 0;
-    border-radius: 0 0.2em 0.2em 0;
+  -webkit-border-radius: 0 0.2em 0.2em 0;
+  -moz-border-radius: 0 0.2em 0.2em 0;
+  border-radius: 0 0.2em 0.2em 0;
 }
 
 .introjs-nextbutton.introjs-fullbutton {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
 }
 
 .introjs-disabled,
 .introjs-disabled:hover,
 .introjs-disabled:focus {
-    color: #999;
-    border-color: #1a1446;
-    box-shadow: none;
-    cursor: default;
-    background-color: #1a1446;
-    background-image: none;
-    text-decoration: none;
-    border: none;
+  color: #999;
+  border-color: #1a1446;
+  box-shadow: none;
+  cursor: default;
+  background-color: #1a1446;
+  background-image: none;
+  text-decoration: none;
+  border: none;
 }
 
 .introjs-disabled {
-    display: none;
+  display: none;
 }
 
 .abierto #navigation-mb {
-    z-index: 1111!important;
+  z-index: 1111 !important;
 }
 
 .nuestros-produc,
 .acerca-mb,
 .zona-client,
 .tepaso-algo {
-    background-color: #f2f2f2;
-    background-image: url(../../../images/icons/add.svg);
-    background-repeat: no-repeat;
-    background-position: 95% center;
-    background-size: 12px;
+  background-color: #f2f2f2;
+  background-image: url(../../../images/icons/add.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  background-size: 12px;
 }
 
 .pagos-ob {
-    background-color: #ffd000;
-    background-image: url(../../../images/icons/add.svg);
-    background-repeat: no-repeat;
-    background-position: 95% center;
-    background-size: 12px;
-    border-left: 2px solid #f00;
+  background-color: #ffd000;
+  background-image: url(../../../images/icons/add.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  background-size: 12px;
+  border-left: 2px solid #f00;
 }
 
 .nuestros-produc:before {
-    left: 20px;
-    content: "Nuestros productos";
-    position: absolute;
-    top: 19px;
-    font-weight: bold;
+  left: 20px;
+  content: "Nuestros productos";
+  position: absolute;
+  top: 19px;
+  font-weight: bold;
 }
 
 .acerca-mb:before {
-    left: 20px;
-    content: "Acerca de Liberty";
-    position: absolute;
-    top: 19px;
-    font-weight: bold;
+  left: 20px;
+  content: "Acerca de Liberty";
+  position: absolute;
+  top: 19px;
+  font-weight: bold;
 }
 
 .zona-client:before {
-    left: 20px;
-    content: "Zona cliente";
-    position: absolute;
-    top: 19px;
-    font-weight: bold;
+  left: 20px;
+  content: "Zona cliente";
+  position: absolute;
+  top: 19px;
+  font-weight: bold;
 }
 
 .tepaso-algo:before {
-    left: 20px;
-    content: "¿Te pasó algo?";
-    position: absolute;
-    top: 19px;
-    font-weight: bold;
+  left: 20px;
+  content: "¿Te pasó algo?";
+  position: absolute;
+  top: 19px;
+  font-weight: bold;
 }
 
 .pagos-ob:before {
-    left: 20px;
-    content: "Pagar";
-    position: absolute;
-    top: 19px;
-    font-weight: bold;
+  left: 20px;
+  content: "Pagar";
+  position: absolute;
+  top: 19px;
+  font-weight: bold;
 }
 
 .introjs-hidden {
-    display: none;
+  display: none;
 }
 
 .introjs-bullets {
-    text-align: center;
+  text-align: center;
 }
 
 .introjs-bullets ul {
-    box-sizing: content-box;
-    clear: both;
-    margin: 15px auto 0;
-    padding: 0;
-    display: inline-block;
+  box-sizing: content-box;
+  clear: both;
+  margin: 15px auto 0;
+  padding: 0;
+  display: inline-block;
 }
 
 .introjs-bullets ul li {
-    box-sizing: content-box;
-    list-style: none;
-    float: left;
-    margin: 0 2px;
+  box-sizing: content-box;
+  list-style: none;
+  float: left;
+  margin: 0 2px;
 }
 
 .introjs-bullets ul li a {
-    box-sizing: content-box;
-    display: block;
-    width: 6px;
-    height: 6px;
-    background: #ccc;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    text-decoration: none;
-    cursor: pointer;
+  box-sizing: content-box;
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .introjs-bullets ul li a:hover {
-    background: #999;
+  background: #999;
 }
 
 .introjs-bullets ul li a.active {
-    background: #999;
+  background: #999;
 }
 
 .introjs-progress {
-    box-sizing: content-box;
-    overflow: hidden;
-    height: 10px;
-    margin: 10px 0 5px 0;
-    border-radius: 4px;
-    background-color: #ecf0f1
+  box-sizing: content-box;
+  overflow: hidden;
+  height: 10px;
+  margin: 10px 0 5px 0;
+  border-radius: 4px;
+  background-color: #ecf0f1;
 }
 
 .introjs-progressbar {
-    box-sizing: content-box;
-    float: left;
-    width: 0%;
-    height: 100%;
-    font-size: 10px;
-    line-height: 10px;
-    text-align: center;
-    background-color: #08c;
+  box-sizing: content-box;
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  background-color: #08c;
 }
 
 .introjsFloatingElement {
-    position: absolute;
-    height: 0;
-    width: 0;
-    left: 50%;
-    top: 50%;
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: 50%;
+  top: 50%;
 }
 
 .introjs-fixedTooltip {
-    position: fixed;
+  position: fixed;
 }
 
 .introjs-hint {
-    box-sizing: content-box;
-    position: absolute;
-    background: transparent;
-    width: 20px;
-    height: 15px;
-    cursor: pointer;
+  box-sizing: content-box;
+  position: absolute;
+  background: transparent;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
 }
 
 .introjs-hint:focus {
-    border: 0;
-    outline: 0;
+  border: 0;
+  outline: 0;
 }
 
 .introjs-hidehint {
-    display: none;
+  display: none;
 }
 
 .introjs-fixedhint {
-    position: fixed;
+  position: fixed;
 }
 
-.introjs-hint:hover>.introjs-hint-pulse {
-    border: 5px solid rgba(60, 60, 60, 0.57);
+.introjs-hint:hover > .introjs-hint-pulse {
+  border: 5px solid rgba(60, 60, 60, 0.57);
 }
 
 .introjs-hint-pulse {
-    box-sizing: content-box;
-    width: 10px;
-    height: 10px;
-    border: 5px solid rgba(60, 60, 60, 0.27);
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    background-color: rgba(136, 136, 136, 0.24);
-    z-index: 10;
-    position: absolute;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
+  box-sizing: content-box;
+  width: 10px;
+  height: 10px;
+  border: 5px solid rgba(60, 60, 60, 0.27);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: rgba(136, 136, 136, 0.24);
+  z-index: 10;
+  position: absolute;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .introjs-hint-no-anim .introjs-hint-dot {
-    -webkit-animation: none;
-    -moz-animation: none;
-    animation: none;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
 }
 
 .introjs-hint-dot {
-    box-sizing: content-box;
-    border: 10px solid rgba(146, 146, 146, 0.36);
-    background: transparent;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    border-radius: 60px;
-    height: 50px;
-    width: 50px;
-    -webkit-animation: introjspulse 3s ease-out;
-    -moz-animation: introjspulse 3s ease-out;
-    animation: introjspulse 3s ease-out;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    position: absolute;
-    top: -25px;
-    left: -25px;
-    z-index: 1;
-    opacity: 0;
+  box-sizing: content-box;
+  border: 10px solid rgba(146, 146, 146, 0.36);
+  background: transparent;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+  height: 50px;
+  width: 50px;
+  -webkit-animation: introjspulse 3s ease-out;
+  -moz-animation: introjspulse 3s ease-out;
+  animation: introjspulse 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  z-index: 1;
+  opacity: 0;
 }
 
 .nuestros__productos {
-    background-color: #ffd000;
+  background-color: #ffd000;
 }
 
 .menu__help {
-    background-color: #28a3af;
-    background-image: url(../../../images/icons/icon-ayudas-popup.svg);
-    background-repeat: no-repeat;
-    background-position: 90% center;
-    background-size: 24px;
-    padding-left: 1rem;
-    height: 49px!important;
-    width: 193px!important;
+  background-color: #28a3af;
+  background-image: url(../../../images/icons/icon-ayudas-popup.svg);
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  background-size: 24px;
+  padding-left: 1rem;
+  height: 49px !important;
+  width: 193px !important;
 }
 
 .menu__help:before {
-    color: #fff;
-    content: "¿Necesitas ayuda?";
-    position: absolute;
-    left: 16px;
-    top: 11px;
-    font-weight: 600;
+  color: #fff;
+  content: "¿Necesitas ayuda?";
+  position: absolute;
+  left: 16px;
+  top: 11px;
+  font-weight: 600;
 }
 
 @-webkit-keyframes introjspulse {
-    0% {
-        -webkit-transform: scale(0);
-        opacity: 0.0;
-    }
-    25% {
-        -webkit-transform: scale(0);
-        opacity: 0.1;
-    }
-    50% {
-        -webkit-transform: scale(0.1);
-        opacity: 0.3;
-    }
-    75% {
-        -webkit-transform: scale(0.5);
-        opacity: 0.5;
-    }
-    100% {
-        -webkit-transform: scale(1);
-        opacity: 0.0;
-    }
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @-moz-keyframes introjspulse {
-    0% {
-        -moz-transform: scale(0);
-        opacity: 0.0;
-    }
-    25% {
-        -moz-transform: scale(0);
-        opacity: 0.1;
-    }
-    50% {
-        -moz-transform: scale(0.1);
-        opacity: 0.3;
-    }
-    75% {
-        -moz-transform: scale(0.5);
-        opacity: 0.5;
-    }
-    100% {
-        -moz-transform: scale(1);
-        opacity: 0.0;
-    }
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    -moz-transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    -moz-transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    -moz-transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    -moz-transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes introjspulse {
-    0% {
-        transform: scale(0);
-        opacity: 0.0;
-    }
-    25% {
-        transform: scale(0);
-        opacity: 0.1;
-    }
-    50% {
-        transform: scale(0.1);
-        opacity: 0.3;
-    }
-    75% {
-        transform: scale(0.5);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.0;
-    }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 600px) {
-    .introjs-tooltip {
-        width: 300px;
-        padding-bottom: 0;
-        margin-bottom: 35px;
-        line-height: 28px !important;
-    }
-    .introjs-bottom-left-aligned {
-        margin-left: 40px!important;
-    }
-    .introjs-bottom-left-aligned .top {
-        left: -40px!important;
-        background-size: 50px!important;
-    }
+  .introjs-tooltip {
+    width: 300px;
+    padding-bottom: 0;
+    margin-bottom: 35px;
+    line-height: 28px !important;
+  }
+  .introjs-bottom-left-aligned {
+    margin-left: 40px !important;
+  }
+  .introjs-bottom-left-aligned .top {
+    left: -40px !important;
+    background-size: 50px !important;
+  }
 }
 
 .introjs-top-middle-aligned {
-    right: 65px!important;
-    margin-left: -30px;
+  right: 65px !important;
+  margin-left: -30px;
 }
 
 .introjs-top-middle-aligned .bottom-middle {
-    right: -20px;
-    bottom: -24px;
-    left: auto!important;
-    background-image: url(../../../images/icons/arrow-onboard-br.svg)!important;
-    background-size: 50px!important;
+  right: -20px;
+  bottom: -24px;
+  left: auto !important;
+  background-image: url(../../../images/icons/arrow-onboard-br.svg) !important;
+  background-size: 50px !important;
 }
 
 .introjs-tooltip {
-    font-size: 27px;
-    line-height: 33px;
+  font-size: 27px;
+  line-height: 33px;
 }

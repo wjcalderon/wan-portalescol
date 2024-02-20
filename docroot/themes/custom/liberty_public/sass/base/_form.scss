@@ -168,15 +168,12 @@ main {
         display: none;
       }
       .select2-selection__rendered {
-        /*line-height: inherit;*/
         padding-top: 1rem;
       }
     }
   }
   textarea {
-    // line-height: 3.125rem;
     height: auto;
-    padding-top: 0.5rem;
     line-height: 1.5;
     padding-top: 2rem;
     @include browser(Trident) {
@@ -730,7 +727,6 @@ main {
         // position: relative;
         label {
           padding-left: 1rem;
-          margin-top: 2rem;
           margin-left: 0;
           margin-top: 0;
           width: 100%;
@@ -841,7 +837,6 @@ main {
       justify-content: center;
       position: relative;
       border-top: 2px solid $gris-tr;
-      padding-top: 1rem;
       align-items: center;
       padding: 2rem 0;
       @include breakpoint($small) {

@@ -1,59 +1,62 @@
-(($) => {
+(($, Drupal, drupalSettings) => {
   Drupal.behaviors.libertyFormValidations = {
     attach(context) {
-
       //add class input active form
-      $(function() {
-        if($("#form-prev").val().length == 0){
-          $("#form-prev").parent().prev().css({"background": "white"});
+      $(function () {
+        if ($("#form-prev").val().length == 0) {
+          $("#form-prev").parent().prev().css({ background: "white" });
         }
       });
-     
-      $(document).ready(function(){ 
-        $("#form-prev").focus(function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            $("#form-prev").parent().parent().addClass("active");
-            $("#form-prev").parent().prev().css({"background": ""});
+
+      $(document).ready(function () {
+        $("#form-prev").focus(function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $("#form-prev").parent().parent().addClass("active");
+          $("#form-prev").parent().prev().css({ background: "" });
         });
-        $("#edit-identification-number").focus(function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            $("#edit-identification-number").parent().addClass("active");
+        $("#edit-identification-number").focus(function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $("#edit-identification-number").parent().addClass("active");
         });
-        $("body").focus(function(){
-          if($("#edit-identification-number").val().length == 0){
+        $("body").focus(function () {
+          if ($("#edit-identification-number").val().length == 0) {
             $("#edit-identification-number").parent().removeClass("active");
           }
-          if($("#form-prev").val().length == 0){
+          if ($("#form-prev").val().length == 0) {
             $("#form-prev").parent().parent().removeClass("active");
-            $("#form-prev").parent().prev().css({"background": "white"});
+            $("#form-prev").parent().prev().css({ background: "white" });
           }
-            
-
         });
       });
-      $("#edit-submit").click(function(e){
+      $("#edit-submit").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $("#form-prev").parent().prev().css({"background": ""});
+        $("#form-prev").parent().prev().css({ background: "" });
       });
 
       // Validation
       $(".forms__welcome").change(function () {
-          if ($("#libertydocumentvalidationform").validate().checkForm()) {
-            $("#libertydocumentvalidationform .form-submit").prop('disabled', false);
-            $("#libertydocumentvalidationform .form-submit").removeClass('is-disabled');
-            
-
-          } else {
-            $("#libertydocumentvalidationform .form-submit").prop('disabled', true);
-            $("#libertydocumentvalidationform .form-submit").addClass('is-disabled');
-
-          }
+        if ($("#libertydocumentvalidationform").validate().checkForm()) {
+          $("#libertydocumentvalidationform .form-submit").prop(
+            "disabled",
+            false
+          );
+          $("#libertydocumentvalidationform .form-submit").removeClass(
+            "is-disabled"
+          );
+        } else {
+          $("#libertydocumentvalidationform .form-submit").prop(
+            "disabled",
+            true
+          );
+          $("#libertydocumentvalidationform .form-submit").addClass(
+            "is-disabled"
+          );
         }
-      );
-      
+      });
+
       $("#libertydocumentvalidationform").validate({
         ignore: ".ignore",
         rules: {
@@ -75,7 +78,7 @@
           },
         },
         errorPlacement: function (error, element) {
-          error.insertBefore('#form-prev');
+          error.insertBefore("#form-prev");
         },
       });
     },

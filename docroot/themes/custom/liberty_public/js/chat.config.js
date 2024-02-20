@@ -4,7 +4,7 @@
   // Example of Drupal behavior loaded.
   Drupal.behaviors.themeChatJS = {
     attach: function (context, settings) {
-      // var chatSettings = {
+      // let chatSettings = {
       //   header_text: 'Web Chat',
       //   header_status: 'En linea',
       //   login_text: 'Comenzar',
@@ -27,8 +27,8 @@
       //   geo_active: true,
       // };
 
-      // var startChat = function () {
-      //   var chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
+      // let startChat = function () {
+      //   let chat = new Webchat("962b7ae3c4765c4a8cc9c47ccb91c49b20fb", chatSettings);
       //   chat.init();
       //   chat.expandChat();
       // };
@@ -46,7 +46,6 @@
         }
       });
 
-      
       console.log("ok");
     },
   };

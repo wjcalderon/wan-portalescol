@@ -2,37 +2,19 @@
   const urlFormat = drupalSettings.formatUrl;
 
   const formatDateFilter = (date) => {
-    // Day
     let day = date.getDate();
     if (day < 10) day = `0${day}`;
 
-    // Month
     let month = date.getMonth() + 1;
     if (month < 10) month = `0${month}`;
 
-    // Year
     let year = date.getFullYear();
     if (year < 10) year = `0${year}`;
 
-    // Hour
-    // let hour = date.getHours();
-    // if(hour < 10) hour = `0${hour}`;
-
-    // // Minutes
-    // let minutes = date.getMinutes();
-    // if(minutes < 10) minutes = `0${minutes}`;
-
-    // // Seconds
-    // let seconds = date.getSeconds();
-    // if(seconds < 10) seconds = `0${seconds}`;
-
-    // return `${day}-${month}-${year} ${hour}:${minutes}:${seconds}`;
     return `${day}-${month}-${year}`;
   };
 
   const getDrupalFormattedDate = (date, filter, callback) => {
-    // const dateString = formatDateFilter(date);
-
     const args = {
       date: date,
     };
@@ -60,7 +42,7 @@
   const changeData = (filter, formattedDate) => {
     $(".date-range-range__range").show();
     $(".date-range-status").hide();
-    const responsetext = $(filter).text(formattedDate);
+    $(filter).text(formattedDate);
   };
 
   Drupal.behaviors.datepickers = {
@@ -134,7 +116,7 @@
       $(".edit-created-max", context)
         .once("date-initialized")
         .each(function (index, item) {
-          $input = $(item);
+          let $input = $(item);
 
           const date = $input.val();
 
@@ -154,7 +136,7 @@
       $(".select-news-category")
         .once("select-news-initialized")
         .each(function (index, item) {
-          $select = $(item);
+          let $select = $(item);
 
           $select.find("li").each(function (indexOption, itemOption) {
             if (indexOption > 0) {

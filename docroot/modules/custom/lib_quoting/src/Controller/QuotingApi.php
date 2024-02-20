@@ -43,7 +43,7 @@ class QuotingApi extends ControllerBase {
    *
    * @var string
    */
-  private $accessTokenPelh;
+  public $accessTokenPelh;
 
   /**
    * Read settings.

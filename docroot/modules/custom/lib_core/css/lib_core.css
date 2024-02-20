@@ -2,6 +2,12 @@ input[name="button-filter-product-type"] {
   display: none !important;
 }
 
-div#\30 0N4A00000FkWrC--description {
+div#\30 0n4a00000fkwrc--description {
   font-size: 0.9rem !important;
+}
+
+.component__tabs--sinister-notice .cog--mq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

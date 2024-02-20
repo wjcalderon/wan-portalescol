@@ -2,10 +2,10 @@
 
 Drupal.behaviors.tab = {
   attach(context) {
-    const el = context.querySelectorAll('.tab');
-    const newLocal = '.tab-nav';
+    const el = context.querySelectorAll(".tab");
+    const newLocal = ".tab-nav";
     const tabNavigationLinks = context.querySelectorAll(newLocal);
-    const newLocal_1 = '.tab-item';
+    const newLocal_1 = ".tab-item";
     const tabContentContainers = context.querySelectorAll(newLocal_1);
     let activeIndex = 0;
 
@@ -20,10 +20,10 @@ Drupal.behaviors.tab = {
         index >= 0 &&
         index <= tabNavigationLinks.length
       ) {
-        tabNavigationLinks[activeIndex].classList.remove('is-active');
-        tabNavigationLinks[index].classList.add('is-active');
-        tabContentContainers[activeIndex].classList.remove('is-active');
-        tabContentContainers[index].classList.add('is-active');
+        tabNavigationLinks[activeIndex].classList.remove("is-active");
+        tabNavigationLinks[index].classList.add("is-active");
+        tabContentContainers[activeIndex].classList.remove("is-active");
+        tabContentContainers[index].classList.add("is-active");
         activeIndex = index;
       }
     }
@@ -36,7 +36,7 @@ Drupal.behaviors.tab = {
      * @param {Number} index The index of that link
      */
     function handleClick(link, index) {
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
         goToTab(index);
       });
@@ -49,7 +49,7 @@ Drupal.behaviors.tab = {
      *   Returns nothing.
      */
     for (let e = 0; e < el.length; e += 1) {
-      el[e].classList.remove('no-js');
+      el[e].classList.remove("no-js");
     }
 
     for (let i = 0; i < tabNavigationLinks.length; i += 1) {
@@ -61,10 +61,10 @@ Drupal.behaviors.tab = {
 
 Drupal.behaviors.hero = {
   attach(context) {
-    const el = context.querySelectorAll('.hero-breaker');
-    const newLocal = '.breaker-nav';
+    const el = context.querySelectorAll(".hero-breaker");
+    const newLocal = ".breaker-nav";
     const breakerNavigationLinks = context.querySelectorAll(newLocal);
-    const newLocal_1 = '.breaker-item';
+    const newLocal_1 = ".breaker-item";
     const breakerContentContainers = context.querySelectorAll(newLocal_1);
     let activeIndex = 0;
 
@@ -74,23 +74,23 @@ Drupal.behaviors.hero = {
         index >= 0 &&
         index <= breakerNavigationLinks.length
       ) {
-        breakerNavigationLinks[activeIndex].classList.remove('is-active');
-        breakerNavigationLinks[index].classList.add('is-active');
-        breakerContentContainers[activeIndex].classList.remove('is-active');
-        breakerContentContainers[index].classList.add('is-active');
+        breakerNavigationLinks[activeIndex].classList.remove("is-active");
+        breakerNavigationLinks[index].classList.add("is-active");
+        breakerContentContainers[activeIndex].classList.remove("is-active");
+        breakerContentContainers[index].classList.add("is-active");
         activeIndex = index;
       }
     }
 
     function handleClick(link, index) {
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
         goToSlide(index);
       });
     }
 
     for (let e = 0; e < el.length; e += 1) {
-      el[e].classList.remove('no-js');
+      el[e].classList.remove("no-js");
     }
 
     for (let i = 0; i < breakerNavigationLinks.length; i += 1) {
@@ -102,20 +102,19 @@ Drupal.behaviors.hero = {
 
 Drupal.behaviors.scrollspy = {
   attach(context) {
+    window.onscroll = function () {
+      scrollspy();
+    };
 
-    window.onscroll = function () { scrollspy() };
-
-    var scrollnav = document.getElementById("scrollnav");
-    var sticky = scrollnav.offsetTop;
+    let scrollnav = document.getElementById("scrollnav");
+    let sticky = scrollnav.offsetTop;
 
     function scrollspy() {
       if (window.pageYOffset >= sticky) {
-        scrollnav.classList.add("sticky")
+        scrollnav.classList.add("sticky");
       } else {
         // scrollnav.classList.remove("sticky");
       }
     }
-
   },
 };
-

@@ -201,3 +201,10 @@ function lib_core_createsubmit($webform_data) {
   }
   $submission->save();
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function lib_core_preprocess_node(&$variables) {
+  $variables['#attached']['library'][] = "lib_core/lib_core";
+}

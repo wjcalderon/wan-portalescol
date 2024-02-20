@@ -38,7 +38,6 @@ h4,
 h5,
 h6 {
   color: $heading;
-  font-weight: 500;
   font-family: $heading_font;
   padding: 0;
   margin: 0;
@@ -446,9 +445,7 @@ main {
 .ui-dialog {
   .ui-dialog-content {
     position: relative;
-    border: 0;
     padding: 0.5em 1em;
-    background: none;
     overflow: auto;
     background: #f0fbfc;
     border: 1px solid #eaeaea;
@@ -509,9 +506,7 @@ button {
 
   .ui-dialog-content {
     position: relative;
-    border: 0;
     padding: 0.5em 1em;
-    background: none;
     overflow: auto;
     background: #f0fbfc;
     border: 1px solid #eaeaea;
@@ -535,7 +530,7 @@ button {
     }
 
     &::before {
-      content: ' ';
+      content: " ";
       text-indent: 0;
       margin-right: 10px;
       display: block;
@@ -548,7 +543,7 @@ button {
     }
 
     &::after {
-      content: ' ';
+      content: " ";
       height: 20px;
       width: 3px;
       background: gray;
@@ -635,7 +630,6 @@ button {
     width: 100% !important;
     height: unset !important;
     border: 1px solid #c0bfc0;
-    height: unset;
     padding-top: 15px;
     padding-right: 25px;
     padding-bottom: 9px;
@@ -644,8 +638,6 @@ button {
     margin-left: 20px;
 
     @media screen and (max-width: 480px) {
-      margin-right: 0px;
-      margin-left: 0px;
       float: left;
       margin: 10px;
       padding: 5px;
@@ -656,8 +648,6 @@ button {
       top: 17px;
 
       @media screen and (max-width: 480px) {
-        left: 3rem;
-        top: 6px;
         left: 29px;
         top: 8px;
       }
@@ -701,7 +691,7 @@ button {
 }
 
 .tooltip .tiptext::after {
-  content: '';
+  content: "";
   position: absolute;
   border-width: 5px;
   border-style: solid;

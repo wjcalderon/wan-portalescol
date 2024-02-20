@@ -22,8 +22,6 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // $form['#action'] =
-    // 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
     $config = \Drupal::config('lib_core.environmentvars.settings');
 
     $orgid = '00D0t0000008cUH';
@@ -93,7 +91,6 @@ class PqrForm extends FormBase {
     ];
 
     if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
-      // Test.
       $form['debug'] = [
         '#type' => 'hidden',
         '#value' => 1,
@@ -102,11 +99,9 @@ class PqrForm extends FormBase {
 
       $form['debugEmail'] = [
         '#type' => 'hidden',
-            // '#value' => 'lmacea@avanxo.com',
-        '#value' => 'katiuska.lacruz@liberty.cl',
+        '#value' => 'andres.alvarez@esinergia.co',
         '#name' => 'debugEmail',
       ];
-      // ------- Fin test ----------
     }
 
     $form[$pqr] = [
@@ -830,7 +825,6 @@ class PqrForm extends FormBase {
       '#type' => 'captcha',
       '#captcha_type' => 'recaptcha/reCAPTCHA',
     ];
-
     $form['ctn_submits'] = [
       '#prefix' => '<div class="form-item form-actions">',
       '#suffix' => '</div>',
@@ -859,27 +853,14 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $fid = $form_state->getValue(['adjuntar_archivos', 0]);
+    $form_state->setValue(['adjuntar_archivos'], $fid);
+    $values = $form_state->getValues();
+    $form_state->setRebuild(TRUE);
 
-    // adjuntar_archivos.
-    if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
-      $fid = $form_state->getValue(['adjuntar_archivos', 0]);
-      $form_state->setValue(['adjuntar_archivos'], $fid);
-      $values = $form_state->getValues();
-      $form_state->setRebuild(TRUE);
-      // Post to webform and sales force.
-      $coreController = new LibCoreController();
-      return $coreController->webformRestPost('pqr_webform', $values);
-    }
-    else {
-      // Staging.
-      $fid = $form_state->getValue(['adjuntar_archivos', 0]);
-      $form_state->setValue(['adjuntar_archivos'], $fid);
-      $values = $form_state->getValues();
-      $form_state->setRebuild(TRUE);
-      // Post to webform and sales force.
-      $coreController = new LibCoreController();
-      return $coreController->webformRestPost('pqr_webform', $values);
-    }
+    $coreController = new LibCoreController();
+
+    return $coreController->webformRestPost('pqr_webform', $values);
   }
 
 }

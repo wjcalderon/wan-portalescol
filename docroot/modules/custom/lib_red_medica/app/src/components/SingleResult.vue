@@ -81,7 +81,7 @@ export default {
     this.planTypes()
   },
   watch: {
-    'data.field_speciality': function (newVal) {
+    'data.field_speciality': function () {
       this.servicesList();
     }
   },

@@ -1,49 +1,46 @@
 nav.breadcrumb {
-    @extend .blocked-style;
-    margin-bottom: 5px;
-    color: $gris-pr;
-    position: absolute;
-    z-index: 2;
-    border: none;
+  @extend .blocked-style;
+  margin-bottom: 5px;
+  color: $gris-pr;
+  position: absolute;
+  z-index: 2;
+  border: none;
+  text-shadow: 1px 4px 8px #202122;
+  left: 3rem;
+  background: none;
+  box-shadow: none;
+  mix-blend-mode: luminosity;
+  ol {
+    @extend .no-ul-list;
+    li {
+      font-weight: normal;
+    }
+    li::before {
+      content: "/";
+      padding: 0 3px 0 0.5px;
+      color: #fff;
+    }
+    li:first-child::before {
+      content: normal;
+    }
+  }
+  a {
     color: #fff;
-    text-shadow: 1px 4px 8px #202122;
-    left: 3rem;
-    background: none;
-    box-shadow: none;
-    mix-blend-mode: luminosity;
-    ol {
-        @extend .no-ul-list;
-        li {
-            font-weight: normal;
-        }
-        li::before {
-            content: "/";
-            padding: 0 3px 0 0.5px;
-            color: #FFF;
-            // text-shadow: 1px 1px #202122;
-        }
-        li:first-child::before {
-            content: normal;
-        }
-    }
-    a {
-        color: #FFF;
-        // text-shadow: 1px 1px #202122;
-        font-weight: bold;
-    }
+    font-weight: bold;
+  }
 }
 
 .alias--zona-de-cliente-defensor-del-consumidor,
 .alias--zona-de-cliente-sac {
-    nav {
-        ol {
-            li {
-                &:last-child {
-                    @include breakpoint($small) {
-                        display: none;
-                    }
-                }
-            }
+  nav {
+    ol {
+      li {
+        &:last-child {
+          @include breakpoint($small) {
+            display: none;
+          }
         }
+      }
     }
+  }
 }

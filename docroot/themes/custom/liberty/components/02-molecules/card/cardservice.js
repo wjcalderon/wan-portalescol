@@ -21,17 +21,17 @@ for (let q = 0; q < 4; q++) {
     }
   }
 
-  var ischannel = document.getElementsByClassName('channel-attention');
+  let ischannel = document.getElementsByClassName('channel-attention');
   if (ischannel.length > 0) {
-    var footerlogo = document.getElementById('footer');
-    var cornerlogo = document.getElementById('logo-corner');
+    let footerlogo = document.getElementById('footer');
+    let cornerlogo = document.getElementById('logo-corner');
     footerlogo.classList.add('addpadding');
     cornerlogo.classList.add('addpadding');
   }
 
   if (ischannel.length > 300) {
-    var footerlogo = document.getElementById('footer');
-    var cornerlogo = document.getElementById('logo-corner');
+    let footerlogo = document.getElementById('footer');
+    let cornerlogo = document.getElementById('logo-corner');
     footerlogo.classList.add('addpaddingplus');
     cornerlogo.classList.add('addpaddingplus');
   }

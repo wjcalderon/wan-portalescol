@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 
 .helpButton {
   display: none;
@@ -38,16 +38,15 @@
 .embeddedServiceHelpButton .helpButton .uiButton {
   border-radius: 0.3rem !important;
   background-color: #ffffff !important;
-  color: #1A1446 !important;
+  color: #1a1446 !important;
   font-weight: 500 !important;
   box-shadow: 0 2px 10px 0 rgba(26, 20, 70, 0.3) !important;
   line-height: 46px !important;
-  font-weight: bold !important;
   font-family: "Roboto", sans-serif !important;
   font-size: 16px !important;
   border: none !important;
   padding-right: 3rem !important;
-  background-image: url('../images/icons/chat.svg') !important;
+  background-image: url("../images/icons/chat.svg") !important;
   background-repeat: no-repeat !important;
   background-position: 79% center;
   background-size: 24px !important;
@@ -59,16 +58,15 @@
   &.helpButton {
     border-radius: 0.3rem !important;
     background-color: #ffffff !important;
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     font-weight: 500 !important;
     box-shadow: 0 2px 10px 0 rgba(26, 20, 70, 0.3) !important;
     line-height: 46px !important;
-    font-weight: bold !important;
     font-family: "Roboto", sans-serif !important;
     font-size: 16px !important;
     border: none !important;
     padding-right: 3rem !important;
-    background-image: url('../images/icons/chat.svg') !important;
+    background-image: url("../images/icons/chat.svg") !important;
     background-repeat: no-repeat !important;
     background-position: 79% center;
     background-size: 24px !important;
@@ -78,17 +76,15 @@
 
   border-radius: 0.3rem !important;
   background-color: #ffffff !important;
-  color: #1A1446 !important;
+  color: #1a1446 !important;
   font-weight: 500 !important;
   box-shadow: 0 2px 10px 0 rgba(26, 20, 70, 0.3) !important;
   line-height: 46px !important;
-  font-weight: bold !important;
-  font-family: "Roboto",
-  sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   font-size: 16px !important;
   border: none !important;
   padding-right: 3rem !important;
-  background-image: url('../images/icons/chat.svg') !important;
+  background-image: url("../images/icons/chat.svg") !important;
   background-repeat: no-repeat !important;
   background-position: 79% center;
   background-size: 24px !important;
@@ -115,7 +111,7 @@
 }
 
 .select {
-  background-image: url('../images/icons/elements-icon-glyph-arrow-down-gris.svg');
+  background-image: url("../images/icons/elements-icon-glyph-arrow-down-gris.svg");
   background-repeat: no-repeat;
   background-size: 14px;
   background-position: 90% center;
@@ -129,7 +125,7 @@
 
   #headerTextLabel {
     font-family: "Roboto", sans-serif !important;
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     text-transform: none !important;
     font-size: 1.1rem !important;
     font-weight: 400 !important;
@@ -143,8 +139,7 @@
 .embeddedServiceHelpButton .uiButton .helpButtonLabel .message {
   font-weight: 500 !important;
   text-overflow: initial !important;
-  color: #1A1446 !important;
-  font-weight: 500 !important;
+  color: #1a1446 !important;
   width: 37px !important;
   text-transform: none !important;
 }
@@ -153,13 +148,12 @@
   .messageContent {
     font-weight: 500 !important;
     text-overflow: initial !important;
-    color: #1A1446 !important;
-    font-weight: 500 !important;
+    color: #1a1446 !important;
     width: 37px !important;
     text-transform: none !important;
 
     .message:before {
-      content: 'Chat';
+      content: "Chat";
       display: inline;
     }
   }
@@ -168,15 +162,13 @@
     width: 120px;
   }
 
-  .messageContent {}
-
   min-width: 7rem !important;
 
-  .minimizedText>.message {
+  .minimizedText > .message {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: initial !important;
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     font-weight: 500 !important;
     width: 33px !important;
     font-size: 1rem;
@@ -188,20 +180,20 @@
     fill: transparent !important;
   }
 
-  background-image: url('../images/icons/attachments.svg');
+  background-image: url("../images/icons/attachments.svg");
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: center;
 
   &.Cargar:last-child {
-    background-image: url('../images/icons/send.svg');
+    background-image: url("../images/icons/send.svg");
   }
 
   &.Elimina {
     background-image: none;
 
     svg {
-      fill: #1A1446 !important;
+      fill: #1a1446 !important;
     }
   }
 }
@@ -210,10 +202,10 @@
   .fileUploadControls {
     display: flex;
     position: relative;
-    background-color: #99E5EA !important;
+    background-color: #99e5ea !important;
     width: 100%;
     align-items: center;
-    margin: .3rem 0;
+    margin: 0.3rem 0;
     border-radius: 25px;
   }
 
@@ -238,7 +230,7 @@
 }
 
 .embeddedServiceSidebarButton .label {
-  color: #1A1446 !important;
+  color: #1a1446 !important;
   font-weight: 500 !important;
 }
 
@@ -277,8 +269,7 @@
     display: none;
   }
 
-  >div {
-
+  > div {
     .uiInputSelect:last-child,
     .uiOutputText:last-child {
       display: none;
@@ -291,20 +282,18 @@
 }
 
 .dockableContainer .cChatService_cmp {
-
   .input,
   .select {
     width: 100%;
     height: 40px !important;
-    border-radius: .3em;
-    font-size: .8em;
-    padding: .4em;
-    border: 0;
+    border-radius: 0.3em;
+    font-size: 0.8em;
+    padding: 0.4em;
     color: #343741 !important;
     box-sizing: border-box;
     outline: 0;
     border-bottom: none !important;
-    border: 1px solid #C0BFC0 !important;
+    border: 1px solid #c0bfc0 !important;
     background-color: transparent !important;
     font-family: "Roboto", sans-serif !important;
     -webkit-appearance: none;
@@ -340,71 +329,71 @@
 }
 
 .embeddedServiceSidebarHeader .embeddedServiceIcon svg {
-  fill: #1A1446 !important;
+  fill: #1a1446 !important;
 }
 
-.prechatFields>div {
+.prechatFields > div {
   margin-top: 0 !important;
   margin-right: 1.4rem !important;
   margin-left: 1.4rem !important;
   display: grid;
-  grid-template-areas: 'labeluno labeluno labeluno labeluno''inputuno inputuno inputuno inputuno''labeldos labeltres labeltres labeltres''inputdos inputtres inputtres inputtres''labelcuatro labelcuatro labelcuatro labelcuatro''inputcuatro inputcuatro inputcuatro inputcuatro''labelcinco labelcinco labelcinco labelcinco''inputcinco inputcinco inputcinco inputcinco';
+  grid-template-areas: "labeluno labeluno labeluno labeluno" "inputuno inputuno inputuno inputuno" "labeldos labeltres labeltres labeltres" "inputdos inputtres inputtres inputtres" "labelcuatro labelcuatro labelcuatro labelcuatro" "inputcuatro inputcuatro inputcuatro inputcuatro" "labelcinco labelcinco labelcinco labelcinco" "inputcinco inputcinco inputcinco inputcinco";
   grid-gap: 10px;
   grid-row-gap: 5px;
 }
 
 span[data-aura-rendered-by="37:115;a"],
-.prechatFields>div>span:nth-of-type(2) {
+.prechatFields > div > span:nth-of-type(2) {
   grid-area: labeluno;
 }
 
 div[data-aura-rendered-by="273:0"],
-.prechatFields>div>div:nth-of-type(1) {
+.prechatFields > div > div:nth-of-type(1) {
   grid-area: inputuno;
 }
 
 span[data-aura-rendered-by="50:115;a"],
-.prechatFields>div>span:nth-of-type(4) {
+.prechatFields > div > span:nth-of-type(4) {
   grid-area: labeldos;
 }
 
 div[data-aura-rendered-by="282:0"],
-.prechatFields>div>div:nth-of-type(2) {
+.prechatFields > div > div:nth-of-type(2) {
   grid-area: inputdos;
 }
 
 span[data-aura-rendered-by="65:115;a"],
-.prechatFields>div>span:nth-of-type(6) {
+.prechatFields > div > span:nth-of-type(6) {
   grid-area: labeltres;
 }
 
 div[data-aura-rendered-by="291:0"],
-.prechatFields>div>div:nth-of-type(3) {
+.prechatFields > div > div:nth-of-type(3) {
   grid-area: inputtres;
 }
 
 span[data-aura-rendered-by="76:115;a"],
-.prechatFields>div>span:nth-of-type(7) {
+.prechatFields > div > span:nth-of-type(7) {
   grid-area: labelcuatro;
 }
 
 div[data-aura-rendered-by="300:0"],
-.prechatFields>div>div:nth-of-type(4) {
+.prechatFields > div > div:nth-of-type(4) {
   grid-area: inputcuatro;
 }
 
 span[data-aura-rendered-by="87:115;a"],
-.prechatFields>div>span:nth-of-type(8) {
+.prechatFields > div > span:nth-of-type(8) {
   grid-area: labelcinco;
 }
 
 div[data-aura-rendered-by="309:0"],
-.prechatFields>div>div:nth-of-type(5) {
+.prechatFields > div > div:nth-of-type(5) {
   grid-area: inputcinco;
 }
 
 span[data-aura-rendered-by="98:115;a"],
-.prechatFields>div>span:nth-of-type(9) {
+.prechatFields > div > span:nth-of-type(9) {
   display: none;
 }
 
@@ -418,21 +407,18 @@ span[data-aura-rendered-by="98:115;a"],
 }
 
 .embeddedServiceLiveAgentStateChatItem.chatMessage {
-  background-color: #E6F8FA !important;
+  background-color: #e6f8fa !important;
 }
 
 .embeddedServiceLiveAgentStateChat .messageArea {
   padding-top: 20px !important;
-  background-color: #E6F8FA !important;
+  background-color: #e6f8fa !important;
 }
 
 .embeddedServiceLiveAgentStateChatHeader.alert .message {
   background-color: rgba(255, 255, 255, 0.9215686275);
   margin-top: -55px;
-  line-height: 18px;
-  padding: 10px;
   position: absolute;
-  font-size: 13px;
   top: 54px;
   height: 440px;
   left: 0;
@@ -465,29 +451,24 @@ span[data-aura-rendered-by="98:115;a"],
     text-shadow: none;
     line-height: 40px !important;
     border: none;
-    background: #99E5EA !important;
+    background: #99e5ea !important;
     padding-top: 0 !important;
 
     &:focus,
     &:hover {
-      color: #1A1446 !important;
+      color: #1a1446 !important;
       text-shadow: none !important;
     }
   }
 }
 
 .uiButton--default {
-
   &:hover .label,
   &:focus .label {
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     text-shadow: none !important;
   }
 }
-
-/* .embeddedServiceSidebar.layout-docked .dockableContainer{
-  max-height: 550px!important;
-} */
 
 .embeddedServiceSidebarHeader .shortHeaderContent {
   background-color: #ffffff;
@@ -508,7 +489,7 @@ span[data-aura-rendered-by="98:115;a"],
 }
 
 .embeddedServiceSidebarExtendedHeader {
-  color: #1A1446 !important;
+  color: #1a1446 !important;
   background-color: #fff !important;
   font-family: "Roboto", sans-serif !important;
 }
@@ -523,7 +504,7 @@ span[data-aura-rendered-by="98:115;a"],
   }
 
   #dialogTextTitle {
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     font-size: 1.5rem !important;
     font-family: "Roboto", sans-serif !important;
     font-weight: 500 !important;
@@ -532,15 +513,14 @@ span[data-aura-rendered-by="98:115;a"],
 
 .embeddedServiceSidebarButton.dialog-button-0 .label {
   font-family: "Roboto", sans-serif !important;
-  color: #1A1446 !important;
+  color: #1a1446 !important;
   font-weight: 500 !important;
 }
 
 .embeddedServiceLiveAgentQueuePosition {
-
   &.queuePositionWaiting .queuePositionNumber,
   .queuePositionMessage,
-  .embeddedServiceIcon>svg {
+  .embeddedServiceIcon > svg {
     display: none;
   }
 }
@@ -556,7 +536,7 @@ span[data-aura-rendered-by="98:115;a"],
   }
 
   .label {
-    color: #1A1446 !important;
+    color: #1a1446 !important;
     font-weight: 400;
     font-family: "Roboto", sans-serif !important;
   }
@@ -591,13 +571,13 @@ div[data-aura-class="embeddedServiceLiveAgentStateWaitingHeader"] {
 }
 
 .embeddedServiceSidebarButton.dialog-button-0 {
-  background: #99E5EA !important;
+  background: #99e5ea !important;
   font-family: "Roboto", sans-serif !important;
   height: 40px !important;
 }
 
 .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent {
-  background: #F2FEFF !important;
+  background: #f2feff !important;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
   margin-top: 5px;
 }
@@ -608,23 +588,28 @@ div[data-aura-class="embeddedServiceLiveAgentStateWaitingHeader"] {
   margin-top: 5px;
 }
 
-.embeddedServiceLiveAgentStateChatFileTransferMessage .fileIcon.embeddedServiceIcon>svg> {
-  g>path:first-of-type {
-    fill: #99E5EA !important;
+.embeddedServiceLiveAgentStateChatFileTransferMessage
+  .fileIcon.embeddedServiceIcon
+  > svg
+  > {
+  g > path:first-of-type {
+    fill: #99e5ea !important;
   }
 
   path {
-    fill: #1A1446 !important;
+    fill: #1a1446 !important;
   }
 }
 
 .embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
-  background-color: #99E5EA !important;
+  background-color: #99e5ea !important;
   font-family: "Roboto slab", sans-serif !important;
 }
 
-.embeddedServiceLiveAgentStateChatFileTransferMessage .fileInfo .fileDescription {
-  font-size: .8rem;
+.embeddedServiceLiveAgentStateChatFileTransferMessage
+  .fileInfo
+  .fileDescription {
+  font-size: 0.8rem;
   color: #27a2ae !important;
 }
 
@@ -666,7 +651,7 @@ div[data-aura-class="embeddedServiceLiveAgentStateWaiting"] .extendedHeader {
   border: none !important;
 }
 
-.embeddedServiceSidebarMinimizedDefaultUI.newMessage .minimizedText>.message {
+.embeddedServiceSidebarMinimizedDefaultUI.newMessage .minimizedText > .message {
   width: 33px !important;
   font-size: 1rem;
 }
@@ -675,13 +660,12 @@ div[data-aura-class="embeddedServiceLiveAgentStateWaiting"] .extendedHeader {
   display: none !important;
 }
 
-.prechatFields>div>br br[data-aura-rendered-by="11:115;a"],
+.prechatFields > div > br br[data-aura-rendered-by="11:115;a"],
 br[data-aura-rendered-by="7:115;a"] {
   display: none;
 }
 
-.prechatFields>br {
-
+.prechatFields > br {
   &:nth-of-type(1),
   &:nth-of-type(2) {
     display: none;
@@ -693,15 +677,16 @@ br[data-aura-rendered-by="7:115;a"] {
 }
 
 .dockableContainer .cChatService_cmp {
-
   input.inputrequired,
   .select.inputrequired {
     background-color: rgba(233, 34, 67, 0.1098039216) !important;
-    border-color: #E92243 !important;
+    border-color: #e92243 !important;
   }
 }
 
-.embeddedServiceLiveAgentStateChatEventMessage .eventMessage>.uiOutputRichText {
+.embeddedServiceLiveAgentStateChatEventMessage
+  .eventMessage
+  > .uiOutputRichText {
   padding: 0 0px !important;
 }
 
@@ -796,8 +781,8 @@ br[data-aura-rendered-by="7:115;a"] {
   height: 50px;
   max-height: 64px;
   background-color: white;
-  color: #1A1446;
-  font-family: Roboto;
+  color: #1a1446;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
 }
 
@@ -805,7 +790,8 @@ h2[embeddedService-chatHeader_chatHeader] {
   padding-left: 2rem;
 }
 
-.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent a {
+.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent
+  a {
   color: #1a1446 !important;
 }
 
@@ -814,7 +800,7 @@ p.text.announcement,
   background: #fff;
   width: 90%;
   margin: 5%;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.3rem;
   color: #1b1445;
   border-radius: 6px;
