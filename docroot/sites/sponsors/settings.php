@@ -819,8 +819,6 @@ $databases['default']['default'] = array (
   'pdo' => array(PDO::ATTR_PERSISTENT => FALSE)
 );
 $settings['config_sync_directory'] = '../config/sponsors/envs/sync';
-<<<<<<< HEAD
-=======
 
 $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
@@ -837,4 +835,3 @@ $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
 }
->>>>>>> main

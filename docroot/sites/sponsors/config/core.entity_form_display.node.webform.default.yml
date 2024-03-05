@@ -3,18 +3,6 @@ langcode: es
 status: true
 dependencies:
   config:
-<<<<<<<< HEAD:docroot/modules/contrib/twig_tweak/tests/twig_tweak_test/config/install/core.entity_form_display.node.page.default.yml
-    - field.field.node.page.body
-    - field.field.node.page.field_image
-    - field.field.node.page.field_media
-    - node.type.page
-  module:
-    - path
-    - text
-id: node.page.default
-targetEntityType: node
-bundle: page
-========
     - field.field.node.webform.body
     - field.field.node.webform.webform
     - node.type.webform
@@ -27,16 +15,11 @@ _core:
 id: node.webform.default
 targetEntityType: node
 bundle: webform
->>>>>>>> staging:docroot/sites/sponsors/config/core.entity_form_display.node.webform.default.yml
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-<<<<<<<< HEAD:docroot/modules/contrib/twig_tweak/tests/twig_tweak_test/config/install/core.entity_form_display.node.page.default.yml
-    weight: 31
-========
     weight: 0
->>>>>>>> staging:docroot/sites/sponsors/config/core.entity_form_display.node.webform.default.yml
     region: content
     settings:
       rows: 9
@@ -50,8 +33,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-<<<<<<<< HEAD:docroot/modules/contrib/twig_tweak/tests/twig_tweak_test/config/install/core.entity_form_display.node.page.default.yml
-========
   langcode:
     type: language_select
     weight: 2
@@ -59,7 +40,6 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
->>>>>>>> staging:docroot/sites/sponsors/config/core.entity_form_display.node.webform.default.yml
   path:
     type: path
     weight: 30
@@ -111,15 +91,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-<<<<<<<< HEAD:docroot/modules/contrib/twig_tweak/tests/twig_tweak_test/config/install/core.entity_form_display.node.page.default.yml
-========
     third_party_settings: {  }
   webform:
     type: webform_entity_reference_select
     weight: 0
     region: content
     settings: {  }
->>>>>>>> staging:docroot/sites/sponsors/config/core.entity_form_display.node.webform.default.yml
     third_party_settings: {  }
 hidden:
   field_image: true

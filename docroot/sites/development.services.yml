@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# Local development services.
-#
-# To activate this feature, follow the instructions at the top of the
-# 'example.settings.local.php' file, which sits next to this file.
-parameters:
-  http.response.debug_cacheability_headers: true
-services:
-  cache.backend.null:
-=======
 ### Lagoon Drupal 8 development environment services file.
 #
 # This file should contain service definitions that are needed on development environments
@@ -22,5 +12,4 @@ parameters:
 
 services:
   cache.backend.null: # Defines a Cache Backend Factory which is just empty, it is not used by default
->>>>>>> main
     class: Drupal\Core\Cache\NullBackendFactory
