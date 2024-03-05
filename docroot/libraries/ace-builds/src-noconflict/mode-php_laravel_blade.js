@@ -3,17 +3,6 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var DocCommentHighlightRules = function () {
     this.$rules = {
-<<<<<<< HEAD
-        "start": [{
-                token: "comment.doc.tag",
-                regex: "@[\\w\\d_]+" // TODO: fix email addresses
-            },
-            DocCommentHighlightRules.getTagRule(),
-            {
-                defaultToken: "comment.doc",
-                caseInsensitive: true
-            }]
-=======
         "start": [
             {
                 token: "comment.doc.tag",
@@ -23,7 +12,6 @@ var DocCommentHighlightRules = function () {
                 caseInsensitive: true
             }
         ]
->>>>>>> main
     };
 };
 oop.inherits(DocCommentHighlightRules, TextHighlightRules);
@@ -231,11 +219,6 @@ exports.CssHighlightRules = CssHighlightRules;
 
 });
 
-<<<<<<< HEAD
-ace.define("ace/mode/javascript_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/doc_comment_highlight_rules","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
-var oop = require("../lib/oop");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-=======
 ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
@@ -362,7 +345,6 @@ exports.JsDocCommentHighlightRules = JsDocCommentHighlightRules;
 ace.define("ace/mode/javascript_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/jsdoc_comment_highlight_rules","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var DocCommentHighlightRules = require("./jsdoc_comment_highlight_rules").JsDocCommentHighlightRules;
->>>>>>> main
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
 var JavaScriptHighlightRules = function (options) {
@@ -12946,12 +12928,9 @@ oop.inherits(Mode, TextMode);
     this.lineCommentStart = "//";
     this.blockComment = { start: "/*", end: "*/" };
     this.$quotes = { '"': '"', "'": "'", "`": "`" };
-<<<<<<< HEAD
-=======
     this.$pairQuotesAfter = {
         "`": /\w/
     };
->>>>>>> main
     this.getNextLineIndent = function (state, line, tab) {
         var indent = this.$getIndent(line);
         var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
@@ -13964,25 +13943,14 @@ exports.Mode = Mode;
 
 });
 
-<<<<<<< HEAD
-ace.define("ace/mode/php",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/php_highlight_rules","ace/mode/php_highlight_rules","ace/mode/matching_brace_outdent","ace/range","ace/worker/worker_client","ace/mode/php_completions","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle","ace/unicode","ace/mode/html","ace/mode/javascript","ace/mode/css"], function(require, exports, module){"use strict";
-=======
 ace.define("ace/mode/php",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/php_highlight_rules","ace/mode/php_highlight_rules","ace/mode/matching_brace_outdent","ace/worker/worker_client","ace/mode/php_completions","ace/mode/folding/cstyle","ace/unicode","ace/mode/html","ace/mode/javascript","ace/mode/css"], function(require, exports, module){"use strict";
->>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var PhpHighlightRules = require("./php_highlight_rules").PhpHighlightRules;
 var PhpLangHighlightRules = require("./php_highlight_rules").PhpLangHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-<<<<<<< HEAD
-var Range = require("../range").Range;
 var WorkerClient = require("../worker/worker_client").WorkerClient;
 var PhpCompletions = require("./php_completions").PhpCompletions;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-=======
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var PhpCompletions = require("./php_completions").PhpCompletions;
->>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var unicode = require("../unicode");
 var HtmlMode = require("./html").Mode;
@@ -13991,11 +13959,7 @@ var CssMode = require("./css").Mode;
 var PhpMode = function (opts) {
     this.HighlightRules = PhpLangHighlightRules;
     this.$outdent = new MatchingBraceOutdent();
-<<<<<<< HEAD
-    this.$behaviour = new CstyleBehaviour();
-=======
     this.$behaviour = this.$defaultBehaviour;
->>>>>>> main
     this.$completer = new PhpCompletions();
     this.foldingRules = new CStyleFoldMode();
 };

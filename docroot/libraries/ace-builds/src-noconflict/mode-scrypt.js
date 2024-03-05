@@ -3,17 +3,6 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var DocCommentHighlightRules = function () {
     this.$rules = {
-<<<<<<< HEAD
-        "start": [{
-                token: "comment.doc.tag",
-                regex: "@[\\w\\d_]+" // TODO: fix email addresses
-            },
-            DocCommentHighlightRules.getTagRule(),
-            {
-                defaultToken: "comment.doc",
-                caseInsensitive: true
-            }]
-=======
         "start": [
             {
                 token: "comment.doc.tag",
@@ -23,7 +12,6 @@ var DocCommentHighlightRules = function () {
                 caseInsensitive: true
             }
         ]
->>>>>>> main
     };
 };
 oop.inherits(DocCommentHighlightRules, TextHighlightRules);
@@ -299,18 +287,11 @@ var FoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = scryptHighlightRules;
     this.foldingRules = new FoldMode();
-<<<<<<< HEAD
-=======
     this.$behaviour = this.$defaultBehaviour;
->>>>>>> main
 };
 oop.inherits(Mode, TextMode);
 (function () {
     this.lineCommentStart = "//";
-<<<<<<< HEAD
-    this.blockComment = { start: "/*", end: "*/" };
-    this.$quotes = { '"': '"', "'": "'" };
-=======
     this.blockComment = {
         start: "/*",
         end: "*/"
@@ -319,7 +300,6 @@ oop.inherits(Mode, TextMode);
         '"': '"',
         "'": "'"
     };
->>>>>>> main
     this.createWorker = function (session) {
         return null;
     };

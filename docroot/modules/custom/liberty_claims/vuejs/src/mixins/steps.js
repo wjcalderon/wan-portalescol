@@ -80,12 +80,6 @@ export default {
           this.modalBody = `El peso del PDF ${mbSize} MB sobrepasa el limite ${pdfLimitMB} MB`;
           this.modal = true;
         }
-        let reader = new FileReader();
-        reader.onload = function(event) {
-          var base64String = event.target.result;
-          file.dataURL = base64String;
-        };
-        reader.readAsDataURL(file);
       } else {
         this.$refs.dropzoneTS.removeFile(file);
         this.modalTitle = "FORMATO DE ARCHIVO NO VÁLIDO";
@@ -95,6 +89,7 @@ export default {
     },
     fileUploaded: function(file, response) {
       file.fileId = response.file_id;
+      file.dataURL = "";
       this.casualtyData.files.push(file);
 
       if (this.errorMsg) {
@@ -128,9 +123,7 @@ export default {
 
             this.casualtyData.files = tempFiles;
           },
-          function(params) {
-            console.log(params);
-          }
+          function(params) {}
         );
     }
   },

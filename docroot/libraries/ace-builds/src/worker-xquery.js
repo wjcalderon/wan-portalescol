@@ -416,20 +416,6 @@ define("ace/range",[], function(require, exports, module){"use strict";
 var comparePoints = function (p1, p2) {
     return p1.row - p2.row || p1.column - p2.column;
 };
-<<<<<<< HEAD
-var Range = function (startRow, startColumn, endRow, endColumn) {
-    this.start = {
-        row: startRow,
-        column: startColumn
-    };
-    this.end = {
-        row: endRow,
-        column: endColumn
-    };
-};
-(function () {
-    this.isEqual = function (range) {
-=======
 var Range = /** @class */ (function () {
     function Range(startRow, startColumn, endRow, endColumn) {
         this.start = {
@@ -442,22 +428,11 @@ var Range = /** @class */ (function () {
         };
     }
     Range.prototype.isEqual = function (range) {
->>>>>>> main
         return this.start.row === range.start.row &&
             this.end.row === range.end.row &&
             this.start.column === range.start.column &&
             this.end.column === range.end.column;
     };
-<<<<<<< HEAD
-    this.toString = function () {
-        return ("Range: [" + this.start.row + "/" + this.start.column +
-            "] -> [" + this.end.row + "/" + this.end.column + "]");
-    };
-    this.contains = function (row, column) {
-        return this.compare(row, column) == 0;
-    };
-    this.compareRange = function (range) {
-=======
     Range.prototype.toString = function () {
         return ("Range: [" + this.start.row + "/" + this.start.column +
             "] -> [" + this.end.row + "/" + this.end.column + "]");
@@ -466,7 +441,6 @@ var Range = /** @class */ (function () {
         return this.compare(row, column) == 0;
     };
     Range.prototype.compareRange = function (range) {
->>>>>>> main
         var cmp, end = range.end, start = range.start;
         cmp = this.compare(end.row, end.column);
         if (cmp == 1) {
@@ -497,25 +471,6 @@ var Range = /** @class */ (function () {
             }
         }
     };
-<<<<<<< HEAD
-    this.comparePoint = function (p) {
-        return this.compare(p.row, p.column);
-    };
-    this.containsRange = function (range) {
-        return this.comparePoint(range.start) == 0 && this.comparePoint(range.end) == 0;
-    };
-    this.intersects = function (range) {
-        var cmp = this.compareRange(range);
-        return (cmp == -1 || cmp == 0 || cmp == 1);
-    };
-    this.isEnd = function (row, column) {
-        return this.end.row == row && this.end.column == column;
-    };
-    this.isStart = function (row, column) {
-        return this.start.row == row && this.start.column == column;
-    };
-    this.setStart = function (row, column) {
-=======
     Range.prototype.comparePoint = function (p) {
         return this.compare(p.row, p.column);
     };
@@ -533,7 +488,6 @@ var Range = /** @class */ (function () {
         return this.start.row == row && this.start.column == column;
     };
     Range.prototype.setStart = function (row, column) {
->>>>>>> main
         if (typeof row == "object") {
             this.start.column = row.column;
             this.start.row = row.row;
@@ -543,11 +497,7 @@ var Range = /** @class */ (function () {
             this.start.column = column;
         }
     };
-<<<<<<< HEAD
-    this.setEnd = function (row, column) {
-=======
     Range.prototype.setEnd = function (row, column) {
->>>>>>> main
         if (typeof row == "object") {
             this.end.column = row.column;
             this.end.row = row.row;
@@ -557,11 +507,7 @@ var Range = /** @class */ (function () {
             this.end.column = column;
         }
     };
-<<<<<<< HEAD
-    this.inside = function (row, column) {
-=======
     Range.prototype.inside = function (row, column) {
->>>>>>> main
         if (this.compare(row, column) == 0) {
             if (this.isEnd(row, column) || this.isStart(row, column)) {
                 return false;
@@ -572,11 +518,7 @@ var Range = /** @class */ (function () {
         }
         return false;
     };
-<<<<<<< HEAD
-    this.insideStart = function (row, column) {
-=======
     Range.prototype.insideStart = function (row, column) {
->>>>>>> main
         if (this.compare(row, column) == 0) {
             if (this.isEnd(row, column)) {
                 return false;
@@ -587,11 +529,7 @@ var Range = /** @class */ (function () {
         }
         return false;
     };
-<<<<<<< HEAD
-    this.insideEnd = function (row, column) {
-=======
     Range.prototype.insideEnd = function (row, column) {
->>>>>>> main
         if (this.compare(row, column) == 0) {
             if (this.isStart(row, column)) {
                 return false;
@@ -602,11 +540,7 @@ var Range = /** @class */ (function () {
         }
         return false;
     };
-<<<<<<< HEAD
-    this.compare = function (row, column) {
-=======
     Range.prototype.compare = function (row, column) {
->>>>>>> main
         if (!this.isMultiLine()) {
             if (row === this.start.row) {
                 return column < this.start.column ? -1 : (column > this.end.column ? 1 : 0);
@@ -622,11 +556,7 @@ var Range = /** @class */ (function () {
             return column <= this.end.column ? 0 : 1;
         return 0;
     };
-<<<<<<< HEAD
-    this.compareStart = function (row, column) {
-=======
     Range.prototype.compareStart = function (row, column) {
->>>>>>> main
         if (this.start.row == row && this.start.column == column) {
             return -1;
         }
@@ -634,11 +564,7 @@ var Range = /** @class */ (function () {
             return this.compare(row, column);
         }
     };
-<<<<<<< HEAD
-    this.compareEnd = function (row, column) {
-=======
     Range.prototype.compareEnd = function (row, column) {
->>>>>>> main
         if (this.end.row == row && this.end.column == column) {
             return 1;
         }
@@ -646,11 +572,7 @@ var Range = /** @class */ (function () {
             return this.compare(row, column);
         }
     };
-<<<<<<< HEAD
-    this.compareInside = function (row, column) {
-=======
     Range.prototype.compareInside = function (row, column) {
->>>>>>> main
         if (this.end.row == row && this.end.column == column) {
             return 1;
         }
@@ -661,11 +583,7 @@ var Range = /** @class */ (function () {
             return this.compare(row, column);
         }
     };
-<<<<<<< HEAD
-    this.clipRows = function (firstRow, lastRow) {
-=======
     Range.prototype.clipRows = function (firstRow, lastRow) {
->>>>>>> main
         if (this.end.row > lastRow)
             var end = { row: lastRow + 1, column: 0 };
         else if (this.end.row < firstRow)
@@ -676,11 +594,7 @@ var Range = /** @class */ (function () {
             var start = { row: firstRow, column: 0 };
         return Range.fromPoints(start || this.start, end || this.end);
     };
-<<<<<<< HEAD
-    this.extend = function (row, column) {
-=======
     Range.prototype.extend = function (row, column) {
->>>>>>> main
         var cmp = this.compare(row, column);
         if (cmp == 0)
             return this;
@@ -690,18 +604,6 @@ var Range = /** @class */ (function () {
             var end = { row: row, column: column };
         return Range.fromPoints(start || this.start, end || this.end);
     };
-<<<<<<< HEAD
-    this.isEmpty = function () {
-        return (this.start.row === this.end.row && this.start.column === this.end.column);
-    };
-    this.isMultiLine = function () {
-        return (this.start.row !== this.end.row);
-    };
-    this.clone = function () {
-        return Range.fromPoints(this.start, this.end);
-    };
-    this.collapseRows = function () {
-=======
     Range.prototype.isEmpty = function () {
         return (this.start.row === this.end.row && this.start.column === this.end.column);
     };
@@ -712,37 +614,24 @@ var Range = /** @class */ (function () {
         return Range.fromPoints(this.start, this.end);
     };
     Range.prototype.collapseRows = function () {
->>>>>>> main
         if (this.end.column == 0)
             return new Range(this.start.row, 0, Math.max(this.start.row, this.end.row - 1), 0);
         else
             return new Range(this.start.row, 0, this.end.row, 0);
     };
-<<<<<<< HEAD
-    this.toScreenRange = function (session) {
-=======
     Range.prototype.toScreenRange = function (session) {
->>>>>>> main
         var screenPosStart = session.documentToScreenPosition(this.start);
         var screenPosEnd = session.documentToScreenPosition(this.end);
         return new Range(screenPosStart.row, screenPosStart.column, screenPosEnd.row, screenPosEnd.column);
     };
-<<<<<<< HEAD
-    this.moveBy = function (row, column) {
-=======
     Range.prototype.moveBy = function (row, column) {
->>>>>>> main
         this.start.row += row;
         this.start.column += column;
         this.end.row += row;
         this.end.column += column;
     };
-<<<<<<< HEAD
-}).call(Range.prototype);
-=======
     return Range;
 }());
->>>>>>> main
 Range.fromPoints = function (start, end) {
     return new Range(start.row, start.column, end.row, end.column);
 };
@@ -757,26 +646,6 @@ exports.Range = Range;
 define("ace/anchor",[], function(require, exports, module){"use strict";
 var oop = require("./lib/oop");
 var EventEmitter = require("./lib/event_emitter").EventEmitter;
-<<<<<<< HEAD
-var Anchor = exports.Anchor = function (doc, row, column) {
-    this.$onChange = this.onChange.bind(this);
-    this.attach(doc);
-    if (typeof column == "undefined")
-        this.setPosition(row.row, row.column);
-    else
-        this.setPosition(row, column);
-};
-(function () {
-    oop.implement(this, EventEmitter);
-    this.getPosition = function () {
-        return this.$clipPositionToDocument(this.row, this.column);
-    };
-    this.getDocument = function () {
-        return this.document;
-    };
-    this.$insertRight = false;
-    this.onChange = function (delta) {
-=======
 var Anchor = /** @class */ (function () {
     function Anchor(doc, row, column) {
         this.$onChange = this.onChange.bind(this);
@@ -793,7 +662,6 @@ var Anchor = /** @class */ (function () {
         return this.document;
     };
     Anchor.prototype.onChange = function (delta) {
->>>>>>> main
         if (delta.start.row == delta.end.row && delta.start.row != this.row)
             return;
         if (delta.start.row > this.row)
@@ -801,38 +669,7 @@ var Anchor = /** @class */ (function () {
         var point = $getTransformedPoint(delta, { row: this.row, column: this.column }, this.$insertRight);
         this.setPosition(point.row, point.column, true);
     };
-<<<<<<< HEAD
-    function $pointsInOrder(point1, point2, equalPointsInOrder) {
-        var bColIsAfter = equalPointsInOrder ? point1.column <= point2.column : point1.column < point2.column;
-        return (point1.row < point2.row) || (point1.row == point2.row && bColIsAfter);
-    }
-    function $getTransformedPoint(delta, point, moveIfEqual) {
-        var deltaIsInsert = delta.action == "insert";
-        var deltaRowShift = (deltaIsInsert ? 1 : -1) * (delta.end.row - delta.start.row);
-        var deltaColShift = (deltaIsInsert ? 1 : -1) * (delta.end.column - delta.start.column);
-        var deltaStart = delta.start;
-        var deltaEnd = deltaIsInsert ? deltaStart : delta.end; // Collapse insert range.
-        if ($pointsInOrder(point, deltaStart, moveIfEqual)) {
-            return {
-                row: point.row,
-                column: point.column
-            };
-        }
-        if ($pointsInOrder(deltaEnd, point, !moveIfEqual)) {
-            return {
-                row: point.row + deltaRowShift,
-                column: point.column + (point.row == deltaEnd.row ? deltaColShift : 0)
-            };
-        }
-        return {
-            row: deltaStart.row,
-            column: deltaStart.column
-        };
-    }
-    this.setPosition = function (row, column, noClip) {
-=======
     Anchor.prototype.setPosition = function (row, column, noClip) {
->>>>>>> main
         var pos;
         if (noClip) {
             pos = {
@@ -856,16 +693,6 @@ var Anchor = /** @class */ (function () {
             value: pos
         });
     };
-<<<<<<< HEAD
-    this.detach = function () {
-        this.document.off("change", this.$onChange);
-    };
-    this.attach = function (doc) {
-        this.document = doc || this.document;
-        this.document.on("change", this.$onChange);
-    };
-    this.$clipPositionToDocument = function (row, column) {
-=======
     Anchor.prototype.detach = function () {
         this.document.off("change", this.$onChange);
     };
@@ -874,7 +701,6 @@ var Anchor = /** @class */ (function () {
         this.document.on("change", this.$onChange);
     };
     Anchor.prototype.$clipPositionToDocument = function (row, column) {
->>>>>>> main
         var pos = {};
         if (row >= this.document.getLength()) {
             pos.row = Math.max(0, this.document.getLength() - 1);
@@ -892,9 +718,6 @@ var Anchor = /** @class */ (function () {
             pos.column = 0;
         return pos;
     };
-<<<<<<< HEAD
-}).call(Anchor.prototype);
-=======
     return Anchor;
 }());
 Anchor.prototype.$insertRight = false;
@@ -927,7 +750,6 @@ function $getTransformedPoint(delta, point, moveIfEqual) {
     };
 }
 exports.Anchor = Anchor;
->>>>>>> main
 
 });
 
@@ -937,23 +759,6 @@ var applyDelta = require("./apply_delta").applyDelta;
 var EventEmitter = require("./lib/event_emitter").EventEmitter;
 var Range = require("./range").Range;
 var Anchor = require("./anchor").Anchor;
-<<<<<<< HEAD
-var Document = function (textOrLines) {
-    this.$lines = [""];
-    if (textOrLines.length === 0) {
-        this.$lines = [""];
-    }
-    else if (Array.isArray(textOrLines)) {
-        this.insertMergedLines({ row: 0, column: 0 }, textOrLines);
-    }
-    else {
-        this.insert({ row: 0, column: 0 }, textOrLines);
-    }
-};
-(function () {
-    oop.implement(this, EventEmitter);
-    this.setValue = function (text) {
-=======
 var Document = /** @class */ (function () {
     function Document(textOrLines) {
         this.$lines = [""];
@@ -968,30 +773,10 @@ var Document = /** @class */ (function () {
         }
     }
     Document.prototype.setValue = function (text) {
->>>>>>> main
         var len = this.getLength() - 1;
         this.remove(new Range(0, 0, len, this.getLine(len).length));
         this.insert({ row: 0, column: 0 }, text || "");
     };
-<<<<<<< HEAD
-    this.getValue = function () {
-        return this.getAllLines().join(this.getNewLineCharacter());
-    };
-    this.createAnchor = function (row, column) {
-        return new Anchor(this, row, column);
-    };
-    if ("aaa".split(/a/).length === 0) {
-        this.$split = function (text) {
-            return text.replace(/\r\n|\r/g, "\n").split("\n");
-        };
-    }
-    else {
-        this.$split = function (text) {
-            return text.split(/\r\n|\r|\n/);
-        };
-    }
-    this.$detectNewLine = function (text) {
-=======
     Document.prototype.getValue = function () {
         return this.getAllLines().join(this.getNewLineCharacter());
     };
@@ -999,16 +784,11 @@ var Document = /** @class */ (function () {
         return new Anchor(this, row, column);
     };
     Document.prototype.$detectNewLine = function (text) {
->>>>>>> main
         var match = text.match(/^.*?(\r\n|\r|\n)/m);
         this.$autoNewLine = match ? match[1] : "\n";
         this._signal("changeNewLineMode");
     };
-<<<<<<< HEAD
-    this.getNewLineCharacter = function () {
-=======
     Document.prototype.getNewLineCharacter = function () {
->>>>>>> main
         switch (this.$newLineMode) {
             case "windows":
                 return "\r\n";
@@ -1018,42 +798,12 @@ var Document = /** @class */ (function () {
                 return this.$autoNewLine || "\n";
         }
     };
-<<<<<<< HEAD
-    this.$autoNewLine = "";
-    this.$newLineMode = "auto";
-    this.setNewLineMode = function (newLineMode) {
-=======
     Document.prototype.setNewLineMode = function (newLineMode) {
->>>>>>> main
         if (this.$newLineMode === newLineMode)
             return;
         this.$newLineMode = newLineMode;
         this._signal("changeNewLineMode");
     };
-<<<<<<< HEAD
-    this.getNewLineMode = function () {
-        return this.$newLineMode;
-    };
-    this.isNewLine = function (text) {
-        return (text == "\r\n" || text == "\r" || text == "\n");
-    };
-    this.getLine = function (row) {
-        return this.$lines[row] || "";
-    };
-    this.getLines = function (firstRow, lastRow) {
-        return this.$lines.slice(firstRow, lastRow + 1);
-    };
-    this.getAllLines = function () {
-        return this.getLines(0, this.getLength());
-    };
-    this.getLength = function () {
-        return this.$lines.length;
-    };
-    this.getTextRange = function (range) {
-        return this.getLinesForRange(range).join(this.getNewLineCharacter());
-    };
-    this.getLinesForRange = function (range) {
-=======
     Document.prototype.getNewLineMode = function () {
         return this.$newLineMode;
     };
@@ -1076,7 +826,6 @@ var Document = /** @class */ (function () {
         return this.getLinesForRange(range).join(this.getNewLineCharacter());
     };
     Document.prototype.getLinesForRange = function (range) {
->>>>>>> main
         var lines;
         if (range.start.row === range.end.row) {
             lines = [this.getLine(range.start.row).substring(range.start.column, range.end.column)];
@@ -1090,21 +839,6 @@ var Document = /** @class */ (function () {
         }
         return lines;
     };
-<<<<<<< HEAD
-    this.insertLines = function (row, lines) {
-        console.warn("Use of document.insertLines is deprecated. Use the insertFullLines method instead.");
-        return this.insertFullLines(row, lines);
-    };
-    this.removeLines = function (firstRow, lastRow) {
-        console.warn("Use of document.removeLines is deprecated. Use the removeFullLines method instead.");
-        return this.removeFullLines(firstRow, lastRow);
-    };
-    this.insertNewLine = function (position) {
-        console.warn("Use of document.insertNewLine is deprecated. Use insertMergedLines(position, ['', '']) instead.");
-        return this.insertMergedLines(position, ["", ""]);
-    };
-    this.insert = function (position, text) {
-=======
     Document.prototype.insertLines = function (row, lines) {
         console.warn("Use of document.insertLines is deprecated. Use the insertFullLines method instead.");
         return this.insertFullLines(row, lines);
@@ -1118,16 +852,11 @@ var Document = /** @class */ (function () {
         return this.insertMergedLines(position, ["", ""]);
     };
     Document.prototype.insert = function (position, text) {
->>>>>>> main
         if (this.getLength() <= 1)
             this.$detectNewLine(text);
         return this.insertMergedLines(position, this.$split(text));
     };
-<<<<<<< HEAD
-    this.insertInLine = function (position, text) {
-=======
     Document.prototype.insertInLine = function (position, text) {
->>>>>>> main
         var start = this.clippedPos(position.row, position.column);
         var end = this.pos(position.row, position.column + text.length);
         this.applyDelta({
@@ -1138,11 +867,7 @@ var Document = /** @class */ (function () {
         }, true);
         return this.clonePos(end);
     };
-<<<<<<< HEAD
-    this.clippedPos = function (row, column) {
-=======
     Document.prototype.clippedPos = function (row, column) {
->>>>>>> main
         var length = this.getLength();
         if (row === undefined) {
             row = length;
@@ -1160,15 +885,6 @@ var Document = /** @class */ (function () {
         column = Math.min(Math.max(column, 0), line.length);
         return { row: row, column: column };
     };
-<<<<<<< HEAD
-    this.clonePos = function (pos) {
-        return { row: pos.row, column: pos.column };
-    };
-    this.pos = function (row, column) {
-        return { row: row, column: column };
-    };
-    this.$clipPosition = function (position) {
-=======
     Document.prototype.clonePos = function (pos) {
         return { row: pos.row, column: pos.column };
     };
@@ -1176,7 +892,6 @@ var Document = /** @class */ (function () {
         return { row: row, column: column };
     };
     Document.prototype.$clipPosition = function (position) {
->>>>>>> main
         var length = this.getLength();
         if (position.row >= length) {
             position.row = Math.max(0, length - 1);
@@ -1188,11 +903,7 @@ var Document = /** @class */ (function () {
         }
         return position;
     };
-<<<<<<< HEAD
-    this.insertFullLines = function (row, lines) {
-=======
     Document.prototype.insertFullLines = function (row, lines) {
->>>>>>> main
         row = Math.min(Math.max(row, 0), this.getLength());
         var column = 0;
         if (row < this.getLength()) {
@@ -1206,11 +917,7 @@ var Document = /** @class */ (function () {
         }
         this.insertMergedLines({ row: row, column: column }, lines);
     };
-<<<<<<< HEAD
-    this.insertMergedLines = function (position, lines) {
-=======
     Document.prototype.insertMergedLines = function (position, lines) {
->>>>>>> main
         var start = this.clippedPos(position.row, position.column);
         var end = {
             row: start.row + lines.length - 1,
@@ -1224,11 +931,7 @@ var Document = /** @class */ (function () {
         });
         return this.clonePos(end);
     };
-<<<<<<< HEAD
-    this.remove = function (range) {
-=======
     Document.prototype.remove = function (range) {
->>>>>>> main
         var start = this.clippedPos(range.start.row, range.start.column);
         var end = this.clippedPos(range.end.row, range.end.column);
         this.applyDelta({
@@ -1239,11 +942,7 @@ var Document = /** @class */ (function () {
         });
         return this.clonePos(start);
     };
-<<<<<<< HEAD
-    this.removeInLine = function (row, startColumn, endColumn) {
-=======
     Document.prototype.removeInLine = function (row, startColumn, endColumn) {
->>>>>>> main
         var start = this.clippedPos(row, startColumn);
         var end = this.clippedPos(row, endColumn);
         this.applyDelta({
@@ -1254,11 +953,7 @@ var Document = /** @class */ (function () {
         }, true);
         return this.clonePos(start);
     };
-<<<<<<< HEAD
-    this.removeFullLines = function (firstRow, lastRow) {
-=======
     Document.prototype.removeFullLines = function (firstRow, lastRow) {
->>>>>>> main
         firstRow = Math.min(Math.max(0, firstRow), this.getLength() - 1);
         lastRow = Math.min(Math.max(0, lastRow), this.getLength() - 1);
         var deleteFirstNewLine = lastRow == this.getLength() - 1 && firstRow > 0;
@@ -1277,11 +972,7 @@ var Document = /** @class */ (function () {
         });
         return deletedLines;
     };
-<<<<<<< HEAD
-    this.removeNewLine = function (row) {
-=======
     Document.prototype.removeNewLine = function (row) {
->>>>>>> main
         if (row < this.getLength() - 1 && row >= 0) {
             this.applyDelta({
                 start: this.pos(row, this.getLine(row).length),
@@ -1291,11 +982,7 @@ var Document = /** @class */ (function () {
             });
         }
     };
-<<<<<<< HEAD
-    this.replace = function (range, text) {
-=======
     Document.prototype.replace = function (range, text) {
->>>>>>> main
         if (!(range instanceof Range))
             range = Range.fromPoints(range.start, range.end);
         if (text.length === 0 && range.isEmpty())
@@ -1312,29 +999,17 @@ var Document = /** @class */ (function () {
         }
         return end;
     };
-<<<<<<< HEAD
-    this.applyDeltas = function (deltas) {
-=======
     Document.prototype.applyDeltas = function (deltas) {
->>>>>>> main
         for (var i = 0; i < deltas.length; i++) {
             this.applyDelta(deltas[i]);
         }
     };
-<<<<<<< HEAD
-    this.revertDeltas = function (deltas) {
-=======
     Document.prototype.revertDeltas = function (deltas) {
->>>>>>> main
         for (var i = deltas.length - 1; i >= 0; i--) {
             this.revertDelta(deltas[i]);
         }
     };
-<<<<<<< HEAD
-    this.applyDelta = function (delta, doNotValidate) {
-=======
     Document.prototype.applyDelta = function (delta, doNotValidate) {
->>>>>>> main
         var isInsert = delta.action == "insert";
         if (isInsert ? delta.lines.length <= 1 && !delta.lines[0]
             : !Range.comparePoints(delta.start, delta.end)) {
@@ -1348,22 +1023,14 @@ var Document = /** @class */ (function () {
             this._signal("change", delta);
         }
     };
-<<<<<<< HEAD
-    this.$safeApplyDelta = function (delta) {
-=======
     Document.prototype.$safeApplyDelta = function (delta) {
->>>>>>> main
         var docLength = this.$lines.length;
         if (delta.action == "remove" && delta.start.row < docLength && delta.end.row < docLength
             || delta.action == "insert" && delta.start.row <= docLength) {
             this.applyDelta(delta);
         }
     };
-<<<<<<< HEAD
-    this.$splitAndapplyLargeDelta = function (delta, MAX) {
-=======
     Document.prototype.$splitAndapplyLargeDelta = function (delta, MAX) {
->>>>>>> main
         var lines = delta.lines;
         var l = lines.length - MAX + 1;
         var row = delta.start.row;
@@ -1384,11 +1051,7 @@ var Document = /** @class */ (function () {
         delta.start.column = column;
         this.applyDelta(delta, true);
     };
-<<<<<<< HEAD
-    this.revertDelta = function (delta) {
-=======
     Document.prototype.revertDelta = function (delta) {
->>>>>>> main
         this.$safeApplyDelta({
             start: this.clonePos(delta.start),
             end: this.clonePos(delta.end),
@@ -1396,11 +1059,7 @@ var Document = /** @class */ (function () {
             lines: delta.lines.slice()
         });
     };
-<<<<<<< HEAD
-    this.indexToPosition = function (index, startRow) {
-=======
     Document.prototype.indexToPosition = function (index, startRow) {
->>>>>>> main
         var lines = this.$lines || this.getAllLines();
         var newlineLength = this.getNewLineCharacter().length;
         for (var i = startRow || 0, l = lines.length; i < l; i++) {
@@ -1410,11 +1069,7 @@ var Document = /** @class */ (function () {
         }
         return { row: l - 1, column: index + lines[l - 1].length + newlineLength };
     };
-<<<<<<< HEAD
-    this.positionToIndex = function (pos, startRow) {
-=======
     Document.prototype.positionToIndex = function (pos, startRow) {
->>>>>>> main
         var lines = this.$lines || this.getAllLines();
         var newlineLength = this.getNewLineCharacter().length;
         var index = 0;
@@ -1423,9 +1078,6 @@ var Document = /** @class */ (function () {
             index += lines[i].length + newlineLength;
         return index + pos.column;
     };
-<<<<<<< HEAD
-}).call(Document.prototype);
-=======
     Document.prototype.$split = function (text) {
         return text.split(/\r\n|\r|\n/);
     };
@@ -1434,7 +1086,6 @@ var Document = /** @class */ (function () {
 Document.prototype.$autoNewLine = "";
 Document.prototype.$newLineMode = "auto";
 oop.implement(Document.prototype, EventEmitter);
->>>>>>> main
 exports.Document = Document;
 
 });
@@ -1591,8 +1242,6 @@ exports.delayedCall = function (fcn, defaultTimeout) {
     };
     return _self;
 };
-<<<<<<< HEAD
-=======
 exports.supportsLookbehind = function () {
     try {
         new RegExp('(?<=.)');
@@ -1611,7 +1260,6 @@ exports.supportsUnicodeFlag = function () {
     }
     return true;
 };
->>>>>>> main
 
 });
 

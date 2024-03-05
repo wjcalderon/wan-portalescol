@@ -93,13 +93,10 @@ var ClojureHighlightRules = function () {
                 token: "keyword",
                 regex: "[\\[|\\]]"
             }, {
-<<<<<<< HEAD
-=======
                 token: "string.regexp",
                 regex: '#"',
                 next: "regex"
             }, {
->>>>>>> main
                 token: "keyword",
                 regex: "[\\{|\\}|\\#\\{|\\#\\}]"
             }, {
@@ -133,12 +130,6 @@ var ClojureHighlightRules = function () {
             }, {
                 token: "constant",
                 regex: /:[^()\[\]{}'"\^%`,;\s]+/
-<<<<<<< HEAD
-            }, {
-                token: "string.regexp",
-                regex: '/#"(?:\\.|(?:\\")|[^""\n])*"/g'
-=======
->>>>>>> main
             }
         ],
         "string": [
@@ -147,13 +138,6 @@ var ClojureHighlightRules = function () {
                 regex: "\\\\.|\\\\$"
             }, {
                 token: "string",
-<<<<<<< HEAD
-                regex: '[^"\\\\]+'
-            }, {
-                token: "string",
-                regex: '"',
-                next: "start"
-=======
                 regex: '"',
                 next: "start"
             }, {
@@ -195,7 +179,6 @@ var ClojureHighlightRules = function () {
                 regex: "-"
             }, {
                 defaultToken: "string.regexp.charachterclass"
->>>>>>> main
             }
         ]
     };

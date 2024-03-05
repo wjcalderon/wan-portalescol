@@ -1,17 +1,11 @@
 ace.config.setModuleLoader('ace/ext/beautify', () => import('./src-noconflict/ext-beautify.js'));
 ace.config.setModuleLoader('ace/ext/code_lens', () => import('./src-noconflict/ext-code_lens.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/ext/command_bar', () => import('./src-noconflict/ext-command_bar.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/ext/elastic_tabstops_lite', () => import('./src-noconflict/ext-elastic_tabstops_lite.js'));
 ace.config.setModuleLoader('ace/ext/emmet', () => import('./src-noconflict/ext-emmet.js'));
 ace.config.setModuleLoader('ace/ext/error_marker', () => import('./src-noconflict/ext-error_marker.js'));
 ace.config.setModuleLoader('ace/ext/hardwrap', () => import('./src-noconflict/ext-hardwrap.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/ext/inline_autocomplete', () => import('./src-noconflict/ext-inline_autocomplete.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/ext/keyboard_menu', () => import('./src-noconflict/ext-keybinding_menu.js'));
 ace.config.setModuleLoader('ace/ext/language_tools', () => import('./src-noconflict/ext-language_tools.js'));
 ace.config.setModuleLoader('ace/ext/linking', () => import('./src-noconflict/ext-linking.js'));
@@ -61,10 +55,7 @@ ace.config.setModuleLoader('ace/mode/csound_score', () => import('./src-noconfli
 ace.config.setModuleLoader('ace/mode/csp', () => import('./src-noconflict/mode-csp.js'));
 ace.config.setModuleLoader('ace/mode/css', () => import('./src-noconflict/mode-css.js'));
 ace.config.setModuleLoader('ace/mode/curly', () => import('./src-noconflict/mode-curly.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/mode/cuttlefish', () => import('./src-noconflict/mode-cuttlefish.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/mode/c_cpp', () => import('./src-noconflict/mode-c_cpp.js'));
 ace.config.setModuleLoader('ace/mode/d', () => import('./src-noconflict/mode-d.js'));
 ace.config.setModuleLoader('ace/mode/dart', () => import('./src-noconflict/mode-dart.js'));
@@ -147,10 +138,7 @@ ace.config.setModuleLoader('ace/mode/nsis', () => import('./src-noconflict/mode-
 ace.config.setModuleLoader('ace/mode/nunjucks', () => import('./src-noconflict/mode-nunjucks.js'));
 ace.config.setModuleLoader('ace/mode/objectivec', () => import('./src-noconflict/mode-objectivec.js'));
 ace.config.setModuleLoader('ace/mode/ocaml', () => import('./src-noconflict/mode-ocaml.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/mode/odin', () => import('./src-noconflict/mode-odin.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/mode/partiql', () => import('./src-noconflict/mode-partiql.js'));
 ace.config.setModuleLoader('ace/mode/pascal', () => import('./src-noconflict/mode-pascal.js'));
 ace.config.setModuleLoader('ace/mode/perl', () => import('./src-noconflict/mode-perl.js'));
@@ -237,10 +225,7 @@ ace.config.setModuleLoader('ace/theme/dracula', () => import('./src-noconflict/t
 ace.config.setModuleLoader('ace/theme/dreamweaver', () => import('./src-noconflict/theme-dreamweaver.js'));
 ace.config.setModuleLoader('ace/theme/eclipse', () => import('./src-noconflict/theme-eclipse.js'));
 ace.config.setModuleLoader('ace/theme/github', () => import('./src-noconflict/theme-github.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/theme/github_dark', () => import('./src-noconflict/theme-github_dark.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/theme/gob', () => import('./src-noconflict/theme-gob.js'));
 ace.config.setModuleLoader('ace/theme/gruvbox', () => import('./src-noconflict/theme-gruvbox.js'));
 ace.config.setModuleLoader('ace/theme/gruvbox_dark_hard', () => import('./src-noconflict/theme-gruvbox_dark_hard.js'));
@@ -310,10 +295,7 @@ ace.config.setModuleLoader('ace/snippets/csound_score', () => import('./src-noco
 ace.config.setModuleLoader('ace/snippets/csp', () => import('./src-noconflict/snippets/csp.js'));
 ace.config.setModuleLoader('ace/snippets/css', () => import('./src-noconflict/snippets/css.js'));
 ace.config.setModuleLoader('ace/snippets/curly', () => import('./src-noconflict/snippets/curly.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/snippets/cuttlefish', () => import('./src-noconflict/snippets/cuttlefish.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/snippets/c_cpp', () => import('./src-noconflict/snippets/c_cpp.js'));
 ace.config.setModuleLoader('ace/snippets/d', () => import('./src-noconflict/snippets/d.js'));
 ace.config.setModuleLoader('ace/snippets/dart', () => import('./src-noconflict/snippets/dart.js'));
@@ -396,10 +378,7 @@ ace.config.setModuleLoader('ace/snippets/nsis', () => import('./src-noconflict/s
 ace.config.setModuleLoader('ace/snippets/nunjucks', () => import('./src-noconflict/snippets/nunjucks.js'));
 ace.config.setModuleLoader('ace/snippets/objectivec', () => import('./src-noconflict/snippets/objectivec.js'));
 ace.config.setModuleLoader('ace/snippets/ocaml', () => import('./src-noconflict/snippets/ocaml.js'));
-<<<<<<< HEAD
-=======
 ace.config.setModuleLoader('ace/snippets/odin', () => import('./src-noconflict/snippets/odin.js'));
->>>>>>> main
 ace.config.setModuleLoader('ace/snippets/partiql', () => import('./src-noconflict/snippets/partiql.js'));
 ace.config.setModuleLoader('ace/snippets/pascal', () => import('./src-noconflict/snippets/pascal.js'));
 ace.config.setModuleLoader('ace/snippets/perl', () => import('./src-noconflict/snippets/perl.js'));

@@ -484,11 +484,7 @@
         var _ = this,
             i, dot;
 
-<<<<<<< HEAD
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-=======
         if (_.options.dots === true) {
->>>>>>> main
 
             _.$slider.addClass('slick-dotted');
 
@@ -563,11 +559,7 @@
         newSlides = document.createDocumentFragment();
         originalSlides = _.$slider.children();
 
-<<<<<<< HEAD
-        if(_.options.rows > 0) {
-=======
         if(_.options.rows > 1) {
->>>>>>> main
 
             slidesPerSection = _.options.slidesPerRow * _.options.rows;
             numOfSlides = Math.ceil(
@@ -829,11 +821,7 @@
 
         var _ = this, originalSlides;
 
-<<<<<<< HEAD
-        if(_.options.rows > 0) {
-=======
         if(_.options.rows > 1) {
->>>>>>> main
             originalSlides = _.$slides.children().children();
             originalSlides.removeAttr('style');
             _.$slider.empty().append(originalSlides);
@@ -1334,18 +1322,9 @@
                 });
 
                 if (slideControlIndex !== -1) {
-<<<<<<< HEAD
-                   var ariaButtonControl = 'slick-slide-control' + _.instanceUid + slideControlIndex
-                   if ($('#' + ariaButtonControl).length) {
-                     $(this).attr({
-                         'aria-describedby': ariaButtonControl
-                     });
-                   }
-=======
                     $(this).attr({
                         'aria-describedby': 'slick-slide-control' + _.instanceUid + slideControlIndex
                     });
->>>>>>> main
                 }
             });
 
@@ -1372,15 +1351,7 @@
         }
 
         for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
-<<<<<<< HEAD
-          if (_.options.focusOnChange) {
-            _.$slides.eq(i).attr({'tabindex': '0'});
-          } else {
-            _.$slides.eq(i).removeAttr('tabindex');
-          }
-=======
             _.$slides.eq(i).attr('tabindex', 0);
->>>>>>> main
         }
 
         _.activateADA();
@@ -1415,11 +1386,7 @@
 
         var _ = this;
 
-<<<<<<< HEAD
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-=======
         if (_.options.dots === true) {
->>>>>>> main
             $('li', _.$dots).on('click.slick', {
                 message: 'index'
             }, _.changeSlide);
@@ -1429,11 +1396,7 @@
             }
         }
 
-<<<<<<< HEAD
-        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.slideCount > _.options.slidesToShow) {
-=======
         if ( _.options.dots === true && _.options.pauseOnDotsHover === true ) {
->>>>>>> main
 
             $('li', _.$dots)
                 .on('mouseenter.slick', $.proxy(_.interrupt, _, true))
@@ -1734,11 +1697,7 @@
 
             if (_.options.accessibility === true) {
                 _.initADA();
-<<<<<<< HEAD
-
-=======
                 
->>>>>>> main
                 if (_.options.focusOnChange) {
                     var $currentSlide = $(_.$slides.get(_.currentSlide));
                     $currentSlide.attr('tabindex', 0).focus();
@@ -2531,11 +2490,7 @@
         if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-<<<<<<< HEAD
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-=======
                 if (dontAnimate !== true) {
->>>>>>> main
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2547,11 +2502,7 @@
         } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-<<<<<<< HEAD
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-=======
                 if (dontAnimate !== true) {
->>>>>>> main
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2621,11 +2572,7 @@
             return;
         }
 
-<<<<<<< HEAD
-        if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-=======
         if (dontAnimate !== true) {
->>>>>>> main
             _.animateSlide(targetLeft, function() {
                 _.postSlide(animSlide);
             });

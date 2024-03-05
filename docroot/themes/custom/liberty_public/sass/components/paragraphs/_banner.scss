@@ -3,7 +3,7 @@
   height: 530px;
   overflow: hidden;
   @include breakpoint($small) {
-    height: auto;
+    height: 28rem;
   }
 
   .cp-banner__image-mobile {

@@ -949,7 +949,6 @@ export default {
           }
         }
       ];
-      console.log(required);
       if (fieldsToReset.includes(required)) {
         this.casualtyData[required] = opt ? this.casualtyData[required] : "";
 
@@ -974,7 +973,6 @@ export default {
       if (required == "withThirdPartyInvolved" && opt == true) {
         this.validationRules[required] = {};
       }
-      console.log(this.validationRules);
       this.yesNoOptions(field, opt);
     },
     yesNoOptions: function(field, opt) {
@@ -1036,7 +1034,7 @@ export default {
         return {
           url: "/claim/files/" + this.userData.documentId + "/save",
           thumbnailWidth: 150,
-          acceptedFiles: "image/jpeg,application/pdf",
+          acceptedFiles: "image/jpeg, application/pdf",
           addRemoveLinks: true,
           capture: false,
           /*resizeWidth: 600,

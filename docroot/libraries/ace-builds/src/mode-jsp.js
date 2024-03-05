@@ -178,26 +178,6 @@ exports.CssHighlightRules = CssHighlightRules;
 
 });
 
-<<<<<<< HEAD
-define("ace/mode/doc_comment_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [{
-                token: "comment.doc.tag",
-                regex: "@[\\w\\d_]+" // TODO: fix email addresses
-            },
-            DocCommentHighlightRules.getTagRule(),
-            {
-                defaultToken: "comment.doc",
-                caseInsensitive: true
-            }]
-    };
-};
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-DocCommentHighlightRules.getTagRule = function (start) {
-=======
 define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
@@ -298,43 +278,25 @@ var JsDocCommentHighlightRules = function () {
 };
 oop.inherits(JsDocCommentHighlightRules, TextHighlightRules);
 JsDocCommentHighlightRules.getTagRule = function (start) {
->>>>>>> main
     return {
         token: "comment.doc.tag.storage.type",
         regex: "\\b(?:TODO|FIXME|XXX|HACK)\\b"
     };
 };
-<<<<<<< HEAD
-DocCommentHighlightRules.getStartRule = function (start) {
-=======
 JsDocCommentHighlightRules.getStartRule = function (start) {
->>>>>>> main
     return {
         token: "comment.doc",
         regex: "\\/\\*(?=\\*)",
         next: start
     };
 };
-<<<<<<< HEAD
-DocCommentHighlightRules.getEndRule = function (start) {
-=======
 JsDocCommentHighlightRules.getEndRule = function (start) {
->>>>>>> main
     return {
         token: "comment.doc",
         regex: "\\*\\/",
         next: start
     };
 };
-<<<<<<< HEAD
-exports.DocCommentHighlightRules = DocCommentHighlightRules;
-
-});
-
-define("ace/mode/javascript_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/doc_comment_highlight_rules","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
-var oop = require("../lib/oop");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-=======
 exports.JsDocCommentHighlightRules = JsDocCommentHighlightRules;
 
 });
@@ -342,7 +304,6 @@ exports.JsDocCommentHighlightRules = JsDocCommentHighlightRules;
 define("ace/mode/javascript_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/jsdoc_comment_highlight_rules","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var DocCommentHighlightRules = require("./jsdoc_comment_highlight_rules").JsDocCommentHighlightRules;
->>>>>>> main
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
 var JavaScriptHighlightRules = function (options) {
@@ -1131,8 +1092,6 @@ exports.HtmlHighlightRules = HtmlHighlightRules;
 
 });
 
-<<<<<<< HEAD
-=======
 define("ace/mode/doc_comment_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
@@ -1174,7 +1133,6 @@ exports.DocCommentHighlightRules = DocCommentHighlightRules;
 
 });
 
->>>>>>> main
 define("ace/mode/java_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/doc_comment_highlight_rules","ace/mode/text_highlight_rules"], function(require, exports, module){"use strict";
 var oop = require("../lib/oop");
 var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
@@ -1508,28 +1466,16 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
-<<<<<<< HEAD
-define("ace/mode/jsp",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/jsp_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
-=======
 define("ace/mode/jsp",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/jsp_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/cstyle"], function(require, exports, module){"use strict";
->>>>>>> main
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var JspHighlightRules = require("./jsp_highlight_rules").JspHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-<<<<<<< HEAD
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-=======
->>>>>>> main
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 var Mode = function () {
     this.HighlightRules = JspHighlightRules;
     this.$outdent = new MatchingBraceOutdent();
-<<<<<<< HEAD
-    this.$behaviour = new CstyleBehaviour();
-=======
     this.$behaviour = this.$defaultBehaviour;
->>>>>>> main
     this.foldingRules = new CStyleFoldMode();
 };
 oop.inherits(Mode, TextMode);

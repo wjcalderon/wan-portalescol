@@ -3,17 +3,6 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var DocCommentHighlightRules = function () {
     this.$rules = {
-<<<<<<< HEAD
-        "start": [{
-                token: "comment.doc.tag",
-                regex: "@[\\w\\d_]+" // TODO: fix email addresses
-            },
-            DocCommentHighlightRules.getTagRule(),
-            {
-                defaultToken: "comment.doc",
-                caseInsensitive: true
-            }]
-=======
         "start": [
             {
                 token: "comment.doc.tag",
@@ -23,7 +12,6 @@ var DocCommentHighlightRules = function () {
                 caseInsensitive: true
             }
         ]
->>>>>>> main
     };
 };
 oop.inherits(DocCommentHighlightRules, TextHighlightRules);
@@ -300,21 +288,12 @@ exports.RedshiftHighlightRules = RedshiftHighlightRules;
 
 });
 
-<<<<<<< HEAD
-ace.define("ace/mode/redshift",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/redshift_highlight_rules","ace/range"], function(require, exports, module){var oop = require("../lib/oop");
-var TextMode = require("../mode/text").Mode;
-var RedshiftHighlightRules = require("./redshift_highlight_rules").RedshiftHighlightRules;
-var Range = require("../range").Range;
-var Mode = function () {
-    this.HighlightRules = RedshiftHighlightRules;
-=======
 ace.define("ace/mode/redshift",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/redshift_highlight_rules"], function(require, exports, module){var oop = require("../lib/oop");
 var TextMode = require("../mode/text").Mode;
 var RedshiftHighlightRules = require("./redshift_highlight_rules").RedshiftHighlightRules;
 var Mode = function () {
     this.HighlightRules = RedshiftHighlightRules;
     this.$behaviour = this.$defaultBehaviour;
->>>>>>> main
 };
 oop.inherits(Mode, TextMode);
 (function () {

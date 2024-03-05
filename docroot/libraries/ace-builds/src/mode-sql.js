@@ -4,11 +4,7 @@ var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var SqlHighlightRules = function () {
     var keywords = ("select|insert|update|delete|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
         "when|then|else|end|type|left|right|join|on|outer|desc|asc|union|create|table|primary|key|if|" +
-<<<<<<< HEAD
-        "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|distinct");
-=======
         "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|distinct|is|in");
->>>>>>> main
     var builtinConstants = ("true|false");
     var builtinFunctions = ("avg|count|first|last|max|min|sum|ucase|lcase|mid|len|round|rank|now|format|" +
         "coalesce|ifnull|isnull|nvl");

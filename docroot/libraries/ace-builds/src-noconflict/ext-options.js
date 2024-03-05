@@ -72,27 +72,6 @@ function getModeForPath(path) {
     }
     return mode;
 }
-<<<<<<< HEAD
-var Mode = function (name, caption, extensions) {
-    this.name = name;
-    this.caption = caption;
-    this.mode = "ace/mode/" + name;
-    this.extensions = extensions;
-    var re;
-    if (/\^/.test(extensions)) {
-        re = extensions.replace(/\|(\^)?/g, function (a, b) {
-            return "$|" + (b ? "^" : "^.*\\.");
-        }) + "$";
-    }
-    else {
-        re = "^.*\\.(" + extensions + ")$";
-    }
-    this.extRe = new RegExp(re, "gi");
-};
-Mode.prototype.supportsFile = function (filename) {
-    return filename.match(this.extRe);
-};
-=======
 var Mode = /** @class */ (function () {
     function Mode(name, caption, extensions) {
         this.name = name;
@@ -115,7 +94,6 @@ var Mode = /** @class */ (function () {
     };
     return Mode;
 }());
->>>>>>> main
 var supportedModes = {
     ABAP: ["abap"],
     ABC: ["abc"],
@@ -145,10 +123,7 @@ var supportedModes = {
     Csound_Score: ["sco"],
     CSS: ["css"],
     Curly: ["curly"],
-<<<<<<< HEAD
-=======
     Cuttlefish: ["conf"],
->>>>>>> main
     D: ["d|di"],
     Dart: ["dart"],
     Diff: ["diff|patch"],
@@ -230,10 +205,7 @@ var supportedModes = {
     Nunjucks: ["nunjucks|nunjs|nj|njk"],
     ObjectiveC: ["m|mm"],
     OCaml: ["ml|mli"],
-<<<<<<< HEAD
-=======
     Odin: ["odin"],
->>>>>>> main
     PartiQL: ["partiql|pql"],
     Pascal: ["pas|p"],
     Perl: ["pl|pm"],
@@ -385,12 +357,8 @@ var themeData = [
     ["Tomorrow Night Bright", "tomorrow_night_bright", "dark"],
     ["Tomorrow Night 80s", "tomorrow_night_eighties", "dark"],
     ["Twilight", "twilight", "dark"],
-<<<<<<< HEAD
-    ["Vibrant Ink", "vibrant_ink", "dark"]
-=======
     ["Vibrant Ink", "vibrant_ink", "dark"],
     ["GitHub Dark", "github_dark", "dark"]
->>>>>>> main
 ];
 exports.themesByName = {};
 exports.themes = themeData.map(function (data) {
@@ -596,20 +564,6 @@ var optionGroups = {
         },
         "Custom scrollbar": {
             path: "customScrollbar"
-<<<<<<< HEAD
-        }
-    }
-};
-var OptionPanel = function (editor, element) {
-    this.editor = editor;
-    this.container = element || document.createElement("div");
-    this.groups = [];
-    this.options = {};
-};
-(function () {
-    oop.implement(this, EventEmitter);
-    this.add = function (config) {
-=======
         },
         "Use SVG gutter icons": {
             path: "useSvgGutterIcons"
@@ -634,17 +588,12 @@ var OptionPanel = /** @class */ (function () {
         this.options = {};
     }
     OptionPanel.prototype.add = function (config) {
->>>>>>> main
         if (config.Main)
             oop.mixin(optionGroups.Main, config.Main);
         if (config.More)
             oop.mixin(optionGroups.More, config.More);
     };
-<<<<<<< HEAD
-    this.render = function () {
-=======
     OptionPanel.prototype.render = function () {
->>>>>>> main
         this.container.innerHTML = "";
         buildDom(["table", { role: "presentation", id: "controls" },
             this.renderOptionGroup(optionGroups.Main),
@@ -656,11 +605,7 @@ var OptionPanel = /** @class */ (function () {
             ["tr", null, ["td", { colspan: 2 }, "version " + config.version]]
         ], this.container);
     };
-<<<<<<< HEAD
-    this.renderOptionGroup = function (group) {
-=======
     OptionPanel.prototype.renderOptionGroup = function (group) {
->>>>>>> main
         return Object.keys(group).map(function (key, i) {
             var item = group[key];
             if (!item.position)
@@ -674,11 +619,7 @@ var OptionPanel = /** @class */ (function () {
             return this.renderOption(item.label, item);
         }, this);
     };
-<<<<<<< HEAD
-    this.renderOptionControl = function (key, option) {
-=======
     OptionPanel.prototype.renderOptionControl = function (key, option) {
->>>>>>> main
         var self = this;
         if (Array.isArray(option)) {
             return option.map(function (x) {
@@ -765,11 +706,7 @@ var OptionPanel = /** @class */ (function () {
         }
         return control;
     };
-<<<<<<< HEAD
-    this.renderOption = function (key, option) {
-=======
     OptionPanel.prototype.renderOption = function (key, option) {
->>>>>>> main
         if (option.path && !option.onchange && !this.editor.$options[option.path])
             return;
         var path = Array.isArray(option) ? option[0].path : option.path;
@@ -781,11 +718,7 @@ var OptionPanel = /** @class */ (function () {
                 ["label", { for: safeKey, id: safeId }, key]
             ], ["td", control]];
     };
-<<<<<<< HEAD
-    this.setOption = function (option, value) {
-=======
     OptionPanel.prototype.setOption = function (option, value) {
->>>>>>> main
         if (typeof option == "string")
             option = this.options[option];
         if (value == "false")
@@ -804,22 +737,14 @@ var OptionPanel = /** @class */ (function () {
             this.editor.setOption(option.path, value);
         this._signal("setOption", { name: option.path, value: value });
     };
-<<<<<<< HEAD
-    this.getOption = function (option) {
-=======
     OptionPanel.prototype.getOption = function (option) {
->>>>>>> main
         if (option.getValue)
             return option.getValue();
         return this.editor.getOption(option.path);
     };
-<<<<<<< HEAD
-}).call(OptionPanel.prototype);
-=======
     return OptionPanel;
 }());
 oop.implement(OptionPanel.prototype, EventEmitter);
->>>>>>> main
 exports.OptionPanel = OptionPanel;
 
 });                (function() {

@@ -40,7 +40,7 @@ export default class Emitter {
     } else {
       // IE 11 support
       // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-      var evt = document.createEvent("CustomEvent");
+      let evt = document.createEvent("CustomEvent");
       evt.initCustomEvent(
         eventName,
         params.bubbles,

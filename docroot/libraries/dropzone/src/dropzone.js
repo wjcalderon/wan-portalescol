@@ -318,7 +318,7 @@ export default class Dropzone extends Emitter {
         // Because e.dataTransfer.types is an Object in
         // IE, we need to iterate like this instead of
         // using e.dataTransfer.types.some()
-        for (var i = 0; i < e.dataTransfer.types.length; i++) {
+        for (let i = 0; i < e.dataTransfer.types.length; i++) {
           if (e.dataTransfer.types[i] === "Files") return true;
         }
       }
@@ -515,7 +515,7 @@ export default class Dropzone extends Emitter {
     };
 
     for (let tagName of ["div", "form"]) {
-      var fallback;
+      let fallback;
       if (
         (fallback = getFallback(this.element.getElementsByTagName(tagName)))
       ) {
@@ -669,7 +669,7 @@ export default class Dropzone extends Emitter {
     return (() => {
       let result = [];
       for (let item of items) {
-        var entry;
+        let entry;
         if (
           item.webkitGetAsEntry != null &&
           (entry = item.webkitGetAsEntry())
@@ -703,7 +703,7 @@ export default class Dropzone extends Emitter {
     let errorHandler = (error) =>
       __guardMethod__(console, "log", (o) => o.log(error));
 
-    var readEntries = () => {
+    let readEntries = () => {
       return dirReader.readEntries((entries) => {
         if (entries.length > 0) {
           for (let entry of entries) {
@@ -2059,7 +2059,7 @@ let detectVerticalSquash = function (img) {
 
 // A replacement for context.drawImage
 // (args are for source and destination).
-var drawImageIOSFix = function (ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
+let drawImageIOSFix = function (ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
   let vertSquashRatio = detectVerticalSquash(img);
   return ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
 };
@@ -2159,7 +2159,7 @@ class ExifRestore {
     let head = 0;
     let segments = [];
     while (true) {
-      var length;
+      let length;
       if ((rawImageArray[head] === 255) & (rawImageArray[head + 1] === 218)) {
         break;
       }
@@ -2248,7 +2248,7 @@ let contentLoaded = function (win, fn) {
   let add = doc.addEventListener ? "addEventListener" : "attachEvent";
   let rem = doc.addEventListener ? "removeEventListener" : "detachEvent";
   let pre = doc.addEventListener ? "" : "on";
-  var init = function (e) {
+  let init = function (e) {
     if (e.type === "readystatechange" && doc.readyState !== "complete") {
       return;
     }
@@ -2258,7 +2258,7 @@ let contentLoaded = function (win, fn) {
     }
   };
 
-  var poll = function () {
+  let poll = function () {
     try {
       root.doScroll("left");
     } catch (e) {

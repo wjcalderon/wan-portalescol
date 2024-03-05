@@ -1,50 +1,11 @@
-<<<<<<< HEAD
-define("ace/ext/menu_tools/get_editor_keyboard_shortcuts",["require","exports","module","ace/lib/keys"], function(require, exports, module){/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
-"use strict";
-var keys = require("../../lib/keys");
-module.exports.getEditorKeybordShortcuts = function (editor) {
-    var KEY_MODS = keys.KEY_MODS;
-    var keybindings = [];
-    var commandMap = {};
-    editor.keyBinding.$handlers.forEach(function (handler) {
-        var ckb = handler.commandKeyBinding;
-        for (var i in ckb) {
-            var key = i.replace(/(^|-)\w/g, function (x) { return x.toUpperCase(); });
-            var commands = ckb[i];
-            if (!Array.isArray(commands))
-                commands = [commands];
-            commands.forEach(function (command) {
-                if (typeof command != "string")
-                    command = command.name;
-                if (commandMap[command]) {
-                    commandMap[command].key += "|" + key;
-                }
-                else {
-                    commandMap[command] = { key: key, command: command };
-                    keybindings.push(commandMap[command]);
-                }
-            });
-        }
-    });
-    return keybindings;
-};
-
-});
-
-define("ace/autocomplete/popup",["require","exports","module","ace/virtual_renderer","ace/editor","ace/range","ace/lib/event","ace/lib/lang","ace/lib/dom"], function(require, exports, module){"use strict";
-=======
 define("ace/autocomplete/popup",["require","exports","module","ace/virtual_renderer","ace/editor","ace/range","ace/lib/event","ace/lib/lang","ace/lib/dom","ace/config"], function(require, exports, module){"use strict";
->>>>>>> main
 var Renderer = require("../virtual_renderer").VirtualRenderer;
 var Editor = require("../editor").Editor;
 var Range = require("../range").Range;
 var event = require("../lib/event");
 var lang = require("../lib/lang");
 var dom = require("../lib/dom");
-<<<<<<< HEAD
-=======
 var nls = require("../config").nls;
->>>>>>> main
 var getAriaId = function (index) {
     return "suggest-aria-id:".concat(index);
 };
@@ -60,261 +21,6 @@ var $singleLineEditor = function (el) {
     editor.$highlightTagPending = true;
     return editor;
 };
-<<<<<<< HEAD
-var AcePopup = function (parentNode) {
-    var el = dom.createElement("div");
-    var popup = new $singleLineEditor(el);
-    if (parentNode)
-        parentNode.appendChild(el);
-    el.style.display = "none";
-    popup.renderer.content.style.cursor = "default";
-    popup.renderer.setStyle("ace_autocomplete");
-    popup.renderer.container.setAttribute("role", "listbox");
-    popup.renderer.container.setAttribute("aria-label", "Autocomplete suggestions");
-    popup.setOption("displayIndentGuides", false);
-    popup.setOption("dragDelay", 150);
-    var noop = function () { };
-    popup.focus = noop;
-    popup.$isFocused = true;
-    popup.renderer.$cursorLayer.restartTimer = noop;
-    popup.renderer.$cursorLayer.element.style.opacity = 0;
-    popup.renderer.$maxLines = 8;
-    popup.renderer.$keepTextAreaAtCursor = false;
-    popup.setHighlightActiveLine(false);
-    popup.session.highlight("");
-    popup.session.$searchHighlight.clazz = "ace_highlight-marker";
-    popup.on("mousedown", function (e) {
-        var pos = e.getDocumentPosition();
-        popup.selection.moveToPosition(pos);
-        selectionMarker.start.row = selectionMarker.end.row = pos.row;
-        e.stop();
-    });
-    var lastMouseEvent;
-    var hoverMarker = new Range(-1, 0, -1, Infinity);
-    var selectionMarker = new Range(-1, 0, -1, Infinity);
-    selectionMarker.id = popup.session.addMarker(selectionMarker, "ace_active-line", "fullLine");
-    popup.setSelectOnHover = function (val) {
-        if (!val) {
-            hoverMarker.id = popup.session.addMarker(hoverMarker, "ace_line-hover", "fullLine");
-        }
-        else if (hoverMarker.id) {
-            popup.session.removeMarker(hoverMarker.id);
-            hoverMarker.id = null;
-        }
-    };
-    popup.setSelectOnHover(false);
-    popup.on("mousemove", function (e) {
-        if (!lastMouseEvent) {
-            lastMouseEvent = e;
-            return;
-        }
-        if (lastMouseEvent.x == e.x && lastMouseEvent.y == e.y) {
-            return;
-        }
-        lastMouseEvent = e;
-        lastMouseEvent.scrollTop = popup.renderer.scrollTop;
-        var row = lastMouseEvent.getDocumentPosition().row;
-        if (hoverMarker.start.row != row) {
-            if (!hoverMarker.id)
-                popup.setRow(row);
-            setHoverMarker(row);
-        }
-    });
-    popup.renderer.on("beforeRender", function () {
-        if (lastMouseEvent && hoverMarker.start.row != -1) {
-            lastMouseEvent.$pos = null;
-            var row = lastMouseEvent.getDocumentPosition().row;
-            if (!hoverMarker.id)
-                popup.setRow(row);
-            setHoverMarker(row, true);
-        }
-    });
-    popup.renderer.on("afterRender", function () {
-        var row = popup.getRow();
-        var t = popup.renderer.$textLayer;
-        var selected = t.element.childNodes[row - t.config.firstRow];
-        var el = document.activeElement; // Active element is textarea of main editor
-        if (selected !== t.selectedNode && t.selectedNode) {
-            dom.removeCssClass(t.selectedNode, "ace_selected");
-            el.removeAttribute("aria-activedescendant");
-            t.selectedNode.removeAttribute("id");
-        }
-        t.selectedNode = selected;
-        if (selected) {
-            dom.addCssClass(selected, "ace_selected");
-            var ariaId = getAriaId(row);
-            selected.id = ariaId;
-            popup.renderer.container.setAttribute("aria-activedescendant", ariaId);
-            el.setAttribute("aria-activedescendant", ariaId);
-            selected.setAttribute("role", "option");
-            selected.setAttribute("aria-label", popup.getData(row).value);
-            selected.setAttribute("aria-setsize", popup.data.length);
-            selected.setAttribute("aria-posinset", row);
-        }
-    });
-    var hideHoverMarker = function () { setHoverMarker(-1); };
-    var setHoverMarker = function (row, suppressRedraw) {
-        if (row !== hoverMarker.start.row) {
-            hoverMarker.start.row = hoverMarker.end.row = row;
-            if (!suppressRedraw)
-                popup.session._emit("changeBackMarker");
-            popup._emit("changeHoverMarker");
-        }
-    };
-    popup.getHoveredRow = function () {
-        return hoverMarker.start.row;
-    };
-    event.addListener(popup.container, "mouseout", hideHoverMarker);
-    popup.on("hide", hideHoverMarker);
-    popup.on("changeSelection", hideHoverMarker);
-    popup.session.doc.getLength = function () {
-        return popup.data.length;
-    };
-    popup.session.doc.getLine = function (i) {
-        var data = popup.data[i];
-        if (typeof data == "string")
-            return data;
-        return (data && data.value) || "";
-    };
-    var bgTokenizer = popup.session.bgTokenizer;
-    bgTokenizer.$tokenizeRow = function (row) {
-        var data = popup.data[row];
-        var tokens = [];
-        if (!data)
-            return tokens;
-        if (typeof data == "string")
-            data = { value: data };
-        var caption = data.caption || data.value || data.name;
-        function addToken(value, className) {
-            value && tokens.push({
-                type: (data.className || "") + (className || ""),
-                value: value
-            });
-        }
-        var lower = caption.toLowerCase();
-        var filterText = (popup.filterText || "").toLowerCase();
-        var lastIndex = 0;
-        var lastI = 0;
-        for (var i = 0; i <= filterText.length; i++) {
-            if (i != lastI && (data.matchMask & (1 << i) || i == filterText.length)) {
-                var sub = filterText.slice(lastI, i);
-                lastI = i;
-                var index = lower.indexOf(sub, lastIndex);
-                if (index == -1)
-                    continue;
-                addToken(caption.slice(lastIndex, index), "");
-                lastIndex = index + sub.length;
-                addToken(caption.slice(index, lastIndex), "completion-highlight");
-            }
-        }
-        addToken(caption.slice(lastIndex, caption.length), "");
-        if (data.meta)
-            tokens.push({ type: "completion-meta", value: data.meta });
-        if (data.message)
-            tokens.push({ type: "completion-message", value: data.message });
-        return tokens;
-    };
-    bgTokenizer.$updateOnChange = noop;
-    bgTokenizer.start = noop;
-    popup.session.$computeWidth = function () {
-        return this.screenWidth = 0;
-    };
-    popup.isOpen = false;
-    popup.isTopdown = false;
-    popup.autoSelect = true;
-    popup.filterText = "";
-    popup.data = [];
-    popup.setData = function (list, filterText) {
-        popup.filterText = filterText || "";
-        popup.setValue(lang.stringRepeat("\n", list.length), -1);
-        popup.data = list || [];
-        popup.setRow(0);
-    };
-    popup.getData = function (row) {
-        return popup.data[row];
-    };
-    popup.getRow = function () {
-        return selectionMarker.start.row;
-    };
-    popup.setRow = function (line) {
-        line = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length, line));
-        if (selectionMarker.start.row != line) {
-            popup.selection.clearSelection();
-            selectionMarker.start.row = selectionMarker.end.row = line || 0;
-            popup.session._emit("changeBackMarker");
-            popup.moveCursorTo(line || 0, 0);
-            if (popup.isOpen)
-                popup._signal("select");
-        }
-    };
-    popup.on("changeSelection", function () {
-        if (popup.isOpen)
-            popup.setRow(popup.selection.lead.row);
-        popup.renderer.scrollCursorIntoView();
-    });
-    popup.hide = function () {
-        this.container.style.display = "none";
-        this._signal("hide");
-        popup.isOpen = false;
-    };
-    popup.show = function (pos, lineHeight, topdownOnly) {
-        var el = this.container;
-        var screenHeight = window.innerHeight;
-        var screenWidth = window.innerWidth;
-        var renderer = this.renderer;
-        var maxH = renderer.$maxLines * lineHeight * 1.4;
-        var top = pos.top + this.$borderSize;
-        var allowTopdown = top > screenHeight / 2 && !topdownOnly;
-        if (allowTopdown && top + lineHeight + maxH > screenHeight) {
-            renderer.$maxPixelHeight = top - 2 * this.$borderSize;
-            el.style.top = "";
-            el.style.bottom = screenHeight - top + "px";
-            popup.isTopdown = false;
-        }
-        else {
-            top += lineHeight;
-            renderer.$maxPixelHeight = screenHeight - top - 0.2 * lineHeight;
-            el.style.top = top + "px";
-            el.style.bottom = "";
-            popup.isTopdown = true;
-        }
-        el.style.display = "";
-        var left = pos.left;
-        if (left + el.offsetWidth > screenWidth)
-            left = screenWidth - el.offsetWidth;
-        el.style.left = left + "px";
-        this._signal("show");
-        lastMouseEvent = null;
-        popup.isOpen = true;
-    };
-    popup.goTo = function (where) {
-        var row = this.getRow();
-        var max = this.session.getLength() - 1;
-        switch (where) {
-            case "up":
-                row = row <= 0 ? max : row - 1;
-                break;
-            case "down":
-                row = row >= max ? -1 : row + 1;
-                break;
-            case "start":
-                row = 0;
-                break;
-            case "end":
-                row = max;
-                break;
-        }
-        this.setRow(row);
-    };
-    popup.getTextLeftOffset = function () {
-        return this.$borderSize + this.renderer.$padding + this.$imageSize;
-    };
-    popup.$imageSize = 0;
-    popup.$borderSize = 1;
-    return popup;
-};
-dom.importCssString("\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin: 0.9em;\n}\n.ace_completion-message {\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}", "autocompletion.css", false);
-=======
 var AcePopup = /** @class */ (function () {
     function AcePopup(parentNode) {
         var el = dom.createElement("div");
@@ -622,70 +328,12 @@ var AcePopup = /** @class */ (function () {
     return AcePopup;
 }());
 dom.importCssString("\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin-left: 0.9em;\n}\n.ace_completion-message {\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete .ace_line {\n    display: flex;\n    align-items: center;\n}\n.ace_autocomplete .ace_line > * {\n    min-width: 0;\n    flex: 0 0 auto;\n}\n.ace_autocomplete .ace_line .ace_ {\n    flex: 0 1 auto;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n.ace_autocomplete .ace_completion-spacer {\n    flex: 1;\n}\n", "autocompletion.css", false);
->>>>>>> main
 exports.AcePopup = AcePopup;
 exports.$singleLineEditor = $singleLineEditor;
 exports.getAriaId = getAriaId;
 
 });
 
-<<<<<<< HEAD
-define("ace/autocomplete/util",["require","exports","module"], function(require, exports, module){"use strict";
-exports.parForEach = function (array, fn, callback) {
-    var completed = 0;
-    var arLength = array.length;
-    if (arLength === 0)
-        callback();
-    for (var i = 0; i < arLength; i++) {
-        fn(array[i], function (result, err) {
-            completed++;
-            if (completed === arLength)
-                callback(result, err);
-        });
-    }
-};
-var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\u2000\u2070-\uFFFF]/;
-exports.retrievePrecedingIdentifier = function (text, pos, regex) {
-    regex = regex || ID_REGEX;
-    var buf = [];
-    for (var i = pos - 1; i >= 0; i--) {
-        if (regex.test(text[i]))
-            buf.push(text[i]);
-        else
-            break;
-    }
-    return buf.reverse().join("");
-};
-exports.retrieveFollowingIdentifier = function (text, pos, regex) {
-    regex = regex || ID_REGEX;
-    var buf = [];
-    for (var i = pos; i < text.length; i++) {
-        if (regex.test(text[i]))
-            buf.push(text[i]);
-        else
-            break;
-    }
-    return buf;
-};
-exports.getCompletionPrefix = function (editor) {
-    var pos = editor.getCursorPosition();
-    var line = editor.session.getLine(pos.row);
-    var prefix;
-    editor.completers.forEach(function (completer) {
-        if (completer.identifierRegexps) {
-            completer.identifierRegexps.forEach(function (identifierRegex) {
-                if (!prefix && identifierRegex)
-                    prefix = this.retrievePrecedingIdentifier(line, pos.column, identifierRegex);
-            }.bind(this));
-        }
-    }.bind(this));
-    return prefix || this.retrievePrecedingIdentifier(line, pos.column);
-};
-
-});
-
-=======
->>>>>>> main
 define("ace/snippets",["require","exports","module","ace/lib/dom","ace/lib/oop","ace/lib/event_emitter","ace/lib/lang","ace/range","ace/range_list","ace/keyboard/hash_handler","ace/tokenizer","ace/clipboard","ace/editor"], function(require, exports, module){"use strict";
 var dom = require("./lib/dom");
 var oop = require("./lib/oop");
@@ -768,18 +416,6 @@ function date(dateFormat) {
     var str = new Date().toLocaleString("en-us", dateFormat);
     return str.length == 1 ? "0" + str : str;
 }
-<<<<<<< HEAD
-var SnippetManager = function () {
-    this.snippetMap = {};
-    this.snippetNameMap = {};
-};
-(function () {
-    oop.implement(this, EventEmitter);
-    this.getTokenizer = function () {
-        return SnippetManager.$tokenizer || this.createTokenizer();
-    };
-    this.createTokenizer = function () {
-=======
 var SnippetManager = /** @class */ (function () {
     function SnippetManager() {
         this.snippetMap = {};
@@ -790,7 +426,6 @@ var SnippetManager = /** @class */ (function () {
         return SnippetManager.$tokenizer || this.createTokenizer();
     };
     SnippetManager.prototype.createTokenizer = function () {
->>>>>>> main
         function TabstopToken(str) {
             str = str.substr(1);
             if (/^\d+$/.test(str))
@@ -910,20 +545,12 @@ var SnippetManager = /** @class */ (function () {
         });
         return SnippetManager.$tokenizer;
     };
-<<<<<<< HEAD
-    this.tokenizeTmSnippet = function (str, startState) {
-=======
     SnippetManager.prototype.tokenizeTmSnippet = function (str, startState) {
->>>>>>> main
         return this.getTokenizer().getLineTokens(str, startState).tokens.map(function (x) {
             return x.value || x;
         });
     };
-<<<<<<< HEAD
-    this.getVariableValue = function (editor, name, indentation) {
-=======
     SnippetManager.prototype.getVariableValue = function (editor, name, indentation) {
->>>>>>> main
         if (/^\d+$/.test(name))
             return (this.variables.__ || {})[name] || "";
         if (/^[A-Z]\d+$/.test(name))
@@ -936,12 +563,7 @@ var SnippetManager = /** @class */ (function () {
             value = this.variables[name](editor, name, indentation);
         return value == null ? "" : value;
     };
-<<<<<<< HEAD
-    this.variables = VARIABLES;
-    this.tmStrFormat = function (str, ch, editor) {
-=======
     SnippetManager.prototype.tmStrFormat = function (str, ch, editor) {
->>>>>>> main
         if (!ch.fmt)
             return str;
         var flag = ch.flag || "";
@@ -984,22 +606,14 @@ var SnippetManager = /** @class */ (function () {
         });
         return formatted;
     };
-<<<<<<< HEAD
-    this.tmFormatFunction = function (str, ch, editor) {
-=======
     SnippetManager.prototype.tmFormatFunction = function (str, ch, editor) {
->>>>>>> main
         if (ch.formatFunction == "upcase")
             return str.toUpperCase();
         if (ch.formatFunction == "downcase")
             return str.toLowerCase();
         return str;
     };
-<<<<<<< HEAD
-    this.resolveVariables = function (snippet, editor) {
-=======
     SnippetManager.prototype.resolveVariables = function (snippet, editor) {
->>>>>>> main
         var result = [];
         var indentation = "";
         var afterNewLine = true;
@@ -1058,128 +672,6 @@ var SnippetManager = /** @class */ (function () {
         }
         return result;
     };
-<<<<<<< HEAD
-    this.insertSnippetForSelection = function (editor, snippetText) {
-        var cursor = editor.getCursorPosition();
-        var line = editor.session.getLine(cursor.row);
-        var tabString = editor.session.getTabString();
-        var indentString = line.match(/^\s*/)[0];
-        if (cursor.column < indentString.length)
-            indentString = indentString.slice(0, cursor.column);
-        snippetText = snippetText.replace(/\r/g, "");
-        var tokens = this.tokenizeTmSnippet(snippetText);
-        tokens = this.resolveVariables(tokens, editor);
-        tokens = tokens.map(function (x) {
-            if (x == "\n")
-                return x + indentString;
-            if (typeof x == "string")
-                return x.replace(/\t/g, tabString);
-            return x;
-        });
-        var tabstops = [];
-        tokens.forEach(function (p, i) {
-            if (typeof p != "object")
-                return;
-            var id = p.tabstopId;
-            var ts = tabstops[id];
-            if (!ts) {
-                ts = tabstops[id] = [];
-                ts.index = id;
-                ts.value = "";
-                ts.parents = {};
-            }
-            if (ts.indexOf(p) !== -1)
-                return;
-            if (p.choices && !ts.choices)
-                ts.choices = p.choices;
-            ts.push(p);
-            var i1 = tokens.indexOf(p, i + 1);
-            if (i1 === -1)
-                return;
-            var value = tokens.slice(i + 1, i1);
-            var isNested = value.some(function (t) { return typeof t === "object"; });
-            if (isNested && !ts.value) {
-                ts.value = value;
-            }
-            else if (value.length && (!ts.value || typeof ts.value !== "string")) {
-                ts.value = value.join("");
-            }
-        });
-        tabstops.forEach(function (ts) { ts.length = 0; });
-        var expanding = {};
-        function copyValue(val) {
-            var copy = [];
-            for (var i = 0; i < val.length; i++) {
-                var p = val[i];
-                if (typeof p == "object") {
-                    if (expanding[p.tabstopId])
-                        continue;
-                    var j = val.lastIndexOf(p, i - 1);
-                    p = copy[j] || { tabstopId: p.tabstopId };
-                }
-                copy[i] = p;
-            }
-            return copy;
-        }
-        for (var i = 0; i < tokens.length; i++) {
-            var p = tokens[i];
-            if (typeof p != "object")
-                continue;
-            var id = p.tabstopId;
-            var ts = tabstops[id];
-            var i1 = tokens.indexOf(p, i + 1);
-            if (expanding[id]) {
-                if (expanding[id] === p) {
-                    delete expanding[id];
-                    Object.keys(expanding).forEach(function (parentId) {
-                        ts.parents[parentId] = true;
-                    });
-                }
-                continue;
-            }
-            expanding[id] = p;
-            var value = ts.value;
-            if (typeof value !== "string")
-                value = copyValue(value);
-            else if (p.fmt)
-                value = this.tmStrFormat(value, p, editor);
-            tokens.splice.apply(tokens, [i + 1, Math.max(0, i1 - i)].concat(value, p));
-            if (ts.indexOf(p) === -1)
-                ts.push(p);
-        }
-        var row = 0, column = 0;
-        var text = "";
-        tokens.forEach(function (t) {
-            if (typeof t === "string") {
-                var lines = t.split("\n");
-                if (lines.length > 1) {
-                    column = lines[lines.length - 1].length;
-                    row += lines.length - 1;
-                }
-                else
-                    column += t.length;
-                text += t;
-            }
-            else if (t) {
-                if (!t.start)
-                    t.start = { row: row, column: column };
-                else
-                    t.end = { row: row, column: column };
-            }
-        });
-        var range = editor.getSelectionRange();
-        var end = editor.session.replace(range, text);
-        var tabstopManager = new TabstopManager(editor);
-        var selectionId = editor.inVirtualSelectionMode && editor.selection.index;
-        tabstopManager.addTabstops(tabstops, range.start, end, selectionId);
-    };
-    this.insertSnippet = function (editor, snippetText) {
-        var self = this;
-        if (editor.inVirtualSelectionMode)
-            return self.insertSnippetForSelection(editor, snippetText);
-        editor.forEachSelection(function () {
-            self.insertSnippetForSelection(editor, snippetText);
-=======
     SnippetManager.prototype.getDisplayTextForSnippet = function (editor, snippetText) {
         var processedSnippet = processSnippetText.call(this, editor, snippetText);
         return processedSnippet.text;
@@ -1200,16 +692,11 @@ var SnippetManager = /** @class */ (function () {
             return self.insertSnippetForSelection(editor, snippetText, options);
         editor.forEachSelection(function () {
             self.insertSnippetForSelection(editor, snippetText, options);
->>>>>>> main
         }, null, { keepOrder: true });
         if (editor.tabstopManager)
             editor.tabstopManager.tabNext();
     };
-<<<<<<< HEAD
-    this.$getScope = function (editor) {
-=======
     SnippetManager.prototype.$getScope = function (editor) {
->>>>>>> main
         var scope = editor.session.$mode.$id || "";
         scope = scope.split("/").pop();
         if (scope === "html" || scope === "php") {
@@ -1231,11 +718,7 @@ var SnippetManager = /** @class */ (function () {
         }
         return scope;
     };
-<<<<<<< HEAD
-    this.getActiveScopes = function (editor) {
-=======
     SnippetManager.prototype.getActiveScopes = function (editor) {
->>>>>>> main
         var scope = this.$getScope(editor);
         var scopes = [scope];
         var snippetMap = this.snippetMap;
@@ -1245,11 +728,7 @@ var SnippetManager = /** @class */ (function () {
         scopes.push("_");
         return scopes;
     };
-<<<<<<< HEAD
-    this.expandWithTab = function (editor, options) {
-=======
     SnippetManager.prototype.expandWithTab = function (editor, options) {
->>>>>>> main
         var self = this;
         var result = editor.forEachSelection(function () {
             return self.expandSnippetForSelection(editor, options);
@@ -1258,11 +737,7 @@ var SnippetManager = /** @class */ (function () {
             editor.tabstopManager.tabNext();
         return result;
     };
-<<<<<<< HEAD
-    this.expandSnippetForSelection = function (editor, options) {
-=======
     SnippetManager.prototype.expandSnippetForSelection = function (editor, options) {
->>>>>>> main
         var cursor = editor.getCursorPosition();
         var line = editor.session.getLine(cursor.row);
         var before = line.substring(0, cursor.column);
@@ -1286,11 +761,7 @@ var SnippetManager = /** @class */ (function () {
         this.variables.M__ = this.variables.T__ = null;
         return true;
     };
-<<<<<<< HEAD
-    this.findMatchingSnippet = function (snippetList, before, after) {
-=======
     SnippetManager.prototype.findMatchingSnippet = function (snippetList, before, after) {
->>>>>>> main
         for (var i = snippetList.length; i--;) {
             var s = snippetList[i];
             if (s.startRe && !s.startRe.test(before))
@@ -1306,13 +777,7 @@ var SnippetManager = /** @class */ (function () {
             return s;
         }
     };
-<<<<<<< HEAD
-    this.snippetMap = {};
-    this.snippetNameMap = {};
-    this.register = function (snippets, scope) {
-=======
     SnippetManager.prototype.register = function (snippets, scope) {
->>>>>>> main
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
         var self = this;
@@ -1380,11 +845,7 @@ var SnippetManager = /** @class */ (function () {
         }
         this._signal("registerSnippets", { scope: scope });
     };
-<<<<<<< HEAD
-    this.unregister = function (snippets, scope) {
-=======
     SnippetManager.prototype.unregister = function (snippets, scope) {
->>>>>>> main
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
         function removeSnippet(s) {
@@ -1402,11 +863,7 @@ var SnippetManager = /** @class */ (function () {
         else if (Array.isArray(snippets))
             snippets.forEach(removeSnippet);
     };
-<<<<<<< HEAD
-    this.parseSnippetFile = function (str) {
-=======
     SnippetManager.prototype.parseSnippetFile = function (str) {
->>>>>>> main
         str = str.replace(/\r/g, "");
         var list = [], snippet = {};
         var re = /^#.*|^({[\s\S]*})\s*$|^(\S+) (.*)$|^((?:\n*\t.*)+)/gm;
@@ -1445,11 +902,7 @@ var SnippetManager = /** @class */ (function () {
         }
         return list;
     };
-<<<<<<< HEAD
-    this.getSnippetByName = function (name, editor) {
-=======
     SnippetManager.prototype.getSnippetByName = function (name, editor) {
->>>>>>> main
         var snippetMap = this.snippetNameMap;
         var snippet;
         this.getActiveScopes(editor).some(function (scope) {
@@ -1460,27 +913,6 @@ var SnippetManager = /** @class */ (function () {
         }, this);
         return snippet;
     };
-<<<<<<< HEAD
-}).call(SnippetManager.prototype);
-var TabstopManager = function (editor) {
-    if (editor.tabstopManager)
-        return editor.tabstopManager;
-    editor.tabstopManager = this;
-    this.$onChange = this.onChange.bind(this);
-    this.$onChangeSelection = lang.delayedCall(this.onChangeSelection.bind(this)).schedule;
-    this.$onChangeSession = this.onChangeSession.bind(this);
-    this.$onAfterExec = this.onAfterExec.bind(this);
-    this.attach(editor);
-};
-(function () {
-    this.attach = function (editor) {
-        this.index = 0;
-        this.ranges = [];
-        this.tabstops = [];
-        this.$openTabstops = null;
-        this.selectedTabstop = null;
-        this.editor = editor;
-=======
     return SnippetManager;
 }());
 oop.implement(SnippetManager.prototype, EventEmitter);
@@ -1618,33 +1050,12 @@ var TabstopManager = /** @class */ (function () {
         this.selectedTabstop = null;
         this.editor = editor;
         this.session = editor.session;
->>>>>>> main
         this.editor.on("change", this.$onChange);
         this.editor.on("changeSelection", this.$onChangeSelection);
         this.editor.on("changeSession", this.$onChangeSession);
         this.editor.commands.on("afterExec", this.$onAfterExec);
         this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
     };
-<<<<<<< HEAD
-    this.detach = function () {
-        this.tabstops.forEach(this.removeTabstopMarkers, this);
-        this.ranges = null;
-        this.tabstops = null;
-        this.selectedTabstop = null;
-        this.editor.removeListener("change", this.$onChange);
-        this.editor.removeListener("changeSelection", this.$onChangeSelection);
-        this.editor.removeListener("changeSession", this.$onChangeSession);
-        this.editor.commands.removeListener("afterExec", this.$onAfterExec);
-        this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler);
-        this.editor.tabstopManager = null;
-        this.editor = null;
-    };
-    this.onChange = function (delta) {
-        var isRemove = delta.action[0] == "r";
-        var selectedTabstop = this.selectedTabstop || {};
-        var parents = selectedTabstop.parents || {};
-        var tabstops = (this.tabstops || []).slice();
-=======
     TabstopManager.prototype.detach = function () {
         this.tabstops.forEach(this.removeTabstopMarkers, this);
         this.ranges.length = 0;
@@ -1664,7 +1075,6 @@ var TabstopManager = /** @class */ (function () {
         var selectedTabstop = this.selectedTabstop || {};
         var parents = selectedTabstop.parents || {};
         var tabstops = this.tabstops.slice();
->>>>>>> main
         for (var i = 0; i < tabstops.length; i++) {
             var ts = tabstops[i];
             var active = ts == selectedTabstop || parents[ts.index];
@@ -1681,28 +1091,16 @@ var TabstopManager = /** @class */ (function () {
             }
             ts.rangeList.$onChange(delta);
         }
-<<<<<<< HEAD
-        var session = this.editor.session;
-        if (!this.$inChange && isRemove && session.getLength() == 1 && !session.getValue())
-            this.detach();
-    };
-    this.updateLinkedFields = function () {
-=======
         var session = this.session;
         if (!this.$inChange && isRemove && session.getLength() == 1 && !session.getValue())
             this.detach();
     };
     TabstopManager.prototype.updateLinkedFields = function () {
->>>>>>> main
         var ts = this.selectedTabstop;
         if (!ts || !ts.hasLinkedRanges || !ts.firstNonLinked)
             return;
         this.$inChange = true;
-<<<<<<< HEAD
-        var session = this.editor.session;
-=======
         var session = this.session;
->>>>>>> main
         var text = session.getTextRange(ts.firstNonLinked);
         for (var i = 0; i < ts.length; i++) {
             var range = ts[i];
@@ -1714,19 +1112,11 @@ var TabstopManager = /** @class */ (function () {
         }
         this.$inChange = false;
     };
-<<<<<<< HEAD
-    this.onAfterExec = function (e) {
-        if (e.command && !e.command.readOnly)
-            this.updateLinkedFields();
-    };
-    this.onChangeSelection = function () {
-=======
     TabstopManager.prototype.onAfterExec = function (e) {
         if (e.command && !e.command.readOnly)
             this.updateLinkedFields();
     };
     TabstopManager.prototype.onChangeSelection = function () {
->>>>>>> main
         if (!this.editor)
             return;
         var lead = this.editor.selection.lead;
@@ -1742,17 +1132,10 @@ var TabstopManager = /** @class */ (function () {
         }
         this.detach();
     };
-<<<<<<< HEAD
-    this.onChangeSession = function () {
-        this.detach();
-    };
-    this.tabNext = function (dir) {
-=======
     TabstopManager.prototype.onChangeSession = function () {
         this.detach();
     };
     TabstopManager.prototype.tabNext = function (dir) {
->>>>>>> main
         var max = this.tabstops.length;
         var index = this.index + (dir || 1);
         index = Math.min(Math.max(index, 1), max);
@@ -1762,11 +1145,7 @@ var TabstopManager = /** @class */ (function () {
         if (index === 0)
             this.detach();
     };
-<<<<<<< HEAD
-    this.selectTabstop = function (index) {
-=======
     TabstopManager.prototype.selectTabstop = function (index) {
->>>>>>> main
         this.$openTabstops = null;
         var ts = this.tabstops[this.index];
         if (ts)
@@ -1795,11 +1174,7 @@ var TabstopManager = /** @class */ (function () {
         if (this.selectedTabstop && this.selectedTabstop.choices)
             this.editor.execCommand("startAutocomplete", { matches: this.selectedTabstop.choices });
     };
-<<<<<<< HEAD
-    this.addTabstops = function (tabstops, start, end) {
-=======
     TabstopManager.prototype.addTabstops = function (tabstops, start, end) {
->>>>>>> main
         var useLink = this.useLink || !this.editor.getOption("enableMultiselect");
         if (!this.$openTabstops)
             this.$openTabstops = [];
@@ -1851,35 +1226,21 @@ var TabstopManager = /** @class */ (function () {
             this.tabstops.splice.apply(this.tabstops, arg);
         }
     };
-<<<<<<< HEAD
-    this.addTabstopMarkers = function (ts) {
-        var session = this.editor.session;
-=======
     TabstopManager.prototype.addTabstopMarkers = function (ts) {
         var session = this.session;
->>>>>>> main
         ts.forEach(function (range) {
             if (!range.markerId)
                 range.markerId = session.addMarker(range, "ace_snippet-marker", "text");
         });
     };
-<<<<<<< HEAD
-    this.removeTabstopMarkers = function (ts) {
-        var session = this.editor.session;
-=======
     TabstopManager.prototype.removeTabstopMarkers = function (ts) {
         var session = this.session;
->>>>>>> main
         ts.forEach(function (range) {
             session.removeMarker(range.markerId);
             range.markerId = null;
         });
     };
-<<<<<<< HEAD
-    this.removeRange = function (range) {
-=======
     TabstopManager.prototype.removeRange = function (range) {
->>>>>>> main
         var i = range.tabstop.indexOf(range);
         if (i != -1)
             range.tabstop.splice(i, 1);
@@ -1889,11 +1250,7 @@ var TabstopManager = /** @class */ (function () {
         i = range.tabstop.rangeList.ranges.indexOf(range);
         if (i != -1)
             range.tabstop.splice(i, 1);
-<<<<<<< HEAD
-        this.editor.session.removeMarker(range.markerId);
-=======
         this.session.removeMarker(range.markerId);
->>>>>>> main
         if (!range.tabstop.length) {
             i = this.tabstops.indexOf(range.tabstop);
             if (i != -1)
@@ -1902,25 +1259,6 @@ var TabstopManager = /** @class */ (function () {
                 this.detach();
         }
     };
-<<<<<<< HEAD
-    this.keyboardHandler = new HashHandler();
-    this.keyboardHandler.bindKeys({
-        "Tab": function (editor) {
-            if (exports.snippetManager && exports.snippetManager.expandWithTab(editor))
-                return;
-            editor.tabstopManager.tabNext(1);
-            editor.renderer.scrollCursorIntoView();
-        },
-        "Shift-Tab": function (editor) {
-            editor.tabstopManager.tabNext(-1);
-            editor.renderer.scrollCursorIntoView();
-        },
-        "Esc": function (editor) {
-            editor.tabstopManager.detach();
-        }
-    });
-}).call(TabstopManager.prototype);
-=======
     return TabstopManager;
 }());
 TabstopManager.prototype.keyboardHandler = new HashHandler();
@@ -1939,7 +1277,6 @@ TabstopManager.prototype.keyboardHandler.bindKeys({
         editor.tabstopManager.detach();
     }
 });
->>>>>>> main
 var movePoint = function (point, diff) {
     if (point.row == 0)
         point.column += diff.column;
@@ -1964,11 +1301,6 @@ var Editor = require("./editor").Editor;
 
 });
 
-<<<<<<< HEAD
-define("ace/autocomplete",["require","exports","module","ace/keyboard/hash_handler","ace/autocomplete/popup","ace/autocomplete/popup","ace/autocomplete/util","ace/lib/lang","ace/lib/dom","ace/snippets","ace/config"], function(require, exports, module){"use strict";
-var HashHandler = require("./keyboard/hash_handler").HashHandler;
-var AcePopup = require("./autocomplete/popup").AcePopup;
-=======
 define("ace/autocomplete/inline",["require","exports","module","ace/snippets"], function(require, exports, module){"use strict";
 var snippetManager = require("../snippets").snippetManager;
 var AceInline = /** @class */ (function () {
@@ -2090,34 +1422,12 @@ define("ace/autocomplete",["require","exports","module","ace/keyboard/hash_handl
 var HashHandler = require("./keyboard/hash_handler").HashHandler;
 var AcePopup = require("./autocomplete/popup").AcePopup;
 var AceInline = require("./autocomplete/inline").AceInline;
->>>>>>> main
 var getAriaId = require("./autocomplete/popup").getAriaId;
 var util = require("./autocomplete/util");
 var lang = require("./lib/lang");
 var dom = require("./lib/dom");
 var snippetManager = require("./snippets").snippetManager;
 var config = require("./config");
-<<<<<<< HEAD
-var Autocomplete = function () {
-    this.autoInsert = false;
-    this.autoSelect = true;
-    this.exactMatch = false;
-    this.gatherCompletionsId = 0;
-    this.keyboardHandler = new HashHandler();
-    this.keyboardHandler.bindKeys(this.commands);
-    this.blurListener = this.blurListener.bind(this);
-    this.changeListener = this.changeListener.bind(this);
-    this.mousedownListener = this.mousedownListener.bind(this);
-    this.mousewheelListener = this.mousewheelListener.bind(this);
-    this.changeTimer = lang.delayedCall(function () {
-        this.updateCompletions(true);
-    }.bind(this));
-    this.tooltipTimer = lang.delayedCall(this.updateDocTooltip.bind(this), 50);
-};
-(function () {
-    this.$init = function () {
-        this.popup = new AcePopup(document.body || document.documentElement);
-=======
 var destroyCompleter = function (e, editor) {
     editor.completer && editor.completer.destroy();
 };
@@ -2143,31 +1453,11 @@ var Autocomplete = /** @class */ (function () {
     }
     Autocomplete.prototype.$init = function () {
         this.popup = new AcePopup(this.parentNode || document.body || document.documentElement);
->>>>>>> main
         this.popup.on("click", function (e) {
             this.insertMatch();
             e.stop();
         }.bind(this));
         this.popup.focus = this.editor.focus.bind(this.editor);
-<<<<<<< HEAD
-        this.popup.on("show", this.tooltipTimer.bind(null, null));
-        this.popup.on("select", this.tooltipTimer.bind(null, null));
-        this.popup.on("changeHoverMarker", this.tooltipTimer.bind(null, null));
-        return this.popup;
-    };
-    this.getPopup = function () {
-        return this.popup || this.$init();
-    };
-    this.openPopup = function (editor, prefix, keepPopupPosition) {
-        if (!this.popup)
-            this.$init();
-        this.popup.autoSelect = this.autoSelect;
-        this.popup.setData(this.completions.filtered, this.completions.filterText);
-        if (this.editor.textInput.setAriaOptions)
-            this.editor.textInput.setAriaOptions({ activeDescendant: getAriaId(this.popup.getRow()) });
-        editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
-        var renderer = editor.renderer;
-=======
         this.popup.on("show", this.$onPopupChange.bind(this));
         this.popup.on("hide", this.$onHidePopup.bind(this));
         this.popup.on("select", this.$onPopupChange.bind(this));
@@ -2270,43 +1560,19 @@ var Autocomplete = /** @class */ (function () {
             });
         }
         editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
->>>>>>> main
         this.popup.setRow(this.autoSelect ? 0 : -1);
         if (!keepPopupPosition) {
             this.popup.setTheme(editor.getTheme());
             this.popup.setFontSize(editor.getFontSize());
-<<<<<<< HEAD
-            var lineHeight = renderer.layerConfig.lineHeight;
-            var pos = renderer.$cursorLayer.getPixelPosition(this.base, true);
-            pos.left -= this.popup.getTextLeftOffset();
-            var rect = editor.container.getBoundingClientRect();
-            pos.top += rect.top - renderer.layerConfig.offset;
-            pos.left += rect.left - editor.renderer.scrollLeft;
-            pos.left += renderer.gutterWidth;
-            this.popup.show(pos, lineHeight);
-=======
             this.$updatePopupPosition();
             if (this.tooltipNode) {
                 this.updateDocTooltip();
             }
->>>>>>> main
         }
         else if (keepPopupPosition && !prefix) {
             this.detach();
         }
         this.changeTimer.cancel();
-<<<<<<< HEAD
-    };
-    this.detach = function () {
-        this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler);
-        this.editor.off("changeSelection", this.changeListener);
-        this.editor.off("blur", this.blurListener);
-        this.editor.off("mousedown", this.mousedownListener);
-        this.editor.off("mousewheel", this.mousewheelListener);
-        this.changeTimer.cancel();
-        this.hideDocTooltip();
-        this.gatherCompletionsId += 1;
-=======
         this.observeLayoutChanges();
     };
     Autocomplete.prototype.detach = function () {
@@ -2322,22 +1588,15 @@ var Autocomplete = /** @class */ (function () {
         if (this.completionProvider) {
             this.completionProvider.detach();
         }
->>>>>>> main
         if (this.popup && this.popup.isOpen)
             this.popup.hide();
         if (this.base)
             this.base.detach();
         this.activated = false;
-<<<<<<< HEAD
-        this.completions = this.base = null;
-    };
-    this.changeListener = function (e) {
-=======
         this.completionProvider = this.completions = this.base = null;
         this.unObserveLayoutChanges();
     };
     Autocomplete.prototype.changeListener = function (e) {
->>>>>>> main
         var cursor = this.editor.selection.lead;
         if (cursor.row != this.base.row || cursor.column < this.base.column) {
             this.detach();
@@ -2347,11 +1606,7 @@ var Autocomplete = /** @class */ (function () {
         else
             this.detach();
     };
-<<<<<<< HEAD
-    this.blurListener = function (e) {
-=======
     Autocomplete.prototype.blurListener = function (e) {
->>>>>>> main
         var el = document.activeElement;
         var text = this.editor.textInput.getElement();
         var fromTooltip = e.relatedTarget && this.tooltipNode && this.tooltipNode.contains(e.relatedTarget);
@@ -2361,18 +1616,6 @@ var Autocomplete = /** @class */ (function () {
             this.detach();
         }
     };
-<<<<<<< HEAD
-    this.mousedownListener = function (e) {
-        this.detach();
-    };
-    this.mousewheelListener = function (e) {
-        this.detach();
-    };
-    this.goTo = function (where) {
-        this.popup.goTo(where);
-    };
-    this.insertMatch = function (data, options) {
-=======
     Autocomplete.prototype.mousedownListener = function (e) {
         this.detach();
     };
@@ -2383,77 +1626,10 @@ var Autocomplete = /** @class */ (function () {
         this.popup.goTo(where);
     };
     Autocomplete.prototype.insertMatch = function (data, options) {
->>>>>>> main
         if (!data)
             data = this.popup.getData(this.popup.getRow());
         if (!data)
             return false;
-<<<<<<< HEAD
-        var completions = this.completions;
-        this.editor.startOperation({ command: { name: "insertMatch" } });
-        if (data.completer && data.completer.insertMatch) {
-            data.completer.insertMatch(this.editor, data);
-        }
-        else {
-            if (!completions)
-                return false;
-            if (completions.filterText) {
-                var ranges = this.editor.selection.getAllRanges();
-                for (var i = 0, range; range = ranges[i]; i++) {
-                    range.start.column -= completions.filterText.length;
-                    this.editor.session.remove(range);
-                }
-            }
-            if (data.snippet)
-                snippetManager.insertSnippet(this.editor, data.snippet);
-            else
-                this.editor.execCommand("insertstring", data.value || data);
-        }
-        if (this.completions == completions)
-            this.detach();
-        this.editor.endOperation();
-    };
-    this.commands = {
-        "Up": function (editor) { editor.completer.goTo("up"); },
-        "Down": function (editor) { editor.completer.goTo("down"); },
-        "Ctrl-Up|Ctrl-Home": function (editor) { editor.completer.goTo("start"); },
-        "Ctrl-Down|Ctrl-End": function (editor) { editor.completer.goTo("end"); },
-        "Esc": function (editor) { editor.completer.detach(); },
-        "Return": function (editor) { return editor.completer.insertMatch(); },
-        "Shift-Return": function (editor) { editor.completer.insertMatch(null, { deleteSuffix: true }); },
-        "Tab": function (editor) {
-            var result = editor.completer.insertMatch();
-            if (!result && !editor.tabstopManager)
-                editor.completer.goTo("down");
-            else
-                return result;
-        },
-        "PageUp": function (editor) { editor.completer.popup.gotoPageUp(); },
-        "PageDown": function (editor) { editor.completer.popup.gotoPageDown(); }
-    };
-    this.gatherCompletions = function (editor, callback) {
-        var session = editor.getSession();
-        var pos = editor.getCursorPosition();
-        var prefix = util.getCompletionPrefix(editor);
-        this.base = session.doc.createAnchor(pos.row, pos.column - prefix.length);
-        this.base.$insertRight = true;
-        var matches = [];
-        var total = editor.completers.length;
-        editor.completers.forEach(function (completer, i) {
-            completer.getCompletions(editor, session, pos, prefix, function (err, results) {
-                if (!err && results)
-                    matches = matches.concat(results);
-                callback(null, {
-                    prefix: util.getCompletionPrefix(editor),
-                    matches: matches,
-                    finished: (--total === 0)
-                });
-            });
-        });
-        return true;
-    };
-    this.showPopup = function (editor, options) {
-=======
         if (data.value === "") // Explicitly given nothing to insert, e.g. "No suggestion state"
             return this.detach();
         var completions = this.completions;
@@ -2463,7 +1639,6 @@ var Autocomplete = /** @class */ (function () {
         return result;
     };
     Autocomplete.prototype.showPopup = function (editor, options) {
->>>>>>> main
         if (this.editor)
             this.detach();
         this.activated = true;
@@ -2479,9 +1654,6 @@ var Autocomplete = /** @class */ (function () {
         editor.on("mousewheel", this.mousewheelListener);
         this.updateCompletions(false, options);
     };
-<<<<<<< HEAD
-    this.updateCompletions = function (keepPopupPosition, options) {
-=======
     Autocomplete.prototype.getCompletionProvider = function (initialPosition) {
         if (!this.completionProvider)
             this.completionProvider = new CompletionProvider(initialPosition);
@@ -2491,7 +1663,6 @@ var Autocomplete = /** @class */ (function () {
         return this.getCompletionProvider().gatherCompletions(editor, callback);
     };
     Autocomplete.prototype.updateCompletions = function (keepPopupPosition, options) {
->>>>>>> main
         if (keepPopupPosition && this.base && this.completions) {
             var pos = this.editor.getCursorPosition();
             var prefix = this.editor.session.getTextRange({ start: this.base, end: pos });
@@ -2514,56 +1685,6 @@ var Autocomplete = /** @class */ (function () {
             this.completions = new FilteredList(options.matches);
             return this.openPopup(this.editor, "", keepPopupPosition);
         }
-<<<<<<< HEAD
-        var _id = this.gatherCompletionsId;
-        var detachIfFinished = function (results) {
-            if (!results.finished)
-                return;
-            return this.detach();
-        }.bind(this);
-        var processResults = function (results) {
-            var prefix = results.prefix;
-            var matches = results.matches;
-            this.completions = new FilteredList(matches);
-            if (this.exactMatch)
-                this.completions.exactMatch = true;
-            this.completions.setFilter(prefix);
-            var filtered = this.completions.filtered;
-            if (!filtered.length)
-                return detachIfFinished(results);
-            if (filtered.length == 1 && filtered[0].value == prefix && !filtered[0].snippet)
-                return detachIfFinished(results);
-            if (this.autoInsert && filtered.length == 1 && results.finished)
-                return this.insertMatch(filtered[0]);
-            this.openPopup(this.editor, prefix, keepPopupPosition);
-        }.bind(this);
-        var isImmediate = true;
-        var immediateResults = null;
-        this.gatherCompletions(this.editor, function (err, results) {
-            var prefix = results.prefix;
-            var matches = results && results.matches;
-            if (!matches || !matches.length)
-                return detachIfFinished(results);
-            if (prefix.indexOf(results.prefix) !== 0 || _id != this.gatherCompletionsId)
-                return;
-            if (isImmediate) {
-                immediateResults = results;
-                return;
-            }
-            processResults(results);
-        }.bind(this));
-        isImmediate = false;
-        if (immediateResults) {
-            var results = immediateResults;
-            immediateResults = null;
-            processResults(results);
-        }
-    };
-    this.cancelContextMenu = function () {
-        this.editor.$mouseHandler.cancelContextMenu();
-    };
-    this.updateDocTooltip = function () {
-=======
         var session = this.editor.getSession();
         var pos = this.editor.getCursorPosition();
         var prefix = util.getCompletionPrefix(this.editor);
@@ -2605,20 +1726,12 @@ var Autocomplete = /** @class */ (function () {
         this.editor.$mouseHandler.cancelContextMenu();
     };
     Autocomplete.prototype.updateDocTooltip = function () {
->>>>>>> main
         var popup = this.popup;
         var all = popup.data;
         var selected = all && (all[popup.getHoveredRow()] || all[popup.getRow()]);
         var doc = null;
         if (!selected || !this.editor || !this.popup.isOpen)
             return this.hideDocTooltip();
-<<<<<<< HEAD
-        this.editor.completers.some(function (completer) {
-            if (completer.getDocTooltip)
-                doc = completer.getDocTooltip(selected);
-            return doc;
-        });
-=======
         var completersLength = this.editor.completers.length;
         for (var i = 0; i < completersLength; i++) {
             var completer = this.editor.completers[i];
@@ -2627,7 +1740,6 @@ var Autocomplete = /** @class */ (function () {
                 break;
             }
         }
->>>>>>> main
         if (!doc && typeof selected != "string")
             doc = selected;
         if (typeof doc == "string")
@@ -2636,31 +1748,20 @@ var Autocomplete = /** @class */ (function () {
             return this.hideDocTooltip();
         this.showDocTooltip(doc);
     };
-<<<<<<< HEAD
-    this.showDocTooltip = function (item) {
-        if (!this.tooltipNode) {
-            this.tooltipNode = dom.createElement("div");
-            this.tooltipNode.className = "ace_tooltip ace_doc-tooltip";
-=======
     Autocomplete.prototype.showDocTooltip = function (item) {
         if (!this.tooltipNode) {
             this.tooltipNode = dom.createElement("div");
->>>>>>> main
             this.tooltipNode.style.margin = 0;
             this.tooltipNode.style.pointerEvents = "auto";
             this.tooltipNode.tabIndex = -1;
             this.tooltipNode.onblur = this.blurListener.bind(this);
             this.tooltipNode.onclick = this.onTooltipClick.bind(this);
-<<<<<<< HEAD
-        }
-=======
             this.tooltipNode.id = "doc-tooltip";
             this.tooltipNode.setAttribute("role", "tooltip");
         }
         var theme = this.editor.renderer.theme;
         this.tooltipNode.className = "ace_tooltip ace_doc-tooltip " +
             (theme.isDark ? "ace_dark " : "") + (theme.cssClass || "");
->>>>>>> main
         var tooltipNode = this.tooltipNode;
         if (item.docHTML) {
             tooltipNode.innerHTML = item.docHTML;
@@ -2669,11 +1770,7 @@ var Autocomplete = /** @class */ (function () {
             tooltipNode.textContent = item.docText;
         }
         if (!tooltipNode.parentNode)
-<<<<<<< HEAD
-            document.body.appendChild(tooltipNode);
-=======
             this.popup.container.appendChild(this.tooltipNode);
->>>>>>> main
         var popup = this.popup;
         var rect = popup.container.getBoundingClientRect();
         tooltipNode.style.top = popup.container.style.top;
@@ -2704,11 +1801,7 @@ var Autocomplete = /** @class */ (function () {
             tooltipNode.style.right = "";
         }
     };
-<<<<<<< HEAD
-    this.hideDocTooltip = function () {
-=======
     Autocomplete.prototype.hideDocTooltip = function () {
->>>>>>> main
         this.tooltipTimer.cancel();
         if (!this.tooltipNode)
             return;
@@ -2719,11 +1812,7 @@ var Autocomplete = /** @class */ (function () {
         if (el.parentNode)
             el.parentNode.removeChild(el);
     };
-<<<<<<< HEAD
-    this.onTooltipClick = function (e) {
-=======
     Autocomplete.prototype.onTooltipClick = function (e) {
->>>>>>> main
         var a = e.target;
         while (a && a != this.tooltipNode) {
             if (a.nodeName == "A" && a.href) {
@@ -2734,11 +1823,7 @@ var Autocomplete = /** @class */ (function () {
             a = a.parentNode;
         }
     };
-<<<<<<< HEAD
-    this.destroy = function () {
-=======
     Autocomplete.prototype.destroy = function () {
->>>>>>> main
         this.detach();
         if (this.popup) {
             this.popup.destroy();
@@ -2746,19 +1831,6 @@ var Autocomplete = /** @class */ (function () {
             if (el && el.parentNode)
                 el.parentNode.removeChild(el);
         }
-<<<<<<< HEAD
-        if (this.editor && this.editor.completer == this)
-            this.editor.completer == null;
-        this.popup = null;
-    };
-}).call(Autocomplete.prototype);
-Autocomplete.for = function (editor) {
-    if (editor.completer) {
-        return editor.completer;
-    }
-    if (config.get("sharedPopups")) {
-        if (!Autocomplete.$shared)
-=======
         if (this.editor && this.editor.completer == this) {
             this.editor.off("destroy", destroyCompleter);
             this.editor.completer = null;
@@ -2795,19 +1867,12 @@ Autocomplete.for = function (editor) {
     }
     if (config.get("sharedPopups")) {
         if (!Autocomplete.$sharedInstance)
->>>>>>> main
             Autocomplete.$sharedInstance = new Autocomplete();
         editor.completer = Autocomplete.$sharedInstance;
     }
     else {
         editor.completer = new Autocomplete();
-<<<<<<< HEAD
-        editor.once("destroy", function (e, editor) {
-            editor.completer.destroy();
-        });
-=======
         editor.once("destroy", destroyCompleter);
->>>>>>> main
     }
     return editor.completer;
 };
@@ -2817,25 +1882,12 @@ Autocomplete.startCommand = {
         var completer = Autocomplete.for(editor);
         completer.autoInsert = false;
         completer.autoSelect = true;
-<<<<<<< HEAD
-=======
         completer.autoShown = false;
->>>>>>> main
         completer.showPopup(editor, options);
         completer.cancelContextMenu();
     },
     bindKey: "Ctrl-Space|Ctrl-Shift-Space|Alt-Space"
 };
-<<<<<<< HEAD
-var FilteredList = function (array, filterText) {
-    this.all = array;
-    this.filtered = array;
-    this.filterText = filterText || "";
-    this.exactMatch = false;
-};
-(function () {
-    this.setFilter = function (str) {
-=======
 var CompletionProvider = /** @class */ (function () {
     function CompletionProvider(initialPosition) {
         this.initialPosition = initialPosition;
@@ -2973,7 +2025,6 @@ var FilteredList = /** @class */ (function () {
         this.ignoreCaption = false;
     }
     FilteredList.prototype.setFilter = function (str) {
->>>>>>> main
         if (str.length > this.filterText && str.lastIndexOf(this.filterText, 0) === 0)
             var matches = this.filtered;
         else
@@ -2994,20 +2045,12 @@ var FilteredList = /** @class */ (function () {
         });
         this.filtered = matches;
     };
-<<<<<<< HEAD
-    this.filterCompletions = function (items, needle) {
-=======
     FilteredList.prototype.filterCompletions = function (items, needle) {
->>>>>>> main
         var results = [];
         var upper = needle.toUpperCase();
         var lower = needle.toLowerCase();
         loop: for (var i = 0, item; item = items[i]; i++) {
-<<<<<<< HEAD
-            var caption = item.caption || item.value || item.snippet;
-=======
             var caption = (!this.ignoreCaption && item.caption) || item.value || item.snippet;
->>>>>>> main
             if (!caption)
                 continue;
             var lastIndex = -1;
@@ -3048,15 +2091,10 @@ var FilteredList = /** @class */ (function () {
         }
         return results;
     };
-<<<<<<< HEAD
-}).call(FilteredList.prototype);
-exports.Autocomplete = Autocomplete;
-=======
     return FilteredList;
 }());
 exports.Autocomplete = Autocomplete;
 exports.CompletionProvider = CompletionProvider;
->>>>>>> main
 exports.FilteredList = FilteredList;
 
 });
@@ -3135,27 +2173,6 @@ function getModeForPath(path) {
     }
     return mode;
 }
-<<<<<<< HEAD
-var Mode = function (name, caption, extensions) {
-    this.name = name;
-    this.caption = caption;
-    this.mode = "ace/mode/" + name;
-    this.extensions = extensions;
-    var re;
-    if (/\^/.test(extensions)) {
-        re = extensions.replace(/\|(\^)?/g, function (a, b) {
-            return "$|" + (b ? "^" : "^.*\\.");
-        }) + "$";
-    }
-    else {
-        re = "^.*\\.(" + extensions + ")$";
-    }
-    this.extRe = new RegExp(re, "gi");
-};
-Mode.prototype.supportsFile = function (filename) {
-    return filename.match(this.extRe);
-};
-=======
 var Mode = /** @class */ (function () {
     function Mode(name, caption, extensions) {
         this.name = name;
@@ -3178,7 +2195,6 @@ var Mode = /** @class */ (function () {
     };
     return Mode;
 }());
->>>>>>> main
 var supportedModes = {
     ABAP: ["abap"],
     ABC: ["abc"],
@@ -3208,10 +2224,7 @@ var supportedModes = {
     Csound_Score: ["sco"],
     CSS: ["css"],
     Curly: ["curly"],
-<<<<<<< HEAD
-=======
     Cuttlefish: ["conf"],
->>>>>>> main
     D: ["d|di"],
     Dart: ["dart"],
     Diff: ["diff|patch"],
@@ -3293,10 +2306,7 @@ var supportedModes = {
     Nunjucks: ["nunjucks|nunjs|nj|njk"],
     ObjectiveC: ["m|mm"],
     OCaml: ["ml|mli"],
-<<<<<<< HEAD
-=======
     Odin: ["odin"],
->>>>>>> main
     PartiQL: ["partiql|pql"],
     Pascal: ["pas|p"],
     Perl: ["pl|pm"],
@@ -3401,11 +2411,7 @@ module.exports = {
 
 });
 
-<<<<<<< HEAD
-define("ace/ext/prompt",["require","exports","module","ace/range","ace/lib/dom","ace/ext/menu_tools/get_editor_keyboard_shortcuts","ace/autocomplete","ace/autocomplete/popup","ace/autocomplete/popup","ace/undomanager","ace/tokenizer","ace/ext/menu_tools/overlay_page","ace/ext/modelist"], function(require, exports, module){/**
-=======
 define("ace/ext/prompt",["require","exports","module","ace/config","ace/range","ace/lib/dom","ace/autocomplete","ace/autocomplete/popup","ace/autocomplete/popup","ace/undomanager","ace/tokenizer","ace/ext/menu_tools/overlay_page","ace/ext/modelist"], function(require, exports, module){/**
->>>>>>> main
  * Prompt plugin is used for getting input from user.
  *
  * @param {Object} editor                   Ouside editor related to this prompt. Will be blurred when prompt is open.
@@ -3427,15 +2433,9 @@ define("ace/ext/prompt",["require","exports","module","ace/config","ace/range","
  * @param {Function} callback               Function called after done.
  * */
 "use strict";
-<<<<<<< HEAD
-var Range = require("../range").Range;
-var dom = require("../lib/dom");
-var shortcuts = require("../ext/menu_tools/get_editor_keyboard_shortcuts");
-=======
 var nls = require("../config").nls;
 var Range = require("../range").Range;
 var dom = require("../lib/dom");
->>>>>>> main
 var FilteredList = require("../autocomplete").FilteredList;
 var AcePopup = require('../autocomplete/popup').AcePopup;
 var $singleLineEditor = require('../autocomplete/popup').$singleLineEditor;
@@ -3662,10 +2662,6 @@ prompt.gotoLine = function (editor, callback) {
             editor.renderer.animateScrolling(scrollTop);
         },
         history: function () {
-<<<<<<< HEAD
-            var undoManager = editor.session.getUndoManager();
-=======
->>>>>>> main
             if (!prompt.gotoLine._history)
                 return [];
             return prompt.gotoLine._history;
@@ -3798,21 +2794,12 @@ prompt.commands = function (editor, callback) {
             var otherCommands = getUniqueCommandList(shortcutsArray, recentlyUsedCommands);
             otherCommands = getFilteredCompletions(otherCommands, prefix);
             if (recentlyUsedCommands.length && otherCommands.length) {
-<<<<<<< HEAD
-                recentlyUsedCommands[0]["message"] = " Recently used";
-                otherCommands[0]["message"] = " Other commands";
-            }
-            var completions = recentlyUsedCommands.concat(otherCommands);
-            return completions.length > 0 ? completions : [{
-                    value: "No matching commands",
-=======
                 recentlyUsedCommands[0].message = nls("Recently used");
                 otherCommands[0].message = nls("Other commands");
             }
             var completions = recentlyUsedCommands.concat(otherCommands);
             return completions.length > 0 ? completions : [{
                     value: nls("No matching commands"),
->>>>>>> main
                     error: 1
                 }];
         }
@@ -3853,11 +2840,7 @@ prompt.modes = function (editor, callback) {
         }
     });
 };
-<<<<<<< HEAD
-dom.importCssString(".ace_prompt_container {\n    max-width: 600px;\n    width: 100%;\n    margin: 20px auto;\n    padding: 3px;\n    background: white;\n    border-radius: 2px;\n    box-shadow: 0px 2px 3px 0px #555;\n}", "promtp.css", false);
-=======
 dom.importCssString(".ace_prompt_container {\n    max-width: 603px;\n    width: 100%;\n    margin: 20px auto;\n    padding: 3px;\n    background: white;\n    border-radius: 2px;\n    box-shadow: 0px 2px 3px 0px #555;\n}", "promtp.css", false);
->>>>>>> main
 exports.prompt = prompt;
 
 });                (function() {

@@ -754,18 +754,41 @@ class ClaimServices {
               ];
               if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
                 $personal_data = $polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'];
-                // If personal_data have more than one, then use
-                // conductorPersonalData for name and lastname.
+                // If personal_data have more than one array index, then use
+                // conductorPersonalData.
                 $name = '';
-                $lastname = '';
-                if (count($personal_data) > 1) {
+                $lastName = '';
+                $documentId = '';
+                $docType = '';
+                $email = '';
+                $address = '';
+                $phone = '';
+
+                if (isset($personal_data[0]) && count($personal_data) > 1) {
                   if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
                     $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
                     $name = isset($conductor_data['primerNombre'])
                     ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
                     : '';
-                    $lastname = isset($conductor_data['primerApellido'])
+                    $lastName = isset($conductor_data['primerApellido'])
                     ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
+                    : '';
+                    $documentId = $conductor_data['numeroDocumento'] ?? '';
+                    $docType = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
+                    ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
+                    : 0;
+                    if (isset($conductor_data['email'])) {
+                      $email = $conductor_data['email'];
+                    }
+                    elseif (isset($conductor_data['mail'])) {
+                      $email = $conductor_data['mail'];
+                    }
+                    else {
+                      $email = '';
+                    }
+                    $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
+                    $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
+                    ? $conductor_data['telefono']['numero']
                     : '';
                   }
                 }
@@ -773,20 +796,34 @@ class ClaimServices {
                   $name = isset($personal_data['primerNombre'])
                     ? $personal_data['primerNombre'] . ' ' . @$personal_data['segundoNombre']
                     : '';
-                  $lastname = isset($personal_data['primerApellido'])
+                  $lastName = isset($personal_data['primerApellido'])
                   ? $personal_data['primerApellido'] . ' ' . $personal_data['segundoApellido']
+                  : '';
+                  $documentId = $personal_data['numeroDocumento'] ?? '';
+                  $docType = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
+                    ? $doc_types[$personal_data['tipoDocumento']['codigo']]
+                    : 0;
+                  if (isset($personal_data['email'])) {
+                    $email = $personal_data['email'];
+                  }
+                  elseif (isset($personal_data['mail'])) {
+                    $email = $personal_data['mail'];
+                  }
+                  else {
+                    $email = '';
+                  }
+                  $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
+                  $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
+                  ? $personal_data['telefono']['numero']
                   : '';
                 }
                 $return['personalInfo'] = [
-                  'name' => $name,
-                  'lastname' => $lastname,
-                  'documentId' => $personal_data['numeroDocumento'] ?? '',
-                  'docType' => isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
-                    ? $doc_types[$personal_data['tipoDocumento']['codigo']]
-                    : 0,
-
-                  'email' => $personal_data['email'] ?? '',
-                  'address' => isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '',
+                  'name' => $name ?? '',
+                  'lastname' => $lastName ?? '',
+                  'documentId' => $documentId ?? '',
+                  'docType' => $docType ?? '',
+                  'email' => $email ?? '',
+                  'address' => $address ?? '',
 
                   'brand' => isset($polizas[$index_vigencia])
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca']
@@ -795,33 +832,86 @@ class ClaimServices {
                   'model' => isset($polizas[$index_vigencia])
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
                     : '',
+                  'phone' => $phone ?? '',
                 ];
-
-                if (isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0) {
-                  $return['personalInfo']['phone'] = $personal_data['telefono']['numero'];
-                }
-                else {
-                  $return['personalInfo']['phone'] = '';
-                }
-
               }
               elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
                 $personal_data = $polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'];
 
+                // If personal_data have more than one array index, then use
+                // conductorPersonalData.
+                $name = '';
+                $lastName = '';
+                $documentId = '';
+                $docType = '';
+                $email = '';
+                $address = '';
+                $phone = '';
+
+                if (isset($personal_data[0]) && count($personal_data) > 1) {
+                  if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
+                    $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
+                    $name = isset($conductor_data['primerNombre'])
+                    ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
+                    : '';
+                    $lastName = isset($conductor_data['primerApellido'])
+                    ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
+                    : '';
+                    $documentId = $conductor_data['numeroDocumento'] ?? '';
+                    $docType = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
+                    ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
+                    : 0;
+                    if (isset($conductor_data['email'])) {
+                      $email = $conductor_data['email'];
+                    }
+                    elseif (isset($conductor_data['mail'])) {
+                      $email = $conductor_data['mail'];
+                    }
+                    else {
+                      $email = '';
+                    }
+                    $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
+                    $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
+                    ? $conductor_data['telefono']['numero']
+                    : '';
+                  }
+                }
+                else {
+                  $name = $personal_data['razonSocial'] ?? '';
+                  $lastName = ' ';
+                  $documentId = $personal_data['numeroDocumento'] ?? '';
+                  $docType = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
+                    ? $doc_types[$personal_data['tipoDocumento']['codigo']]
+                    : 0;
+                  if (isset($personal_data['email'])) {
+                    $email = $personal_data['email'];
+                  }
+                  elseif (isset($personal_data['mail'])) {
+                    $email = $personal_data['mail'];
+                  }
+                  else {
+                    $email = '';
+                  }
+                  $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
+                  $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
+                  ? $personal_data['telefono']['numero']
+                  : '';
+                }
+
                 $return['personalInfo'] = [
-                  'name' => $personal_data['razonSocial'] ?? '',
-                  'lastname' => ' ',
-                  'documentId' => $personal_data['numeroDocumento'] ?? '',
-                  'docType' =>
-                  isset($personal_data['tipoDocumento']) &&
-                  $personal_data['tipoDocumento'] ? $doc_types[$personal_data['tipoDocumento']['codigo']] : 0,
-                  'address' => isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '',
+                  'name' => $name ?? '',
+                  'lastname' => $lastName,
+                  'documentId' => $documentId ?? '',
+                  'docType' => $docType ?? '',
+                  'email' => $email ?? '',
+                  'address' => $address ?? '',
                   'brand' => isset($polizas[$index_vigencia])
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca']
                     : '',
                   'model' => isset($polizas[$index_vigencia])
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
                     : '',
+                  'phone' => $phone ?? '',
                 ];
 
               }

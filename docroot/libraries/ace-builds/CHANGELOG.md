@@ -2,8 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<<<<<<< HEAD
-=======
 ### [1.24.1](https://github.com/ajaxorg/ace/compare/v1.24.0...v1.24.1) (2023-08-15)
 
 ## [1.24.0](https://github.com/ajaxorg/ace/compare/v1.23.4...v1.24.0) (2023-08-09)
@@ -173,7 +171,6 @@ All notable changes to this project will be documented in this file. See [standa
 * Option to determine specific prefixes for quote insertion ([#5067](https://github.com/ajaxorg/ace/issues/5067)) ([34e769c](https://github.com/ajaxorg/ace/commit/34e769c5b29a68a3c4201fecc75d1287c99f9d51)), closes [#5063](https://github.com/ajaxorg/ace/issues/5063)
 * Remove broken keybinding from vscode mode ([#5032](https://github.com/ajaxorg/ace/issues/5032)) ([68ff964](https://github.com/ajaxorg/ace/commit/68ff964a214cc2da66e4a35b313ff66dd4490e34))
 
->>>>>>> main
 ### [1.15.3](https://github.com/ajaxorg/ace/compare/v1.15.2...v1.15.3) (2023-03-02)
 
 ### [1.15.2](https://github.com/ajaxorg/ace/compare/v1.15.1...v1.15.2) (2023-02-16)

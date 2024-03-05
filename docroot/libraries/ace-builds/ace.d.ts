@@ -1,9 +1,6 @@
 /// <reference path="./ace-modules.d.ts" />
-<<<<<<< HEAD
-=======
 
 
->>>>>>> main
 export namespace Ace {
   export type NewLineMode = 'auto' | 'unix' | 'windows';
 
@@ -200,11 +197,8 @@ export namespace Ace {
     theme: string;
     hasCssTransforms: boolean;
     maxPixelHeight: number;
-<<<<<<< HEAD
-=======
     useSvgGutterIcons: boolean;
     showFoldedAnnotations: boolean;
->>>>>>> main
   }
 
   export interface MouseHandlerOptions {
@@ -228,28 +222,19 @@ export namespace Ace {
     behavioursEnabled: boolean;
     wrapBehavioursEnabled: boolean;
     enableAutoIndent: boolean;
-<<<<<<< HEAD
-    enableBasicAutocompletion: boolean | Completer[],
-    enableLiveAutocompletion: boolean | Completer[],
-    enableSnippets: boolean,
-=======
     enableBasicAutocompletion: boolean | Completer[];
     enableLiveAutocompletion: boolean | Completer[];
     liveAutocompletionDelay: number;
     liveAutocompletionThreshold: number;
     enableSnippets: boolean;
->>>>>>> main
     autoScrollEditorIntoView: boolean;
     keyboardHandler: string | null;
     placeholder: string;
     value: string;
     session: EditSession;
     relativeLineNumbers: boolean;
-<<<<<<< HEAD
-=======
     enableMultiselect: boolean;
     enableKeyboardAccessibility: boolean;
->>>>>>> main
   }
 
   export interface SearchOptions {
@@ -297,8 +282,6 @@ export namespace Ace {
     type: string;
   }
 
-<<<<<<< HEAD
-=======
   export interface MarkerGroupItem {
     range: Range;
     className: string;
@@ -311,7 +294,6 @@ export namespace Ace {
   }
 
 
->>>>>>> main
   export interface Command {
     name?: string;
     bindKey?: string | { mac?: string, win?: string };
@@ -352,16 +334,6 @@ export namespace Ace {
     start?: number;
   }
 
-<<<<<<< HEAD
-  export interface Completion {
-    value: string;
-    score: number;
-    meta?: string;
-    name?: string;
-    caption?: string;
-  }
-
-=======
   interface BaseCompletion {
     score?: number;
     meta?: string;
@@ -381,7 +353,6 @@ export namespace Ace {
 
   export type Completion = SnippetCompletion | ValueCompletion
 
->>>>>>> main
   export interface Tokenizer {
     removeCapturingGroups(src: string): string;
     createSplitterRegexp(src: string, flag?: string): RegExp;
@@ -398,9 +369,6 @@ export namespace Ace {
     stepForward(): Token;
   }
 
-<<<<<<< HEAD
-  export interface SyntaxMode {
-=======
   export type HighlightRule = {defaultToken: string} | {include: string} | {todo: string} | {
     token: string | string[] | ((value: string) => string);
     regex: string | RegExp;
@@ -455,7 +423,6 @@ export namespace Ace {
     $behaviour?: Behaviour;
     $defaultBehaviour?: Behaviour;
     lineCommentStart?: string;
->>>>>>> main
     getTokenizer(): Tokenizer;
     toggleCommentLines(state: any,
       session: EditSession,
@@ -471,15 +438,7 @@ export namespace Ace {
     // TODO implement WorkerClient types
     createWorker(session: EditSession): any;
     createModeDelegates(mapping: { [key: string]: string }): void;
-<<<<<<< HEAD
-    transformAction(state: string,
-      action: string,
-      editor: Editor,
-      session: EditSession,
-      text: string): any;
-=======
     transformAction: BehaviorAction;
->>>>>>> main
     getKeywords(append?: boolean): Array<string | RegExp>;
     getCompletions(state: string,
       session: EditSession,
@@ -487,23 +446,16 @@ export namespace Ace {
       prefix: string): Completion[];
   }
 
-<<<<<<< HEAD
-=======
   type AfterLoadCallback = (err: Error | null, module: unknown) => void;
   type LoaderFunction = (moduleName: string, afterLoad: AfterLoadCallback) => void;
 
->>>>>>> main
   export interface Config {
     get(key: string): any;
     set(key: string, value: any): void;
     all(): { [key: string]: any };
     moduleUrl(name: string, component?: string): string;
     setModuleUrl(name: string, subst: string): string;
-<<<<<<< HEAD
-    setLoader(cb: Function): void;
-=======
     setLoader(cb: LoaderFunction): void;
->>>>>>> main
     setModuleLoader(name: string, onLoad: Function): void;
     loadModule(moduleName: string | [string, string],
       onLoad?: (module: any) => void): void;
@@ -560,19 +512,12 @@ export namespace Ace {
     on(name: 'tokenizerUpdate',
        callback: (obj: { data: { first: number, last: number } }) => void): Function;
     on(name: 'change', callback: () => void): Function;
-<<<<<<< HEAD
-=======
     on(name: 'changeTabSize', callback: () => void): Function;
->>>>>>> main
 
 
     setOption<T extends keyof EditSessionOptions>(name: T, value: EditSessionOptions[T]): void;
     getOption<T extends keyof EditSessionOptions>(name: T): EditSessionOptions[T];
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> main
     readonly doc: Document;
 
     setDocument(doc: Document): void;
@@ -920,11 +865,8 @@ export namespace Ace {
     on(name: 'mouseup', callback: (e: any) => void): void;
     on(name: 'mousewheel', callback: (e: any) => void): void;
     on(name: 'click', callback: (e: any) => void): void;
-<<<<<<< HEAD
-=======
     on(name: 'guttermousedown', callback: (e: any) => void): void;
     on(name: 'gutterkeydown', callback: (e: any) => void): void;
->>>>>>> main
 
     onPaste(text: string, event: any): void;
 
@@ -934,11 +876,7 @@ export namespace Ace {
     setKeyboardHandler(keyboardHandler: string, callback?: () => void): void;
     setKeyboardHandler(keyboardHandler: KeyboardHandler|null): void;
     getKeyboardHandler(): string;
-<<<<<<< HEAD
-    setSession(session: EditSession): void;
-=======
     setSession(session: EditSession | undefined): void;
->>>>>>> main
     getSession(): EditSession;
     setValue(val: string, cursorPos?: number): string;
     getValue(): string;
@@ -949,11 +887,7 @@ export namespace Ace {
     setStyle(style: string): void;
     unsetStyle(style: string): void;
     getFontSize(): string;
-<<<<<<< HEAD
-    setFontSize(size: number): void;
-=======
     setFontSize(size: number|string): void;
->>>>>>> main
     focus(): void;
     isFocused(): boolean;
     blur(): void;
@@ -1076,8 +1010,6 @@ export namespace Ace {
       position: Point,
       prefix: string,
       callback: CompleterCallback): void;
-<<<<<<< HEAD
-=======
     getDocTooltip?(item: Completion): undefined | string | Completion;
     cancel?(): void;
     id?: string;
@@ -1151,7 +1083,6 @@ export namespace Ace {
     show(pos: Point, lineHeight: number, topdownOnly: boolean): void;
     tryShow(pos: Point, lineHeight: number, anchor: "top" | "bottom" | undefined, forceShow?: boolean): boolean;
     goTo(where: AcePopupNavigation): void;
->>>>>>> main
   }
 }
 
@@ -1165,28 +1096,19 @@ export const VirtualRenderer: {
   new(container: HTMLElement, theme?: string): Ace.VirtualRenderer;
 };
 export const EditSession: {
-<<<<<<< HEAD
-  new(text: string | Document, mode?: Ace.SyntaxMode): Ace.EditSession;
-=======
   new(text: string | Ace.Document, mode?: Ace.SyntaxMode): Ace.EditSession;
->>>>>>> main
 };
 export const UndoManager: {
   new(): Ace.UndoManager;
 };
-<<<<<<< HEAD
-=======
 export const Editor: {
   new(): Ace.Editor;
 };
->>>>>>> main
 export const Range: {
   new(startRow: number, startColumn: number, endRow: number, endColumn: number): Ace.Range;
   fromPoints(start: Ace.Point, end: Ace.Point): Ace.Range;
   comparePoints(p1: Ace.Point, p2: Ace.Point): number;
 };
-<<<<<<< HEAD
-=======
 
 
 type InlineAutocompleteAction = "prev" | "next" | "first" | "last";
@@ -1232,4 +1154,3 @@ export class CommandBarTooltip {
   detach(): void;
   destroy(): void;
 }
->>>>>>> main
