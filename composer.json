@@ -5,6 +5,7 @@
     "license": "proprietary",
     "homepage": "https://libertyseguros.co",
     "require": {
+        "php": ">=8.1",
         "ext-dom": "*",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.7",

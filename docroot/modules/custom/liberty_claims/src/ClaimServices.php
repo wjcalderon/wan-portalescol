@@ -778,10 +778,10 @@ class ClaimServices {
                     ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
                     : 0;
                     if (isset($conductor_data['email'])) {
-                      $email = $conductor_data['email'];
+                      $email = trim($conductor_data['email']);
                     }
                     elseif (isset($conductor_data['mail'])) {
-                      $email = $conductor_data['mail'];
+                      $email = trim($conductor_data['mail']);
                     }
                     else {
                       $email = '';
@@ -804,10 +804,10 @@ class ClaimServices {
                     ? $doc_types[$personal_data['tipoDocumento']['codigo']]
                     : 0;
                   if (isset($personal_data['email'])) {
-                    $email = $personal_data['email'];
+                    $email = trim($personal_data['email']);
                   }
                   elseif (isset($personal_data['mail'])) {
-                    $email = $personal_data['mail'];
+                    $email = trim($personal_data['mail']);
                   }
                   else {
                     $email = '';
@@ -862,10 +862,10 @@ class ClaimServices {
                     ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
                     : 0;
                     if (isset($conductor_data['email'])) {
-                      $email = $conductor_data['email'];
+                      $email = trim($conductor_data['email']);
                     }
                     elseif (isset($conductor_data['mail'])) {
-                      $email = $conductor_data['mail'];
+                      $email = trim($conductor_data['mail']);
                     }
                     else {
                       $email = '';
@@ -884,10 +884,10 @@ class ClaimServices {
                     ? $doc_types[$personal_data['tipoDocumento']['codigo']]
                     : 0;
                   if (isset($personal_data['email'])) {
-                    $email = $personal_data['email'];
+                    $email = trim($personal_data['email']);
                   }
                   elseif (isset($personal_data['mail'])) {
-                    $email = $personal_data['mail'];
+                    $email = trim($personal_data['mail']);
                   }
                   else {
                     $email = '';
