@@ -104,11 +104,12 @@
     // Case number
     $("#00n4a00000fkikp").attr("disabled", "disabled");
 
+
     $("#00ng000000fwyn9").change(function () {
-      if ($(this).val() !== "SI") {
-        $("#00n4a00000fkikp").prop("disabled", true).removeAttr("required");
+      if ($(this).val() != "SI") {
+        $("#00n4a00000fkikp").attr("disabled", "disabled");
       } else {
-        $("#00n4a00000fkikp").prop("disabled", false).prop("required", true);
+        $("#00n4a00000fkikp").removeAttr("disabled");
       }
     });
 
@@ -208,9 +209,6 @@
       "00NG000000FWyn9": {
         required: "Este campo es requerido",
       },
-      "00ng000000fwyn9": {
-        required: "Este campo es requerido",
-      },
       // Número de caso
       "00n4a00000fkikp": {
         required: "Este campo es requerido",
@@ -219,16 +217,8 @@
       "00NG000000FWyoW": {
         required: "Este campo es requerido",
       },
-      "00ng000000fwyow": {
-        required: "Este campo es requerido",
-      },
       // Número identificacion
       "00NG000000FWyoI": {
-        required: "Este campo es requerido",
-        number: "Debe ingresar solo números",
-        maxlength: "Por favor escribe máximo 18 digitos",
-      },
-      "00ng000000fwyoi": {
         required: "Este campo es requerido",
         number: "Debe ingresar solo números",
         maxlength: "Por favor escribe máximo 18 digitos",
@@ -239,18 +229,6 @@
       },
       // Direccion
       "00NG000000FWynx": {
-        required: "Este campo es requerido",
-      },
-      "00ng000000fwynx": {
-        required: "Este campo es requerido",
-      },
-      "00n05000000xuss": {
-        required: "Este campo es requerido",
-      },
-      "00n05000001bn7q": {
-        required: "Este campo es requerido",
-      },
-      "00ng000000fwynl": {
         required: "Este campo es requerido",
       },
       // Celular
