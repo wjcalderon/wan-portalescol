@@ -171,13 +171,6 @@ class CustomLoginForm extends FormBase {
       return;
     }
 
-    $redirectFrom = $this->session->get('redirect_from_blog');
-    if (!empty($redirectFrom)) {
-      $form_state->setRedirectUrl(Url::fromUserInput($redirectFrom));
-      $this->session->remove('redirect_from_blog');
-      return;
-    }
-
     $destination = Url::fromUri('internal:/blog');
     $form_state->setRedirectUrl($destination);
   }

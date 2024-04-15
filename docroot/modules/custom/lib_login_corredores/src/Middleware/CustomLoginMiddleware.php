@@ -34,7 +34,6 @@ class CustomLoginMiddleware implements HttpKernelInterface, EventSubscriberInter
     if (strpos($request->getPathInfo(), '/blog') !== FALSE) {
       if (!$request->hasSession() || !$request->getSession()->isStarted()) {
         if (strpos($request->getPathInfo(), '/blog/login') === FALSE) {
-          $request->getSession()->set('redirect_from_blog', $request->getPathInfo());
           return new RedirectResponse('/blog/login');
         }
       }
