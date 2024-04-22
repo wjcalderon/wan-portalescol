@@ -15,7 +15,7 @@ sinister_notice:
       css/lib_core.css: {}
 
 pqr_version_new:
-  version: 1027
+  version: 1028
   js:
     js/lib_core_pqr.js: {}
   dependencies:
