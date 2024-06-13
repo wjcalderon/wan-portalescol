@@ -15,7 +15,7 @@ jobs:
 
     permissions:
       contents: read
-      packages: read
+      packages: write
       id-token: write
 
     steps:
@@ -27,18 +27,9 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Login to DockerHub Registry
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
-
-      - name: Pull base image
-        run: docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.0
-
-      # - name: Log in to Docker Hub
-      #   uses: docker/login-action@v3
-      #   with:
-      #     registry: ${{ env.REGISTRY }}
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-      #     logout: true
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+          docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.0
 
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -49,22 +40,6 @@ jobs:
           php_version: "8.1"
           version: "2.2"
           args: "--ignore-platform-reqs --optimize-autoloader"
-
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: Release ${{ github.ref_name }}
-      #     compression-level: 6
-      #     retention-days: 5
-      #     path: |
-      #       ${{ github.workspace }}
-      #       !${{ github.workspace }}/.ddev
-      #       !${{ github.workspace }}/.lando
-      #       !${{ github.workspace }}/.vendor
-      #       !${{ github.workspace }}/**/.git
-      #       !${{ github.workspace }}/Jenkinsfile
-      #       !${{ github.workspace }}/start.sh
-      #       !${{ github.workspace }}/Dockerfile
-      #       ${{ github.workspace }}/**/node_modules
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
