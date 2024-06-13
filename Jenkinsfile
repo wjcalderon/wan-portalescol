@@ -5,11 +5,12 @@ countryParams = new EnvConfigUtil().getCountryEnvDetails(env.JOB_NAME)
 def customWorkerImages = ['php=container-images.lmig.com/docker/o7820428/drupal9_php8:0.9.8']
 
 pipeline {
-    agent {
+    agent{dockerfile {args '-v /usr/local/aws-cli/:/usr/local/aws-cli/  --add-host sonar.hdiseguros.com.co:172.19.0.101'}}
+    /*gent {
         kubernetes {
             yaml pod(mode:'Declarative', workers:customWorkerImages)
         }
-    }
+    }*/
 
     environment {
         appEnv = "${countryParams.countryEnv}"
