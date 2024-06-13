@@ -16,12 +16,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-      attestations: write
       id-token: write
 
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -37,6 +34,12 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           logout: true
 
+      - name: Pull Private Package Image
+        run: docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.0
+
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
@@ -44,21 +47,21 @@ jobs:
           version: "2.2"
           args: "--ignore-platform-reqs --optimize-autoloader"
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Release ${{ github.ref_name }}
-          compression-level: 6
-          retention-days: 5
-          path: |
-            ${{ github.workspace }}
-            !${{ github.workspace }}/.ddev
-            !${{ github.workspace }}/.lando
-            !${{ github.workspace }}/.vendor
-            !${{ github.workspace }}/**/.git
-            !${{ github.workspace }}/Jenkinsfile
-            !${{ github.workspace }}/start.sh
-            !${{ github.workspace }}/Dockerfile
-            ${{ github.workspace }}/**/node_modules
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Release ${{ github.ref_name }}
+      #     compression-level: 6
+      #     retention-days: 5
+      #     path: |
+      #       ${{ github.workspace }}
+      #       !${{ github.workspace }}/.ddev
+      #       !${{ github.workspace }}/.lando
+      #       !${{ github.workspace }}/.vendor
+      #       !${{ github.workspace }}/**/.git
+      #       !${{ github.workspace }}/Jenkinsfile
+      #       !${{ github.workspace }}/start.sh
+      #       !${{ github.workspace }}/Dockerfile
+      #       ${{ github.workspace }}/**/node_modules
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
