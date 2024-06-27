@@ -24,8 +24,8 @@ class LibCoreControllerMain extends ControllerBase {
   /**
    * Constructs a new object.
    */
-  public function __construct(ClaimNotificationController $claimNotificationController) {
-    $this->claimNotificationController = $claimNotificationController;
+  public function __construct(ClaimNotificationController $claim_notification_controller) {
+    $this->claimNotificationController = $claim_notification_controller;
   }
 
   /**
@@ -40,6 +40,7 @@ class LibCoreControllerMain extends ControllerBase {
         $opts[$key] = $value;
       }
     }
+
     return $opts;
   }
 
@@ -52,12 +53,14 @@ class LibCoreControllerMain extends ControllerBase {
   public function sinistersVehiclesBrandsSelect() {
     $opts = [];
     $path_lib_core_module = drupal_get_path('module', 'lib_core');
-    $brand_vehicles = Yaml::decode(file_get_contents($path_lib_core_module . '/data/marca_vehiculos_liberty.yaml'));
+    $brand_files = file_get_contents($path_lib_core_module . '/data/marca_vehiculos_liberty.yaml');
+    $brand_vehicles = Yaml::decode($brand_files);
     if (!empty($brand_vehicles)) {
       foreach ($brand_vehicles as $value) {
         $opts[$value] = $value;
       }
     }
+
     return $opts;
   }
 
@@ -100,11 +103,11 @@ class LibCoreControllerMain extends ControllerBase {
     // Post to SalesForce.
     $client = new Client();
 
-    $urlApi = $config->get('ENDPOINT_SALESFORCE') ?? '';
+    $url_api = $config->get('ENDPOINT_SALESFORCE') ?? '';
 
     $sf = $client->request(
       'POST',
-      $urlApi,
+      $url_api,
       [
         'headers' => [
           'Content-Type' => 'application/x-www-form-urlencoded',
@@ -115,7 +118,8 @@ class LibCoreControllerMain extends ControllerBase {
 
     $response = $sf->getBody()->getContents();
 
-    \Drupal::logger('salesforce_logger')->notice('Respuesta de Salesforce: @response', ['@response' => strip_tags($response)]);
+    \Drupal::logger('salesforce_logger')
+      ->notice('Respuesta de Salesforce: @response', ['@response' => strip_tags($response)]);
 
     $url = $values['retURL'];
     $webform = Webform::load($webform_id);
@@ -125,6 +129,7 @@ class LibCoreControllerMain extends ControllerBase {
     ];
     lib_core_createsubmit($values);
     $response = new RedirectResponse($url);
+
     return $response->send();
   }
 

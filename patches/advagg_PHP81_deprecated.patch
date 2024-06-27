@@ -1,0 +1,27 @@
+diff --git a/advagg_mod/src/EventSubscriber/InitSubscriber.php b/advagg_mod/src/EventSubscriber/InitSubscriber.php
+index 5056df1..365cf60 100755
+--- a/advagg_mod/src/EventSubscriber/InitSubscriber.php
++++ b/advagg_mod/src/EventSubscriber/InitSubscriber.php
+@@ -127,7 +127,7 @@ class InitSubscriber implements EventSubscriberInterface {
+    * Only if using unified_multisite_dir.
+    */
+   public function onEvent() {
+-    $dir = rtrim($this->config->get('unified_multisite_dir'), '/');
++    $dir = rtrim($this->config->get('unified_multisite_dir') ?? '', '/');
+     if (empty($dir) || !file_exists($dir) || !is_dir($dir)) {
+       return;
+     }
+diff --git a/src/EventSubscriber/ResponseSubscriber.php b/src/EventSubscriber/ResponseSubscriber.php
+index 8b19fa9..bd9e688 100755
+--- a/src/EventSubscriber/ResponseSubscriber.php
++++ b/src/EventSubscriber/ResponseSubscriber.php
+@@ -54,7 +54,8 @@ class ResponseSubscriber implements EventSubscriberInterface {
+       $response = $event->getResponse();
+ 
+       // Ensure that it is an html response.
+-      if (stripos($response->headers->get('Content-Type'), 'text/html') === FALSE) {
++      $content_type = $response->headers->get('Content-Type');
++      if (empty($content_type) || stripos($content_type, 'text/html') === FALSE) {
+         return;
+       }
+ 

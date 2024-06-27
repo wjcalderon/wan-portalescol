@@ -7,14 +7,6 @@
 
       switch (color_header) {
         case "white":
-          $("#logo_id").attr(
-            "src",
-            "/modules/custom/liberty_color_header/images/logo.svg"
-          );
-          $("#logo_id").attr("width", "141px");
-          $("#logo_id").attr("height", "68px");
-          break;
-
         case "yellow":
           $("#logo_id").attr(
             "src",

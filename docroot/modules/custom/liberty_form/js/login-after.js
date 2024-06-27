@@ -47,7 +47,7 @@
       $.validator.addMethod(
         "validar_apellido",
         function (value, element) {
-          const name = /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/;
+          const lastname = /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/;
           return lastname.test(value);
         },
         "El apellido no es válido no puede contener números"

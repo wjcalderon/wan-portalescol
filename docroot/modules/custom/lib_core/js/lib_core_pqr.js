@@ -2,6 +2,21 @@
   $(document).ready(function () {
     $("#00NG000000998UR").attr("disabled", "disabled");
     $("#00NG000000998UR").attr("minlength", "5");
+
+
+    $('#pqr-form').on('click', 'label', function() {
+      $(this).next('input, select').focus();
+    })
+
+    $('#pqr-form .form-item-_0n05000001ccds').on('click', 'label', function () {
+      if (!$("#00n05000001ccds")[0].checked) {
+        $(".title_terms").trigger('click')
+      } else {
+        $("#00n05000001ccds").prop("checked", false);
+        $("#edit-00n05000000y1hp--wrapper").addClass("is-hidden");
+        $(".form-item-cond-especial").addClass("is-hidden");
+      }
+    })
   });
 
   function limpiarInput(inputElement) {
@@ -197,7 +212,7 @@
       "00NG000000998UR": {
         required: true,
         minlength: 5,
-        // isValidPlaque: true,
+        isValidPlaque: true,
       },
       adjuntar_archivos: {
         extension: "pdf",
@@ -283,8 +298,8 @@
       "00NG000000998UR": {
         required: "Este campo es requerido",
         minlength: "La placa no puede ser inferior a 6 caracteres",
-        // isValidPlaque:
-        //   'El valor debe contener valores alfanumericos ej: QWE123',
+        isValidPlaque:
+          'El valor debe contener valores alfanumericos ej: QWE123',
       },
       adjuntar_archivos: {
         extension: "seleccione un formato de archivo de entrada válido",
@@ -299,7 +314,7 @@
       return pattern.test(value);
     });
     $.validator.addMethod("isValidPlaque", function (value, element) {
-      let pattern = new RegExp(/[A-Za-z][\d]/);
+      let pattern = new RegExp(/^[a-zA-Z]{3}\d{3}$/);
       return pattern.test(value);
     });
   }

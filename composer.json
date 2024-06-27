@@ -222,6 +222,11 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "docroot/"
+            },
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "append": "docroot/robots_dist.txt"
+                }
             }
         },
         "enable-patching": true,
@@ -314,6 +319,9 @@
             },
             "drupal/layout_builder_browser": {
                 "Undefined array key in": "https://www.drupal.org/files/issues/2023-03-29/3351162.patch"
+            },
+            "drupal/advagg": {
+                "Fix PHP 8.1 deprecated code": "patches/advagg_PHP81_deprecated.patch"
             }
         },
         "patches-ignore": {

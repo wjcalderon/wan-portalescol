@@ -27,7 +27,9 @@ class ChatManager implements ChatManagerInterface {
         embedded_svc.settings.disabledMinimizedText = "Chat inactivo";
         embedded_svc.settings.loadingText = "Cargando";
         embedded_svc.settings.autoOpenPostChat = true;
-        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Establece el dominio para su desarrollo de modo que los visitantes puedan navegar por subdominios durante una sesión de chat)
+        // Establece el dominio para su desarrollo de modo que los visitantes
+        // puedan navegar por subdominios durante una sesión de chat
+        //embedded_svc.settings.storageDomain = 'yourdomain.com';
         // Configuración para Chat
         embedded_svc.settings.directToButtonRouting = function (prechatFormData) {
             var servicestr = prechatFormData.find(item => item.name === "LGM_Servicio__c").value;
@@ -205,7 +207,10 @@ class ChatManager implements ChatManagerInterface {
 
     if (!window.embedded_svc) {
         var s = document.createElement('script');
-        s.setAttribute('src', 'https://libertysegurosandinomarket--qa.cs9.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.setAttribute(
+          'src',
+          'https://libertysegurosandinomarket--qa.cs9.my.salesforce.com/embeddedservice/5.0/esw.min.js'
+        );
         s.onload = function () {
             initESW(null);
         };

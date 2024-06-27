@@ -757,3 +757,9 @@
     }
   }
 }
+
+.component__tabs--contact {
+  & #ui-id-2 {
+    display: none !important;
+  }
+}

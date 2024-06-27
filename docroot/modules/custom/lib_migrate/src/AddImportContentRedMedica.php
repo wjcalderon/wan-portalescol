@@ -26,7 +26,6 @@ class AddImportContentRedMedica {
    * Remove import content item .
    */
   public static function removeImportContentItem($item, &$context) {
-
     $result = \Drupal::entityQuery('node')
       ->range(0, 1000)
       ->condition('type', 'lender')
@@ -44,7 +43,6 @@ class AddImportContentRedMedica {
    * Add import content item callback.
    */
   public static function addImportContentItemCallback($success, $results, $operations) {
-
     if ($success) {
       $message = \Drupal::translation()->formatPlural(
         count($results),
@@ -53,8 +51,7 @@ class AddImportContentRedMedica {
       unset($_SESSION['time_log_latlng']);
       unset($_SESSION['date_log_latlng']);
       \Drupal::messenger()->addStatus($message);
-    }
-    else {
+    } else {
       $message = t('Finished with an error.');
       \Drupal::messenger()->addError($message);
     }
@@ -84,8 +81,11 @@ function create_node($item) {
   }
 
   $telefonos = [];
+
   add_phone_number($telefonos, $item['N'], $item['O']);
-  add_phone_number($telefonos, $item['P'], $item['Q']);
+  if ($item['P']) {
+    add_phone_number($telefonos, $item['P'], $item['Q']);
+  }
 
   $especialidades = [];
   if (!empty($item['C']) && !is_null($item['C'])) {
@@ -101,9 +101,7 @@ function create_node($item) {
       if (!empty($tid) && $tid > 0) {
         $especialidades[] = ['target_id' => $tid];
       }
-
-    }
-    else {
+    } else {
       $especialidades[] = ['target_id' => $tid];
     }
   }
@@ -122,8 +120,7 @@ function create_node($item) {
       if (!empty($tid) && $tid > 0) {
         $tipoproveedor[] = ['target_id' => $tid];
       }
-    }
-    else {
+    } else {
       $tipoproveedor[] = ['target_id' => $tid];
     }
   }
@@ -133,8 +130,7 @@ function create_node($item) {
     if ($item['E'] == 'COLOMBIA') {
       $tid = 31;
       $ubiciacion[] = ['target_id' => $tid];
-    }
-    else {
+    } else {
       $tid = get_tid_by_name($item['E'], 'ubication');
       if ($tid == 0) {
         $new_term = Term::create([
@@ -147,8 +143,7 @@ function create_node($item) {
         if (!empty($tid) && $tid > 0) {
           $ubiciacion[] = ['target_id' => $tid];
         }
-      }
-      else {
+      } else {
         $ubiciacion[] = ['target_id' => $tid];
       }
     }
@@ -169,8 +164,7 @@ function create_node($item) {
       if (!empty($tid) && $tid > 0) {
         $ubiciacion[] = ['target_id' => $tid];
       }
-    }
-    else {
+    } else {
       $ubiciacion[] = ['target_id' => $tid];
     }
     $departemento = $tid;
@@ -190,9 +184,7 @@ function create_node($item) {
       if (!empty($tid) && $tid > 0) {
         $ubiciacion[] = ['target_id' => $tid];
       }
-
-    }
-    else {
+    } else {
       $ubiciacion[] = ['target_id' => $tid];
     }
     $ciudad = $tid;
@@ -206,14 +198,13 @@ function create_node($item) {
   if (empty($plan_type)) {
     $query = $connection
       ->query("SELECT n.nid FROM {node_field_data} n
-                      inner join node__field_type_plan p on p.entity_id = n.nid
-                      inner join node__field_google_maps_address a on a.entity_id = n.nid
-                      where n.title = '" . $nombre . "' and
-                      n.type ='lender' and
-                      a.field_google_maps_address_value = '" . $address . "' and
-                      p.field_type_plan_target_id in (" . implode(',', $plan_type) . ")");
-  }
-  else {
+        inner join node__field_type_plan p on p.entity_id = n.nid
+        inner join node__field_google_maps_address a on a.entity_id = n.nid
+        where n.title = '" . $nombre . "' and
+        n.type ='lender' and
+        a.field_google_maps_address_value = '" . $address . "' and
+        p.field_type_plan_target_id in (" . implode(',', $plan_type) . ")");
+  } else {
     $query = $connection->query("SELECT n.nid FROM {node_field_data} n where n.title = '" . $nombre . "'");
   }
   $result = $query->fetchAll();
@@ -266,22 +257,21 @@ function create_node($item) {
 
     $prestador = Node::create($values);
     $prestador->save();
+  } else {
+    $flag_graba = true;
 
-  }
-  else {
-
-    $flag_graba = FALSE;
     $especialiades_new = $node->field_speciality->getValue();
     foreach ($especialidades as $value) {
       if (!in_array($value, $especialiades_new)) {
-        $flag_graba = TRUE;
+        $flag_graba = true;
         $especialiades_new[] = $value;
       }
     }
+
     $tipoproveedor_new = $node->field_provider_type->getValue();
     foreach ($tipoproveedor as $value) {
       if (!in_array($value, $tipoproveedor_new)) {
-        $flag_graba = TRUE;
+        $flag_graba = true;
         $tipoproveedor_new[] = $value;
       }
     }
@@ -289,14 +279,14 @@ function create_node($item) {
     $tipoplan_new = $node->field_type_plan->getValue();
     foreach ($field_type_plan as $value) {
       if (!in_array($value, $tipoplan_new)) {
-        $flag_graba = TRUE;
+        $flag_graba = true;
         $tipoplan_new[] = $value;
       }
     }
 
     $ubicaciones = $node->field_ubication->getValue();
     if (!in_array(['target_id' => $ciudad], $ubicaciones)) {
-      $flag_graba = TRUE;
+      $flag_graba = true;
       $ubicaciones[] = ['target_id' => $ciudad];
     }
 
@@ -314,9 +304,9 @@ function create_node($item) {
       $node->set('field_type_plan', $tipoplan_new);
       $node->set('field_ubication', $ubicaciones);
       $node->set('field_location_map', $fld_location_map);
+      $node->set('field_phone', $telefonos);
       $node->save();
     }
-
   }
 
 }
@@ -410,7 +400,8 @@ function execute_ws_to_get_lat_lng($address, $cc) {
  * Add Phone Number.
  */
 function add_phone_number(&$telefonos, $number, $extension = NULL) {
-  if (!empty(trim($number)) && !is_null(trim($number))) {
+  $clean_number = trim($number);
+  if (!empty($clean_number) && !is_null($clean_number)) {
     $phoneNumber = ['value' => $number];
     if ($extension !== NULL) {
       $phoneNumber['value'] .= ' ext ' . $extension;

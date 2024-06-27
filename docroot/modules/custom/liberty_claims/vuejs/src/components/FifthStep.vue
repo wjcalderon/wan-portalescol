@@ -39,8 +39,10 @@
           <ol>
             <li>
               <p>
-                Envía el denuncio por hurto al correo <strong>siniestros.autos@libertycolombia.com</strong>. 
-                Si ya obtuviste el certificado de no recuperación de la fiscalía, puedes enviarlo.
+                Radica el denuncio por hurto, junto con el certificado de No recuperación mediante nuestra
+                página Web <a href="https://www.libertyseguros.co/">https://www.libertyseguros.co/</a>
+                en las siguientes Opciones &#8594; <strong>¿Te paso Algo? &#8594; ¿Tienes una solicitud del siniestro de tu vehículo? &#8594; Crear solicitud &#8594;
+                Siniestros vehículos.</strong>
               </p>
             </li>
             <li>
@@ -91,9 +93,10 @@
               </ul>
             </li>
             <li class="item-list">
-              <h3>Envía los documentos</h3>
-              <p>Al correo <span class="email-siniestros">siniestros.autos@libertycolombia.com.</span>
-                Para asegurar la llegada del correo, recuerda que los archivos que envíes no deben superar 8 MB </p>
+              <p>
+                Radica los documentos mediante nuestra página Web https://www.libertyseguros.co/ en las
+                siguientes Opciones <strong>&#8594; ¿Te paso Algo? &#8594; ¿Tienes una solicitud del siniestro de tu vehículo? &#8594; Crear solicitud &#8594; Siniestros vehículos.</strong>
+              </p>
             </li>
             <li class="list-item">
               <h3>Te informaremos por correo la respuesta del caso</h3>

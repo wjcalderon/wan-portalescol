@@ -329,6 +329,7 @@ class SinisterNotifInsured extends FormBase {
       '#id' => $license_plate,
       '#attributes' => [
         'id' => $license_plate,
+        'pattern' => '^[a-zA-Z]{3}\d{3}$'
       ],
     ];
 

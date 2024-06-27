@@ -227,6 +227,10 @@ export default {
       if (!this.casualtyData.model) {
         Object.assign(this.casualtyData, val);
       }
+      if (this.casualtyData.isJuridic) {
+        this.validationRules.name = null;
+        this.validationRules.lastname = null;
+      }
     }
   },
   data() {
@@ -242,6 +246,7 @@ export default {
         vehicleType: '',
         brand: '',
         model: 0,
+        isJuridic: false
       },
       validationRules: {
         docType: {

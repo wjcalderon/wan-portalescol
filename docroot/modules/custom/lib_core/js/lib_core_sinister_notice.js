@@ -50,8 +50,7 @@
         $ctn_tabs.find(".header-tabs").removeClass("is-hidden");
       }
 
-      $(
-        "#sinister-notific-insured-form #date-field-insured," +
+      $("#sinister-notific-insured-form #date-field-insured," +
           "#sinister-notific-third-affectt-form #date-field-third"
       ).datetimepicker({
         timeFormat: "h:mm tt",
@@ -484,11 +483,12 @@
 
                   $("#edit-next").attr("disabled", true);
                 } else {
-                  let activeHeader = $(
+                  let activeHeader = "";
+                  activeHeader = $(
                     "#sinister-notific-insured-form .header-steps.active.is-desktop"
                   );
                   if (windowMobile) {
-                    let activeHeader = $(
+                    activeHeader = $(
                       "#sinister-notific-insured-form .header-steps.active.is-mobile"
                     );
                   }
@@ -524,11 +524,12 @@
             } else if (cdtype == "back") {
               $("#edit-next").removeAttr("disabled");
               $("#edit-next--2").removeAttr("disabled");
-              let activeHeader = $(
+              let activeHeader = "";
+              activeHeader = $(
                 "#sinister-notific-insured-form .header-steps.active.is-desktop"
               );
               if (windowMobile) {
-                let activeHeader = $(
+                activeHeader = $(
                   "#sinister-notific-insured-form .header-steps.active.is-mobile"
                 );
               }
@@ -788,11 +789,11 @@
               "#sinister-notific-third-affectt-form #00N4A00000FkWpu"
             ).val();
             let cdtype = $(this).attr("cdtype");
-
+            let new_step;
             if (cdtype == "back") {
-              let new_step = parseInt(step) - 1;
+              new_step = parseInt(step) - 1;
             } else if (cdtype == "next") {
-              let new_step = parseInt(step) + 1;
+              new_step = parseInt(step) + 1;
             }
 
             $form_third_affect.find(".btn-back").addClass("is-hidden");
@@ -826,11 +827,12 @@
                     .attr("disabled", true);
                   $form_third_affect.find("#edit-next").attr("disabled", true);
                 } else {
-                  let activeHeader = $(
+                  let activeHeader;
+                  activeHeader = $(
                     "#sinister-notific-third-affectt-form .header-steps.active.is-desktop"
                   );
                   if (windowMobile) {
-                    let activeHeader = $(
+                    activeHeader = $(
                       "#sinister-notific-third-affectt-form .header-steps.active.is-mobile"
                     );
                   }
@@ -867,11 +869,12 @@
                 }
               }
             } else if (cdtype == "back") {
-              let activeHeader = $(
+              let activeHeader;
+              activeHeader = $(
                 "#sinister-notific-third-affectt-form .header-steps.active.is-desktop"
               );
               if (windowMobile) {
-                let activeHeader = $(
+                activeHeader = $(
                   "#sinister-notific-third-affectt-form .header-steps.active.is-mobile"
                 );
               }
@@ -966,10 +969,12 @@
         $ctn_form.find(".cities-sinisters-notices").keyup(function () {
           if ($(this).val().length > 1) {
             let cdatafh = $(this).attr("cdatafh");
-            let $selectHidden = $(this)
+            let $select_hidden = $(this)
               .parent()
               .next(".hidden-select")
               .find("#" + cdatafh);
+
+            console.log($select_hidden);
           }
         });
       }
@@ -1096,7 +1101,6 @@
         });
 
         activeForm.find("#00N7j0000026tcC").change(function () {
-          const showAdditionalInput = $(this).val() === "Si";
           toggleElementVisibility(activeForm.find("#00N7j0000026tc7"), true, 1);
         });
 
@@ -1246,7 +1250,10 @@
             break;
 
           case "third-affect":
-            if (fields_hidden == true) {
+            if (fields_hidden) {
+              console.log(
+                $active_form.find(".affect_vehic_own-third_doc_type").val()
+              );
             } else {
               $("input[name='declarant_same_third']", context).click(
                 function () {

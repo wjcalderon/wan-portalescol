@@ -1,7 +1,6 @@
 (function ($) {
   $(document).ready(function () {
     $("#00NG000000998UR").attr("minlength", "5");
-    const label = $(".form-type-managed-file");
 
   });
 

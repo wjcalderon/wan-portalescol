@@ -25,3 +25,6 @@ lib_core:
   version: VERSION
   js:
     js/lib_core.js: {}
+  css:
+    component:
+      css/lib_core.css: {}

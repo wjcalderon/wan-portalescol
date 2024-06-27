@@ -100,7 +100,7 @@
       $(".edit-created-min", context)
         .once("date-initialized")
         .each(function (index, item) {
-          $input = $(item);
+          let $input = $(item);
 
           const date = $input.val();
 
@@ -156,7 +156,7 @@
       $("select", context)
         .once("select-initialized")
         .each(function (index, item) {
-          $select = $(item);
+          let $select = $(item);
           $select.niceSelect();
         });
     },

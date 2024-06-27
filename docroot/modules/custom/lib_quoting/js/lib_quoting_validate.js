@@ -106,7 +106,6 @@
   Drupal.behaviors.lib_quoting_validate = {
     attach: function (context) {
       let form = $("#autos-quoting-form"),
-        ctn_hd_flds = form.find(".content-hd-fields"),
         submit = form.find(".submit-next");
 
       // Validate whitespace in plate

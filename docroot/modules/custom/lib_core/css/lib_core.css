@@ -11,3 +11,111 @@ div#\30 0n4a00000fkwrc--description {
   flex-direction: column;
   align-items: center;
 }
+
+.mega-caption {
+  white-space: normal !important;
+}
+
+.contactos-new img {
+  top: 8% !important;
+  margin-top: 3rem !important;
+}
+
+.contactos-new .field--type-content {
+  margin-left: 15% !important;
+}
+
+.contactos-new .field--type-content p {
+  color: #1a1446 !important;
+  line-height: 1.4rem !important;
+  font-weight: 300 !important;
+}
+
+.contactos-new .field--type-content a.whatsapp#whatsapp {
+  background-color: #99e5ea !important;
+  border-color: #99e5ea !important;
+  color: #1a1446 !important;
+  background-image: url(/themes/custom/liberty_public/images/icons/lib_whatsapp.svg) !important;
+  background-repeat: no-repeat !important;
+  background-position:7% center !important;
+  background-size: 24px !important;
+  padding-left: 20% !important;
+  margin-bottom: 10px !important;
+}
+
+.contactos-new .field--type-content .contactos {
+  border: 1px solid black !important;
+  border-radius: 3rem !important;
+}
+
+.contactos-new .field--type-content .contactos:hover {
+  color: black !important;
+}
+
+#navegacion .nav__link--icon.siniestros-sombrilla > a {
+  background-image: url(/themes/custom/liberty_public/images/icons/sombrilla.svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: 14px center !important;
+  background-size: 15% !important;
+}
+
+#navegacion .nav__link--icon.siniestros-sombrilla {
+  margin-right: 1rem !important;
+}
+
+.centro-siniestros-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.centro-siniestros-block > p {
+  border: 0;
+  padding: 0;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #1a1446;
+  position: relative;
+  padding-bottom: 1.625rem;
+  background: transparent;
+}
+
+.centro-siniestros-block > p:after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 2px;
+  left: 0;
+  bottom: 11px;
+  border: none;
+  display: block !important;
+  background: #99e5ea;
+}
+
+.centro-siniestros-block .centro-siniestros-block-submenu {
+  margin-left: 2rem;
+}
+
+.centro-siniestros-block-submenu.field--type-contents p {
+  color: #1a1446 !important;
+  font-weight: 400 !important;
+}
+
+.centro-siniestros-block-submenu.field--type-contents span {
+  display: block !important;
+  font-size: 0.8rem !important;
+  color: #828181 !important;
+}
+
+.centro-siniestros-block-submenu.field--type-contents a.whatsapp {
+  background-color: white !important;
+  border-color: #1a1446 !important;
+  color: #1a1446 !important;
+  background-image: url(/themes/custom/liberty_public/images/icons/lib_whatsapp.svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: 10% center !important;
+  background-size: 24px !important;
+  padding-left: 16% !important;
+  margin-bottom: 10px !important;
+  border-radius: 2rem;
+}

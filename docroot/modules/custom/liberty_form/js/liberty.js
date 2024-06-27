@@ -4,7 +4,9 @@ function getIdButton(id) {
 }
 
 (function ($, Drupal, drupalSettings) {
-  const randomes = Math.floor(Math.random() * 100000);
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+  const randomes = array[0];
 
   for (let q = 0; q < 5; q++) {
     let cover_text = $(`#cover_${q}`).find(".card-service__heading").text();
@@ -24,7 +26,7 @@ function getIdButton(id) {
 
   const valor_product = $("#cover_1").find("h2").find("p").text();
   let valor_product_token = btoa(valor_product);
-
+  let link;
   if (enviroment == "prod") {
     link = `/node/55666?nid=${nid_token}&valor_product_token=${valor_product_token}`;
   } else {
@@ -59,7 +61,7 @@ function getIdButton(id) {
 
   let nidurl = getParameterByName("nid");
   nidurl = atob(nidurl);
-  link_node = `/es/node/${nidurl}`;
+  let link_node = `/es/node/${nidurl}`;
   $(".backtohome__home").attr("href", link_node);
   $(".landing_url").attr("value", link_node);
 
@@ -73,8 +75,8 @@ function getIdButton(id) {
 
   let valor_product_token_url = getParameterByName("valor_product_token");
   valor_product_token_url = atob(valor_product_token_url);
-  valor_title_modal = $(".form-modal-title").html();
-  valor_title = `<h3>${valor_title_modal} ${valor_product_token_url}</h3>`;
+  let valor_title_modal = $(".form-modal-title").html();
+  let valor_title = `<h3>${valor_title_modal} ${valor_product_token_url}</h3>`;
   $(".form-modal-title").html(valor_title);
 
   $("#webform_submission_call_center")

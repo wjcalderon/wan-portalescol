@@ -27,12 +27,17 @@
     color: $azul-os-pr;
     border-right: none;
     line-height: 1.4rem;
-    background-color: transparent !important;
     position: relative;
-    &:hover {
+
+    &:not(.button) {
       background-color: transparent !important;
     }
-    &.active {
+
+    &:not(.button, .te-pasoalgo-mb, .pagos-mb):hover {
+      background-color: transparent !important;
+    }
+
+    &:not(.button).active {
       background-color: transparent !important;
     }
   }
@@ -58,6 +63,14 @@
     .dropdown-menu {
       margin-top: 0;
     }
+
+    &.te-paso-algo {
+      margin-right: 1rem !important;
+      & > .dropdown-menu {
+        margin-top: -.4rem;
+      }
+    }
+
     span {
       display: none;
     }
@@ -537,6 +550,16 @@
       border-right: 1px solid $azul-os-pr !important;
       display: inline-block;
       margin-top: 1rem;
+
+      &:hover,
+      &.contactos,
+      &.button--primary.button-medium {
+        border: none !important;
+      }
+
+      &.contactos:hover {
+        background-color: $azul-hielo-tr !important;
+      }
     }
   }
 }
@@ -652,7 +675,7 @@ li[data-label="Pagar"] {
   border-top: 3rem solid transparent !important;
   padding: 4rem 0 !important;
   box-shadow: 0px 10px 8px 0px rgba(0, 0, 0, 0.14) !important;
-  height: 350px;
+  height: auto;
   .active {
     > a {
       background: transparent !important;
@@ -776,7 +799,8 @@ nav.pager {
             }
           }
         }
-        & > li.pagos {
+        & > li.pagos,
+        & > li.te-paso-algo {
           &:hover {
             .dropdown-toggle {
               &::after {

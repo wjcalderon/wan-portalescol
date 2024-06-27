@@ -119,12 +119,14 @@
 }
 
 header {
-  background: $amarillo-pr;
+  background: $blanco-pl;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, .1);
 }
 
 #header {
   padding: 1.2rem 1rem;
   justify-content: space-between;
+  height: 104px;
   @media screen and (min-width: $small-max) {
     padding: 1.9rem 4rem;
   }
@@ -244,7 +246,7 @@ header {
         overflow: hidden;
         text-indent: -300px;
         background-image: url(../images/icons/search.svg);
-        background-size: 35%;
+        background-size: 1rem;
         background-repeat: no-repeat;
         background-position: 13px 11px;
         border: none;

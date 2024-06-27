@@ -349,7 +349,7 @@ function handle_referencia_adicional($item) {
  *   The parent term ID (if applicable).
  */
 function create_term($vid, $name, $brand, $line, $tid_brand_line = NULL) {
-  $termData = [
+  $term_data = [
     'name' => $name,
     'vid' => $vid,
     'field_marca' => $brand,
@@ -357,10 +357,10 @@ function create_term($vid, $name, $brand, $line, $tid_brand_line = NULL) {
   ];
 
   if ($tid_brand_line) {
-    $termData['field_marca_linea'] = ['target_id' => $tid_brand_line];
+    $term_data['field_marca_linea'] = ['target_id' => $tid_brand_line];
   }
 
-  Term::create($termData)->save();
+  Term::create($term_data)->save();
 }
 
 /**

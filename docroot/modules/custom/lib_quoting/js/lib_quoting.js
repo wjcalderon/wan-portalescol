@@ -131,8 +131,7 @@
    * @param $arguments
    */
   function assign_car_info(form, info, info_arr, vehicle) {
-    let $fld_vehicle_use = form.find("#edit-vehicle-use"),
-      $fld_vehicle_brand = form.find("#edit-vehicle-brand"),
+    let $fld_vehicle_brand = form.find("#edit-vehicle-brand"),
       $fld_vehicle_class = form.find("#edit-vehicle-class"),
       $fld_vehicle_version = form.find("#edit-vehicle-version"),
       $fld_vehicle_type = form.find("#edit-vehicle-type"),
@@ -313,8 +312,6 @@
    * @param val_num_plate
    */
   function consume_ws_car_info(data, $form, step) {
-    let info = {},
-      bool_ws_car_info = 1;
 
     $(".form-item-vehicle-use")
       .addClass("form__input--activo")
@@ -688,12 +685,7 @@
 
       let $form = $("#autos-quoting-form"),
         $ctn_hd_flds = $form.find(".content-hd-fields"),
-        $fld_birthdate = $form.find("#edit-birthdate"),
-        $fld_autocomplete = $form.find(".field-autocomplete"),
-        $fld_type = $form.find("#edit-vehicle-type"),
-        $fld_class = $form.find("#edit-vehicle-class"),
-        $fld_model = $form.find("#edit-vehicle-model");
-      // $fld_model = $form.find('#edit-vehicle-model');
+        $fld_autocomplete = $form.find(".field-autocomplete");
 
       $fld_autocomplete
         .bind("paste", function (e) {
@@ -864,8 +856,8 @@
                             );
                             $(".mkp-field-gender .male").addClass("active");
                           }
-                          $("#edit-gender .option").click(function (e) {
-                            e.preventDefault();
+                          $("#edit-gender .option").click(function (events) {
+                            events.preventDefault();
                           });
                         } else {
                           $(".form-item-gender").removeClass("is-hidden");
@@ -1010,27 +1002,17 @@
               }
             } else {
               bool_check_flds_vals = check_fields_values(step, $form);
-              let $fld_vehicle_find = $form.find(".find-vehicle");
               if (bool_check_flds_vals) {
-                // Ws 2 - car info
                 e.preventDefault();
-                // let info_car = consume_ws_car_info(val_plate_type, val_num_plate, $form, step);
               }
-              // $form.find('.step1').addClass('hidden').removeClass('active');
-              // $form.find('.step2').removeClass('hidden').addClass('active');
-              // change_header_step_states(step, $form);
             }
             break;
 
           case "2":
             bool_check_flds_vals = check_fields_values(step, $form);
             if (bool_check_flds_vals) {
-              // Ws 3 - get quoting values
               e.preventDefault();
               consume_ws_get_quoting_value($form);
-              // $form.find('.step2').addClass('hidden').removeClass('active');
-              // $form.find('.step3').removeClass('hidden').addClass('active');
-              // change_header_step_states(step, $form);
               $(".js-accordion-row").each(function () {
                 let el = $(this),
                   op = el.find(".option");

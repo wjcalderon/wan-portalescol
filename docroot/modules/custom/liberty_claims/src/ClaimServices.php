@@ -757,9 +757,9 @@ class ClaimServices {
                 // If personal_data have more than one array index, then use
                 // conductorPersonalData.
                 $name = '';
-                $lastName = '';
-                $documentId = '';
-                $docType = '';
+                $last_name = '';
+                $document_id = '';
+                $doc_type = '';
                 $email = '';
                 $address = '';
                 $phone = '';
@@ -770,11 +770,11 @@ class ClaimServices {
                     $name = isset($conductor_data['primerNombre'])
                     ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
                     : '';
-                    $lastName = isset($conductor_data['primerApellido'])
+                    $last_name = isset($conductor_data['primerApellido'])
                     ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
                     : '';
-                    $documentId = $conductor_data['numeroDocumento'] ?? '';
-                    $docType = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
+                    $document_id = $conductor_data['numeroDocumento'] ?? '';
+                    $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
                     ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
                     : 0;
                     if (isset($conductor_data['email'])) {
@@ -796,11 +796,11 @@ class ClaimServices {
                   $name = isset($personal_data['primerNombre'])
                     ? $personal_data['primerNombre'] . ' ' . @$personal_data['segundoNombre']
                     : '';
-                  $lastName = isset($personal_data['primerApellido'])
+                  $last_name = isset($personal_data['primerApellido'])
                   ? $personal_data['primerApellido'] . ' ' . $personal_data['segundoApellido']
                   : '';
-                  $documentId = $personal_data['numeroDocumento'] ?? '';
-                  $docType = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
+                  $document_id = $personal_data['numeroDocumento'] ?? '';
+                  $doc_type = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
                     ? $doc_types[$personal_data['tipoDocumento']['codigo']]
                     : 0;
                   if (isset($personal_data['email'])) {
@@ -819,9 +819,9 @@ class ClaimServices {
                 }
                 $return['personalInfo'] = [
                   'name' => $name ?? '',
-                  'lastname' => $lastName ?? '',
-                  'documentId' => $documentId ?? '',
-                  'docType' => $docType ?? '',
+                  'lastname' => $last_name ?? '',
+                  'documentId' => $document_id ?? '',
+                  'docType' => $doc_type ?? '',
                   'email' => $email ?? '',
                   'address' => $address ?? '',
 
@@ -833,6 +833,7 @@ class ClaimServices {
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
                     : '',
                   'phone' => $phone ?? '',
+                  'isJuridic' => FALSE,
                 ];
               }
               elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
@@ -841,9 +842,9 @@ class ClaimServices {
                 // If personal_data have more than one array index, then use
                 // conductorPersonalData.
                 $name = '';
-                $lastName = '';
-                $documentId = '';
-                $docType = '';
+                $last_name = '';
+                $document_id = '';
+                $doc_type = '';
                 $email = '';
                 $address = '';
                 $phone = '';
@@ -854,11 +855,11 @@ class ClaimServices {
                     $name = isset($conductor_data['primerNombre'])
                     ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
                     : '';
-                    $lastName = isset($conductor_data['primerApellido'])
+                    $last_name = isset($conductor_data['primerApellido'])
                     ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
                     : '';
-                    $documentId = $conductor_data['numeroDocumento'] ?? '';
-                    $docType = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
+                    $document_id = $conductor_data['numeroDocumento'] ?? '';
+                    $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
                     ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
                     : 0;
                     if (isset($conductor_data['email'])) {
@@ -878,9 +879,9 @@ class ClaimServices {
                 }
                 else {
                   $name = $personal_data['razonSocial'] ?? '';
-                  $lastName = ' ';
-                  $documentId = $personal_data['numeroDocumento'] ?? '';
-                  $docType = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
+                  $last_name = ' ';
+                  $document_id = $personal_data['numeroDocumento'] ?? '';
+                  $doc_type = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
                     ? $doc_types[$personal_data['tipoDocumento']['codigo']]
                     : 0;
                   if (isset($personal_data['email'])) {
@@ -900,9 +901,9 @@ class ClaimServices {
 
                 $return['personalInfo'] = [
                   'name' => $name ?? '',
-                  'lastname' => $lastName,
-                  'documentId' => $documentId ?? '',
-                  'docType' => $docType ?? '',
+                  'lastname' => $last_name,
+                  'documentId' => $document_id ?? '',
+                  'docType' => $doc_type ?? '',
                   'email' => $email ?? '',
                   'address' => $address ?? '',
                   'brand' => isset($polizas[$index_vigencia])
@@ -912,6 +913,7 @@ class ClaimServices {
                     ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
                     : '',
                   'phone' => $phone ?? '',
+                  'isJuridic' => TRUE,
                 ];
 
               }
@@ -925,15 +927,15 @@ class ClaimServices {
               }
 
               $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
-              $model_actual = date('Y');
-              $model_actual = date('Y', strtotime($model_actual . '+ 1 year'));
+              $model_base = date('Y');
+              $model_actual = date('Y-m-d', strtotime($model_base . '+ 1 year'));
 
-              $seven_year = date('Y', strtotime($model_actual . '- 7 year'));
+              $six_year = date('Y', strtotime($config->get('last_model') . '- 6 year'));
 
               if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_chevrolet')) {
 
                 if (
-                $this->checkInRange($seven_year, $model_actual, $model) &&
+                $this->checkInRange($six_year, $model_actual, $model) &&
                 (
                 $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'] == "CHEVROLET" ||
                 $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'] == "chevrolet"

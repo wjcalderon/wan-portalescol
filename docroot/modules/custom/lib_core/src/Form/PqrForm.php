@@ -701,6 +701,7 @@ class PqrForm extends FormBase {
       '#maxlength' => 6,
       '#attributes' => [
         'id' => '00NG000000998UR',
+        'pattern' => '#^[a-zA-Z]{3}\d{3}$#'
       ],
     ];
 
@@ -847,6 +848,13 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    // Validate plate
+    $regex = '/^[a-zA-Z]{3}\d{3}$/';
+    if (!preg_match($regex, $form_state->getValue('00NG000000998UR'))) {
+      $form_state->setErrorByName('00NG000000998UR',
+        $this->t('El valor debe contener valores alfanumericos ej: QWE123.')
+      );
+    }
   }
 
   /**

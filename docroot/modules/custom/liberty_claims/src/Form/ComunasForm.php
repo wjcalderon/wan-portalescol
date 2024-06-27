@@ -174,7 +174,8 @@ class ComunasForm extends FormBase {
       ' Comuna no han sido creada(s) debido a que les hace falta información requerida por la base de datos.');
       $replacements['@info_file'] = $file_name;
       $this->messenger()->addWarning(
-        $this->t('Para descargar el registro de errores por favor dar click : <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
+        $this->t('Para descargar el registro de errores por favor dar click :
+         <a href="/sites/default/files/content/csv_files/@info_file">aquí</a>', $replacements));
 
     }
 

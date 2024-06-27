@@ -4,24 +4,22 @@
       if (".webform-file-button") {
         console.log("archivos");
       }
-
       if (grecaptcha.getResponse(0) == "") {
+        console.log("archivos");
       } else {
         $(this).submit();
       }
       if (grecaptcha.getResponse(1) == "") {
+        console.log("archivos");
       } else {
         $(this).submit();
       }
       if (grecaptcha.getResponse(2) == "") {
+        console.log("archivos");
       } else {
         $(this).submit();
       }
       e.preventDefault();
     });
   });
-
-  Drupal.behaviors.Forms = {
-    attach: function (context, settings) {},
-  };
 })(jQuery);

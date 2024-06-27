@@ -1,7 +1,6 @@
 /* eslint-disable */
 Drupal.behaviors.tabsLib = {
   attach: function (context, settings) {
-    console.log("hola me cargue");
     const tabsLink = document.querySelectorAll(".nav-tabs .nav-link_button a");
     let hash = document.location.hash;
     // Si se detecta un ancla en la url

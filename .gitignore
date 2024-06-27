@@ -146,3 +146,8 @@ drush/*
 # Enviromennt load
 # load.environment.php
 /.editorconfig
+docker-compose.yml
+traefik.yml
+certs
+.dockerignore
+docroot/libraries
