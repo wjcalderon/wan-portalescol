@@ -1,13 +1,14 @@
-name: Build and publish Docker image for public portal
+name: Build and publish docker image - nonprod
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v[0-9].[0-9].[0-9]-rc.[0-9]'
 
 env:
-  AWS_REGISTRY: 533267354531.dkr.ecr.us-east-1.amazonaws.com
+  AWS_REGISTRY: 381492177008.dkr.ecr.us-east-1.amazonaws.com
   GH_REGISTRY: ghcr.io
-  IMAGE_NAME: hdidev
+  IMAGE_NAME: hdinonprod
   REGION: us-east-1
 
 jobs:
@@ -37,8 +38,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.AWS_REGISTRY }}
-          username: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          username: ${{ secrets.NONPROD_KEY_ID }}
+          password: ${{ secrets.NONPROD_ACCESS_KEY }}
           logout: true
 
       - name: Install dependencies
@@ -53,6 +54,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.AWS_REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=false
 
       - name: Build and push
         id: push
