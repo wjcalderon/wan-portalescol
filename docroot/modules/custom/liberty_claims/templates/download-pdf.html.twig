@@ -27,18 +27,25 @@
 				display: block;
 			}
 			header {
-				height: 2rem;
-				background-color: #ffd000;
+				height: 7rem;
+				background-color: #ffffff;
 				padding: 1rem 0 2rem;
-				text-align: center;
+				text-align: right;
 			}
 			header img {
-				height: 3rem;
+				height: 7rem;
+			}
+			.logo_vigilado {
+			  bottom: 10rem;
+			  height: 13rem;
+				left: 0;
+			  position: absolute;
 			}
 			footer {
 				background-color: #1a1446;
 				color: #ffffff;
 				display: block;
+				margin-left: 4rem;
 				padding: 2rem;
 				position: relative;
 				vertical-align: middle;
@@ -59,10 +66,17 @@
 				padding: 12px 0;
 			}
 			.container {
+			  position: relative;
 				text-align: center;
 			}
 			.container .content {
-				margin-bottom: 2rem;
+				margin: 0 1rem 2rem 4rem;
+			}
+			.container .content .razon-social-hdi {
+				height: 10rem;
+			  position: absolute;
+				right: 0;
+				top: 10rem;
 			}
 			.container h1 {
 				color: #343741;
@@ -113,18 +127,35 @@
 			.container div.description p {
 				margin: 0;
 			}
+			.bloque-hdi {
+			  position: absolute;
+				display: block;
+				background-color: #79B530;
+				bottom: 1rem;
+				right: -5rem;
+				width: 23rem;
+				height: .7rem;
+			}
+			.bloque-hdi span {
+			  display: block;
+			  background-color: #006E36;
+				height: .7rem;
+				width: 7rem;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<header>
-				<img alt="" src="{{ data.url }}/img/Email/lb_main_logo.png">
+				<img alt="HDI Seguros antes Liberty" src="{{ data.url }}/img/Email/Logo-HDI-antes-Liberty.png">
 			</header>
 			<div class="content">
+			  <img alt="HDI Razon social" src="{{ data.url }}/img/Email/HDI-RazonSocial-Vertical.png" class="razon-social-hdi">
+
 				<h1>¡Tu siniestro ha sido radicado!</h1>
 				<h3>En Liberty queremos que est&eacute;s tranquilo mientras nos encargamos de tu proceso.</h3>
 				<h3>A continuaci&oacute;n te mostramos toda la informaci&oacute;n de tu siniestro:</h3>
-				<img alt="" src="{{ data.url }}/img/Email/Ilustracion-autos.png" class="ilustracion">
+				<img alt="Ilustracion" src="{{ data.url }}/img/Email/Ilustracion-autos.png" class="ilustracion">
 				<p class="radicado">
 					N&uacute;mero de radicado:
 					<b>{{ data.number }}</b>
@@ -152,8 +183,8 @@
 					de 7 a.m. a 5 p.m. y S&aacute;bados de 8 a.m. a 12 p.m.
 				</p>
 			</div>
+			<img class="logo_vigilado" src="{{ data.url }}/img/Email/logo_vigilado.png" alt="Vigilado por la superintendencia bancaria de Colombia">
 			<footer>
-				{# <img src="{{ data.url }}/img/Email/vigilado_logo.png" alt="Vigilado por la superintendencia bancaria de Colombia"> #}
 				<p>
 					<b>L&iacute;neas de atenci&oacute;n</b>&nbsp;&nbsp;&nbsp;&nbsp;
 					<img src="{{ data.url }}/img/Email/call-outline-bl.png" alt="L&iacute;neas de atenci&oacute;n">&nbsp;&nbsp;
@@ -167,6 +198,9 @@
 																	{{ data.year }}
 																</p> #}
 			</footer>
+		</div>
+		<div class="bloque-hdi">
+		  <span>&nbsp;</span>
 		</div>
 	</body>
 </html>

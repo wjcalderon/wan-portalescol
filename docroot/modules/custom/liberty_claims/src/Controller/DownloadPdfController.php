@@ -27,7 +27,7 @@ class DownloadPdfController extends ControllerBase {
     $build = [
       '#theme' => 'download_pdf',
       '#data' => [
-        'url' => $base_root . $base_path . drupal_get_path('module', 'liberty_claims'),
+        'url' => 'http://127.0.0.1' . $base_path . drupal_get_path('module', 'liberty_claims'),
         'number' => $number,
         'radicate_date' => date('d / m / Y'),
         'year' => date('Y'),
@@ -45,13 +45,13 @@ class DownloadPdfController extends ControllerBase {
 
     $dompdf = new Dompdf($options);
 
-    $contxt = \stream_context_create([
+    $contxt = [
       'ssl' => [
         'verify_peer' => FALSE,
         'verify_peer_name' => FALSE,
         'allow_self_signed' => TRUE,
       ],
-    ]);
+    ];
     $dompdf->setHttpContext($contxt);
 
     $dompdf->loadHtml($html);
