@@ -40,9 +40,6 @@ $nc-darkteal: #06748C;
 $negro-pl: #000000;
 $blanco-pl-opa: rgba($blanco-pl, .2);
 $azul-os-pr-opa: rgba($azul-os-pr, .1);
-$gris-claro-hdi: #c6c7c8;
-$gris-oscuro-hdi: #c0bfc0;
-$links-footer-hdi: #4e4e4e;
 // variables colores  ///////////////
 $heading: $azul-os-pr;
 $link: $azul-os-pr;
@@ -56,7 +53,7 @@ $font-size-pr: 16px;
 $font-size-mb: 15px;
 // Susy config ///////////////
 $susy: ( columns: 12, // The number of columns in your grid
-  gutters: 1/4, // The size of a gutter in relation to a single column
+gutters: 1/4, // The size of a gutter in relation to a single column
 );
 // Flexbox grid config /////////////
 // Set the number of columns you want to use on your layout.

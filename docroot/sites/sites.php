@@ -65,9 +65,13 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     case 'test':
       $sites['nonprodportal.hdiseguros.com.co'] = 'default';
       $sites['aliados-nonprod.hdiseguros.com.co'] = 'sponsors';
+      $sites['nonprodportal.libertyseguros.co'] = 'default';
+      $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
     case 'stage':
       $sites['nonprodportal.hdiseguros.com.co'] = 'default';
       $sites['aliados-nonprod.hdiseguros.com.co'] = 'sponsors';
+      $sites['nonprodportal.libertyseguros.co'] = 'default';
+      $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
       break;
     case 'prod':
       $sites['hdiseguros.com.co'] = 'default';

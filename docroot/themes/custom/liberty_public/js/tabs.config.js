@@ -71,7 +71,6 @@
 
       $(".cp-tabs ul li a").on("click", function (e) {
         if (!($(this).hasClass('popup-no-tabs'))) {
-          console.log("hola andres");
           let el = $(this),
             id_body_tab = el.attr("href"),
             body_tab = el.parents(".cp-tabs").children(id_body_tab),
