@@ -1,8 +1,8 @@
 .footer {
   &__content {
-    background-color: $hdi-gray-light;
+    background-color: $color-primary;
     padding: 0;
-    color: $hdi-gray-dark;
+    color: $white;
   }
 
   span {
@@ -58,15 +58,13 @@
   }
 
   &__bottom {
-    background-color: $hdi-gray-light;
+    background-color: $color-primary-smoke;
     padding: 1rem 0;
-    color: $hdi-gray-dark;
+    color: $white;
     text-align: center;
     font-size: 0.9rem;
-    margin: auto;
-    max-width: 80rem;
-    border-top: 1px solid $hdi-gray-medium;
-
+    margin-bottom: -1px;
+    font-weight: bold;
 
     a {
       color: $color-secondary-link;

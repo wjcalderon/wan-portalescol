@@ -12,8 +12,6 @@
     display: flex;
     margin: 0;
     position: static !important;
-    align-items: center;
-
     .tb-megamenu-item {
       list-style: none;
       margin: 7px 0;
@@ -44,58 +42,22 @@
     }
   }
   .nav__link--icon {
-    border-radius: 3px;
-
+    margin: 0 !important;
     > a {
-      background: $blanco-pl;
-      background-repeat: no-repeat !important;
-      background-position: 14px center !important;
-      border: 1px solid $azul-os-pr;
-      border-radius: 3px;
-      box-shadow: 0px 3px 0px $gris-oscuro-hdi;
+      background: $blanco-pl !important;
       color: $azul-os-pr;
-      font-size: 15px;
-      font-weight: bolder;
       line-height: 35px;
+      border-radius: 3px;
       padding-left: 2.5rem;
       padding-right: 1rem;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+      font-size: 15px;
     }
-
-    &:hover {
-      background: $nc-darkteal;
-      > a {
-        border-color: $nc-darkteal;
-        box-shadow: 0px 3px 0px $azul-os-pr;
-        color: $blanco-pl;
-      }
-    }
-
-    &.siniestros-sombrilla {
-      margin-right: 1rem;
-      > a {
-        background-image: url(../images/icons/sombrilla.svg);
-        background-size: 19px;
-      }
-
-      &:hover {
-        > a {
-          background-image: url(../images/icons/sombrilla-blanco.svg);
-          background-size: 1rem;
-        }
-      }
-    }
-
     &.pagos {
       > a {
-        background-image: url(../images/icons/pagar.svg);
-        background-size: 1rem;
-      }
-
-      &:hover {
-        > a {
-          background-image: url(../images/icons/pagar-blanco.svg);
-          background-size: 1rem;
-        }
+        background-image: url(../images/icons/pagar.svg) !important;
+        background-repeat: no-repeat !important;
+        background-position: 14px center !important;
       }
     }
     .dropdown-menu {
@@ -103,7 +65,6 @@
     }
 
     &.te-paso-algo {
-      margin-right: 1rem;
       & > .dropdown-menu {
         margin-top: -.4rem;
       }

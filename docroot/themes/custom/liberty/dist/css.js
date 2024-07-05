@@ -1,6 +1,6 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+/******/ 	let __webpack_modules__ = ({
 
 /***/ "./components/style.scss":
 /*!*******************************!*\
@@ -17,17 +17,17 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	let __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		let cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		let module = __webpack_module_cache__[moduleId] = {
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -53,13 +53,16 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+!function() {
 /*!************************!*\
   !*** ./webpack/css.js ***!
   \************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/style.scss */ "./components/style.scss");
+/* harmony import */ let _components_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/style.scss */ "./components/style.scss");
 
+}();
 /******/ })()
 ;
 //# sourceMappingURL=css.js.map

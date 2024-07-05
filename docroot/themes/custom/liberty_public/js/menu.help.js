@@ -104,7 +104,7 @@
 
           // add close button
           if (head_modal.length > 0) {
-            close_btn = "";
+            close_btn = "<div></div>";
           } else {
             close_btn =
               '<div class="head-modal"><span id="close-mb" class="close"><img src="/themes/custom/liberty_public/images/icons/close.svg"></span></div>';
@@ -170,8 +170,8 @@
                 }
               });
 
-              block_help.find(".show-filters").on("click", function (e) {
-                e.preventDefault();
+              block_help.find(".show-filters").on("click", function (events) {
+                events.preventDefault();
                 let el = $(this);
                 if (el.hasClass("filters-open")) {
                   el.children("a").text("Mostrar filtros");
@@ -227,8 +227,8 @@
 
               block_help
                 .find(".block-search-medical-network .ctn-footer")
-                .on("click", ".form-submit", function (e) {
-                  e.preventDefault();
+                .on("click", ".form-submit", function (events) {
+                  events.preventDefault();
 
                   let plan = block_help.find("input[name='plan_type']").val(),
                     city = block_help.find("input[name='h_city']").val(),
@@ -327,8 +327,8 @@
                   .removeClass("is-hidden");
               }
 
-              block_help.find("#edit-submit-faqs").on("click", function (e) {
-                e.preventDefault();
+              block_help.find("#edit-submit-faqs").on("click", function (events) {
+                events.preventDefault();
 
                 if (
                   !block_help.find(".buscadoriew-filters").hasClass("is-hidden")

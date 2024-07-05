@@ -1,5 +1,5 @@
 .header {
-  background-color: $hdi-white;
+  background-color: $color-primary;
 
   &__inner {
     @include wrapper;
@@ -23,14 +23,10 @@
   &__branding {
     margin-right: $space;
     max-width: 300px;
-
-    .logo__image {
-      width: 4rem;
-    }
   }
 
   &__sponsor {
-    border-left: 1px solid $hdi-gray-medium;
+    border-left: 1px solid #ffffff59;
     padding: .5rem 0 .5rem 1rem;
 
     img {

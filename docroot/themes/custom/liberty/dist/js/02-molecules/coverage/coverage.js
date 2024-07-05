@@ -1,5 +1,5 @@
 /******/ (function() { // webpackBootstrap
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
 /*!******************************************************!*\
   !*** ./components/02-molecules/coverage/coverage.js ***!
   \******************************************************/

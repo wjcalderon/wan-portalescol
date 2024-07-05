@@ -127,10 +127,7 @@
         .not(".internal")
         .on("click", function (e) {
           e.preventDefault();
-          pop = PopupCenter($(this).attr("href"), $(this).text(), "600", "800"),
-            $(this).attr("resizable", "no");
-          
-          console.log(pop);
+          PopupCenter($(this).attr("href"), $(this).text(), "600", "800");
         });
 
       // Noticias
