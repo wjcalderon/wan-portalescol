@@ -77,6 +77,11 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
       $sites['hdiseguros.com.co'] = 'default';
       $sites['www.hdiseguros.com.co'] = 'default';
       $sites['aliados.hdiseguros.com.co'] = 'sponsors';
+      $sites['libertyseguros.co'] = 'default';
+      $sites['libertycolombia.com.co'] = 'default';
+      $sites['www.libertyseguros.co'] = 'default';
+      $sites['www.libertycolombia.com.co'] = 'default';
+      $sites['aliados.libertyseguros.co'] = 'sponsors';
       break;
     case 'local':
       $sites['local.hdi-portal.co'] = 'default';
