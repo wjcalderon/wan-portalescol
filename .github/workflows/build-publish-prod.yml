@@ -1,9 +1,9 @@
-name: Build and publish docker image - nonprod
+name: Build and publish docker image - prod
 
 on:
   push:
     tags:
-      - 'v[0-9].[0-9].[0-9]'
+      - 'v[0-9].[0-9].[0-9]{1,}'
 
 env:
   AWS_REGISTRY: 590184135173.dkr.ecr.us-east-1.amazonaws.com
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build_and_publish:
-    name: Build and publish nonprod
+    name: Build and publish prod
     runs-on: ubuntu-latest
 
     permissions:
