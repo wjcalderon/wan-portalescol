@@ -31,70 +31,68 @@
     line-height: 1.4rem;
     position: relative;
 
-    &:not(.button) {
-      background-color: transparent !important;
-    }
-
-    &:not(.button, .te-pasoalgo-mb, .pagos-mb):hover {
-      background-color: transparent !important;
-    }
-
-    &:not(.button).active {
-      background-color: transparent !important;
+    &:not(.button, .te-pasoalgo-mb, .pagos-mb) {
+      background-color: transparent;
     }
   }
   .nav__link--icon {
     border-radius: 3px;
 
-    > a {
+    a {
       background: $blanco-pl;
-      background-repeat: no-repeat !important;
-      background-position: 14px center !important;
-      border: 1px solid $azul-os-pr;
-      border-radius: 3px;
-      box-shadow: 0px 3px 0px $gris-oscuro-hdi;
       color: $azul-os-pr;
       font-size: 15px;
       font-weight: bolder;
       line-height: 35px;
-      padding-left: 2.5rem;
-      padding-right: 1rem;
+
+      &.te-pasoalgo-mb, &.pagos-mb {
+        background-repeat: no-repeat;
+        background-position: 1.5rem center;
+        border: 1px solid $verde-claro-hdi;
+        border-radius: 3px;
+        padding-left: 3.5rem;
+        padding-right: 2rem;
+      }
+
+      &.te-pasoalgo-mb {
+        background: $verde-claro-hdi;
+        color: $blanco-pl;
+      }
     }
 
     &:hover {
-      background: $nc-darkteal;
       > a {
-        border-color: $nc-darkteal;
-        box-shadow: 0px 3px 0px $azul-os-pr;
+        background: $verde-oscuro-hdi;
+        border-color: $verde-oscuro-hdi;
         color: $blanco-pl;
+      }
+    }
+
+    &.siniestros-sombrilla, &.pagos {
+      > a {
+        background-position: 1.5rem center;
+        background-repeat: no-repeat;
       }
     }
 
     &.siniestros-sombrilla {
       margin-right: 1rem;
       > a {
-        background-image: url(../images/icons/sombrilla.svg);
+        background-image: url(../images/icons/sombrilla-blanco.svg);
         background-size: 19px;
-      }
-
-      &:hover {
-        > a {
-          background-image: url(../images/icons/sombrilla-blanco.svg);
-          background-size: 1rem;
-        }
       }
     }
 
     &.pagos {
       > a {
         background-image: url(../images/icons/pagar.svg);
-        background-size: 1rem;
+        background-size: 1.3rem;
       }
 
       &:hover {
         > a {
           background-image: url(../images/icons/pagar-blanco.svg);
-          background-size: 1rem;
+          background-size: 1.3rem;
         }
       }
     }
@@ -589,7 +587,7 @@
       display: inline-block;
       margin-top: 1rem;
 
-      &:hover,
+      &:not(.whatsapp):hover,
       &.contactos,
       &.button--primary.button-medium {
         border: none !important;
@@ -1002,7 +1000,7 @@ nav.pager {
   a {
     &:hover {
       background-color: $petroleo-tr !important;
-      border-color: $petroleo-tr !important;
+      border: 1px solid $petroleo-tr !important;
     }
   }
 }
