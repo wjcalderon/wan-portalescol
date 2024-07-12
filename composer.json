@@ -282,7 +282,8 @@
                 "function deprected": "https://www.drupal.org/files/issues/2022-04-27/deprecated-static-function-call-in-trait-3272128.patch"
             },
             "drupal/webform": {
-                "2971460-1 getUrl() webform correction ": "https://www.drupal.org/files/issues/2021-10-14/2971460-1.patch"
+                "2971460-1 getUrl() webform correction ": "https://www.drupal.org/files/issues/2021-10-14/2971460-1.patch",
+                "polyfill.io Library is no longer considered safe to use": "https://www.drupal.org/files/issues/2024-03-15/webform-remove-polyfill-mr-419.diff.patch"
             },
             "drupal/core": {
                 "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch",
