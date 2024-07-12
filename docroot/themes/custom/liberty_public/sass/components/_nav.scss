@@ -103,7 +103,7 @@
     &.te-paso-algo {
       margin-right: 1rem;
       & > .dropdown-menu {
-        margin-top: -.4rem;
+        margin-top: -.85rem;
       }
     }
 
@@ -663,6 +663,15 @@ li[data-label="Pagar"] {
       left: 0;
       margin-left: 0;
       top: auto;
+      margin-top: -.25rem;
+    }
+  }
+
+  &.zona-clientes {
+    &:hover {
+      .tb-megamenu-submenu {
+        margin-top: -.4rem;
+      }
     }
   }
 }
@@ -691,7 +700,7 @@ li[data-label="Pagar"] {
 
 .tb-megamenu .pagos .dropdown-menu {
   padding: 1.1875rem 0 !important;
-  margin-top: -0.4rem !important;
+  margin-top: -0.85rem !important;
   li {
     margin-bottom: 0 !important;
   }

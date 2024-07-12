@@ -1303,7 +1303,7 @@
   }
   &.component__select-wizard {
     margin-top: 0;
-    background-color: $azul-hielo-sc;
+    background-color: $blanco-pl;
     margin-bottom: 0;
     padding-bottom: 4rem;
     padding-top: 3rem;
@@ -1337,6 +1337,17 @@
         @include breakpoint($small) {
           margin-right: 0;
           white-space: normal;
+        }
+      }
+      .button--primary {
+        background: $verde-claro-hdi !important;
+        border: none !important;
+        color: $blanco-pl !important;
+        font-weight: 400 !important;
+        text-transform: uppercase;
+        &:hover {
+          background: $verde-oscuro-hdi !important;
+          border-color: $verde-oscuro-hdi !important;
         }
       }
     }
