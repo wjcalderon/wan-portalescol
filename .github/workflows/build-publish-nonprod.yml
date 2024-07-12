@@ -3,7 +3,7 @@ name: Build and publish docker image - nonprod
 on:
   push:
     tags:
-      - 'v[0-9].[0-9].[0-9]-rc.[0-9]'
+      - 'v[0-9]+.[0-9]+.[0-9]+-rc.[0-9]+$'
 
 env:
   AWS_REGISTRY: 381492177008.dkr.ecr.us-east-1.amazonaws.com
