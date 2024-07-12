@@ -165,7 +165,7 @@
     display: flex;
     flex-wrap: wrap;
     .slick-list {
-      padding: 0 !important;
+      padding: 1rem 0 3rem 1rem !important;
     }
   }
   .slick-slide,
@@ -371,7 +371,7 @@
     }
   }
   &.interesado-home {
-    background-color: rgba($azul-hielo-sc, 0.6);
+    background-color: $blanco-pl;
     padding: 3.375rem 0 0 0;
     .component__content {
       @include breakpoint($small) {
@@ -450,15 +450,20 @@
         }
       }
       &:hover {
-        box-shadow: 2px 24px 32px 0 rgba(40, 163, 175, 0.2);
+        box-shadow: 0px 3px 8px $gris-oscuro-hdi;
         background: $blanco-pl;
         .card__img--oval {
           background: rgba($azul-hielo-sc, 0.6);
         }
         .button--inverse {
-          background-color: $azul-hielo-tr;
+          border-color: $verde-claro-hdi;
           @include breakpoint($small) {
-            background-color: $petroleo-tr;
+            background-color: $verde-claro-hdi;
+          }
+
+          &:hover {
+            background-color: $verde-oscuro-hdi !important;
+            border-color: $verde-oscuro-hdi !important;
           }
         }
       }
@@ -531,6 +536,7 @@
           background-size: 685%;
           border-bottom: 2px solid #626262;
           border-right: 2px solid #626262;
+          background: transparent;
         }
       }
     }

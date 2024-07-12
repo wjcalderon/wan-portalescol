@@ -980,14 +980,8 @@ main {
   border-color: $amarillo-pr !important;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
     background-color: $azul-os-pr !important;
     border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -1009,14 +1003,8 @@ main {
   border-color: $azul-hielo-tr !important;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
     background-color: $nc-darkteal !important;
     border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -1026,14 +1014,8 @@ main {
   border-color: $azul-os-pr;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
     background-color: #06748C !important;
     border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 

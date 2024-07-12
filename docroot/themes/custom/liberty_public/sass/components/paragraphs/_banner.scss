@@ -239,6 +239,23 @@
 .cp-banner-promo .c__cta {
   margin-bottom: 0;
   margin-top: 10px;
+
+  &.button {
+    &.button--primary {
+      background-color: $boton-verde-claro-hdi !important;
+
+    }
+    &:hover {
+      background-color: $boton-verde-oscuro-hdi !important;
+    }
+  }
+
+
+  .field__items {
+    > a {
+      color: $blanco-pl !important;
+    }
+  }
 }
 
 .cp-banner-promo .cp-banner__heading .cp-banner__title .c__title,
