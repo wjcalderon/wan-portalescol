@@ -27,11 +27,10 @@
     font-weight: 400;
     padding: 0 1.5rem 0 0.5rem;
     color: $azul-os-pr;
-    border-right: none;
     line-height: 1.4rem;
     position: relative;
 
-    &:not(.button, .te-pasoalgo-mb, .pagos-mb) {
+    &:not(.button, .te-pasoalgo-mb, .pagos-mb, .contacto) {
       background-color: transparent;
     }
   }
@@ -554,6 +553,13 @@
 }
 
 .tb-megamenu {
+
+  .nav {
+    li.dropdown > .dropdown-toggle {
+      border-right: none;
+    }
+  }
+
   .block-block-content {
     display: flex;
     flex-wrap: wrap;
@@ -583,7 +589,7 @@
     .button {
       padding: 0 2rem !important;
       line-height: 2.75rem !important;
-      border-right: 1px solid $azul-os-pr !important;
+      border: 1px solid $azul-os-pr;
       display: inline-block;
       margin-top: 1rem;
 
@@ -593,7 +599,7 @@
         border: none !important;
       }
 
-      &.contactos:hover {
+      &.contactos, &.contactos:hover {
         background-color: $azul-hielo-tr !important;
       }
     }
@@ -1008,8 +1014,9 @@ nav.pager {
 #block-block-content7b532349-8a53-4a83-82cb-aef6cf9fad2b {
   a {
     &:hover {
-      background-color: $petroleo-tr !important;
-      border: 1px solid $petroleo-tr !important;
+      background-color: $boton-verde-claro-hdi;
+      border: 1px solid $boton-verde-claro-hdi;
+      color: $blanco-pl;
     }
   }
 }
