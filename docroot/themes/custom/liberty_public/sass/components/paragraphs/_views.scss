@@ -193,11 +193,6 @@
         width: 100%;
       }
     }
-    // &:hover {
-    //     border-color: $petroleo-tr;
-    //     box-shadow: 0 2px 24px 0 rgba(52, 55, 65, 0.2);
-    //     background: $blanco-pl;
-    // }
     .slick__slide {
       padding: 2.5rem 1rem;
       vertical-align: top;
@@ -453,7 +448,7 @@
         box-shadow: 0px 3px 8px $gris-oscuro-hdi;
         background: $blanco-pl;
         .card__img--oval {
-          background: rgba($azul-hielo-sc, 0.6);
+          background: $blanco-sc;
         }
         .button--inverse {
           border-color: $verde-claro-hdi;
@@ -497,10 +492,11 @@
       & > div {
         height: 100%;
         .slick__slide {
-          width: 100% !important;
           border: 0;
+          border-radius: 5px;
           height: 100%;
           padding: 1rem;
+          width: 100% !important;
           &:hover {
             border: 0;
             box-shadow: none;

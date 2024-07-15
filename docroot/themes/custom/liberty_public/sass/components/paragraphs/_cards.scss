@@ -1158,7 +1158,13 @@
       }
       &:last-child {
         a {
-          border-right-color: $azul-os-pr;
+          border-color: $verde-claro-hdi;
+
+          &:hover {
+            border-color: $verde-oscuro-hdi !important;
+            background-color: $verde-oscuro-hdi !important;
+            color: $blanco-pl !important;
+          }
         }
       }
       .card__img--oval {

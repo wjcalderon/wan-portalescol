@@ -989,12 +989,24 @@ main {
   background: $blanco-pl;
   color: $charcoal-grey;
   border-color: $blanco-pl;
+
+  &:hover {
+    background: $blanco-pl !important;
+    color: $charcoal-grey !important;
+    border-color: $blanco-pl !important;
+  }
 }
 
 .button--yellow {
-  background: $amarillo-pr;
-  color: $azul-os-pr;
-  border-color: $amarillo-pr;
+  background: $verde-claro-hdi;
+  color: $blanco-pl !important;
+  border-color: $verde-claro-hdi;
+
+  &:hover {
+    background: $verde-claro-hdi !important;
+    color: $blanco-pl !important;
+    border-color: $verde-claro-hdi !important;
+  }
 }
 
 .button--primary {
