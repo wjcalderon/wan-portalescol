@@ -98,6 +98,10 @@ a:visited {
   text-decoration: none;
   color: $link;
   cursor: pointer;
+
+  &.button.button--primary {
+    color: $blanco-pl;
+  }
 }
 
 body p {

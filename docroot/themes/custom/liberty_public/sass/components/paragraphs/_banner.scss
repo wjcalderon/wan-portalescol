@@ -104,7 +104,7 @@
     display: block;
   }
   &__heading {
-    background-color: $amarillo-pr;
+    background-color: $blanco-sc;
     flex-basis: 35%;
     padding: 2.5rem;
     height: auto;
@@ -241,15 +241,15 @@
   margin-top: 10px;
 
   &.button {
+    border: none;
+
     &.button--primary {
       background-color: $boton-verde-claro-hdi !important;
-
     }
     &:hover {
       background-color: $boton-verde-oscuro-hdi !important;
     }
   }
-
 
   .field__items {
     > a {

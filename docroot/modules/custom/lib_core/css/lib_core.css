@@ -43,11 +43,6 @@ div#\30 0n4a00000fkwrc--description {
   margin-bottom: 10px !important;
 }
 
-.contactos-new .field--type-content .contactos {
-  border: 1px solid black !important;
-  border-radius: 3rem !important;
-}
-
 .contactos-new .field--type-content .contactos:hover {
   color: black !important;
 }

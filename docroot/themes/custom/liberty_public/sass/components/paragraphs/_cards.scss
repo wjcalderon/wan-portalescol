@@ -30,7 +30,7 @@
     }
   }
   .component__heading {
-    background-color: rgba($azul-hielo-tr, 0.1);
+    background-color: $blanco-pl;
     margin-bottom: 0;
     h2 {
       margin-bottom: 0;
@@ -60,7 +60,7 @@
   }
   .component__content {
     margin-bottom: 0px;
-    background-color: rgba($azul-hielo-tr, 0.1);
+    background-color: $blanco-pl;
     padding-bottom: 4rem;
     // @media screen and (max-width: $medium-max) {
     //     padding-top: 2rem;
@@ -123,7 +123,7 @@
   }
   .component__content {
     margin-bottom: 4rem;
-    background-color: rgba($azul-hielo-tr, 0.1);
+    background-color: $blanco-pl;
     @media screen and (min-width: $medium-max) {
       background-color: unset;
     }
@@ -143,7 +143,7 @@
       }
       &:last-of-type {
         @media screen and (max-width: $medium-max) {
-          background-color: rgba($azul-hielo-tr, 0.1);
+          background-color: $blanco-pl;
           padding-top: 4rem !important;
         }
       }
@@ -183,14 +183,11 @@
   }
   &.two-colums--clienteli {
     .component__heading {
-      background-color: rgba($azul-hielo-tr, 0.1);
+      background-color: $blanco-pl;
     }
     h2 {
       margin-bottom: 0;
       padding: 4rem 0 1.5rem;
-      //@media screen and (max-width: $medium-max) {
-      //  display: none;
-      //}
     }
     .component__card {
       h3 {
@@ -204,9 +201,15 @@
       }
       .field__items {
         a {
-          border-right: 1px solid $charcoal-grey;
+          border: 1px solid $verde-claro-hdi;
           color: $charcoal-grey;
           background-color: $blanco-pl;
+
+          &:hover {
+            border: 1px solid $verde-oscuro-hdi !important;
+            color: $blanco-pl !important;
+            background-color: $verde-oscuro-hdi !important;
+          }
         }
       }
     }
@@ -271,7 +274,7 @@
         }
         display: flex;
         margin: 0 auto;
-        background-color: $azul-hielo-sc;
+        background-color: $blanco-pl;
         border-radius: 100%;
         img {
           margin: auto auto;
@@ -554,7 +557,7 @@
 }
 
 .component__cards--formas-pago {
-  background-color: $blanco-sc;
+  background-color: $blanco-pl;
   .cog--items {
     padding-bottom: 0;
   }

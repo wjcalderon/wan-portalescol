@@ -120,7 +120,6 @@
 .component__view--productos {
   @include breakpoint($small) {
     margin-bottom: 0;
-    // margin-top: 5rem;
   }
   @include breakpoint($up-sm) {
     width: 100%;
@@ -257,8 +256,8 @@
       }
     }
     a.button:hover {
-      background-color: $petroleo-tr !important;
-      color: white !important;
+      background-color: $petroleo-tr;
+      color: white;
     }
   }
   .component__card {
@@ -338,13 +337,17 @@
     transform: translateX(-50%);
     width: 70%;
     min-width: 10rem;
+    border-color: $verde-claro-hdi;
     @include breakpoint($small) {
       position: inherit;
-      background: $petroleo-tr;
-      border-color: $petroleo-tr;
       color: $blanco-pl;
       text-decoration: none;
       transform: translateX(0);
+    }
+
+    &:hover {
+      background-color: $verde-oscuro-hdi !important;
+      border-color: $verde-oscuro-hdi;
     }
   }
   .views-field-field-icon {
@@ -1357,7 +1360,7 @@
     .card__img--oval {
       height: 8rem;
       width: 8rem;
-      background: $azul-hielo-sc;
+      background: $blanco-sc;
       display: flex;
       align-items: center;
       img {
@@ -1375,13 +1378,7 @@
     padding: 1rem 2rem;
     position: relative;
     min-height: 20rem;
-    // .views-field-nothing {
-    //     // .field-content {
-    //     //     // a {
-    //     //     //     /*left: 30%;*/
-    //     //     // }
-    //     // }
-    // }
+    border-radius: 5px;
   }
   .slick-dots {
     position: relative;
@@ -1426,8 +1423,7 @@
         }
       }
       &:hover {
-        background-color: $azul-hielo-sc;
-        box-shadow: 0 4px 16px 0 rgba(52, 55, 65, 0.16);
+        box-shadow: 0px 3px 8px $gris-oscuro-hdi;
       }
     }
     .views-field-field-cta {
@@ -1494,7 +1490,7 @@
       }
     }
   }
-  background-color: $blanco;
+  background-color: $blanco-pl;
   padding: 3rem;
   .component__title {
     text-align: left;

@@ -453,9 +453,9 @@ main {
     padding: 0 1rem;
   }
   &:hover {
-    background-color: $petroleo-tr !important;
-    border-color: $petroleo-tr !important;
-    color: $blanco-pl !important;
+    background-color: $petroleo-tr;
+    border-color: $petroleo-tr;
+    color: $blanco-pl;
     text-decoration: none;
   }
   &[disabled="disabled"] {
@@ -1010,13 +1010,13 @@ main {
 }
 
 .button--primary {
-  background: $azul-hielo-tr !important;
-  color: $charcoal-grey !important;
-  border-color: $azul-hielo-tr !important;
+  background: $verde-claro-hdi;
+  color: $blanco-pl;
+  border-color: $verde-claro-hdi;
   border-radius: 3rem;
   &:hover {
-    background-color: $nc-darkteal !important;
-    border: none;
+    background-color: $verde-oscuro-hdi;
+    border-color: $verde-oscuro-hdi;
   }
 }
 

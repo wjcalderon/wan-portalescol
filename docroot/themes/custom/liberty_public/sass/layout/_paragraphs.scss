@@ -32,17 +32,7 @@
       }
     }
   }
-  &:last-child {
-    ul {
-      li {
-        margin-left: 1rem;
-      }
-    }
-  }
-  // .has-margin-bottom {
-  //     // margin-bottom: 4rem;
-  //     padding: 0
-  // }
+
   &.cog__items--center {
     .cog--items {
       justify-content: center;
@@ -55,7 +45,7 @@
   height: 5rem;
   display: flex;
   margin: 0 auto;
-  background-color: $azul-hielo-tr;
+  background-color: $blanco-sc;
   border-radius: 100%;
   justify-content: center;
   @include breakpoint($small) {
