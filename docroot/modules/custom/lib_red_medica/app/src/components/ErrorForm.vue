@@ -145,8 +145,7 @@
             id="personal_data"
           />
           <label for="personal_data">
-            Autorizo el uso de mis datos personales por parte de Liberty Seguros
-            S.A.
+            Autorizo el uso de mis datos personales por parte de HDI Seguros Colombia S.A.
             <a
               :href="personal_data_url"
               target="_blank"
@@ -235,9 +234,8 @@ export default {
         in_draft: false,
       };
 
-      Api.postWebForm(data, this.csrf_token).then((response) => {
+      Api.postWebForm(data, this.csrf_token).then(() => {
         this.show_confirmation = true;
-        console.log(response);
       });
 
       e.preventDefault();

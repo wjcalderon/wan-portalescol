@@ -606,7 +606,7 @@ main {
 }
 
 .component__form--red-medica {
-  background-color: $azul-hielo-sc;
+  background-color: $blanco-pl;
   padding: 2.5rem 0 1rem 0;
   .content-fields-rm {
     width: 100%;
@@ -975,12 +975,12 @@ main {
 }
 
 .button--secondary {
-  background: $amarillo-pr !important;
-  color: $charcoal-grey !important;
-  border-color: $amarillo-pr !important;
+  background: $amarillo-pr;
+  color: $charcoal-grey;
+  border-color: $amarillo-pr;
   border-radius: 3rem;
   &:hover {
-    background-color: $azul-os-pr !important;
+    background-color: $azul-os-pr;
     border: none;
   }
 }

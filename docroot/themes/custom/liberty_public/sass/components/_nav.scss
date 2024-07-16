@@ -553,10 +553,11 @@
 }
 
 .tb-megamenu {
-
   .nav {
-    li.dropdown > .dropdown-toggle {
-      border-right: none;
+    li {
+      &.dropdown > .dropdown-toggle, & > a {
+        border-right: none;
+      }
     }
   }
 
@@ -593,7 +594,7 @@
       display: inline-block;
       margin-top: 1rem;
 
-      &:not(.whatsapp):hover,
+      &:not(.whatsapp, a[href*="wa.link"]):hover,
       &.contactos,
       &.button--primary.button-medium {
         border: none !important;
@@ -601,6 +602,12 @@
 
       &.contactos, &.contactos:hover {
         background-color: $azul-hielo-tr !important;
+      }
+
+      &:is(a[href*="wa.link"]):hover {
+        background-color: $boton-verde-claro-hdi;
+        border-color: $boton-verde-claro-hdi;
+        color: $blanco-pl;
       }
     }
   }

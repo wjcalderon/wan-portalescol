@@ -329,18 +329,19 @@
     }
   }
   .button {
-    padding: 0 1rem !important;
-    margin-bottom: 0;
-    position: absolute;
+    background: $verde-claro-hdi;
+    border-color: $verde-claro-hdi;
     bottom: 1rem;
+    color: $blanco-pl;
+    margin-bottom: 0;
     left: 50%;
+    min-width: 10rem;
+    padding: 0 1rem !important;
+    position: absolute;
     transform: translateX(-50%);
     width: 70%;
-    min-width: 10rem;
-    border-color: $verde-claro-hdi;
     @include breakpoint($small) {
       position: inherit;
-      color: $blanco-pl;
       text-decoration: none;
       transform: translateX(0);
     }
