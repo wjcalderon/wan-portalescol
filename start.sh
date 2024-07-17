@@ -16,7 +16,7 @@ chown -R nginx:nginx /var/www/html/efs
 chown -R nginx:nginx /var/www/html/docroot/sites/default
 chown -R nginx:nginx /var/www/html/docroot/sites/sponsors
 
-echo "127.0.0.1 ${ListDns}" >> /etc/hosts
+echo "104.69.219.12 nonprodportal.libertyseguros.co aliados-nonprod.libertyseguros.co" >> /etc/hosts
 
 cat /etc/hosts
 
