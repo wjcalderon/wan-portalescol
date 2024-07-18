@@ -12,6 +12,8 @@
     display: flex;
     margin: 0;
     position: static !important;
+    align-items: center;
+
     .tb-megamenu-item {
       list-style: none;
       margin: 7px 0;
@@ -25,39 +27,72 @@
     font-weight: 400;
     padding: 0 1.5rem 0 0.5rem;
     color: $azul-os-pr;
-    border-right: none;
     line-height: 1.4rem;
     position: relative;
 
-    &:not(.button) {
-      background-color: transparent !important;
-    }
-
-    &:not(.button, .te-pasoalgo-mb, .pagos-mb):hover {
-      background-color: transparent !important;
-    }
-
-    &:not(.button).active {
-      background-color: transparent !important;
+    &:not(.button, .te-pasoalgo-mb, .pagos-mb, .contacto) {
+      background-color: transparent;
     }
   }
   .nav__link--icon {
-    margin: 0 !important;
-    > a {
-      background: $blanco-pl !important;
+    border-radius: 3px;
+
+    a {
+      background: $blanco-pl;
       color: $azul-os-pr;
-      line-height: 35px;
-      border-radius: 3px;
-      padding-left: 2.5rem;
-      padding-right: 1rem;
-      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
       font-size: 15px;
+      font-weight: bolder;
+      line-height: 35px;
+
+      &.te-pasoalgo-mb, &.pagos-mb {
+        background-repeat: no-repeat;
+        background-position: 1.5rem center;
+        border: 1px solid $verde-claro-hdi;
+        border-radius: 3px;
+        padding-left: 3.5rem;
+        padding-right: 2rem;
+      }
+
+      &.te-pasoalgo-mb {
+        background: $verde-claro-hdi;
+        color: $blanco-pl;
+      }
     }
+
+    &:hover {
+      > a {
+        background: $verde-oscuro-hdi;
+        border-color: $verde-oscuro-hdi;
+        color: $blanco-pl;
+      }
+    }
+
+    &.siniestros-sombrilla, &.pagos {
+      > a {
+        background-position: 1.5rem center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &.siniestros-sombrilla {
+      margin-right: 1rem;
+      > a {
+        background-image: url(../images/icons/sombrilla-blanco.svg);
+        background-size: 19px;
+      }
+    }
+
     &.pagos {
       > a {
-        background-image: url(../images/icons/pagar.svg) !important;
-        background-repeat: no-repeat !important;
-        background-position: 14px center !important;
+        background-image: url(../images/icons/pagar.svg);
+        background-size: 1.3rem;
+      }
+
+      &:hover {
+        > a {
+          background-image: url(../images/icons/pagar-blanco.svg);
+          background-size: 1.3rem;
+        }
       }
     }
     .dropdown-menu {
@@ -65,8 +100,9 @@
     }
 
     &.te-paso-algo {
+      margin-right: 1rem;
       & > .dropdown-menu {
-        margin-top: -.4rem;
+        margin-top: -.85rem;
       }
     }
 
@@ -517,6 +553,14 @@
 }
 
 .tb-megamenu {
+  .nav {
+    li {
+      &.dropdown > .dropdown-toggle, & > a {
+        border-right: none;
+      }
+    }
+  }
+
   .block-block-content {
     display: flex;
     flex-wrap: wrap;
@@ -546,18 +590,24 @@
     .button {
       padding: 0 2rem !important;
       line-height: 2.75rem !important;
-      border-right: 1px solid $azul-os-pr !important;
+      border: 1px solid $azul-os-pr;
       display: inline-block;
       margin-top: 1rem;
 
-      &:hover,
+      &:not(.whatsapp, a[href*="wa.link"]):hover,
       &.contactos,
       &.button--primary.button-medium {
         border: none !important;
       }
 
-      &.contactos:hover {
+      &.contactos, &.contactos:hover {
         background-color: $azul-hielo-tr !important;
+      }
+
+      &:is(a[href*="wa.link"]):hover {
+        background-color: $boton-verde-claro-hdi;
+        border-color: $boton-verde-claro-hdi;
+        color: $blanco-pl;
       }
     }
   }
@@ -626,6 +676,15 @@ li[data-label="Pagar"] {
       left: 0;
       margin-left: 0;
       top: auto;
+      margin-top: -.25rem;
+    }
+  }
+
+  &.zona-clientes {
+    &:hover {
+      .tb-megamenu-submenu {
+        margin-top: -.4rem;
+      }
     }
   }
 }
@@ -654,7 +713,7 @@ li[data-label="Pagar"] {
 
 .tb-megamenu .pagos .dropdown-menu {
   padding: 1.1875rem 0 !important;
-  margin-top: -0.4rem !important;
+  margin-top: -0.85rem !important;
   li {
     margin-bottom: 0 !important;
   }
@@ -962,8 +1021,9 @@ nav.pager {
 #block-block-content7b532349-8a53-4a83-82cb-aef6cf9fad2b {
   a {
     &:hover {
-      background-color: $petroleo-tr !important;
-      border-color: $petroleo-tr !important;
+      background-color: $boton-verde-claro-hdi;
+      border: 1px solid $boton-verde-claro-hdi;
+      color: $blanco-pl;
     }
   }
 }

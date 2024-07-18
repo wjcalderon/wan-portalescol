@@ -43,20 +43,15 @@ div#\30 0n4a00000fkwrc--description {
   margin-bottom: 10px !important;
 }
 
-.contactos-new .field--type-content .contactos {
-  border: 1px solid black !important;
-  border-radius: 3rem !important;
-}
-
 .contactos-new .field--type-content .contactos:hover {
   color: black !important;
 }
 
 #navegacion .nav__link--icon.siniestros-sombrilla > a {
-  background-image: url(/themes/custom/liberty_public/images/icons/sombrilla.svg) !important;
+  background-image: url(/themes/custom/liberty_public/images/icons/sombrilla-blanco.svg) !important;
   background-repeat: no-repeat !important;
   background-position: 14px center !important;
-  background-size: 15% !important;
+  background-size: 15%;
 }
 
 #navegacion .nav__link--icon.siniestros-sombrilla {

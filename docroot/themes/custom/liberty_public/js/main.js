@@ -196,7 +196,7 @@
           center: { lat: centerLati, lng: lngi },
         });
 
-        new google.maps.Marker({
+        let beachMarker = new google.maps.Marker({
           position: { lat: lati, lng: lngi },
           optimized: false,
           map: map,
@@ -293,29 +293,28 @@
           wrapper.addClass("is-fixed-global");
         }
         wrapper.find(".info p").each(function () {
-          let element = $(this);
-          if (element.hasClass("is-desktop")) {
-            element.removeClass("is-desktop");
-            element.addClass("is-mobile");
+          let el = $(this);
+          if (el.hasClass("is-desktop")) {
+            el.removeClass("is-desktop");
+            el.addClass("is-mobile");
           }
         });
       });
 
       $(".arrowBack").click(function () {
         let el = $(this);
-        let wrapper;
         if (el.parent().hasClass("popup-info")) {
-          wrapper = el.parent();
+          let wrapper = el.parent();
         }
 
         wrapper
           .removeClass("is-fixed-global")
           .find(".info p")
           .each(function () {
-            let element = $(this);
-            if (element.hasClass("is-mobile")) {
-              element.removeClass("is-mobile");
-              element.addClass("is-desktop");
+            let el = $(this);
+            if (el.hasClass("is-mobile")) {
+              el.removeClass("is-mobile");
+              el.addClass("is-desktop");
             }
           });
       });
@@ -355,9 +354,19 @@
         $(button).on("click", function (event) {
           // console.log('sip');
         });
+        // $(button).on('click', function(event) {
+        //     let target = $(this.getAttribute('href'));
+        //     if (target.length) {
+        //         event.preventDefault();
+        //         $('.component__form--red-medica .component__content').stop().animate({
+        //             scrollTop: target.offset().top
+        //         }, 1000);
+        //     }
+        // });
       }
       clickSection(".component__form--red-medica .component__content");
 
+      // workshops filter
       $(
         ".alias--siniestros-talleres-preferenciales .view-talleres .form-select"
       ).on("change", function () {
@@ -402,6 +411,10 @@
           $(".text_file_error2").css("display", "none");
         }
       });
+      if ($(".form-item-adjuntar-archivos")) {
+        let label_adjuntar = $(this).find("label").html();
+        label_adjuntar = label_adjuntar + "<br>";
+      }
     },
   };
 })(jQuery, Drupal, this, this.document);

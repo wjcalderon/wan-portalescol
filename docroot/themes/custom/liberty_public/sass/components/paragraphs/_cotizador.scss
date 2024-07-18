@@ -781,8 +781,9 @@
   .content-page {
     margin-bottom: 5rem;
     h2 {
-      margin-bottom: 0.5rem;
       font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      margin-top: 3rem;
     }
     p.subtitle {
       text-align: center;
@@ -792,7 +793,7 @@
     }
   }
   .banner-info {
-    background-color: $azul-hielo-sc;
+    background-color: $blanco-pl;
     padding: 2rem 1rem;
     .cont-info {
       width: 45%;
@@ -831,9 +832,9 @@
         }
       }
       a {
-        background: $azul-hielo-tr;
-        color: $charcoal-grey;
-        border-color: $azul-hielo-tr;
+        background: $verde-claro-hdi;
+        color: $blanco-pl;
+        border-color: $verde-claro-hdi;
         width: 160px;
         height: 50px;
         display: flex;
@@ -845,6 +846,11 @@
         border-radius: 5px;
         @include breakpoint($small) {
           width: 90%;
+        }
+
+        &:hover {
+          background: $verde-oscuro-hdi;
+          border-color: $verde-oscuro-hdi;
         }
       }
     }
