@@ -453,9 +453,9 @@ main {
     padding: 0 1rem;
   }
   &:hover {
-    background-color: $petroleo-tr !important;
-    border-color: $petroleo-tr !important;
-    color: $blanco-pl !important;
+    background-color: $petroleo-tr;
+    border-color: $petroleo-tr;
+    color: $blanco-pl;
     text-decoration: none;
   }
   &[disabled="disabled"] {
@@ -606,7 +606,7 @@ main {
 }
 
 .component__form--red-medica {
-  background-color: $azul-hielo-sc;
+  background-color: $blanco-pl;
   padding: 2.5rem 0 1rem 0;
   .content-fields-rm {
     width: 100%;
@@ -975,19 +975,13 @@ main {
 }
 
 .button--secondary {
-  background: $amarillo-pr !important;
-  color: $charcoal-grey !important;
-  border-color: $amarillo-pr !important;
+  background: $amarillo-pr;
+  color: $charcoal-grey;
+  border-color: $amarillo-pr;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
-    background-color: $azul-os-pr !important;
+    background-color: $azul-os-pr;
     border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -995,28 +989,34 @@ main {
   background: $blanco-pl;
   color: $charcoal-grey;
   border-color: $blanco-pl;
+
+  &:hover {
+    background: $blanco-pl !important;
+    color: $charcoal-grey !important;
+    border-color: $blanco-pl !important;
+  }
 }
 
 .button--yellow {
-  background: $amarillo-pr;
-  color: $azul-os-pr;
-  border-color: $amarillo-pr;
+  background: $verde-claro-hdi;
+  color: $blanco-pl !important;
+  border-color: $verde-claro-hdi;
+
+  &:hover {
+    background: $verde-claro-hdi !important;
+    color: $blanco-pl !important;
+    border-color: $verde-claro-hdi !important;
+  }
 }
 
 .button--primary {
-  background: $azul-hielo-tr !important;
-  color: $charcoal-grey !important;
-  border-color: $azul-hielo-tr !important;
+  background: $verde-claro-hdi;
+  color: $blanco-pl;
+  border-color: $verde-claro-hdi;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
-    background-color: $nc-darkteal !important;
-    border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    background-color: $verde-oscuro-hdi;
+    border-color: $verde-oscuro-hdi;
   }
 }
 
@@ -1026,14 +1026,8 @@ main {
   border-color: $azul-os-pr;
   border-radius: 3rem;
   &:hover {
-    transform: scale(1.05);
     background-color: #06748C !important;
     border: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 

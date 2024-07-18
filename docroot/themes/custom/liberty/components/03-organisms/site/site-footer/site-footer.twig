@@ -3,7 +3,7 @@
 <footer {{ bem(footer__base_class) }} id="footer">
   <div {{ bem('content', [], footer__base_class) }}>
     {# <div {{ bem('inner', [], footer__base_class) }}>
-      
+
       <div {{ bem('contact', [], footer__base_class) }}>
         {% block footer__contact %}
           <span class="break"><b>Línea de atención</b> <span class="icon icon__phone"></span></span> <span class="break">Bogotá: (57 1) 307 7050</span> <span class="break">Resto del país: <b>01 8000 113390</b> <span class="icon icon__cellphone"></span> #224</span>
@@ -20,7 +20,7 @@
   </div> #}
   <div {{ bem('bottom', [], footer__base_class) }}>
       {% block footer__bottom %}
-        <span class="copyright">Copyright © 2022 Liberty Seguros</span> 
+        <span class="copyright">Copyright © {{ "now"|date("Y") }} Liberty Seguros</span>
       {% endblock %}
   </div>
 </footer>

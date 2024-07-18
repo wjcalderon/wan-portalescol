@@ -7,7 +7,7 @@
 
 .component__single-text--interesado,
 .component__single-text--interesado--external {
-  background-color: rgba($azul-hielo-tr, 0.5);
+  background-color: $blanco-pl;
   padding: 5.8125rem 0 4rem 0;
   text-align: center;
   margin-bottom: 0;
@@ -281,7 +281,7 @@
 
 .component__single-text--responsabilidad {
   padding-bottom: 5rem;
-  background-color: $blanco-sc;
+  background-color: $blanco-pl;
   .component__heading {
     .component__title {
       padding-bottom: 0 !important;

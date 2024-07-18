@@ -1,5 +1,5 @@
 /******/ (function() { // webpackBootstrap
-let __webpack_exports__ = {};
+var __webpack_exports__ = {};
 /*!**********************************************!*\
   !*** ./components/02-molecules/tabs/tabs.js ***!
   \**********************************************/

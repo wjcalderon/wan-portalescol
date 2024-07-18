@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, options) {
     plugins.runSequence(
       'compile:sass',
       ['minify:css',
-        ],
+        'compile:styleguide'],
       ['lint:js-gulp',
         'lint:js-with-fail',
         'lint:css-with-fail'],
@@ -24,7 +24,7 @@ module.exports = function (gulp, plugins, options) {
     plugins.runSequence(
       'compile:sass',
       ['minify:css',
-        ],
+        'compile:styleguide'],
       ['lint:js-gulp',
         'lint:js',
         'lint:css'],

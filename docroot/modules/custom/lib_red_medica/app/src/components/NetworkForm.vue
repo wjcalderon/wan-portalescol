@@ -517,11 +517,10 @@ export default {
                 max_distance +
                 "km";
             },
-            (err) => {
+            () => {
               this.error_location = true;
               this.location_cordinates = {};
               this.search_near = null;
-              console.log(err);
             }
           );
         }

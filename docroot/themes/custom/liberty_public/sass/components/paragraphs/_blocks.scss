@@ -1,5 +1,5 @@
 .component__block--siniestros-promocional {
-  background-color: $azul-hielo-sc;
+  background-color: $blanco-pl;
   @include breakpoint($small) {
     padding: 2rem 0 3rem 0;
   }
@@ -35,7 +35,7 @@
 }
 
 .component__block--siniestros-lineas {
-  background-color: $azul-hielo-sc;
+  background-color: $blanco-pl;
   padding-top: 4rem;
   margin-bottom: 0;
   @include breakpoint($small) {
@@ -53,7 +53,8 @@
     display: flex;
     background-color: $blanco-pl;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px 0 rgba(3, 123, 134, 0.29);
+    box-shadow: 0px 3px 8px $gris-oscuro-hdi;
+    border-radius: 5px;
     // margin-bottom: -70px;
     @include breakpoint($small) {
       display: block;
@@ -117,7 +118,7 @@
 }
 
 .component__block--siniestros-lineas-asis {
-  background-color: $blanco-sc;
+  background-color: $blanco-pl;
   padding: 2rem 0 3rem 0;
   .block--lineas-atencion-siniestros {
     text-align: center;
@@ -126,7 +127,8 @@
     display: inline-flex;
     background-color: $blanco-pl;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px 0 rgba(52, 55, 65, 0.23);
+    box-shadow: 0px 3px 8px $gris-oscuro-hdi;
+    border-radius: 5px;
     @include breakpoint($small) {
       display: block;
       text-align: center;
@@ -763,7 +765,7 @@
 
 .component__tabs {
   padding: 2rem 0 3rem 0;
-  background-color: #f5f5f5;
+  background-color: $blanco-pl;
   margin-bottom: 4rem;
   .component__heading {
     .component__title {
@@ -790,7 +792,7 @@
           border: 0;
           .normal-tab {
             a {
-              color: $petroleo-tr;
+              color: $azul-os-pr;
             }
           }
         }
