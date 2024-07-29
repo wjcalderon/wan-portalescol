@@ -63,3 +63,14 @@ Disallow: /index.php/user/login
 Disallow: /index.php/user/logout
 Disallow: /index.php/media/oembed
 Disallow: /index.php/*/media/oembed
+
+Disallow: /siniestros/aviso-de-siniestro
+Disallow: /siniestros/aviso-de-siniestro#tab-1
+Disallow: /siniestros/aviso-de-siniestro#tab-0
+Disallow: /aviso-de-siniestros-webform#tab-0
+Disallow: /aviso-de-siniestros-webform#tab-1
+Disallow: /index.php/siniestros/aviso-de-siniestro
+Disallow: /index.php/siniestros/aviso-de-siniestro#tab-1
+Disallow: /index.php/siniestros/aviso-de-siniestro#tab-0
+Disallow: /index.php/aviso-de-siniestros-webform#tab-0
+Disallow: /index.php/aviso-de-siniestros-webform#tab-1
