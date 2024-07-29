@@ -20,7 +20,7 @@
   </div> #}
   <div {{ bem('bottom', [], footer__base_class) }}>
       {% block footer__bottom %}
-        <span class="copyright">Copyright © {{ "now"|date("Y") }} Liberty Seguros</span>
+        {{ content }}
       {% endblock %}
   </div>
 </footer>
