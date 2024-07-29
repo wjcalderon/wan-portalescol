@@ -156,7 +156,7 @@ export default {
             equal: 6
           },
           match: {
-            regExp: /^([A-Z]{3}[0-9]{3}|[A-Z]{1}[0-9]{5}|[A-Z]{3}[0-9]{2}[A-Z]{1})$/i,
+            regExp: /^([A-Z]{3}\d{3}|[A-Z]\d{5}|[A-Z]{3}\d{2}[A-Z]|\d{3}[A-Z]{3})$/i,
             msg: 'Este dato no corresponde con un formato de placa valido.'
           }
         },
