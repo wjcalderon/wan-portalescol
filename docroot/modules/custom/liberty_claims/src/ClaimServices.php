@@ -81,7 +81,7 @@ class ClaimServices {
   /**
    * Token log custom.
    *
-   * @var anycustom
+   * @var string
    */
   protected $tokenLog;
 
@@ -104,7 +104,7 @@ class ClaimServices {
     LoggerServiceInterface $liberty_logger,
     LoggerChannelFactoryInterface $drupal_logger,
     FileSystemInterface $file_system
-    ) {
+  ) {
     $this->mailManager = $mail_manager;
     $this->configFactory = $config_factory;
     $this->oauth2ClientService = $oauth2_client_service;
@@ -122,13 +122,10 @@ class ClaimServices {
     $fecha_inicio = strtotime($fecha_inicio);
     $fecha_fin = strtotime($fecha_fin);
     $fecha = strtotime($fecha);
-    $value = FALSE;
+    $value = false;
 
     if ($fecha >= $fecha_inicio && $fecha <= $fecha_fin) {
-      $value = TRUE;
-    }
-    else {
-      $value = FALSE;
+      $value = false;
     }
 
     return $value;
@@ -153,7 +150,7 @@ class ClaimServices {
     $brand = str_replace('--', ' ', $brand);
     $brand = str_replace('++', '/', $brand);
     $parameters = [
-      'http_errors' => TRUE,
+      'http_errors' => true,
       'headers' => [
         'Content-Type' => 'application/json',
         'country' => '1',
@@ -174,10 +171,10 @@ class ClaimServices {
     $carshops = array_merge($carshops, $this->carShopsService($parameters));
 
     $filterCS = array_filter($carshops, function ($v) {
-        return strpos($v->nombre, 'INACTIVO)') === FALSE &&
-            strpos($v->nombre, 'Taller para PTH') === FALSE &&
-            strpos($v->nombre, 'Taller para RCDBT') === FALSE &&
-            strpos($v->nombre, 'Taller para Arreglo Directo') === FALSE;
+      return strpos($v->nombre, 'INACTIVO)') === false &&
+        strpos($v->nombre, 'Taller para PTH') === false &&
+        strpos($v->nombre, 'Taller para RCDBT') === false &&
+        strpos($v->nombre, 'Taller para Arreglo Directo') === false;
     });
 
     if (!$filterCS) {
@@ -186,11 +183,11 @@ class ClaimServices {
       $cities = Yaml::decode($cities);
 
       $capital = array_filter($cities,
-            function ($v) use ($city) {
-                return isset($v['CAPITAL']) && $v['COD'] == $city;
-            },
-            ARRAY_FILTER_USE_BOTH
-        );
+        function ($v) use ($city) {
+          return isset($v['CAPITAL']) && $v['COD'] == $city;
+        },
+        ARRAY_FILTER_USE_BOTH
+      );
 
       if ($capital) {
         $capital = reset($capital);
@@ -200,22 +197,20 @@ class ClaimServices {
             $carshops = array_merge(
               $carshops,
               $this->getCarShopsByCapital(
-                  $cap,
-                  $cities,
-                  $parameters
-              )
-              );
+                $cap,
+                $cities,
+                $parameters
+              ));
           }
         }
         else {
           $carshops = array_merge(
             $carshops,
             $this->getCarShopsByCapital(
-                $capital['CAPITAL'],
-                $cities,
-                $parameters
-            )
-                );
+              $capital['CAPITAL'],
+              $cities,
+              $parameters
+            ));
         }
       }
     }
@@ -303,15 +298,10 @@ class ClaimServices {
               'Authorization' =>
               'Bearer ' . $this->getMainToken(),
             ],
-            'body' =>
-            '{
-              "username":"' .
-            $this->getConnectionData('username') .
-            '",
-              "password":"' .
-            $this->getConnectionData('password') .
-            '"
-            }',
+            'body' => json_encode([
+              "username" => $this->getConnectionData('username'),
+              "password" => $this->getConnectionData('password')
+            ]),
           ]
           );
 
@@ -433,13 +423,12 @@ class ClaimServices {
           $body = $response->getBody()->getContents();
 
           $this->logger->setMultiple(
-                [
-                  'response_iaxis' => $body,
-                  'status' => 2,
-                ], $token);
+            [
+              'response_iaxis' => $body,
+              'status' => 2,
+            ], $token);
         }
         catch (RequestException $e) {
-
           if ($e->hasResponse()) {
             $response = $e->getResponse();
             $error = $response->getBody()->getContents();
@@ -471,7 +460,7 @@ class ClaimServices {
    * @return array
    *   Response.
    */
-  public function postSipo(string $json, string $iaxis_id, string $token, $code) {
+  public function postSipo(string $json, string $iaxis_id, string $token, $code):array {
     if ($iaxis_id) {
       $data['code_request'] = $code;
       $data = json_decode($json, TRUE);
@@ -628,6 +617,7 @@ class ClaimServices {
 
       $client->__setLocation($this->getConnectionData('base_uri') . '/andino/co/policy-servicing/consultaspolizas');
       $response = $client->__soapCall('consultarPolizas', $body);
+
       $polizas = [];
 
       $index_vigencia = 0;
@@ -684,7 +674,7 @@ class ClaimServices {
           $dateToCheckObj >= $policy_start_date &&
           $dateToCheckObj <= $policy_end_date &&
           $polizas['estadoPoliza'] == 'Vigente'
-          ) {
+        ) {
           $aseguradoVigente = TRUE;
           $index_vigencia = 0;
           $polizas[0] = $polizas;
@@ -711,17 +701,14 @@ class ClaimServices {
         }
 
         if ($response->numeroRegistros) {
-
           if ($aseguradoVigente) {
-
             $codes = Yaml::decode($config->get('insured_codes'));
             $return = [];
 
             foreach ($polizas[$index_vigencia]['riesgoAuto']['garantiasPoliza'] as $item) {
-
               if (
-              $item['codigoGarantia'] == $codes[$type] ||
-              (is_array($codes[$type]) && in_array($item['codigoGarantia'], $codes[$type]))
+                $item['codigoGarantia'] == $codes[$type] ||
+                (is_array($codes[$type]) && in_array($item['codigoGarantia'], $codes[$type]))
               ) {
 
                 $data = $polizas[$index_vigencia]['codigoProducto'] . '|' .
@@ -768,28 +755,25 @@ class ClaimServices {
                   if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
                     $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
                     $name = isset($conductor_data['primerNombre'])
-                    ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
-                    : '';
+                      ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
+                      : '';
                     $last_name = isset($conductor_data['primerApellido'])
-                    ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
-                    : '';
+                      ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
+                      : '';
                     $document_id = $conductor_data['numeroDocumento'] ?? '';
                     $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
-                    ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
-                    : 0;
+                      ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
+                      : 0;
                     if (isset($conductor_data['email'])) {
                       $email = trim($conductor_data['email']);
                     }
                     elseif (isset($conductor_data['mail'])) {
                       $email = trim($conductor_data['mail']);
                     }
-                    else {
-                      $email = '';
-                    }
                     $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
                     $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
-                    ? $conductor_data['telefono']['numero']
-                    : '';
+                      ? $conductor_data['telefono']['numero']
+                      : '';
                   }
                 }
                 else {
@@ -809,13 +793,10 @@ class ClaimServices {
                   elseif (isset($personal_data['mail'])) {
                     $email = trim($personal_data['mail']);
                   }
-                  else {
-                    $email = '';
-                  }
                   $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
                   $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
-                  ? $personal_data['telefono']['numero']
-                  : '';
+                    ? $personal_data['telefono']['numero']
+                    : '';
                 }
                 $return['personalInfo'] = [
                   'name' => $name ?? '',
@@ -853,28 +834,25 @@ class ClaimServices {
                   if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
                     $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
                     $name = isset($conductor_data['primerNombre'])
-                    ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
-                    : '';
+                      ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
+                      : '';
                     $last_name = isset($conductor_data['primerApellido'])
-                    ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
-                    : '';
+                      ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
+                      : '';
                     $document_id = $conductor_data['numeroDocumento'] ?? '';
                     $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
-                    ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
-                    : 0;
+                      ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
+                      : 0;
                     if (isset($conductor_data['email'])) {
                       $email = trim($conductor_data['email']);
                     }
                     elseif (isset($conductor_data['mail'])) {
                       $email = trim($conductor_data['mail']);
                     }
-                    else {
-                      $email = '';
-                    }
                     $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
                     $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
-                    ? $conductor_data['telefono']['numero']
-                    : '';
+                      ? $conductor_data['telefono']['numero']
+                      : '';
                   }
                 }
                 else {
@@ -890,13 +868,10 @@ class ClaimServices {
                   elseif (isset($personal_data['mail'])) {
                     $email = trim($personal_data['mail']);
                   }
-                  else {
-                    $email = '';
-                  }
                   $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
                   $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
-                  ? $personal_data['telefono']['numero']
-                  : '';
+                    ? $personal_data['telefono']['numero']
+                    : '';
                 }
 
                 $return['personalInfo'] = [
@@ -933,15 +908,10 @@ class ClaimServices {
               $six_year = date('Y', strtotime($config->get('last_model') . '- 6 year'));
 
               if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_chevrolet')) {
-
+                $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
                 if (
-                $this->checkInRange($six_year, $model_actual, $model) &&
-                (
-                $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'] == "CHEVROLET" ||
-                $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'] == "chevrolet"
-                )
+                  $this->checkInRange($six_year, $model_actual, $model) && strtoupper($marca_poliza) === "CHEVROLET"
                 ) {
-
                   $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
                   $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
                 }
@@ -956,6 +926,7 @@ class ClaimServices {
                   unset($_SESSION['GMFChevrolet']);
                 }
               }
+
               if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
                 $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
                 if (strpos($brand, 'GREAT WALL') !== FALSE) {
@@ -1037,13 +1008,14 @@ class ClaimServices {
   private function getConnectionData($item) {
     $config = $this->configFactory->get('liberty_claims.settings');
     $mode = $config->get('mode');
+
     return $config->get($mode)[$item];
   }
 
   /**
    * Method to match values from the ymls data.
    *
-   * @param string $resource
+   * @param array $resource
    *   Resource from the service.
    * @param string $data
    *   Data from the app.
@@ -1066,6 +1038,7 @@ class ClaimServices {
         }
       }
     }
+
     return $resource;
   }
 
@@ -1208,10 +1181,10 @@ class ClaimServices {
             'numeroPregunta' => $questionNumber,
           ],
           'respuestasAPreguntasAsociadasAGarantia' => [
-                [
-                  'descripcionRespuestaAPreguntaAsociadaAGarantia' => $source[$key],
-                  'numeroRespuestaAPreguntaAsociadaAGarantia' => '0',
-                ],
+            [
+              'descripcionRespuestaAPreguntaAsociadaAGarantia' => $source[$key],
+              'numeroRespuestaAPreguntaAsociadaAGarantia' => '0',
+            ],
           ],
         ];
         $preguntasExtraGarantia[] = $pregunta;
@@ -1390,13 +1363,11 @@ class ClaimServices {
     $key = hash('sha256', $secret_key);
     $iv = substr(hash('sha256', $secret_iv), 0, 16);
 
-    if ($action == 'en') {
-      $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+    if ($action == 'de') {
+      return openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
     }
-    elseif ($action == 'de') {
-      $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-    }
-    return $output;
+
+    return base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
   }
 
   /**
@@ -1406,16 +1377,20 @@ class ClaimServices {
    *   Json data.
    * @param int $sipo_id
    *   SIPO Id.
+   * @return string JSON obejct
    */
-  public function postFiles(string $json, $sipo_id) {
+  public function postFiles(string $json, $sipo_id):string {
     if ($sipo_id) {
       $data = json_decode($json);
       $file_path = 'public://claimfiles/' . $data->documentId;
+      $body = [];
+
+      if (!is_dir($file_path)) {
+        return json_encode(['errorFileUplaod' => 'Folder not exist.'], TRUE);
+      }
+
       if (scandir($file_path)) {
         $file_list = array_diff(scandir($file_path), ['..', '.']);
-
-        $body = [];
-
         foreach ($file_list as $file) {
           $client = new Client([
             'base_uri' => $this->getConnectionData('base_uri'),
@@ -1435,20 +1410,20 @@ class ClaimServices {
 
           try {
             $response = $client->request(
-                  'POST',
-                  '/fnol/cargarImagen',
-                  [
-                    'http_errors' => TRUE,
-                    'headers' => [
-                      'Content-Type' => 'application/json',
-                      'Authorization' =>
-                      'Bearer ' . $this->getMainToken(),
-                      'cesvi-authorization' => $this->getCesviToken(),
-                      'country' => '1',
-                    ],
-                    'body' => json_encode($body_request),
-                  ]
-              );
+              'POST',
+              '/fnol/cargarImagen',
+              [
+                'http_errors' => TRUE,
+                'headers' => [
+                  'Content-Type' => 'application/json',
+                  'Authorization' =>
+                  'Bearer ' . $this->getMainToken(),
+                  'cesvi-authorization' => $this->getCesviToken(),
+                  'country' => '1',
+                ],
+                'body' => json_encode($body_request),
+              ]
+            );
 
             $body = $response->getBody()->getContents();
             $this->drupalLogger->notice($body);
@@ -1523,7 +1498,7 @@ class ClaimServices {
     $module = 'liberty_claims';
     $to = $config->get('email_send');
     $langcode = 'es';
-    $send = TRUE;
+    $send = true;
 
     $result = $this->mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
 

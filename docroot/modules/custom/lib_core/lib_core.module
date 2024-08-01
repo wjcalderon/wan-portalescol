@@ -26,15 +26,12 @@ function lib_core_views_pre_render(ViewExecutable $view) {
  * Implements hook_forma_alter().
  */
 function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
   if ($form_id == 'webform_submission_solicitud_add_form' || $form_id == 'webform_submission_solicitud_paragraph_156_add_form') {
-
     $form['elements']['descripcion_de_auto']['#attributes']['class'][] = 'msg-description';
     $form['elements']['descripcion_de_cumplimiento']['#attributes']['class'][] = 'msg-description';
     $form['elements']['descripcion_de_salud']['#attributes']['class'][] = 'msg-description';
     $form['elements']['descripcion_de_soat']['#attributes']['class'][] = 'msg-description';
     $form['elements']['descripcion_de_vida']['#attributes']['class'][] = 'msg-description';
-
   }
 
   if ($form_id == 'views_exposed_form' && isset($form['field_product_type_target_id'])) {

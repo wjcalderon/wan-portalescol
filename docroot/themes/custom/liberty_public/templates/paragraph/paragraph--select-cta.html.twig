@@ -95,27 +95,27 @@
 
 
 <section{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
-    {% if add_container %}<div class="cog--mq">{% endif %}
-      <div class="cog--flex">
+  {% if add_container %}<div class="cog--mq">{% endif %}
+    <div class="cog--flex">
       {% if paragraph_title and paragraph_title_status %}
         <div class="component__heading">
           <h2 class="component__title">{{- paragraph_title -}}</h2>
         </div>
       {% endif %}
       <div class="component__content">
-          <div class="{{ class_container }}">
-            {% if paragraph_label %}
-              <label for={{ paragraph_id }}> {{ paragraph_label }}</label>
-            {% endif %}
-              <select class="select-cta" name="{{ paragraph_id }}">
-                <option  value="0">¿Qué quieres proteger?</option>
-                {% for key,value in content.field_cta['#items'] %}
-                  <option value="{{ value.uri|t|replace({'internal:':'','external:':''}) }}">  {{ value.title }}
-                  </options>
-                {% endfor %}
-              </select>
-              <button class="button button--primary button--large">Continuar</button>
-          </div>
+        <div class="{{ class_container }}">
+          {% if paragraph_label %}
+            <label for={{ 'cta-' ~ paragraph_id }}> {{ paragraph_label }}</label>
+          {% endif %}
+            <select class="select-cta" name="{{ paragraph_id }}" id="{{ 'cta-' ~ paragraph_id }}">
+              <option value="0">¿Qué quieres proteger?</option>
+              {% for key,value in content.field_cta['#items'] %}
+                <option value="{{ value.uri|t|replace({'internal:':'','external:':''}) }}">  {{ value.title }}
+                </options>
+              {% endfor %}
+            </select>
+            <button class="button button--primary button--large">Continuar</button>
+        </div>
       </div>
     </div>
   {% if add_container %}</div>{% endif %}

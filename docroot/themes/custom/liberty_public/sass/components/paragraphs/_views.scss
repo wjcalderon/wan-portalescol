@@ -257,7 +257,7 @@
     }
     a.button:hover {
       background-color: $petroleo-tr;
-      color: white;
+      color: $blanco-pl !important;
     }
   }
   .component__card {
