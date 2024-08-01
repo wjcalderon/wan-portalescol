@@ -36,7 +36,7 @@ jobs:
       - name: Pull base image
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.GH_REGISTRY }} -u ${{ github.actor }} --password-stdin
-          docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.4
+          docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.5
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3

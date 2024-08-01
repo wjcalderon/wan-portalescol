@@ -52,7 +52,7 @@
   }
 
   a {
-    color: $gris-sc;
+    color: $charcoal-grey;
     font-size: 1.1rem;
     border-right: 1px solid $gris-tr;
     line-height: 1.625rem;
@@ -79,7 +79,7 @@
   img {
     margin-right: 1.5rem;
     max-width: 10%;
-    opacity: 0.3;
+    opacity: 0.6;
     width: 100%;
 
     @media screen and (max-width: $medium-max) {
