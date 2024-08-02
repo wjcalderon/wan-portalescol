@@ -1,4 +1,4 @@
-FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.2 AS base
+FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.5 AS base
 
 WORKDIR /var/www/html/
 COPY . .
