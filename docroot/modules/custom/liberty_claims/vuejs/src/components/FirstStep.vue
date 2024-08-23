@@ -172,6 +172,7 @@ export default {
         personalData: {},
         guarantees: {},
         GMFChevrolet: {},
+        previusPolicy: '',
       },
       modal: null
     }
@@ -221,6 +222,7 @@ export default {
               this.casualtyData.personalData = data.body.personalInfo;
               this.casualtyData.guarantees = data.body.guarantees;
               this.casualtyData.broker = data.body.broker ? data.body.broker : null;
+              this.casualtyData.previusPolicy = data.body.previusPolicy;
               if (this.casualtyData.tellus === 'CLAIM_TYPE_PTH') {
                 this.modal = 'theft';
               }

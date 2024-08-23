@@ -164,6 +164,7 @@ class ClaimServices {
         strtolower($type) . ($type == 'Moto' ? 's' : '') => 'TRUE',
       ],
     ];
+
     $carshops = [];
     $carshops = $this->carShopsService($parameters);
 
@@ -280,17 +281,26 @@ class ClaimServices {
   private function getCesviToken() {
     $cid = 'claims:cesvi_token';
 
+    $base_uri = 'base_uri';
+    $cesvi_endpoint = 'fnol/autenticacionCesvi';
+
+    if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
+      $base_uri = 'cesvi_uri';
+      $cesvi_endpoint = '';
+    }
+
     if ($cache = $this->cacheManager->get($cid)) {
       return $cache->data;
     }
     else {
       $client = new Client([
-        'base_uri' => $this->getConnectionData('base_uri'),
+        'base_uri' => $this->getConnectionData($base_uri),
       ]);
+
       try {
         $response = $client->request(
           'POST',
-          'fnol/autenticacionCesvi',
+          $cesvi_endpoint,
           [
             'http_errors' => TRUE,
             'headers' => [
@@ -307,6 +317,7 @@ class ClaimServices {
 
         $body = $response->getBody()->getContents();
         $json = json_decode($body);
+
         if (@$json->access_token) {
           $this->cacheManager->set($cid, $json->access_token, REQUEST_TIME + $json->expires_in);
           return $json->access_token;
@@ -537,13 +548,13 @@ class ClaimServices {
     else {
       $this->logger->set('iaxis_id', 'error', $token);
       $this->logger->set(
-            'request_sipo',
-            json_encode(
-                ['errorMessage' => 'No iaxis_id'],
-                JSON_PRETTY_PRINT
-            ),
-            $token
-            );
+        'request_sipo',
+        json_encode(
+          ['errorMessage' => 'No iaxis_id'],
+          JSON_PRETTY_PRINT
+        ),
+        $token
+      );
       return ['error' => 'no-axiscode'];
     }
   }
@@ -934,6 +945,9 @@ class ClaimServices {
                 }
               }
 
+              // Previus policy from HDI
+              $return['previusPolicy'] = $polizas[$index_vigencia]['polizaAnterior'] ?? '';
+
               return $return;
             }
             else {
@@ -1108,6 +1122,7 @@ class ClaimServices {
       '_#@_withPolicedesc' => $source['withPolice'] ? 'si' : 'no',
       '_#@_withPoliceval' => $source['withPolice'] ? 1 : 2,
       '_#@_description' => wordwrap($source['description'], 50, "\n\r"),
+      '_#@_previusPolicy' => $source['previusPolicy'],
     ];
 
     foreach ($replacements as $key => $value) {
@@ -1294,6 +1309,8 @@ class ClaimServices {
 
     $input = date('Y-m-d\TH:i:s.\Z', time());
     $data = str_replace('_#@_currentDateISO', $input, $data);
+
+    $data = str_replace('_#@_previusPolicy', $input, $data);
 
     $matches = [];
     preg_match('/(.*)(?=_#@_description)/i', $data, $matches, PREG_OFFSET_CAPTURE);
