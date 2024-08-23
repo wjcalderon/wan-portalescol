@@ -64,6 +64,13 @@ class SettingsForm extends ConfigFormBase {
       '#size' => 64,
       '#default_value' => $config->get('test')['base_uri'],
     ];
+    $form['endpoint_settings']['test']['cesvi_uri'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Cesvi Endpoint'),
+      '#maxlength' => 128,
+      '#size' => 64,
+      '#default_value' => $config->get('test')['cesvi_uri'] ?? '',
+    ];
     $form['endpoint_settings']['test']['username'] = [
       '#type' => 'textfield',
       '#title' => $this->t('User name (CESVI Authorization)'),
@@ -517,7 +524,8 @@ class SettingsForm extends ConfigFormBase {
     _#@plate
     _#@date
     _#@tellus
-    _#@policy';
+    _#@policy
+    _#@previusPolicy';
   }
 
 }

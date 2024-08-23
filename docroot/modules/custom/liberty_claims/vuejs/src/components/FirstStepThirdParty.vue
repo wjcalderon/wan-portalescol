@@ -128,7 +128,8 @@ export default {
         plate: '',
         date: '',
         tellus: 0,
-        policy: ''
+        policy: '',
+        previusPolicy: '',
       },
       tellusOptions: {
         0: '¿Qué nos quieres contar?',
@@ -167,6 +168,7 @@ export default {
             }
             else {
               this.casualtyData.policy = data.body;
+              this.casualtyData.previusPolicy = data.body.previusPolicy;
               this.nextStep();
             }
           }, function (error) {

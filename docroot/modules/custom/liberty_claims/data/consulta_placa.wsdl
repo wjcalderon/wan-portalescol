@@ -127,6 +127,7 @@ https://intl-coawsuatsoa-elb-ext-698389635.us-east-1.elb.amazonaws.com:443/soa-i
 <xsd:element minOccurs="0" name="codigoBroker" type="xsd:string"/>
 <xsd:element minOccurs="0" name="codigoConcesionario" type="xsd:string"/>
 <xsd:element minOccurs="0" name="concesionario" type="xsd:string"/>
+<xsd:element minOccurs="0" name="polizaAnterior" type="xsd:string"/>
 <xsd:element minOccurs="0" name="riesgoAuto" type="tns:RiesgoAuto"/>
 </xsd:sequence>
 </xsd:complexType>
