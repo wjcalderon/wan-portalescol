@@ -259,6 +259,15 @@ class ClaimServices {
       'base_uri' => $this->getConnectionData('base_uri'),
     ]);
 
+    $parameters = array_merge($parameters, [
+      'headers' => [
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer ' . $this->getMainToken(),
+        'country' => '1',
+        'cesvi-authorization' => $this->getCesviToken(),
+      ]
+    ]);
+
     try {
       $response = $client->request('GET', '/fnol/consultaTalleres', $parameters);
       $body = $response->getBody()->getContents();
