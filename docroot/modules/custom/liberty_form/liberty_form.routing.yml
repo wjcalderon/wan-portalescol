@@ -40,7 +40,7 @@ liberty_form.sms_launcher:
 liberty_form.mailLauncher:
   path: "/admin/config/liberty/mailLauncher"
   defaults:
-    _form: '\Drupal\liberty_form\Form\mailLauncher'
+    _form: '\Drupal\liberty_form\Form\MailLauncher'
     _title: "Correo electronico launcher"
   requirements:
     _permission: "access administration pages"
