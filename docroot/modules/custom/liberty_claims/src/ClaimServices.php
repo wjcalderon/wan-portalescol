@@ -10,12 +10,13 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\liberty_claims\traits\ErrorEmails;
+use Drupal\liberty_claims\traits\GetTokens;
+use Drupal\liberty_claims\traits\ValidatePolicy;
 use Drupal\oauth2_client\Service\Oauth2ClientServiceInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use League\OAuth2\Client\Provider\GenericProvider;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use GuzzleHttp\Promise\Is;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -28,6 +29,10 @@ class ClaimServices {
   const CLAIM_TYPE_PL = 'ASEGURADO_LLAVES';
   const CLAIM_TYPE_LR = 'ASEGURADO_LLANTAS';
   const CLAIM_TYPE_AC = 'ASEGURADO_ACCESORIOS';
+  const CLAIM_TYPE_CR = 'ROTURA_CRISTALES';
+  const DATE_FORMAT = 'Y-m-d\TH:i:s';
+
+  use GetTokens, ValidatePolicy, ErrorEmails;
 
   /**
    * The mail manager.
@@ -161,14 +166,14 @@ class ClaimServices {
         'ciudad' => $city,
         'modelo' => $model,
         'marca' => $brand,
-        strtolower($type) . ($type == 'Moto' ? 's' : '') => 'TRUE',
+        strtolower($type) . ($type == 'Moto' ? 's' : '') => 'true',
       ],
     ];
 
     $carshops = [];
     $carshops = $this->carShopsService($parameters);
 
-    $parameters['query']['concesionario'] = 'TRUE';
+    $parameters['query']['concesionario'] = 'true';
     $carshops = array_merge($carshops, $this->carShopsService($parameters));
 
     $filterCS = array_filter($carshops, function ($v) {
@@ -225,11 +230,11 @@ class ClaimServices {
   private function getCarShopsByCapital($capital, $cities, $parameters) {
     $parameters['query']['ciudad'] = $capital;
     $capital_name = array_filter($cities,
-          function ($v) use ($capital) {
-              return isset($v['COD']) && $v['COD'] == $capital;
-          },
-          ARRAY_FILTER_USE_BOTH
-      );
+      function ($v) use ($capital) {
+        return isset($v['COD']) && $v['COD'] == $capital;
+      },
+      ARRAY_FILTER_USE_BOTH
+    );
 
     $capital_name = ucfirst(\strtolower(key($capital_name)));
 
@@ -282,110 +287,6 @@ class ClaimServices {
   }
 
   /**
-   * Gets the car shops service token.
-   *
-   * @return string
-   *   The token.
-   */
-  private function getCesviToken() {
-    $cid = 'claims:cesvi_token';
-
-    $base_uri = 'base_uri';
-    $cesvi_endpoint = 'fnol/autenticacionCesvi';
-
-    if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
-      $base_uri = 'cesvi_uri';
-      $cesvi_endpoint = '';
-    }
-
-    if ($cache = $this->cacheManager->get($cid)) {
-      return $cache->data;
-    }
-    else {
-      $client = new Client([
-        'base_uri' => $this->getConnectionData($base_uri),
-      ]);
-
-      try {
-        $response = $client->request(
-          'POST',
-          $cesvi_endpoint,
-          [
-            'http_errors' => TRUE,
-            'headers' => [
-              'Content-Type' => 'application/json',
-              'Authorization' =>
-              'Bearer ' . $this->getMainToken(),
-            ],
-            'body' => json_encode([
-              "username" => $this->getConnectionData('username'),
-              "password" => $this->getConnectionData('password')
-            ]),
-          ]
-          );
-
-        $body = $response->getBody()->getContents();
-        $json = json_decode($body);
-
-        if (@$json->access_token) {
-          $this->cacheManager->set($cid, $json->access_token, REQUEST_TIME + $json->expires_in);
-          return $json->access_token;
-        }
-      }
-      catch (\Exception $e) {
-        $this->drupalLogger->error($e->getMessage());
-        return '';
-      }
-    }
-  }
-
-  /**
-   * Gets the main token.
-   *
-   * @return string
-   *   The token.
-   */
-  private function getMainToken() {
-    $cid = 'claims:main_token';
-    if ($cache = $this->cacheManager->get($cid)) {
-      return $cache->data;
-    }
-    else {
-      $access_token = $this->getProviderToken();
-
-      $this->cacheManager->set($cid, $access_token->getToken(), $access_token->getExpires());
-      return $access_token->getToken();
-    }
-  }
-
-  /**
-   * Get token provider.
-   */
-  private function getProviderToken() {
-    $client_id = $this->getConnectionData('validate_plate_token');
-    $client_secret = $this->getConnectionData('client_secret');
-    $token_uri = $this->getConnectionData('token_uri');
-
-    $provider = new GenericProvider([
-      'clientId' => $client_id,
-      'clientSecret' => $client_secret,
-      'redirectUri' => '',
-      'urlAuthorize' => '',
-      'urlAccessToken' => $token_uri,
-      'urlResourceOwnerDetails' => '',
-    ]);
-
-    try {
-      $accessToken = $provider->getAccessToken('client_credentials');
-    }
-    catch (IdentityProviderException $e) {
-      $this->drupalLogger->error($e->getMessage());
-    }
-
-    return $accessToken;
-  }
-
-  /**
    * Method to post in IAXIS.
    *
    * @param string $json
@@ -397,7 +298,7 @@ class ClaimServices {
    *   Response.
    */
   public function postIaxis(string $json, string $token) {
-    $data = json_decode($json, TRUE);
+    $data = json_decode($json, true);
 
     if ($data && isset($data['tellus'])) {
       // Gets samples yml data to creates a JSON request.
@@ -422,14 +323,14 @@ class ClaimServices {
           'base_uri' => $this->getConnectionData('base_uri'),
         ]);
 
-        $body = NULL;
+        $body = null;
 
         try {
           $response = $client->request(
             'POST',
             '/fnol/radicacionSiniestro',
             [
-              'http_errors' => TRUE,
+              'http_errors' => true,
               'headers' => [
                 'Content-Type' => 'application/json',
                 'Authorization' =>
@@ -458,7 +359,7 @@ class ClaimServices {
           $this->sendEmailErrorIaxis($data);
           unset($_SESSION['GMFChevrolet']);
         }
-        return json_decode($body ?? '{}', TRUE);
+        return json_decode($body ?? '{}', true);
       }
     }
 
@@ -483,30 +384,32 @@ class ClaimServices {
   public function postSipo(string $json, string $iaxis_id, string $token, $code):array {
     if ($iaxis_id) {
       $data['code_request'] = $code;
-      $data = json_decode($json, TRUE);
+      $data = json_decode($json, true);
       $config = $this->configFactory->get('liberty_claims.settings');
 
       $data_taller = $data['nombre'];
-      $sipo_sample = $data['tellus'] == 'THIRD_PARTY' ? $config->get('sipo_third_party') : $config->get('sipo_sample');
-      $data['iAxis'] = $data['tellus'] == 'THIRD_PARTY' ? 0 : $iaxis_id;
 
       if ($data['tellus'] == 'THIRD_PARTY') {
         $data['policy'] = 'no-data';
+        $data['iAxis'] = 0;
+        $sipo_sample = $config->get('sipo_third_party');
       }
       else {
         $data = $this->getExtraData($data);
+        $data['iAxis'] = $iaxis_id;
+        $sipo_sample = $config->get('sipo_sample');
       }
 
       $sipo_sample = $this->sipoCompleteData($sipo_sample, $data);
 
       $request = Yaml::decode($sipo_sample);
 
-      if ($request['vehiculo']['taller'] === NULL) {
+      if ($request['vehiculo']['taller'] === null) {
         $request['vehiculo']['taller'] = 0;
       }
 
       $brand = $request['vehiculo']['marca'];
-      if (strpos($brand, 'GREAT WALL MOTOR') !== FALSE) {
+      if (strpos($brand, 'GREAT WALL MOTOR') !== false) {
         $request['vehiculo']['marca'] = 'GREAT WALL';
       }
 
@@ -516,10 +419,10 @@ class ClaimServices {
         'base_uri' => $this->getConnectionData('base_uri'),
       ]);
 
-      $body = NULL;
+      $body = null;
       try {
         $response = $client->request('POST', '/fnol/asignacionCaso', [
-          'http_errors' => TRUE,
+          'http_errors' => true,
           'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer ' . $this->getMainToken(),
@@ -532,13 +435,13 @@ class ClaimServices {
         $body = $response->getBody()->getContents();
 
         $this->logger->setMultiple(
-              [
-                'response_sipo' => $body,
-                'iaxis_id' => $iaxis_id,
-                'status' => 3,
-              ],
-              $token
-          );
+          [
+            'response_sipo' => $body,
+            'iaxis_id' => $iaxis_id,
+            'status' => 3,
+          ],
+          $token
+        );
         unset($_SESSION['GMFChevrolet']);
       }
       catch (RequestException $e) {
@@ -552,7 +455,7 @@ class ClaimServices {
         unset($_SESSION['GMFChevrolet']);
       }
 
-      return json_decode($body, TRUE);
+      return json_decode($body, true);
     }
     else {
       $this->logger->set('iaxis_id', 'error', $token);
@@ -571,7 +474,7 @@ class ClaimServices {
   /**
    * Method to validate plate of the vehicle.
    *
-   * @param Symfony\Component\HttpFoundation\Request $request
+   * @param \Symfony\Component\HttpFoundation\Request $request
    *   Request from the app.
    * @param string $plate
    *   Vehicle plate.
@@ -589,9 +492,12 @@ class ClaimServices {
     ]);
 
     $config = $this->configFactory->get('liberty_claims.settings');
-    $config2 = $this->configFactory->get('liberty_claims_email.settings');
 
-    $body = $this->plateRequestCompleteData($request, $config->get('policy_request'), strtoupper($plate));
+    $body = $this->plateRequestCompleteData(
+      $request,
+      $config->get('policy_request'),
+      strtoupper($plate)
+    );
 
     $body = Yaml::decode($body);
 
@@ -617,8 +523,8 @@ class ClaimServices {
       'stream_context' => $context,
       'cache_wsdl' => WSDL_CACHE_NONE,
       'encoding' => 'UTF-8',
-      'verifypeer' => FALSE,
-      'verifyhost' => FALSE,
+      'verifypeer' => false,
+      'verifyhost' => false,
       'soap_version' => SOAP_1_1,
       'trace' => 1,
       'exceptions' => 1,
@@ -626,7 +532,7 @@ class ClaimServices {
     ];
 
     $this->logger->set('data', json_encode([
-      'consultaPolizaRequestDate' => date('Y-m-d\TH:i:s'),
+      'consultaPolizaRequestDate' => date(self::DATE_FORMAT),
       'consultaPolizaRequest' => $body,
     ]), $this->tokenLog);
 
@@ -642,14 +548,14 @@ class ClaimServices {
 
       $index_vigencia = 0;
       $jsonString = json_encode($response);
-      $response_array = json_decode($jsonString, TRUE);
+      $response_array = json_decode($jsonString, true);
 
       $expectedIndex = 0;
-      $indicesConsecutivos = TRUE;
+      $indicesConsecutivos = true;
 
       foreach ($response_array['polizas'] as $key => $value) {
         if ($key !== $expectedIndex) {
-          $indicesConsecutivos = FALSE;
+          $indicesConsecutivos = false;
           break;
         }
         $expectedIndex++;
@@ -666,7 +572,7 @@ class ClaimServices {
           return $dateA->getTimestamp() <=> $dateB->getTimestamp();
         });
 
-        $aseguradoVigente = FALSE;
+        $aseguradoVigente = false;
         foreach ($polizas as $key => $poliza) {
           $policy_start_date = new DrupalDateTime($poliza['fechaExpedicion']);
           $policy_end_date = new DrupalDateTime($poliza['fechaCartera']);
@@ -674,17 +580,17 @@ class ClaimServices {
           $dateToCheckObj = new DrupalDateTime($date);
 
           if (
-          $dateToCheckObj >= $policy_start_date &&
-          $dateToCheckObj <= $policy_end_date &&
-          $poliza['estadoPoliza'] == 'Vigente'
+            $dateToCheckObj >= $policy_start_date &&
+            $dateToCheckObj <= $policy_end_date &&
+            $poliza['estadoPoliza'] == 'Vigente'
           ) {
-            $aseguradoVigente = TRUE;
+            $aseguradoVigente = true;
             $index_vigencia = $key;
           }
         }
       }
       else {
-        $aseguradoVigente = FALSE;
+        $aseguradoVigente = false;
         $policy_start_date = new DrupalDateTime($polizas['fechaExpedicion']);
         $policy_end_date = new DrupalDateTime($polizas['fechaCartera']);
 
@@ -695,7 +601,7 @@ class ClaimServices {
           $dateToCheckObj <= $policy_end_date &&
           $polizas['estadoPoliza'] == 'Vigente'
         ) {
-          $aseguradoVigente = TRUE;
+          $aseguradoVigente = true;
           $index_vigencia = 0;
           $polizas[0] = $polizas;
         }
@@ -703,12 +609,12 @@ class ClaimServices {
 
       $this->logger->set('consulta_placa', json_encode([
         'consultaPolizaResponseDATA' => [
-          'consultaPolizaResponseDate' => date('Y-m-d\TH:i:s'),
+          'consultaPolizaResponseDate' => date(self::DATE_FORMAT),
           'consultaPolizaResponse' => $response,
         ],
       ]), $this->tokenLog);
 
-      if ($response && \property_exists($response, 'numeroRegistros') &&property_exists($response, 'polizas')) {
+      if ($response && \property_exists($response, 'numeroRegistros') && \property_exists($response, 'polizas')) {
         $product = $polizas[$index_vigencia]['codigoProducto'];
         $ramo_by_product = Yaml::decode($config->get('policy_ramos'));
 
@@ -722,260 +628,12 @@ class ClaimServices {
 
         if ($response->numeroRegistros) {
           if ($aseguradoVigente) {
-            $codes = Yaml::decode($config->get('insured_codes'));
-            $return = [];
-
-            foreach ($polizas[$index_vigencia]['riesgoAuto']['garantiasPoliza'] as $item) {
-              if (
-                $item['codigoGarantia'] == $codes[$type] ||
-                (is_array($codes[$type]) && in_array($item['codigoGarantia'], $codes[$type]))
-              ) {
-
-                $data = $polizas[$index_vigencia]['codigoProducto'] . '|' .
-                $polizas[$index_vigencia]['numeroInternoSeguro'] . '|' .
-                $polizas[$index_vigencia]['numeroPoliza'];
-
-                $return['token'] = $this->crypt($data, 'en');
-                $brokers = Yaml::decode($config->get('brokers'));
-                if (is_array($brokers) &&in_array($polizas[$index_vigencia]['codigoBroker'], $brokers)) {
-                  $return['broker'] = TRUE;
-                }
-              }
-              elseif ($item['codigoGarantia'] == 756 || $item['codigoGarantia'] == 9036) {
-                $return['guarantees']['rc1'] = $item['codigoGarantia'];
-              }
-              elseif ($item['codigoGarantia'] == 757 || $item['codigoGarantia'] == 9037) {
-                $return['guarantees']['rc3'] = $item['codigoGarantia'];
-              }
-            }
-
-            if (array_key_exists('token', $return)) {
-              $doc_types = [
-                'CC' => 36,
-                'CE' => 33,
-                'CD' => 44,
-                'PAS' => 40,
-                'RC' => 35,
-                'TI' => 34,
-                'NI' => 37,
-              ];
-              if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
-                $personal_data = $polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'];
-                // If personal_data have more than one array index, then use
-                // conductorPersonalData.
-                $name = '';
-                $last_name = '';
-                $document_id = '';
-                $doc_type = '';
-                $email = '';
-                $address = '';
-                $phone = '';
-
-                if (isset($personal_data[0]) && count($personal_data) > 1) {
-                  if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
-                    $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
-                    $name = isset($conductor_data['primerNombre'])
-                      ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
-                      : '';
-                    $last_name = isset($conductor_data['primerApellido'])
-                      ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
-                      : '';
-                    $document_id = $conductor_data['numeroDocumento'] ?? '';
-                    $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
-                      ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
-                      : 0;
-                    if (isset($conductor_data['email'])) {
-                      $email = trim($conductor_data['email']);
-                    }
-                    elseif (isset($conductor_data['mail'])) {
-                      $email = trim($conductor_data['mail']);
-                    }
-                    $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
-                    $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
-                      ? $conductor_data['telefono']['numero']
-                      : '';
-                  }
-                }
-                else {
-                  $name = isset($personal_data['primerNombre'])
-                    ? $personal_data['primerNombre'] . ' ' . @$personal_data['segundoNombre']
-                    : '';
-                  $last_name = isset($personal_data['primerApellido'])
-                  ? $personal_data['primerApellido'] . ' ' . $personal_data['segundoApellido']
-                  : '';
-                  $document_id = $personal_data['numeroDocumento'] ?? '';
-                  $doc_type = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
-                    ? $doc_types[$personal_data['tipoDocumento']['codigo']]
-                    : 0;
-                  if (isset($personal_data['email'])) {
-                    $email = trim($personal_data['email']);
-                  }
-                  elseif (isset($personal_data['mail'])) {
-                    $email = trim($personal_data['mail']);
-                  }
-                  $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
-                  $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
-                    ? $personal_data['telefono']['numero']
-                    : '';
-                }
-                $return['personalInfo'] = [
-                  'name' => $name ?? '',
-                  'lastname' => $last_name ?? '',
-                  'documentId' => $document_id ?? '',
-                  'docType' => $doc_type ?? '',
-                  'email' => $email ?? '',
-                  'address' => $address ?? '',
-
-                  'brand' => isset($polizas[$index_vigencia])
-                    ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca']
-                    : '',
-
-                  'model' => isset($polizas[$index_vigencia])
-                    ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
-                    : '',
-                  'phone' => $phone ?? '',
-                  'isJuridic' => FALSE,
-                ];
-              }
-              elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
-                $personal_data = $polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'];
-
-                // If personal_data have more than one array index, then use
-                // conductorPersonalData.
-                $name = '';
-                $last_name = '';
-                $document_id = '';
-                $doc_type = '';
-                $email = '';
-                $address = '';
-                $phone = '';
-
-                if (isset($personal_data[0]) && count($personal_data) > 1) {
-                  if (isset($polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0])) {
-                    $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? '';
-                    $name = isset($conductor_data['primerNombre'])
-                      ? $conductor_data['primerNombre'] . ' ' . @$conductor_data['segundoNombre']
-                      : '';
-                    $last_name = isset($conductor_data['primerApellido'])
-                      ? $conductor_data['primerApellido'] . ' ' . @$conductor_data['segundoApellido']
-                      : '';
-                    $document_id = $conductor_data['numeroDocumento'] ?? '';
-                    $doc_type = isset($conductor_data['tipoDocumento']) && $conductor_data['tipoDocumento']
-                      ? $doc_types[$conductor_data['tipoDocumento']['codigo']]
-                      : 0;
-                    if (isset($conductor_data['email'])) {
-                      $email = trim($conductor_data['email']);
-                    }
-                    elseif (isset($conductor_data['mail'])) {
-                      $email = trim($conductor_data['mail']);
-                    }
-                    $address = isset($conductor_data['direccion']) ? $conductor_data['direccion']['direccion'] : '';
-                    $phone = isset($conductor_data['telefono']) && $conductor_data['telefono']['numero'] != 0
-                      ? $conductor_data['telefono']['numero']
-                      : '';
-                  }
-                }
-                else {
-                  $name = $personal_data['razonSocial'] ?? '';
-                  $last_name = ' ';
-                  $document_id = $personal_data['numeroDocumento'] ?? '';
-                  $doc_type = isset($personal_data['tipoDocumento']) && $personal_data['tipoDocumento']
-                    ? $doc_types[$personal_data['tipoDocumento']['codigo']]
-                    : 0;
-                  if (isset($personal_data['email'])) {
-                    $email = trim($personal_data['email']);
-                  }
-                  elseif (isset($personal_data['mail'])) {
-                    $email = trim($personal_data['mail']);
-                  }
-                  $address = isset($personal_data['direccion']) ? $personal_data['direccion']['direccion'] : '';
-                  $phone = isset($personal_data['telefono']) && $personal_data['telefono']['numero'] != 0
-                    ? $personal_data['telefono']['numero']
-                    : '';
-                }
-
-                $return['personalInfo'] = [
-                  'name' => $name ?? '',
-                  'lastname' => $last_name,
-                  'documentId' => $document_id ?? '',
-                  'docType' => $doc_type ?? '',
-                  'email' => $email ?? '',
-                  'address' => $address ?? '',
-                  'brand' => isset($polizas[$index_vigencia])
-                    ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca']
-                    : '',
-                  'model' => isset($polizas[$index_vigencia])
-                    ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
-                    : '',
-                  'phone' => $phone ?? '',
-                  'isJuridic' => TRUE,
-                ];
-
-              }
-
-              $matches = \explode(' /', $return['personalInfo']['address']);
-
-              foreach ($matches as $item) {
-                if (strlen($item) > 2) {
-                  $return['personalInfo']['address'] = substr($item, 0, 50);
-                }
-              }
-
-              $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
-              $model_base = date('Y');
-              $model_actual = date('Y-m-d', strtotime($model_base . '+ 1 year'));
-
-              $six_year = date('Y', strtotime($config->get('last_model') . '- 6 year'));
-
-              if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_chevrolet')) {
-                $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-                if (
-                  $this->checkInRange($six_year, $model_actual, $model) && strtoupper($marca_poliza) === "CHEVROLET"
-                ) {
-                  $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
-                  $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
-                }
-                else {
-                  if (isset($_SESSION['GMFChevrolet'])) {
-                    unset($_SESSION['GMFChevrolet']);
-                  }
-                }
-              }
-              else {
-                if (isset($_SESSION['GMFChevrolet'])) {
-                  unset($_SESSION['GMFChevrolet']);
-                }
-              }
-
-              if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
-                $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-                if (strpos($brand, 'GREAT WALL') !== FALSE) {
-                  $return['personalInfo']['brand'] = 'GREAT WALL MOTOR';
-                }
-              }
-
-              // Previus policy from HDI
-              $return['previusPolicy'] = $polizas[$index_vigencia]['polizaAnterior'] ?? '';
-
-              return $return;
-            }
-            else {
-              $this->logger->set('consulta_placa', json_encode([
-                'resultadoOperacion' => [
-                  'date' => date('Y-m-d\TH:i:s'),
-                  'message' =>
-                  'no hay garantias para la el caso',
-                  'estado' => 'no-guarantee',
-                ],
-              ]), $this->tokenLog);
-
-              return 'no-guarantee';
-            }
+            return $this->validatePolicy($polizas, $index_vigencia, $type);
           }
           else {
             $this->logger->set('consulta_placa', json_encode([
               'resultadoOperacion' => [
-                'date' => date('Y-m-d\TH:i:s'),
+                'date' => date(self::DATE_FORMAT),
                 'message' => 'fecha de seguro vencida y/o no vigente',
                 'estado' => 'not-in-time',
               ],
@@ -986,7 +644,7 @@ class ClaimServices {
         else {
           $this->logger->set('consulta_placa', json_encode([
             'resultadoOperacion' => [
-              'date' => date('Y-m-d\TH:i:s'),
+              'date' => date(self::DATE_FORMAT),
               'message' => 'no hay registros para la placa',
               'estado' => 'invalid',
             ],
@@ -997,7 +655,7 @@ class ClaimServices {
       else {
         $this->logger->set('consulta_placa', json_encode([
           'resultadoOperacion' => [
-            'date' => date('Y-m-d\TH:i:s'),
+            'date' => date(self::DATE_FORMAT),
             'message' => 'no hay datos de la placa',
             'estado' => 'no-data',
           ],
@@ -1006,9 +664,10 @@ class ClaimServices {
       }
     }
     catch (\Throwable $th) {
+      dump($th);
       $this->logger->set('consulta_placa', json_encode([
         'resultadoOperacion' => [
-          'date' => date('Y-m-d\TH:i:s'),
+          'date' => date(self::DATE_FORMAT),
           'message' => $th,
           'estado' => 'error',
         ],
@@ -1028,9 +687,13 @@ class ClaimServices {
    * @return string
    *   Value of the parameter.
    */
-  private function getConnectionData($item) {
+  private function getConnectionData($item = null): array|string {
     $config = $this->configFactory->get('liberty_claims.settings');
     $mode = $config->get('mode');
+
+    if ($item === null) {
+      return $config->get($mode);
+    }
 
     return $config->get($mode)[$item];
   }
@@ -1077,7 +740,7 @@ class ClaimServices {
    */
   private function plateRequestCompleteData(Request $request, $data, $plate) {
     $data = str_replace('_#@plate', $plate, $data);
-    $data = str_replace('_#@date', date('Y-m-d\TH:i:s'), $data);
+    $data = str_replace('_#@date', date(self::DATE_FORMAT), $data);
     $data = str_replace('_#@ip', $request->getClientIp(), $data);
     return $data;
   }
@@ -1085,12 +748,11 @@ class ClaimServices {
   /**
    * Method to complete data from the app request.
    *
-   * @param string $data
-   *   Data from the app.
-   * @param array $source
-   *   Input to check out.
+   * @param string $data Data from the app.
+   * @param array $source Input to check out.
+   * @return string
    */
-  private function iAxisCompleteData($data, array $source) {
+  private function iAxisCompleteData(string $data, array $source): string {
     $lastnameExploded = explode(' ', $source['lastname']);
     $nameExploded = explode(' ', $source['name']);
     $dateExploded = explode(' ', $source['date']);
@@ -1160,7 +822,7 @@ class ClaimServices {
       $source['_damages'] = $damages;
     }
 
-    $data_to_array = json_decode($data, TRUE);
+    $data_to_array = json_decode($data, true);
 
     if ($source['withInjured'] || $source['withDeaths']) {
       $rc1 = (int) $source['guarantees']['rc1'];
@@ -1243,7 +905,7 @@ class ClaimServices {
 
     if ($data_to_array['numeroProducto'] == '900753') {
       foreach ($data_to_array['preguntasAsociadasAGarantia'] as $key => $question) {
-        $numeroPregunta = $question['preguntaAsociadaAGarantia']['numeroPregunta'] ?? NULL;
+        $numeroPregunta = $question['preguntaAsociadaAGarantia']['numeroPregunta'] ?? null;
 
         if ($numeroPregunta == 9096 || $numeroPregunta == 9097) {
           unset($data_to_array['preguntasAsociadasAGarantia'][$key]);
@@ -1258,13 +920,14 @@ class ClaimServices {
     }
 
     $data_to_array['preguntasAsociadasAGarantia'] = array_values(
-          $data_to_array['preguntasAsociadasAGarantia']
-      );
+      $data_to_array['preguntasAsociadasAGarantia']
+    );
 
     $data_to_array['preguntasAsociadasAGarantia'] = array_merge(
       $data_to_array['preguntasAsociadasAGarantia'],
       $preguntasExtraGarantia
     );
+
     return json_encode($data_to_array, JSON_PRETTY_PRINT);
   }
 
@@ -1273,7 +936,7 @@ class ClaimServices {
    *
    * @param string $data
    *   Data from the app.
-   * @param string $source
+   * @param array $source
    *   Source where check.
    */
   protected function sipoCompleteData($data, $source) {
@@ -1361,11 +1024,11 @@ class ClaimServices {
     $data['secureNumber'] = $policy[1] ?? 0;
     $data['policyNumber'] = $policy[2] ?? 0;
     $data['ramo'] = array_key_exists((int) $data['productNumber'], $ramos)
-            ? $ramos[(int) $data['productNumber']]
-            : 0;
+      ? $ramos[(int) $data['productNumber']]
+      : 0;
     $data['sipoRamo'] = array_key_exists((int) $data['productNumber'], $sipo_ramos)
-            ? $sipo_ramos[(int) $data['productNumber']]
-            : 0;
+      ? $sipo_ramos[(int) $data['productNumber']]
+      : 0;
     return $data;
   }
 
@@ -1384,7 +1047,6 @@ class ClaimServices {
     $secret_key = 'L!b3rTy';
     $secret_iv = 'Cl41m.';
 
-    $output = FALSE;
     $encrypt_method = 'AES-256-CBC';
     $key = hash('sha256', $secret_key);
     $iv = substr(hash('sha256', $secret_iv), 0, 16);
@@ -1405,173 +1067,69 @@ class ClaimServices {
    *   SIPO Id.
    * @return string JSON obejct
    */
-  public function postFiles(string $json, $sipo_id):string {
-    if ($sipo_id) {
-      $data = json_decode($json);
-      $file_path = 'public://claimfiles/' . $data->documentId;
-      $body = [];
+  public function postFiles(string $json, $sipo_id): string {
+    if (!$sipo_id) {
+      return json_encode(['errorFileUplaod' => 'No sipo_id provided'], true);
+    }
 
-      if (!is_dir($file_path)) {
-        return json_encode(['errorFileUplaod' => 'Folder not exist.'], TRUE);
-      }
+    $data = json_decode($json);
+    $file_path = 'public://claimfiles/' . $data->documentId;
+    $body = [];
+    $file_list = [];
 
-      if (scandir($file_path)) {
-        $file_list = array_diff(scandir($file_path), ['..', '.']);
-        foreach ($file_list as $file) {
-          $client = new Client([
-            'base_uri' => $this->getConnectionData('base_uri'),
-          ]);
-          $file_name = \explode('.', $file);
+    if (!is_dir($file_path)) {
+      return json_encode(['errorFileUplaod' => 'Folder not exist.'], true);
+    }
 
-          $body_request['Imagen'] = [
-            'Clave' => $sipo_id,
-            'Placa' =>
-            $data->tellus === 'THIRD_PARTY'
-              ? $data->plateAffected
-              : $data->plate,
-            'NombreArchivo' => $file_name[0],
-            'TipoArchivo' => strtolower(end($file_name)),
-            'Archivo' => \base64_encode(\file_get_contents($file_path . '/' . $file)),
-          ];
+    if (is_dir($file_path)) {
+      $file_list = array_diff(scandir($file_path), ['..', '.']);
+    }
 
-          try {
-            $response = $client->request(
-              'POST',
-              '/fnol/cargarImagen',
-              [
-                'http_errors' => TRUE,
-                'headers' => [
-                  'Content-Type' => 'application/json',
-                  'Authorization' =>
-                  'Bearer ' . $this->getMainToken(),
-                  'cesvi-authorization' => $this->getCesviToken(),
-                  'country' => '1',
-                ],
-                'body' => json_encode($body_request),
-              ]
-            );
+    if (count($file_list) > 0) {
+      foreach ($file_list as $file) {
+        $client = new Client([
+          'base_uri' => $this->getConnectionData('base_uri'),
+        ]);
+        $file_name = \explode('.', $file);
 
-            $body = $response->getBody()->getContents();
-            $this->drupalLogger->notice($body);
-          }
-          catch (\Exception $e) {
-            $this->drupalLogger->error($e->getMessage());
-          }
+        $body_request['Imagen'] = [
+          'Clave' => $sipo_id,
+          'Placa' =>
+          $data->tellus === 'THIRD_PARTY'
+            ? $data->plateAffected
+            : $data->plate,
+          'NombreArchivo' => $file_name[0],
+          'TipoArchivo' => strtolower(end($file_name)),
+          'Archivo' => \base64_encode(\file_get_contents($file_path . '/' . $file)),
+        ];
+
+        try {
+          $response = $client->request(
+            'POST',
+            '/fnol/cargarImagen',
+            [
+              'http_errors' => true,
+              'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' =>
+                'Bearer ' . $this->getMainToken(),
+                'cesvi-authorization' => $this->getCesviToken(),
+                'country' => '1',
+              ],
+              'body' => json_encode($body_request),
+            ]
+          );
+
+          $body = $response->getBody()->getContents();
+          $this->drupalLogger->notice($body);
+        }
+        catch (\Exception $e) {
+          $this->drupalLogger->error($e->getMessage());
         }
       }
-
-      $this->fileSystem->deleteRecursive($file_path);
-      return json_encode($body, TRUE);
     }
-    else {
-      return json_encode(['errorFileUplaod' => 'No sipo_id provided'], TRUE);
-    }
+
+    $this->fileSystem->deleteRecursive($file_path);
+    return json_encode($body, true);
   }
-
-  /**
-   * Send notificacion Email Error Sipo.
-   *
-   * @return mixed
-   *   Mail rendered.
-   */
-  public function sendEmailErrorIaxis($data1) {
-    $path = \Drupal::request()->getSchemeAndHttpHost();
-    $client = new Client(['base_uri' => $path]);
-
-    $response = $client->request('GET', '/claim-data/cities-carshops', [
-      'http_errors' => TRUE,
-    ]);
-
-    $data_cities = json_decode($response->getBody()->getContents(), TRUE);
-
-    $quetepaso = [
-      'CLAIM_TYPE_PPD' => 'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.',
-      'CLAIM_TYPE_PPH' => 'Hurto de cualquier parte o accesorio de su vehículo.',
-      'CLAIM_TYPE_PTH' => 'Hurto de su vehículo.',
-      'CLAIM_TYPE_AC' => 'Pequeños accesorios.',
-      'CLAIM_TYPE_PL' => 'Pérdida de llaves.',
-      'CLAIM_TYPE_LR' => 'Llantas estalladas.',
-    ];
-
-    $subject = 'Error creación flujo asegurado IAXIS - ' . $data1['plate'];
-
-    $body = "Buen día,
-        Al momento de crear el siniestro en IAXIS en el flujo de asegurado hubo un error." .
-        " La información relevante para su creación manual es:
-        Que te pasó: " . ($quetepaso[$data1['tellus']] ?? 'Tipo de reclamo desconocido') . "
-        Fecha y hora: {$data1['date']}
-        Siniestro: 0
-        Placa: {$data1['plate']}
-        Celular: {$data1['driverPhone']}
-        Correo: {$data1['email']}
-        Descripción de los hechos: {$data1['description']}
-        Nombre del conductor: {$data1['driverName']}
-        Cédula del conductor: {$data1['driverDocumentId']}
-        Teléfono del conductor: {$data1['driverPhone']}
-        Nombre declarante: {$data1['personalData']['name']}
-        Teléfono declarante: {$data1['phone']}
-        Ciudad: " . ($data_cities[$data1['city']] ?? 'Ciudad no encontrada') . "
-        Dirección de ocurrencia: {$data1['whereAddress']}
-        Taller seleccionado: {$data1['nombre']}";
-
-    $params = [
-      'subject2' => $subject,
-      'subject' => 'Error radicacion Iaxis',
-      'message' => nl2br($body),
-    ];
-
-    $config = $this->configFactory->get('liberty_claims_email.settings');
-    $module = 'liberty_claims';
-    $to = $config->get('email_send');
-    $langcode = 'es';
-    $send = true;
-
-    $result = $this->mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
-
-    return new JsonResponse([
-      'result' => $result['result'],
-    ]);
-  }
-
-  /**
-   * Send mail error sipo.
-   */
-  public function sendEmailErrorSipo($data, $data1) {
-
-    $date = date('d/m/Y');
-
-    $subject = 'Error creación siniestro SIPO - #' . $data['caso']['numeroSiniestroiAxis'];
-
-    $body = "Buen día,
-        Al momento de crear el siniestro en SIPO, el flujo de asegurado presentó un error." .
-        " La información relevante para su creación manual es:
-        Número de caso de Iaxis: {$data['caso']['numeroSiniestroiAxis']}
-        Datos del asegurado: {$data['asegurado']['nombre']}
-        Placa: {$data['vehiculo']['placa']}
-        Taller Escogido:  {$data1}
-        Fecha de creación del siniestro: {$date}
-        Número Celular: {$data['asegurado']['celular']}
-        Correo: {$data['asegurado']['email']}
-        Fecha siniestro: {$data['caso']['fechaSiniestro']}
-        Enviado desde el portal Liberty Seguros Colombia";
-
-    $params = [
-      'subject2' => $subject,
-      'subject' => 'Error radicacion Sipo',
-      'message' => nl2br($body),
-    ];
-
-    $config = $this->configFactory->get('liberty_claims_email.settings');
-    $module = 'liberty_claims';
-    $to = $config->get('email_send');
-    $langcode = 'es';
-    $send = TRUE;
-
-    $result = $this->mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
-
-    return new JsonResponse([
-      'result' => $result['result'],
-    ]);
-  }
-
 }

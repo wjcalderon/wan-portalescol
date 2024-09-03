@@ -323,6 +323,9 @@
             },
             "drupal/advagg": {
                 "Fix PHP 8.1 deprecated code": "patches/advagg_PHP81_deprecated.patch"
+            },
+            "drupal/simple_oauth": {
+                "Undefined constant self::MAIN_REQUEST in BasicAuthSwap::handle() declaration": "patches/simple_oauth-3391076.patch"
             }
         },
         "patches-ignore": {
