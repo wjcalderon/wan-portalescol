@@ -20,6 +20,7 @@ class SettingsForm extends ConfigFormBase {
     'CLAIM_TYPE_PL',
     'CLAIM_TYPE_LR',
     'CLAIM_TYPE_AC',
+    'CLAIM_TYPE_CR',
   ];
 
   /**
@@ -47,14 +48,14 @@ class SettingsForm extends ConfigFormBase {
     $form['endpoint_settings'] = [
       '#title' => $this->t('Endpoint Settings'),
       '#type'  => 'details',
-      '#open' => TRUE,
+      '#open' => true,
     ];
 
     $form['endpoint_settings']['test'] = [
       '#title' => $this->t('Test settings'),
       '#type' => 'details',
-      '#open' => TRUE,
-      '#tree' => TRUE,
+      '#open' => true,
+      '#tree' => true,
     ];
 
     $form['endpoint_settings']['test']['base_uri'] = [
@@ -64,13 +65,7 @@ class SettingsForm extends ConfigFormBase {
       '#size' => 64,
       '#default_value' => $config->get('test')['base_uri'],
     ];
-    $form['endpoint_settings']['test']['cesvi_uri'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Cesvi Endpoint'),
-      '#maxlength' => 128,
-      '#size' => 64,
-      '#default_value' => $config->get('test')['cesvi_uri'] ?? '',
-    ];
+
     $form['endpoint_settings']['test']['username'] = [
       '#type' => 'textfield',
       '#title' => $this->t('User name (CESVI Authorization)'),
@@ -78,6 +73,7 @@ class SettingsForm extends ConfigFormBase {
       '#size' => 64,
       '#default_value' => $config->get('test')['username'],
     ];
+
     $form['endpoint_settings']['test']['password'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Password (CESVI Authorization)'),
@@ -85,6 +81,7 @@ class SettingsForm extends ConfigFormBase {
       '#size' => 64,
       '#default_value' => $config->get('test')['password'],
     ];
+
     $form['endpoint_settings']['test']['policy_base_uri'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Policy Base URL'),
@@ -120,8 +117,8 @@ class SettingsForm extends ConfigFormBase {
     $form['endpoint_settings']['live'] = [
       '#title' => $this->t('Live settings'),
       '#type' => 'details',
-      '#open' => TRUE,
-      '#tree' => TRUE,
+      '#open' => true,
+      '#tree' => true,
     ];
 
     $form['endpoint_settings']['live']['base_uri'] = [
@@ -269,8 +266,8 @@ class SettingsForm extends ConfigFormBase {
     $form['SIPO'] = [
       '#type' => 'details',
       '#title'  => $this->t('Service SIPO settings'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
+      '#collapsible' => true,
+      '#collapsed' => false,
     ];
 
     $form['SIPO']['tabs'] = [
@@ -359,8 +356,8 @@ class SettingsForm extends ConfigFormBase {
     $form['IAXIS'] = [
       '#type' => 'details',
       '#title'  => $this->t('Service IAXIS settings'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
+      '#collapsible' => true,
+      '#collapsed' => false,
     ];
 
     $form['IAXIS']['samples'] = [
@@ -377,7 +374,7 @@ class SettingsForm extends ConfigFormBase {
         '#type'  => 'details',
         '#title' => $item,
         '#group' => 'samples',
-        '#tree'  => TRUE,
+        '#tree'  => true,
       ];
 
       $form['IAXIS'][$item]['data'] = [

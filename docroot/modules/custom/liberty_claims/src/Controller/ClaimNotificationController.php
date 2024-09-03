@@ -108,15 +108,15 @@ class ClaimNotificationController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-          $container->get('liberty_claims.log_manager'),
-          $container->get('plugin.manager.mail'),
-          $container->get('module_handler'),
-          $container->get('config.factory'),
-          $container->get('session'),
-          $container->get('claims.services'),
-          $container->get('file_system'),
-          $container->get('liberty.logger')
-      );
+      $container->get('liberty_claims.log_manager'),
+      $container->get('plugin.manager.mail'),
+      $container->get('module_handler'),
+      $container->get('config.factory'),
+      $container->get('session'),
+      $container->get('claims.services'),
+      $container->get('file_system'),
+      $container->get('liberty.logger')
+    );
   }
 
   /**
@@ -334,18 +334,18 @@ class ClaimNotificationController extends ControllerBase {
         $path = 'public://claimfiles/' . $folder . '/';
 
         $this->fileSystem->prepareDirectory(
-              $path,
-              $this->fileSystem::CREATE_DIRECTORY
-          );
+          $path,
+          $this->fileSystem::CREATE_DIRECTORY
+        );
 
         $data = file_get_contents($source);
 
         /** @var Drupal\file\Entity\File $file */
         $file = file_save_data(
-              $data,
-              $path . $source->getClientOriginalName(),
-              $this->fileSystem::EXISTS_REPLACE
-          );
+          $data,
+          $path . $source->getClientOriginalName(),
+          $this->fileSystem::EXISTS_REPLACE
+        );
 
         $response['file_id'] = $file->id();
         $file->setMimeType = $source->getClientMimeType();
@@ -358,15 +358,15 @@ class ClaimNotificationController extends ControllerBase {
               $request->headers->get('token')
           );
         $this->logger->set(
-              'document_id',
-              $folder,
-              $request->headers->get('token')
-          );
+          'document_id',
+          $folder,
+          $request->headers->get('token')
+        );
       }
 
       if ($op === 'delete') {
         $json = $request->getContent();
-        $response = json_decode($json, TRUE);
+        $response = json_decode($json, true);
         if (array_key_exists('fileId', $response)) {
           $file = File::load($response['fileId']);
           $file->delete();
@@ -398,7 +398,7 @@ class ClaimNotificationController extends ControllerBase {
     }
 
     $response = $request->getContent();
-    $data = json_decode($response, TRUE);
+    $data = json_decode($response, true);
     $token = $request->headers->get('token') . $data['plate'];
 
     $this->logger->set(
@@ -433,14 +433,14 @@ class ClaimNotificationController extends ControllerBase {
    */
   private function processTercero($response, $token) {
     $this->logger->set(
-        'post_sipo_tercero',
-        json_encode([
-          'submitData' => [
-            'date' => date('Y-m-d\TH:i:s'),
-            'data' => json_decode($response),
-          ],
-        ]),
-        $token
+      'post_sipo_tercero',
+      json_encode([
+        'submitData' => [
+          'date' => date('Y-m-d\TH:i:s'),
+          'data' => json_decode($response),
+        ],
+      ]),
+      $token
     );
 
     $sipo = $this->claimService->postSipo($response, 1, $token, 1);
@@ -461,7 +461,7 @@ class ClaimNotificationController extends ControllerBase {
    *   JSON response indicating success or error.
    */
   private function processAsegurado($response, $token) {
-    $request_auto_mail = json_decode($response, TRUE);
+    $request_auto_mail = json_decode($response, true);
     if (isset($request_auto_mail) && $request_auto_mail['tellus'] == 'CLAIM_TYPE_PTH') {
       $this->sendEmailAutoEmail($request_auto_mail);
     }
@@ -511,7 +511,7 @@ class ClaimNotificationController extends ControllerBase {
    *   Mail rendered.
    */
   public function sendEmail(Request $request) {
-    $params = json_decode($request->getContent(), TRUE);
+    $params = json_decode($request->getContent(), true);
     $params['subject'] = 'Liberty Seguros | Tu siniestro ha sido radicado';
     $params['headers'] = [
       'Content-Type' => 'text/html; charset=UTF-8;',
@@ -520,8 +520,8 @@ class ClaimNotificationController extends ControllerBase {
     $module = 'liberty_claims';
     $to = $params['email'];
     $langcode = 'es';
-    $send = TRUE;
-    $result = $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
+    $send = true;
+    $result = $mailManager->mail($module, 'send_email', $to, $langcode, $params, null, $send);
 
     return new JsonResponse([
       'result' => $result['result'],
@@ -594,8 +594,8 @@ class ClaimNotificationController extends ControllerBase {
     $mailManager = $this->mailManager;
 
     $langcode = 'es';
-    $send = TRUE;
-    $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
+    $send = true;
+    $mailManager->mail($module, 'send_email', $to, $langcode, $params, null, $send);
   }
 
 }

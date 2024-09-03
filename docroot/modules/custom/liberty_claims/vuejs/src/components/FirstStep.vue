@@ -103,7 +103,8 @@ export default {
         'CLAIM_TYPE_PTH': 'Hurto de su vehículo.',
         'CLAIM_TYPE_AC': 'Pequeños accesorios.',
         'CLAIM_TYPE_PL': 'Perdida de llaves.',
-        'CLAIM_TYPE_LR': 'Llantas estalladas.'
+        'CLAIM_TYPE_LR': 'Llantas estalladas.',
+        'CLAIM_TYPE_CR': 'Rotura de cristales.',
       }
       return opts;
     },
@@ -136,10 +137,7 @@ export default {
       return 'Cancelar'
     },
     hasCancelLink: function () {
-      if (this.modal === 'theft') {
-        return true;
-      }
-      return false;
+      return this.modal === 'theft';
     }
   },
   data() {

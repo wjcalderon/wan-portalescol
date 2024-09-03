@@ -13746,7 +13746,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         'CLAIM_TYPE_PTH': 'Hurto de su vehículo.',
         'CLAIM_TYPE_AC': 'Pequeños accesorios.',
         'CLAIM_TYPE_PL': 'Perdida de llaves.',
-        'CLAIM_TYPE_LR': 'Llantas estalladas.'
+        'CLAIM_TYPE_LR': 'Llantas estalladas.',
+        'CLAIM_TYPE_CR': 'Rotura de cristales.'
       };
       return opts;
     },
@@ -13779,10 +13780,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       return 'Cancelar';
     },
     hasCancelLink: function hasCancelLink() {
-      if (this.modal === 'theft') {
-        return true;
-      }
-      return false;
+      return this.modal === 'theft';
     }
   },
   data: function data() {
@@ -50275,7 +50273,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__ = __webpack_require__(32);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31ac63f4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2c00b6ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50292,7 +50290,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31ac63f4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2c00b6ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
