@@ -29,6 +29,7 @@ trait ErrorEmails {
       'CLAIM_TYPE_AC' => 'Pequeños accesorios.',
       'CLAIM_TYPE_PL' => 'Pérdida de llaves.',
       'CLAIM_TYPE_LR' => 'Llantas estalladas.',
+      'CLAIM_TYPE_CL' => 'Cobertura de llaves.',
       'CLAIM_TYPE_CR' => 'Rotura de cristales.',
     ];
 
