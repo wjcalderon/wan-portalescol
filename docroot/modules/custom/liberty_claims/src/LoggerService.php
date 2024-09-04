@@ -16,7 +16,7 @@ class LoggerService implements LoggerServiceInterface {
    *
    * @var \Drupal\Core\Logger\LoggerChannelInterface
    */
-  protected $drupalLogger;
+  protected $drupal_logger;
 
   /**
    * Monolog object.
@@ -63,7 +63,7 @@ class LoggerService implements LoggerServiceInterface {
       );
     }
     catch (\Exception $e) {
-
+      $this->drupal_logger->error($e->getMessage());
     }
   }
 
