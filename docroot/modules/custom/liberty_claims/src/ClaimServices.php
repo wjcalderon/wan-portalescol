@@ -983,7 +983,7 @@ class ClaimServices {
     $input = date('Y-m-d\TH:i:s.\Z', time());
     $data = str_replace('_#@_currentDateISO', $input, $data);
 
-    $data = str_replace('_#@_previusPolicy', $input, $data);
+    $data = str_replace('_#@_previusPolicy', $source['previusPolicy'], $data);
 
     $matches = [];
     preg_match('/(.*)(?=_#@_description)/i', $data, $matches, PREG_OFFSET_CAPTURE);

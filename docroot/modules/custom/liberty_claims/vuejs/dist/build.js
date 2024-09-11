@@ -47999,7 +47999,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   watch: {
     claimCity: function claimCity(val, oldVal) {
-      this.findCarShops();
       if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
         this.findCarShops();
       }
@@ -50859,7 +50858,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__ = __webpack_require__(46);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_29c66872_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_50e7d4b4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50876,7 +50875,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_29c66872_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_50e7d4b4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
