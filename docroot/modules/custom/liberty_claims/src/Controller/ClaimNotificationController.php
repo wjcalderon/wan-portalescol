@@ -452,7 +452,7 @@ class ClaimNotificationController extends ControllerBase {
   /**
    * Process the submission for 'Asegurado' type.
    *
-   * @param string $response
+   * @param string $request
    *   The response data from the request.
    * @param string $token
    *   The token associated with the request.
@@ -460,19 +460,19 @@ class ClaimNotificationController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   JSON response indicating success or error.
    */
-  private function processAsegurado($response, $token) {
-    $request_auto_mail = json_decode($response, true);
+  private function processAsegurado($request, $token) {
+    $request_auto_mail = json_decode($request, true);
     if (isset($request_auto_mail) && $request_auto_mail['tellus'] == 'CLAIM_TYPE_PTH') {
       $this->sendEmailAutoEmail($request_auto_mail);
     }
 
-    $code = $this->claimService->postIaxis($response, $token);
+    $code = $this->claimService->postIaxis($request, $token);
 
     if (isset($code['numeroSiniestro'])) {
       $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
 
-      $sipo = $this->claimService->postSipo($response, $code['numeroSiniestro'], $token, $code);
-      $this->claimService->postFiles($response, $sipo['numeroCaso']);
+      $sipo = $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
+      $this->claimService->postFiles($request, $sipo['numeroCaso']);
 
       return new JsonResponse(['success' => $code['numeroSiniestro']]);
     }
