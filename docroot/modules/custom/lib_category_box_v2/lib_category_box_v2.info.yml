@@ -1,7 +1,7 @@
 name: 'Lib category box v2'
 type: module
 description: 'Caja de categorias v2'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 package: 'Esinergia'
 dependencies:
   - drupal:lib_v2_core

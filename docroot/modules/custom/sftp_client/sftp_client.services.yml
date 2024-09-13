@@ -1,0 +1,8 @@
+services:
+  sftp_client:
+    class: Drupal\sftp_client\SftpClient
+    arguments:
+      - '@settings'
+      - '@file_system'
+      - '@logger.factory'
+      - '@?key.repository'

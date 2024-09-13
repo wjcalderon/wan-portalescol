@@ -1,5 +1,5 @@
 name: 'liberty_color_header'
 type: module
 description: 'This module helps to customize the header color according to the color selected when creating the campaign. '
-core_version_requirement: ^8 || ^9
-package: 'esinergia'
+core_version_requirement: ^9 || ^10
+package: HDI

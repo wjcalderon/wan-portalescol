@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Custom Login Middleware.
@@ -16,7 +17,7 @@ class CustomLoginMiddleware implements HttpKernelInterface, EventSubscriberInter
   /**
    * HttpKernel variable.
    *
-   * @var array
+   * @var object
    */
   protected $httpKernel;
 
@@ -30,10 +31,10 @@ class CustomLoginMiddleware implements HttpKernelInterface, EventSubscriberInter
   /**
    * Handle custom login middleware.
    */
-  public function handle(Request $request, $type = HttpKernelInterface::MASTER_REQUEST, $catch = TRUE) {
-    if (strpos($request->getPathInfo(), '/blog') !== FALSE) {
+  public function handle(Request $request, $type = HttpKernelInterface::MAIN_REQUEST, $catch = true): Response {
+    if (strpos($request->getPathInfo(), '/blog') !== false) {
       if (!$request->hasSession() || !$request->getSession()->isStarted()) {
-        if (strpos($request->getPathInfo(), '/blog/login') === FALSE) {
+        if (strpos($request->getPathInfo(), '/blog/login') === false) {
           $request->getSession()->set('redirect_from_blog', $request->getPathInfo());
           return new RedirectResponse('/blog/login');
         }
@@ -56,7 +57,7 @@ class CustomLoginMiddleware implements HttpKernelInterface, EventSubscriberInter
   public function onKernelRequest($event) {
     $request = $event->getRequest();
 
-    if (strpos($request->getPathInfo(), '/blog') !== FALSE) {
+    if (strpos($request->getPathInfo(), '/blog') !== false) {
       $response = $this->handle($request);
       $event->setResponse($response);
     }

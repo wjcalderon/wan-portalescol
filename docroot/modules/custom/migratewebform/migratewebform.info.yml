@@ -1,5 +1,5 @@
 name: "MigrateWebform"
 type: module
 description: "Migrate Data Webform to Webform"
-core_version_requirement: ^8 || ^9
-package: "Esinergia"
+core_version_requirement: ^9 || ^10
+package: HDI

@@ -1,9 +1,9 @@
 name: 'Lib components v3'
 type: module
 description: 'version 3 for liberty components'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 package: 'Esinergia'
-dependencies: 
+dependencies:
   - media
   - media_library
   - inline_entity_form

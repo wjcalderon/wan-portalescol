@@ -1,7 +1,7 @@
 name: 'Lib carousel v2'
 type: module
 description: 'Carousel of images'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 package: 'Esinergia'
 dependencies:
   - drupal:media

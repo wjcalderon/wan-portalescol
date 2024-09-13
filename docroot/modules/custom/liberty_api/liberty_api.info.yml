@@ -1,5 +1,5 @@
 name: liberty-api
 type: module
 description: Este es un modulo para obtener por el metodo GET los webform creados
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 package: Api

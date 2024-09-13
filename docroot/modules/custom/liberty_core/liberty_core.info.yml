@@ -1,5 +1,5 @@
 name: 'Core of Liberty sponsors'
 type: module
 description: 'An example module where is making the functionality most important of the site'
-package: 'Liberty Sponsors'
-core_version_requirement: ^8 || ^9
+package: HDI
+core_version_requirement: ^9 || ^10

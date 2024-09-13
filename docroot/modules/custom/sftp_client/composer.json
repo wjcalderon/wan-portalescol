@@ -1,0 +1,22 @@
+{
+    "name": "drupal/sftp_client",
+    "description": "The SFTP client for programmatic use.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Sergii Bondarenko",
+            "homepage": "https://drupal.org/u/BR0kEN",
+            "email": "sb@firstvector.org"
+        }
+    ],
+    "require": {
+        "phpseclib/phpseclib": "^2.0.29"
+    },
+    "require-dev": {
+        "drupal/key": "^1.8"
+    },
+    "suggest": {
+        "drupal/key": "^1.8"
+    }
+}

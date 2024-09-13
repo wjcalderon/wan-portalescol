@@ -1,8 +1,7 @@
 name: 'Core of Liberty'
 type: module
 description: 'An example module where is making the functionality most important of the site'
-package: 'Liberty'
-# Information added by Drupal.org packaging script on 2018-09-10
-core_version_requirement: ^8.8 || ^9
+package: HDI
+core_version_requirement: ^9 || ^10
 dependencies:
   - block
