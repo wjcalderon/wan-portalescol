@@ -3,15 +3,17 @@
 namespace Drupal\esn_layouts\EventSubscriber;
 
 use Drupal\Core\Ajax\AjaxHelperTrait;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ExtensionPathResolver;
+use Drupal\Core\File\FileUrlGenerator;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
-use Drupal\file\Entity\File;
 use Drupal\layout_builder\SectionStorageInterface;
 use Drupal\section_library\Entity\SectionLibraryTemplate;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
@@ -24,9 +26,50 @@ class LayoutBuilderBrowserEventSubscriber implements EventSubscriberInterface {
   use AjaxHelperTrait;
 
   /**
+   * Path resolver.
+   *
+   * @var \Drupal\Core\Extension\ExtensionPathResolver
+   */
+  private $pathResolver;
+
+  /**
+   * File url generator.
+   *
+   * @var \Drupal\Core\File\FileUrlGenerator
+   */
+  private $fileUrlGenerator;
+
+  /**
+   * The storage handler class for files.
+   *
+   * @var \Drupal\file\FileStorage
+   */
+  private $fileStorage;
+
+  /**
+   * Constructor.
+   *
+   * @param \Drupal\Core\Extension\ExtensionPathResolver $path_resolver
+   *   Path resolver.
+   * @param \Drupal\Core\File\FileUrlGenerator $file_url_generator
+   *   File url generator.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity
+   *   The Entity type manager service.
+   */
+  public function __construct(
+    ExtensionPathResolver $path_resolver,
+    FileUrlGenerator $file_url_generator,
+    EntityTypeManagerInterface $entity,
+  ) {
+    $this->pathResolver = $path_resolver;
+    $this->fileUrlGenerator = $file_url_generator;
+    $this->fileStorage = $entity->getStorage('file');
+  }
+
+  /**
    * Add layout-builder-browser class layout_builder.choose_block build block.
    */
-  public function onView(GetResponseForControllerResultEvent $event) {
+  public function onView(ViewEvent $event) {
     $request = $event->getRequest();
     $route = $request->attributes->get('_route');
 
@@ -113,9 +156,9 @@ class LayoutBuilderBrowserEventSubscriber implements EventSubscriberInterface {
    *   The section links render array.
    */
   protected function getLibrarySectionLinks(
-        SectionStorageInterface $section_storage,
-        $delta
-    ) {
+    SectionStorageInterface $section_storage,
+    $delta,
+  ) {
     $sections = SectionLibraryTemplate::loadMultiple();
     $links = [];
     foreach ($sections as $section_id => $section) {
@@ -123,33 +166,34 @@ class LayoutBuilderBrowserEventSubscriber implements EventSubscriberInterface {
       $attributes['class'][] = 'js-layout-builder-section-library-link';
       $attributes['class'][] = 'ws-lb-link';
       // Default library image.
-      $img_path =
-                drupal_get_path('module', 'esn_layouts') .
-                '/images/section-empty-icon.svg';
+      $img_path = $this->pathResolver->getPath('module', 'esn_layouts') .
+        '/images/section-empty-icon.svg';
       if ($fid = $section->get('image')->target_id) {
-        $file = File::load($fid);
+        $file = $this->fileStorage->load($fid);
         $img_path = $file->getFileUri();
       }
 
-      $icon_url = file_url_transform_relative(file_create_url($img_path));
+      $icon_url = $this->fileUrlGenerator->transformRelative(
+        $this->fileUrlGenerator->generateAbsoluteString($img_path)
+      );
       $link = [
         '#type' => 'link',
         '#title' => Markup::create(
-                '<div class="ws-lb__icon"><img src="' .
-                    $icon_url .
-                    '" class="section-library-link-img" /> </div>' .
-                    '<div class="ws-lb-link__label">' .
-                    $section->label() .
-                    '</div>'
+          '<div class="ws-lb__icon"><img src="' .
+            $icon_url .
+            '" class="section-library-link-img" /> </div>' .
+            '<div class="ws-lb-link__label">' .
+            $section->label() .
+          '</div>'
         ),
         '#url' => Url::fromRoute(
-                'section_library.import_section_from_library',
-                [
-                  'section_library_id' => $section_id,
-                  'section_storage_type' => $section_storage->getStorageType(),
-                  'section_storage' => $section_storage->getStorageId(),
-                  'delta' => $delta,
-                ]
+          'section_library.import_section_from_library',
+          [
+            'section_library_id' => $section_id,
+            'section_storage_type' => $section_storage->getStorageType(),
+            'section_storage' => $section_storage->getStorageId(),
+            'delta' => $delta,
+          ]
         ),
         '#attributes' => $attributes,
       ];

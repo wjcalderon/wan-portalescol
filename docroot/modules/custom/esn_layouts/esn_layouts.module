@@ -15,7 +15,9 @@ use Drupal\ui_patterns\Definition\PatternDefinition;
  * Implements hook_page_attachments().
  */
 function esn_layouts_page_attachments(array &$attachments) {
-  if (gin_lb_is_layout_builder_route() && gin_lb_is_valid_theme()) {
+  $gin_lb_context_validator = \Drupal::service('gin_lb.context_validator');
+
+  if ($gin_lb_context_validator->isLayoutBuilderRoute() && $gin_lb_context_validator->isValidTheme()) {
     $attachments['#attached']['library'][] = 'esn_layouts/core';
   }
 }
@@ -26,7 +28,7 @@ function esn_layouts_page_attachments(array &$attachments) {
 function esn_layouts_ui_patterns_layouts_display_settings_form_alter(
   &$form,
   PatternDefinition $definition,
-  $configuration
+  $configuration,
 ) {
   $form['#type'] = 'container';
   $form['field_templates']['#type'] = 'hidden';
@@ -39,7 +41,7 @@ function esn_layouts_ui_patterns_layouts_display_settings_form_alter(
 function esn_layouts_form_alter(
   &$form,
   FormStateInterface $form_state,
-  $form_id
+  $form_id,
 ) {
   $node = \Drupal::routeMatch()->getParameter('node');
   if (
@@ -99,11 +101,11 @@ function esn_layouts_preprocess_esn_layouts_icon(&$variables) {
   $type = $variables['icon_type'];
   if ($uri === NULL) {
     $filename = $type === 'block' ? 'block-empty-icon.svg' : 'section-empty-icon.svg';
-    $img_path = drupal_get_path(
-      'module',
-      'esn_layouts'
-    ) . '/images/' . $filename;
-    $variables['uri'] = file_url_transform_relative(file_create_url($img_path));
+    $img_path = \Drupal::service('extension.path.resolver')->getPath('module', 'esn_layouts') .
+      '/images/' . $filename;
+    $variables['uri'] = \Drupal::service('file_url_generator')->transformRelative(
+      \Drupal::service('file_url_generator')->generateAbsoluteString($img_path)
+    );
   }
 }
 
@@ -139,6 +141,7 @@ function esn_layouts_preprocess_layout_tabs(&$vars) {
       'content' => $vars['content'][$region],
       // 'icon_class' => $settings['tabs'][$ix]['detail']['icon'] ?? '',
       'region' => $region,
+      'class' => "tabs_$ix",
     ];
   }
   $vars['tabs'] = $tabs;

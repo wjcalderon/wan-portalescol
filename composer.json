@@ -54,6 +54,7 @@
         "drupal/entity_update": "^3.0",
         "drupal/entityqueue": "^1.8",
         "drupal/facets": "^2.0",
+        "drupal/features": "^3.14",
         "drupal/field_group": "^3.6",
         "drupal/geocoder": "^4.25",
         "drupal/geolocation": "^4.0@alpha",
@@ -140,6 +141,7 @@
         "drupal/search_api_autocomplete": "^1.9",
         "drupal/search_api_solr": "^4.3",
         "drupal/seckit": "^2.0",
+        "drupal/section_library": "^1.1",
         "drupal/securelogin": "^1.16",
         "drupal/security_review": "^3.0",
         "drupal/semanticviews": "^3.0",
@@ -316,7 +318,8 @@
                 "Fix getDescription declaration": "patches/lightning_core_getDescription.patch"
             },
             "drupal/lightning_workflow": {
-                "Fix circular reference": "patches/lightning_workflow_circular_reference.patch"
+                "Fix circular reference": "patches/lightning_workflow_circular_reference.patch",
+                "Taxonomy_term__scheduled_transition_date doesn't exist": "https://www.drupal.org/files/issues/2024-07-05/add-base-fields-to-new-content-types-supported-by-content-moderation-3459341-2.patch"
             }
         },
         "patches-ignore": {
