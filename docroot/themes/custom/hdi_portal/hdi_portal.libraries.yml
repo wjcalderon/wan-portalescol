@@ -1,0 +1,169 @@
+fonts:
+  version: VERSION
+  css:
+    theme:
+      "//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i": { type: external } # external font
+      fonts/poppins.css: {} # local font
+fontawesome:
+  version: 4.7.0
+  css:
+    component:
+      "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css": { type: external }
+global_styles:
+  version: VERSION
+  css:
+    theme:
+      css/styles.css: {}
+global_javascript:
+  version: VERSION
+  js:
+    js/main.js: {}
+    js/menu.help.js: {}
+  dependencies:
+    - core/jquery
+    - jquery_ui_tabs/tabs
+    - jquery_ui_autocomplete/autocomplete
+    - jquery_ui_datepicker/datepicker
+jquery_validate:
+  version: VERSION
+  js:
+    external/js/jquery-validate/jquery.validate.min.js: {}
+datetimepicker:
+  version: VERSION
+  css:
+    theme:
+      external/css/datepickertime/jquery-ui-timepicker-addon.css: {}
+  js:
+    external/js/datepickertime/jquery-ui-timepicker-addon.min.js: {}
+
+nav:
+  version: VERSION
+  js:
+    js/nav.config.js: {}
+  dependencies:
+    - core/jquery
+
+slick:
+  version: VERSION
+  css:
+    component:
+      external/css/slick-carousel/slick.css: {}
+      external/css/slick-carousel/slick-theme.css: {}
+  js:
+    external/js/slick-carousel/slick.min.js: {}
+    js/slick.config.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+accordion:
+  version: VERSION
+  js:
+    js/accordion.config.js: {}
+  dependencies:
+    - core/jquery
+
+tabs:
+  version: VERSION
+  js:
+    js/tabs.config.js: {}
+  dependencies:
+    - jquery_ui_tabs/tabs
+
+forms:
+  version: VERSION
+  js:
+    js/forms.config.js: {}
+  dependencies:
+    - core/jquery
+
+chat:
+  version: VERSION
+  js:
+    js/chat.config.js: {}
+  dependencies:
+    - core/jquery
+
+masonry:
+  version: VERSION
+  js:
+    external/js/masonry/masonry.min.js: {}
+    js/masonry.config.js: {}
+  dependencies:
+    - core/jquery
+
+tour:
+  version: VERSION
+  css:
+    component:
+      external/css/tour/introjs.css: {}
+  js:
+    external/js/tour/intro.js: {}
+    js/tour.config.js: {}
+  dependencies:
+    - core/jquery
+
+liberty-components:
+  version:  VERSION
+  js:
+    js/liberty-components.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
+liberty-card-accordion:
+  version:  VERSION
+  js:
+    js/card-accordion.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
+splidejs:
+  js:
+    libraries/splide/js/splide.min.js: {}
+  css:
+    component:
+      libraries/splide/css/splide-core.min.css: {}
+  dependencies:
+    - core/drupal
+
+aos:
+  js:
+    libraries/aos/js/aos.js: {}
+    libraries/aos/js/aos-init.js: {}
+  css:
+    theme:
+      libraries/aos/css/aos.css: {}
+
+tabs-bootstrap:
+  js:
+    js/src/02-molecules/tabs-bootstrap/tabs-bootstrap.js: {}
+  dependencies:
+    - liberty_public/bootstrap
+
+bootstrap:
+  remote: https://github.com/twbs/bootstrap
+  version: 5.0.2
+  license:
+    name: MIT
+    url: https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE
+    gpl-compatible: true
+  js:
+    libraries/bootstrap/js/bootstrap.bundle.min.js: { minified: true }
+
+accordionnew:
+  js:
+    js/src/02-molecules/accordion/accordion.js: {}
+  dependencies:
+    - core/drupal
+
+carousel:
+  js:
+    js/src/03-organisms/carousel/carousel.js: {}
+  dependencies:
+    - liberty_seguros/splidejs

@@ -1,0 +1,16 @@
+# attributes:
+#   - name: 'card'
+#     type: 'checkbox'
+
+
+# attributes: [
+#   one,
+#   two,
+#   three,
+#   four
+# ]
+
+attributes:
+  class: 'prueba'
+  id: 'checkbox'
+  type: 'checkbox'

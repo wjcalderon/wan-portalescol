@@ -24,8 +24,10 @@
         "drupal/checklistapi": "^2.1",
         "drupal/ckeditor_font": "^2.0@beta",
         "drupal/ckeditor_lts": "^1.0",
+        "drupal/classy": "^1.0",
         "drupal/coder": "^8.3",
         "drupal/coffee": "^1.4",
+        "drupal/color": "^1.0",
         "drupal/components": "^3.1",
         "drupal/condition_query": "^1.4",
         "drupal/config_delete": "^2.0",
@@ -315,11 +317,15 @@
                 "Automated Drupal Rector fixes": "https://www.drupal.org/files/issues/2020-05-23/ckeditor_videodetector.1.x-dev.rector.patch"
             },
             "drupal/lightning_core": {
-                "Fix getDescription declaration": "patches/lightning_core_getDescription.patch"
+                "Fix getDescription declaration": "patches/lightning_core_getDescription.patch",
+                "ConfigEntityDescriptionTrait is not compatible with EntityDisplayModeBase": "patches/lighting_core_EntityDescriptionTrait.patch"
             },
             "drupal/lightning_workflow": {
                 "Fix circular reference": "patches/lightning_workflow_circular_reference.patch",
                 "Taxonomy_term__scheduled_transition_date doesn't exist": "https://www.drupal.org/files/issues/2024-07-05/add-base-fields-to-new-content-types-supported-by-content-moderation-3459341-2.patch"
+            },
+            "drupal/externalauth": {
+                "Add missing table after upgrade": "patches/externalauth_add_missing_table.patch"
             }
         },
         "patches-ignore": {

@@ -1,0 +1,40 @@
+name: HDI Portal
+type: theme
+description: "Theme for HDI Seguros Colombia portal."
+core_version_requirement: ^9 || ^10
+base theme: stable
+libraries:
+  - hdi_portal/fonts
+  - hdi_portal/fontawesome
+  - hdi_portal/global_styles
+  - hdi_portal/global_javascript
+  - hdi_portal/slick_javascript
+  - hdi_portal/jquery_validate
+  - hdi_portal/slick_global_css
+  - hdi_portal/slick_theme_css
+  - hdi_portal/datetimepicker
+  - hdi_portal/eyebrow
+regions:
+  eyebrow: Eyebrow
+  branding: Branding
+  header: Header
+  menu_desktop: "Menu desktop"
+  menu_desktop_second: "Menu desktop second"
+  menu_mobile: "Menu mobile"
+  content: Content
+  sidebar_first: "Sidebar first"
+  sidebar_second: "Sidebar second"
+  post_content: "Post content"
+  footer: "Footer"
+  footer_left: "Footer left"
+  footer_tool: "Footer tool"
+  footer_contact: "Footer contact"
+  footer_terminos: "Footer terminos"
+  blocks_activate: "Blocks Activate"
+  blocks_popups: "Blocks Popups"
+
+stylesheets-remove:
+  - core/assets/vendor/jquery.ui/themes/base/tabs.css
+  - core/assets/vendor/jquery.ui/themes/base/theme.css
+  - modules/contrib/webform/css/webform.form.css
+  - modules/contrib/webform/css/webform.element.details.toggle.css

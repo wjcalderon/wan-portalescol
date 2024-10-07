@@ -1,0 +1,63 @@
+diff --git a/externalauth.install b/externalauth.install
+index 4323505..e49a316 100644
+--- a/externalauth.install
++++ b/externalauth.install
+@@ -101,3 +101,58 @@ function externalauth_update_8103(): void {
+   // Increase module weight to perform the authmap cleanup later.
+   module_set_weight('externalauth', 10);
+ }
++
++/**
++ * Increase externalauth module weight.
++ */
++function externalauth_update_91001(): void
++{
++  /** @var \Drupal\Core\Database\Schema $schema */
++  $schema = \Drupal::service('database')->schema();
++  // Increase module weight to perform the authmap cleanup later.
++
++  $table_schema = [
++    'description' => 'Stores distributed authentication mapping.',
++    'fields' => [
++      'uid' => [
++        'description' => 'Primary key: {users}.uid for user.',
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++        'default' => 0,
++      ],
++      'provider' => [
++        'description' => 'The name of the authentication provider providing the authname',
++        'type' => 'varchar_ascii',
++        'length' => 128,
++        'not null' => TRUE,
++        'default' => '',
++      ],
++      'authname' => [
++        'description' => 'Unique authentication name provided by authentication provider',
++        'type' => 'varchar',
++        'length' => 128,
++        'not null' => TRUE, 
++        'default' => '',
++      ],
++      'data' => [
++        'description' => 'Extra (serialized) data to store with the authname.',
++        'type' => 'blob',
++        'not null' => FALSE,
++        'size' => 'big',
++      ],
++    ],
++    'primary key' => ['uid', 'provider'],
++    'indexes' => [
++      'uid' => ['uid'],
++    ],
++    'unique keys' => [
++      'authname_provider' => ['authname', 'provider'],
++    ],
++    'foreign keys' => [
++      'uid' => ['users' => 'uid'],
++    ],
++  ];
++
++  $schema->createTable('authmap', $table_schema);
++}

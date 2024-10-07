@@ -7,6 +7,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 /**
  * Core of Liberty sponsors event subscriber.
@@ -33,7 +34,7 @@ class LibertyCoreSubscriber implements EventSubscriberInterface {
   /**
    * Kernel request event handler.
    */
-  public function onKernelRequest(GetResponseEvent $event) {
+  public function onKernelRequest(RequestEvent $event) {
     $request = \Drupal::requestStack()->getCurrentRequest();
 
     if ($request->query->has('vip')) {

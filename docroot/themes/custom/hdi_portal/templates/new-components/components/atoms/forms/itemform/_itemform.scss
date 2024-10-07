@@ -1,0 +1,49 @@
+.form-item {
+  color: clr(text);
+  margin-bottom: 1em;
+  max-width: 100%;
+
+  // @include medium {
+  //   max-width: 32em;
+  // }
+
+  @include clearfix;
+
+  &__label {
+    display: block;
+    font-weight: 600;
+    margin-left: $space-16;
+    color: clr(secondary);
+    font-size: 0.8125rem;
+
+    .form-item--error &{
+      color: clr(error);
+    }
+
+  }
+  .option.form-item__label{
+    color: clr(gray-body);
+    font-weight: 400;
+  }
+
+  &__message {
+    font-size: 0.750rem;
+    margin-top: 0.3em;
+
+    &-policies{
+      position: absolute;
+      left: 2rem;
+      bottom: -20px;
+      width: 100%;
+    }
+    .form-item--error &{
+      color: clr(error);
+    }
+  }
+
+}
+
+
+.flex.js-form-item.form-item {
+    position: relative;
+}
