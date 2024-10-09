@@ -2,7 +2,8 @@ name: HDI Portal
 type: theme
 description: "Theme for HDI Seguros Colombia portal."
 core_version_requirement: ^9 || ^10
-base theme: stable
+base theme: false
+favicon: 'images/favicon.png'
 libraries:
   - hdi_portal/fonts
   - hdi_portal/fontawesome

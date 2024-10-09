@@ -1,24 +1,20 @@
-fonts:
-  version: VERSION
-  css:
-    theme:
-      "//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i": { type: external } # external font
-      fonts/poppins.css: {} # local font
 fontawesome:
   version: 4.7.0
   css:
     component:
       "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css": { type: external }
+
 global_styles:
   version: VERSION
   css:
     theme:
-      css/styles.css: {}
+      assets/css/styles.css: {}
+
 global_javascript:
   version: VERSION
   js:
-    js/main.js: {}
-    js/menu.help.js: {}
+    assets/js/main.js: {}
+    assets/js/menu.help.js: {}
   dependencies:
     - core/jquery
     - jquery_ui_tabs/tabs
@@ -28,6 +24,7 @@ jquery_validate:
   version: VERSION
   js:
     external/js/jquery-validate/jquery.validate.min.js: {}
+
 datetimepicker:
   version: VERSION
   css:
@@ -39,7 +36,7 @@ datetimepicker:
 nav:
   version: VERSION
   js:
-    js/nav.config.js: {}
+    assets/js/nav.config.js: {}
   dependencies:
     - core/jquery
 
@@ -51,7 +48,7 @@ slick:
       external/css/slick-carousel/slick-theme.css: {}
   js:
     external/js/slick-carousel/slick.min.js: {}
-    js/slick.config.js: {}
+    assets/js/slick.config.js: {}
   dependencies:
     - core/drupal
     - core/jquery
@@ -59,28 +56,28 @@ slick:
 accordion:
   version: VERSION
   js:
-    js/accordion.config.js: {}
+    assests/js/accordion.config.js: {}
   dependencies:
     - core/jquery
 
 tabs:
   version: VERSION
   js:
-    js/tabs.config.js: {}
+    assests/js/tabs.config.js: {}
   dependencies:
     - jquery_ui_tabs/tabs
 
 forms:
   version: VERSION
   js:
-    js/forms.config.js: {}
+    assests/js/forms.config.js: {}
   dependencies:
     - core/jquery
 
 chat:
   version: VERSION
   js:
-    js/chat.config.js: {}
+    assests/js/chat.config.js: {}
   dependencies:
     - core/jquery
 
@@ -88,7 +85,7 @@ masonry:
   version: VERSION
   js:
     external/js/masonry/masonry.min.js: {}
-    js/masonry.config.js: {}
+    assests/js/masonry.config.js: {}
   dependencies:
     - core/jquery
 
@@ -99,14 +96,14 @@ tour:
       external/css/tour/introjs.css: {}
   js:
     external/js/tour/intro.js: {}
-    js/tour.config.js: {}
+    assests/js/tour.config.js: {}
   dependencies:
     - core/jquery
 
 liberty-components:
   version:  VERSION
   js:
-    js/liberty-components.js: {}
+    assests/js/liberty-components.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -116,7 +113,7 @@ liberty-components:
 liberty-card-accordion:
   version:  VERSION
   js:
-    js/card-accordion.js: {}
+    assests/js/card-accordion.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings

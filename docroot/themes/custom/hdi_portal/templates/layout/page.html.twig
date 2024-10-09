@@ -1,9 +1,4 @@
-<!-- -------- HEADER -------- -->
 {% include '@hdi_portal/layout/header.html.twig' %}
-<!-- /header -->
-
-<!-- -------- Pre content -------- -->
-<!-- -------- MAIN -------- -->
   <main id="content">
     {{ page.content }}
     {% if page.blocks_popups %}
@@ -14,8 +9,6 @@
       </div>
     {% endif %}
   </main>
-  <!-- /main -->
-<!-- -------- Post content -------- -->
   {% if page.post_content %}
     <div class="clearfix post-content" id="post-content">
       <div class="cog--mq mq-postcontent">
@@ -23,7 +16,4 @@
       </div>
     </div>
   {% endif %}
-<!-- -------- FOOTER -------- -->
-
 {% include '@hdi_portal/layout/footer.html.twig' %}
-<!-- /page -->

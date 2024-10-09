@@ -1,0 +1,115 @@
+#header__zona-usuario {
+  align-items: center;
+  background: var(--hdi-green);
+  display: flex;
+
+  @media screen and (min-width: 979px) {
+    padding: 0.4rem 4rem;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+
+    li {
+      a {
+        border-top: 2px solid transparent;
+        color: #ffffff;
+        font-size: 0.9rem;
+        line-height: 2.2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &.is-active {
+          border-top-color: var(--hdi-universal-green);
+        }
+
+        &.acerca__liberty {
+          position: relative;
+
+          &:after {
+            content: "";
+            background-image: url('../../images/menu-dropown.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 4px;
+            position: absolute;
+            right: 0;
+            top: 1rem;
+            width: .5rem;
+          }
+        }
+      }
+
+      &:hover:has(.menu) {
+        position: relative;
+
+        & > .menu {
+          display: flex;
+          flex-direction: column;
+          opacity: 1;
+          visibility: visible;
+          width: max-content;
+
+          & li:hover {
+            background-color: var(--hdi-universal-green-70);
+          }
+        }
+      }
+    }
+
+    &.menu li ul {
+      background: var(--hdi-green);
+      display: none;
+      left: 0;
+      margin-top: 0;
+      opacity: 0;
+      padding: 0;
+      position: absolute;
+      top: 36px;
+      transition: all 0.5s ease;
+      visibility: hidden;
+      z-index: 2;
+    }
+  }
+
+  #block-hdi-portal-menubranding {
+    display: none;
+
+    ul {
+      li {
+        a {
+          padding-right: 1.3rem;
+          position: relative;
+
+          &:after {
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: "";
+            height: 1rem;
+            position: absolute;
+            right: 0;
+            top: .5rem;
+          }
+
+          &.header__oficinas::after {
+            background-image: url('../../images/office-location.svg');
+            width: 11px;
+          }
+
+          &.header__ingresar::after {
+            background-image: url('../../images/office-online.svg');
+            width: 14px;
+          }
+        }
+      }
+    }
+
+
+    @media screen and (min-width: 979px) {
+      display: flex;
+    }
+  }
+}
+
