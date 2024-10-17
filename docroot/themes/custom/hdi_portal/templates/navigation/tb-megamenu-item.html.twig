@@ -28,10 +28,6 @@
       <i class="{{ item_config['xicon'] }}"></i>
     {% endif %}
     {{ link.title_translate|t }}
-    {% if submenu and block_config['auto-arrow'] %}
-
-      <span><img alt=""src="{{ base_url ~ directory }}/images/icons/flecha-menu.svg"></span>
-    {% endif %}
     {% if item_config['caption'] %}
       <span class="mega-caption"> {{ item_config['caption']|t }}</span>
     {% endif %}

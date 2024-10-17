@@ -39,7 +39,7 @@
   {% block card__icon %}
     <div class="card-basic__icon">
       {% if card__icon__name %}
-        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+        {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
               icon_name: card__icon__name
       } %}
     </div>
@@ -51,7 +51,7 @@
     {# Heading #}
     {% if card__heading %}
       {{ title_prefix }}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/text/headings/_heading.twig" with {
         heading_base_class: card__heading__base_class|default('heading'),
         heading_modifiers: card__heading__modifiers,
         heading_blockname: card__base_class,
@@ -62,7 +62,7 @@
     {% endif %}
     {# Body #}
     {% if card__body %}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/text/_text.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/text/text/_text.twig" with {
         paragraph_base_class: card__body__base_class|default('body'),
         paragraph_modifiers: card__body__modifiers,
         paragraph_blockname: card__base_class,
@@ -71,7 +71,7 @@
     {% endif %}
     {# Link #}
     {% if card__link__url %}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/links/link/link.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/links/link/link.twig" with {
         link_base_class: card__link__base_class|default('link'),
         link_blockname: card__base_class,
         link_attributes: card__link__attributes,
@@ -81,7 +81,7 @@
     {% endif %}
     {# Button #}
     {% if card__button__url %}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/buttons/button.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/buttons/button.twig" with {
         button_base_class: card__button__base_class|default('button'),
         button_modifiers: card__button__modifiers,
         button_blockname: card__base_class,

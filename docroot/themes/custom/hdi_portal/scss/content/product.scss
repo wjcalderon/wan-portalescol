@@ -1,0 +1,54 @@
+body {
+  &.nodetype--product, &.nodetype--landing_page {
+    .component__tabs--producto-full {
+      &:not(.cp-tabs) {
+        margin-top: 5rem;
+      }
+    }
+
+    h2 {
+      &.component__title {
+        margin: 3rem 0 2rem;
+        text-align: center;
+      }
+    }
+
+    .component__content {
+      ul {
+        li {
+          padding: 0.3rem 0;
+
+          ul {
+            margin-left: 2rem;
+          }
+        }
+
+        &[type=disc] {
+          margin: 1rem 0 1rem 2rem;
+
+          li {
+            list-style: disc;
+          }
+        }
+
+        &[type=circle] {
+          li {
+            list-style: circle;
+          }
+        }
+      }
+    }
+
+    .component__single-text {
+      .component__content {
+        p {
+          margin-bottom: 1rem;
+
+          &:last-of-type {
+            margin-bottom: unset;
+          }
+        }
+      }
+    }
+  }
+}

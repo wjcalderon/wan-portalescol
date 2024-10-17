@@ -3,7 +3,7 @@
   background: var(--hdi-green);
   display: flex;
 
-  @media screen and (min-width: 979px) {
+  @include tablet-landscape-up {
     padding: 0.4rem 4rem;
   }
 
@@ -106,8 +106,7 @@
       }
     }
 
-
-    @media screen and (min-width: 979px) {
+    @include tablet-landscape-up {
       display: flex;
     }
   }

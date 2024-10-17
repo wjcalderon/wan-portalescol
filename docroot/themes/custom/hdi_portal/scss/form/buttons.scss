@@ -1,0 +1,113 @@
+.button {
+  cursor: pointer;
+  display: inline-block;
+  font-family: "HDI Pro", "Open Sans", sans-serif;;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .625rem 2.875rem;
+
+  a {
+    font-size: 1rem;
+  }
+
+  &--large {
+    padding: .6875rem 2.875rem !important;
+    a {
+      color: var(--white) !important;
+    }
+  }
+
+  &--small {
+    padding: .4375rem 2.875rem !important;
+
+    a {
+      color: var(--white) !important;
+    }
+  }
+
+  &-medium {
+    padding: .625rem 2.875rem !important;
+
+    a {
+      color: var(--white) !important;
+    }
+  }
+
+  &, &--primary {
+    background-color: var(--hdi-universal-green);
+    color: var(--white);
+
+    a {
+      color: var(--white);
+    }
+
+    &:hover {
+      background-color: var(--hdi-green);
+      color: var(--white);
+
+      a {
+        color: var(--white);
+      }
+    }
+
+    &:active {
+      background-color: var(--hdi-blue);
+      color: var(--white);
+
+      a {
+        color: var(--white);
+      }
+    }
+
+    &:disabled, &.disabled {
+      background-color: var(--gray-20);
+      color: var(--gray-70);
+      cursor: default;
+
+      a {
+        color: var(--gray-70);
+      }
+    }
+  }
+
+  &-secondary, &-secundary {
+    background-color: var(--white) !important;
+    border: 1px solid var(--hdi-universal-green) !important;
+    color: var(--gray) !important;
+
+    a {
+      color: var(--gray) !important;
+    }
+
+    &:hover {
+      background-color: var(--hdi-green) !important;
+      border-color: var(--hdi-green) !important;
+      color: var(--white) !important;
+
+      a {
+        color: var(--white) !important;
+      }
+    }
+
+    &:active {
+      background-color: var(--hdi-blue) !important;
+      border-color: var(--hdi-blue) !important;
+      color: var(--white) !important;
+
+      a {
+        color: var(--white) !important;
+      }
+    }
+
+    &:disabled, &.disabled {
+      background-color: var(--gray-20) !important;
+      border-color: var(--gray-20) !important;
+      color: var(--gray-70) !important;
+      cursor: default;
+
+      a {
+        color: var(--gray-70) !important;
+      }
+    }
+  }
+}

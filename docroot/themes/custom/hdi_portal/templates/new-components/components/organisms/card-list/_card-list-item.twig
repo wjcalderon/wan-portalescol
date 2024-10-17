@@ -1,6 +1,6 @@
 {% if card_type == 'link' %}
 
-  {% include "themes/custom/liberty_public/templates/new-components/components/molecules/card/card-link.twig" with {
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-link.twig" with {
     card__extra_classes: ['card-list__item'],
     card__image__src: item.card__image__src,
     card__image__alt: item.card__image__alt,
@@ -15,7 +15,7 @@
 
 {% if card_type == 'card-foto' %}
 
-  {% include "themes/custom/liberty_public/templates/new-components/components/molecules/card/card-foto.twig" with {
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-foto.twig" with {
     card__extra_classes: ['card-list__item'],
     card__image__src: item.card__image__src,
     card__image__alt: item.card__image__alt,
@@ -30,7 +30,7 @@
 
 {% if card_type == 'card-basic' %}
 
-  {% include "themes/custom/liberty_public/templates/new-components/components/molecules/card/card-basic.twig" with {
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-basic.twig" with {
     card__extra_classes: ['card-list__item'],
     card__image__src: item.card__image__src,
     card__image__alt: item.card__image__alt,
@@ -44,7 +44,7 @@
 {% endif %}
 
 {% if card_type == 'cta-phone' %}
-  {% include "themes/custom/liberty_public/templates/new-components/components/molecules/cta/cta-phone.twig" with {
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/cta/cta-phone.twig" with {
     cta__extra_classes: ['card-list__item'],
     cta__modifiers: cta__modifiers,
     cta__heading: item.cta__heading,

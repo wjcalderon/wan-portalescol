@@ -31,8 +31,8 @@
 	{{ title_suffix }}
 	{% block content %}
     {% if content.field_hero_internal['#items']|length > 1 %}
-      {{ attach_library('liberty_public/carousel')}}
-      {% embed 'themes/custom/liberty_public/templates/new-components/components/organisms/carousel/carousel.twig'
+      {{ attach_library('hdi_portal/carousel')}}
+      {% embed 'themes/custom/hdi_portal/templates/new-components/components/organisms/carousel/carousel.twig'
         with {
           carousel_modifiers: ['breaker'],
           splide_pagination: true,

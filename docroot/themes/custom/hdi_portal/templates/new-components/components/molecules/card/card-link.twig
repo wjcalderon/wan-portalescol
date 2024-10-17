@@ -43,7 +43,7 @@
   <div {{ bem('icon', card__content__modifiers, card__base_class) }}>
     {% block card__icon %}
       {% if card__icon__name %}
-        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+        {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
               icon_name: card__icon__name
       } %}
       {% endif %}
@@ -54,7 +54,7 @@
     {# Heading #}
     {% if card__heading %}
       {{ title_prefix }}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/text/headings/_heading.twig" with {
         heading_base_class: card__heading__base_class|default('heading'),
         heading_modifiers: card__heading__modifiers,
         heading_blockname: card__base_class,
@@ -65,7 +65,7 @@
     {% endif %}
     {# Link #}
     {% if card__link__url %}
-      {% include "themes/custom/liberty_public/templates/new-components/components/atoms/links/link/link.twig" with {
+      {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/links/link/link.twig" with {
         link_base_class: card__link__base_class|default('button'),
         link_modifiers: card__link__modifiers,
         link_attributes: card__link__attributes,

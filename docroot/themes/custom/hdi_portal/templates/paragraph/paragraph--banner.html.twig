@@ -39,7 +39,6 @@
  */
 #}
 
-
 {%
   set classes = [
     'component',
@@ -71,8 +70,6 @@
 {% set paragraph_title = content.field_c_title|field_value  %}
 {% set paragraph_title_html = content.field_c_title_html|field_value %}
 
-
-
 {# Sets paragraph title status for paragraph. #}
 {% set paragraph_title_status = true %}
 {% if 'On' in content.field_c_title_status[0] %}
@@ -101,8 +98,9 @@
     {% if content.field_cta[0]['#options']['attributes']['id'] %}
       {% set link_id = 'id=' ~ content.field_cta[0]['#options']['attributes']['id'] %}
     {% endif %}
-    <a href="{{ content.field_cta[0]['#url'] }}" class="link--full" {{ link_id }}><span>{{ content.field_cta[0]['#title'] }}</span></a>
+    <a href="{{ content.field_cta[0]['#url'] }}" class="link--full" {{ link_id }}>
   {% endif %}
+
   {% if add_container %}<div class="cog--mq">{% endif %}
     {{ content|without('field_c_title', 'field_c_subtitle', 'field_cta', 'field_c_size_container', 'field_c_title_status', 'field_c_width', 'field_c_classes', 'field_c_title_html') }}
     <div class="cog--mq banner--container">
@@ -127,4 +125,9 @@
       </div>
     </div>
   {% if add_container %}</div>{% endif %}
+
+  {% if content.field_cta[0]['#url'] is not empty %}
+    </a>
+  {% endif %}
+
 </section>

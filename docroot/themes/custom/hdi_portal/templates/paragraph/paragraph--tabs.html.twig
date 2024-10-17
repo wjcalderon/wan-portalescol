@@ -39,7 +39,6 @@
  */
 #}
 
-
 {%
   set classes = [
     'component',
@@ -123,9 +122,9 @@
 			{% if select_mobile_class %}
 				<div class="cog--mq cog--flex is-desktop">
 				{% else %}
-					<div class="cog--mq cog--flex">
+					<div class="cog--flex">
 					{% endif %}
-					<ul class="main-links header-tabs">
+					<ul class="cog--mq main-links header-tabs">
 						{% for key, item in paragraph_tabs['#items'] %}
 						  {% set id_key = item.entity.id.value ?? key %}
 							<li>

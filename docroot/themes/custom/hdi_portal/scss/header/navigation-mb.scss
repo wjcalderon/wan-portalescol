@@ -1,0 +1,5 @@
+#navigation-mb {
+  @include tablet-landscape-up {
+    display: none;
+  }
+}

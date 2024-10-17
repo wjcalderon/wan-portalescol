@@ -1,0 +1,44 @@
+body {
+  #block-hdi-portal-breadcrumbs {
+    left: 10rem;
+    position: absolute;
+    top: 1rem;
+    z-index: 2;
+
+    ol {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% + 1.5rem);
+
+      li {
+        font-family: "HDI Pro";
+        position: relative;
+
+        &::after {
+          color: var(--white);
+          content: "/";
+          font-weight: bolder;
+          position: absolute;
+          right: -1rem;
+          top: 0;
+        }
+
+        &:last-of-type::after {
+          content: unset;
+        }
+
+        a {
+          font-size: 1rem;
+          font-weight: bolder;
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  &.frontpage {
+    #block-hdi-portal-breadcrumbs {
+      display: none;
+    }
+  }
+}

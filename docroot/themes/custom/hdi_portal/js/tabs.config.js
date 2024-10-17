@@ -223,7 +223,7 @@
         let menu = $(".is-shorcut .main-links");
         if (menu.length > 0) {
           let menuFixed = Math.ceil(menu.offset().top),
-            menuFixedheight = menuFixed + 16;
+            menuFixedheight = menuFixed - 10;
 
           $(window).scroll(function () {
             let windowHeight = $(window).scrollTop();
@@ -231,11 +231,13 @@
               menu
                 .addClass("fixed")
                 .parent(".cog--mq")
-                .css("margin-bottom", "11.25rem");
+                .addClass("is-fixed")
+                .css("margin-bottom", "5.25rem");
             } else {
               menu
                 .removeClass("fixed")
                 .parent(".cog--mq")
+                .removeClass("is-fixed")
                 .css("margin-bottom", "");
             }
           });

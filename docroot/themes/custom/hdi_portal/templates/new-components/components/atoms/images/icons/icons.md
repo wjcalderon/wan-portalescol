@@ -16,7 +16,7 @@ as well as instructions for Drupal. Examples of usage below:
 Simple: (no BEM renaming)
 
 ```
-{% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+{% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
   icon_name: 'menu',
 } %}
 ```

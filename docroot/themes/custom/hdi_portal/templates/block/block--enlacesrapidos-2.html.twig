@@ -32,8 +32,8 @@
 	{{ title_suffix }}
 	{% block content %}
     {% if content.field_p_card_foto['#items']|length > 3 %}
-        {{ attach_library('liberty_public/carousel')}}
-        {% embed 'themes/custom/liberty_public/templates/new-components/components/organisms/carousel/carousel.twig'
+        {{ attach_library('hdi_portal/carousel')}}
+        {% embed 'themes/custom/hdi_portal/templates/new-components/components/organisms/carousel/carousel.twig'
           with {
             items: link_items,
             items_per_page: 3,
@@ -50,7 +50,7 @@
           {% endblock %}
         {% endembed %}
       {% else %}
-        {% embed 'themes/custom/liberty_public/templates/new-components/components/organisms/card-list/card-list.twig'
+        {% embed 'themes/custom/hdi_portal/templates/new-components/components/organisms/card-list/card-list.twig'
           with {
             card_type: 'card-link',
             card_grid_columns: 'autofit',

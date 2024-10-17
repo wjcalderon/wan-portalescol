@@ -1,28 +1,36 @@
-@font-face {
-  font-family: Roboto;
-  src: url('//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @font-face {
-  font-family: hdi;
-  src: url("../../fonts/HDI-GerlingSans-Regular.otf") format("opentype");
+  font-family: 'HDI Pro';
+  src: url("../../fonts/HDIW05-Book.woff") format("woff"),
+    url("../../fonts/HDIW05-Book.woff2") format("woff2"),
+    url("../../fonts/HDI-GerlingSans-Regular.otf") format("opentype"),
+    url("../../fonts/HDI-GerlingSansCond-Regular.otf") format("opentype");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: hdi;
+  font-family: 'HDI Pro';
+  src:
+    url("../../fonts/HDIW05-Medium.woff") format("woff"),
+    url("../../fonts/HDIW05-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'HDI Pro';
   src: url("../../fonts/HDI-GerlingSans-Bold.otf") format("opentype");
   font-weight: bold;
 }
 
 @font-face {
-  font-family: hdi;
-  src: url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype");
+  font-family: 'HDI Pro';
+  src: url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype")
+    url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype");
   font-weight: light;
 }
 
-@font-face {
-  font-family: hdi;
-  src: url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype");
-  font-weight: light;
+:root {
+  --hdi-font: "HDI Pro", "Open Sans", sans-serif;
+  --roboto-font: "Roboto", "Open Sans", sans-serif;
 }

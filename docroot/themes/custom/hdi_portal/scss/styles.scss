@@ -1,7 +1,13 @@
 @import './base/reset.scss';
+@import './base/colors.scss';
 @import './base/fonts.scss';
-@import './base/base.scss';
+@import './base/global.scss';
 
 @import './base/utilities.scss';
 
 @import './header/header.scss';
+
+@import './form';
+
+@import './content';
+@import './components';

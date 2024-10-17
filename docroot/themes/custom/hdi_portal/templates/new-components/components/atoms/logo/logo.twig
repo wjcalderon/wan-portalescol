@@ -5,32 +5,31 @@
 } %}
 
 <div {{ add_attributes(additional_attributes) }}>
-    <div class="logo__logo">
-        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
-            icon_name: 'logo'
-        } %}
-    </div>
-    <div class="logo__iso">
-    {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
-            icon_name: 'iso'
+  <div class="logo__logo">
+    {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+      icon_name: 'logo'
     } %}
-    </div>
-    <div class="logo__vertical">
-    {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
-            icon_name: 'logov'
+  </div>
+  <div class="logo__iso">
+  {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+      icon_name: 'iso'
+  } %}
+  </div>
+  <div class="logo__vertical">
+  {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+      icon_name: 'logov'
+  } %}
+  </div>
+  <div class="logo__50">
+    {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+      icon_name: 'iso-50'
     } %}
-    </div>
-    <div class="logo__50">
-        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
-            icon_name: 'iso-50'
-        } %}
-    </div>
-    <div class="logo__slogan">
-        {% include "themes/custom/liberty_public/templates/new-components/components/atoms/text/headings/_heading.twig" with {
-            heading_level: 2,
-            heading: logo_slogan,
-            heading_modifiers: ['slogan']
-        } %}
-        {# <p>{{logo_slogan}}</p> #}
-    </div>
+  </div>
+  <div class="logo__slogan">
+    {% include "themes/custom/hdi_portal/templates/new-components/components/atoms/text/headings/_heading.twig" with {
+      heading_level: 2,
+      heading: logo_slogan,
+      heading_modifiers: ['slogan']
+    } %}
+  </div>
 </div>

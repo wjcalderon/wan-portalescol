@@ -20,7 +20,7 @@
   {{- attributes ? attributes|without(class) -}}>
     {% block accordion_content %}
       {% for key, item in accordion__items %}
-        {% include "themes/custom/liberty_public/templates/new-components/components/molecules/accordion/_accordion_item.twig" with {
+        {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/accordion/_accordion_item.twig" with {
           item_id: random(1, 100),
           item_heading: item.item_heading,
           item_body: item.item_body,

@@ -56,28 +56,28 @@ slick:
 accordion:
   version: VERSION
   js:
-    assests/js/accordion.config.js: {}
+      assets/js/accordion.config.js: {}
   dependencies:
     - core/jquery
 
 tabs:
   version: VERSION
   js:
-    assests/js/tabs.config.js: {}
+    assets/js/tabs.config.js: {}
   dependencies:
     - jquery_ui_tabs/tabs
 
 forms:
   version: VERSION
   js:
-    assests/js/forms.config.js: {}
+    assets/js/forms.config.js: {}
   dependencies:
     - core/jquery
 
 chat:
   version: VERSION
   js:
-    assests/js/chat.config.js: {}
+    assets/js/chat.config.js: {}
   dependencies:
     - core/jquery
 
@@ -85,7 +85,7 @@ masonry:
   version: VERSION
   js:
     external/js/masonry/masonry.min.js: {}
-    assests/js/masonry.config.js: {}
+    assets/js/masonry.config.js: {}
   dependencies:
     - core/jquery
 
@@ -96,14 +96,14 @@ tour:
       external/css/tour/introjs.css: {}
   js:
     external/js/tour/intro.js: {}
-    assests/js/tour.config.js: {}
+    assets/js/tour.config.js: {}
   dependencies:
     - core/jquery
 
 liberty-components:
   version:  VERSION
   js:
-    assests/js/liberty-components.js: {}
+    assets/js/liberty-components.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -113,7 +113,7 @@ liberty-components:
 liberty-card-accordion:
   version:  VERSION
   js:
-    assests/js/card-accordion.js: {}
+    assets/js/card-accordion.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -141,7 +141,7 @@ tabs-bootstrap:
   js:
     js/src/02-molecules/tabs-bootstrap/tabs-bootstrap.js: {}
   dependencies:
-    - liberty_public/bootstrap
+    - hdi_portal/bootstrap
 
 bootstrap:
   remote: https://github.com/twbs/bootstrap
