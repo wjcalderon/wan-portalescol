@@ -60,13 +60,31 @@
     }
 
     &:disabled, &.disabled {
-      background-color: var(--gray-20);
+      background-color: var(--gray-40);
       color: var(--gray-70);
       cursor: default;
 
       a {
         color: var(--gray-70);
       }
+    }
+  }
+
+  &--inverse {
+    background-color: var(--white);
+    color: var(--hdi-green);
+  }
+
+  &--alpha {
+    background-color: var(--hdi-green-70);
+    color: var(--white);
+
+    a {
+      color: var(--white);
+    }
+
+    &:hover {
+      background-color: var(--hdi-universal-green);
     }
   }
 
@@ -100,8 +118,8 @@
     }
 
     &:disabled, &.disabled {
-      background-color: var(--gray-20) !important;
-      border-color: var(--gray-20) !important;
+      background-color: var(--gray-40) !important;
+      border-color: var(--gray-40) !important;
       color: var(--gray-70) !important;
       cursor: default;
 

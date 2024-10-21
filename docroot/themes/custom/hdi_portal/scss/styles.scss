@@ -5,9 +5,11 @@
 
 @import './base/utilities.scss';
 
-@import './header/header.scss';
+@import './header';
 
 @import './form';
 
 @import './content';
 @import './components';
+
+@import './footer';

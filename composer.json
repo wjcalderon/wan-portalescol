@@ -23,7 +23,6 @@
         "drupal/block_class": "^3.0",
         "drupal/checklistapi": "^2.1",
         "drupal/ckeditor_font": "^2.0@beta",
-        "drupal/ckeditor_lts": "^1.0",
         "drupal/classy": "^1.0",
         "drupal/coder": "^8.3",
         "drupal/coffee": "^1.4",

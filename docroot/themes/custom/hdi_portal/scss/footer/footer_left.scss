@@ -1,0 +1,23 @@
+#footer__left {
+  flex-basis: 80%;
+  padding-top: 2.5rem;
+
+  #block-hdi-portal-superintendenciafinanciera {
+    img {
+      left: 2.6875rem;
+      position: absolute;
+      top: 8.625rem;
+      width: 1rem;
+    }
+  }
+
+  nav {
+    &.navigation {
+      & > .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
+}

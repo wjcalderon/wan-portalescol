@@ -1,0 +1,42 @@
+#footer__terminos {
+  background-color: var(--hdi-green);
+  padding: 1rem;
+  position: relative;
+
+  p {
+    color: var(--white);
+    font-family: var(--hdi-font);
+    font-size: .9rem;
+    font-weight: bolder;
+
+    a {
+      color: var(--white);
+      font-family: var(--hdi-font);
+      font-size: .85rem;
+      font-weight: lighter;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--white);
+    }
+  }
+
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 2.4375rem;
+    top: 1.25rem;
+    background-image: url(../../images/footer-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 2.625rem;
+    height: 1.625rem;
+  }
+
+  .cog--mq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

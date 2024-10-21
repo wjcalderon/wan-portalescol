@@ -1,0 +1,138 @@
+#footer__contact {
+  align-items: flex-start;
+  background-color: var(--gray-10);
+  flex-basis: 20%;
+  flex-direction: column;
+  padding: 2.5rem 2.8rem 7rem;
+
+  &::before {
+    background: var(--hdi-light-blue);
+    content: " ";
+    display: block;
+    height: .625rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+  }
+
+  #block-hdi-portal-socialmedialinks {
+    align-items: center;
+    display: flex;
+
+    h2 {
+      color: var(--hdi-green);
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    ul {
+      li {
+        a {
+          display: block;
+          height: 2.5rem;
+          position: relative;
+          width: 2.5rem;
+
+          &::before {
+            content: "";
+            height: 2.5rem;
+            position: absolute;
+            width: 2.5rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+          }
+
+          &:is(.facebook)::before {
+            background-image: url(../../images/Icon-Social-Facebook-Blue.svg);
+          }
+
+          &:is(.linkedin)::before {
+            background-image: url(../../images/Icon-Social-Linkedin-Blue.svg);
+          }
+        }
+      }
+    }
+  }
+
+  #block-hdi-portal-lineasdeasistenciafooter {
+    font-family: var(--hdi-font);
+
+    h2 {
+      font-size: 1rem;
+      margin-bottom: .5rem;
+    }
+
+    .mobile-number {
+      display: flex;
+      padding-left: 2rem;
+      position: relative;
+
+      &::before {
+        background-image: url(../../images/short-number.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        content: "";
+        height: 1.5rem;
+        left: 0;
+        position: absolute;
+        width: .875rem;
+      }
+
+      strong {
+        color: var(--hdi-gray);
+        font-size: 1.5rem;
+        font-weight: bolder;
+        margin-right: .5rem;
+      }
+
+      span {
+        font-size: .85rem;
+      }
+    }
+
+    & > ul {
+      margin: 2rem 0 2rem 2rem;
+
+      li {
+        font-size: .85rem;
+
+        ul {
+          li {
+            color: var(--hdi-gray);
+            font-size: 1rem;
+            font-weight: bolder;
+            position: relative;
+
+            &::before {
+              background-image: url(../../images/phone.svg);
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              content: "";
+              height: 1.5rem;
+              left: -2rem;
+              position: absolute;
+              top: -.25rem;
+              width: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .whatsapp {
+      font-size: .85rem;
+      padding-left: 2rem;
+
+      strong {
+        color: var(--hdi-gray);
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+    }
+  }
+}
