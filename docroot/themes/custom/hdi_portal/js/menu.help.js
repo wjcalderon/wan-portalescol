@@ -1,11 +1,11 @@
 (function ($, Drupal, window, document) {
   "use strict";
 
-  $("#block-buscasayuda").on("click", "#show-menu-help", function (e) {
+  $("#block-hdi-portal-buscasayuda").on("click", "#show-menu-help", function (e) {
     e.preventDefault();
 
     let boton = $(this),
-      menu = boton.parent("#block-buscasayuda").find("ul.menu"),
+      menu = boton.parent("#block-hdi-portal-buscasayuda").find("ul.menu"),
       body = $("body");
     // console.log(boton.hasClass('active'));
     if (boton.hasClass("active")) {
@@ -74,9 +74,9 @@
         $(".component__drupal-block").addClass("thankyou");
       }
 
-      $("#block-buscasayuda ul.menu").on("click", "li.close", function () {
-        $("#block-buscasayuda ul.menu").addClass("is-hidden");
-        $("#block-buscasayuda #show-menu-help").removeClass("active");
+      $("#block-hdi-portal-buscasayuda ul.menu").on("click", "li.close", function () {
+        $("#block-hdi-portal-buscasayuda ul.menu").addClass("is-hidden");
+        $("#block-hdi-portal-buscasayuda #show-menu-help").removeClass("active");
       });
 
       // Close modal on click outside modal content
@@ -88,11 +88,11 @@
       });
 
       // help menu
-      $("#block-buscasayuda ul.menu li a")
+      $("#block-hdi-portal-buscasayuda ul.menu li a")
         .not(".chat, .nopopup")
         .on("click", function (e) {
           e.preventDefault();
-          $("#block-buscasayuda ul.menu").addClass("is-hidden");
+          $("#block-hdi-portal-buscasayuda ul.menu").addClass("is-hidden");
           let id = $(this).attr("href"),
             menu_help = $("#blocks-necesecitas-ayuda"),
             block_help = menu_help.find(id),

@@ -1,0 +1,28 @@
+.component {
+  &__banner {
+    &.cp-banner-bottom {
+      position: relative;
+
+      .banner--container {
+        position: absolute;
+        right: 11rem;
+        top: 8rem;
+        width: 30rem;
+
+        .cp-banner__heading {
+          background-color: white;
+          padding: 3rem;
+          text-align: center;
+
+          h2 {
+            p {
+              font-size: 2.5rem;
+              font-weight: lighter;
+              line-height: 1.3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

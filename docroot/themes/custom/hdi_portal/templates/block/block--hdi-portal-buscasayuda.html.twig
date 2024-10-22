@@ -33,11 +33,11 @@
  */
 #}
 {% set classes = [
-'block',
-'block-menu',
-'navigation',
-'block-system-menublock',
-'menu--' ~ derivative_plugin_id|clean_class,
+  'block',
+  'block-menu',
+  'navigation',
+  'block-system-menublock',
+  'menu--' ~ derivative_plugin_id|clean_class,
 ] %}
 
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
@@ -47,7 +47,7 @@
   {# Once a patch for https://www.drupal.org/project/drupal/issues/2614950 gets added to core, we can readdress this #}
   {% if configuration.label_display %}
     {{ title_prefix }}
-      <span class="button" id="show-menu-help">{{ configuration.label }}</span>
+      <span class="button button--alpha" id="show-menu-help">{{ configuration.label }}</span>
     {{ title_suffix }}
   {% endif %}
 

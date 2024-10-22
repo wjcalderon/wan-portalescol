@@ -9,6 +9,7 @@ global_styles:
   css:
     theme:
       assets/css/styles.css: {}
+      assets/css/components_styles.css: {}
 
 global_javascript:
   version: VERSION

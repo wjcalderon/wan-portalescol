@@ -1,10 +1,11 @@
 .button {
   cursor: pointer;
   display: inline-block;
-  font-family: "HDI Pro", "Open Sans", sans-serif;;
+  font-family: "HDI Pro", "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: bold;
   padding: .625rem 2.875rem;
+  white-space: nowrap;
 
   a {
     font-size: 1rem;
@@ -85,6 +86,27 @@
 
     &:hover {
       background-color: var(--hdi-universal-green);
+    }
+
+    &:active, &.active {
+      background-color: var(--hdi-blue) !important;
+      border-color: var(--hdi-blue) !important;
+      color: var(--white) !important;
+
+      a {
+        color: var(--white) !important;
+      }
+    }
+
+    &:disabled, &.disabled {
+      background-color: var(--gray-40) !important;
+      border-color: var(--gray-40) !important;
+      color: var(--gray-70) !important;
+      cursor: default;
+
+      a {
+        color: var(--gray-70) !important;
+      }
     }
   }
 

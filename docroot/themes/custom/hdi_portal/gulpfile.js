@@ -12,6 +12,7 @@ const clean = (cb) => {
 
 const compileScss = (cb) => {
   return gulp.src('scss/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write())
@@ -20,7 +21,9 @@ const compileScss = (cb) => {
 
 const javascript = (cb) => {
   return gulp.src('js/*.js')
+    .pipe(sourcemaps.init())
     .pipe(terser())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/js'))
 }
 
