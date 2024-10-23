@@ -1,0 +1,37 @@
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  background-color: var(--white);
+  border-radius: 3px;
+  border: 1px solid var(--hdi-gray-50);
+  display: inline-block;
+  color: var(--dark-blue-70);
+  padding: 1rem .68rem;
+  position: relative;
+
+  &:hover {
+    border-color: var(--hdi-green-70);
+  }
+
+  &:active, &:focus {
+    border-color: var(--hdi-green-70);
+    border-width: 2px;
+  }
+
+  &:disabled, &.disabled {
+    background-color: var(--hdi-gray-30);
+    border-color: var(--hdi-gray-50);
+  }
+}
+
+select {
+  padding-right: 2rem;
+  background-image: url(../../images/select-down.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  background-size: 1rem;
+}

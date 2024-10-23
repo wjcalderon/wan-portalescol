@@ -1,6 +1,13 @@
 &--cifras {
+  .component__heading {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
   .component__content {
     .cog--flex {
+      align-items: stretch;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       justify-items: center;
@@ -26,6 +33,22 @@
           margin: 2rem 0;
         }
       }
+    }
+  }
+
+  .component__footer {
+    margin: 1.5rem 0 2.5rem;
+    text-align: center;
+
+    a {
+      background-image: url(../../images/arrow-down.svg);
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: 0.87rem;
+      color: var(--hdi-green);
+      display: inline-block;
+      font-size: 1rem;
+      padding-right: 1.5rem;
     }
   }
 }

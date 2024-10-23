@@ -1,4 +1,5 @@
 .button {
+  border: 1px solid;
   cursor: pointer;
   display: inline-block;
   font-family: "HDI Pro", "Open Sans", sans-serif;
@@ -12,7 +13,7 @@
   }
 
   &--large {
-    padding: .6875rem 2.875rem !important;
+    padding: 1rem 2.875rem;
     a {
       color: var(--white) !important;
     }
@@ -36,6 +37,7 @@
 
   &, &--primary {
     background-color: var(--hdi-universal-green);
+    border-color: var(--hdi-universal-green);
     color: var(--white);
 
     a {
@@ -44,6 +46,7 @@
 
     &:hover {
       background-color: var(--hdi-green);
+      border-color: var(--hdi-green);
       color: var(--white);
 
       a {
@@ -53,6 +56,7 @@
 
     &:active {
       background-color: var(--hdi-blue);
+      border-color: var(--hdi-blue);
       color: var(--white);
 
       a {
@@ -62,6 +66,7 @@
 
     &:disabled, &.disabled {
       background-color: var(--gray-40);
+      border-color: var(--gray-40);
       color: var(--gray-70);
       cursor: default;
 
@@ -73,11 +78,13 @@
 
   &--inverse {
     background-color: var(--white);
+    border-color: var(--white);
     color: var(--hdi-green);
   }
 
   &--alpha {
     background-color: var(--hdi-green-70);
+    border-color: var(--hdi-green-70);
     color: var(--white);
 
     a {
@@ -86,6 +93,7 @@
 
     &:hover {
       background-color: var(--hdi-universal-green);
+      border-color: var(--hdi-universal-green);
     }
 
     &:active, &.active {
