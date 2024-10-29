@@ -122,5 +122,37 @@
         }
       }
     }
+
+    #buscador {
+      form {
+        label, .form-actions {
+          display: none;
+        }
+      }
+
+      &:not(.buscador__input--activo) {
+        input[type="text"] {
+          background-position: center;
+          border-color: var(--hdi-universal-green);
+          border-radius: 100%;
+          cursor: pointer;
+          height: 2rem;
+          padding: unset;
+          width: 2.1rem;
+        }
+      }
+
+      input[type="text"] {
+        background-image: url(../../images/search.svg);
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        background-position: .7rem center;
+        padding: .7rem .7rem .7rem 2rem;
+
+        &.form__input--activo {
+          width: 15rem;
+        }
+      }
+    }
   }
 }

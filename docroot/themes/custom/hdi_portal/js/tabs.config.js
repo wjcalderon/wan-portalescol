@@ -1,7 +1,6 @@
 (function ($, Drupal, window, document) {
   "use strict";
 
-  // Example of Drupal behavior loaded.
   Drupal.behaviors.tabsJS = {
     attach: function (context, settings) {
       $(".cp-tabs").not(".is-shorcut, .popup-no-tabs").tabs();
@@ -13,7 +12,6 @@
             steps = row.find(".sub-tab__content ol li"),
             num_steps = steps.length,
             visible_steps = steps.slice(0, 3);
-          //row.children('.view-more').hide();
           if (num_steps > 3) {
             steps.each(function () {
               $(this).hide();
@@ -71,7 +69,6 @@
 
       $(".cp-tabs ul li a").on("click", function (e) {
         if (!($(this).hasClass('popup-no-tabs'))) {
-          console.log("hola andres");
           let el = $(this),
             id_body_tab = el.attr("href"),
             body_tab = el.parents(".cp-tabs").children(id_body_tab),

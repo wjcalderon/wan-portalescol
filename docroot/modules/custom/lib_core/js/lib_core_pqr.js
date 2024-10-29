@@ -1,5 +1,8 @@
 (function ($) {
   $(document).ready(function () {
+
+    console.log('form pqr')
+
     $("#00NG000000998UR").attr("disabled", "disabled");
     $("#00NG000000998UR").attr("minlength", "5");
 

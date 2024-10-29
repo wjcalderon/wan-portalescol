@@ -1,4 +1,12 @@
 .component__cards {
+  .component__heading {
+    .cog--mq {
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
   .component__content {
     .cog--flex {
       .component__card {
@@ -37,4 +45,6 @@
   @import './cards/two_colums.scss';
   @import './cards/cifras.scss';
   @import './cards/image_cta.scss';
+  @import './cards/valores.scss';
+  @import './cards/certificaciones.scss';
 }

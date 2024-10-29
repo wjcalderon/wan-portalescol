@@ -504,7 +504,7 @@ function liberty_public_preprocess_views_view(&$variables)
   }
 }
 
-function _getYoutubeEmbedUrl($url) {
+function _getYoutubeEmbedUrlLiberty($url) {
   $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
   $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
 
@@ -519,7 +519,7 @@ function _getYoutubeEmbedUrl($url) {
   return 'https://www.youtube.com/embed/' . $youtube_id;
 }
 
-function _getYoutubeThumbnailUrl($url) {
+function _getYoutubeThumbnailUrlLiberty($url) {
   $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
   $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
 

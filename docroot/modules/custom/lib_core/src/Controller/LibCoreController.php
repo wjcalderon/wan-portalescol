@@ -14,11 +14,25 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class LibCoreController extends ControllerBase {
 
   /**
+   * Extension patj resolver.
+   *
+   * @var \Drupal\Core\Extension\ExtensionPathResolver
+   */
+  protected $pathResolver;
+
+  /**
+   * Constructor.
+   */
+  public function __construct() {
+    $this->pathResolver = \Drupal::service('extension.path.resolver');
+  }
+
+  /**
    * Sinisters Cities Select.
    */
   public function sinistersCitiesSelect() {
     $opts = [];
-    $path_lib_core_module = drupal_get_path('module', 'lib_core');
+    $path_lib_core_module = $this->pathResolver->getPath('module', 'lib_core');
     $cities_decode = Yaml::decode(file_get_contents($path_lib_core_module . '/data/ciudades-liberty.yaml'));
     if (!empty($cities_decode)) {
       foreach ($cities_decode as $key => $value) {
@@ -33,7 +47,7 @@ class LibCoreController extends ControllerBase {
    */
   public function sinistersVehiclesBrandsSelect() {
     $opts = [];
-    $path_lib_core_module = drupal_get_path('module', 'lib_core');
+    $path_lib_core_module = $this->pathResolver->getPath('module', 'lib_core');
     $brand_vehicles = Yaml::decode(file_get_contents($path_lib_core_module . '/data/marca_vehiculos_liberty.yaml'));
     if (!empty($brand_vehicles)) {
       foreach ($brand_vehicles as $value) {

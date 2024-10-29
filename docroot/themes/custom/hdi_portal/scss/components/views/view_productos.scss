@@ -1,0 +1,138 @@
+.component__view--productos {
+  .component__heading {
+    text-align: center;
+
+    h2 {
+      color: var(--gray);
+      font-size: 1.375rem;
+    }
+  }
+
+  .component__content {
+    margin: 2rem 0;
+
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          .slick__slide {
+            &.slide {
+              border: 3px solid var(--hdi-gray-30);
+              display: flex !important;
+              flex-direction: column;
+              justify-content: flex-start;
+              margin-bottom: 1rem;
+              margin-right: 1rem;
+              min-height: 25rem;
+              padding: 1.6875rem;
+              padding-bottom: 5rem;
+              position: relative;
+              text-align: center;
+
+              .field-icon {
+                margin-bottom: 1.5rem;
+
+                img {
+                  width: 2.625rem;
+                }
+              }
+
+              h2 {
+                margin-bottom: 1.5rem;
+
+                a {
+                  color: var(--hdi-universal-green);
+                  font-size: 1.5rem;
+                }
+              }
+
+              p {
+                margin: 1rem 0;
+              }
+
+              a.button {
+                bottom: 1.5rem;
+                position: absolute;
+              }
+            }
+
+            &:hover {
+              border-color: var(--hdi-universal-green);
+
+              h2 {
+                a {
+                  color: var(--hdi-green);
+                }
+              }
+            }
+          }
+
+          div:not(.slick__slide) {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  &.interesado-home {
+    .component__content {
+      header {
+        background-color: var(--hdi-yellow);
+        box-shadow: unset;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        h4 {
+          font-size: 2rem;
+          color: var(--hdi-universal-green);
+          font-family: var(--hdi-font);
+          font-weight: 500;
+        }
+      }
+
+      .slick-list {
+        .slick-track {
+          .slick-slide {
+            .slick__slide {
+              &.slide {
+                border: none;
+                min-height: 28rem;
+                padding: 1rem;
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        align-items: center;
+        background-image: url(../../images/bg-seguros.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 300px;
+        display: flex;
+        height: 225px;
+        justify-content: flex-end;
+        margin-bottom: -3rem;
+        position: relative;
+        text-align: center;
+
+        p {
+          &:first-of-type {
+            color: var(--hdi-green);
+            flex-basis: 90%;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-left: 20rem;
+            margin-right: 10rem;
+          }
+
+          &:last-of-type {
+            flex-basis: 10%;
+          }
+        }
+      }
+    }
+  }
+}

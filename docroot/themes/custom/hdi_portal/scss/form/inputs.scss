@@ -10,8 +10,9 @@ textarea {
   border: 1px solid var(--hdi-gray-50);
   display: inline-block;
   color: var(--dark-blue-70);
-  padding: 1rem .68rem;
+  padding: 1.5rem .7rem .5rem;
   position: relative;
+  width: 100%;
 
   &:hover {
     border-color: var(--hdi-green-70);
@@ -20,18 +21,30 @@ textarea {
   &:active, &:focus {
     border-color: var(--hdi-green-70);
     border-width: 2px;
+    outline: none;
   }
 
   &:disabled, &.disabled {
     background-color: var(--hdi-gray-30);
     border-color: var(--hdi-gray-50);
   }
+
+  &.error {
+    background-color: var(--hdi-red-10);
+    border-color: var(--hdi-red-90);
+  }
 }
 
 select {
+  color: transparent;
   padding-right: 2rem;
   background-image: url(../../images/select-down.svg);
   background-repeat: no-repeat;
   background-position: 95% center;
   background-size: 1rem;
+
+  &.select-cta {
+    color: var(--dark-blue-70);
+    padding: 1rem;
+  }
 }

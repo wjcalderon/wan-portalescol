@@ -13,6 +13,12 @@ body {
       }
     }
 
+    h3 {
+      &.component__subtitle {
+        text-align: center;
+      }
+    }
+
     .component__content {
       ul {
         li {
@@ -40,6 +46,12 @@ body {
     }
 
     .component__single-text {
+      .component__heading {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+
       .component__content {
         p {
           margin-bottom: 1rem;

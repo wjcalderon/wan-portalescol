@@ -48,23 +48,21 @@
       });
 
       // Search box
-      $('#nav__secundario')
-        .on('click', '#buscador', function () {
-          $('#nav__secundario').addClass('is-hidden')
-          $(this).addClass('buscador__input--activo')
+      const navSecundario = $('#nav__secundario')
+      const buscadorGlobal = $('#buscador')
+      const buscardorText = buscadorGlobal.find('.form-autocomplete.form-text')
+
+      navSecundario
+        .on('click', buscadorGlobal, () => {
+          $('#block-hdi-portal-transversales').addClass('is-hidden')
+          buscadorGlobal.addClass('buscador__input--activo')
         })
-        .on("blur, focusout", "#edit-keywords", function () {
-          if ($(this).val() === undefined || $(this).val() === '') {
-            $(this).removeClass('buscador__input--activo')
-            $('#nav__secundario')
-              .show(205)
-              .removeClass('is-hidden')
+        .on('blur, focusout', buscardorText, () => {
+          if (buscardorText.val() === undefined || buscardorText.val() === '') {
+            $('#block-hdi-portal-transversales').removeClass('is-hidden')
+            buscadorGlobal.removeClass('buscador__input--activo')
           }
         })
-
-      $("#buscador__close").click(function () {
-        $("#navegacion").removeClass("is-visible");
-      });
 
       let urlParam = function (name) {
         let results = new RegExp("[?&]" + name + "=([^&#]*)").exec(

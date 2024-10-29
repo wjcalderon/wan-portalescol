@@ -1,0 +1,43 @@
+&--responsabilidad {
+  .single_text_class {
+    p:not(.quote) {
+      font-weight: lighter;
+      margin: 1rem 0 2rem;
+    }
+
+    h3 {
+      color: var(--hdi-green);
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    div {
+      .tarjeta {
+        align-items: center;
+        display: flex;
+        margin-top: 1.5rem ;
+
+        .image {
+          flex-basis: 30%;
+        }
+
+        .content {
+          flex-basis: 70%;
+
+          h4 {
+            font-weight: bolder;
+          }
+
+          p {
+            font-weight: normal;
+
+            a {
+              color: var(--hdi-light-blue);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

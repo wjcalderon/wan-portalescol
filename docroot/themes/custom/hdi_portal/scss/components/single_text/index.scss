@@ -1,0 +1,32 @@
+.component__single-text {
+  margin-bottom: 1.5rem;
+
+  .component__heading {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .component__content {
+    .single_text_class {
+      h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        &.quote {
+          font-size: 1.5rem;
+          font-weight: 300;
+          margin: 1.5rem auto;
+          text-align: center;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  @import './single_text_cotiza.scss';
+  @import './single_text_interesado.scss';
+  @import './single_text_responsabilidad.scss';
+}

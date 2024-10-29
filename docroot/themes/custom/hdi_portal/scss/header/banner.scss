@@ -13,6 +13,35 @@ body {
     }
   }
 
+  .component__slider {
+    .slick-prev, .slick-next {
+      background-size: 51px;
+      height: 51px;
+      width: 51px;
+    }
+
+    .slick-prev {
+      left: 6rem;
+
+      &::before {
+        background: transparent url(../../images/arrow-left-white.svg) no-repeat center center;
+      }
+    }
+
+    .slick-next {
+      right: 6rem;
+
+      &::before {
+        background: transparent url(../../images/arrow-right-white.svg) no-repeat center center;
+      }
+    }
+
+    .slick-dots {
+      bottom: 2rem;
+      position: absolute;
+    }
+  }
+
   .cp-banner, .cp-banner-promo {
     position: relative;
     z-index: 1;
