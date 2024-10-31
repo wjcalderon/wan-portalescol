@@ -46,3 +46,19 @@
     width: 100%;
   }
 }
+
+.is-mobile {
+  display: block;
+
+  @media (min-width: 900px) {
+    display: none !important;
+  }
+}
+
+.is-desktop {
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+  }
+}

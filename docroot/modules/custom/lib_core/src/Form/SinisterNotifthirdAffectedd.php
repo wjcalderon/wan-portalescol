@@ -46,9 +46,11 @@ class SinisterNotifthirdAffectedd extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = \Drupal::config('lib_core.environmentvars.settings');
-    // Fields SF id's.
-    $orgid = $config->get('ENDPOINT_ORGID') ?? '';
+    $orgid = '00D7f000000AOj5';
+    if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+      $orgid = '00DA0000000AD5W';
+    }
+
     $sinister = '00N4A00000FkiLK';
     $sinister_date = '00N4A00000FkjTs';
     $report_type = '00N4A00000FkWpu';
@@ -57,13 +59,6 @@ class SinisterNotifthirdAffectedd extends FormBase {
     $vehicle_model = '00N4A00000FkWpp';
     $repair_city = '00NG000000FWynf';
     $license_plate = '00NG000000998UR';
-    $driver_id = '00N4A00000FgLGC';
-    $driver_id_num = '00N4A00000FkWqE';
-    $driver_name = '00N4A00000FkWq9';
-    $driver_cellphone = '00N4A00000FkWqO';
-    $driver_phone = '00N4A00000FkWqJ';
-    $driver_email = '00N4A00000FkWqT';
-    $driver_address = '00N4A00000FkWqY';
     $insured_id = '00NG000000FWyoW';
     $insured_id_num = '00NG000000FWyoI';
     $insured_name = '00NG000000998UJ';
@@ -104,10 +99,6 @@ class SinisterNotifthirdAffectedd extends FormBase {
     $third_brand = '00N4A00000FgLG9';
     $third_license_plate = '00N4A00000FgLGB';
 
-    if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
-      $orgid = '00DA0000000AD5W';
-    }
-
     $form['#attached']['library'][] = 'lib_core/sinister_notice';
     $form['#attributes']['cdtype-form'] = 'third-affect';
     $form['#attributes']['class'] = ['form-ctn-notif-sinister'];
@@ -119,7 +110,6 @@ class SinisterNotifthirdAffectedd extends FormBase {
     ];
 
     if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
-      // Test.
       $form['debug'] = [
         '#type' => 'hidden',
         '#value' => 1,
@@ -128,11 +118,9 @@ class SinisterNotifthirdAffectedd extends FormBase {
 
       $form['debugEmail'] = [
         '#type' => 'hidden',
-            // '#value' => 'lmacea@avanxo.com',
-        '#value' => 'gloria.parra01@liberty.cl',
+        '#value' => 'jonathan.esquivel@hdiseguros.com.co',
         '#name' => 'debugEmail',
       ];
-      // ------- Fin test ----------
     }
 
     // Hidden fields.
@@ -312,19 +300,23 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#name' => $third_doc_type,
       '#required' => TRUE,
       '#options' => [
-        'Cédula de ciudadanía' => 'Cédula de ciudadanía',
-        'Cédula de Extranjería' => 'Cédula de Extranjería',
-        'Número único Identificación Personal' =>
-        'Número único Identificación Personal',
-        'BIC' => 'BIC',
-        'Carnet Diplomático' => 'Carnet Diplomático',
-        'Identificador simulaciones' => 'Identificador simulaciones',
-        'NIT' => 'NIT',
-        'NUIP' => 'NUIP',
-        'Pasaporte' => 'Pasaporte',
-        'Registro Civil' => 'Registro Civil',
-        'Tarjeta de Identidad' => 'Tarjeta de Identidad',
-        'No Válido' => 'No Válido',
+        'DOPUA' => 'DOPUA',
+        'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.' => 'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.',
+        'Hurto de cualquier parte o accesorio de su vehículo.' => 'Hurto de cualquier parte o accesorio de su vehículo.',
+        'Hurto de su vehículo.' => 'Hurto de su vehículo.',
+        'Pequeños accesorios.' => 'Pequeños accesorios.',
+        'Perdida de llaves.' => 'Perdida de llaves.',
+        'Llantas estalladas.' => 'Llantas estalladas.',
+        'Pérdida Parcial Por Accidente' => 'Pérdida Parcial Por Accidente',
+        'Pérdida Parcial Por Robo' => 'Pérdida Parcial Por Robo',
+        'Pérdida Total Por Accidente' => 'Pérdida Total Por Accidente',
+        'Pérdida Total Por Robo' => 'Pérdida Total Por Robo',
+        'Responsabilidad Civil' => 'Responsabilidad Civil',
+        'Responsabilidad Civil - Daños Materiales' => 'Responsabilidad Civil - Daños Materiales',
+        'Responsabilidad Civil - Lesiones' => 'Responsabilidad Civil - Lesiones',
+        'Servicio de Grúa' => 'Servicio de Grúa',
+        'Responsabilidad civil daños materiales' => 'Responsabilidad civil daños materiales',
+        'Responsabilidad civil lesiones' => 'Responsabilidad civil lesiones',
       ],
       '#attributes' => [
         'id' => $third_doc_type,
@@ -495,19 +487,23 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#title' => 'Tipo de identificación',
       '#name' => $insured_id,
       '#options' => [
-        'Cédula de ciudadanía' => 'Cédula de ciudadanía',
-        'Cédula de Extranjería' => 'Cédula de Extranjería',
-        'Número único Identificación Personal' =>
-        'Número único Identificación Personal',
-        'BIC' => 'BIC',
-        'Carnet Diplomático' => 'Carnet Diplomático',
-        'Identificador simulaciones' => 'Identificador simulaciones',
-        'NIT' => 'NIT',
-        'NUIP' => 'NUIP',
-        'Pasaporte' => 'Pasaporte',
-        'Registro Civil' => 'Registro Civil',
-        'Tarjeta de Identidad' => 'Tarjeta de Identidad',
-        'No Válido' => 'No Válido',
+        'DOPUA' => 'DOPUA',
+        'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.' => 'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.',
+        'Hurto de cualquier parte o accesorio de su vehículo.' => 'Hurto de cualquier parte o accesorio de su vehículo.',
+        'Hurto de su vehículo.' => 'Hurto de su vehículo.',
+        'Pequeños accesorios.' => 'Pequeños accesorios.',
+        'Perdida de llaves.' => 'Perdida de llaves.',
+        'Llantas estalladas.' => 'Llantas estalladas.',
+        'Pérdida Parcial Por Accidente' => 'Pérdida Parcial Por Accidente',
+        'Pérdida Parcial Por Robo' => 'Pérdida Parcial Por Robo',
+        'Pérdida Total Por Accidente' => 'Pérdida Total Por Accidente',
+        'Pérdida Total Por Robo' => 'Pérdida Total Por Robo',
+        'Responsabilidad Civil' => 'Responsabilidad Civil',
+        'Responsabilidad Civil - Daños Materiales' => 'Responsabilidad Civil - Daños Materiales',
+        'Responsabilidad Civil - Lesiones' => 'Responsabilidad Civil - Lesiones',
+        'Servicio de Grúa' => 'Servicio de Grúa',
+        'Responsabilidad civil daños materiales' => 'Responsabilidad civil daños materiales',
+        'Responsabilidad civil lesiones' => 'Responsabilidad civil lesiones',
       ],
       '#attributes' => [
         'id' => $insured_id,
@@ -612,19 +608,23 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#required' => TRUE,
       '#name' => $declarant_id,
       '#options' => [
-        'Cédula de ciudadanía' => 'Cédula de ciudadanía',
-        'Cédula de Extranjería' => 'Cédula de Extranjería',
-        'Número único Identificación Personal' =>
-        'Número único Identificación Personal',
-        'BIC' => 'BIC',
-        'Carnet Diplomático' => 'Carnet Diplomático',
-        'Identificador simulaciones' => 'Identificador simulaciones',
-        'NIT' => 'NIT',
-        'NUIP' => 'NUIP',
-        'Pasaporte' => 'Pasaporte',
-        'Registro Civil' => 'Registro Civil',
-        'Tarjeta de Identidad' => 'Tarjeta de Identidad',
-        'No Válido' => 'No Válido',
+        'DOPUA' => 'DOPUA',
+        'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.' => 'Daños en el vehículo a causa de un accidente o evento súbito e imprevisto.',
+        'Hurto de cualquier parte o accesorio de su vehículo.' => 'Hurto de cualquier parte o accesorio de su vehículo.',
+        'Hurto de su vehículo.' => 'Hurto de su vehículo.',
+        'Pequeños accesorios.' => 'Pequeños accesorios.',
+        'Perdida de llaves.' => 'Perdida de llaves.',
+        'Llantas estalladas.' => 'Llantas estalladas.',
+        'Pérdida Parcial Por Accidente' => 'Pérdida Parcial Por Accidente',
+        'Pérdida Parcial Por Robo' => 'Pérdida Parcial Por Robo',
+        'Pérdida Total Por Accidente' => 'Pérdida Total Por Accidente',
+        'Pérdida Total Por Robo' => 'Pérdida Total Por Robo',
+        'Responsabilidad Civil' => 'Responsabilidad Civil',
+        'Responsabilidad Civil - Daños Materiales' => 'Responsabilidad Civil - Daños Materiales',
+        'Responsabilidad Civil - Lesiones' => 'Responsabilidad Civil - Lesiones',
+        'Servicio de Grúa' => 'Servicio de Grúa',
+        'Responsabilidad civil daños materiales' => 'Responsabilidad civil daños materiales',
+        'Responsabilidad civil lesiones' => 'Responsabilidad civil lesiones',
       ],
       '#attributes' => [
         'id' => $declarant_id,

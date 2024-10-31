@@ -29,7 +29,7 @@ class PqrNotifThankyou extends BlockBase {
       $html = '<div class="ctn-confirm-msg ctn-confirm-msg-pqr">
         <h2>Gracias !!</h2>
         <p>Tu solicitud será revisada por nuestra área encargada y pronto te daremos respuesta por medio de correo electrónico</p>
-        <img alt="Confirmation" height="120" src="/themes/custom/liberty_public/images/icons/confirmation_form.svg" width="120" />
+        <img alt="Confirmation" height="120" src="/themes/custom/hdi_portal/images/confirmation_form.svg" width="120" />
         </div>';
 
       return [

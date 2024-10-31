@@ -95,7 +95,7 @@ trait ErrorEmails {
         Número Celular: {$data['asegurado']['celular']}
         Correo: {$data['asegurado']['email']}
         Fecha siniestro: {$data['caso']['fechaSiniestro']}
-        Enviado desde el portal Liberty Seguros Colombia";
+        Enviado desde el portal HDI Seguros Colombia";
 
     $params = [
       'subject2' => $subject,

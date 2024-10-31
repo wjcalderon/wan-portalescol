@@ -22,11 +22,11 @@
  *   classes:
  *   - paragraphs: The current template type (also known as a "theming hook").
  *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
- *     "Image" it would result in "paragraphs--type--image". Note that the machine
- *     name will often be in a short form of the human readable label.
+ *   "Image" it would result in "paragraphs--type--image". Note that the machine
+ *   name will often be in a short form of the human readable label.
  *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
- *     preview would result in: "paragraphs--view-mode--preview", and
- *     default: "paragraphs--view-mode--default".
+ *   preview would result in: "paragraphs--view-mode--preview", and
+ *   default: "paragraphs--view-mode--default".
  * - view_mode: View mode; for example, "preview" or "full".
  * - logged_in: Flag for authenticated user status. Will be true when the
  *   current user is a logged-in member.
@@ -39,10 +39,10 @@
  */
 #}
 {%
-    set classes = [
-    'component',
-    'component__card',
-    'component__' ~ paragraph.bundle|clean_class,
+  set classes = [
+  'component',
+  'component__card',
+  'component__' ~ paragraph.bundle|clean_class,
 ]
 %}
 
@@ -56,20 +56,20 @@
 {% set paragraph_id = 'component-' ~ paragraph.id.value %}
 
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
-    {% if paragraph_title %}
-        <div class="component__heading">
-            {% if paragraph_title is not empty %}
-                <h2 class="component__title">{{- paragraph_title -}}</h2>
-            {% endif %}
-            {% if paragraph_lead is not empty %}
-                <p class="lead"> {{- paragraph_lead -}} </p>
-            {% endif %}
-        </div>
-    {% endif %}
-    <div class="component__content">
-        <div class="{{ class_container }}">
-            {{ content|without('field_c_title', 'field_lead') }}
-        </div>
+  {% if paragraph_title %}
+    <div class="component__heading">
+      {% if paragraph_title is not empty %}
+        <h2 class="component__title">{{- paragraph_title -}}</h2>
+      {% endif %}
+      {% if paragraph_lead is not empty %}
+        <p class="lead"> {{- paragraph_lead -}} </p>
+      {% endif %}
     </div>
+  {% endif %}
+  <div class="component__content">
+    <div class="{{ class_container }}">
+      {{ content|without('field_c_title', 'field_lead') }}
+    </div>
+  </div>
 </div>
 

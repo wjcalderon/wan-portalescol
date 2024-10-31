@@ -81,7 +81,7 @@ class MedicalNetworkBlock extends BlockBase implements
             'maps_api' => $config['maps_api'],
                       // 'personal_data_url' => $config['personal_data_url'],
             'personal_data_url' =>
-            'https://libertyseguros.co/terminos-de-uso-y-privacidad',
+            'https://hdiseguros.com.co/terminos-de-uso-y-privacidad',
           ],
         ],
       ],

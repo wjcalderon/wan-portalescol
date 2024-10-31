@@ -72,43 +72,43 @@
 										<div class="sub-tab__content">
 											<ol>
 												{% for step in content['steps'] %}
-													<li>
-														{{ step['value'] }}</li>
+													<li>{{ step['value'] }}</li>
 												{% endfor %}
-												<ol></div>
-												<a href="#" class="sub-tab__content-more view-more">Ver mas</a>
-												<a href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
-											</div>
-										{% endfor %}
-									</div>
-								{% endfor %}
-								<div class="block__contact-call">
-									<a href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
-								</div>
-								<div class="block__contact">
-									<div class="sticky">
-										<div class="block__heading">
-											<div class="card__img--oval">
-												<img alt="" src="{{ base_url ~ directory }}/images/icons/call-outline-n.svg">
-											</div>
-											<p>
-												Obtén asistencia, llama a nuestras
-											</p>
-											<h3>líneas de atención</h3>
-										</div>
-										<div class="block__content">
-											{% for item_contact in block_contact %}
-												<label>{{- item_contact['label'] -}}
-												</label>
-												<p>{{ item_contact['value'] }}
-												</p>
-											{% endfor %}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
+                      <ol>
+                    </div>
+                    <a href="#" class="sub-tab__content-more view-more">Ver mas</a>
+                    <a href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            <div class="block__contact-call">
+              <a href="tel:#224" class="sub-tab__content-call button button--primary">Llamar</a>
+            </div>
+            <div class="block__contact">
+              <div class="sticky">
+                <div class="block__heading">
+                  <div class="card__img--oval">
+                    <img alt="" src="{{ base_url ~ directory }}/images/icons/call-outline-n.svg">
+                  </div>
+                  <p>
+                    Obtén asistencia, llama a nuestras
+                  </p>
+                  <h3>líneas de atención</h3>
+                </div>
+                <div class="block__content">
+                  {% for item_contact in block_contact %}
+                    <label>{{- item_contact['label'] -}}
+                    </label>
+                    <p>{{ item_contact['value'] }}
+                    </p>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

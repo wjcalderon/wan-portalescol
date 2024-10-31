@@ -22,34 +22,9 @@ class PqrForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = \Drupal::config('lib_core.environmentvars.settings');
-
-    $orgid = '00D0t0000008cUH';
-    $pqr = '00N0t000000fmGY';
-    $case_number = '00N0t000000f5zQ';
-    $names = '00N0t000000f5xA';
-    $product = '00n4a00000fkil2';
-
+    $orgid = '00D7f000000AOj5';
     if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
-      // Prod <input type=hidden name="orgid" value="00DA0000000AD5W">.
       $orgid = '00DA0000000AD5W';
-      $pqr = $config->get('PQRRegistroWebToCase') ?? '';
-      $case_number = '00n4a00000fkikp';
-      $names = '00n4a00000fkiko';
-      $product = '00N4A00000FkiL2';
-      $lgtbi = '00n05000000y1hp';
-    }
-    else {
-      // Staging <input type=hidden name="orgid" value="00D040000004eAH">.
-      $orgid = $config->get('ENDPOINT_ORGID') ?? '';
-      // $orgid = '00D040000004eAH';
-      $pqr = $config->get('PQRRegistroWebToCase') ?? '';
-      $case_number = '00n4a00000fkikp';
-      $names = '00n4a00000fkiko';
-      $product = '00N4A00000FkiL2';
-      // $lgtbi = '00N04000000j8M3';
-      $lgtbi = '00n05000000y1hp';
-
     }
 
     $form['#attached']['library'][] = 'lib_core/pqr_version_new';
@@ -69,27 +44,6 @@ class PqrForm extends FormBase {
       '#value' => $orgid,
     ];
 
-    // Entidad vigilada.
-    $form['00N04000000j8M2'] = [
-      '#type' => 'hidden',
-      '#name' => '00N04000000j8M2',
-      '#value' => 'Entidad vigilada',
-    ];
-
-    // Entidad vigilada.
-    $form['00N04000000j8Ly'] = [
-      '#type' => 'hidden',
-      '#name' => '00N04000000j8Ly',
-      '#value' => 'Internet',
-    ];
-
-    // Entidad vigilada.
-    $form['00N04000000jZQi'] = [
-      '#type' => 'hidden',
-      '#name' => '00N04000000jZQi',
-      '#value' => 'Pendiente Creación',
-    ];
-
     if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
       $form['debug'] = [
         '#type' => 'hidden',
@@ -99,20 +53,22 @@ class PqrForm extends FormBase {
 
       $form['debugEmail'] = [
         '#type' => 'hidden',
-        '#value' => 'andres.alvarez@esinergia.co',
+        '#value' => 'jonathan.esquivel@hdiseguros.com.co',
         '#name' => 'debugEmail',
       ];
     }
 
-    $form[$pqr] = [
+    // Tipo Registro para WebToCase
+    $form['00N4A00000FkiLK'] = [
       '#type' => 'hidden',
-      '#name' => $pqr,
+      '#name' => '00N4A00000FkiLK',
       '#value' => 'PQR',
       '#attributes' => [
-        'id' => $pqr,
+        'id' => '00N4A00000FkiLK',
       ],
     ];
 
+    // País Web To Case
     $form['00N4A00000G91wx'] = [
       '#type' => 'hidden',
       '#name' => '00N4A00000G91wx',
@@ -122,8 +78,8 @@ class PqrForm extends FormBase {
     global $base_url;
     $current_path = \Drupal::service('path.current')->getPath();
     $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath(
-          $current_path
-      );
+      $current_path
+    );
     $retURL = $base_url . $current_alias . '?resp=1';
     $form['retURL'] = [
       '#type' => 'hidden',
@@ -131,29 +87,32 @@ class PqrForm extends FormBase {
       '#value' => $retURL,
     ];
 
-    $form['00N04000000j8M2'] = [
+    // Instancia de recepción
+    $form['00N4w00000Fv3cH'] = [
       '#type' => 'hidden',
-      '#name' => '00N04000000j8M2',
+      '#name' => '00N4w00000Fv3cH',
       '#value' => 'Entidad vigilada',
     ];
 
-    $form['00N04000000j8Ly'] = [
+    // Canal
+    $form['00N4w00000Fv3cC'] = [
       '#type' => 'hidden',
-      '#name' => '00N04000000j8Ly',
+      '#name' => '00N4w00000Fv3cC',
       '#value' => 'Internet',
     ];
 
-    $form['00N04000000jZQi'] = [
+    // Estatus SFC
+    $form['00N4w00000Fv3c5'] = [
       '#type' => 'hidden',
-      '#name' => '00N04000000jZQi',
+      '#name' => '00N4w00000Fv3c5',
       '#value' => 'Pendiente Creación',
     ];
 
     // Identification type.
-    $form['pais'] = [
+    $form['00N4w00000Fv3cM'] = [
       '#type' => 'select',
       '#title' => 'País del evento',
-      '#name' => 'pais',
+      '#name' => '00N4w00000Fv3cM',
       '#options' => [
         'Andorra' => 'Andorra',
         'Emiratos Árabes Unidos' => 'Emiratos Árabes Unidos',
@@ -399,118 +358,117 @@ class PqrForm extends FormBase {
       '#required' => TRUE,
       '#default_value' => 'Colombia',
       '#attributes' => [
-        'id' => 'pais',
+        'id' => '00N4w00000Fv3cM',
         'class' => ['form__input--activo'],
       ],
     ];
 
-    // Reconsideration.
-    $form['00ng000000fwyn9'] = [
+    // El caso es una reconsideración
+    $form['00NG000000FWyn9'] = [
       '#type' => 'select',
       '#title' => '¿Este caso es una reconsideración?',
-      '#name' => '00ng000000fwyn9',
+      '#name' => '00NG000000FWyn9',
       '#options' => [
         'NO' => 'No',
         'SI' => 'Si',
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00ng000000fwyn9',
+        'id' => '00NG000000FWyn9',
       ],
     ];
 
-    // Case number.
-    $form[$case_number] = [
+    $form['00N4A00000FkiKp'] = [
       '#type' => 'textfield',
       '#title' => 'Número de caso',
-      '#name' => $case_number,
+      '#name' => '00N4A00000FkiKp',
       '#attributes' => [
-        'id' => $case_number,
+        'id' => '00N4A00000FkiKp',
       ],
     ];
 
-    // Names - lastnames.
-    $form[$names] = [
+    $form['00N4A00000FkiKo'] = [
       '#type' => 'textfield',
       '#title' => 'Nombres y Apellidos',
-      '#name' => $names,
+      '#name' => '00N4A00000FkiKo',
       '#required' => TRUE,
       '#attributes' => [
-        'id' => $names,
+        'id' => '00N4A00000FkiKo',
       ],
     ];
 
-    // Identification type.
-    $form['00ng000000fwyow'] = [
+    $form['00NG000000FWyoW'] = [
       '#type' => 'select',
       '#title' => 'Tipo de identificación',
-      '#name' => '00ng000000fwyow',
+      '#name' => '00NG000000FWyoW',
       '#options' => [
         'Cédula de ciudadanía' => 'Cédula de ciudadanía',
         'Cédula de Extranjería' => 'Cédula de Extranjería',
+        'Número único Identificación Personal' => 'Número único Identificación Personal',
+        'BIC' => 'BIC',
+        'Carnet Diplomático' => 'Carnet Diplomático',
+        'Identificador simulaciones' => 'Identificador simulaciones',
         'NIT' => 'NIT',
         'NUIP' => 'NUIP',
         'Pasaporte' => 'Pasaporte',
         'Registro Civil' => 'Registro Civil',
         'Tarjeta de Identidad' => 'Tarjeta de Identidad',
         'No Válido' => 'No Válido',
-        'Carnet Diplomático' => 'Carnet Diplomático',
-        'Permiso de proteccion temporal PPT' => 'Permiso de protección temporal PPT',
+        'RUC' => 'RUC',
+        'Permiso de proteccion temporal PPT' => 'Permiso de proteccion temporal PPT',
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00ng000000fwyow',
+        'id' => '00NG000000FWyoW',
       ],
     ];
 
-    // Identification number.
-    $form['00ng000000fwyoi'] = [
+    $form['00NG000000FWyoI'] = [
       '#type' => 'textfield',
       '#title' => 'Número de identificación',
-      '#name' => '00ng000000fwyoi',
+      '#name' => '00NG000000FWyoI',
       '#required' => TRUE,
       '#maxlength' => 12,
       '#attributes' => [
-        'id' => '00ng000000fwyoi',
+        'id' => '00NG000000FWyoI',
       ],
     ];
 
-    // Mail.
-    $form['mail'] = [
+    $form['00NG000000FWynb'] = [
       '#type' => 'textfield',
       '#title' => 'Correo electrónico',
-      '#name' => 'mail',
+      '#name' => '00NG000000FWynb',
       '#required' => TRUE,
       '#attributes' => [
-        'id' => 'mail',
+        'id' => '00NG000000FWynb',
       ],
     ];
 
-    // City.
+    // PQR_DescripcionCiudad
     $libCoreController = new LibCoreController();
     $opts_cities = $libCoreController->sinistersCitiesSelect();
-    $form['step1']['ins_veh_info']['00ng000000fwynf'] = [
+    $form['00NG000000FWynf'] = [
       '#type' => 'select',
       '#title' => 'Ciudad y departamento de reparación',
       '#options' => $opts_cities,
-      '#name' => '00ng000000fwynf',
+      '#name' => '00NG000000FWynf',
       '#attributes' => [
-        'id' => '00ng000000fwynf',
+        'id' => '00NG000000FWynf',
       ],
     ];
 
-    // Address if.
-    $form['00ng000000fwynx'] = [
+    // Dirección
+    $form['00NG000000FWynx'] = [
       '#type' => 'textfield',
       '#title' => 'Dirección',
-      '#name' => '00ng000000fwynx',
+      '#name' => '00NG000000FWynx',
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00ng000000fwynx',
+        'id' => '00NG000000FWynx',
       ],
     ];
 
-    // Telephone fixed.
+    // Telefono fijo contacto
     $form['00NG000000FWyoU'] = [
       '#type' => 'textfield',
       '#title' => 'Telefono fijo contacto',
@@ -521,7 +479,7 @@ class PqrForm extends FormBase {
       ],
     ];
 
-    // Cellphone.
+    // Celular contacto
     $form['00NG000000FWynB'] = [
       '#type' => 'textfield',
       '#title' => 'Celular contacto',
@@ -533,11 +491,11 @@ class PqrForm extends FormBase {
       ],
     ];
 
-    // Gender.
-    $form['00n05000000xuss'] = [
+    // Género
+    $form['00N4w00000Fv3cP'] = [
       '#type' => 'select',
       '#title' => 'Género',
-      '#name' => '00n05000000xuss',
+      '#name' => '00N4w00000Fv3cP',
       '#options' => [
         'Masculino' => 'Masculino',
         'Femenino' => 'Femenino',
@@ -547,17 +505,17 @@ class PqrForm extends FormBase {
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00n05000000xuss',
+        'id' => '00N4w00000Fv3cP',
       ],
     ];
 
-    // Terms and conditions.
-    $form['00n05000001ccds'] = [
+    // Autorización tratamiento datos Sensibles
+    $form['00N4w00000Fv3cB'] = [
       '#type' => 'checkbox',
       '#title' => 'Aceptas el <span class="title_terms "><u>tratamiento y uso de datos sensibles.</u></span>',
-      '#name' => '00n05000001ccds',
+      '#name' => '00N4w00000Fv3cB',
       '#attributes' => [
-        'id' => '00n05000001ccds',
+        'id' => '00N4w00000Fv3cB',
         'class' => ['terms_checkbox'],
       ],
     ];
@@ -565,21 +523,21 @@ class PqrForm extends FormBase {
     // Modal.
     $form['modal'] = [
       '#prefix' => '
-            <div class="terms-modal-wrap">
-                <div class="terms-modal-overlay">
-                    <div class="terms-modal-box">
-                        <div class="terms-modal-close">Cerrar</div>
-                        <div class="accordion-term">
-                            <h3>Tratamiento y uso de datos sensibles</h3>
-                            <p class="text-modal">Autorizo a <strong>Liberty Seguros S.A. y La Libertad Compañía de Servicios e Inversiones SAS (Las Compañías)</strong> el uso de mi información personal y sensible para efectos relacionados con la atención de mi reclamación. Declaro que he sido informado de la existencia de las Políticas de Tratamiento de datos personales, las cuales se encuentran publicadas en <strong>www.libertycolombia.com.co</strong> y también pueden ser solicitadas a <strong>atencionalcliente@libertycolombia.com</strong> o al teléfono <strong>57 1 307 7050</strong> de Bogotá.</p>
-                        </div><br>
-                        <div class="container-buttons">
-                            <span id="modal_acept_terms">Aceptar términos y condiciones</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="terms-modal-wrap">
+          <div class="terms-modal-overlay">
+            <div class="terms-modal-box">
+              <div class="terms-modal-close">Cerrar</div>
+              <div class="accordion-term">
+                <h3>Tratamiento y uso de datos sensibles</h3>
+                <p class="text-modal">Autorizo a <strong>HDI Seguros Colombia S.A y HDI Compañía de Servicios e Inversiones S.A.S. (Las Compañías)</strong> el uso de mi información personal y sensible para efectos relacionados con la atención de mi reclamación. Declaro que he sido informado de la existencia de las Políticas de Tratamiento de datos personales, las cuales se encuentran publicadas en <strong>www.libertyseguros.com.co</strong> y también pueden ser solicitadas a <strong>atención.cliente@libertycolombia.com</strong> o al teléfono <strong>57 1 307 7050</strong> de Bogotá.</p>
+              </div><br>
+              <div class="container-buttons">
+                <span id="modal_acept_terms">Aceptar términos y condiciones</span>
+              </div>
             </div>
-            ',
+          </div>
+        </div>
+        ',
       '#suffix' => '',
       '#attributes' => [
         'id' => 'modal',
@@ -595,8 +553,8 @@ class PqrForm extends FormBase {
       ],
     ];
 
-    // LGBTI.
-    $form[$lgtbi] = [
+    // LGBTIQ+
+    $form['00N4w00000Fv3cI'] = [
       '#type' => 'radios',
       '#title' => '¿Perteneces a la comunidad LGBTIQ+<div class="tooltip top">?<span class="tiptext">Lesbiana, Gay, Transgénero, Transexual,
             Travesti, Intersexual y Queer y todos los colectivos que no están representados en las siglas anteriores</span></div>',
@@ -604,9 +562,9 @@ class PqrForm extends FormBase {
         'true' => 'Si',
         'false' => 'No',
       ],
-      '#name' => $lgtbi,
+      '#name' => '00N4w00000Fv3cI',
       '#attributes' => [
-        'id' => $lgtbi,
+        'id' => '00N4w00000Fv3cI',
         'class' => ['itemsLg'],
       ],
     ];
@@ -617,26 +575,26 @@ class PqrForm extends FormBase {
       '#markup' => '<hr class="separador is-hidden"/>',
     ];
 
-    // Gender.
-    $form['cond_especial'] = [
+    // Tiene alguna condición especial
+    $form['00N4w00000Fv3cQ'] = [
       '#type' => 'select',
       '#title' => '¿Tienes alguna condición especial?',
-      '#name' => 'cond_especial',
+      '#name' => '00N4w00000Fv3cQ',
       '#options' => [
         '' => '- Seleccionar -',
         'NO' => 'No',
         'SI' => 'Si',
       ],
       '#attributes' => [
-        'id' => 'cond_especial',
+        'id' => '00N4w00000Fv3cQ',
       ],
     ];
 
-    // Special condition.
-    $form['00n05000000y11p'] = [
+    // Condición Especial
+    $form['00N4w00000Fv3cp'] = [
       '#type' => 'select',
       '#title' => 'Condición Especial',
-      '#name' => '00n05000000y11p',
+      '#name' => '00N4w00000Fv3cp',
       '#options' => [
         '' => '- Seleccionar -',
         'adulto mayor' => 'Adulto mayor',
@@ -660,40 +618,40 @@ class PqrForm extends FormBase {
         'víctima del conflicto armado' => 'Víctima del conflicto armado',
       ],
       '#attributes' => [
-        'id' => '00n05000000y11p',
+        'id' => '00N4w00000Fv3cp',
         'class' => ['condEspecial'],
       ],
     ];
 
-    // Description.
+    // Descripción
     $form['description'] = [
       '#type' => 'textarea',
       '#title' => 'Descripción',
       '#name' => 'description',
     ];
 
-    // Product.
-    $form[$product] = [
+    // Producto
+    $form['00N4A00000FkiL2'] = [
       '#type' => 'select',
       '#title' => 'Producto',
-      '#name' => $product,
+      '#name' => '00N4A00000FkiL2',
       '#options' => [
-        'VIDA GRUPO' => 'VIDA GRUPO',
-        'AUTOS' => 'AUTOS',
         'ARL' => 'ARL',
+        'AUTOS' => 'AUTOS',
+        'FIANZAS' => 'FIANZAS',
         'GENERALES' => 'GENERALES',
         'SALUD' => 'SALUD',
         'SOAT' => 'SOAT',
-        'FIANZAS' => 'FIANZAS',
+        'VIDA GRUPO' => 'VIDA GRUPO',
         'VIDA R.M.' => 'VIDA R.M.',
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => $product,
+        'id' => '00N4A00000FkiL2',
       ],
     ];
 
-    // Plate.
+    // Placa
     $form['00NG000000998UR'] = [
       '#type' => 'textfield',
       '#title' => 'Placa',
@@ -701,15 +659,15 @@ class PqrForm extends FormBase {
       '#maxlength' => 6,
       '#attributes' => [
         'id' => '00NG000000998UR',
-        'pattern' => '#^[a-zA-Z]{3}\d{3}$#'
+        'pattern' => '#^([a-zA-Z]{3}[0-9]{3}|[a-zA-Z][0-9]{5}|[a-zA-Z]{3}[0-9]{2}[a-zA-Z])$#'
       ],
     ];
 
-    // Reason SFC.
-    $form['00n05000001bn7q'] = [
+    // Motivo SFC
+    $form['00N4w00000Fv3cK'] = [
       '#type' => 'select',
       '#title' => 'Motivo SFC',
-      '#name' => '00n05000001bn7q',
+      '#name' => '00N4w00000Fv3cK',
       '#options' => [
         'demora o no emisión de la póliza' => 'Demora o no emisión de la póliza',
         'demora en el servicio requerido para emisión de póliza' => 'Demora en el servicio requerido para emisión de póliza',
@@ -784,21 +742,22 @@ class PqrForm extends FormBase {
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00n05000001bn7q',
+        'id' => '00N4w00000Fv3cK',
       ],
     ];
 
-    // Type Send.
-    $form['00ng000000fwynl'] = [
+    // Medio envio
+    $form['00NG000000FWynl'] = [
       '#type' => 'select',
       '#title' => 'Medio envio',
-      '#name' => '00ng000000fwynl',
+      '#name' => '00NG000000FWynl',
       '#options' => [
+        'Físico' => 'Físico',
         'Digital' => 'Digital',
       ],
       '#required' => TRUE,
       '#attributes' => [
-        'id' => '00ng000000fwynl',
+        'id' => '00NG000000FWynl',
       ],
     ];
 
@@ -808,7 +767,7 @@ class PqrForm extends FormBase {
       '#name' => 'adjuntar_archivos',
       '#type' => 'managed_file',
       '#description' => t(
-              'Máximo 1 fichero. límite de 20 MB. Tipos permitidos: pdf.'
+        'Máximo 1 fichero. límite de 20 MB. Tipos permitidos: pdf.'
       ),
       '#upload_location' => 'public://pqr',
       '#default_value' => NULL,
@@ -851,7 +810,7 @@ class PqrForm extends FormBase {
     // Validate plate
     $product = $form_state->getValue('00N4A00000FkiL2');
     if ($product === 'AUTOS' || $product === 'SOAT') {
-      $regex = '/^[a-zA-Z]{3}\d{3}$/';
+      $regex = '/^([A-Z]{3}\d{3}|[A-Z]\d{5}|[A-Z]{3}\d{2}[A-Z])$/i';
       if (!preg_match($regex, $form_state->getValue('00NG000000998UR'))) {
         $form_state->setErrorByName('00NG000000998UR',
           $this->t('El valor debe contener valores alfanumericos ej: QWE123.')

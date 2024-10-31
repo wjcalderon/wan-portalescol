@@ -305,15 +305,7 @@ export default {
         if (brand.includes("GREAT--WALL--MOTOR")) {
           brand = "GREAT--WALL";
         }
-        const path =
-          "/" +
-          this.claimCity +
-          "/" +
-          brand +
-          "/" +
-          model +
-          "/" +
-          this.vehicleData.vehicleType;
+        const path = `/${this.claimCity}/${brand}/${model}/${this.vehicleData.vehicleType}`;
         this.$http.get("/claim-data/carshops" + path).then(
           function(data) {
             if (data.statusCode != 401 && Array.isArray(data.body)) {
@@ -483,7 +475,6 @@ export default {
   },
   watch: {
     claimCity: function(val, oldVal) {
-      this.findCarShops();
       if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
         this.findCarShops();
       }

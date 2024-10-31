@@ -150,7 +150,7 @@
               :href="personal_data_url"
               target="_blank"
               rel="noreferrer"
-              title="Política de tratamiento de datos de Liberty Seguros"
+              title="Política de tratamiento de datos de HDI Seguros Colombia"
               >de acuerdo a sus términos, condiciones y políticas de
               privacidad</a
             >

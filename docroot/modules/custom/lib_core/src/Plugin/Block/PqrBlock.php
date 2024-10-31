@@ -21,10 +21,7 @@ class PqrBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
-    $form = \Drupal::formBuilder()->getForm('Drupal\lib_core\Form\PqrForm');
-    return $form;
-
+    return \Drupal::formBuilder()->getForm('Drupal\lib_core\Form\PqrForm');
   }
 
   /**

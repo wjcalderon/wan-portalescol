@@ -17,21 +17,77 @@
           position: static;
         }
 
+        .tb-megamenu-column {
+          border-right: 1px solid var(--gray-30);
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+
         & .mega > .mega-dropdown-menu {
           border: none;
           left: 0;
           margin-left: 0;
           padding: 3rem 0;
-          top: 9.7rem;
+          top: 6.5rem;
           width: 100vw !important; // Overwrite megamenu default width
+
+          .tb-megamenu-row {
+            &.row-fluid {
+              display: flex;
+            }
+          }
         }
 
-        & .dropdown-menu li {
-          & > a {
-            color: var(--gray);
-
-            &:hover, &:visited, &:active {
+        & .dropdown-menu {
+          li {
+            & > a {
               color: var(--gray);
+              border: none;
+
+              &:hover, &:visited, &:active {
+                color: var(--gray);
+              }
+            }
+          }
+        }
+
+        .block-block-content {
+          align-items: center;
+          display: grid;
+          grid-column-gap: 3rem;
+          grid-row-gap: 1rem;
+          grid-template-columns: auto 1fr;
+
+          h2 {
+            font-size: 1.25rem;
+            grid-area: 1 / 2 / 2 / 3;
+          }
+
+          img {
+            grid-area: 1 / 1 / 3 / 2;
+            width: 3rem;
+          }
+
+          .field--type-content {
+            color: var(--gray);
+            grid-area: 2 / 2 / 3 / 3;
+            max-width: 18rem;
+
+            h2 {
+              margin-bottom: 1rem;
+            }
+
+            a {
+              margin-top: 1rem;
+            }
+
+            .field--label-inline {
+              .field__label {
+                display: inline-block;
+                margin-right: .7rem;
+              }
             }
           }
         }
@@ -78,18 +134,54 @@
                 background-repeat: no-repeat;
                 background-size: contain;
               }
+
+              &:hover {
+                background-color: var(--hdi-green);
+                border-color: var(--hdi-green);
+                color: var(--white);
+
+                a {
+                  color: var(--white);
+                }
+              }
+
+              &:active {
+                background-color: var(--hdi-blue);
+                border-color: var(--hdi-blue);
+                color: var(--white);
+
+                a {
+                  color: var(--white);
+                }
+              }
             }
 
-            &.te-pasoalgo-mb::before {
-              background-image: url(../../images/menu-umbrella.svg);
-              height: 19px;
-              width: 19px;
+            &.te-pasoalgo-mb {
+              &::before {
+                background-image: url(../../images/menu-umbrella.svg);
+                height: 19px;
+                width: 19px;
+              }
+
+              &:hover {
+                &::before {
+                  background-image: url(../../images/menu-umbrella-white.svg);
+                }
+              }
             }
 
-            &.pagos-mb::before {
-              background-image: url(../../images/menu-card.svg);
-              height: 16px;
-              width: 25px;
+            &.pagos-mb {
+              &::before {
+                background-image: url(../../images/menu-card.svg);
+                height: 16px;
+                width: 25px;
+              }
+
+              &:hover {
+                &::before {
+                  background-image: url(../../images/menu-card-white.svg);
+                }
+              }
             }
           }
         }
@@ -98,8 +190,13 @@
   }
 
   #nav__secundario {
+    @import './tepodemosayudar.scss';
+
     #block-hdi-portal-transversales {
       transition: all 1s ease-in-out;
+
+      @import './siniestros.scss';
+      @import './pagos.scss';
     }
 
     &.is-hidden {
@@ -119,6 +216,19 @@
 
         &::after {
           content: unset;
+        }
+      }
+
+      .tb-megamenu-row {
+        &:last-child {
+          .tb-megamenu-subnav {
+            margin-top: -1.25rem;
+          }
+
+          .span6 {
+            margin-left: 50%;
+            padding-left: 6.85rem;
+          }
         }
       }
     }
@@ -153,6 +263,21 @@
           width: 15rem;
         }
       }
+    }
+  }
+}
+
+.tb-megamenu {
+  .row-fluid + .row-fluid {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .dropdown-menu {
+    @import '../form/buttons.scss';
+
+    a {
+      padding: unset;
     }
   }
 }

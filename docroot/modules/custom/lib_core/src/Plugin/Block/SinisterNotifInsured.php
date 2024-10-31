@@ -21,10 +21,9 @@ class SinisterNotifInsured extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
-    $form = \Drupal::formBuilder()->getForm('Drupal\lib_core\Form\SinisterNotifInsured');
-    return $form;
-
+    return \Drupal::formBuilder()->getForm(
+      'Drupal\lib_core\Form\SinisterNotifInsured'
+    );
   }
 
   /**
@@ -45,7 +44,9 @@ class SinisterNotifInsured extends BlockBase {
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['my_block_settings'] = $form_state->getValue('my_block_settings');
+    $this->configuration['my_block_settings'] = $form_state->getValue(
+      'my_block_settings'
+    );
   }
 
 }

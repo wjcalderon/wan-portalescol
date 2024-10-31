@@ -48,7 +48,7 @@ function liberty_claims_mail($key, &$message, $params) {
   global $base_root, $base_path;
 
   switch ($params['subject']) {
-    case 'Liberty Seguros | Tu siniestro ha sido radicado':
+    case 'HDI Seguros | Tu siniestro ha sido radicado':
       $from = \Drupal::config('system.site')->get('mail');
 
       $message['headers']['MIME-Version'] = '1.0';

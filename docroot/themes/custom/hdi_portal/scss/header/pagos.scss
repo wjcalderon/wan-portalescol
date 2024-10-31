@@ -1,0 +1,92 @@
+.pagos {
+  .tb-megamenu-row {
+    .tb-megamenu-column {
+      border-right: none;
+
+      .block--basic {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          color: var(--hdi-universal-green);
+          font-size: 1.125rem;
+          font-weight: normal;
+          margin-bottom: 1rem;
+          position: relative;
+          width: 100%;
+
+          &::after {
+            background: var(--hdi-universal-green);
+            bottom: -.7rem;
+            border: none;
+            content: "";
+            display: block !important;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            width: 1.5rem;
+          }
+        }
+
+        p {
+          display: block;
+          padding: .3rem 0;
+          position: relative;
+          width: 100%;
+
+          &::after {
+            background: transparent;
+            border-bottom: 1px solid var(--hdi-gray-40);
+            border-right: 1px solid var(--hdi-gray-40);
+            content: "";
+            height: 5px;
+            position: absolute;
+            right: 20px;
+            transform: rotate(-45deg);
+            top: 50%;
+            width: 5px;
+          }
+        }
+      }
+
+    }
+  }
+
+  .pagar--mg--card {
+    align-items: center;
+    border: 1px solid var(--gray-30) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    height: 185px;
+    margin-left: 0.5rem;
+    padding: 1.5rem;
+
+    .tb-megamenu-column-inner {
+      text-align: center;
+      width: 100%;
+
+      .block-block-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .block__card-image {
+          img {
+            display: block;
+            margin: 0 auto 1rem;
+            height: 2rem;
+            width: auto;
+          }
+        }
+
+        h3 {
+          color: var(--hdi-universal-green);
+          font-size: 1.125rem;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

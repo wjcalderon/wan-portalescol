@@ -1,4 +1,12 @@
 .component__view--productos {
+  &.interesado-home {
+    .component__heading {
+      h2 {
+        color: var(--hdi-universal-green);
+      }
+    }
+  }
+
   .component__heading {
     text-align: center;
 

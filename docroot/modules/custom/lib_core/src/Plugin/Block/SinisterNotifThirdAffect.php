@@ -22,8 +22,8 @@ class SinisterNotifThirdAffect extends BlockBase {
    */
   public function build() {
     $form = \Drupal::formBuilder()->getForm(
-          'Drupal\lib_core\Form\SinisterNotifthirdAffectedd'
-      );
+      'Drupal\lib_core\Form\SinisterNotifthirdAffectedd'
+    );
     // Return $form;.
     return [
       '#type' => 'markup',
@@ -51,8 +51,8 @@ class SinisterNotifThirdAffect extends BlockBase {
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['my_block_settings'] = $form_state->getValue(
-          'my_block_settings'
-      );
+      'my_block_settings'
+    );
   }
 
 }

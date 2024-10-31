@@ -782,7 +782,7 @@ class ClaimServices {
     }
 
     $replacements = [
-      '_#@_wherename' => \explode(' ', $source['whereAddress'])[1] ?? $source['whereAddress'],
+      '_#@_wherename' => trim(\explode(' ', $source['whereAddress'])[1] ?? $source['whereAddress']),
       '_#@_withMoreInjureddesc' => $source['casualties'] === 'more' ? 'si' : 'no',
       '_#@_withMoreInjuredval' => $source['casualties'] === 'more' ? 1 : 0,
       '_#@_withMoreDeathsdesc' => $source['deaths'] === 'more' ? 'si' : 'no',
@@ -793,7 +793,7 @@ class ClaimServices {
       '_#@_withDeathsval' => $source['withDeaths'] ? 1 : 0,
       '_#@_withPolicedesc' => $source['withPolice'] ? 'si' : 'no',
       '_#@_withPoliceval' => $source['withPolice'] ? 1 : 2,
-      '_#@_description' => wordwrap($source['description'], 50, "\n\r"),
+      '_#@_description' => wordwrap(trim($source['description']), 50, "\n\r"),
       '_#@_previusPolicy' => $source['previusPolicy'],
     ];
 
@@ -983,13 +983,13 @@ class ClaimServices {
     $input = date('Y-m-d\TH:i:s.\Z', time());
     $data = str_replace('_#@_currentDateISO', $input, $data);
 
-    $data = str_replace('_#@_previusPolicy', $input, $data);
+    $data = str_replace('_#@_previusPolicy', $source['previusPolicy'], $data);
 
     $matches = [];
     preg_match('/(.*)(?=_#@_description)/i', $data, $matches, PREG_OFFSET_CAPTURE);
     $source['description'] = str_replace("\n", "\n" . $matches[0][0], $source['description']);
     $input = wordwrap($source['description'], 50, "\n" . $matches[0][0]);
-    $data = str_replace('_#@_description', $input, $data);
+    $data = str_replace('_#@_description', trim($input), $data);
 
     foreach ($source as $key => $value) {
       if (strpos($data, '_#@' . $key) && is_string($value) || is_int($value)) {

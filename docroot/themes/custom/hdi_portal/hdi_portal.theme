@@ -542,3 +542,8 @@ function _getYoutubeThumbnailUrl($url)
 
   return 'https://img.youtube.com/vi/' . $youtube_id . '/mqdefault.jpg';
 }
+
+
+function hdi_portal_preprocess_file_link(&$variables) {
+  unset($variables['file_size']);
+}

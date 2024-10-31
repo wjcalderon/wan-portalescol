@@ -2,7 +2,10 @@
   & > .cog--flex {
     border-bottom: 1px solid var(--gray-10);
     justify-content: center;
-    margin: 2rem 0 4rem;
+
+    &:not(.is-desktop) {
+      margin: 2rem 0 4rem;
+    }
 
     .header-tabs {
       align-items: center;

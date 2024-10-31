@@ -27,11 +27,11 @@ class SinisterNotifThankyou extends BlockBase {
 
     // Return $form;.
     if ($resp !== NULL && is_numeric($resp) && $resp == '1') {
-      $num_rand = random_int(100, 10000);
+      $num_rand = random_int(100, 100000);
       $html = '<div class="ctn-msg-notif-sinister">
         <h2>¡Hemos recibido la información!</h2>
         <p>En el transcurso del siguiente día hábil, recibirás un correo con la información para continuar con el proceso</p>
-        <img alt="Confirmation" height="120" src="/themes/custom/liberty_public/images/icons/ok-repo-sinis.svg" width="120" />
+        <img alt="Confirmation" height="120" src="/themes/custom/hdi_portal/images/ok-repo-sinis.svg" width="120" />
         <p>Tu número de radicado es <span class="number">' . $num_rand . '</span></p>
         <p>Si tienes alguna duda sobre el proceso puedes comunicarte a la línea de Bogotá <span class="number">3077050</span> y <span class="number">018000113390</span></p>
         <p><a  href="/aviso-de-siniestros" title="Volver al home de siniestros">Volver al home de siniestros</a></p>
