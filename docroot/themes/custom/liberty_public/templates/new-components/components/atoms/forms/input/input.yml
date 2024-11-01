@@ -1,5 +1,0 @@
-input_type: 'text'
-input_placeholder: 'hola'
-input_value: 'nombre'
-input_disabled: 'disabled'
-input_required: true

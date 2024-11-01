@@ -23,8 +23,8 @@ cat /etc/hosts
 #Comandos para hacer el drush cr en tiempo de ejecucion
 echo "start drush commands"
 # drush sync:import
-drush advagg-caf
-drush cr
+# drush advagg-caf
+# drush cr
 echo "finish drush commands"
 
 php-fpm81 && nginx -g 'daemon off;'
