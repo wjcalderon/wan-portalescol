@@ -1,0 +1,104 @@
+uuid: 21511631-3909-466d-a7c7-5bc92948042f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.columns.field_c_classes
+    - field.field.paragraph.columns.field_c_subtitle
+    - field.field.paragraph.columns.field_c_title
+    - field.field.paragraph.columns.field_c_title_status
+    - field.field.paragraph.columns.field_c_width
+    - field.field.paragraph.columns.field_column_item
+    - paragraphs.paragraphs_type.columns
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_component_title:
+      children:
+        - field_c_title
+        - field_c_subtitle
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_styling_settings:
+      children:
+        - field_c_width
+        - field_c_classes
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.columns.default
+targetEntityType: paragraph
+bundle: columns
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_subtitle:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_column_item:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: column
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

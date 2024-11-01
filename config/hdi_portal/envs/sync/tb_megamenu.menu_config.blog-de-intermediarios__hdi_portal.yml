@@ -1,0 +1,13 @@
+uuid: 0b236e8a-5cf0-44c0-b0f5-8cd57dad45ee
+langcode: es
+status: true
+dependencies:
+  theme:
+    - hdi_portal
+  menu:
+    - blog-de-intermediarios
+id: blog-de-intermediarios__hdi_portal
+menu: blog-de-intermediarios
+theme: hdi_portal
+block_config: '[]'
+menu_config: '[]'

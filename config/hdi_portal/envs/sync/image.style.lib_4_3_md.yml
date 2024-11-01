@@ -1,0 +1,15 @@
+uuid: 7a6cd64b-358d-4946-8d76-81c8e90346a1
+langcode: es
+status: true
+dependencies: {  }
+name: lib_4_3_md
+label: '4:3 Medium (800 x 600)'
+effects:
+  5ac77c79-8ac4-4e1d-884f-5d109a8d4bb9:
+    uuid: 5ac77c79-8ac4-4e1d-884f-5d109a8d4bb9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 600
+      anchor: center-center

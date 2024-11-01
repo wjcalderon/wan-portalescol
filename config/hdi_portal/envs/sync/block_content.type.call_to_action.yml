@@ -1,0 +1,10 @@
+uuid: 735cedf6-10c8-47d6-abcc-d539dc482c68
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MHP0sA5bdtMp1VktqEqYb08up7bnkqeajv3pfe6tAcw
+id: call_to_action
+label: 'CTA (Call to action)'
+revision: false
+description: 'CTA component'

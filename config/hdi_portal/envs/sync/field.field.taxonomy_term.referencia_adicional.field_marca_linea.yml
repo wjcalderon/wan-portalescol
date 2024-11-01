@@ -1,0 +1,29 @@
+uuid: 42311291-2c48-4dee-8255-baeb823ed97e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_marca_linea
+    - taxonomy.vocabulary.marca_linea
+    - taxonomy.vocabulary.referencia_adicional
+id: taxonomy_term.referencia_adicional.field_marca_linea
+field_name: field_marca_linea
+entity_type: taxonomy_term
+bundle: referencia_adicional
+label: 'Marca - línea'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      marca_linea: marca_linea
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

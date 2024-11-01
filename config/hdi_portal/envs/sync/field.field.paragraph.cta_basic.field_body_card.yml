@@ -1,0 +1,23 @@
+uuid: aabb975a-0aa5-45e1-9332-784de3890b3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_card
+    - paragraphs.paragraphs_type.cta_basic
+  module:
+    - text
+_core:
+  default_config_hash: JTk-V3gY68hub5kk0OLKyrZckkpsNVwqSuCIPLZymWk
+id: paragraph.cta_basic.field_body_card
+field_name: field_body_card
+entity_type: paragraph
+bundle: cta_basic
+label: Resumen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

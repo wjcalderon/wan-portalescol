@@ -1,0 +1,22 @@
+uuid: e0d63035-ac34-4690-81a4-1b9ecfa926aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hdi_portal
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: hdi_portal_content
+theme: hdi_portal
+region: content
+weight: -40
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

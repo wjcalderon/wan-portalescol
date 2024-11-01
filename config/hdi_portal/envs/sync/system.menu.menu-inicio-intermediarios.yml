@@ -1,0 +1,8 @@
+uuid: e862b3d0-ea23-4676-b507-6257f0274754
+langcode: es
+status: true
+dependencies: {  }
+id: menu-inicio-intermediarios
+label: 'menu inicio intermediarios'
+description: ''
+locked: false

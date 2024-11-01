@@ -1,0 +1,13 @@
+uuid: 8c1c1604-4631-44e5-aa99-436644f71dac
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6erR1hbJrbTYT_mH4A78JNhfrkqTxy0ovG22lqkuLxI
+id: texto
+block_id: 'inline_block:text'
+category: general
+label: Texto
+image_path: ''
+image_alt: ''
+weight: -100

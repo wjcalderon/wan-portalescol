@@ -1,0 +1,23 @@
+uuid: 6c06b23d-5143-48e5-9b17-f4f168473a52
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - paragraphs
+_core:
+  default_config_hash: E-I6-cbmIF05zd0VrJEz_xbawhyNtvP4FI6tkLgEu7A
+id: block_content.field_p_card_foto
+field_name: field_p_card_foto
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

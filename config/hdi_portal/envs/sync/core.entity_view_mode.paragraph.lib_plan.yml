@@ -1,0 +1,15 @@
+uuid: ef10f76a-b146-4b28-b9a8-4cd54c304d1c
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.lib_plan
+label: Plan
+description: ''
+targetEntityType: paragraph
+cache: true

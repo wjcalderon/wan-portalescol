@@ -1,0 +1,19 @@
+uuid: 5499aeff-ced3-4e2d-b2e5-2792b31ad049
+langcode: es
+status: true
+dependencies: {  }
+id: generic
+label: 'Generic OAuth 2.0'
+plugin: generic
+settings:
+  client_id: Aax7Ga4q6K
+  client_secret: X4St4kMaFNabEP9y5GRp
+  issuer_url: ''
+  authorization_endpoint: 'https://nonprodportal.libertyseguros.co/oauth2/authorize'
+  token_endpoint: 'https://nonprodportal.libertyseguros.co//oauth2/token'
+  userinfo_endpoint: 'https://nonprodportal.libertyseguros.co/oauth2/UserInfo'
+  end_session_endpoint: ''
+  scopes:
+    - openid
+    - email
+  redirect_url: ''

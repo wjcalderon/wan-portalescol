@@ -1,0 +1,9 @@
+uuid: c4217a59-9909-461d-827b-dc370aa711c1
+langcode: en
+status: true
+dependencies: {  }
+name: Ramos
+vid: product_type
+description: 'Categorías principales categorizadas por tipo de cliente'
+weight: 0
+new_revision: false

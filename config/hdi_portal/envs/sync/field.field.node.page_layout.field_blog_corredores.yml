@@ -1,0 +1,21 @@
+uuid: 2d945cc6-31d5-42ea-8bc7-b5087389c9a8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_corredores
+    - node.type.page_layout
+id: node.page_layout.field_blog_corredores
+field_name: field_blog_corredores
+entity_type: node
+bundle: page_layout
+label: 'Blog corredores'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

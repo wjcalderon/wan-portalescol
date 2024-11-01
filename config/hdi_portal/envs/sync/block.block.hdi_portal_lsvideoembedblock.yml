@@ -1,0 +1,26 @@
+uuid: 6f3fa545-bb08-4479-b5e8-5a6767c43de9
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_ls
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_lsvideoembedblock
+theme: hdi_portal
+region: blocks_popups
+weight: -38
+provider: null
+plugin: ls_video_embed_block
+settings:
+  id: ls_video_embed_block
+  label: 'LS video embed block'
+  label_display: '0'
+  provider: lib_ls
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /los-segura

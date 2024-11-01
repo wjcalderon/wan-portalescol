@@ -1,0 +1,8 @@
+uuid: 6f1f5239-40ab-4894-b737-2b1d80663b1a
+langcode: es
+status: true
+dependencies: {  }
+id: menu-horizontal-mobile
+label: 'Horizontal móvil'
+description: 'Menú horizontal del menu móvil'
+locked: false

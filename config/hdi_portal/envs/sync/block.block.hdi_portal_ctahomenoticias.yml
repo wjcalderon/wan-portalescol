@@ -1,0 +1,25 @@
+uuid: 5ebab8cb-4bc0-4a70-ab5c-d82d7c609832
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:cta:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_ctahomenoticias
+theme: hdi_portal
+region: blocks_activate
+weight: -15
+provider: null
+plugin: 'block_content:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+settings:
+  id: 'block_content:c30bf71c-05e5-4256-a74d-645c5f15fb17'
+  label: 'CTA home noticias'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

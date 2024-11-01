@@ -1,0 +1,38 @@
+uuid: 3163cb0e-3e82-44ac-93a0-209ba4b6d316
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: QJ6-KL3QAvpUEWZ236vozM6achtX0QrpVoWrdTTRV60
+id: paragraph.field_hero_style
+field_name: field_hero_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Transparente
+    -
+      value: theme1
+      label: 'Fondo Blanco'
+    -
+      value: theme2
+      label: 'Fondo Azul Liberty'
+    -
+      value: theme3
+      label: 'Fondo Amarillo'
+    -
+      value: theme4
+      label: 'Fondo Teal'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

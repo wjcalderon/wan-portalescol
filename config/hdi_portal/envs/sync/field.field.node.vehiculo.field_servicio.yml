@@ -1,0 +1,23 @@
+uuid: 3797ecf7-27ff-4c11-8996-a37aa4dbaabc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_servicio
+    - node.type.vehiculo
+id: node.vehiculo.field_servicio
+field_name: field_servicio
+entity_type: node
+bundle: vehiculo
+label: Servicio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

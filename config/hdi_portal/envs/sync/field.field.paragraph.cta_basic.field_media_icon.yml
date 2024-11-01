@@ -1,0 +1,31 @@
+uuid: 06028e85-499f-4bfa-9fa3-53afb5feab5c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_icon
+    - media.type.vector_image
+    - paragraphs.paragraphs_type.cta_basic
+_core:
+  default_config_hash: ZP-yXl-YFn-S-9SnFZOLxQSK-S8uVq9l6JWdEyf33w8
+id: paragraph.cta_basic.field_media_icon
+field_name: field_media_icon
+entity_type: paragraph
+bundle: cta_basic
+label: Icono
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vector_image: vector_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

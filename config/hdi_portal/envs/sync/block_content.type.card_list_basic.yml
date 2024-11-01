@@ -1,0 +1,10 @@
+uuid: ac711f25-c5ee-4788-b655-58ad2fd0e9ee
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: lYq2bnO-jl9dXn08oF05sB9a2nw3MTelH-gVnKg8hVo
+id: card_list_basic
+label: 'Card list - Card basic'
+revision: false
+description: ''

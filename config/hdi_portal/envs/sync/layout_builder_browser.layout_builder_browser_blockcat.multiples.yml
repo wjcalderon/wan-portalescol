@@ -1,0 +1,9 @@
+uuid: 3b4315fc-6544-4d43-96f9-2df04c0acfd5
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ee_h4Cj12QvyuAlCS0XyB1_ENu_ZeZyTjGdaT9uGJDc
+id: multiples
+label: Múltiples
+weight: null

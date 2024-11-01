@@ -1,0 +1,58 @@
+uuid: be23943d-8ffc-43cb-957e-ebc5d2710265
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.paragraph.card_basic
+    - field.field.paragraph.cta_basic.field_body_card
+    - field.field.paragraph.cta_basic.field_media_icon
+    - field.field.paragraph.cta_basic.field_media_mmedia
+    - field.field.paragraph.cta_basic.field_p_cta_link
+    - field.field.paragraph.cta_basic.field_title_html
+    - paragraphs.paragraphs_type.cta_basic
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+_core:
+  default_config_hash: 3EuSJ4V-PNIKx3P7HGJ8lC6wVaV8a6ITrTIWzd-yMYQ
+id: paragraph.cta_basic.card_basic
+targetEntityType: paragraph
+bundle: cta_basic
+mode: card_basic
+content:
+  field_body_card:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_p_cta_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title_html:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_icon: true
+  field_media_mmedia: true
+  status: true

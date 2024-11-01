@@ -1,0 +1,13 @@
+uuid: 965f2b81-4c78-49c7-836c-6439ba784027
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XhFndKeytSo5q53ctkmRw415MXa1j3YbA8Tcsrn3B7E
+id: lista_card_icono
+block_id: 'inline_block:card_icon_list'
+category: multiples
+label: 'Lista Card Icono'
+image_path: ''
+image_alt: ''
+weight: -5

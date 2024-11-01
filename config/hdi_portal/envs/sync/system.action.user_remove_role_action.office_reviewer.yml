@@ -1,0 +1,14 @@
+uuid: d4b87bf3-4065-4ae2-bb17-95235d762eba
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.office_reviewer
+  module:
+    - user
+id: user_remove_role_action.office_reviewer
+label: 'Elimina el rol Sucursal reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: office_reviewer

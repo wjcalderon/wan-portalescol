@@ -1,0 +1,40 @@
+uuid: a1ead84a-bc46-435e-af8c-8d03e1974f2b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.marca_linea.field_marca
+    - field.field.taxonomy_term.marca_linea.field_ref1
+    - taxonomy.vocabulary.marca_linea
+  module:
+    - text
+id: taxonomy_term.marca_linea.default
+targetEntityType: taxonomy_term
+bundle: marca_linea
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_marca:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_ref1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

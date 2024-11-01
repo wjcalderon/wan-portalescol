@@ -1,0 +1,23 @@
+uuid: 0f5a4ef8-1d74-46c1-9d12-876c231d11cf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured
+    - node.type.news_article_video
+id: node.news_article_video.field_featured
+field_name: field_featured
+entity_type: node
+bundle: news_article_video
+label: Destacada
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Si
+  off_label: 'No'
+field_type: boolean

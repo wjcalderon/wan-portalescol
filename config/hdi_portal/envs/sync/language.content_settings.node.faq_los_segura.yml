@@ -1,0 +1,13 @@
+uuid: 026978b8-9655-4e31-941b-1011b7bf7fe9
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.faq_los_segura
+_core:
+  default_config_hash: w3flqXuk_LLbqDgcfZTmamktZATX06vG7QiHDgVzDAk
+id: node.faq_los_segura
+target_entity_type_id: node
+target_bundle: faq_los_segura
+default_langcode: site_default
+language_alterable: false

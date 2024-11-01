@@ -1,0 +1,46 @@
+uuid: 7b24a68e-0161-4b67-8644-3e1a88f1e297
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.shorcuts.field_c_size_container
+    - field.field.paragraph.shorcuts.field_c_width
+    - field.field.paragraph.shorcuts.field_shorcut_item
+    - paragraphs.paragraphs_type.shorcuts
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.shorcuts.default
+targetEntityType: paragraph
+bundle: shorcuts
+mode: default
+content:
+  field_c_size_container:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_width:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shorcut_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

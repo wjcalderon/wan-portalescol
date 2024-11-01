@@ -1,0 +1,9 @@
+uuid: a31cd5a3-9433-4931-bd02-1ff8c09b19b3
+langcode: en
+status: true
+dependencies: {  }
+id: assistance_item
+label: 'Item Asistencia'
+icon_uuid: null
+description: 'Este componente representa los elementos de asistencia'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: c75754f3-d4cf-4f53-8e26-22e76c38a63f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_card
+    - paragraphs.paragraphs_type.hero
+  module:
+    - text
+_core:
+  default_config_hash: c9QsScCU4j0-1Z9CNUq_GG67dd6uPiHEdrzjqn0EY1E
+id: paragraph.hero.field_body_card
+field_name: field_body_card
+entity_type: paragraph
+bundle: hero
+label: Resumen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,29 @@
+uuid: d68ca886-7cc4-4724-9beb-37f151c9778a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ubication
+    - node.type.payment_points
+    - taxonomy.vocabulary.ubication
+id: node.payment_points.field_ubication
+field_name: field_ubication
+entity_type: node
+bundle: payment_points
+label: Ubicación
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ubication: ubication
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

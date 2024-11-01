@@ -1,0 +1,25 @@
+uuid: 00c8624b-ec4a-4dad-a2b8-8f5a10ca7550
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.scrollspy.field_lib_p_items
+    - paragraphs.paragraphs_type.scrollspy
+  module:
+    - entity_reference_revisions
+id: paragraph.scrollspy.default
+targetEntityType: paragraph
+bundle: scrollspy
+mode: default
+content:
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,29 @@
+uuid: 811f06e4-295b-487f-899e-c0e0f7515cff
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.buscas-ayuda
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_buscasayuda
+theme: hdi_portal
+region: blocks_popups
+weight: -37
+provider: null
+plugin: 'system_menu_block:buscas-ayuda'
+settings:
+  id: 'system_menu_block:buscas-ayuda'
+  label: '¿Necesitas ayuda?'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

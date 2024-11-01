@@ -1,0 +1,15 @@
+uuid: 93a1152b-4261-4a94-ba3a-0c67e78f995e
+langcode: es
+status: true
+dependencies: {  }
+name: lib_3_1_md
+label: '3:1 Medium (1200 x 400)'
+effects:
+  3fec127e-721a-4285-8604-17d971b114d9:
+    uuid: 3fec127e-721a-4285-8604-17d971b114d9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 400
+      anchor: center-center

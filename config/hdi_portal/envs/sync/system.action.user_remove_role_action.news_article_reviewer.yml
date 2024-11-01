@@ -1,0 +1,14 @@
+uuid: 5b5885c1-4106-4375-98d7-ce2ccdce09dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_article_reviewer
+  module:
+    - user
+id: user_remove_role_action.news_article_reviewer
+label: 'Elimina el rol Noticias artículo reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: news_article_reviewer

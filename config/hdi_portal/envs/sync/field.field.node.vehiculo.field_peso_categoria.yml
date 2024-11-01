@@ -1,0 +1,21 @@
+uuid: 7740e3db-1c9b-459a-9302-b5985ceb33ad
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_peso_categoria
+    - node.type.vehiculo
+  module:
+    - options
+id: node.vehiculo.field_peso_categoria
+field_name: field_peso_categoria
+entity_type: node
+bundle: vehiculo
+label: 'Peso categoría'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

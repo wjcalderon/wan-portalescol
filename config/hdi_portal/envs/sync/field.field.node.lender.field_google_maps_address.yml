@@ -1,0 +1,19 @@
+uuid: 101f4857-8e76-48e6-a8c7-a78185010cea
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_maps_address
+    - node.type.lender
+id: node.lender.field_google_maps_address
+field_name: field_google_maps_address
+entity_type: node
+bundle: lender
+label: 'Dirección google maps'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

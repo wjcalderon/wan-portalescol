@@ -1,0 +1,13 @@
+uuid: d81be4ec-501b-400a-aac6-6a3f47595220
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - lightning_media_slideshow
+_core:
+  default_config_hash: 1po0dPtmem85m2UbxUrU6srsrl9uLcI9sE60FLyb2ho
+id: media_slideshow
+label: 'Presentación de diapositivas'
+revision: true
+description: 'Un slide o carrusel de elementos multimedia.'

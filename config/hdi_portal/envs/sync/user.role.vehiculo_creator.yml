@@ -1,0 +1,48 @@
+uuid: 20117b4f-604c-4dbc-810f-ce4716b69bc5
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - filter.format.rich_text
+    - node.type.vehiculo
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - file
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: vehiculo_creator
+label: 'Vehículo creator'
+weight: 26
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node vehiculo content'
+  - 'administer panelizer node vehiculo layout'
+  - 'create url aliases'
+  - 'create vehiculo content'
+  - 'delete own files'
+  - 'edit own vehiculo content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view vehiculo revisions'

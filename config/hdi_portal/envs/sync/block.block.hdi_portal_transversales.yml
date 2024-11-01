@@ -1,0 +1,25 @@
+uuid: c0d35c9a-c9a3-4913-a002-2bb9bb120231
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - hdi_portal
+id: hdi_portal_transversales
+theme: hdi_portal
+region: menu_desktop_second
+weight: -44
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-secundario'
+settings:
+  id: 'tb_megamenu_menu_block:menu-secundario'
+  label: Transversales
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

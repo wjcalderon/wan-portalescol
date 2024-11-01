@@ -1,0 +1,33 @@
+uuid: 5cec89ce-47ef-4bf9-a0cc-f48adbe43b0e
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:3c2c41b1-9414-455b-acb1-a9872d40e9ff'
+  module:
+    - block_content
+    - node
+  theme:
+    - hdi_portal
+id: hdi_portal_footerfaq
+theme: hdi_portal
+region: content
+weight: -38
+provider: null
+plugin: 'block_content:3c2c41b1-9414-455b-acb1-a9872d40e9ff'
+settings:
+  id: 'block_content:3c2c41b1-9414-455b-acb1-a9872d40e9ff'
+  label: 'footer faq'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      faq: faq

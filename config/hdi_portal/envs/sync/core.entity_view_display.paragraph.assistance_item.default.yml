@@ -1,0 +1,94 @@
+uuid: 8cd36520-6653-4078-8a9c-5baa05faa514
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.assistance_item.field_c_image
+    - field.field.paragraph.assistance_item.field_heading
+    - field.field.paragraph.assistance_item.field_lead
+    - field.field.paragraph.assistance_item.field_step
+    - paragraphs.paragraphs_type.assistance_item
+  module:
+    - field_group
+    - svg_image
+third_party_settings:
+  field_group:
+    group_left:
+      children:
+        - field_c_image
+        - field_heading
+        - field_lead
+      label: left
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_right:
+      children:
+        - field_step
+      label: right
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: paragraph.assistance_item.default
+targetEntityType: paragraph
+bundle: assistance_item
+mode: default
+content:
+  field_c_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_step:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

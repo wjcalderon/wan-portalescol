@@ -1,0 +1,25 @@
+uuid: 44ae67ad-b48b-4e61-80e6-e2308a38d76f
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bb2b5aca-a411-4c07-af7a-f59ff433ae1e'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineasdeasistenciafooter
+theme: hdi_portal
+region: footer_contact
+weight: 0
+provider: null
+plugin: 'block_content:bb2b5aca-a411-4c07-af7a-f59ff433ae1e'
+settings:
+  id: 'block_content:bb2b5aca-a411-4c07-af7a-f59ff433ae1e'
+  label: 'Líneas de asistencia'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

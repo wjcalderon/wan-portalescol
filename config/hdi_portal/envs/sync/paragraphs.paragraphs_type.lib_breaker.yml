@@ -1,0 +1,10 @@
+uuid: 0a0273af-134c-40b8-b5a3-ae08f063a90d
+langcode: es
+status: true
+dependencies: {  }
+id: lib_breaker
+label: Breaker
+icon_uuid: null
+icon_default: null
+description: 'Liberty tarjeta horizontal.'
+behavior_plugins: {  }

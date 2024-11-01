@@ -1,0 +1,43 @@
+uuid: 73397fdb-3917-42ca-bbc7-f469d922241d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_item
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.cards
+  module:
+    - entity_reference_revisions
+id: paragraph.cards.field_card_item
+field_name: field_card_item
+entity_type: paragraph
+bundle: cards
+label: 'Card item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card: card
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 6
+        enabled: true
+      cards:
+        weight: 7
+        enabled: false
+      drupal_block:
+        weight: 8
+        enabled: false
+      drupal_view:
+        weight: 9
+        enabled: false
+      single_text:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

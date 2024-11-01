@@ -1,0 +1,21 @@
+uuid: 1e4948cd-6e72-49ab-9fa9-99d2d0bc383b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.drupal_block
+  module:
+    - options
+id: paragraph.drupal_block.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: drupal_block
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

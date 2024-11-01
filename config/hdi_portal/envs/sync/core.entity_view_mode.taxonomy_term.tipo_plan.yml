@@ -1,0 +1,15 @@
+uuid: ac5c398a-ea98-4449-b152-230f50de37f3
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.tipo_plan
+label: 'Tipo plan'
+description: ''
+targetEntityType: taxonomy_term
+cache: true

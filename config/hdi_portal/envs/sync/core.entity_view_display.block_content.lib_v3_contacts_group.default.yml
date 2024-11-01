@@ -1,0 +1,26 @@
+uuid: 87c42019-f95c-4f9b-b1f6-d26f6e740077
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_contacts_group
+    - field.field.block_content.lib_v3_contacts_group.field_lib_v3_contacts_group_ref
+_core:
+  default_config_hash: XRKzpgTshH3H8R7wZTl-eee2_HzOqkrkit2rm8Uek9g
+id: block_content.lib_v3_contacts_group.default
+targetEntityType: block_content
+bundle: lib_v3_contacts_group
+mode: default
+content:
+  field_lib_v3_contacts_group_ref:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,8 @@
+uuid: 4de64dac-13b8-4b97-bd6c-34ca186a13a4
+langcode: es
+status: true
+dependencies: {  }
+id: menu-principal-mobile
+label: 'Principal móvil'
+description: 'Menú principal versión móvil'
+locked: false

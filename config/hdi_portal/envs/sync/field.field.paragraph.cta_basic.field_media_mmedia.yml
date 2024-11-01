@@ -1,0 +1,31 @@
+uuid: 6938342f-cd6c-448f-93b0-fc9993adb348
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_mmedia
+    - media.type.image
+    - paragraphs.paragraphs_type.cta_basic
+_core:
+  default_config_hash: 5JJJFuJIbUEsnofKLa9t4hf2onCjmAtet6Wg4e3zDLk
+id: paragraph.cta_basic.field_media_mmedia
+field_name: field_media_mmedia
+entity_type: paragraph
+bundle: cta_basic
+label: Imagen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

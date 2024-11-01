@@ -1,0 +1,11 @@
+uuid: 2e6f39ed-3421-4a2e-97b7-653bba7015bf
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.prueba_
+id: taxonomy_term.prueba_
+target_entity_type_id: taxonomy_term
+target_bundle: prueba_
+default_langcode: site_default
+language_alterable: false

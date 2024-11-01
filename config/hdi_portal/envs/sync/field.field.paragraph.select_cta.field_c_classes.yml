@@ -1,0 +1,19 @@
+uuid: 35351e38-c264-487d-b983-8be5c062608d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_classes
+    - paragraphs.paragraphs_type.select_cta
+id: paragraph.select_cta.field_c_classes
+field_name: field_c_classes
+entity_type: paragraph
+bundle: select_cta
+label: 'CSS class(es)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

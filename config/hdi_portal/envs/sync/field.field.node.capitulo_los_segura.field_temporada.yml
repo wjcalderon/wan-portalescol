@@ -1,0 +1,31 @@
+uuid: 1bc97dbd-61c9-4bee-ad2f-b4400fa20d39
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_temporada
+    - node.type.capitulo_los_segura
+    - taxonomy.vocabulary.temporadas_los_segura
+_core:
+  default_config_hash: 2Ll6gm35JQUBc3FLapNPrJ9N-5__OkpqcJ5ttT3caQo
+id: node.capitulo_los_segura.field_temporada
+field_name: field_temporada
+entity_type: node
+bundle: capitulo_los_segura
+label: Temporada
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      temporadas_los_segura: temporadas_los_segura
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

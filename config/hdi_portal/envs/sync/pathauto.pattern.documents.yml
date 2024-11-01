@@ -1,0 +1,33 @@
+uuid: cbdda9a5-48ed-4e05-a2d8-84cb7629306c
+langcode: es
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: documents
+label: Documents
+type: 'canonical_entities:node'
+pattern: 'zona-de-cliente/clausulas-y-documentos/[node:title]'
+selection_criteria:
+  8dfac1d9-7759-48a4-8df6-e7baed037361:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 8dfac1d9-7759-48a4-8df6-e7baed037361
+    context_mapping:
+      node: node
+    bundles:
+      document: document
+  b2b5ec53-e167-4eeb-9ccd-3afcb07ef775:
+    id: language
+    negate: false
+    uuid: b2b5ec53-e167-4eeb-9ccd-3afcb07ef775
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      es: es
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

@@ -1,0 +1,23 @@
+uuid: 535c76c7-788d-4d04-80ba-d7d28254915a
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.content_type
+  module:
+    - facets
+  theme:
+    - hdi_portal
+id: hdi_portal_contenttype
+theme: hdi_portal
+region: content
+weight: -42
+provider: null
+plugin: 'facet_block:content_type'
+settings:
+  id: 'facet_block:content_type'
+  label: 'Hemos encontrado...'
+  label_display: visible
+  provider: facets
+  block_id: contenttype
+visibility: {  }

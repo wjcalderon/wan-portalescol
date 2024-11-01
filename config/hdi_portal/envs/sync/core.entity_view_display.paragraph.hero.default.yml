@@ -1,0 +1,117 @@
+uuid: f84fe415-20b2-4e9e-b814-550c4f473721
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero.field_body_card
+    - field.field.paragraph.hero.field_breaker_style
+    - field.field.paragraph.hero.field_c_subtitle
+    - field.field.paragraph.hero.field_heading
+    - field.field.paragraph.hero.field_hero_style
+    - field.field.paragraph.hero.field_imagen_reponsive
+    - field.field.paragraph.hero.field_lib_image_side
+    - field.field.paragraph.hero.field_media_mmedia
+    - field.field.paragraph.hero.field_p_cta_link
+    - field.field.paragraph.hero.field_title_html
+    - paragraphs.paragraphs_type.hero
+  module:
+    - link
+    - options
+    - svg_image
+    - text
+_core:
+  default_config_hash: IWT9ydj8GRsaiilWt4mi8lGIAWPLQU5Wewz4zlSTIug
+id: paragraph.hero.default
+targetEntityType: paragraph
+bundle: hero
+mode: default
+content:
+  field_body_card:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_breaker_style:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_hero_style:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_imagen_reponsive:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_lib_image_side:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_media_mmedia:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_p_cta_link:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_html:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+hidden:
+  search_api_excerpt: true

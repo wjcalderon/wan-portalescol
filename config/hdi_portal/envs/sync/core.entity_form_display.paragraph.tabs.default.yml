@@ -1,0 +1,104 @@
+uuid: 3c46b942-dcbd-4004-bc9d-fa7183a683cf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tabs.field_c_classes
+    - field.field.paragraph.tabs.field_c_subtitle
+    - field.field.paragraph.tabs.field_c_title
+    - field.field.paragraph.tabs.field_c_title_status
+    - field.field.paragraph.tabs.field_c_width
+    - field.field.paragraph.tabs.field_tab_item
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_c_title:
+      children:
+        - field_c_title
+        - field_c_subtitle
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_c_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.tabs.default
+targetEntityType: paragraph
+bundle: tabs
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_subtitle:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tab_item:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

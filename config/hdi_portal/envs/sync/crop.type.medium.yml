@@ -1,0 +1,12 @@
+uuid: acce01e5-5732-463c-aeea-41e95745364e
+langcode: es
+status: true
+dependencies: {  }
+label: Medium
+id: medium
+description: ''
+aspect_ratio: ''
+soft_limit_width: 1366
+soft_limit_height: 650
+hard_limit_width: 1366
+hard_limit_height: 650

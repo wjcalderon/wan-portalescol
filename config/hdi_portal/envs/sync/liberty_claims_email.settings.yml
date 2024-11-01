@@ -1,0 +1,7 @@
+cod_chevrolet: '4094474'
+email_send: jonathan.esquivel@libertycolombia.com
+email_send_car: jonathan.esquivel@libertycolombia.com
+template_correo:
+  value: "<p><strong>Se ha reportado un siniestro por causal \"Hurto de su vehículo\"</strong></p>\r\n\r\n<p><br />\r\n<strong>Placa:</strong> [liberty_claims:plate]<br />\r\n<strong>Fecha de ocurrencia: </strong>[liberty_claims:date]</p>\r\n\r\n<p><strong>Dirección de ocurrencia:</strong> [liberty_claims:whereAddress]</p>\r\n\r\n<p><strong>Descripción de los hechos:</strong> [liberty_claims:description]</p>\r\n\r\n<p><strong>Información de conductor:</strong><br />\r\n<strong>Nombre:</strong> [liberty_claims:name] [liberty_claims:lastname]<br />\r\n<strong>Celular:</strong> [liberty_claims:phone]<br />\r\n<strong>Teléfono fijo:</strong>&nbsp;[liberty_claims:PhoneFijo]</p>\r\n"
+  format: rich_text
+subject: 'NonProd: Reporte de hurto placa [liberty_claims:plate]'

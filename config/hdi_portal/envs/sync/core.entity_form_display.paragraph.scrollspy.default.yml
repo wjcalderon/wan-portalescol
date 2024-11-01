@@ -1,0 +1,49 @@
+uuid: 38fe2855-afa6-4fe5-af3c-5c6a55875c13
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.scrollspy.field_lib_p_items
+    - paragraphs.paragraphs_type.scrollspy
+  module:
+    - field_layout
+    - layout_discovery
+    - paragraphs
+    - paragraphs_features
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.scrollspy.default
+targetEntityType: paragraph
+bundle: scrollspy
+mode: default
+content:
+  field_lib_p_items:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: 'Item Menu'
+      title_plural: 'Items Menu'
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: item_scroll
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      paragraphs_features:
+        add_in_between: false
+        add_in_between_link_count: 3
+        delete_confirmation: false
+        show_drag_and_drop: true
+hidden:
+  created: true
+  status: true

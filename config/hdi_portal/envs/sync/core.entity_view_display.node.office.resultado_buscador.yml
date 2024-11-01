@@ -1,0 +1,35 @@
+uuid: 37ad4ebf-6c50-462f-87a2-5af702494a31
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.resultado_buscador
+    - field.field.node.office.field_location_map
+    - field.field.node.office.field_network_address
+    - field.field.node.office.field_open_schedule
+    - field.field.node.office.field_phone
+    - field.field.node.office.field_ubication
+    - node.type.office
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.office.resultado_buscador
+targetEntityType: node
+bundle: office
+mode: resultado_buscador
+content: {  }
+hidden:
+  addtoany: true
+  field_location_map: true
+  field_network_address: true
+  field_open_schedule: true
+  field_phone: true
+  field_ubication: true
+  langcode: true
+  links: true

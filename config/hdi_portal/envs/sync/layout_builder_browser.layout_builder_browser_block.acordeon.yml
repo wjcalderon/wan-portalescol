@@ -1,0 +1,13 @@
+uuid: 7074bb8f-49c0-4ae9-b239-27fad6a13b3d
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 35YoJX3jbotvNUyzn1z0rzAeay-G6HT7vIvusGaIhqI
+id: acordeon
+block_id: 'inline_block:accordion'
+category: multiples
+label: Acordeón
+image_path: ''
+image_alt: ''
+weight: 0

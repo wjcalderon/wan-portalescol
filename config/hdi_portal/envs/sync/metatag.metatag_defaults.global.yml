@@ -1,0 +1,14 @@
+uuid: 49b7d097-e244-4816-8c8f-5730a52a38e8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  canonical_url: '[current-page:url]'
+  description: 'Página web de Liberty Seguros.'
+  keywords: 'liberty, seguros, drupal, colombia'
+  title: '[current-page:title] | [site:name]'
+  audience: all

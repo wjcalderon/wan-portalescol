@@ -1,0 +1,94 @@
+uuid: 8edf1811-df76-4bf9-9286-ef7129c2e8a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.taxonomy_term.payment_methods.field_agreement_number
+    - field.field.taxonomy_term.payment_methods.field_channel
+    - field.field.taxonomy_term.payment_methods.field_external_link
+    - field.field.taxonomy_term.payment_methods.field_product_type
+    - field.field.taxonomy_term.payment_methods.field_screenshot
+    - field.field.taxonomy_term.payment_methods.field_status
+    - taxonomy.vocabulary.payment_methods
+  module:
+    - entity_browser
+    - link
+    - text
+id: taxonomy_term.payment_methods.default
+targetEntityType: taxonomy_term
+bundle: payment_methods
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+  field_agreement_number:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_channel:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_external_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_product_type:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_screenshot:
+    type: entity_browser_file
+    weight: 3
+    region: content
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      open: false
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_status:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

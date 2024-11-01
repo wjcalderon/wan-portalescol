@@ -1,0 +1,15 @@
+uuid: 4f1bd38d-8f99-4317-8da1-682177878d92
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.card_basic
+label: 'Card basic'
+description: ''
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,18 @@
+uuid: 7d020044-6ad1-43d6-bb8d-fc036cd645f6
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+    - lightning_core
+    - oauth2_server
+third_party_settings:
+  lightning_core:
+    description: ''
+id: view_api
+label: 'View api'
+weight: 53
+is_admin: null
+permissions:
+  - 'delete own files'
+  - 'use oauth2 server'

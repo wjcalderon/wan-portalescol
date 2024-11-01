@@ -1,0 +1,8 @@
+uuid: dbff846a-89b8-40cc-b089-f87a6529759c
+langcode: es
+status: true
+dependencies: {  }
+id: menu-secundario
+label: Transversales
+description: 'Menú transversales ubicado en el encabezado'
+locked: false

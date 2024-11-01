@@ -1,0 +1,15 @@
+uuid: 06c8264b-dc4e-406a-ab96-61e4c8a7c3ca
+langcode: es
+status: true
+dependencies: {  }
+name: lib_3_1_lg
+label: '3:1 Large (1920 x 640)'
+effects:
+  3040112c-d811-40ca-b107-af3f6844a0a5:
+    uuid: 3040112c-d811-40ca-b107-af3f6844a0a5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 640
+      anchor: center-center

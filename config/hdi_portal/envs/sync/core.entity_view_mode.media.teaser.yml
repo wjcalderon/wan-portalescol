@@ -1,0 +1,15 @@
+uuid: 49955540-859b-4591-92a4-8277326817ff
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.teaser
+label: Teaser
+description: ''
+targetEntityType: media
+cache: true

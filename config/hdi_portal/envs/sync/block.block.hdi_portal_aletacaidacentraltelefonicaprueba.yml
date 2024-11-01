@@ -1,0 +1,30 @@
+uuid: 4efebca1-f962-45ae-9493-9138ff148a89
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:alert:0ef16a31-39e3-44b1-a6bd-db38eb3d730d'
+  module:
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_aletacaidacentraltelefonicaprueba
+theme: hdi_portal
+region: eyebrow
+weight: 0
+provider: null
+plugin: 'block_content:0ef16a31-39e3-44b1-a6bd-db38eb3d730d'
+settings:
+  id: 'block_content:0ef16a31-39e3-44b1-a6bd-db38eb3d730d'
+  label: 'Aleta caida central telefonica prueba'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

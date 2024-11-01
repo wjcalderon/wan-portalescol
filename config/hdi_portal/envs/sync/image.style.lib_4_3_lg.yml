@@ -1,0 +1,15 @@
+uuid: ea2743c4-7180-4777-810f-871e0f5757e3
+langcode: es
+status: true
+dependencies: {  }
+name: lib_4_3_lg
+label: '4:3 Large (1024 x 768)'
+effects:
+  c6b7acc0-e78a-4e12-becd-9e35b2eec01e:
+    uuid: c6b7acc0-e78a-4e12-becd-9e35b2eec01e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 768
+      anchor: center-center

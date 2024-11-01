@@ -1,0 +1,31 @@
+uuid: 9e5bfd86-e1f5-4acd-863d-72c2d87dc0db
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.lib_v3_contacts
+    - block_content.type.lib_v3_contacts_group
+    - field.storage.block_content.field_lib_v3_contacts_group_ref
+_core:
+  default_config_hash: ff-rs4wzWALzCnz83_UwH7dNenLQ0e2StHEMVYPOVAo
+id: block_content.lib_v3_contacts_group.field_lib_v3_contacts_group_ref
+field_name: field_lib_v3_contacts_group_ref
+entity_type: block_content
+bundle: lib_v3_contacts_group
+label: 'Adicionar contacto'
+description: 'Tarjeta de contacto'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      lib_v3_contacts: lib_v3_contacts
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

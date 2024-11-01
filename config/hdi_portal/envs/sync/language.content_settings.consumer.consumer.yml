@@ -1,0 +1,11 @@
+uuid: 64f7d725-4dfd-4ac2-8b5f-9886abc979c3
+langcode: es
+status: true
+dependencies:
+  module:
+    - consumers
+id: consumer.consumer
+target_entity_type_id: consumer
+target_bundle: consumer
+default_langcode: site_default
+language_alterable: false

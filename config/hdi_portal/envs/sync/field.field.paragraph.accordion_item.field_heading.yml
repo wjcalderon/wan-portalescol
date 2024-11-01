@@ -1,0 +1,21 @@
+uuid: 788ff8a6-9c1b-42e4-9267-a49aeaca84a0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.accordion_item
+_core:
+  default_config_hash: M5NeadRFaGz4LpqZq3pVyhkDDmr1naDq9QbrdhkoxAY
+id: paragraph.accordion_item.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: accordion_item
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

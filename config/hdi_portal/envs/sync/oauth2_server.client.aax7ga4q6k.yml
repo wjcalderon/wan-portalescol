@@ -1,0 +1,22 @@
+uuid: 4e1761d1-4aeb-44f8-bd09-219beaae69e7
+langcode: es
+status: true
+dependencies: {  }
+client_id: aax7ga4q6k
+server_id: api_authentication_server
+name: 'api client'
+client_secret: $S$EnJ3szdY4OzukKX9n.xaXRXfM.6gSktaA8B2/I9oRdbLOx18gdnV
+public_key: ''
+redirect_uri: 'https://nonprodportal.libertyseguros.co/openid-connect/generic'
+automatic_authorization: false
+settings:
+  override_grant_types: true
+  allow_implicit: false
+  always_issue_new_refresh_token: false
+  unset_refresh_token_after_use: true
+  grant_types:
+    authorization_code: authorization_code
+    refresh_token: refresh_token
+    client_credentials: '0'
+    'urn:ietf:params:oauth:grant-type:jwt-bearer': '0'
+    password: '0'

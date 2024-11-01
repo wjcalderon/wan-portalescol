@@ -1,0 +1,53 @@
+uuid: 60c7f95d-2b75-4a1c-99c5-51ae7011ace2
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - filter.format.rich_text
+    - node.type.glosario_de_especialidades
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - file
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: mQgRB5qqCSYJOhkSO9vzdp0ZWCnUaQlWBx6mmtCYDUM
+id: glosario_de_especialidades_creator
+label: 'Glosario de especialidades creator'
+weight: 47
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node glosario_de_especialidades content'
+  - 'administer panelizer node glosario_de_especialidades layout'
+  - 'create glosario_de_especialidades content'
+  - 'create url aliases'
+  - 'delete own files'
+  - 'edit own glosario_de_especialidades content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view glosario_de_especialidades revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

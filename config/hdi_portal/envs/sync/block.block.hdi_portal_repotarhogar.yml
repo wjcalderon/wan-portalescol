@@ -1,0 +1,25 @@
+uuid: 6b1a309b-9e29-49c3-8563-15a0ef4424ee
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:7b532349-8a53-4a83-82cb-aef6cf9fad2b'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_repotarhogar
+theme: hdi_portal
+region: blocks_activate
+weight: -18
+provider: null
+plugin: 'block_content:7b532349-8a53-4a83-82cb-aef6cf9fad2b'
+settings:
+  id: 'block_content:7b532349-8a53-4a83-82cb-aef6cf9fad2b'
+  label: '¿Necesitas ayuda?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

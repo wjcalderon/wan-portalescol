@@ -1,0 +1,8 @@
+uuid: 47e20dcc-36e2-4f56-8ac4-ac066ee28c29
+langcode: es
+status: true
+dependencies: {  }
+id: enlaces-rapidos
+label: 'Enlaces rápidos'
+description: 'bloque enalces rapidos preguntas frecuentes'
+locked: false

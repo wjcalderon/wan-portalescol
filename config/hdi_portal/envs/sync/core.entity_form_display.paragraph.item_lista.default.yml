@@ -1,0 +1,45 @@
+uuid: 280d86c4-69d3-4389-bff3-17b894fd3fb6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_lista.field_c_image
+    - field.field.paragraph.item_lista.field_c_title
+    - field.field.paragraph.item_lista.field_vineta
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.item_lista
+  module:
+    - svg_image
+id: paragraph.item_lista.default
+targetEntityType: paragraph
+bundle: item_lista
+mode: default
+content:
+  field_c_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_vineta:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

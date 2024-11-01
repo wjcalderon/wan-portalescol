@@ -1,0 +1,11 @@
+uuid: 8af282bf-a44d-4240-987f-7a27b6316a7b
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nT_pHBLYXNm5Wrqwrlw-5TUuryqn9e8702HYpH84dfM
+name: 'Temporadas Los Segura'
+vid: temporadas_los_segura
+description: null
+weight: 0
+new_revision: false

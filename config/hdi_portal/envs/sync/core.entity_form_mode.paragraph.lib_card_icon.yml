@@ -1,0 +1,15 @@
+uuid: b6eaf34d-f873-485f-9858-937d4b51d1bd
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.lib_card_icon
+label: 'Card Icon'
+description: ''
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,21 @@
+uuid: 4eab0fdf-20c3-4423-bd9a-2cf92345674e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.cta_phone
+_core:
+  default_config_hash: JBhbB7qCMPwUUXW4demmT8P7IADxB7AnBDdZhmRe-ik
+id: paragraph.cta_phone.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: cta_phone
+label: 'Número de teléfono'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

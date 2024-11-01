@@ -1,0 +1,25 @@
+uuid: 33a86269-07fc-4cee-9bf0-394e4af6ee55
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-horizontal-mobile
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menuhorizontalmobile
+theme: hdi_portal
+region: menu_mobile
+weight: -37
+provider: null
+plugin: 'system_menu_block:menu-horizontal-mobile'
+settings:
+  id: 'system_menu_block:menu-horizontal-mobile'
+  label: 'menu horizontal mobile'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

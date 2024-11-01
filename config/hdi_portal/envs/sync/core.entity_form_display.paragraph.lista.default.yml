@@ -1,0 +1,94 @@
+uuid: 5e37e834-5857-45f0-81c3-0ae41616e08c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lista.field_c_classes
+    - field.field.paragraph.lista.field_c_title
+    - field.field.paragraph.lista.field_c_title_status
+    - field.field.paragraph.lista.field_c_width
+    - field.field.paragraph.lista.field_items_lista
+    - paragraphs.paragraphs_type.lista
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_component_title:
+      children:
+        - field_c_title_status
+        - field_c_title
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: false
+    group_styling_settings:
+      children:
+        - field_c_width
+        - field_c_classes
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.lista.default
+targetEntityType: paragraph
+bundle: lista
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_items_lista:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

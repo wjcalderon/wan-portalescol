@@ -1,0 +1,23 @@
+uuid: 7f64c7c4-f3d4-44d0-b469-1ac8caa730a5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_card
+    - paragraphs.paragraphs_type.card_icon
+  module:
+    - text
+_core:
+  default_config_hash: tn5pu9T7bp9-KFXscfbP5mFpOJl0bX_vd0XoTZTqptM
+id: paragraph.card_icon.field_body_card
+field_name: field_body_card
+entity_type: paragraph
+bundle: card_icon
+label: Resumen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

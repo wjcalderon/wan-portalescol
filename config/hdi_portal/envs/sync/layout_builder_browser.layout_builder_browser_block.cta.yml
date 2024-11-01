@@ -1,0 +1,13 @@
+uuid: 1db6a75c-e53d-4d93-9837-5d0098d7094f
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: b4W005c2-1_uzm4p5_1hNuZ3DmkkaXc9IR4Nglw2nlY
+id: cta
+block_id: 'inline_block:call_to_action'
+category: general
+label: CTA
+image_path: ''
+image_alt: ''
+weight: -100

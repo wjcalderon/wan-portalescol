@@ -1,0 +1,61 @@
+uuid: 18e3c733-4268-45fb-9d1e-95f445e4ff3f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_hero.field_lib_heading
+    - field.field.paragraph.lib_hero.field_lib_link
+    - field.field.paragraph.lib_hero.field_lib_media_image
+    - field.field.paragraph.lib_hero.field_lib_summary
+    - field.field.paragraph.lib_hero.field_lib_tab_heading
+    - paragraphs.paragraphs_type.lib_hero
+  module:
+    - link
+    - media_library
+id: paragraph.lib_hero.default
+targetEntityType: paragraph
+bundle: lib_hero
+mode: default
+content:
+  field_lib_heading:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_lib_media_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_lib_summary:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_tab_heading:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

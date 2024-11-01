@@ -1,0 +1,64 @@
+uuid: 16073833-0dd9-4b21-ac95-e12e0a5a039b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assistances
+    - node.type.product
+    - paragraphs.paragraphs_type.assistance_item
+  module:
+    - entity_reference_revisions
+id: node.product.field_assistances
+field_name: field_assistances
+entity_type: node
+bundle: product
+label: Assistances
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      assistance_item: assistance_item
+    negate: 0
+    target_bundles_drag_drop:
+      assistance_item:
+        weight: 13
+        enabled: true
+      banner:
+        weight: 14
+        enabled: false
+      card:
+        weight: 15
+        enabled: false
+      cards:
+        weight: 16
+        enabled: false
+      drupal_block:
+        weight: 17
+        enabled: false
+      drupal_view:
+        weight: 18
+        enabled: false
+      image:
+        weight: 19
+        enabled: false
+      single_text:
+        weight: 20
+        enabled: false
+      tab_item:
+        weight: 22
+        enabled: false
+      tabs:
+        weight: 21
+        enabled: false
+      testimonies:
+        weight: 23
+        enabled: false
+      testimony_item:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

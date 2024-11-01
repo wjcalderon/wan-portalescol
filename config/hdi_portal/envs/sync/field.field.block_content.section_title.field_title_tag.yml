@@ -1,0 +1,23 @@
+uuid: 6746ec72-30f9-48e8-92cd-143e715a4004
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.section_title
+    - field.storage.block_content.field_title_tag
+  module:
+    - options
+_core:
+  default_config_hash: '-3-bFKm1Z7PKzNyVrIUAzWMdzqPOp3WrCDAP-EtWy-A'
+id: block_content.section_title.field_title_tag
+field_name: field_title_tag
+entity_type: block_content
+bundle: section_title
+label: 'Etiqueta del título'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,8 @@
+uuid: e87c3081-820d-4e58-9953-6e35e9e329fb
+langcode: es
+status: true
+dependencies: {  }
+id: servicio-al-cliente
+label: 'Transversal 2'
+description: ''
+locked: false

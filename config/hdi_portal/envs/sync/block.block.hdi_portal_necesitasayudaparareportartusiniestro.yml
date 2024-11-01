@@ -1,0 +1,25 @@
+uuid: 9183939e-083e-4f56-b18a-1b023f11da62
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:8f989699-f943-4b5d-8813-c76cf7d4ea1a'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_necesitasayudaparareportartusiniestro
+theme: hdi_portal
+region: blocks_activate
+weight: -4
+provider: null
+plugin: 'block_content:8f989699-f943-4b5d-8813-c76cf7d4ea1a'
+settings:
+  id: 'block_content:8f989699-f943-4b5d-8813-c76cf7d4ea1a'
+  label: '¿Necesitas ayuda para reportar tu siniestro?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

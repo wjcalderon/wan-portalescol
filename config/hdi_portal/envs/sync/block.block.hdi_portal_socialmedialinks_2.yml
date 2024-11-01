@@ -1,0 +1,112 @@
+uuid: 8bd70d65-03e7-4483-83a5-64996e3a2e9d
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_media_links
+  theme:
+    - hdi_portal
+id: hdi_portal_socialmedialinks_2
+theme: hdi_portal
+region: menu_mobile
+weight: -31
+provider: null
+plugin: social_media_links_block
+settings:
+  id: social_media_links_block
+  label: 'Síguenos en:'
+  label_display: visible
+  provider: social_media_links
+  platforms:
+    facebook:
+      value: asdasdasd
+      description: ''
+      weight: '-30'
+    twitter:
+      value: asdasda
+      description: ''
+      weight: '-29'
+    behance:
+      value: ''
+      description: ''
+      weight: '-28'
+    bitbucket:
+      value: ''
+      description: ''
+      weight: '-27'
+    contact:
+      value: ''
+      description: ''
+      weight: '-26'
+    drupal:
+      value: ''
+      description: ''
+      weight: '-25'
+    email:
+      value: ''
+      description: ''
+      weight: '-24'
+    flickr:
+      value: ''
+      description: ''
+      weight: '-23'
+    github:
+      value: ''
+      description: ''
+      weight: '-22'
+    googleplus:
+      value: ''
+      description: ''
+      weight: '-21'
+    linkedin:
+      value: asdasdasd
+      description: ''
+      weight: '-20'
+    instagram:
+      value: asdasda
+      description: ''
+      weight: '-19'
+    pinterest:
+      value: ''
+      description: ''
+      weight: '-18'
+    rss:
+      value: ''
+      description: ''
+      weight: '-17'
+    slideshare:
+      value: ''
+      description: ''
+      weight: '-16'
+    tumblr:
+      value: ''
+      description: ''
+      weight: '-15'
+    vkontakte:
+      value: ''
+      description: ''
+      weight: '-14'
+    vimeo:
+      value: ''
+      description: ''
+      weight: '-13'
+    youtube:
+      value: ''
+      description: ''
+      weight: '-12'
+    youtube_channel:
+      value: ''
+      description: ''
+      weight: '-11'
+  appearance:
+    orientation: h
+    show_name: 0
+  link_attributes:
+    target: '<none>'
+    rel: '<none>'
+  iconset:
+    style: 'fontawesome:2x'
+    installed_iconsets:
+      fontawesome:
+        examples: ''
+visibility: {  }

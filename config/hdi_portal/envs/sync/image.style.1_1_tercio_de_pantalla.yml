@@ -1,0 +1,14 @@
+uuid: 5a87912e-d034-4df0-9eb6-44715b63d086
+langcode: es
+status: true
+dependencies: {  }
+name: 1_1_tercio_de_pantalla
+label: '1:1 Tercio de pantalla'
+effects:
+  b6ab7b0b-c3a8-4965-8925-7ad24867a831:
+    uuid: b6ab7b0b-c3a8-4965-8925-7ad24867a831
+    id: image_resize
+    weight: 1
+    data:
+      width: 420
+      height: 420

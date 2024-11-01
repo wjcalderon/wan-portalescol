@@ -1,0 +1,9 @@
+uuid: 10d04d0e-bfe1-40b1-b8a6-2c8dc985ec58
+langcode: es
+status: true
+dependencies: {  }
+id: shorcut
+label: 'Item acceso rápido'
+icon_uuid: null
+description: 'Un enlace rapido de un menu tipo anclas'
+behavior_plugins: {  }

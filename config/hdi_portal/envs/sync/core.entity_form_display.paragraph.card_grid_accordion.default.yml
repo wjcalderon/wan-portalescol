@@ -1,0 +1,39 @@
+uuid: 66f06c03-0b4d-4407-aa1e-f7de9282b337
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_grid_accordion.field_grid_single
+    - field.field.paragraph.card_grid_accordion.field_title_card
+    - paragraphs.paragraphs_type.card_grid_accordion
+  module:
+    - paragraphs
+    - text
+id: paragraph.card_grid_accordion.default
+targetEntityType: paragraph
+bundle: card_grid_accordion
+mode: default
+content:
+  field_grid_single:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_title_card:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

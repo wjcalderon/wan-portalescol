@@ -356,7 +356,7 @@ if ($memcache_module_is_present && ($memcache_exists || $memcached_exists)) {
  *   );
  * @endcode
  */
-$settings['config_sync_directory'] = '../config/sync';
+$settings['config_sync_directory'] = '../config/hdi_portal';
 $settings['config_vcs_directory'] =  '../config/vcs';
 
 /**
@@ -876,7 +876,7 @@ if (isset($settings['memcache']['servers'])) {
   $settings['cache']['default'] = 'cache.backend.memcache';
 }
 
-$settings['config_sync_directory'] = '../config/liberty/envs/sync';
+$settings['config_sync_directory'] = '../config/hdi_portal/envs/sync';
 
 $databases['default']['default'] = array (
   'database' => getenv('PortalColombia_nameDB'),

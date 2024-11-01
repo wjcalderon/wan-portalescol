@@ -1,0 +1,10 @@
+uuid: 4e9c7d3a-f818-46af-94e3-d3ed2f33ff80
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7h2bc8ZZtSEoTtMQ6QB4La36Bp0QAScKPhWryfsN260
+id: card_list_foto
+label: 'Card list - Card foto'
+revision: false
+description: ''

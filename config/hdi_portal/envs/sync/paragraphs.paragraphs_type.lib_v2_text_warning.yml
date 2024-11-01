@@ -1,0 +1,12 @@
+uuid: c0550682-ba5e-4e8e-96b0-9463b7bb71a0
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZxXFsO3q-4x40cTBT9wH0uANQtYkYPKwEJJJid6iXuE
+id: lib_v2_text_warning
+label: 'Texto Advertencia'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

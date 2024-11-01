@@ -1,0 +1,11 @@
+uuid: 029833d6-62c9-4273-91d9-e4b0b0536833
+langcode: es
+status: true
+dependencies: {  }
+id: vista_blog
+block_id: 'inline_block:vista_blog_'
+category: multiples
+label: 'Vista Blog'
+image_path: ''
+image_alt: ''
+weight: -1

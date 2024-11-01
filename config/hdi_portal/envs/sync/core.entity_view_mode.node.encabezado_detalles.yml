@@ -1,0 +1,15 @@
+uuid: e263e772-75e0-4895-9540-0757cdfa0146
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.encabezado_detalles
+label: 'encabezado detalles'
+description: ''
+targetEntityType: node
+cache: true

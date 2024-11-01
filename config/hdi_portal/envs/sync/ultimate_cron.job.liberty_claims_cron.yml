@@ -1,0 +1,17 @@
+uuid: 8ced57f8-31f0-42c0-a496-c8b8851c6f51
+langcode: es
+status: true
+dependencies:
+  module:
+    - liberty_claims
+title: 'Default cron handler'
+id: liberty_claims_cron
+weight: 0
+module: liberty_claims
+callback: liberty_claims_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

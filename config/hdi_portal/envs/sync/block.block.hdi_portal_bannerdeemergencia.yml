@@ -1,0 +1,31 @@
+uuid: ad04b138-4b12-43c1-b14f-8d8bc9fb0b5c
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:alert:d347c408-7276-43f3-9400-23e04db67cfc'
+  module:
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_bannerdeemergencia
+theme: hdi_portal
+region: eyebrow
+weight: 0
+provider: null
+plugin: 'block_content:d347c408-7276-43f3-9400-23e04db67cfc'
+settings:
+  id: 'block_content:d347c408-7276-43f3-9400-23e04db67cfc'
+  label: 'Banner de emergencia'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

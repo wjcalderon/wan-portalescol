@@ -1,0 +1,25 @@
+uuid: b37f99b6-9ccc-4e39-a581-736c07856047
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_reportarsiniestrosautos
+theme: hdi_portal
+region: blocks_activate
+weight: -39
+provider: null
+plugin: 'block_content:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+settings:
+  id: 'block_content:5e954c55-7fec-4e52-9d82-ed1c1a3fd6e3'
+  label: '¿En que podemos ayudarte?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

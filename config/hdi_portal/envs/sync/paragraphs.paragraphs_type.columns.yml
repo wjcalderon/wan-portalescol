@@ -1,0 +1,9 @@
+uuid: bc3571c9-d416-4f09-8346-0f82e8444b00
+langcode: es
+status: true
+dependencies: {  }
+id: columns
+label: Columnas
+icon_uuid: null
+description: 'Permite agregar varias columnas en un componente y agregar diferentes entidades.'
+behavior_plugins: {  }

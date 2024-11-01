@@ -1,0 +1,97 @@
+uuid: c4e93be1-6da9-4b9b-85e8-0d7525f1ce75
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.taller.field_direccion
+    - field.field.node.taller.field_email
+    - field.field.node.taller.field_marcas
+    - field.field.node.taller.field_nombre
+    - field.field.node.taller.field_telefono
+    - field.field.node.taller.field_tipo_de_tall
+    - field.field.node.taller.field_ubicacion
+    - node.type.taller
+  module:
+    - manage_display
+id: node.taller.default
+targetEntityType: node
+bundle: taller
+mode: default
+content:
+  field_direccion:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_email:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_marcas:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_nombre:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_telefono:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_tipo_de_tall:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_ubicacion:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      link_to_entity: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  created: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

@@ -1,0 +1,57 @@
+uuid: 1cd1cb88-e401-4b6c-87ad-99bb5f372f29
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.paragraph.plan
+    - field.field.paragraph.lib_card.field_lib_body
+    - field.field.paragraph.lib_card.field_lib_heading
+    - field.field.paragraph.lib_card.field_lib_item_list
+    - field.field.paragraph.lib_card.field_lib_link
+    - field.field.paragraph.lib_card.field_lib_media_icon
+    - field.field.paragraph.lib_card.field_lib_media_image
+    - paragraphs.paragraphs_type.lib_card
+  module:
+    - link
+    - media_library
+id: paragraph.lib_card.plan
+targetEntityType: paragraph
+bundle: lib_card
+mode: plan
+content:
+  field_lib_heading:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_item_list:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lib_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_lib_media_icon:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_lib_body: true
+  field_lib_media_image: true
+  status: true

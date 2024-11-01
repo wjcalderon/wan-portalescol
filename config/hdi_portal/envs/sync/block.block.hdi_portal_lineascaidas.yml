@@ -1,0 +1,35 @@
+uuid: dcc2e2b4-c292-4814-bb2c-686a62b56622
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: 'is-hidden modal-link-fallback-popup modal-close'
+id: hdi_portal_lineascaidas
+theme: hdi_portal
+region: blocks_popups
+weight: -30
+provider: null
+plugin: 'block_content:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+settings:
+  id: 'block_content:80fd7d7b-a774-422d-80bb-3ca89742b86e'
+  label: 'Lineas Caidas'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

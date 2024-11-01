@@ -1,0 +1,23 @@
+uuid: 1f22540e-5419-440e-8354-dde9d1ec1f6f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title_status
+    - paragraphs.paragraphs_type.testimonies
+id: paragraph.testimonies.field_c_title_status
+field_name: field_c_title_status
+entity_type: paragraph
+bundle: testimonies
+label: "Don't show title on page"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

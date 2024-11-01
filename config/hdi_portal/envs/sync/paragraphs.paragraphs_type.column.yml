@@ -1,0 +1,9 @@
+uuid: 8b6e11f8-4f55-46f4-a8c6-3f3b73a11d88
+langcode: es
+status: true
+dependencies: {  }
+id: column
+label: Columna
+icon_uuid: null
+description: 'Item tipo columna, referenciado por el componente <strong>columnas</strong>.'
+behavior_plugins: {  }

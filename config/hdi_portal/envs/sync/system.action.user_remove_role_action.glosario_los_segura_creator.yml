@@ -1,0 +1,14 @@
+uuid: abbb6170-318f-438e-bf7e-88a6f153e101
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.glosario_los_segura_creator
+  module:
+    - user
+id: user_remove_role_action.glosario_los_segura_creator
+label: 'Elimina el rol Glosario los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: glosario_los_segura_creator

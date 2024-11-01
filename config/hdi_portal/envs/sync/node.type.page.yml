@@ -1,0 +1,20 @@
+uuid: 13621743-5aba-4596-b415-ac41610b0d18
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: nb_cPUs4dvoXeLvPMQYwg1oWcQ5-nE7TcwKGs_VsiHg
+name: 'Página básica'
+type: page
+description: 'Use las <em>páginas básicas</em> para publicar contenido que no varía, como es el caso de una página "Sobre nosotros" o "Acerca de..."'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

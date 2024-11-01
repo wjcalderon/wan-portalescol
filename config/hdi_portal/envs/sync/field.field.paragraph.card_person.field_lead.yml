@@ -1,0 +1,21 @@
+uuid: 6897cdce-d39c-4b1d-9a3b-fef52247bb87
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lead
+    - paragraphs.paragraphs_type.card_person
+_core:
+  default_config_hash: aSEdiRqepKhR9T6r4VsFGzzswEtTZXYqFwK-rL6_mas
+id: paragraph.card_person.field_lead
+field_name: field_lead
+entity_type: paragraph
+bundle: card_person
+label: Resúmen
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

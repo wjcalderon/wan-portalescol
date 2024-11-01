@@ -1,0 +1,33 @@
+uuid: a75a7f5d-fa72-478f-bd18-5ff53f254bf5
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:a32a8c67-1be3-41bd-88e1-4b7d4a344153'
+  module:
+    - block_content
+    - node
+  theme:
+    - hdi_portal
+id: hdi_portal_bannerdetallefaq
+theme: hdi_portal
+region: content
+weight: -41
+provider: null
+plugin: 'block_content:a32a8c67-1be3-41bd-88e1-4b7d4a344153'
+settings:
+  id: 'block_content:a32a8c67-1be3-41bd-88e1-4b7d4a344153'
+  label: 'banner detalle faq'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      faq: faq

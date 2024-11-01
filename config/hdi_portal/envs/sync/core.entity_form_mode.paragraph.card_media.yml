@@ -1,0 +1,15 @@
+uuid: 47b70003-5c08-4a85-bc4b-65ec820b5964
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.card_media
+label: 'Card Media'
+description: ''
+targetEntityType: paragraph
+cache: true

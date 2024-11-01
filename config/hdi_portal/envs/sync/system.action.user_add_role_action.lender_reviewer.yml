@@ -1,0 +1,14 @@
+uuid: 7c8f5335-8ed7-4427-9b5c-90f523d826e9
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lender_reviewer
+  module:
+    - user
+id: user_add_role_action.lender_reviewer
+label: 'Añade el rol Prestador reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: lender_reviewer

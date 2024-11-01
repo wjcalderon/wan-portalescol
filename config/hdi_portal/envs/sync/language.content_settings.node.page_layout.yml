@@ -1,0 +1,13 @@
+uuid: e1ca6044-6f4c-464d-8f7d-e3c8c7c2f779
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.page_layout
+_core:
+  default_config_hash: GK1rLVjK_-8Voqq2MO-PSRZvnIubGEQzSju_RCQLQTo
+id: node.page_layout
+target_entity_type_id: node
+target_bundle: page_layout
+default_langcode: site_default
+language_alterable: false

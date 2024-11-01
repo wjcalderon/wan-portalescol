@@ -1,0 +1,102 @@
+uuid: 0652eadc-94a8-4c00-a1a6-09a91281e6a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid
+    - field.field.node.news_article_video.body
+    - field.field.node.news_article_video.field_big_image
+    - field.field.node.news_article_video.field_category
+    - field.field.node.news_article_video.field_cta
+    - field.field.node.news_article_video.field_featured
+    - field.field.node.news_article_video.field_relacionados
+    - field.field.node.news_article_video.field_small_image
+    - field.field.node.news_article_video.field_tags
+    - node.type.news_article_video
+  module:
+    - manage_display
+    - panelizer
+    - svg_image
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.news_article_video.grid
+targetEntityType: node
+bundle: news_article_video
+mode: grid
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: custom
+      custom_date_format: 'F d \d\e Y'
+      timezone: ''
+      tooltip:
+        date_format: ''
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_small_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      link_to_entity: true
+      tag: h2
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_big_image: true
+  field_cta: true
+  field_featured: true
+  field_relacionados: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

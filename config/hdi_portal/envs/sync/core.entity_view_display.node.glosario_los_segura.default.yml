@@ -1,0 +1,35 @@
+uuid: 049f96e2-1555-4df2-8ebf-eb54238428bb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.glosario_los_segura.body
+    - node.type.glosario_los_segura
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: G4IhPq6hiDb4jayuJSjeh1pIg3553lODIIHi56wmghw
+id: node.glosario_los_segura.default
+targetEntityType: node
+bundle: glosario_los_segura
+mode: default
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

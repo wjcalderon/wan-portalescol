@@ -1,0 +1,65 @@
+uuid: 8450b451-6d48-47b9-bb01-819525966575
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_tab_item.field_lib_heading
+    - field.field.paragraph.lib_tab_item.field_lib_link
+    - field.field.paragraph.lib_tab_item.field_lib_p_items
+    - field.field.paragraph.lib_tab_item.field_lib_summary
+    - field.field.paragraph.lib_tab_item.field_lib_tab_heading
+    - paragraphs.paragraphs_type.lib_tab_item
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.lib_tab_item.default
+targetEntityType: paragraph
+bundle: lib_tab_item
+mode: default
+content:
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_link:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_tab_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

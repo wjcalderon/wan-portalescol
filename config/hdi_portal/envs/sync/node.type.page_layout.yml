@@ -1,0 +1,23 @@
+uuid: d27b0085-1fc5-47cb-8126-70db39c7bd65
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  lightning_workflow:
+    workflow: editorial
+_core:
+  default_config_hash: Xg0esTwPnBA7bvpSYtmMUOIrDGNx_4DjM5_bIGGxPW4
+name: 'Página flexible'
+type: page_layout
+description: 'Página flexible con contenido dinámico.'
+help: null
+new_revision: false
+preview_mode: 0
+display_submitted: true

@@ -1,0 +1,19 @@
+uuid: f8ff4ca2-6f19-4505-9190-3d7a4e503bf9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_tab_heading
+    - paragraphs.paragraphs_type.lib_tab_item
+id: paragraph.lib_tab_item.field_lib_tab_heading
+field_name: field_lib_tab_heading
+entity_type: paragraph
+bundle: lib_tab_item
+label: 'Tab Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

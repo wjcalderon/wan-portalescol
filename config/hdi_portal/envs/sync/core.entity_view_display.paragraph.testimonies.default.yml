@@ -1,0 +1,62 @@
+uuid: 67b94bc8-b051-43e7-b198-e1188812fada
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonies.field__testimony_item
+    - field.field.paragraph.testimonies.field_c_classes
+    - field.field.paragraph.testimonies.field_c_title
+    - field.field.paragraph.testimonies.field_c_title_status
+    - field.field.paragraph.testimonies.field_c_width
+    - paragraphs.paragraphs_type.testimonies
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.testimonies.default
+targetEntityType: paragraph
+bundle: testimonies
+mode: default
+content:
+  field__testimony_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_c_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

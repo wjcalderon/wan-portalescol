@@ -1,0 +1,19 @@
+uuid: ba7476e9-dab1-4146-9d46-b206930e31a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+    - field.storage.block_content.field_resto_pais
+id: block_content.attention_lines.field_resto_pais
+field_name: field_resto_pais
+entity_type: block_content
+bundle: attention_lines
+label: 'Resto del país'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,150 @@
+uuid: 0f56e798-5ee7-4dc0-b831-4d96536c7f54
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.paragraph.tab_item.field_body
+    - field.field.paragraph.tab_item.field_c_classes
+    - field.field.paragraph.tab_item.field_c_image
+    - field.field.paragraph.tab_item.field_class_wrapper_image
+    - field.field.paragraph.tab_item.field_cta
+    - field.field.paragraph.tab_item.field_image
+    - field.field.paragraph.tab_item.field_lead
+    - field.field.paragraph.tab_item.field_name
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - entity_browser
+    - field_group
+    - link
+    - paragraphs
+    - svg_image
+third_party_settings:
+  field_group:
+    group_c_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_image
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_head:
+      children:
+        - field_name
+        - field_lead
+        - field_image
+        - field_class_wrapper_image
+        - field_cta
+      label: Head
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_body:
+      children:
+        - field_body
+      label: Body
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.tab_item.default
+targetEntityType: paragraph
+bundle: tab_item
+mode: default
+content:
+  field_body:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_c_classes:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_image:
+    type: entity_browser_file
+    weight: 3
+    region: content
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_class_wrapper_image:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cta:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_lead:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

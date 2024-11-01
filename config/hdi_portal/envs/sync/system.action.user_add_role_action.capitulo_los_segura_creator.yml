@@ -1,0 +1,14 @@
+uuid: 91971680-f7f6-4066-8bb5-8067a780004c
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.capitulo_los_segura_creator
+  module:
+    - user
+id: user_add_role_action.capitulo_los_segura_creator
+label: 'Añade el rol Capítulo Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: capitulo_los_segura_creator

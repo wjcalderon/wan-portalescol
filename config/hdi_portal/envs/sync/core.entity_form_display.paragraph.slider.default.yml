@@ -1,0 +1,63 @@
+uuid: 239cbb28-83fa-48a3-8320-df1cb986574a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slider.field_banner_item
+    - field.field.paragraph.slider.field_c_classes
+    - field.field.paragraph.slider.field_c_width
+    - paragraphs.paragraphs_type.slider
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_styling_settings:
+      children:
+        - field_c_width
+        - field_c_classes
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.slider.default
+targetEntityType: paragraph
+bundle: slider
+mode: default
+content:
+  field_banner_item:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_c_classes:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

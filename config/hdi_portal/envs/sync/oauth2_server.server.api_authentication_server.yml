@@ -1,0 +1,26 @@
+uuid: b232bb5b-082e-4921-b442-d17739ce4cc4
+langcode: es
+status: true
+dependencies: {  }
+name: 'api authentication server'
+server_id: api_authentication_server
+module: null
+settings:
+  default_scope: ''
+  enforce_state: true
+  allow_implicit: false
+  use_openid_connect: true
+  use_crypto_tokens: false
+  grant_types:
+    authorization_code: authorization_code
+    refresh_token: refresh_token
+    client_credentials: '0'
+    'urn:ietf:params:oauth:grant-type:jwt-bearer': '0'
+    password: '0'
+  always_issue_new_refresh_token: false
+  unset_refresh_token_after_use: true
+  advanced_settings:
+    access_lifetime: 3600
+    id_lifetime: 3600
+    refresh_token_lifetime: 1209600
+    require_exact_redirect_uri: true

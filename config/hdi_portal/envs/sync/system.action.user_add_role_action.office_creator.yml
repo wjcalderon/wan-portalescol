@@ -1,0 +1,14 @@
+uuid: 198aafd7-41b0-4732-90ee-fa93184fc4b2
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.office_creator
+  module:
+    - user
+id: user_add_role_action.office_creator
+label: 'Añade el rol Sucursal creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: office_creator

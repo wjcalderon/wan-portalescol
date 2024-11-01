@@ -1,0 +1,25 @@
+uuid: 27497796-5c96-46c1-b905-344a36b2b908
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cdba36e4-8207-4428-a142-61bdc6af9603'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_centrosiniestros2
+theme: hdi_portal
+region: blocks_activate
+weight: -3
+provider: null
+plugin: 'block_content:cdba36e4-8207-4428-a142-61bdc6af9603'
+settings:
+  id: 'block_content:cdba36e4-8207-4428-a142-61bdc6af9603'
+  label: 'centro siniestros 2'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

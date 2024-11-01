@@ -1,0 +1,20 @@
+uuid: 463f6cf3-dc52-4dbf-856c-cdfecdbfb99f
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_tabsdocumentosrequeridos
+theme: hdi_portal
+region: blocks_activate
+weight: -32
+provider: null
+plugin: tabs_documents_required
+settings:
+  id: tabs_documents_required
+  label: 'Tabs documentos requeridos'
+  label_display: '0'
+  provider: lib_core
+visibility: {  }

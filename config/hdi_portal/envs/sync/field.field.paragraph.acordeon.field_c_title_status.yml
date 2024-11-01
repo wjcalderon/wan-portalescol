@@ -1,0 +1,23 @@
+uuid: a688d241-fae5-4085-88f0-9693ba6a7d86
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title_status
+    - paragraphs.paragraphs_type.acordeon
+id: paragraph.acordeon.field_c_title_status
+field_name: field_c_title_status
+entity_type: paragraph
+bundle: acordeon
+label: "Don't show title on page"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

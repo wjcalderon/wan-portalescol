@@ -1,0 +1,11 @@
+uuid: 075c4e49-7399-4871-b784-19f9346a07f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ocupacion
+id: taxonomy_term.ocupacion
+target_entity_type_id: taxonomy_term
+target_bundle: ocupacion
+default_langcode: site_default
+language_alterable: false

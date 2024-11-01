@@ -1,0 +1,23 @@
+uuid: 0c79dd4b-08a2-4d10-a862-8d190aedb119
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.content_type
+  module:
+    - facets
+  theme:
+    - hdi_portal
+id: hdi_portal_contenttype_2
+theme: hdi_portal
+region: blocks_activate
+weight: -44
+provider: null
+plugin: 'facet_block:content_type'
+settings:
+  id: 'facet_block:content_type'
+  label: 'Content type'
+  label_display: '0'
+  provider: facets
+  block_id: contenttype_2
+visibility: {  }

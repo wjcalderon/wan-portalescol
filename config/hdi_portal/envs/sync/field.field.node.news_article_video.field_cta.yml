@@ -1,0 +1,28 @@
+uuid: 2eb70bbb-63d2-4e3e-bbca-e45f37aea093
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.node.field_cta
+    - node.type.news_article_video
+id: node.news_article_video.field_cta
+field_name: field_cta
+entity_type: node
+bundle: news_article_video
+label: CTA
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      cta: cta
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

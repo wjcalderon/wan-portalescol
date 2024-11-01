@@ -1,0 +1,21 @@
+uuid: 7f2dbf3d-4432-4da6-a061-575b8637a560
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_sinisterthankyoumessage
+theme: hdi_portal
+region: blocks_activate
+weight: -34
+provider: null
+plugin: sinister_notification_thankyou
+settings:
+  id: sinister_notification_thankyou
+  label: 'Sinister thank you message'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 1f9cb474-0d3c-4d86-b55f-7ed868eabe6b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f3877453-de3f-486e-ba4e-9898cfa1361c'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_terminosycondiciones
+theme: hdi_portal
+region: footer_terminos
+weight: -28
+provider: null
+plugin: 'block_content:f3877453-de3f-486e-ba4e-9898cfa1361c'
+settings:
+  id: 'block_content:f3877453-de3f-486e-ba4e-9898cfa1361c'
+  label: 'Términos y condiciones '
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

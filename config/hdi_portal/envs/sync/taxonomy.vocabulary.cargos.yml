@@ -1,0 +1,9 @@
+uuid: 9c34832e-01cc-4ddc-84c7-c8de632ba265
+langcode: es
+status: true
+dependencies: {  }
+name: Cargos
+vid: cargos
+description: 'Listado de distintas ocupaciones.'
+weight: 0
+new_revision: false

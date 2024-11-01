@@ -1,0 +1,13 @@
+uuid: 193e3947-9419-431e-964b-ac7d018fea18
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.call_to_action
+_core:
+  default_config_hash: vUNUwqq_Brhji1PZ57v_I4uTePhbL2i_uDiGpST4CP4
+id: block_content.call_to_action
+target_entity_type_id: block_content
+target_bundle: call_to_action
+default_langcode: site_default
+language_alterable: false

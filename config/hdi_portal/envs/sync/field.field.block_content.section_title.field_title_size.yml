@@ -1,0 +1,23 @@
+uuid: f42b1f0d-3048-4590-9c77-55717ec2c128
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.section_title
+    - field.storage.block_content.field_title_size
+  module:
+    - options
+_core:
+  default_config_hash: cy-Asi75qa-FiM3Xpb0zWY4WCrI6HQcVsBtPRH27pZo
+id: block_content.section_title.field_title_size
+field_name: field_title_size
+entity_type: block_content
+bundle: section_title
+label: 'Tamaño del subtítulo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

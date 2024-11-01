@@ -1,0 +1,31 @@
+uuid: bfd2b490-3422-42e2-9e45-87b2444b2bef
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.webform_default
+    - rest.resource.webform_rest_submit
+  module:
+    - contact
+    - file
+    - filter
+    - google_analytics
+    - media
+    - rest
+    - shortcut
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Usuario autenticado'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'delete own files'
+  - 'opt-in or out of google analytics tracking'
+  - 'restful post webform_rest_submit'
+  - 'use text format webform_default'
+  - 'view media'

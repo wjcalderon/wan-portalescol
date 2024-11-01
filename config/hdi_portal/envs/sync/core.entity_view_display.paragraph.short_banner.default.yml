@@ -1,0 +1,46 @@
+uuid: 126eb107-e6e2-40ea-9902-284062e46465
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.short_banner.field_image
+    - field.field.paragraph.short_banner.field_image_mobile
+    - image.style.768x1090
+    - paragraphs.paragraphs_type.short_banner
+  module:
+    - svg_image
+_core:
+  default_config_hash: RrSbzyYHgbAIvHbMXPCvJhuknrGh5tT40iluTE8RqHI
+id: paragraph.short_banner.default
+targetEntityType: paragraph
+bundle: short_banner
+mode: default
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 1920x500
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image_mobile:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 768x1090
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

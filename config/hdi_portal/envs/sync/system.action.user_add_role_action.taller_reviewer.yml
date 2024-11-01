@@ -1,0 +1,14 @@
+uuid: 0938cf9f-2feb-4c74-9559-30c7cdbab9b9
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.taller_reviewer
+  module:
+    - user
+id: user_add_role_action.taller_reviewer
+label: 'Añade el rol Taller reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: taller_reviewer

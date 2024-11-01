@@ -1,0 +1,82 @@
+uuid: 4e3f37e8-39b0-4f67-8578-94c2c52bbfa3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card.field_additional_elements
+    - field.field.paragraph.card.field_c_classes
+    - field.field.paragraph.card.field_cta
+    - field.field.paragraph.card.field_heading
+    - field.field.paragraph.card.field_image
+    - field.field.paragraph.card.field_lead
+    - paragraphs.paragraphs_type.card
+  module:
+    - entity_reference_revisions
+    - link
+    - svg_image
+id: paragraph.card.default
+targetEntityType: paragraph
+bundle: card
+mode: default
+content:
+  field_additional_elements:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

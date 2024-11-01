@@ -1,0 +1,20 @@
+uuid: 83706327-88ed-4950-8eb9-de5def75f5b7
+langcode: es
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - hdi_portal
+id: hdi_portal_contactanos
+theme: hdi_portal
+region: menu_desktop_second
+weight: 0
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-con'
+settings:
+  id: 'tb_megamenu_menu_block:menu-con'
+  label: Contáctanos
+  label_display: '0'
+  provider: tb_megamenu
+visibility: {  }

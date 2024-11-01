@@ -1,0 +1,29 @@
+uuid: bdb2756e-b20a-4e04-a323-a6f6318a02e6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.news_article_video
+    - taxonomy.vocabulary.tags
+id: node.news_article_video.field_tags
+field_name: field_tags
+entity_type: node
+bundle: news_article_video
+label: Etiquetas
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

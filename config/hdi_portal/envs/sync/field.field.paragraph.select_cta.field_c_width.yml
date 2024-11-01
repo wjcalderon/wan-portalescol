@@ -1,0 +1,21 @@
+uuid: 1d0fcd2f-fe08-41f1-b52d-c95bc0146538
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.select_cta
+  module:
+    - options
+id: paragraph.select_cta.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: select_cta
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

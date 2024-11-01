@@ -1,0 +1,15 @@
+uuid: 57dc06d0-e235-43ce-8985-1e0e1a96e3e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - block
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    internal: true
+id: block.token
+label: Token
+description: ''
+targetEntityType: block
+cache: true

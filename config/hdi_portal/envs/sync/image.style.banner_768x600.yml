@@ -1,0 +1,21 @@
+uuid: 92bd116d-c242-4906-812e-d2db0de55c1b
+langcode: es
+status: true
+dependencies: {  }
+name: banner_768x600
+label: 'Banner 768x600'
+effects:
+  a6ef29ac-f50f-4338-abfc-82481f5a9831:
+    uuid: a6ef29ac-f50f-4338-abfc-82481f5a9831
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 600
+      anchor: center-center
+  bbebb1d5-7075-4d37-b527-c6ece5ec1798:
+    uuid: bbebb1d5-7075-4d37-b527-c6ece5ec1798
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

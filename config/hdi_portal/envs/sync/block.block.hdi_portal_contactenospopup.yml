@@ -1,0 +1,29 @@
+uuid: 534f108d-5423-460d-b0a7-223760780ca0
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:09139ff5-cc83-4bbc-ac68-1f036df4b469'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: is-hidden
+id: hdi_portal_contactenospopup
+theme: hdi_portal
+region: blocks_popups
+weight: -34
+provider: null
+plugin: 'block_content:09139ff5-cc83-4bbc-ac68-1f036df4b469'
+settings:
+  id: 'block_content:09139ff5-cc83-4bbc-ac68-1f036df4b469'
+  label: 'contactenos popup'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 6ddb5641-5440-4087-875b-501b0ea01ff4
+langcode: en
+status: true
+dependencies: {  }
+id: single_text
+label: 'Texto enriquecido'
+icon_uuid: null
+description: 'Area de texto con editor enriquecido o modo html que permite agregar libremente contenido.'
+behavior_plugins: {  }

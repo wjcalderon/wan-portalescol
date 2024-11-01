@@ -1,0 +1,23 @@
+uuid: 02cb6ae3-6aa8-4729-ab50-12c7ab57188c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_list_basic
+    - field.storage.block_content.field_columns_grid
+  module:
+    - options
+_core:
+  default_config_hash: 9NFoWVHvvS1u4R4i7rbYGtyWIjSe7Wwl0J65L1XoOZk
+id: block_content.card_list_basic.field_columns_grid
+field_name: field_columns_grid
+entity_type: block_content
+bundle: card_list_basic
+label: Columnas
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

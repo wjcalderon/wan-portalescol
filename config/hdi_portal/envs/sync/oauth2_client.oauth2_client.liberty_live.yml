@@ -1,0 +1,10 @@
+uuid: 35fdc7ef-70d8-4e8e-98d1-0d956a2ec6f8
+langcode: es
+status: false
+dependencies: {  }
+id: liberty_live
+label: LibertyMutualLive
+description: ''
+oauth2_client_plugin_id: liberty_live
+credential_provider: oauth2_client
+credential_storage_key: ''

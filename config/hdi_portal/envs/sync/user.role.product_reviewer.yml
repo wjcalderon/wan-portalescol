@@ -1,0 +1,29 @@
+uuid: 4ff1b0cf-14f9-4405-a07c-6ee2e433d6fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - file
+    - moderation_sidebar
+    - node
+    - toolbar
+id: product_reviewer
+label: 'Product reviewer'
+weight: 8
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any product content'
+  - 'delete own files'
+  - 'edit any product content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

@@ -1,0 +1,25 @@
+uuid: e5181f0b-d70f-42f7-9309-5581c3b70f19
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_breadcrumbs
+theme: hdi_portal
+region: content
+weight: -43
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/user\r\n/user/*"

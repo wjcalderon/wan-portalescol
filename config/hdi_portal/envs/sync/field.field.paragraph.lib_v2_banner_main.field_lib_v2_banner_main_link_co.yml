@@ -1,0 +1,23 @@
+uuid: 8ae05b62-9d3f-4ff0-ac98-8402217d8f5a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_v2_banner_main_link_co
+    - paragraphs.paragraphs_type.lib_v2_banner_main
+  module:
+    - options
+_core:
+  default_config_hash: XCh2-VwDr9k1miQ-zHq6SBEBw7989uAL0f8VwdIbf5Q
+id: paragraph.lib_v2_banner_main.field_lib_v2_banner_main_link_co
+field_name: field_lib_v2_banner_main_link_co
+entity_type: paragraph
+bundle: lib_v2_banner_main
+label: 'Color Botón'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

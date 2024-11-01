@@ -1,0 +1,104 @@
+uuid: d6f67ec8-f362-48c4-a997-3e53b02ec5a4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_item_tab_multiple
+    - paragraphs.paragraphs_type.acordeon
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.drupal_block
+    - paragraphs.paragraphs_type.drupal_view
+    - paragraphs.paragraphs_type.item_tab_multi
+    - paragraphs.paragraphs_type.lista
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - entity_reference_revisions
+id: paragraph.item_tab_multi.field_body_item_tab_multiple
+field_name: field_body_item_tab_multiple
+entity_type: paragraph
+bundle: item_tab_multi
+label: Contenido
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_tab_multi: item_tab_multi
+      acordeon: acordeon
+      card: card
+      cards: cards
+      drupal_block: drupal_block
+      drupal_view: drupal_view
+      lista: lista
+      single_text: single_text
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 23
+        enabled: true
+      assistance_item:
+        weight: 24
+        enabled: false
+      banner:
+        weight: 25
+        enabled: false
+      card:
+        weight: 26
+        enabled: true
+      cards:
+        weight: 27
+        enabled: true
+      drupal_block:
+        weight: 28
+        enabled: true
+      drupal_view:
+        weight: 29
+        enabled: true
+      image:
+        weight: 30
+        enabled: false
+      item_acordeon:
+        weight: 31
+        enabled: false
+      item_lista:
+        weight: 32
+        enabled: false
+      item_tab_multi:
+        weight: 22
+        enabled: true
+      lista:
+        weight: 33
+        enabled: true
+      multi_tabs:
+        weight: 34
+        enabled: false
+      select_cta:
+        weight: 35
+        enabled: false
+      single_text:
+        weight: 36
+        enabled: true
+      slider:
+        weight: 37
+        enabled: false
+      tab_item:
+        weight: 38
+        enabled: false
+      tabs:
+        weight: 39
+        enabled: false
+      testimonies:
+        weight: 40
+        enabled: false
+      testimony_item:
+        weight: 41
+        enabled: false
+      webform:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions

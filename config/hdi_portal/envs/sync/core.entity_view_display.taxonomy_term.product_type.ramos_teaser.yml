@@ -1,0 +1,79 @@
+uuid: 9f5fb5c2-e7ac-4621-985d-386778b9dc55
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.ramos_teaser
+    - field.field.taxonomy_term.product_type.field_cta
+    - field.field.taxonomy_term.product_type.field_icon
+    - field.field.taxonomy_term.product_type.field_person_type
+    - image.style.img_40x40
+    - taxonomy.vocabulary.product_type
+  module:
+    - ds
+    - panelizer
+    - svg_image
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_icon
+        - taxonomy_term_title
+        - description
+        - taxonomy_term_link
+    fields:
+      taxonomy_term_link:
+        plugin_id: taxonomy_term_link
+        weight: 3
+        label: hidden
+        formatter: default
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h2
+          class: ''
+id: taxonomy_term.product_type.ramos_teaser
+targetEntityType: taxonomy_term
+bundle: product_type
+mode: ramos_teaser
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: img_40x40
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_cta: true
+  field_person_type: true
+  langcode: true

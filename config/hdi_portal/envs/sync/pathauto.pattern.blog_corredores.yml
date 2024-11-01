@@ -1,0 +1,22 @@
+uuid: 340d9be9-877d-42ea-86c4-bdb925ae12d9
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: blog_corredores
+label: 'Blog corredores'
+type: 'canonical_entities:node'
+pattern: '/blog/noticias/[node:field_category]/[node:title]'
+selection_criteria:
+  b4f17e4b-402f-4fb2-8e5f-df12f95807dc:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: b4f17e4b-402f-4fb2-8e5f-df12f95807dc
+    context_mapping:
+      node: node
+    bundles:
+      page_layout: page_layout
+selection_logic: and
+weight: -5
+relationships: {  }

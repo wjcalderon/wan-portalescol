@@ -1,0 +1,8 @@
+uuid: ba7c2cee-307c-48e2-9e62-fa57a2551613
+langcode: es
+status: true
+dependencies: {  }
+id: api_authentication_server_profile
+scope_id: profile
+server_id: api_authentication_server
+description: 'View basic information about your account.'

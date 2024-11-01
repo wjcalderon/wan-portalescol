@@ -1,0 +1,29 @@
+uuid: d21938cf-baf0-49c3-b4d4-b5734f77e9af
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.office
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - file
+    - moderation_sidebar
+    - node
+    - toolbar
+id: office_reviewer
+label: 'Sucursal reviewer'
+weight: 20
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any office content'
+  - 'delete own files'
+  - 'edit any office content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

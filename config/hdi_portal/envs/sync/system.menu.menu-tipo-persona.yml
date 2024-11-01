@@ -1,0 +1,8 @@
+uuid: 49da29a4-6123-45bd-9e07-e2f6839c2afc
+langcode: es
+status: true
+dependencies: {  }
+id: menu-tipo-persona
+label: 'Tipo de cliente'
+description: 'Primer nivel de menu ubicado en el encabezado'
+locked: false

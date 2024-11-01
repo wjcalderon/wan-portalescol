@@ -1,0 +1,11 @@
+uuid: 33148306-70f1-4378-b52d-322d56d72a53
+langcode: es
+status: true
+dependencies: {  }
+id: formulario
+block_id: 'inline_block:form'
+category: general
+label: Formulario
+image_path: ''
+image_alt: ''
+weight: -100

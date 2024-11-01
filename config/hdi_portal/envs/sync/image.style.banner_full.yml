@@ -1,0 +1,17 @@
+uuid: 5354fd4f-e501-4576-bad8-1a92f998e4f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.large
+  module:
+    - crop
+name: banner_full
+label: 'banner full'
+effects:
+  0a7d7305-bb97-44f3-95f6-9ce526cce713:
+    uuid: 0a7d7305-bb97-44f3-95f6-9ce526cce713
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: large

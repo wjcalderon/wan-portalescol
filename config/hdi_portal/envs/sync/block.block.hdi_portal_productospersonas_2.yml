@@ -1,0 +1,25 @@
+uuid: 6fdb6c7a-9724-4113-8664-eb4953d35bae
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - hdi_portal
+id: hdi_portal_productospersonas_2
+theme: hdi_portal
+region: menu_desktop
+weight: -46
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-principal-personas'
+settings:
+  id: 'tb_megamenu_menu_block:menu-principal-personas'
+  label: 'Productos Personas'
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/empresas\r\n/empresas/*\r\n/blog\r\n/blog/*"

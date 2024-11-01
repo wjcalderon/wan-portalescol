@@ -1,0 +1,9 @@
+uuid: 689a777f-e673-4fe4-97f3-b78882d65064
+langcode: en
+status: true
+dependencies: {  }
+id: card
+label: 'Item Tarjeta'
+icon_uuid: null
+description: 'Item tipo tarjeta, referenciado por el componente <b>tarjetas</b>, incluye, título, imagen, resumen y enlace.'
+behavior_plugins: {  }

@@ -1,0 +1,14 @@
+uuid: 6d7524bd-4c04-464b-a4bc-164c66c34cda
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.marketing_administrator
+  module:
+    - user
+id: user_add_role_action.marketing_administrator
+label: 'Añade el rol Administrador mercadeo al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: marketing_administrator

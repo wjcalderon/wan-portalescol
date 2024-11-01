@@ -1,0 +1,25 @@
+uuid: 8787962e-af70-4728-9891-193b37b0935b
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:card:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_pagarpagatuscuotas
+theme: hdi_portal
+region: blocks_activate
+weight: -21
+provider: null
+plugin: 'block_content:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+settings:
+  id: 'block_content:0248fa47-8f2e-4bf0-b4ff-0b29e8f4adc0'
+  label: 'Pagar - Paga tus cuotas'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 3b7a1958-a053-4193-9442-389322133ee2
+langcode: es
+status: true
+dependencies: {  }
+id: api_authentication_server_email
+scope_id: email
+server_id: api_authentication_server
+description: 'View your email address.'

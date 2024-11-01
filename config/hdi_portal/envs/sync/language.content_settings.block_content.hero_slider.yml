@@ -1,0 +1,13 @@
+uuid: c937ba2f-a50c-48ad-a892-2e7d84bb03c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_slider
+_core:
+  default_config_hash: PvCBa-EQWrK_VZKWE7bjbRvHRkTVRXtMmE_gEITKV4M
+id: block_content.hero_slider
+target_entity_type_id: block_content
+target_bundle: hero_slider
+default_langcode: site_default
+language_alterable: false

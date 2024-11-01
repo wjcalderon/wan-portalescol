@@ -1,0 +1,25 @@
+uuid: 657caaa7-2cc8-4f46-8ca4-5f6d6134de73
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.menu-branding
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_lateralsuperior
+theme: hdi_portal
+region: menu_mobile
+weight: -35
+provider: null
+plugin: 'system_menu_block:menu-branding'
+settings:
+  id: 'system_menu_block:menu-branding'
+  label: 'Lateral Superior'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,33 @@
+uuid: 30c18876-b69b-4bbf-b751-cb96591d1ce3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_acordeon.field_componentes
+    - field.field.paragraph.item_acordeon.field_name
+    - paragraphs.paragraphs_type.item_acordeon
+  module:
+    - entity_reference_revisions
+id: paragraph.item_acordeon.default
+targetEntityType: paragraph
+bundle: item_acordeon
+mode: default
+content:
+  field_componentes:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

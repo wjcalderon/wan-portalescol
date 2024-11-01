@@ -1,0 +1,14 @@
+uuid: a5e1fee0-c4b9-4902-bd5b-d5843be0fa46
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.view_api
+  module:
+    - user
+id: user_add_role_action.view_api
+label: 'Añade el rol View api al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: view_api

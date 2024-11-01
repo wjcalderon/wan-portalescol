@@ -1,0 +1,10 @@
+uuid: 04458b90-0030-4c27-9b09-856adc1e06a3
+langcode: es
+status: true
+dependencies: {  }
+id: default
+label: Style
+multiselect: single
+form_type: checkboxes
+required: false
+weight: 100

@@ -1,0 +1,14 @@
+uuid: 8901e050-e50a-410d-94df-8aa8975f9437
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.payment_points_creator
+  module:
+    - user
+id: user_remove_role_action.payment_points_creator
+label: 'Elimina el rol Puntos de pago creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: payment_points_creator

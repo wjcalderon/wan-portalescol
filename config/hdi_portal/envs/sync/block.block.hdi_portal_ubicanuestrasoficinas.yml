@@ -1,0 +1,25 @@
+uuid: bef4b3c3-8568-4d34-b174-4187d6266159
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8039fbd2-f2f3-4ccf-86fb-bc17525f63f0'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_ubicanuestrasoficinas
+theme: hdi_portal
+region: blocks_activate
+weight: -31
+provider: null
+plugin: 'block_content:8039fbd2-f2f3-4ccf-86fb-bc17525f63f0'
+settings:
+  id: 'block_content:8039fbd2-f2f3-4ccf-86fb-bc17525f63f0'
+  label: 'Ubica nuestras oficinas'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 2216bad0-b66b-4e4f-9aea-6905d17914f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sdf
+    - node.type.news_article
+  module:
+    - options
+id: node.news_article.field_sdf
+field_name: field_sdf
+entity_type: node
+bundle: news_article
+label: asd
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

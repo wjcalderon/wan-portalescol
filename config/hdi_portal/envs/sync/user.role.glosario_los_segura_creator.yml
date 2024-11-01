@@ -1,0 +1,14 @@
+uuid: 15c36b45-a4d3-469c-bec5-4b0ed743d0f8
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+_core:
+  default_config_hash: 9lTV3Z81xRsZ44oDwulO98jJc3vXFD27-fFRHNJ58hI
+id: glosario_los_segura_creator
+label: 'Glosario los Segura creator'
+weight: 37
+is_admin: false
+permissions:
+  - 'delete own files'

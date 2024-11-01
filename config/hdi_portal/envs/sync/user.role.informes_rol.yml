@@ -1,0 +1,16 @@
+uuid: 9b5835eb-e4b7-40e4-8974-1ff732d037f5
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Rol para visualizacion de landing de descripcion de informes'
+id: informes_rol
+label: informes
+weight: 49
+is_admin: null
+permissions:
+  - 'delete own files'

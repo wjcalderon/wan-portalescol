@@ -1,0 +1,58 @@
+uuid: 2c749c2a-3ad2-49eb-bb8a-1e49e272117f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_link.field_heading
+    - field.field.paragraph.card_link.field_lib_link
+    - field.field.paragraph.card_link.field_lib_media_icon
+    - field.field.paragraph.card_link.field_title_html
+    - paragraphs.paragraphs_type.card_link
+  module:
+    - link
+    - text
+_core:
+  default_config_hash: CDIr7MxG82d_CKLN6Fvaarng9KdUHQoKNJNj0muF3Uw
+id: paragraph.card_link.default
+targetEntityType: paragraph
+bundle: card_link
+mode: default
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_media_icon:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title_html:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

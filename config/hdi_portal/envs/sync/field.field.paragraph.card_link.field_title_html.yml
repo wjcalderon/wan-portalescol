@@ -1,0 +1,23 @@
+uuid: 498865c8-5a85-4abf-b536-33d7bf84fa4f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_html
+    - paragraphs.paragraphs_type.card_link
+  module:
+    - text
+_core:
+  default_config_hash: Xn3y1w9KTOruDGkvCm1Thp622cH_oupGv6I-M6LcQBw
+id: paragraph.card_link.field_title_html
+field_name: field_title_html
+entity_type: paragraph
+bundle: card_link
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

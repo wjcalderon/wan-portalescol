@@ -1,0 +1,8 @@
+uuid: 041b0bbd-f461-4b5f-af34-378a06ca4eb2
+langcode: en
+status: true
+dependencies: {  }
+id: block_image
+label: Imágen
+revision: true
+description: 'Bloque personalizado con imágen'

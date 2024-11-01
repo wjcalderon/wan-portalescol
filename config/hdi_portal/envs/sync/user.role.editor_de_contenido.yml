@@ -1,0 +1,46 @@
+uuid: b633f27b-d5fb-4e0c-bfe6-e25fcb214a5f
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.capitulo_los_segura
+    - node.type.document
+    - node.type.faq
+    - node.type.faq_los_segura
+    - node.type.glosario_de_especialidades
+    - node.type.glosario_los_segura
+    - node.type.informes
+    - node.type.landing_los_segura
+    - node.type.lender
+    - node.type.news_inphography
+    - node.type.precio_vehiculo
+    - node.type.product
+    - node.type.taller
+    - node.type.vehiculo
+  module:
+    - file
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: editor_de_contenido
+label: 'Editor de Contenido'
+weight: 52
+is_admin: null
+permissions:
+  - 'create capitulo_los_segura content'
+  - 'create document content'
+  - 'create faq content'
+  - 'create faq_los_segura content'
+  - 'create glosario_de_especialidades content'
+  - 'create glosario_los_segura content'
+  - 'create informes content'
+  - 'create landing_los_segura content'
+  - 'create lender content'
+  - 'create news_inphography content'
+  - 'create precio_vehiculo content'
+  - 'create product content'
+  - 'create taller content'
+  - 'create vehiculo content'
+  - 'delete own files'

@@ -1,0 +1,30 @@
+uuid: 2602e21a-de86-4966-9b6e-609647fba4fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-principal-empresas
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menuprincipalempresas
+theme: hdi_portal
+region: menu_mobile
+weight: -33
+provider: null
+plugin: 'system_menu_block:menu-principal-empresas'
+settings:
+  id: 'system_menu_block:menu-principal-empresas'
+  label: 'menu principal empresas'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/empresas\r\n/empresas/*"

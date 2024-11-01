@@ -1,0 +1,94 @@
+uuid: b22b163e-6a5c-4a84-8087-5877677bba16
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.capitulo_los_segura
+    - node.type.faq_los_segura
+    - node.type.glosario_los_segura
+    - node.type.informes
+    - node.type.landing_html
+    - node.type.landing_los_segura
+    - node.type.landing_page
+    - node.type.page
+    - node.type.page_layout
+    - node.type.taller
+  module:
+    - content_moderation
+_core:
+  default_config_hash: 8FLw3dX-3yJxrgAtaiNul_N8e8yc70gQD4u9UehUHhs
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archivados
+      weight: 5
+      published: false
+      default_revision: true
+    draft:
+      label: Borrador
+      weight: -5
+      published: false
+      default_revision: false
+    published:
+      label: Publicado
+      weight: 0
+      published: true
+      default_revision: true
+    review:
+      label: 'In review'
+      weight: -1
+      published: false
+      default_revision: false
+  transitions:
+    archive:
+      label: Archivo
+      from:
+        - published
+      to: archived
+      weight: 2
+    archived_published:
+      label: 'Restore from archive'
+      from:
+        - archived
+      to: published
+      weight: 4
+    create_new_draft:
+      label: 'Crear Nuevo Borrador'
+      from:
+        - archived
+        - draft
+        - published
+        - review
+      to: draft
+      weight: 0
+    publish:
+      label: Publicar
+      from:
+        - draft
+        - published
+        - review
+      to: published
+      weight: 1
+    review:
+      label: 'Send to review'
+      from:
+        - draft
+        - review
+      to: review
+      weight: 0
+  entity_types:
+    node:
+      - capitulo_los_segura
+      - faq_los_segura
+      - glosario_los_segura
+      - informes
+      - landing_html
+      - landing_los_segura
+      - landing_page
+      - page
+      - page_layout
+      - taller
+  default_moderation_state: draft

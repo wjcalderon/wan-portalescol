@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
+mode: simple
+ignored_config_entities:
+  - SettingsEmalForm.settings
+  - acquia_connector.settings
+  - acquia_search.settings
+  - 'core.entity_form_display.media.instagram.*'
+  - emalform.settings
+  - 'field.field.media.instagram.*'
+  - language.content_settings.media.instagram
+  - lib_red_medical.settings
+  - purge.logger_channels.settings
+  - purge.plugins.settings
+  - purge.settings
+  - purge_queuer_coretags.settings
+  - 'search_api.server.acquia_search_server.*'
+  - search_api.settings
+  - settings.emalform.settings
+  - 'webform.webform.*'

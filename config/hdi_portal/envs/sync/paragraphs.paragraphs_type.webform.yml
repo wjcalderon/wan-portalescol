@@ -1,0 +1,9 @@
+uuid: dc4f2556-e56b-42d7-90b7-bd7f270bd75b
+langcode: en
+status: true
+dependencies: {  }
+id: webform
+label: 'Formulario web'
+icon_uuid: null
+description: 'Adjunte un formulario web personalizado a una página de landing.'
+behavior_plugins: {  }

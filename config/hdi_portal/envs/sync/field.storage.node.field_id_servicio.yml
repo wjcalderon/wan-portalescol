@@ -1,0 +1,20 @@
+uuid: c38237f3-1d2f-42a5-94a2-b535c7b2adc6
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_id_servicio
+field_name: field_id_servicio
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

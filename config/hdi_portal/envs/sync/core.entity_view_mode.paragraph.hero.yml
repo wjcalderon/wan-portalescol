@@ -1,0 +1,15 @@
+uuid: b4a4a0de-217d-4676-b296-5d143ae856b4
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.hero
+label: Hero
+description: ''
+targetEntityType: paragraph
+cache: true

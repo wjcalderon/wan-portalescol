@@ -1,0 +1,10 @@
+uuid: 554091fd-5de6-4bbb-bc50-1fed3433a7c6
+langcode: es
+status: true
+dependencies: {  }
+id: lib_tabs
+label: Tabs
+icon_uuid: null
+icon_default: null
+description: 'Liberty Pestañas.'
+behavior_plugins: {  }

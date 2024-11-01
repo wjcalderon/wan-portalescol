@@ -1,0 +1,12 @@
+uuid: 799b7745-40c6-4f59-ac64-2aabae747bc8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0rFfPfS1duhLQz5KvTif4J5ayGg0w9-CHhaS-oVULuI
+id: cta_phone
+label: 'CTA Phone'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

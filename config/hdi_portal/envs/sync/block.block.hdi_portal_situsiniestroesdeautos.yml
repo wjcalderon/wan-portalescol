@@ -1,0 +1,25 @@
+uuid: 175dac4d-4f23-489e-ba1e-14469699ca89
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_situsiniestroesdeautos
+theme: hdi_portal
+region: blocks_activate
+weight: -37
+provider: null
+plugin: 'block_content:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+settings:
+  id: 'block_content:edd5f15e-7e16-43bd-b75c-b8caa50eb432'
+  label: 'Si tu siniestro es de autos'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: promocional_siniestros
+visibility: {  }

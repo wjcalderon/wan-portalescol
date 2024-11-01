@@ -1,0 +1,9 @@
+uuid: 691612e5-0cf8-4d54-96bd-a61091b79033
+langcode: es
+status: true
+dependencies: {  }
+id: select_cta
+label: 'Cuéntanos de tí'
+icon_uuid: null
+description: 'Bloque Cuéntanos de tí home personas y empresas'
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+uuid: a8d56e39-b08b-43e8-b9cf-67dcffd1f71e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.glosario_los_segura
+_core:
+  default_config_hash: euLnL_u_jR1fcMinx4RIOHNcI-hjEJ7NJm47OEROyM8
+id: node.glosario_los_segura.title
+field_name: title
+entity_type: node
+bundle: glosario_los_segura
+label: Palabra
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
