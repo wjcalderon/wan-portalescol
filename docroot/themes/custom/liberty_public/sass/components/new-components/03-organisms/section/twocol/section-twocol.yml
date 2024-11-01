@@ -1,0 +1,21 @@
+settings:
+  container_type: 'container-default'
+  content_container: 'content-container-default'
+  two_column_widths: '50-50'
+  text_color: 'text-white'
+  aligment: false
+  column_gap: 'gap-x-md'
+  row_gap: 'gap-y-md'
+  align_items: 'items-center'
+  background_color: 'bg-blue'
+  background_container_color: 'bg-blue'
+  bg_content_container: false
+  top_padding: false
+  bottom_padding: false
+  left_right_paddings: 'px-md'
+  top_bottom_paddings: 'py-md'
+  pd_content_container: false
+  top_margin: false
+  bottom_margin: false
+  top_bottom_margins: 'my-md'
+  left_right_margins: ''

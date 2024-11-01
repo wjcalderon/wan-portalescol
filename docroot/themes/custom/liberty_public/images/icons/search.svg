@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/System Icons/Search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12.8184,3.6963 C12.1524,2.0563 10.7534,0.8593 8.9774,0.4103 C7.1964,-0.0367 5.2734,0.4683 3.9524,1.7223 C2.7854,2.8443 2.1554,4.3033 2.1774,5.8283 C2.1774,7.1213 2.6644,8.4253 3.5264,9.4213 L4.4714,10.2633 L4.7914,9.7813 C4.9504,9.5593 4.9154,9.2493 4.7054,9.0383 C3.8034,8.1993 3.2954,7.0503 3.2744,5.8063 C3.2744,4.5623 3.7824,3.3903 4.7054,2.5093 C5.5074,1.7483 6.5584,1.3293 7.6654,1.3293 C8.0104,1.3293 8.3404,1.3683 8.7004,1.4533 C10.1104,1.8063 11.2294,2.7583 11.7694,4.0653 C12.3074,5.3493 12.1994,6.8283 11.4784,8.0223 C10.4144,9.8143 8.2164,10.6143 6.2624,9.9283 C5.9984,9.8313 5.7194,9.9373 5.6044,10.1723 L2.9604,14.4073 C2.8284,14.6033 2.6324,14.6243 2.4904,14.6103 C2.2464,14.5923 1.9834,14.4353 1.9044,14.2613 C1.8704,14.1813 1.8674,14.1163 1.9534,13.9963 L3.9594,11.0583 L3.0934,10.3163 L1.0264,13.3703 C0.7354,13.7813 0.6804,14.2953 0.8814,14.7483 C1.1444,15.3003 1.7554,15.7023 2.4144,15.7503 L2.5434,15.7503 C3.0864,15.7503 3.5774,15.4873 3.8944,15.0233 L6.3014,11.1713 C8.6644,11.7743 11.1714,10.7503 12.4394,8.6513 C13.3494,7.1653 13.4914,5.3123 12.8184,3.6963" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components-/-Head-/-Personas-Default-3" transform="translate(-279.000000, -32.000000)">
+            <g id="Group" transform="translate(268.000000, 22.000000)">
+                <g id="Icons/System-Icons/Search" transform="translate(11.000000, 10.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Icon_System_Search" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="IconColor/Liberty-Blue-System" mask="url(#mask-2)" fill="#1A1446" fill-rule="nonzero">
+                        <g transform="translate(-1.000000, -2.000000)">
+                            <rect x="0" y="0" width="20" height="20"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

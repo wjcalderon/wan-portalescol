@@ -1,0 +1,59 @@
+.component__testimonies {
+  @include breakpoint($small) {
+    max-width: 97%;
+  }
+  h5 {
+    padding-bottom: 0.5rem;
+    padding-top: 0.625rem;
+    height: 10%;
+  }
+  h6 {
+    font-size: 0.875rem;
+  }
+  h6 span {
+    color: $gris-sc;
+    font-weight: normal;
+  }
+  p {
+    height: 55%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .testimonial {
+    display: block;
+    padding: 1rem 2rem;
+    @media screen and (min-width: $small-max) {
+      flex: 1;
+    }
+    .block:last-of-type {
+      background-color: transparent;
+    }
+  }
+  .component__heading {
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      @include breakpoint($small) {
+        font-size: 1.75rem;
+        line-height: 2rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &.component__testimonies--blue {
+    background-color: #f0fbfc;
+    padding: 3rem 0;
+
+    .component__testimony-item {
+      box-shadow: 0px 1px 5px 0px rgba(170, 170, 170, 1);
+      background-color: white;
+      margin: 10px;
+    }
+
+    .slick-slide {
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+//////////////////////////////////
+// Primary Container Rules ///////
+//////////////////////////////////
+.cog--mq {
+    width: 100%;
+    max-width: $medium-max;
+    margin: auto;
+    position: relative;
+    padding-bottom: 1px;
+    @media screen and (max-width: $large) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        width: 90%;
+    }
+    @include breakpoint($small) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem; 
+        width: 90%;
+    }
+}
+
+.cog--flex {
+    display: block;
+    @media screen and (min-width: $small-max) {
+        display: flex;
+    }
+}
+
+.cog--flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.cog--flex-between {
+    justify-content: space-between;
+}
+
+.alias--zona-de-cliente-defensor-del-consumidor,
+.alias--zona-de-cliente-sac {
+    ul {
+        padding-left: 1.5rem;
+    }
+}

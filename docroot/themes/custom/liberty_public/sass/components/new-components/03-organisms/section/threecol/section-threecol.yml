@@ -1,0 +1,21 @@
+settings:
+  container_type: ''
+  content_container: 'content-container-md'
+  three_column_widths: '33-33-33'
+  text_color: ''
+  aligment: false
+  column_gap: ''
+  row_gap: false
+  align_items: false
+  background_color: false
+  background_container_color: false
+  bg_content_container: false
+  top_padding: false
+  bottom_padding: false
+  left_right_paddings: false
+  top_bottom_paddings: false
+  pd_content_container: false
+  top_margin: false
+  bottom_margin: false
+  left_right_margins: false
+  top_bottom_margins: false

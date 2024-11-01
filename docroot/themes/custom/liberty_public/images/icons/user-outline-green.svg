@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path d="m4.83,27.504c1.115,-4.307 5.023,-7.5 9.674,-7.5c4.65,0 8.558,3.193 9.674,7.5l-19.348,0zm19.678,2.504l0,-0.004l-20.008,0l0,0.004l-2.5,0c0,-6.895 5.609,-12.504 12.504,-12.504c6.894,0 12.504,5.609 12.504,12.504l-2.5,0zm-10.004,-15c-4.138,0 -7.504,-3.366 -7.504,-7.504s3.366,-7.504 7.504,-7.504s7.504,3.366 7.504,7.504s-3.366,7.504 -7.504,7.504zm0,-12.508a5.01,5.01 0 0 0 -5.004,5.004a5.01,5.01 0 0 0 5.004,5.004a5.01,5.01 0 0 0 5.004,-5.004a5.01,5.01 0 0 0 -5.004,-5.004z" id="a"/>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="none" fill-rule="evenodd" id="svg_1">
+   <mask fill="#28a3af" id="b">
+    <use fill="#28a3af" id="svg_2" xlink:href="#a"/>
+   </mask>
+   <use fill="#28a3af" id="svg_3" xlink:href="#a"/>
+   <g fill="#C0BFC0" id="svg_4" mask="url(#b)">
+    <path d="m0,0l30,0l0,30l-30,0l0,-30z" fill="#28a3af" id="svg_5"/>
+   </g>
+  </g>
+ </g>
+</svg>

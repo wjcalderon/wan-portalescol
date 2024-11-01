@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Close</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M7.93978462,7.01978462 L14.959,0.0001 L15.88,0.9211 L8.86031538,7.94031538 L15.88,14.96 L14.959,15.88 L7.93978462,8.86078462 L0.92,15.8801 L0,14.9601 L7.01931538,7.94031538 L0,0.921 L0.92,0 L7.93978462,7.01978462 Z" id="path-1"></path>
+    </defs>
+    <g id="MOB--Header-y-footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Liberty_1-Home2-1-Copy" transform="translate(-242.000000, -12.000000)">
+            <g id="Icon/Close" transform="translate(238.000000, 8.000000)">
+                <g id="Color/Liberty-Blue-+-Color/Liberty-Blue-Mask" transform="translate(4.000000, 4.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="Color/Liberty-Blue" mask="url(#mask-2)" fill="#1A1446" fill-rule="nonzero">
+                        <g transform="translate(-42.000000, -40.000000)" id="Rectangle-Copy">
+                            <polygon points="0 0 101 0 101 97 0 97"></polygon>
+                        </g>
+                    </g>
+                    <g id="Color/Liberty-Blue" mask="url(#mask-2)" fill="#1A1446" fill-rule="nonzero">
+                        <g transform="translate(-45.000000, -8.000000)" id="Rectangle-Copy">
+                            <polygon points="0 0 101 0 101 97 0 97"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

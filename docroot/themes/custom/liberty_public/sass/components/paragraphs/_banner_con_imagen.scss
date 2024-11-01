@@ -1,0 +1,12 @@
+.component.component__banner-solo-imagen {
+  .banner-desktop {
+    @include breakpoint($small) {
+      display: none !important;
+    }
+  }
+  .banner-mobile {
+    @include breakpoint($up-sm) {
+      display: none !important;
+    }
+  }
+}
