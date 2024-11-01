@@ -22,6 +22,7 @@
         "drupal/better_exposed_filters": "^7.0",
         "drupal/block_class": "^3.0",
         "drupal/checklistapi": "^2.1",
+        "drupal/ckeditor": "^1.0",
         "drupal/ckeditor_font": "^2.0@beta",
         "drupal/classy": "^1.0",
         "drupal/coder": "^8.3",
