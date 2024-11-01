@@ -8,6 +8,16 @@ namespace Drupal\sftp_client;
 interface SftpClientInterface {
 
   /**
+   * Set the SFTP connection settings, to override the defaults.
+   *
+   * See README.md for an example of the structure.
+   *
+   * @param array $settings
+   *   The settings array.
+   */
+  public function setSftpClientConnectionSettings(array $settings): void;
+
+  /**
    * The name of a key within the Drupal `$settings`.
    */
   public const SETTING = 'sftp';

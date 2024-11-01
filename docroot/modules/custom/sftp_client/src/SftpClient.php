@@ -2,15 +2,15 @@
 
 namespace Drupal\sftp_client;
 
-use Drupal\Core\File\FileSystemInterface;
+use \Drupal\Core\File\FileExists;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\key\KeyRepositoryInterface;
 use Drupal\sftp_client\Exception\SftpException;
 use Drupal\sftp_client\Exception\SftpLoginException;
-use phpseclib\Crypt\RSA;
-use phpseclib\Net\SFTP;
+use phpseclib3\Crypt\RSA;
+use phpseclib3\Net\SFTP;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 use Psr\Log\LogLevel;
@@ -57,14 +57,14 @@ class SftpClient implements SftpClientInterface {
   /**
    * An instance of the "file_system" service.
    *
-   * @var \Drupal\Core\File\FileSystemInterface
+   * @var \Drupal\Core\File\FileExists
    */
   protected $fileSystem;
 
   /**
    * An instance of the "key.repository" service.
    *
-   * @var \Drupal\Core\File\FileSystemInterface|null
+   * @var \Drupal\Core\File\FileExists|null
    */
   protected $keyRepository;
 
@@ -80,7 +80,7 @@ class SftpClient implements SftpClientInterface {
    *
    * @param \Drupal\Core\Site\Settings $settings
    *   An instance of the "settings" service.
-   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   * @param \Drupal\Core\File\FileExists $file_system
    *   An instance of the "file_system" service.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   An instance of the "logger.factory" service.
@@ -89,7 +89,7 @@ class SftpClient implements SftpClientInterface {
    */
   public function __construct(
     Settings $settings,
-    FileSystemInterface $file_system,
+    FileExists $file_system,
     LoggerChannelFactoryInterface $logger_factory,
     ?KeyRepositoryInterface $key_repository
   ) {
@@ -201,6 +201,15 @@ class SftpClient implements SftpClientInterface {
   /**
    * {@inheritdoc}
    */
+  public function setSftpClientConnectionSettings(array $settings): void {
+    $this->settings = $settings;
+    $this->currentConnectionId = $settings['connection_id'];
+  }
+
+
+  /**
+   * {@inheritdoc}
+   */
   public function setSettings(string $connection = self::SETTING): void {
     $this->currentConnectionId = NULL;
     $key = static function (...$parents) use ($connection): string {
@@ -225,14 +234,12 @@ class SftpClient implements SftpClientInterface {
     }
 
     if ($this->settings['key_id'] !== FALSE) {
-      $rsa = new RSA();
-      $rsa->loadKey($this->keyRepository->getKey($this->settings['key_id'])->getKeyValue());
-      $rsa->setPassword($this->settings['password']);
+      $private = RSA::loadPrivateKey($this->keyRepository->getKey($this->settings['key_id'])->getKeyValue(), $this->settings['password']);
 
       // Convert the password to RSA key.
       /* @see \phpseclib\Net\SFTP::_login_helper() */
       /* @see \phpseclib\Net\SFTP::_privatekey_login() */
-      $this->settings['password'] = $rsa;
+      $this->settings['password'] = $private;
     }
     elseif ($this->settings['password'] === FALSE) {
       throw new SftpException("Either {$key('password')} or {$key('key_id')} must not be empty.");
@@ -245,7 +252,7 @@ class SftpClient implements SftpClientInterface {
   /**
    * Returns the SFTP connection.
    *
-   * @return \phpseclib\Net\SFTP
+   * @return \phpseclib3\Net\SFTP
    *   The SFTP connection.
    *
    * @throws \Drupal\sftp_client\Exception\SftpLoginException
@@ -387,9 +394,9 @@ class SftpClient implements SftpClientInterface {
   /**
    * {@inheritdoc}
    */
-  public function moveFile(string $source, string $destination, int $replace = FileSystemInterface::EXISTS_ERROR): bool {
+  public function moveFile(string $source, string $destination, int $replace = FileExists::Error): bool {
     switch ($replace) {
-      case FileSystemInterface::EXISTS_RENAME:
+      case FileExists::Rename:
         $new_destination = $destination;
         $counter = 0;
 
@@ -400,7 +407,7 @@ class SftpClient implements SftpClientInterface {
         $destination = $new_destination;
         break;
 
-      case FileSystemInterface::EXISTS_REPLACE:
+      case FileExists::Replace:
         if ($this->isFile($destination)) {
           $this->removeFile($destination);
         }

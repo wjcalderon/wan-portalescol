@@ -78,6 +78,7 @@
         "drupal/jquery_ui_slider": "^2.1",
         "drupal/jquery_ui_tabs": "^2.1",
         "drupal/jquery_ui_touch_punch": "^1.1",
+        "drupal/key": "^1.19",
         "drupal/layout_builder_additions": "^1.0",
         "drupal/layout_builder_browser": "^1.7",
         "drupal/layout_builder_modal": "^1.2",
