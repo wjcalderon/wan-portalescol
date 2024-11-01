@@ -1,0 +1,12 @@
+select_search_items:
+  - id: 'searchHome'
+  - name: 'selectSearch'
+  - title: 'Selecciona tu busqueda'
+    value: '0'
+  - options: 
+    - title: 'Cód. CUPS/Cód.fundación'
+      value: '1'
+    - title: 'Nombre de la prueba'
+      value: '2'
+    - title: 'Diagnóstico o especialidad'
+      value: '3'

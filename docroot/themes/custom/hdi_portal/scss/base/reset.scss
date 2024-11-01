@@ -1,0 +1,122 @@
+* , *::before , *::after{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+*::before , *::after{
+  display: block;
+}
+
+img , picture , video , iframe , figure{
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color:inherit;
+  font-size:inherit;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color:inherit;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+form , input, textarea, select , button , label{
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color:inherit;
+  display: block;
+  appearance: none;
+}
+
+table , tr , td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+svg{
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+body {
+  min-height  : 100vh;
+  font-size   : 100%;
+  hyphens: auto;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+
+  .ui-tabs .ui-tabs-nav li {
+    border: none;
+    float: unset;
+    margin: unset;
+  }
+
+  .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    background: unset;
+    border: unset;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: inherit;
+  }
+
+  .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: unset;
+  }
+
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: unset;
+    background: unset;
+    color: inherit;
+  }
+
+  &.ui-corner-all {
+    border-radius: unset;
+  }
+
+  &.ui-widget {
+    font-family: var(--roboto-font);
+  }
+
+  .ui-widget-header {
+    background-color: var(--white);
+    border: none;
+  }
+}
+

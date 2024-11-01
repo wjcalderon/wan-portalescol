@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% set card_list_modifiers = [] %}
+
+{% set cta_list_style = content.field_cta_list_phone_style[0]['#markup'] %}
+
+{% if cta_list_style %}
+  {% set card_list_modifiers = card_list_modifiers|merge([cta_list_style]) %}
+{% endif %}
+
+<div {{ bem(card_list_base_class, card_list_modifiers, card_list_blockname) }}>
+	{{ title_prefix }}
+	{{ title_suffix }}
+	{% block content %}
+      {% embed 'themes/custom/hdi_portal/templates/new-components/components/organisms/card-list/card-list.twig'
+        with {
+          card_type: 'cta-phone',
+          card_grid_columns: '3',
+          items: card_items,
+        }
+      %}
+      {% endembed %}
+	{% endblock %}
+</div>

@@ -876,19 +876,6 @@ if (isset($settings['memcache']['servers'])) {
   $settings['cache']['default'] = 'cache.backend.memcache';
 }
 
-if ((isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))) {
-  header('WWW-Authenticate: Basic realm="This site is protected"');
-  header('HTTP/1.0 401 Unauthorized');
-
-  // Fallback message when the user presses cancel / escape
-  echo 'Access denied';
-  exit;
-}
-
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/libertyseg/libertyseg-settings.inc';
-}
-
 $settings['config_sync_directory'] = '../config/liberty/envs/sync';
 
 $databases['default']['default'] = array (
@@ -913,13 +900,11 @@ $settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
 $settings['reverse_proxy_header'] = 'HTTP_TRUE_CLIENT_IP';
 $settings['reverse_proxy_proto_header'] = 'HTTP_X_FORWARDED_PROTO';
 $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
+
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
-}
-if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
-  include $app_root . '/' . $site_path . '/settings.platformsh.php';
 }
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {

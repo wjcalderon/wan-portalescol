@@ -1,6 +1,6 @@
 name: "Los Segura"
 type: module
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - block
   - content_moderation

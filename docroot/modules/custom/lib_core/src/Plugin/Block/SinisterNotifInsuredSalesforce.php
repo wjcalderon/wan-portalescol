@@ -21,10 +21,7 @@ class SinisterNotifInsuredSalesforce extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
-    $form = \Drupal::formBuilder()->getForm('Drupal\lib_core\Form\SinisterNotifInsuredSalesforce');
-    return $form;
-
+    return \Drupal::formBuilder()->getForm('Drupal\lib_core\Form\SinisterNotifInsuredSalesforce');
   }
 
   /**

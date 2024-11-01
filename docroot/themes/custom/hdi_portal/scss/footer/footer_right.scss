@@ -1,0 +1,13 @@
+#footer__right {
+  flex-basis: 20%;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+
+  .navigation {
+    & > .menu {
+      & > li:last-of-type {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}

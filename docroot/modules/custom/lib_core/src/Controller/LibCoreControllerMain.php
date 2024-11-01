@@ -30,11 +30,22 @@ class LibCoreControllerMain extends ControllerBase {
 
   /**
    * SinistersCitiesSelect.
+   *
+   * @param bool $is_sinister
+   *   Load cities for sinister.
+   * @return array
+   *   Cities list.
    */
-  public function sinistersCitiesSelect() {
+  public function sinistersCitiesSelect(bool $is_sinister = FALSE):array {
     $opts = [];
+
+    $cities_file = '/data/ciudades-liberty.yaml';
+    if ($is_sinister) {
+      $cities_file = '/data/ciudades-liberty-siniestros.yaml';
+    }
+
     $path_lib_core_module = drupal_get_path('module', 'lib_core');
-    $cities_decode = Yaml::decode(file_get_contents($path_lib_core_module . '/data/ciudades-liberty.yaml'));
+    $cities_decode = Yaml::decode(file_get_contents($path_lib_core_module . $cities_file));
     if (!empty($cities_decode)) {
       foreach ($cities_decode as $key => $value) {
         $opts[$key] = $value;

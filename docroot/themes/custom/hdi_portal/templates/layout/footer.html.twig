@@ -1,0 +1,50 @@
+  <footer id="footer">
+    <section class="footer__top">
+      <section class="footer__content">
+        {% if page.footer %}
+          {{ page.footer }}
+        {% endif %}
+
+        <div>
+          <section id="footer__left">
+            {% if page.footer_left %}
+              {{ page.footer_left }}
+            {% endif %}
+
+            <section id="footer__tool">
+              {% if page.footer_tool %}
+                {{ page.footer_tool }}
+              {% endif %}
+            </section>
+          </section>
+          <aside id="footer__right">
+            {% if page.footer_right %}
+              {{ page.footer_right }}
+            {% endif %}
+          </aside>
+        </div>
+
+        <section id="footer__logos">
+          {% if page.footer_logos %}
+            {{ page.footer_logos }}
+          {% endif %}
+        </section>
+      </section>
+
+      <section id="footer__contact" class="cog--flex cog--flex-between">
+        {% if page.footer_contact %}
+          {{ page.footer_contact }}
+        {% endif %}
+      </section>
+    </section>
+
+    <section id="footer__terminos">
+      {% if page.footer_terminos %}
+        <div class="cog--mq">
+          {{ page.footer_terminos }}
+        </div>
+      {% endif %}
+    </section>
+  </footer>
+
+

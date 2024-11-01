@@ -1,0 +1,31 @@
+&.component__cards--formas-pago {
+  .component__content {
+    .cog--items {
+      justify-content: space-evenly;
+      margin-top: 2rem;
+
+      .component__card {
+        flex-basis: 20%;
+        min-height: 7rem;
+        text-align: center;
+
+        .card__img--oval {
+          border: none;
+          height: 1rem;
+          margin: 1rem auto;
+
+          svg {
+            height: 2rem;
+          }
+        }
+
+        h3 {
+          color: var(--gray);
+          font-family: var(--roboto-font);
+          font-size: 1rem;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

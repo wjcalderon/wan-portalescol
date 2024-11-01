@@ -63,3 +63,30 @@ function lib_core_update_8001(&$sandbox) {
   ]);
   $node->save();
 }
+
+function lib_core_update_9301() {
+  $fields = [
+    [
+      'entity_type' => 'media',
+      'bundle' => 'instagram',
+      'field_name' => 'embed_code',
+    ],
+    [
+      'entity_type' => 'media',
+      'bundle' => 'instagram',
+      'field_name' => 'field_media_in_library',
+    ],
+  ];
+
+  foreach ($fields as $field) {
+    /** @var \Drupal\Core\KeyValueStore\KeyValueFactoryInterface $key_value_factory */
+    $key_value_factory = \Drupal::service('keyvalue');
+    $field_map_kv_store = $key_value_factory->get('entity.definitions.bundle_field_map');
+    $map = $field_map_kv_store->get($field['entity_type']);
+
+    // Remove the field_fpimage field from the bundle gallery_assist for the page bundle.
+    unset($map[$field['field_name']]['bundles'][$field['bundle']]);
+
+    $field_map_kv_store->set($field['entity_type'], $map);
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/src/ConfigEntityDescriptionTrait.php b/src/ConfigEntityDescriptionTrait.php
+index c8223ad..b8f1ead 100644
+--- a/src/ConfigEntityDescriptionTrait.php
++++ b/src/ConfigEntityDescriptionTrait.php
+@@ -11,7 +11,7 @@ trait ConfigEntityDescriptionTrait {
+    * Implements EntityDescriptionInterface::getDescription().
+    */
+   public function getDescription(): string {
+-    return $this->getThirdPartySetting('lightning_core', 'description');
++    return $this->getThirdPartySetting('lightning_core', 'description') ?? '';
+   }
+ 
+   /**

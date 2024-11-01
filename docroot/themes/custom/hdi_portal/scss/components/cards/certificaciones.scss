@@ -1,0 +1,56 @@
+&.components__cards--certificaciones {
+  background-color: var(--hdi-yellow);
+  margin: 1rem 0;
+  padding: 3rem 0;
+
+  .component__content {
+    margin-top: 2.5rem;
+
+    .cog--items {
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-evenly;
+
+      .component__card {
+        background-color: var(--white);
+        box-shadow: 0px 6px 24px var(--hdi-gray-30);
+        padding: 2.5rem 4rem;
+        flex-basis: clamp(48%, 48%, 100%);
+        flex-grow: 1;
+        position: relative;
+
+        &::before {
+          background-image: url(../../images/medal.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          content: "";
+          height: 1.5rem;
+          left: 1rem;
+          position: absolute;
+          top: 1rem;
+          width: 1.5rem;
+        }
+
+        .card__img--oval {
+          background-color: unset;
+          border: none;
+          margin-bottom: 2rem;
+          width: 15rem;
+        }
+
+        h3 {
+          color: var(--gray);
+          font-size: 1.5rem;
+        }
+
+        .field__items {
+          font-size: .875rem;
+
+          a {
+            font-size: .875rem;
+          }
+        }
+      }
+    }
+  }
+}

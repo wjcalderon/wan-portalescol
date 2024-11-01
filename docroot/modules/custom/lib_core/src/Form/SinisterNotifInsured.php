@@ -47,8 +47,11 @@ class SinisterNotifInsured extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = \Drupal::config('lib_core.environmentvars.settings');
-    $orgid = $config->get('ENDPOINT_ORGID') ?? '';
+    $orgid = '00D7f000000AOj5';
+    if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+      $orgid = '00DA0000000AD5W';
+    }
+
     $sinister = '00N4A00000FkiLK';
     $sinister_date = '00N4A00000FkjTs';
     $report_type = '00N4A00000FkWpu';
@@ -92,20 +95,15 @@ class SinisterNotifInsured extends FormBase {
     $section_back_right = '00N4A00000FkhX9';
     $section_back = '00N4A00000FkhXE';
     $section_under = '00N4A00000Fklz2';
-
-    $involved = $config->get('involved') ?? '';
-    $know_plate_involved = $config->get('know_plate_involved') ?? '';
-    $involved_plate = $config->get('involved_plate') ?? '';
-    $know_name_involved = $config->get('know_name_involved') ?? '';
-    $name_involved = $config->get('name_involved') ?? '';
-    $know_type_identification_involved = $config->get('know_type_identification_involved') ?? '';
-    $type_identification_involved = $config->get('type_identification_involved') ?? '';
-    $know_identification_number_involved = $config->get('know_identification_number_involved') ?? '';
-    $identification_number_involved = $config->get('identification_number_involved') ?? '';
-
-    if ($_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
-      $orgid = '00DA0000000AD5W';
-    }
+    $involved = '00N4w00000HjMgS';
+    $know_plate_involved = '00N4w00000HjMgP';
+    $involved_plate = '00N4w00000HjMgU';
+    $know_name_involved = '00N4w00000HjMgO';
+    $name_involved = '00N4w00000HjMgT';
+    $know_type_identification_involved = '00N4w00000HjMgR';
+    $type_identification_involved = '00N4w00000HjMgV';
+    $know_identification_number_involved = '00N4w00000HjMgQ';
+    $identification_number_involved = '00N4w00000HjMgW';
 
     $form['#attached']['library'][] = 'lib_core/sinister_notice';
     $form['#attributes']['cdtype-form'] = 'insured';
@@ -118,8 +116,6 @@ class SinisterNotifInsured extends FormBase {
     ];
 
     if ($_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
-      // Hidden fields
-      // Test.
       $form['debug'] = [
         '#type' => 'hidden',
         '#value' => 1,
@@ -128,10 +124,9 @@ class SinisterNotifInsured extends FormBase {
 
       $form['debugEmail'] = [
         '#type' => 'hidden',
-        '#value' => 'andres.alvarez@esinergia.co',
+        '#value' => 'jonathan.esquivel@hdiseguros.com.co',
         '#name' => 'debugEmail',
       ];
-      // ------- Fin test ----------
     }
 
     $form['orgid'] = [
@@ -246,6 +241,7 @@ class SinisterNotifInsured extends FormBase {
         'Pequeños accesorios.' => 'Pequeños accesorios.',
         'Perdida de llaves.' => 'Perdida de llaves.',
         'Llantas estalladas.' => 'Llantas estalladas.',
+        'Rotura de cristales.' => 'Rotura de cristales.',
       ],
       '#attributes' => [
         'id' => $report_type,
@@ -306,7 +302,7 @@ class SinisterNotifInsured extends FormBase {
       ],
     ];
 
-    $opts_cities = $this->libCoreController->sinistersCitiesSelect();
+    $opts_cities = $this->libCoreController->sinistersCitiesSelect(TRUE);
     $form['step1']['ins_veh_info'][$repair_city] = [
       '#type' => 'select',
       '#required' => TRUE,
@@ -364,6 +360,8 @@ class SinisterNotifInsured extends FormBase {
         'Registro Civil' => 'Registro Civil',
         'Tarjeta de Identidad' => 'Tarjeta de Identidad',
         'No Válido' => 'No Válido',
+        'RUC' => 'RUC',
+        'Permiso de proteccion temporal PPT' => 'Permiso de proteccion temporal PPT',
       ],
       '#attributes' => [
         'id' => $driver_id,
@@ -494,6 +492,8 @@ class SinisterNotifInsured extends FormBase {
         'Registro Civil' => 'Registro Civil',
         'Tarjeta de Identidad' => 'Tarjeta de Identidad',
         'No Válido' => 'No Válido',
+        'RUC' => 'RUC',
+        'Permiso de proteccion temporal PPT' => 'Permiso de proteccion temporal PPT',
       ],
       '#attributes' => [
         'id' => $insured_id,
@@ -619,6 +619,8 @@ class SinisterNotifInsured extends FormBase {
         'Registro Civil' => 'Registro Civil',
         'Tarjeta de Identidad' => 'Tarjeta de Identidad',
         'No Válido' => 'No Válido',
+        'RUC' => 'RUC',
+        'Permiso de proteccion temporal PPT' => 'Permiso de proteccion temporal PPT',
       ],
       '#attributes' => [
         'id' => $declarant_id,
@@ -868,6 +870,8 @@ class SinisterNotifInsured extends FormBase {
         'Registro Civil' => 'Registro Civil',
         'Tarjeta de Identidad' => 'Tarjeta de Identidad',
         'No Válido' => 'No Válido',
+        'RUC' => 'RUC',
+        'Permiso de proteccion temporal PPT' => 'Permiso de proteccion temporal PPT',
       ],
       '#attributes' => [
         'id' => '00N7j0000026tcC',

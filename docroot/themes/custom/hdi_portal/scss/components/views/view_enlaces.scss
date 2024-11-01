@@ -1,0 +1,19 @@
+.component__view--enlaces {
+  .component__content {
+    .views-element-container {
+      .item-list {
+        ul {
+          margin-left: 2rem;
+
+          li {
+            list-style: disc;
+
+            span:not(.file) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

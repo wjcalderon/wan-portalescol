@@ -1,0 +1,41 @@
+.component__select-cta {
+  &.component__select-wizard {
+    background-color: var(--hdi-yellow);
+
+    .cog--mq {
+      & > .cog--flex {
+        flex-direction: column;
+        padding-bottom: 2.5rem;
+
+        .component__heading {
+          h2 {
+            font-size: 2rem;
+          }
+        }
+
+        .component__content {
+          background-color: var(--white);
+          box-shadow: 0px 8px 16px #34374117;
+          display: block;
+          padding: 2rem;
+          width: 100%;
+
+          .cog--items {
+            justify-content: space-evenly;
+
+            label {
+              color: var(--hdi-green);
+              font-family: var(--hdi-font);
+              font-size: 1.5rem;
+              font-weight: bolder;
+            }
+
+            select {
+              width: 17.875rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

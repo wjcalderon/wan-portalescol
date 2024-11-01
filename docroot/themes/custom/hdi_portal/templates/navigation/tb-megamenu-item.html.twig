@@ -1,0 +1,36 @@
+
+{% set base_url = url('<front>')|render|split('/')|join('/') %}
+
+{% set target = '' %}
+{% set link_class = '' %}
+{% if link.options.attributes.target == '_blank' %}
+  {% set target = 'target="_blank" rel="noreferrer"' %}
+{% endif %}
+
+{% set linkAttributes = link['attributes'] %}
+{% if ( link['url'] is defined and link['url'] is not empty ) %}
+  {% set tag = "a" %}
+  {% set href = " href='#{ link['url'] }'" %}
+  {% if link.options.attributes.class == 'internal' %}
+    {% set link_class = "class=internal" %}
+  {% endif %}
+{% else  %}
+  {% set tag = 'span' %}
+  {% set href = '' %}
+  {% set linkAttributes = linkAttributes.addClass('tb-megamenu-no-link') %}
+  {% if submenu is empty %}
+    {% set linkAttributes = linkAttributes.addClass('tb-megamenu-no-submenu') %}
+  {% endif %}
+{% endif %}
+<li {{ attributes }} >
+  <{{ tag }}{{ href|raw }} {{ link['attributes'] }} {{ target }} {{ link_class }}>
+    {% if  item_config['xicon'] %}
+      <i class="{{ item_config['xicon'] }}"></i>
+    {% endif %}
+    {{ link.title_translate|t }}
+    {% if item_config['caption'] %}
+      <span class="mega-caption"> {{ item_config['caption']|t }}</span>
+    {% endif %}
+  </{{ tag }}>
+  {{ submenu }}
+</li>

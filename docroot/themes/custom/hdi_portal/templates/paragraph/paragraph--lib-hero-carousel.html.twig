@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{{ attach_library('hdi_portal/liberty-components') }}
+{% set classes = ['hero-breaker', 'centrado'] %}
+<div {{ attributes.addClass(classes) }}>
+	{{ title_prefix }}
+	{% if label %}
+		<h2 {{ title_attributes }}>
+			{{ label }}
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+		<div class="hero-breaker__content hero-breaker">
+			{% for key, item in content.field_lib_p_items if (key|first) != '#' %}
+				<div id="breaker-item{{ key + 1 }}" class="breaker breaker-content__item breaker-item breaker-item{{
+						          key
+						            + 1
+						          }} breaker{{ key + 1 }}{{ key == 0 ? ' is-active' }}">
+					<div class="breaker__wrapper">
+						<div class="breaker__image">
+							<img alt="" src="{{ items_imagen[key] }}"/>
+
+						</div>
+						<div class="breaker__info">
+							<h3>
+								{{ item['#paragraph'].field_lib_heading.value }}
+							</h3>
+							{{ item['#paragraph'].field_lib_summary.value }}
+							<div class="button-landing">
+								<a class="" href="{{ item['#paragraph'].field_lib_link.uri }}">
+									{{ item['#paragraph'].field_lib_link.title }}
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<ul class="hero-breaker__nav">
+			{% for key, item in content.field_lib_p_items if (key|first) != '#' %}
+				<li id="breaker-nav{{ key + 1 }}" class="breaker-nav__item breaker-nav breaker-nav{{
+						          key
+						            + 1
+						          }} breaker{{ key + 1 }}{{ key == 0 ? ' is-active' }}">
+					<a href="#">{{ item['#paragraph'].field_lib_tab_heading.value }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endblock %}
+</div>

@@ -2,7 +2,7 @@ name: 'Liberty quote'
 type: module
 description: 'Liberty quote'
 configure: lib_quoting.config
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 package: 'Custom'
 dependencies:
   - drupal:migrate

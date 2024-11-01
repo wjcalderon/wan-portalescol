@@ -1,0 +1,16 @@
+.block-tb-megamenu {
+  .tb-megamenu-block {
+    &[data-block="hdi_portal_tepodemosayudar"] {
+      .block-block-content  {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+          color: var(--hdi-universal-green);
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

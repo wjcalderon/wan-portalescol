@@ -1,0 +1,106 @@
+.component__tabs {
+  &--erescliente-home {
+    margin-bottom: 6rem;
+
+    .component__heading {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .component__content {
+      .ui-widget.ui-widget-content, .cog--flex {
+        border: none;
+      }
+
+      &.cp-cards__list {
+        .cp-tabs {
+          & > .cog--flex {
+            margin: unset;
+
+            .ui-widget-header {
+              background-color: unset;
+              border: unset;
+
+              .ui-tab {
+                border: none;
+                background-color: unset;
+                flex: 1;
+                padding: unset;
+                padding-bottom: 2rem;
+
+                &.ui-state-active, &:hover {
+                  & > div {
+                    a {
+                      color: var(--hdi-light-blue);
+                      font-weight: bolder;
+
+                      img {
+                        filter: unset;
+                      }
+                    }
+                  }
+                }
+
+                & > div {
+                  display: flex;
+                  justify-content: center;
+
+                  a {
+                    align-items: center;
+                    color: var(--hdi-gray-50);
+                    display: flex;
+                    font-size: 1rem;
+
+                    img {
+                      filter: contrast(0.1);
+                      margin-right: 1.5rem;
+                      width: 2rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .tab-img-bg {
+        height: 20rem;
+
+        .component__cards {
+          .cog--items {
+            align-items: stretch;
+          }
+
+          .component__card {
+            background: var(--white);
+            border-radius: 2px;
+            box-shadow: 0px 2px 4px #1A144633;
+            flex: 1;
+            margin: 5rem 1.25rem;
+            margin-left: 0;
+            min-height: auto;
+            padding: 1.875rem;
+            padding-bottom: 4rem;
+
+            h3 {
+              margin-top: 0;
+            }
+
+            p {
+              font-family: var(--roboto-font);
+              font-weight: 300;
+            }
+
+            .field__items {
+              a {
+                color: var(--hdi-universal-green);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

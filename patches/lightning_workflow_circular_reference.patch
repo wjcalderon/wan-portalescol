@@ -1,0 +1,23 @@
+diff --git a/modules/lightning_scheduler/lightning_scheduler.services.yml b/modules/lightning_scheduler/lightning_scheduler.services.yml
+index d0e96d7..7f3c947 100644
+--- a/modules/lightning_scheduler/lightning_scheduler.services.yml
++++ b/modules/lightning_scheduler/lightning_scheduler.services.yml
+@@ -7,18 +7,3 @@ services:
+       - '@entity_type.manager'
+       - '@logger.channel.cron'
+       - '@string_translation'
+-
+-  # To facilitate testing, decorate the datetime.time service with an
+-  # implementation that can return an arbitrary request time from state.
+-  lightning_scheduler.datetime.time:
+-    public: false
+-    class: 'Drupal\lightning_scheduler\Time'
+-    decorates: datetime.time
+-    arguments:
+-      - '@request_stack'
+-      - '@state'
+-    # Workaround for serializing decorated services. Remove when either
+-    # https://www.drupal.org/project/drupal/issues/2896993 or
+-    # https://www.drupal.org/project/drupal/issues/2531564 are fixed.
+-    properties:
+-      _serviceId: datetime.time

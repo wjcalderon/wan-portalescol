@@ -8,13 +8,13 @@
       $(this).next('input, select').focus();
     })
 
-    $('#pqr-form .form-item-_0n05000001ccds').on('click', 'label', function () {
-      if (!$("#00n05000001ccds")[0].checked) {
+    $('#pqr-form .form-item-_0n4w00000fv3cb').on('click', 'label', function () {
+      if (!$("#00N4w00000Fv3cB")[0].checked) {
         $(".title_terms").trigger('click')
       } else {
-        $("#00n05000001ccds").prop("checked", false);
-        $("#edit-00n05000000y1hp--wrapper").addClass("is-hidden");
-        $(".form-item-cond-especial").addClass("is-hidden");
+        $("#00N4w00000Fv3cB").prop("checked", false);
+        $("#edit-00n4w00000fv3ci--wrapper").addClass("is-hidden");
+        $(".form-item-_0n4w00000fv3cq").addClass("is-hidden");
       }
     })
   });
@@ -75,17 +75,17 @@
    */
   function states_fields() {
     function handleCondEspecialChange() {
-      $("#cond_especial").change(function () {
+      $("#00N4w00000Fv3cQ").change(function () {
         if ($(this).val() === "SI") {
-          $("#00n05000000y11p").attr("required", true);
+          $("#00N4w00000Fv3cp").attr("required", true);
         } else {
-          $("#00n05000000y11p").removeAttr("required");
+          $("#00N4w00000Fv3cp").removeAttr("required");
         }
       });
     }
 
     function handleGenerdChange() {
-      $("#00ng000000fwyow").change(function () {
+      $("#00NG000000FWyoW").change(function () {
         if ($(this).val() === "NIT") {
           handleNITSelection();
         } else {
@@ -95,19 +95,19 @@
     }
 
     function handleNITSelection() {
-      $("#00n05000000xuss").empty();
-      $("#00n05000000xuss").append("<option value=''>- Seleccionar -</option>");
-      $("#00n05000000xuss").append(
+      $("#00N4w00000Fv3cP").empty();
+      $("#00N4w00000Fv3cP").append("<option value=''>- Seleccionar -</option>");
+      $("#00N4w00000Fv3cP").append(
         "<option value='No aplica'>No aplica</option>"
       );
     }
 
     function handleNonNITSelection() {
-      $("#00n05000000xuss").empty();
-      $("#00n05000000xuss").append("<option value=''>- Seleccionar -</option>");
+      $("#00N4w00000Fv3cP").empty();
+      $("#00N4w00000Fv3cP").append("<option value=''>- Seleccionar -</option>");
       const genderOptions = ["Masculino", "Femenino", "Trans", "No Binario"];
       genderOptions.forEach((option) => {
-        $("#00n05000000xuss").append(
+        $("#00N4w00000Fv3cP").append(
           `<option value='${option}'>${option}</option>`
         );
       });
@@ -117,13 +117,13 @@
     handleGenerdChange();
 
     // Case number
-    $("#00n4a00000fkikp").attr("disabled", "disabled");
+    $("#00N4A00000FkiKp").attr("disabled", "disabled");
 
-    $("#00ng000000fwyn9").change(function () {
+    $("#00NG000000FWyn9").change(function () {
       if ($(this).val() !== "SI") {
-        $("#00n4a00000fkikp").prop("disabled", true).removeAttr("required");
+        $("#00N4A00000FkiKp").prop("disabled", true).removeAttr("required");
       } else {
-        $("#00n4a00000fkikp").prop("disabled", false).prop("required", true);
+        $("#00N4A00000FkiKp").prop("disabled", false).prop("required", true);
       }
     });
 
@@ -175,7 +175,7 @@
         number: true,
       },
       // Nombres y apellidos
-      "00n4a00000fkiko": {
+      "00N4A00000FkiKo": {
         required: true,
         validar_nombre: true,
       },
@@ -195,7 +195,7 @@
         maxlength: 18,
       },
       // Correo
-      mail: {
+      "00NG000000FWynb": {
         required: true,
         email: true,
         isValidEmailAddress: true,
@@ -249,7 +249,7 @@
         maxlength: "Por favor escribe máximo 18 digitos",
       },
       // Nombres y apellidos
-      "00n4a00000fkiko": {
+      "00N4A00000FkiKo": {
         required: "Este campo es requerido",
       },
       // Direccion
@@ -281,7 +281,7 @@
         maxlength: "Por favor escribe máximo 18 digitos",
       },
       // Correo
-      mail: {
+      "00NG000000FWynb": {
         required: "Este campo es requerido",
         email: "Este campo debe ser un correo valido",
         isValidEmailAddress: "Este campo debe ser un correo valido",
@@ -338,33 +338,33 @@
     $(".terms-modal-wrap").removeClass("display");
   });
 
-  $(".form-item-cond-especial").addClass("is-hidden");
+  $(".form-item-_0n4w00000fv3cq").addClass("is-hidden");
   $("#modal_acept_terms").click(function (e) {
     e.preventDefault();
-    if (!$("#00n05000001ccds")[0].checked) {
-      $("#00n05000001ccds").prop("checked", true);
+    if (!$("#00N4w00000Fv3cB")[0].checked) {
+      $("#00N4w00000Fv3cB").prop("checked", true);
       $(".terms-modal-wrap").removeClass("display");
-      $("#edit-00n05000000y1hp--wrapper").removeClass("is-hidden");
-      $(".form-item-cond-especial").removeClass("is-hidden");
+      $("#edit-00n4w00000fv3ci--wrapper").removeClass("is-hidden");
+      $(".form-item-_0n4w00000fv3cq").removeClass("is-hidden");
     } else {
-      $("#00n05000001ccds").prop("checked", false);
+      $("#00N4w00000Fv3cB").prop("checked", false);
       $(".terms-modal-wrap").removeClass("display");
-      $("#edit-00n05000000y1hp--wrapper").addClass("is-hidden");
-      $(".form-item-cond-especial").addClass("is-hidden");
+      $("#edit-00n4w00000fv3ci--wrapper").addClass("is-hidden");
+      $(".form-item-_0n4w00000fv3cq").addClass("is-hidden");
     }
   });
 
-  $(".form-item-_0n05000000y11p").addClass("is-hidden");
-  $("#cond_especial").change(function () {
+  $("#00N4w00000Fv3cp").parent('.form-type-select').addClass("is-hidden");
+  $("#00N4w00000Fv3cQ").change(function () {
     if ($(this).val() == "SI") {
-      $(".form-item-_0n05000000y11p").removeClass("is-hidden");
+      $("#00N4w00000Fv3cp").parent('.form-type-select').removeClass("is-hidden");
     } else {
-      $(".form-item-_0n05000000y11p").addClass("is-hidden");
+      $("#00N4w00000Fv3cp").parent('.form-type-select').addClass("is-hidden");
     }
   });
-  $("#pais").parent("div").addClass("form__input--activo");
+  $("#00N4w00000Fv3cM").parent("div").addClass("form__input--activo");
 
-  $("#edit-00n05000000y1hp--wrapper").addClass("is-hidden");
+  $("#edit-00n4w00000fv3ci--wrapper").addClass("is-hidden");
 
   $(".terms_checkbox").click(function () {
     if ($(".terms_checkbox:checkbox:checked").val() == 1) {

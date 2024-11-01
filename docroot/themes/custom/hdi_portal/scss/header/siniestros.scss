@@ -1,0 +1,77 @@
+.te-paso-algo {
+  p {
+    padding-bottom: 1rem;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  span {
+    display: block;
+    font-size: .85rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .centro-siniestros-block {
+    & > p {
+      color: var(--hdi-universal-green);
+      font-size: 1.125rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
+      position: relative;
+      width: 100%;
+
+      &::after {
+        background: var(--hdi-universal-green);
+        bottom: -.7rem;
+        border: none;
+        content: "";
+        display: block !important;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 1.5rem;
+      }
+    }
+
+    .centro-siniestros-block-submenu {
+      margin-top: 1rem;
+
+    }
+  }
+
+  .centro-siniestros-2 {
+    .whatsapp {
+      a {
+        border: 1px solid var(--hdi-universal-green);
+        color: var(--hdi-universal-green);
+        padding-left: 3rem;
+        padding-right: 2rem;
+        position: relative;
+
+        &::before {
+          background-image: url(../../images/whatsapp.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          content: "";
+          height: 1.1875rem;
+          left: 1rem;
+          position: absolute;
+          top: .5rem;
+          width: 1.1875rem;
+        }
+
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
+}

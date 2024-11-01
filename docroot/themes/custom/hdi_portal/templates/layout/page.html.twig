@@ -1,0 +1,19 @@
+{% include '@hdi_portal/layout/header.html.twig' %}
+  <main id="content">
+    {{ page.content }}
+    {% if page.blocks_popups %}
+      <div class="clearfix post-content" id="blocks-necesecitas-ayuda">
+        <div class="mq-blocks-necesitas-ayuda">
+          {{ page.blocks_popups }}
+        </div>
+      </div>
+    {% endif %}
+  </main>
+  {% if page.post_content %}
+    <div class="clearfix post-content" id="post-content">
+      <div class="cog--mq mq-postcontent">
+        {{ page.post_content }}
+      </div>
+    </div>
+  {% endif %}
+{% include '@hdi_portal/layout/footer.html.twig' %}

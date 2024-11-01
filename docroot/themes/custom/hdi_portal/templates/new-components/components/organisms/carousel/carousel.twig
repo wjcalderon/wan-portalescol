@@ -1,0 +1,78 @@
+{% set carousel_base_class = carousel_base_class|default('carousel') %}
+
+{% if not carousel_modifiers %}
+{% set carousel_modifiers = [] %}
+{% endif %}
+
+{% if not drag and drag is null == true %}
+    {% set drag = true %}
+{% endif %}
+
+{% if not loop and loop is null == true %}
+    {% set loop = true %}
+{% endif %}
+
+{% if not autoplay and autoplay is null == true %}
+    {% set autoplay = true %}
+{% endif %}
+
+{% if not destroy and destroy is null == true %}
+    {% set destroy = false %}
+{% endif %}
+
+{% if not autoplay and autoplay is null == true %}
+    {% set autoplay = true %}
+{% endif %}
+
+{% if not splide_pagination and splide_pagination is null == true %}
+    {% set splide_pagination = false %}
+{% endif %}
+
+{% if not splide_arrows and splide_arrows is null == true %}
+    {% set splide_arrows = false %}
+{% endif %}
+
+{% if carousel_columns %}
+{% set carousel_modifiers = carousel_modifiers|merge([carousel_columns]) %}
+{% endif %}
+
+{% if carousel_separator %}
+{% set carousel_modifiers = carousel_modifiers|merge([carousel_separator]) %}
+{% endif %}
+
+<div {{ bem(carousel_base_class, carousel_modifiers, carousel_blockname) }}>
+    <div id="{{ carousel_id }}" class="carousel__items splide"
+        data-splide='{
+            "type": "{{ loop == false  ? "default" : "loop" }}",
+            "pagination": {{ splide_pagination == false  ? 'false' : 'true' }},
+            "arrows": {{ splide_arrows == false  ? 'false' : 'true' }},
+            "gap":"1.5rem",
+            "perPage":{{ items_per_page|default(2) }},
+            "drag": {{ drag == false  ? 'false' : 'true' }},
+            "autoplay": {{ autoplay == false  ? 'false' : 'true' }},
+            "mediaQuery": "min",
+            "breakpoints": {
+                "0": {
+                    "perPage": 1
+                },
+                "768": {
+                    "perPage": {{items_per_page|default(2)}}
+                },
+                "960": {
+                    "destroy": {{ destroy == false  ? 'false' : 'true' }}
+                }
+            }
+        }'>
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% block carousel_content %}
+                    {% for item in items %}
+                        <li class="splide__slide">
+                            {% include "themes/custom/hdi_portal/templates/new-components/components/organisms/carousel/_carousel-item.twig" %}
+                        </li>
+                    {% endfor %}
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{{ attach_library('lib_components_v3/libraries') }}
+{{ title_prefix }}
+{{ title_suffix }}
+<div class="lib-comp-interested">
+    <div class="lib-comp-interested__grid grid-3">
+        {# Cards #}
+        {% for key, item in content.field_lib_v3_cards_interested_gr if key|first != '#' %}
+            <div class="lib-comp-interested__card">
+                <span class="lib-comp-interested__icon">{{item.field_lib_v3_cards_interested_ic}}</span>
+                <span class="lib-comp-interested__text">{{item.field_lib_v3_cards_interes_tit}}</span>
+                <span class="lib-comp-interested__text">{{item.field_lib_v3_cards_interes_des}}</span>
+            </div>
+        {% endfor %}  
+        {# End Cards #}
+    </div> 
+</div>

@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set card_button_target = content.field_p_cta_link[0]['#options']['attributes']['target']|clean_class %}
+{% set card__link__attributes = {
+    target: card_button_target,
+ } %}
+{% set card_button_style = content.field_p_cta_link[0]['#options']['attributes']['style']|clean_class %}
+{% set card_button_size = content.field_p_cta_link[0]['#options']['attributes']['size']|clean_class %}
+{% set card__link__modifiers = [
+  card_button_style,
+  card_button_size
+] %}
+
+{% embed "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-foto.twig" with {
+  card__image__output_image_tag: true,
+  card__heading: content.field_title_html|field_value,
+  card__body: content.field_body_card|field_value,
+  card__link__text: content.field_p_cta_link[0]['#title'],
+  card__link__url: content.field_p_cta_link[0]['#url'],
+  card__link__modifiers: card__link__modifiers,
+  card__link__attributes: card__link__attributes,
+} %}
+{% block card__image %}
+  {{ content.field_media_mmedia|field_value }}
+{% endblock %}
+{% endembed %}

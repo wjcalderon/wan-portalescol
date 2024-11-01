@@ -4,7 +4,7 @@
       <button class="close-modal" @click="$emit('close')" v-show="!isMobile"></button>
       <span class="back" @click="$emit('close')" v-show="isMobile">Atrás</span>
       <h3>Glosario de especialidades</h3>
-      <p>Conoce las especialidades que en la red médica de Liberty Seguros tenemos disponibles para ti.</p>
+      <p>Conoce las especialidades que en la red médica de HDI Seguros Colombia tenemos disponibles para ti.</p>
       <ul class="tabs ">
         <li v-for="(tab, index) in tabs" :key="index" :class="{ 'is-active': tab.is_active }" @click="selectTab(tab.id)">{{ tab.title }}</li>
       </ul>

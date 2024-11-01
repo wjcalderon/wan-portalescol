@@ -1,0 +1,65 @@
+.component__cards {
+  .component__heading {
+    .cog--mq {
+      h2, h4 {
+        text-align: center;
+      }
+
+      h4 {
+        color: var(--hdi-universal-green);
+        font-size: 2.5rem;
+        font-weight: 500;
+      }
+
+      p {
+        &.lead {
+          font-size: 1.25rem;
+          margin: 1.5rem ;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .component__content {
+    .cog--flex {
+      .component__card {
+        .card__img--oval {
+          background-color: var(--white);
+          border: 1px solid var(--hdi-universal-green);
+          border-radius: 100%;
+          height: 8.75rem;
+          margin: 2rem auto 0;
+          position: relative;
+          width: 8.75rem;
+
+          svg {
+            left: calc(50% - 2rem);
+            position: absolute;
+            top: calc(50% - 2rem);
+            width: 4rem;
+          }
+        }
+
+        h3 {
+          color: var(--hdi-green);
+          font-size: 1.5rem;
+          margin: 1.5rem 0;
+        }
+
+        p {
+          color: var(--gray);
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @import './cards/formas_pago.scss';
+  @import './cards/two_colums.scss';
+  @import './cards/cifras.scss';
+  @import './cards/image_cta.scss';
+  @import './cards/valores.scss';
+  @import './cards/certificaciones.scss';
+  @import './cards/informes.scss';
+}

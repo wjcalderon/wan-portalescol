@@ -1,0 +1,57 @@
+{% if card_type == 'link' %}
+
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-link.twig" with {
+    card__extra_classes: ['card-list__item'],
+    card__image__src: item.card__image__src,
+    card__image__alt: item.card__image__alt,
+    card__heading: item.card__heading,
+    card__icon__name: item.card__icon__name,
+    card__heading: item.card__heading,
+    card__button__content: item.card__button__content,
+    card__button__url: item.card__button__url,
+  } %}
+
+{% endif %}
+
+{% if card_type == 'card-foto' %}
+
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-foto.twig" with {
+    card__extra_classes: ['card-list__item'],
+    card__image__src: item.card__image__src,
+    card__image__alt: item.card__image__alt,
+    card__heading: item.card__heading,
+    card__body: item.card__body,
+    card__heading: item.card__heading,
+    card__button__content: item.card__button__content,
+    card__button__url: item.card__button__url,
+  } %}
+
+{% endif %}
+
+{% if card_type == 'card-basic' %}
+
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/card/card-basic.twig" with {
+    card__extra_classes: ['card-list__item'],
+    card__image__src: item.card__image__src,
+    card__image__alt: item.card__image__alt,
+    card__heading: item.card__heading,
+    card__body: item.card__body,
+    card__heading: item.card__heading,
+    card__button__content: item.card__button__content,
+    card__button__url: item.card__button__url,
+  } %}
+
+{% endif %}
+
+{% if card_type == 'cta-phone' %}
+  {% include "themes/custom/hdi_portal/templates/new-components/components/molecules/cta/cta-phone.twig" with {
+    cta__extra_classes: ['card-list__item'],
+    cta__modifiers: cta__modifiers,
+    cta__heading: item.cta__heading,
+    cta__body: item.cta__body,
+    cta__link__url: item.cta__link__url,
+    cta__icon__name: item.cta__icon__name,
+    cta__image__src: item.cta__image,
+  } %}
+
+{% endif %}

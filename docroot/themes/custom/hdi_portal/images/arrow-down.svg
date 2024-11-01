@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="14px" viewBox="0 0 13 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow-down" transform="translate(6.500000, 7.000000) rotate(90.000000) translate(-6.500000, -7.000000) translate(-1.000000, 0.000000)" fill="#28A3AF" fill-rule="nonzero">
+            <g id="Icon_x2F_ArrowBack" transform="translate(7.500000, 7.000000) rotate(-90.000000) translate(-7.500000, -7.000000) translate(0.500000, -0.500000)">
+                <g id="Mask" transform="translate(6.936310, 7.738576) rotate(-90.000000) translate(-6.936310, -7.738576) translate(-0.063690, 1.238576)">
+                    <path d="M6.7,1.7 L5.7,0.5 L0.8,5.8 C0.3,6.3 0.4,7.3 0.8,7.7 L5.7,12.7 L6.7,11.6 L2.6,7.6 L13.7,7.6 L13.7,5.9 L2.7,5.9 L6.7,1.7 Z" id="path-1_1_"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

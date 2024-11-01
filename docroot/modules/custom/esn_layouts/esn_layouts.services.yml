@@ -1,6 +1,9 @@
 services:
   esn_layouts.layout_choose_controller_alter:
     class: Drupal\esn_layouts\EventSubscriber\LayoutBuilderBrowserEventSubscriber
-    arguments: []
+    arguments:
+      - '@extension.path.resolver'
+      - '@file_url_generator'
+      - '@entity_type.manager'
     tags:
       - { name: event_subscriber }

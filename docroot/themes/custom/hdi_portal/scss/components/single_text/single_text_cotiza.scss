@@ -1,0 +1,43 @@
+&-cotiza {
+  margin: 2rem 0;
+  text-align: center;
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .banner-info {
+    margin-top: 5rem;
+
+    .cont-info {
+      background-color: var(--hdi-yellow);
+      padding: 5rem 0 3rem;
+      position: relative;
+
+      .image {
+        border: 1px solid var(--hdi-universal-green);
+        border-radius: 100%;
+        background-color: var(--white);
+        height: 6.25rem;
+        left: calc(50% - 3.125rem);
+        position: absolute;
+        top: -3.125rem;
+        width: 6.25rem;
+
+        img {
+          margin: 1rem auto;
+          width: 3.5625rem;
+        }
+      }
+
+      p {
+        &:first-of-type {
+          color: var(--hdi-green);
+          font-size: 1.25rem;
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+}

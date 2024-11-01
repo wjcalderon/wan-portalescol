@@ -1,5 +1,5 @@
 name: 'Microsites of Liberty'
 type: module
 description: 'Microsite creation'
-package: 'Liberty'
-core_version_requirement: ^8.8 || ^9
+package: HDI
+core_version_requirement: ^9 || ^10

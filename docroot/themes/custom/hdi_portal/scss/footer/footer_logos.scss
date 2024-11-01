@@ -1,0 +1,32 @@
+#footer__logos {
+  p {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+
+    img {
+      margin: 1rem 2rem;
+
+      &.logo-superfinanciera {
+        height: 1.875rem;
+        width: 5.875rem;
+      }
+
+      &.logo-fasecolda {
+        height: 1.875rem;
+        width: 6.1875rem;
+      }
+
+      &.logo-talanx {
+        height: 1.25rem;
+        width: 5.3125rem;
+      }
+
+      &.logo-vivaseguro {
+        height: 2.6875rem;
+        width: 8.75rem;
+      }
+    }
+  }
+}
