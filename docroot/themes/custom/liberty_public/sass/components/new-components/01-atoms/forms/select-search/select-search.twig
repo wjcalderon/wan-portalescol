@@ -1,0 +1,45 @@
+{% set search_form_base_class = search_form_base_class|default('search-form') %}
+
+<div {{ bem(search_form_base_class, search_form_modifiers, search_form_blockname) }}>
+    <div {{ bem('input', search_form_modifiers, search_form_base_class) }}>
+        <input list="browsers" value="" id="searchInput" placeholder="Selecciona el tipo de busqueda">
+            <datalist id="browsers">
+                <option value="Buscar">
+            </datalist>
+        <div {{ bem('search', search_form_modifiers, search_form_base_class) }} id="searchBtn">
+           {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+                 icon_name: 'search',
+                 icon_modifiers: ['secondary']
+             } %}
+        </div>
+    </div>   
+    
+    <div {{ bem('select', search_form_modifiers, search_form_base_class) }}>
+        <div {{ bem('button', search_form_modifiers, search_form_base_class) }}>
+            <label>Selecciona tu busqueda</label>
+            <div {{ bem('icon', search_form_modifiers, search_form_base_class) }}>
+                {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+                 icon_name: 'arrow-down',
+                 icon_modifiers: ['white', 'arrow']
+             } %}
+
+                {% include "themes/custom/liberty_public/templates/new-components/components/atoms/images/icons/_icon.twig" with {
+                 icon_name: 'close',
+                 icon_modifiers: ['white', 'close']
+             } %}
+            </div>
+        </div>
+
+        <div class="search-form__options">
+            <div class="search-form__option" data="cod-fund" >
+                Cód. CUPS / Cód. fundación 
+            </div>
+            <div class="search-form__option" data="nombre-prueba" >
+                 Nombre de la prueba
+            </div>
+            <div class="search-form__option" data="diagnostico-especialidad" >
+                 Diagnóstico o especialidad
+            </div>
+        </div>
+    </div>
+</div>

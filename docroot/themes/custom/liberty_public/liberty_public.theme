@@ -1,0 +1,535 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraphs.
+ */
+function liberty_public_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  if ($paragraph->bundle() == 'video') {
+    $video_url = $paragraph->get('field_video_embed')->getValue()[0]['value'];
+    $media_path = _getYoutubeThumbnailUrl($video_url);
+    $variables['thumbnail_youtube'] = $media_path;
+    $variables['url_youtube'] = $video_url;
+    $video_embed_url = _getYoutubeEmbedUrl($video_url);
+    $variables['video_embed_src'] = $video_embed_url;
+  }
+
+  if ($paragraph->bundle() == "lib_hero_carousel") {
+    foreach ($paragraph->get('field_lib_p_items')->getValue() as $clave => $element) {
+      $p = \Drupal\paragraphs\Entity\Paragraph::load($element['target_id']);
+      $fid = $p->field_lib_media_image->getValue()[0]['target_id'];
+      $media = Media::load($fid);
+      $fid = $media->getSource()->getSourceFieldValue($media);
+      $file = File::load($fid);
+      $file_value = $file->uri->getValue()[0]['value'];
+      $variables['items_imagen'][$clave] = file_create_url($file->getFileUri());
+    }
+  }
+
+  if ($paragraph->bundle() == "lib_tabs") {
+    foreach ($paragraph->get('field_lib_p_items')->getValue() as $clave => $element) {
+      $p = \Drupal\paragraphs\Entity\Paragraph::load($element['target_id']);
+
+      $variables['items_tab_content'][$clave]['tab_heading'] = $p->field_lib_tab_heading->getValue()[0]['value'];
+      $variables['items_tab_content'][$clave]['heading'] = $p->field_lib_heading->getValue()[0]['value'];
+      $variables['items_tab_content'][$clave]['summary'] = $p->field_lib_summary->getValue()[0]['value'];
+      $variables['items_tab_content'][$clave]['link']['text'] = $p->field_lib_link->getValue()[0]['title'];
+      $link = \Drupal\Core\Url::fromUri($p->field_lib_link->getValue()[0]['uri'], array('absolute' => true))->toString();
+      $variables['items_tab_content'][$clave]['link']['url'] = $link;
+
+      if ($p->field_lib_p_items->getValue()) {
+        $q = \Drupal\paragraphs\Entity\Paragraph::load($p->field_lib_p_items->getValue()[0]['target_id']);
+        $variables['items_tab_content'][$clave]['content']['heading'] = $q->field_lib_heading->getValue()[0]['value'];
+        if ($q->field_lib_media_icon->getValue()) {
+          $mid = $q->field_lib_media_icon->getValue()[0]['target_id'];
+          $media = Media::load($mid);
+          $fid = $media->getSource()->getSourceFieldValue($media);
+          $file = File::load($fid);
+          $file_value = $file->uri->getValue()[0]['value'];
+          $variables['items_tab_content'][$clave]['content']['image'] = file_create_url($file->getFileUri());
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function liberty_public_preprocess_html(&$variables) {
+  $variables['AH_SITE_ENVIRONMENT'] = $_ENV['AH_SITE_ENVIRONMENT'];
+
+  // variables chat environment
+  $variables['CHAT_BASE_LIVE_AGENT_CONTENT_URL'] = $_ENV['CHAT_BASE_LIVE_AGENT_CONTENT_URL'];
+  $variables['CHAT_BASE_LIVE_AGENT_URL'] = $_ENV['CHAT_BASE_LIVE_AGENT_URL'];
+  $variables['CHAT_BUTTON_ID'] = $_ENV['CHAT_BUTTON_ID'];
+  $variables['CHAT_ESW_LIVE_AGENT_NAME'] = $_ENV['CHAT_ESW_LIVE_AGENT_NAME'];
+  $variables['CHAT_ID'] = $_ENV['CHAT_ID'];
+  $variables['CHAT_RECORD_TYPE_ID'] = $_ENV['CHAT_RECORD_TYPE_ID'];
+  $variables['CHAT_SALESFORCE_URL'] = $_ENV['CHAT_SALESFORCE_URL'];
+  $variables['CHAT_SET_ATTRIBUTE'] = $_ENV['CHAT_SET_ATTRIBUTE'];
+  $variables['CHAT_URL'] = $_ENV['CHAT_URL'];
+
+  // Attach theme libraries
+  $variables['#attached']['library'][] = 'liberty_public/tabs';
+  $variables['#attached']['library'][] = 'liberty_public/slick';
+  $variables['#attached']['library'][] = 'liberty_public/accordion';
+  $variables['#attached']['library'][] = 'liberty_public/forms';
+  $variables['#attached']['library'][] = 'liberty_public/chat';
+  $variables['#attached']['library'][] = 'liberty_public/nav';
+  $variables['#attached']['library'][] = 'liberty_public/splidejs';
+
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path_alias.manager')
+      ->getAliasByPath($path), '/');
+  $structure = explode('/', $alias);
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-both');
+  } elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-first');
+  } elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-second');
+  } else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-none');
+  }
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('alias--' . $alias_class);
+  }
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype--' . $variables['node_type'] : '';
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged-in' : 'logged-out';
+  if (isset($structure[0])) {
+    if ($structure[0] != 'personas' && $structure[0] != 'empresas' && $structure[0] != 'acerca-de-liberty') {
+      $variables['attributes']['class'][] = Html::cleanCssIdentifier('transversales');
+    } else {
+      $variables['attributes']['class'][] = Html::cleanCssIdentifier($structure[0]);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function liberty_public_preprocess_page(&$variables) {
+  // Check if page is panel pages.
+  $route_options = \Drupal::routeMatch()->getRouteObject()->getOptions();
+  if (isset($route_options['parameters']['page_manager_page'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-panel');
+  } else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
+  }
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function liberty_public_preprocess_block(&$vars) {
+  // Custom block type helper classes.
+  if (isset($vars['elements']['content']['#block_content'])) {
+    $bundle = $vars['elements']['content']['#block_content']->bundle();
+    $bundle_class = str_replace('_', '-', $bundle);
+    if (isset($vars['attributes']['class'])) {
+      $vars['attributes']['class'][] = Html::cleanCssIdentifier('block--bundle-' . $bundle_class);
+      $vars['attributes']['data-bundle-class'] = $bundle_class;
+    }
+  }
+  // Check if block is child to determine title size.
+  $vars['ischild'] = !empty($vars['elements']['content']['#ischild']) ? true : false;
+
+  // Preprocess custom blocks.
+  if (!empty($vars['elements']['content']['#block_content'])) {
+    $block = $vars['elements']['content']['#block_content'];
+    $block_id = $block->id();
+    $block_type = $block->bundle();
+    // Add block type to class.
+    $vars['attributes']['class'][] = Html::cleanCssIdentifier('block--' . $block_type);
+    switch ($block_type) {
+    case 'hero_slider':
+      _liberty_public_preprocess_block_hero_carousel($vars, $block);
+      break;
+    case 'carousel_internal':
+      _liberty_public_preprocess_block_carousel_internal($vars, $block);
+      break;
+    case 'cta_list_phone':
+      _liberty_public_preprocess_block_card($vars, $block);
+      break;
+    case 'card_list_foto':
+      _liberty_public_preprocess_block_card_foto($vars, $block);
+      break;
+    case 'card_list_basic':
+      _liberty_public_preprocess_block_card_basic($vars, $block);
+      break;
+    case 'card_icon_list':
+      _liberty_public_preprocess_block_card_icon_list($vars, $block);
+      break;
+    case 'card_link_list':
+      _liberty_public_preprocess_block_card_link_list($vars, $block);
+      break;
+    case 'accordion':
+      _liberty_public_preprocess_accordion($vars, $block);
+      break;
+    }
+    $vars['view_mode'] = $vars['elements']['content']['#view_mode'];
+  }
+}
+
+/**
+ * Preprocess function for accordion.
+ */
+function _liberty_public_preprocess_accordion(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_accordion_items')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'default');
+        $vars['accordion_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for hero carousel.
+ */
+function _liberty_public_preprocess_block_hero_carousel(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_hero')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'hero');
+        $vars['hero_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for card foto list.
+ */
+function _liberty_public_preprocess_block_card_foto(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_p_card_foto')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'card_foto');
+        $vars['card_foto_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for card basic list carousel.
+ */
+function _liberty_public_preprocess_block_card_basic(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_p_cta_items')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'card_basic');
+        $vars['card_foto_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for card icon list.
+ */
+function _liberty_public_preprocess_block_card_icon_list(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_p_card_foto')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'default');
+        $vars['icon_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for card link list.
+ */
+function _liberty_public_preprocess_block_card_link_list(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_p_card_foto')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'default');
+        $vars['link_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+ * Preprocess function for internal carousel.
+ */
+function _liberty_public_preprocess_block_carousel_internal(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_hero_internal')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity, 'hero_breaker');
+        $vars['hero_items'][] = $paragraph_build;
+      }
+    }
+  }
+}
+
+/**
+  * Preprocess function for hero carousel.
+  */
+function _liberty_public_preprocess_block_card(&$vars, $block) {
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $id_array = $block->get('field_p_cta_items')->getValue();
+  if (!empty($id_array)) {
+    foreach ($id_array as $key => $id) {
+      $entity = $id['entity'] ?? Paragraph::load($id['target_id']);
+      if (!empty($entity)) {
+        $paragraph_build = $view_builder->view($entity);
+        $title = $paragraph_build['#paragraph']->get('field_heading')->value;
+        $numero = $paragraph_build['#paragraph']->get('field_label')->value;
+        $urlicon = $fid = FALSE;
+
+        if ($paragraph_build['#paragraph']->get('field_media_icon')) {
+          $fid = $paragraph_build['#paragraph']->get('field_media_icon')->getvalue();
+        }
+
+        if (!empty($fid)) {
+          $media = Media::load($fid[0]['target_id']);
+          $fid = $media->getSource()->getSourceFieldValue($media);
+          $file = File::load($fid);
+          $urlicon = file_create_url($file->getFileUri());
+        }
+
+        $vars['card_items'][$key]['cta__heading'] = $title;
+        $vars['card_items'][$key]['cta__body'] = $numero;
+        $vars['card_items'][$key]['cta__image'] = $urlicon;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function liberty_public_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    if ($bundle = $variables['elements']['content']['#block_content']->bundle()) {
+      $suggestions[] = 'block__bundle__' . $bundle;
+    }
+    if ($view_mode = $variables['elements']['content']['#view_mode']) {
+      $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+    }
+  }
+  if (!empty($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+    $block_type = $block->bundle();
+    $base_suggestion = 'block__' . $block_type;
+    $suggestions[] = $base_suggestion;
+    if (!empty($variables['elements']['content']['#view_mode'])) {
+      $suggestions[] = $base_suggestion . '__' . $variables['elements']['content']['#view_mode'];
+    }
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function liberty_public_preprocess_node(&$variables) {
+  // Helper variables for multiple nodes.
+  if (!empty($variables['elements']['#entity_type'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
+  }
+
+  $node = $variables['node'];
+  $node_type = $variables['elements']['#node']->getType();
+
+  if ($node_type == 'capitulo_los_segura') {
+    $video_url = $node->get('field_video')->getValue()[0]['value'];
+    $media_path = _getYoutubeThumbnailUrl($video_url);
+    $video_embed_url = _getYoutubeEmbedUrl($video_url);
+    $variables['thumbnail_youtube'] = $media_path;
+    $variables['url_youtube'] = $video_url;
+    $variables['video_embed_src'] = $video_embed_url;
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Changes vertical tabs to container and adds meta information.
+ * Code borrowed from Seven theme.
+ */
+function liberty_public_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  $form['#theme'] = ['node_edit_form'];
+  $form['advanced']['#type'] = 'container';
+  $is_new = !$node->isNew() ? format_date($node->getChangedTime(), 'short') : t('Not saved yet');
+  $form['meta'] = [
+    '#attributes' => ['class' => ['entity-meta__header']],
+    '#type' => 'container',
+    '#group' => 'advanced',
+    '#weight' => -100,
+    'published' => [
+      '#type' => 'html_tag',
+      '#tag' => 'h3',
+      '#value' => $node->isPublished() ? t('Published') : t('Not published'),
+      '#access' => !$node->isNew(),
+      '#attributes' => [
+        'class' => 'entity-meta__title',
+      ],
+    ],
+    'changed' => [
+      '#type' => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'entity-meta__last-saved',
+          'container-inline',
+        ],
+      ],
+      '#markup' => '<h4 class="label inline">' . t('Last saved') . '</h4> ' . $is_new,
+    ],
+    'author' => [
+      '#type' => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'author',
+          'container-inline',
+        ],
+      ],
+      '#markup' => '<h4 class="label inline">' . t('Author') . '</h4> ' . $node->getOwner()
+        ->getUsername(),
+    ],
+  ];
+  $form['revision_information']['#type'] = 'container';
+  $form['revision_information']['#group'] = 'meta';
+}
+
+/**
+ * This preprocess is used to add the class type of product to each element of the view
+ * @param $variables
+ */
+function liberty_public_preprocess_views_view_unformatted(&$variables) {
+  $rows = $variables['rows'];
+  foreach ($rows as $id => $row) {
+    if (isset($row['content']['#taxonomy_term'])) {
+      foreach ($row['content']['#taxonomy_term']->get('field_product_type')->getValue() as $product_type) {
+        $variables['rows'][$id]['attributes']->addClass('product-type-' . $product_type['target_id']);
+      }
+    }
+  }
+}
+
+/**
+ * This preprocess is used to add the class type of product to each element of the view
+ * @param $variables
+ */
+function liberty_public_suggestions_field_alter(&$suggestions, $variables) {
+  $suggestions[] = 'field__' .
+    $variables['element']['#field_name'] . '__' .
+    $variables['element']['#view_mode'];
+}
+
+/**
+ * Implements hook_page_attachments_alter
+ */
+function liberty_public_page_attachments_alter(&$page) {
+  $hoy = date("D, d M Y");
+  header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
+  header('Cache-Control:must-revalidate,private,no-cache,no-store,must-revalidate,pre-check=0,post-check=0');
+
+  $viewport = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2',
+    ),
+  );
+
+  $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views.
+ */
+function liberty_public_preprocess_views_view(&$variables)
+{
+  $variables['#attached']['library'][] = 'liberty_public/views';
+
+  switch ($variables['view']->storage->id()) {
+    case 'products_viis':
+      $variables['#attached']['library'][] = 'liberty_public/carousel';
+      break;
+  }
+}
+
+function _getYoutubeEmbedUrlLiberty($url) {
+  $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+  $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+  if (preg_match($longUrlRegex, $url, $matches)) {
+    $youtube_id = $matches[count($matches) - 1];
+  }
+
+  if (preg_match($shortUrlRegex, $url, $matches)) {
+    $youtube_id = $matches[count($matches) - 1];
+  }
+
+  return 'https://www.youtube.com/embed/' . $youtube_id;
+}
+
+function _getYoutubeThumbnailUrlLiberty($url) {
+  $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+  $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+  if (preg_match($longUrlRegex, $url, $matches)) {
+    $youtube_id = $matches[count($matches) - 1];
+  }
+
+  if (preg_match($shortUrlRegex, $url, $matches)) {
+    $youtube_id = $matches[count($matches) - 1];
+  }
+
+  return 'https://img.youtube.com/vi/' . $youtube_id . '/mqdefault.jpg';
+}

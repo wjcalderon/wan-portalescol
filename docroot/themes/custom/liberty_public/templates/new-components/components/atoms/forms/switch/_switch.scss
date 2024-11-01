@@ -1,0 +1,38 @@
+.form-item--switch__item{
+  background: none;
+  border: none;
+  padding: 0;
+
+  &__switch {
+    appearance: none;
+    background-color: clr(gray-component);
+    width: $space-48;
+    height: $space-24;
+    border: 1px solid clr(gray-component);
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      left: 0.125rem;
+      background-color: clr(text-white);
+      transition: .5s ;
+    }
+    &:checked {
+      background-color: clr(secondary-aqua-ultra-light);
+      border: 1px solid clr(teal);
+      transition: border 500ms , background-color 500ms ;
+      &::before {
+        left: 0;
+        transform: translateX($space-24);
+        background-color: clr(teal);
+        transition: transform 500ms, background-color 500ms ;
+      }
+    }
+  }
+}

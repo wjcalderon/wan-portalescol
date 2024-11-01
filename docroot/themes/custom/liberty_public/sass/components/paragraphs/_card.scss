@@ -1,0 +1,29 @@
+.component__card {
+  display: block;
+  margin-bottom: 0;
+  text-align: center;
+  min-height: 14rem;
+  @include breakpoint($small) {
+    min-height: auto;
+    height: auto;
+  }
+  @media screen and (min-width: $small-max) {
+    flex: 1;
+    text-align: left;
+    background-color: unset;
+  }
+  .card__img--medal {
+    position: absolute;
+    top: 1.3125rem;
+    left: 5%;
+    display: none;
+    svg {
+      max-width: 2.5rem;
+    }
+  }
+  .card__img--oval {
+    svg {
+      max-width: 2.5rem;
+    }
+  }
+}

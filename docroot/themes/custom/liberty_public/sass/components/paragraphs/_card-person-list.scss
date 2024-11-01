@@ -1,0 +1,14 @@
+.component__card-person-list {
+  padding: 3rem 0;
+  background-color: rgba(240, 251, 252, 0.6);
+
+  .field__items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+}

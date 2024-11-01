@@ -1,0 +1,40 @@
+name: Liberty Public
+type: theme
+description: "Liberty public theme"
+core_version_requirement: ^8 || ^9 || ^10
+base theme: cog
+libraries:
+  - liberty_public/fonts
+  - liberty_public/fontawesome
+  - liberty_public/global_styles
+  - liberty_public/global_javascript
+  - liberty_public/slick_javascript
+  - liberty_public/jquery_validate
+  - liberty_public/slick_global_css
+  - liberty_public/slick_theme_css
+  - liberty_public/datetimepicker
+  - liberty_public/eyebrow
+regions:
+  eyebrow: Eyebrow
+  branding: Branding
+  header: Header
+  menu_desktop: "Menu desktop"
+  menu_desktop_second: "Menu desktop second"
+  menu_mobile: "Menu mobile"
+  content: Content
+  sidebar_first: "Sidebar first"
+  sidebar_second: "Sidebar second"
+  post_content: "Post content"
+  footer: "Footer"
+  footer_left: "Footer left"
+  footer_tool: "Footer tool"
+  footer_contact: "Footer contact"
+  footer_terminos: "Footer terminos"
+  blocks_activate: "Blocks Activate"
+  blocks_popups: "Blocks Popups"
+
+stylesheets-remove:
+  - core/assets/vendor/jquery.ui/themes/base/tabs.css
+  - core/assets/vendor/jquery.ui/themes/base/theme.css
+  - modules/contrib/webform/css/webform.form.css
+  - modules/contrib/webform/css/webform.element.details.toggle.css

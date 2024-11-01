@@ -1,0 +1,71 @@
+.component__webform {
+  .cog--mq {
+    max-width: 100%;
+  }
+}
+
+.webform-submission-solicitud-form {
+  #edit-label-seguro-autos {
+    font-size: 0.75rem;
+    line-height: 1.2rem;
+    color: $gris-cu;
+    margin-bottom: 0.65rem;
+  }
+}
+
+// .component__card:last-child a {
+//   // border-right: 1px solid #e6e6e6;
+// }
+
+.g-recaptcha {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.captcha {
+  padding: 0px 0px 25px 0px;
+}
+
+.captcha .form-item input {
+  width: 15rem;
+  @include breakpoint($small) {
+    width: 100%;
+  }
+}
+
+.captcha .form-item label {
+  left: 8.2rem;
+}
+
+.captcha img {
+  width: 14rem;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.captcha .description {
+  display: none !important;
+}
+
+@media only screen and (max-width: 980px) {
+  .captcha {
+    display: block;
+    padding: 0px 0px 0px 0px;
+  }
+  .captcha .form-item label {
+    left: 1rem;
+  }
+}
+
+input.webform-counter-warning,
+input.form-text.webform-counter-warning,
+textarea.webform-counter-warning,
+textarea.form-textarea.webform-counter-warning {
+  border-color: $petroleo-tr;
+  background: $blanco-pl;
+}
+.text-count-wrapper.webform-counter-warning {
+  color: $petroleo-tr;
+}

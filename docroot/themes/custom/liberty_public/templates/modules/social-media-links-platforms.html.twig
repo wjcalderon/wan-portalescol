@@ -1,0 +1,24 @@
+{#
+/**
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = [
+  'social-media-links--platforms',
+  'platforms',
+  appearance.orientation == 'h' ? 'inline horizontal' : 'vertical'
+] %}
+
+<ul {{ attributes.addClass(classes) }}>
+  {% for platform in platforms %}
+    <li>
+      <a href="{{ platform.url }}"
+        class="{{ platform.name|lower }}"
+        title="{{ platform.name }}"
+        {{ platform.attributes }}>
+
+      </a>
+    </li>
+  {% endfor %}
+</ul>

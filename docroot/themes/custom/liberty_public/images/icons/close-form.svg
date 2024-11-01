@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="16.142 2 10.2493333 7.89266667 4.35666667 2 2 4.35666667 7.89266667 10.2493333 2 16.142 4.35666667 18.4986667 10.2493333 12.606 16.142 18.4986667 18.4986667 16.142 12.606 10.2493333 18.4986667 4.35666667"></polygon>
+    </defs>
+    <g id="MOB-Pago" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Asistencias-4-slide-Copy" transform="translate(-287.000000, -17.000000)">
+            <g id="Elements-/-Icon-/-Glyph-/-Close" transform="translate(285.000000, 15.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                    <rect id="Rectangle" x="0" y="0" width="20" height="20"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path d="m7.5,27.5l15,0l0,-25l-15,0l0,25zm15.25,2.5l-15.5,0c-1.24,0 -2.25,-1.01 -2.25,-2.25l0,-25.5c0,-1.241 1.01,-2.25 2.25,-2.25l15.5,0c1.24,0 2.25,1.009 2.25,2.25l0,25.5c0,1.24 -1.01,2.25 -2.25,2.25zm-7.75,-8a2,2 0 1 0 0,4.001a2,2 0 1 0 0,-4.001zm-3.102,-17a0.899,0.899 0 0 0 0,1.797l5.704,0a0.898,0.898 0 1 0 0,-1.797l-5.704,0z" id="a"/>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="none" fill-rule="evenodd" id="svg_1">
+   <mask fill="#28a3af" id="b">
+    <use fill="#28a3af" id="svg_2" xlink:href="#a"/>
+   </mask>
+   <use fill="#28a3af" id="svg_3" xlink:href="#a"/>
+   <g fill="#C0BFC0" id="svg_4" mask="url(#b)">
+    <path d="m0,0l30,0l0,30l-30,0l0,-30z" fill="#28a3af" id="svg_5"/>
+   </g>
+  </g>
+ </g>
+</svg>

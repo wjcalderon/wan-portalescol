@@ -1,0 +1,16 @@
+<div class="input-wrapper-flex">
+  <div class="form-item">
+    <div class="form-item--checkbox__item">
+      <input
+      {% for attribute, value in attributes %}
+          {% if attribute == 'class' %}
+            {% set value = 'form-item--checkbox__item__checkbox' %}
+            {{ attribute }}="{{ value }}"
+          {% else %}
+            {{ attribute }}="{{ value }}"
+          {% endif %}
+        {% endfor %}
+        />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+
+<!-- ______________________ HEADER _______________________ -->
+
+{% include '@liberty_public/layout/header.html.twig' %}
+
+  <!-- /header -->
+
+  <!-- ______________________ Pre content _______________________ -->
+
+  <!-- ______________________ MAIN _______________________ -->
+
+  <main id="content">
+      {{ page.content }}
+
+       {% if page.blocks_popups %}
+          <div class="clearfix post-content" id="blocks-necesecitas-ayuda">
+            <div class="mq-blocks-necesitas-ayuda">
+              {{ page.blocks_popups }}
+            </div>
+          </div>
+        {% endif %}
+
+  </main>
+  <!-- /main -->
+
+  <!-- ______________________ Post content _______________________ -->
+
+  {% if page.post_content %}
+    <div class="clearfix post-content" id="post-content">
+      <div class="cog--mq mq-postcontent">
+        {{ page.post_content }}
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- ______________________ FOOTER _______________________ -->
+
+{% include '@liberty_public/layout/footer.html.twig' %}
+
+
+<!-- /page -->
