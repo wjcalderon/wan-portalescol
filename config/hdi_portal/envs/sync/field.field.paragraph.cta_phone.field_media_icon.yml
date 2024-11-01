@@ -1,0 +1,31 @@
+uuid: b6c231c9-4d2f-4817-b8ed-06ad4999a5b9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_icon
+    - media.type.vector_image
+    - paragraphs.paragraphs_type.cta_phone
+_core:
+  default_config_hash: M2JvXbE5sHtwuowcp1F7J7OtUNsPrDGUsUdEBNTIroI
+id: paragraph.cta_phone.field_media_icon
+field_name: field_media_icon
+entity_type: paragraph
+bundle: cta_phone
+label: Icono
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vector_image: vector_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: f4d96ec0-f6ef-4ea4-8714-15a69536958e
+langcode: es
+status: true
+dependencies: {  }
+id: lib_card_list
+label: 'Card List'
+icon_uuid: null
+icon_default: null
+description: 'Card list.'
+behavior_plugins: {  }

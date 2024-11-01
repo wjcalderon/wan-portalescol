@@ -1,0 +1,11 @@
+uuid: 95db4d5a-5183-4dfd-b248-804827288a7f
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cargos
+id: taxonomy_term.cargos
+target_entity_type_id: taxonomy_term
+target_bundle: cargos
+default_langcode: site_default
+language_alterable: false

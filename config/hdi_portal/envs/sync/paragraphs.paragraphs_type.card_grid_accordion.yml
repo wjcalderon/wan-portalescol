@@ -1,0 +1,10 @@
+uuid: 0736d039-2785-48db-8270-59e1c54e50bf
+langcode: es
+status: true
+dependencies: {  }
+id: card_grid_accordion
+label: 'Card Grid Accordion'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

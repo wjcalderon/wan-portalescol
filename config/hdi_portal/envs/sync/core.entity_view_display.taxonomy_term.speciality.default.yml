@@ -1,0 +1,32 @@
+uuid: 53b60c18-89ff-4daa-a7b2-84b57b962549
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.speciality.field_reps_code
+    - taxonomy.vocabulary.speciality
+  module:
+    - text
+id: taxonomy_term.speciality.default
+targetEntityType: taxonomy_term
+bundle: speciality
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_reps_code:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

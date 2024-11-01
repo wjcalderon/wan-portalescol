@@ -1,0 +1,19 @@
+uuid: 11623b62-ac28-46b2-bdd8-a7bfe5c6da7a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_summary
+    - paragraphs.paragraphs_type.plan_list
+id: paragraph.plan_list.field_lib_summary
+field_name: field_lib_summary
+entity_type: paragraph
+bundle: plan_list
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

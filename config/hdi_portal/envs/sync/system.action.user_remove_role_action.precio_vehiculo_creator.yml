@@ -1,0 +1,14 @@
+uuid: 689c51a4-935c-4ba3-a46a-ad777fcaf254
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.precio_vehiculo_creator
+  module:
+    - user
+id: user_remove_role_action.precio_vehiculo_creator
+label: 'Elimina el rol Precio vehículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: precio_vehiculo_creator

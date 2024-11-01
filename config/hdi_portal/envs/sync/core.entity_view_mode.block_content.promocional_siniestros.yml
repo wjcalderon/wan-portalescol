@@ -1,0 +1,15 @@
+uuid: 949a3035-5aa5-434b-b0e4-febfec94960d
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: ''
+id: block_content.promocional_siniestros
+label: 'promocional siniestros'
+description: ''
+targetEntityType: block_content
+cache: true

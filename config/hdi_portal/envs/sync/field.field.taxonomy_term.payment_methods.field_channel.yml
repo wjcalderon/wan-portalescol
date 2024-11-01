@@ -1,0 +1,29 @@
+uuid: b890b918-1943-4bd9-a8a1-491df574b888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_channel
+    - taxonomy.vocabulary.payment_channel
+    - taxonomy.vocabulary.payment_methods
+id: taxonomy_term.payment_methods.field_channel
+field_name: field_channel
+entity_type: taxonomy_term
+bundle: payment_methods
+label: Channel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      payment_channel: payment_channel
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

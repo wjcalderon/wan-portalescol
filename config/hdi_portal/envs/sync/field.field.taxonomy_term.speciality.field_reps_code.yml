@@ -1,0 +1,23 @@
+uuid: 820cb6d6-64af-4950-a1ac-b7fc476343da
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reps_code
+    - taxonomy.vocabulary.speciality
+id: taxonomy_term.speciality.field_reps_code
+field_name: field_reps_code
+entity_type: taxonomy_term
+bundle: speciality
+label: 'Código REPS'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

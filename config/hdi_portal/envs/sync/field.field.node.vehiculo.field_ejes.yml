@@ -1,0 +1,21 @@
+uuid: cd0e76bd-a83d-4298-8955-097457573fa9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ejes
+    - node.type.vehiculo
+  module:
+    - options
+id: node.vehiculo.field_ejes
+field_name: field_ejes
+entity_type: node
+bundle: vehiculo
+label: Ejes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

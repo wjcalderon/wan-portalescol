@@ -1,0 +1,23 @@
+uuid: ec006371-79da-4b31-9a03-eb97775c4d44
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_link
+    - paragraphs.paragraphs_type.lib_card_list
+  module:
+    - link
+id: paragraph.lib_card_list.field_lib_link
+field_name: field_lib_link
+entity_type: paragraph
+bundle: lib_card_list
+label: Enlace
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

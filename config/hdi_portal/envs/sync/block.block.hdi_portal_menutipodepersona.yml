@@ -1,0 +1,29 @@
+uuid: 92a7994e-8ae9-4f6d-94da-dcfbd73192b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-tipo-persona
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menutipodepersona
+theme: hdi_portal
+region: branding
+weight: -46
+provider: null
+plugin: 'system_menu_block:menu-tipo-persona'
+settings:
+  id: 'system_menu_block:menu-tipo-persona'
+  label: 'menu tipo de persona'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

@@ -1,0 +1,8 @@
+uuid: 0e78988e-9493-4bfc-98ff-5549f0ac1105
+langcode: es
+status: true
+dependencies: {  }
+id: menu-principal-personas
+label: 'Productos Personas'
+description: 'Menú principal de productos de personas'
+locked: false

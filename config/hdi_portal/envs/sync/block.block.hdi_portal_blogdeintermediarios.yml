@@ -1,0 +1,25 @@
+uuid: a3fd68c4-9aa7-488c-9e69-8f3a2787fb7b
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - hdi_portal
+id: hdi_portal_blogdeintermediarios
+theme: hdi_portal
+region: menu_desktop_second
+weight: -45
+provider: null
+plugin: 'tb_megamenu_menu_block:blog-de-intermediarios'
+settings:
+  id: 'tb_megamenu_menu_block:blog-de-intermediarios'
+  label: 'Blog de Intermediarios'
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/blog\r\n/blog/*"

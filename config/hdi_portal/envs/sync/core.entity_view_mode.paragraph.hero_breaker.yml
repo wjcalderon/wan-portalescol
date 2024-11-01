@@ -1,0 +1,15 @@
+uuid: f7e3282e-5f90-4ca3-9be7-e03d66ad422d
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.hero_breaker
+label: 'Hero Breaker'
+description: ''
+targetEntityType: paragraph
+cache: true

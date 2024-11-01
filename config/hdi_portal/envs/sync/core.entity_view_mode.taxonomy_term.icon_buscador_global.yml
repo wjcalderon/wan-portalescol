@@ -1,0 +1,15 @@
+uuid: f8be4752-86d5-48f5-86e2-bf0e5f51aaab
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.icon_buscador_global
+label: 'Icon buscador global'
+description: ''
+targetEntityType: taxonomy_term
+cache: true

@@ -1,0 +1,25 @@
+uuid: 65c415fa-d24c-432e-b82e-5a1c5fa03d28
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bcd7bf7d-c731-4513-974a-44461780cb22'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_pagarformasdepago
+theme: hdi_portal
+region: blocks_activate
+weight: -23
+provider: null
+plugin: 'block_content:bcd7bf7d-c731-4513-974a-44461780cb22'
+settings:
+  id: 'block_content:bcd7bf7d-c731-4513-974a-44461780cb22'
+  label: 'Pagar - Formas de pago'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,19 @@
+uuid: 0b58f7c7-d13a-4242-b397-94f13e022575
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_marcas
+    - node.type.taller
+id: node.taller.field_marcas
+field_name: field_marcas
+entity_type: node
+bundle: taller
+label: Marcas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

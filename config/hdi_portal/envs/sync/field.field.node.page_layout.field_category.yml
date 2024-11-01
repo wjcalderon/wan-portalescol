@@ -1,0 +1,29 @@
+uuid: b62506fe-1a6a-41d1-b7ae-ae2bc8a9c729
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.page_layout
+    - taxonomy.vocabulary.categories
+id: node.page_layout.field_category
+field_name: field_category
+entity_type: node
+bundle: page_layout
+label: Categoría
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categories: categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

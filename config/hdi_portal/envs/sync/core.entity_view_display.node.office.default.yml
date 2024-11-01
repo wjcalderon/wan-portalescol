@@ -1,0 +1,73 @@
+uuid: fd7017ae-b5ff-4658-a131-a62ed085c78b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.office.field_location_map
+    - field.field.node.office.field_network_address
+    - field.field.node.office.field_open_schedule
+    - field.field.node.office.field_phone
+    - field.field.node.office.field_ubication
+    - node.type.office
+  module:
+    - geolocation
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.office.default
+targetEntityType: node
+bundle: office
+mode: default
+content:
+  field_location_map:
+    type: geolocation_latlng
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_network_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_open_schedule:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_ubication:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

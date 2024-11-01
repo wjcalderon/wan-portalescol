@@ -1,0 +1,41 @@
+uuid: 48926f0b-1510-4a21-b5cb-2d37b6dc7ecf
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: Q6ixlt0JmUCywTOFWsqGIrgJch2lV1oKZq5BuRF38Hw
+id: block_content.field_title_size
+field_name: field_title_size
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: h1
+    -
+      value: '2'
+      label: h2
+    -
+      value: '3'
+      label: h3
+    -
+      value: '4'
+      label: h4
+    -
+      value: '5'
+      label: h5
+    -
+      value: '6'
+      label: h6
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,9 @@
+uuid: 68e3965b-6a3c-4c0f-9bd8-f038a27272e2
+langcode: es
+status: true
+dependencies: {  }
+name: Ubicación
+vid: ubication
+description: 'Categorización de ubicación:  País > Departamento > Ciudad'
+weight: 0
+new_revision: false

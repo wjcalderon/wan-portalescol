@@ -1,0 +1,70 @@
+uuid: 2f9de68e-b3e7-4114-b508-8503be72d1fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_image
+    - field.field.block_content.block_image.field_b_image
+  module:
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - svg_image
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          8b24965c-d01a-4cea-8553-58f6dd874b26:
+            uuid: 8b24965c-d01a-4cea-8553-58f6dd874b26
+            region: content
+            configuration:
+              id: 'field_block:block_content:block_image:field_b_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: image
+                label: above
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  svg_attributes:
+                    width: null
+                    height: null
+                  svg_render_as_image: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+  layout_library:
+    enable: false
+id: block_content.block_image.default
+targetEntityType: block_content
+bundle: block_image
+mode: default
+content:
+  field_b_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,25 @@
+uuid: cf5c4391-1c39-4f67-a6d0-b09ca6d286df
+langcode: es
+status: true
+dependencies:
+  config:
+    - rest.resource.webform_rest_submit
+    - search_api_autocomplete.search.buscador_global
+  module:
+    - contact
+    - media
+    - rest
+    - search_api_autocomplete
+    - system
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Usuario anónimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'restful post webform_rest_submit'
+  - 'use search_api_autocomplete for buscador_global'
+  - 'view media'

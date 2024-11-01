@@ -1,0 +1,14 @@
+uuid: 0ab91cf2-f336-4df6-b8f2-0ccabc53ed0f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.document_creator
+  module:
+    - user
+id: user_add_role_action.document_creator
+label: 'Añade el rol Documento creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: document_creator

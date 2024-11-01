@@ -1,0 +1,25 @@
+uuid: 7adc85ba-0731-4208-8ed3-ee109e3d4da7
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:block_cta:039826c8-c1aa-40c2-85ce-b0581ef13464'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_tepasoalgo
+theme: hdi_portal
+region: footer_tool
+weight: 0
+provider: null
+plugin: 'block_content:039826c8-c1aa-40c2-85ce-b0581ef13464'
+settings:
+  id: 'block_content:039826c8-c1aa-40c2-85ce-b0581ef13464'
+  label: '¿Te pasó algo?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

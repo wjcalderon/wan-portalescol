@@ -1,0 +1,9 @@
+uuid: 18d1ba59-d6a5-4ba6-bb39-2627d4f876db
+langcode: es
+status: true
+dependencies: {  }
+name: Poliza
+vid: policy
+description: null
+weight: 0
+new_revision: false

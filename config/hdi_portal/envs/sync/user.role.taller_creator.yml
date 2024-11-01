@@ -1,0 +1,48 @@
+uuid: de763904-c317-47ce-bb03-fda0098d21e2
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - filter.format.rich_text
+    - node.type.taller
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - file
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: taller_creator
+label: 'Taller creator'
+weight: 47
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node taller content'
+  - 'administer panelizer node taller layout'
+  - 'create taller content'
+  - 'create url aliases'
+  - 'delete own files'
+  - 'edit own taller content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view taller revisions'

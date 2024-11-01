@@ -1,0 +1,21 @@
+uuid: 02fa87ab-0f2f-4289-8fda-a807954a1245
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_pqrthankyoumessage
+theme: hdi_portal
+region: blocks_activate
+weight: -19
+provider: null
+plugin: pqr_thankyou
+settings:
+  id: pqr_thankyou
+  label: 'Pqr thank you message'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

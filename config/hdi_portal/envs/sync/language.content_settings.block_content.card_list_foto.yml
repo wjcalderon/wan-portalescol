@@ -1,0 +1,13 @@
+uuid: 01674b06-be91-46e1-aea8-d7768214092c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_list_foto
+_core:
+  default_config_hash: 7ujA95cocBVfVOGcPUi8lhCibAiJZB0l7XS0kkli3Kc
+id: block_content.card_list_foto
+target_entity_type_id: block_content
+target_bundle: card_list_foto
+default_langcode: site_default
+language_alterable: false

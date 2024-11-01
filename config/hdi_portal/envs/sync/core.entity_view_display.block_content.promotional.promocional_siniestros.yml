@@ -1,0 +1,110 @@
+uuid: 1469d80e-7e5d-44c2-8f3b-2a7b635893e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotional
+    - core.entity_view_mode.block_content.promocional_siniestros
+    - field.field.block_content.promotional.field_b_image
+    - field.field.block_content.promotional.field_block_pro_cta
+    - field.field.block_content.promotional.field_block_pro_teaser
+  module:
+    - ds
+    - field_group
+    - link
+    - svg_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - field_b_image
+        - group_content
+        - field_block_pro_cta
+        - block_description
+        - field_block_pro_teaser
+    fields:
+      block_description:
+        plugin_id: block_description
+        weight: 4
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h3
+          class: ''
+  field_group:
+    group_content:
+      children:
+        - block_description
+        - field_block_pro_teaser
+      label: content
+      parent_name: ''
+      region: ds_content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: content
+        classes: field--type-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        open: 0
+id: block_content.promotional.promocional_siniestros
+targetEntityType: block_content
+bundle: promotional
+mode: promocional_siniestros
+content:
+  field_b_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_block_pro_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  field_block_pro_teaser:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: ds_content
+hidden:
+  langcode: true
+  search_api_excerpt: true

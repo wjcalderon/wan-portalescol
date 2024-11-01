@@ -1,0 +1,15 @@
+uuid: 300f6f4b-085e-47d1-8cb6-a844da8cf8db
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.lib_icon_basic
+label: 'Icon basic'
+description: ''
+targetEntityType: paragraph
+cache: true

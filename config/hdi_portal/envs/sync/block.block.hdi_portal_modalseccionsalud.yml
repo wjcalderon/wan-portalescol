@@ -1,0 +1,35 @@
+uuid: d4c935b1-ec01-4747-beaa-d59745105cd3
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8f10d2e5-6d5a-4182-b9d7-5ad53e01eee0'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: 'is-hidden modal-link-fallback-popup modal-close'
+id: hdi_portal_modalseccionsalud
+theme: hdi_portal
+region: blocks_popups
+weight: -31
+provider: null
+plugin: 'block_content:8f10d2e5-6d5a-4182-b9d7-5ad53e01eee0'
+settings:
+  id: 'block_content:8f10d2e5-6d5a-4182-b9d7-5ad53e01eee0'
+  label: 'Modal seccion Salud'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "\r\n"

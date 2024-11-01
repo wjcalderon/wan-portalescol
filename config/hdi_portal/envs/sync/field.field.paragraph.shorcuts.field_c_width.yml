@@ -1,0 +1,23 @@
+uuid: 3f945366-0e9d-4bd9-974b-05e429ff47ed
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.shorcuts
+  module:
+    - options
+_core:
+  default_config_hash: BS8QL_uBf33SJy8rN-KxYZJfVC3Zzq9W28UKOX-DIrs
+id: paragraph.shorcuts.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: shorcuts
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

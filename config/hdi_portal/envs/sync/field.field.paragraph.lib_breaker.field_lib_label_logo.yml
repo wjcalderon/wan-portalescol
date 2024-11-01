@@ -1,0 +1,23 @@
+uuid: 0e36567a-672e-4e64-8b8e-a4d76e340c63
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lib_label_logo
+    - paragraphs.paragraphs_type.lib_breaker
+id: paragraph.lib_breaker.field_lib_label_logo
+field_name: field_lib_label_logo
+entity_type: paragraph
+bundle: lib_breaker
+label: 'Label Logo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

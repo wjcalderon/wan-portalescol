@@ -1,0 +1,15 @@
+uuid: 48f5cf96-5747-4ceb-938d-b3b8f6ffb7bc
+langcode: es
+status: true
+dependencies: {  }
+name: lib_16_9_sm
+label: '16:9 Small (640 x 360)'
+effects:
+  9dee9105-39f0-4aa0-bf32-8db7df3334c6:
+    uuid: 9dee9105-39f0-4aa0-bf32-8db7df3334c6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 360
+      anchor: center-center

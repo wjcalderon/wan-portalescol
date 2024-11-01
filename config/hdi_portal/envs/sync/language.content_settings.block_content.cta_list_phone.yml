@@ -1,0 +1,13 @@
+uuid: bb298e8b-34e6-4b9b-8d65-6f6ee0bb7bcb
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_list_phone
+_core:
+  default_config_hash: uJuBfS5QGlPRWL70HlAKYudCg9pQnrpx5WsTjsI52nY
+id: block_content.cta_list_phone
+target_entity_type_id: block_content
+target_bundle: cta_list_phone
+default_langcode: site_default
+language_alterable: false

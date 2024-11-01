@@ -1,0 +1,27 @@
+uuid: 0bbc7832-a8e4-49fc-b03c-a45b2fdfff9d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_files
+    - paragraphs.paragraphs_type.documents
+  module:
+    - file
+id: paragraph.documents.field_files
+field_name: field_files
+entity_type: paragraph
+bundle: documents
+label: Documentos
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: '5 MB'
+  description_field: true
+field_type: file

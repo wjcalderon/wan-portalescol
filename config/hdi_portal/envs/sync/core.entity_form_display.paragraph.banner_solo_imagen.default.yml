@@ -1,0 +1,75 @@
+uuid: 1cd5488f-630a-48a7-9974-206cb6bdd9d0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_solo_imagen.field_c_classes
+    - field.field.paragraph.banner_solo_imagen.field_c_image
+    - field.field.paragraph.banner_solo_imagen.field_c_width
+    - field.field.paragraph.banner_solo_imagen.field_cta
+    - field.field.paragraph.banner_solo_imagen.field_imagen_mobile
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.banner_solo_imagen
+  module:
+    - field_layout
+    - layout_discovery
+    - link_attributes
+    - svg_image
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.banner_solo_imagen.default
+targetEntityType: paragraph
+bundle: banner_solo_imagen
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cta:
+    type: link_attributes
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+  field_imagen_mobile:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

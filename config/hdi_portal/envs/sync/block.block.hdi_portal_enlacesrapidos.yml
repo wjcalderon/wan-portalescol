@@ -1,0 +1,25 @@
+uuid: 743ad73d-bcb7-4ce0-a570-32ca0136c2f9
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.enlaces-rapidos
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_enlacesrapidos
+theme: hdi_portal
+region: blocks_activate
+weight: -42
+provider: null
+plugin: 'system_menu_block:enlaces-rapidos'
+settings:
+  id: 'system_menu_block:enlaces-rapidos'
+  label: 'Enlaces rápidos'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

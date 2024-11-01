@@ -1,0 +1,13 @@
+uuid: 45e57a84-ffeb-43e6-bb4b-f247472cc632
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.section_title
+_core:
+  default_config_hash: BI3_LPX_JPQQK3Q2Kpi1ppTJySD2PIASaBNflumMugk
+id: block_content.section_title
+target_entity_type_id: block_content
+target_bundle: section_title
+default_langcode: site_default
+language_alterable: false

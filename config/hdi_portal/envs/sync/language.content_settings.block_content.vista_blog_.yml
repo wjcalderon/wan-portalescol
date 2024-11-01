@@ -1,0 +1,11 @@
+uuid: d8a6f7af-d351-4641-9693-d99e0ac9560c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.vista_blog_
+id: block_content.vista_blog_
+target_entity_type_id: block_content
+target_bundle: vista_blog_
+default_langcode: site_default
+language_alterable: false

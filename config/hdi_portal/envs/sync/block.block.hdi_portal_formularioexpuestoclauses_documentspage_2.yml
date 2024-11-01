@@ -1,0 +1,23 @@
+uuid: 074cb2e4-e21f-4dbb-8302-c41dc15a7531
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.clauses_documents
+  module:
+    - views
+  theme:
+    - hdi_portal
+id: hdi_portal_formularioexpuestoclauses_documentspage_2
+theme: hdi_portal
+region: blocks_activate
+weight: -26
+provider: null
+plugin: 'views_exposed_filter_block:clauses_documents-page_2'
+settings:
+  id: 'views_exposed_filter_block:clauses_documents-page_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

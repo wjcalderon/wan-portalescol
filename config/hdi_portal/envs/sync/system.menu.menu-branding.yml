@@ -1,0 +1,8 @@
+uuid: e946c285-c6bb-46b5-a7ca-b3543128afa5
+langcode: es
+status: true
+dependencies: {  }
+id: menu-branding
+label: 'Lateral Superior'
+description: 'Menu Lateral derecho ubicado en el encabezado'
+locked: false

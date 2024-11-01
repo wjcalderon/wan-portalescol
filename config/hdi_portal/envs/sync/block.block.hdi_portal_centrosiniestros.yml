@@ -1,0 +1,25 @@
+uuid: 07a96735-1548-4ebb-8d7c-5e86bc917973
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:61cd0dfd-3803-4268-8a3c-91fb0fa5aa9a'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_centrosiniestros
+theme: hdi_portal
+region: blocks_activate
+weight: -5
+provider: null
+plugin: 'block_content:61cd0dfd-3803-4268-8a3c-91fb0fa5aa9a'
+settings:
+  id: 'block_content:61cd0dfd-3803-4268-8a3c-91fb0fa5aa9a'
+  label: 'centro siniestros'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

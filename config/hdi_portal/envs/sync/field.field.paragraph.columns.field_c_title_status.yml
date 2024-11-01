@@ -1,0 +1,23 @@
+uuid: 64438f22-b4d4-41a7-b316-bab0b21f338b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title_status
+    - paragraphs.paragraphs_type.columns
+id: paragraph.columns.field_c_title_status
+field_name: field_c_title_status
+entity_type: paragraph
+bundle: columns
+label: "Don't show title on page"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

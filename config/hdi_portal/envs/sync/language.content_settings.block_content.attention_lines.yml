@@ -1,0 +1,11 @@
+uuid: 27db7f02-f1f9-4d0c-a587-d57f29c10a7d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+id: block_content.attention_lines
+target_entity_type_id: block_content
+target_bundle: attention_lines
+default_langcode: site_default
+language_alterable: false

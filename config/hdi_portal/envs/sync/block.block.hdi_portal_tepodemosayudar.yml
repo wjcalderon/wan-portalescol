@@ -1,0 +1,25 @@
+uuid: 6ffa0644-4b2b-431a-8ed8-4eedea35afcb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_tepodemosayudar
+theme: hdi_portal
+region: blocks_activate
+weight: -29
+provider: null
+plugin: 'block_content:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+settings:
+  id: 'block_content:0a37b866-6017-4f85-a79f-3c8fbf691cbc'
+  label: '¿Te podemos ayudar?'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

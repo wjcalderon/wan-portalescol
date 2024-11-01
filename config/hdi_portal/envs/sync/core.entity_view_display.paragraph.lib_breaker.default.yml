@@ -1,0 +1,76 @@
+uuid: cc3d1718-ffa2-40bd-a686-925303c886b4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_breaker.field_lib_body
+    - field.field.paragraph.lib_breaker.field_lib_heading
+    - field.field.paragraph.lib_breaker.field_lib_image_side
+    - field.field.paragraph.lib_breaker.field_lib_label_logo
+    - field.field.paragraph.lib_breaker.field_lib_link
+    - field.field.paragraph.lib_breaker.field_lib_media_image
+    - paragraphs.paragraphs_type.lib_breaker
+  module:
+    - link
+    - options
+    - text
+id: paragraph.lib_breaker.default
+targetEntityType: paragraph
+bundle: lib_breaker
+mode: default
+content:
+  field_lib_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lib_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lib_image_side:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_lib_label_logo:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_lib_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lib_media_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: lib_16_9
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,20 @@
+uuid: 4a123157-717e-4e0d-846e-9b8a4881524f
+langcode: es
+status: true
+dependencies:
+  module:
+    - liberty_claims
+  theme:
+    - hdi_portal
+id: hdi_portal_claimblock
+theme: hdi_portal
+region: blocks_activate
+weight: -17
+provider: null
+plugin: claim_block
+settings:
+  id: claim_block
+  label: 'Claim block'
+  label_display: '0'
+  provider: liberty_claims
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 1b7a0442-6e35-4d5b-8e01-c084dd5b59f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-branding
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menubranding
+theme: hdi_portal
+region: branding
+weight: -45
+provider: null
+plugin: 'system_menu_block:menu-branding'
+settings:
+  id: 'system_menu_block:menu-branding'
+  label: 'menu  branding'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

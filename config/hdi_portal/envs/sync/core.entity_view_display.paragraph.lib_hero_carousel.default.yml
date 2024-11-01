@@ -1,0 +1,25 @@
+uuid: ca108483-ae0f-4837-89ae-c28c734520c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lib_hero_carousel.field_lib_p_items
+    - paragraphs.paragraphs_type.lib_hero_carousel
+  module:
+    - entity_reference_revisions
+id: paragraph.lib_hero_carousel.default
+targetEntityType: paragraph
+bundle: lib_hero_carousel
+mode: default
+content:
+  field_lib_p_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

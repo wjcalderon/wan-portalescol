@@ -1,0 +1,14 @@
+uuid: ddda9c71-3874-410d-b1d8-bac970347bf4
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.glosario_los_segura_reviewer
+  module:
+    - user
+id: user_remove_role_action.glosario_los_segura_reviewer
+label: 'Elimina el rol Glosario los Segura reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: glosario_los_segura_reviewer

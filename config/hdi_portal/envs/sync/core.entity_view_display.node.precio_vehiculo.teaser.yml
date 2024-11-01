@@ -1,0 +1,30 @@
+uuid: a08de7e2-ee95-4fd5-a9a1-bed67cd14cb9
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.precio_vehiculo.field_label_autocomplete
+    - field.field.node.precio_vehiculo.field_modelo
+    - field.field.node.precio_vehiculo.field_precio
+    - field.field.node.precio_vehiculo.field_vehiculo
+    - node.type.precio_vehiculo
+  module:
+    - user
+id: node.precio_vehiculo.teaser
+targetEntityType: node
+bundle: precio_vehiculo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_label_autocomplete: true
+  field_modelo: true
+  field_precio: true
+  field_vehiculo: true
+  langcode: true

@@ -1,0 +1,20 @@
+uuid: 22ab6808-f4be-4d40-bc13-40bd1f1b236f
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_rm
+  theme:
+    - hdi_portal
+id: hdi_portal_renderviewsearchmedicalnetwork
+theme: hdi_portal
+region: blocks_activate
+weight: -40
+provider: null
+plugin: render_view_search_medical_network
+settings:
+  id: render_view_search_medical_network
+  label: 'Render view search medical network'
+  label_display: '0'
+  provider: lib_rm
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: df273c2a-2aa3-4179-861f-a391d12d49e9
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: t3_5SbzeqL7kQxQ-t5i2c3PqgaG59j6igi7JyP01NXI
+id: lib_v3_contacts_group
+label: 'Grupo de contacto v3'
+revision: false
+description: 'Grupo para tarjetas de contacto'

@@ -1,0 +1,29 @@
+uuid: 31301407-4005-477d-b2c7-6d4fedc4078b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-footer
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menufooter
+theme: hdi_portal
+region: footer_left
+weight: -45
+provider: null
+plugin: 'system_menu_block:menu-footer'
+settings:
+  id: 'system_menu_block:menu-footer'
+  label: 'menu footer'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

@@ -1,0 +1,14 @@
+uuid: 82518da8-4ae3-4d93-a2e5-452d9fe977db
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.glosario_los_segura_creator
+  module:
+    - user
+id: user_add_role_action.glosario_los_segura_creator
+label: 'Añade el rol Glosario los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: glosario_los_segura_creator

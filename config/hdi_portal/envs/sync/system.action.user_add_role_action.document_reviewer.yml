@@ -1,0 +1,14 @@
+uuid: 7fca0abd-511f-40e8-acb9-612c77e27ced
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.document_reviewer
+  module:
+    - user
+id: user_add_role_action.document_reviewer
+label: 'Añade el rol Documento reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: document_reviewer

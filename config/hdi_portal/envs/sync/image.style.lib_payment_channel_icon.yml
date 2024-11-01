@@ -1,0 +1,15 @@
+uuid: 636e07c2-db7f-4ff7-8ac8-9ff0c77695c8
+langcode: en
+status: true
+dependencies: {  }
+name: lib_payment_channel_icon
+label: lib_payment_channel_icon
+effects:
+  b9c5848a-1e58-41a7-8205-f21e804d2c86:
+    uuid: b9c5848a-1e58-41a7-8205-f21e804d2c86
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 60
+      height: 54
+      anchor: center-center

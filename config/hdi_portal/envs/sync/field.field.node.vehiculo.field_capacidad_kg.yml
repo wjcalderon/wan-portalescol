@@ -1,0 +1,23 @@
+uuid: 5d0a5c64-375e-4e45-bfe7-c7f4924189ee
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_capacidad_kg
+    - node.type.vehiculo
+id: node.vehiculo.field_capacidad_kg
+field_name: field_capacidad_kg
+entity_type: node
+bundle: vehiculo
+label: 'Capacidad Kg'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

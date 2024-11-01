@@ -1,0 +1,11 @@
+uuid: 0b903be7-936c-4502-a15b-67919cb6fa0f
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.drupal_view
+id: paragraph.drupal_view
+target_entity_type_id: paragraph
+target_bundle: drupal_view
+default_langcode: site_default
+language_alterable: false

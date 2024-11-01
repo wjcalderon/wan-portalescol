@@ -1,0 +1,25 @@
+uuid: eb0cf6bf-07ac-4fbb-a35f-c087a4f2b032
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineasdeatencionsiniesrtros
+theme: hdi_portal
+region: blocks_activate
+weight: -41
+provider: null
+plugin: 'block_content:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+settings:
+  id: 'block_content:ee6cbb65-7b9e-424b-a0b1-5bbd59aef005'
+  label: 'Lineas de atención siniestros'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,30 @@
+uuid: e92612e7-40ae-4eb2-bccd-fa6785df1c3a
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_tipo_de_caja
+field_name: field_tipo_de_caja
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: MEC
+      label: MEC
+    -
+      value: AUT
+      label: AUT
+    -
+      value: TRI
+      label: TRI
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,49 @@
+uuid: 9bd80a24-8e57-4469-86a1-ea249a16c96d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tab_item
+    - paragraphs.paragraphs_type.tab_item
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - entity_reference_revisions
+id: paragraph.tabs.field_tab_item
+field_name: field_tab_item
+entity_type: paragraph
+bundle: tabs
+label: 'Tab Item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tab_item: tab_item
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 8
+        enabled: false
+      cards:
+        weight: 9
+        enabled: false
+      drupal_block:
+        weight: 10
+        enabled: false
+      drupal_view:
+        weight: 11
+        enabled: false
+      single_text:
+        weight: 12
+        enabled: false
+      tab_item:
+        weight: 13
+        enabled: true
+      tabs:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

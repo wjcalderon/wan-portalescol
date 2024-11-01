@@ -1,0 +1,16 @@
+uuid: 5b1caf64-a0e1-4478-946d-d5397fea6c44
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.page_layout_creator
+  module:
+    - user
+_core:
+  default_config_hash: eps6F0b0zGLGA9Q4HoIV_Aztq0ga9Q0uR8zowXdodJE
+id: user_remove_role_action.page_layout_creator
+label: 'Elimina el rol Página flexible creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: page_layout_creator

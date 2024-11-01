@@ -1,0 +1,25 @@
+uuid: 00cf5b68-82ea-4da3-b658-6773380c8397
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:f01bcf09-e88c-4a67-a46d-5d2ea54b5f34'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineasdeatencion2
+theme: hdi_portal
+region: blocks_activate
+weight: -11
+provider: null
+plugin: 'block_content:f01bcf09-e88c-4a67-a46d-5d2ea54b5f34'
+settings:
+  id: 'block_content:f01bcf09-e88c-4a67-a46d-5d2ea54b5f34'
+  label: 'Líneas de atención 2'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

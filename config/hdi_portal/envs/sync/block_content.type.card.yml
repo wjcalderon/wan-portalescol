@@ -1,0 +1,8 @@
+uuid: b7c00591-a95b-47d7-827c-0790879987ba
+langcode: es
+status: true
+dependencies: {  }
+id: card
+label: Tarjeta
+revision: true
+description: 'Bloque promocional con cambios comunes'

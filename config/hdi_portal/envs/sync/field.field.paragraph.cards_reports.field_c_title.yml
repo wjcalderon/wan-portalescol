@@ -1,0 +1,19 @@
+uuid: 9bc05668-b9a1-487a-b9c0-db17862ca596
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title
+    - paragraphs.paragraphs_type.cards_reports
+id: paragraph.cards_reports.field_c_title
+field_name: field_c_title
+entity_type: paragraph
+bundle: cards_reports
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,29 @@
+uuid: f265ce56-93dd-4bb0-aa6c-4662fb52471b
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: F6ChrXKK-iqtE_JpCTpvT6oTubjM7jP3P0L5_GS_gkQ
+id: block_content.field_cta_list_phone_style
+field_name: field_cta_list_phone_style
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Predeterminado
+    -
+      value: compact
+      label: Compacto
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

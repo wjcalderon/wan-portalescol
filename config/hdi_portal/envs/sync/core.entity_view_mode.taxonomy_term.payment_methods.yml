@@ -1,0 +1,15 @@
+uuid: f3051ab4-3e27-4db3-954c-c0a73f43a40f
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.payment_methods
+label: 'Payment methods'
+description: ''
+targetEntityType: taxonomy_term
+cache: true

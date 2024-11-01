@@ -1,0 +1,22 @@
+uuid: 6b7570da-b859-4603-97c3-beb78a1d043d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.payment_points
+id: node.payment_points.promote
+field_name: promote
+entity_type: node
+bundle: payment_points
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,14 @@
+uuid: 8bd17a22-a822-4b24-ab4d-fee5ca975d6e
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lender_reviewer
+  module:
+    - user
+id: user_remove_role_action.lender_reviewer
+label: 'Elimina el rol Prestador reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: lender_reviewer

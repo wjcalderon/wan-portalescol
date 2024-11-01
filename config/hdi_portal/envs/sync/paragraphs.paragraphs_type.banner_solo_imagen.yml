@@ -1,0 +1,10 @@
+uuid: a19b9b71-96cf-4c01-ba73-08fb19132754
+langcode: es
+status: true
+dependencies: {  }
+id: banner_solo_imagen
+label: 'Banner Solo imagen'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

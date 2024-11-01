@@ -1,0 +1,10 @@
+uuid: 6886c332-dcc9-42ad-9bb3-277c49e98f66
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HPBUorW4Hx4d52jxVQR8gyLyxLAlfuazcrbXvKlF8ng
+id: card_link_list
+label: 'Card List - Links rapidos'
+revision: false
+description: 'Card List - Links rapidos'

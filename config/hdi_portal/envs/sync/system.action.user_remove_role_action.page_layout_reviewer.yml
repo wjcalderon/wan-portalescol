@@ -1,0 +1,16 @@
+uuid: 3eed8a36-df9f-44a3-b76b-03d5b2855ff2
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.page_layout_reviewer
+  module:
+    - user
+_core:
+  default_config_hash: jg73SPVdsydZn2b2q1AZ-cEcFjJQB8eWi6MabcTnQXo
+id: user_remove_role_action.page_layout_reviewer
+label: 'Elimina el rol Página flexible reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: page_layout_reviewer

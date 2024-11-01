@@ -1,0 +1,22 @@
+uuid: 4b969c85-2d74-45c4-89d3-0d3a72e857f4
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lender
+id: node.lender.status
+field_name: status
+entity_type: node
+bundle: lender
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

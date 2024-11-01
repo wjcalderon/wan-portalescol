@@ -1,0 +1,23 @@
+uuid: 808ab01e-e674-460d-87e8-ba65a96c10a6
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.section_title
+    - field.storage.block_content.field_title_html
+  module:
+    - text
+_core:
+  default_config_hash: kIytaOXWVElceO1XjtajHciteD40MFjJYhjFPGVRyLc
+id: block_content.section_title.field_title_html
+field_name: field_title_html
+entity_type: block_content
+bundle: section_title
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

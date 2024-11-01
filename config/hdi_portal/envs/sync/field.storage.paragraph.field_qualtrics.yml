@@ -1,0 +1,19 @@
+uuid: b3b95357-84ac-4df4-ab99-c6026d54bade
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_qualtrics
+field_name: field_qualtrics
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

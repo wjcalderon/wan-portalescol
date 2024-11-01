@@ -1,0 +1,16 @@
+uuid: e2281440-9a75-4bb5-8085-b2008e10f83d
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.page_layout_creator
+  module:
+    - user
+_core:
+  default_config_hash: Bj9BC9ci6eAVH1yKepBN-fbh2JV5tiTt3CIXCQB94XM
+id: user_add_role_action.page_layout_creator
+label: 'Añade el rol Página flexible creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: page_layout_creator

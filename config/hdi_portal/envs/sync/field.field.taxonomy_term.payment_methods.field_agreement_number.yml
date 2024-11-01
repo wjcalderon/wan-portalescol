@@ -1,0 +1,19 @@
+uuid: b9274569-1e8a-4142-a7be-512dba8d1f2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_agreement_number
+    - taxonomy.vocabulary.payment_methods
+id: taxonomy_term.payment_methods.field_agreement_number
+field_name: field_agreement_number
+entity_type: taxonomy_term
+bundle: payment_methods
+label: 'Agreement number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

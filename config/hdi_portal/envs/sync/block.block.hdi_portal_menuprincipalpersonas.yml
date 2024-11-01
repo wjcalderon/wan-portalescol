@@ -1,0 +1,30 @@
+uuid: a6fa4b01-12ce-4d7e-b335-beeb2106f0d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-principal-personas
+  module:
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_menuprincipalpersonas
+theme: hdi_portal
+region: menu_mobile
+weight: -34
+provider: null
+plugin: 'system_menu_block:menu-principal-personas'
+settings:
+  id: 'system_menu_block:menu-principal-personas'
+  label: 'menu principal personas'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/personas\r\n/personas/*\r\n/clientes/*"

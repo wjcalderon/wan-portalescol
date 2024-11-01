@@ -1,0 +1,9 @@
+uuid: d08b37a5-2c83-45e8-bfde-266bb8ca69bb
+langcode: es
+status: true
+dependencies: {  }
+id: microsite
+label: Micrositio
+icon_uuid: null
+description: 'Agregar micrositio'
+behavior_plugins: {  }

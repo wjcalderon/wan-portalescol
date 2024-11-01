@@ -1,0 +1,85 @@
+uuid: 194f7107-253c-46da-ade5-c26f23450d77
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.accordion_quote
+    - field.field.taxonomy_term.policy.field_code
+    - field.field.taxonomy_term.policy.field_commercial_bonus
+    - field.field.taxonomy_term.policy.field_deductible_percentage
+    - field.field.taxonomy_term.policy.field_deductible_salary
+    - field.field.taxonomy_term.policy.field_hired
+    - field.field.taxonomy_term.policy.field_icon
+    - field.field.taxonomy_term.policy.field_insured_value
+    - field.field.taxonomy_term.policy.field_policy_included
+    - field.field.taxonomy_term.policy.field_type
+    - image.style.crop_thumbnail
+    - taxonomy.vocabulary.policy
+  module:
+    - ds
+    - panelizer
+    - svg_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - field_icon
+        - taxonomy_term_title
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: p
+          class: ''
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.policy.accordion_quote
+targetEntityType: taxonomy_term
+bundle: policy
+mode: accordion_quote
+content:
+  field_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: crop_thumbnail
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+hidden:
+  description: true
+  field_code: true
+  field_commercial_bonus: true
+  field_deductible_percentage: true
+  field_deductible_salary: true
+  field_hired: true
+  field_insured_value: true
+  field_policy_included: true
+  field_type: true
+  langcode: true

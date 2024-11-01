@@ -1,0 +1,12 @@
+uuid: 8a4d01f8-5364-4626-91d4-be31d0505932
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ewxZZ8mL19MCkMDYGbiJRZuqCI3Yv61dzzi8jAAVThE
+id: card_link
+label: 'Card Link'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

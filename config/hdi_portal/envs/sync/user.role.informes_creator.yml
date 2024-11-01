@@ -1,0 +1,48 @@
+uuid: eff979f7-7d07-42c1-91d4-5cdd362a97d6
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - filter.format.rich_text
+    - node.type.informes
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - entity_browser
+    - file
+    - filter
+    - moderation_sidebar
+    - node
+    - panelizer
+    - panels_ipe
+    - path
+    - quickedit
+    - toolbar
+id: informes_creator
+label: 'Informes creator'
+weight: 50
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node informes content'
+  - 'administer panelizer node informes layout'
+  - 'create informes content'
+  - 'create url aliases'
+  - 'delete own files'
+  - 'edit own informes content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view informes revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

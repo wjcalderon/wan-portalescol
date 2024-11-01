@@ -1,0 +1,65 @@
+uuid: 25f870ee-be45-4620-a8c8-65482cbac717
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.product.body
+    - field.field.node.product.field_assistances
+    - field.field.node.product.field_c_components
+    - field.field.node.product.field_clauses
+    - field.field.node.product.field_doc_clauses
+    - field.field.node.product.field_documents_required
+    - field.field.node.product.field_icon
+    - field.field.node.product.field_person_type
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_social_network_image
+    - node.type.product
+  module:
+    - panelizer
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.product.card
+targetEntityType: node
+bundle: product
+mode: card
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_assistances: true
+  field_c_components: true
+  field_clauses: true
+  field_doc_clauses: true
+  field_documents_required: true
+  field_person_type: true
+  field_product_type: true
+  field_social_network_image: true
+  langcode: true
+  links: true

@@ -1,0 +1,21 @@
+uuid: 3b18c698-b16b-40ab-8c8d-56758e1c434c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_um
+    - node.type.vehiculo
+  module:
+    - options
+id: node.vehiculo.field_um
+field_name: field_um
+entity_type: node
+bundle: vehiculo
+label: Um
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

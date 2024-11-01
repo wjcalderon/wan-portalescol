@@ -1,0 +1,12 @@
+uuid: e6fb7a8a-6252-4aa7-ab78-806bac7c486d
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: i4DGc5Qqu56yBJyFgbXPbYmUWQaAp-xJ6rTZ4UGLmqM
+id: cta_basic
+label: 'Card Basic'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

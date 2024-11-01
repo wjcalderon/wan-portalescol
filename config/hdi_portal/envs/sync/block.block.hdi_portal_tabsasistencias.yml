@@ -1,0 +1,20 @@
+uuid: 101b7631-6320-4dcb-a2eb-7e6e0d8534b2
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_tabsasistencias
+theme: hdi_portal
+region: blocks_activate
+weight: -33
+provider: null
+plugin: tabs_assistances
+settings:
+  id: tabs_assistances
+  label: 'Tabs Asistencias'
+  label_display: '0'
+  provider: lib_core
+visibility: {  }

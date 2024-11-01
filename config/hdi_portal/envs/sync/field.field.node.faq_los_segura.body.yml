@@ -1,0 +1,25 @@
+uuid: 061e79f0-78e7-43a5-834a-ca38bd3e005a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.faq_los_segura
+  module:
+    - text
+_core:
+  default_config_hash: XgvjbuUes0qeDmMNG_yNBggrm-wI4kURLfg3Gf24fJ8
+id: node.faq_los_segura.body
+field_name: body
+entity_type: node
+bundle: faq_los_segura
+label: Respuesta
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

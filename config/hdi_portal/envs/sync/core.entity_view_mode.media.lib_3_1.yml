@@ -1,0 +1,15 @@
+uuid: b0f10ee3-8287-423f-8f89-160b14f8dc8b
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.lib_3_1
+label: '3:1'
+description: ''
+targetEntityType: media
+cache: true

@@ -1,0 +1,9 @@
+uuid: 9e7fa6b6-c129-48ab-9af5-02af86ddef0c
+langcode: es
+status: true
+dependencies: {  }
+id: acordeon
+label: Acordeón
+icon_uuid: null
+description: 'Agrupe múltiples "ítem de acordeón" y agréguelos en una página de componentes.'
+behavior_plugins: {  }

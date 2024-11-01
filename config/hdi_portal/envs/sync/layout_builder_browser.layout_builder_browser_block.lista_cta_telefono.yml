@@ -1,0 +1,13 @@
+uuid: 418d8788-43d8-4a84-9be0-70170ca9a721
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tfSuQYUpS1hpv_yevgQf1kwkmwV1Orr_QFEifnNiRLk
+id: lista_cta_telefono
+block_id: 'inline_block:cta_list_phone'
+category: multiples
+label: 'Lista CTA Teléfono'
+image_path: ''
+image_alt: ''
+weight: -3

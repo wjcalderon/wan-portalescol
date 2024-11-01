@@ -1,0 +1,11 @@
+uuid: 2160b8aa-f1b3-419d-9098-7114db512649
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.image
+id: paragraph.image
+target_entity_type_id: paragraph
+target_bundle: image
+default_langcode: site_default
+language_alterable: false

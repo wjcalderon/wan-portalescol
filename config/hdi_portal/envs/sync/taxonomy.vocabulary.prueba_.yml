@@ -1,0 +1,9 @@
+uuid: c39757e7-e801-44a6-a402-74ff52ce8435
+langcode: es
+status: true
+dependencies: {  }
+name: prueba
+vid: prueba_
+description: 'taxonomia de prueba'
+weight: 0
+new_revision: false

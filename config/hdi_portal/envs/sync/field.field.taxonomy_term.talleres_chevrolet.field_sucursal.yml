@@ -1,0 +1,21 @@
+uuid: fcce115e-b520-456b-94d0-7904c7a767dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_sucursal
+    - taxonomy.vocabulary.talleres_chevrolet
+id: taxonomy_term.talleres_chevrolet.field_sucursal
+field_name: field_sucursal
+entity_type: taxonomy_term
+bundle: talleres_chevrolet
+label: Sucursal
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: string

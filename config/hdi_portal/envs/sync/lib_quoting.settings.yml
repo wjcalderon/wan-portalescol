@@ -1,0 +1,15 @@
+config:
+  apigee_url: apis.libertymutual.com
+  general_services_basepath: ca-generalservices
+  api:
+    client_id: CUm5gJhJSSRCXrTiVWPJUeGJCGV81nWc
+    client_secret: lxqpNNfc5D3l5mTP
+  sisa:
+    client_id: CUm5gJhJSSRCXrTiVWPJUeGJCGV81nWc
+    client_secret: lxqpNNfc5D3l5mTP
+  perlrating:
+    client_id: FicePvJPkckwIlYJ1TG9LkoQxQQdPrDy
+    client_secret: gZYnWje03SnySvia
+_core:
+  default_config_hash: lDJ_qHcHorv6rueY6HebiXRqVvC_iRZw-9hdqJcPx5E
+langcode: es

@@ -1,0 +1,10 @@
+uuid: 8f61852a-ed8f-43d3-b0c5-3ef52276c646
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4bBNDtcb_uHDinsztz3BRC4zMPeSs34nBsZN3MaFXdY
+id: card_icon_list
+label: 'Card List - Card Icon'
+revision: false
+description: ''

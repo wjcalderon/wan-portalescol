@@ -1,0 +1,21 @@
+uuid: 99d1dadc-4c5a-478e-b464-5633dfc7528c
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_rm
+  theme:
+    - hdi_portal
+id: hdi_portal_searchmedicalnetwork
+theme: hdi_portal
+region: blocks_activate
+weight: -38
+provider: null
+plugin: search_medical_network
+settings:
+  id: search_medical_network
+  label: 'Search medical network'
+  label_display: '0'
+  provider: lib_rm
+  my_block_settings: null
+visibility: {  }

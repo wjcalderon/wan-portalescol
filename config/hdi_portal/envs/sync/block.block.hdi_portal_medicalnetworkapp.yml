@@ -1,0 +1,25 @@
+uuid: 45af3fbf-ff5d-4b5e-970e-685861a478e2
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_red_medica
+  theme:
+    - hdi_portal
+  enforced:
+    module:
+      - lib_red_medica
+_core:
+  default_config_hash: 849xt-spvCpqzzKhlYJWQQl0-_zrTrfZmZJywGxhY6E
+id: hdi_portal_medicalnetworkapp
+theme: hdi_portal
+region: blocks_activate
+weight: -9
+provider: null
+plugin: medical_network_block
+settings:
+  id: medical_network_block
+  label: 'Medical network app'
+  label_display: '0'
+  provider: lib_red_medica
+visibility: {  }

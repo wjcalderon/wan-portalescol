@@ -1,0 +1,11 @@
+uuid: 2d13bdd0-e689-44ce-abac-111db2c72380
+langcode: es
+status: true
+dependencies:
+  config:
+    - image.style.lib_3_1_lg
+id: 3_1_images
+label: '3:1 Images'
+image_style_mappings: {  }
+breakpoint_group: responsive_image
+fallback_image_style: lib_3_1_lg

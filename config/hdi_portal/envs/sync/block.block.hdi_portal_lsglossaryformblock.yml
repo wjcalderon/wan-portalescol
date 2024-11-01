@@ -1,0 +1,26 @@
+uuid: c6e0c908-bcf6-4d62-88b6-ed6dba7aaef5
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_ls
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_lsglossaryformblock
+theme: hdi_portal
+region: blocks_activate
+weight: -16
+provider: null
+plugin: ls_glossary_form_block
+settings:
+  id: ls_glossary_form_block
+  label: 'LS glossary form block'
+  label_display: '0'
+  provider: lib_ls
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /los-segura

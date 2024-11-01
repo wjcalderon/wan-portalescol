@@ -1,0 +1,15 @@
+uuid: 39f7fa2f-e99b-4731-aab2-4fe80e68bb01
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.resultado_buscador
+label: 'Resultado buscador'
+description: ''
+targetEntityType: media
+cache: true

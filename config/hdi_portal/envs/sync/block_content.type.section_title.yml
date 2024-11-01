@@ -1,0 +1,10 @@
+uuid: b9b1bde4-6d30-445e-a10a-65ae4490c43e
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0RyrW0RcksGzYQv61m-6TI4rBzF0iJKWGVioD-eKqOY
+id: section_title
+label: 'Título de sección'
+revision: false
+description: 'Título de sección'

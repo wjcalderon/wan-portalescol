@@ -1,0 +1,34 @@
+uuid: c3eed5c5-f4ee-4cc8-8a8d-f925265e57f1
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.payment_points.field_address
+    - field.field.node.payment_points.field_location_map
+    - field.field.node.payment_points.field_open_schedule
+    - field.field.node.payment_points.field_phone
+    - field.field.node.payment_points.field_product_type
+    - field.field.node.payment_points.field_ubication
+    - node.type.payment_points
+  module:
+    - user
+id: node.payment_points.teaser
+targetEntityType: node
+bundle: payment_points
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_address: true
+  field_location_map: true
+  field_open_schedule: true
+  field_phone: true
+  field_product_type: true
+  field_ubication: true
+  langcode: true

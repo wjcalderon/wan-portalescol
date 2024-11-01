@@ -1,0 +1,8 @@
+uuid: a8557ff0-1ddd-4cfe-90b6-ae59f96f9d5e
+langcode: es
+status: true
+dependencies: {  }
+id: cta
+label: 'Call To Action'
+revision: false
+description: 'Call to action custom block'

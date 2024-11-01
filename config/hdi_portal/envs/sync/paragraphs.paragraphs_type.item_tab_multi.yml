@@ -1,0 +1,9 @@
+uuid: a2f13d7e-a1b6-4d3f-a0b2-b5320f0687d1
+langcode: es
+status: true
+dependencies: {  }
+id: item_tab_multi
+label: 'item pestaña multiple'
+icon_uuid: null
+description: 'Permite agregar más niveles de tabs.'
+behavior_plugins: {  }

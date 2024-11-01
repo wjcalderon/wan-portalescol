@@ -1,0 +1,27 @@
+uuid: 5628da1a-5235-4e40-9e01-f9a5dcb9fe85
+langcode: es
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_lib_image_side
+field_name: field_lib_image_side
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: imgleft
+      label: Izquierda
+    -
+      value: imgright
+      label: Derecha
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

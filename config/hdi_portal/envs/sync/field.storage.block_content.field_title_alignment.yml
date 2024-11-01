@@ -1,0 +1,29 @@
+uuid: e748ac6f-b1ad-4974-a195-059cf07ec8c4
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: vEwWsYPuJDOCbrJXg3CyiIkWOlDKQJ39286OMYd3288
+id: block_content.field_title_alignment
+field_name: field_title_alignment
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: center
+      label: Centrado
+    -
+      value: left
+      label: Izquierda
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

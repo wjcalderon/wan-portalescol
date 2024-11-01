@@ -1,0 +1,12 @@
+uuid: 80dfa399-da03-4d13-b650-e8531cf3fd87
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+id: marketing_administrator
+label: 'Administrador mercadeo'
+weight: 3
+is_admin: null
+permissions:
+  - 'delete own files'

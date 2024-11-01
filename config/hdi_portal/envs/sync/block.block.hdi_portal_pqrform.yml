@@ -1,0 +1,21 @@
+uuid: 84261cf9-2166-4054-8176-8c65d16867c2
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_pqrform
+theme: hdi_portal
+region: blocks_activate
+weight: -20
+provider: null
+plugin: pqr
+settings:
+  id: pqr
+  label: 'Pqr form'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

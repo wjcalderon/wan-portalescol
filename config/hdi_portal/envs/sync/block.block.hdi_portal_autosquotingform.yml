@@ -1,0 +1,20 @@
+uuid: c0adcf76-fef7-4eb1-842e-75d0776d20de
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_quoting
+  theme:
+    - hdi_portal
+id: hdi_portal_autosquotingform
+theme: hdi_portal
+region: blocks_activate
+weight: -28
+provider: null
+plugin: autos_quoting_form
+settings:
+  id: autos_quoting_form
+  label: 'Autos quoting form'
+  label_display: '0'
+  provider: lib_quoting
+visibility: {  }

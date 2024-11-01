@@ -1,0 +1,13 @@
+uuid: aadd2027-c605-4289-a17a-710c2452f2c2
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.glosario_los_segura
+_core:
+  default_config_hash: RqWShP7Ex8yCOqGEzddyrxTp79SqRX2YqFymW-lwtqE
+id: node.glosario_los_segura
+target_entity_type_id: node
+target_bundle: glosario_los_segura
+default_langcode: site_default
+language_alterable: false

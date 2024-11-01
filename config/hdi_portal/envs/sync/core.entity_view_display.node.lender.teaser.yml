@@ -1,0 +1,176 @@
+uuid: 65ff8b9c-ed00-41e4-9efb-69eeebdeea97
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.lender.field_consulting_room
+    - field.field.node.lender.field_dv
+    - field.field.node.lender.field_extension
+    - field.field.node.lender.field_google_maps_address
+    - field.field.node.lender.field_identification
+    - field.field.node.lender.field_lender_category
+    - field.field.node.lender.field_location_map
+    - field.field.node.lender.field_network_address
+    - field.field.node.lender.field_oficina
+    - field.field.node.lender.field_phone
+    - field.field.node.lender.field_provider_type
+    - field.field.node.lender.field_schedules
+    - field.field.node.lender.field_speciality
+    - field.field.node.lender.field_telemedicine
+    - field.field.node.lender.field_type_plan
+    - field.field.node.lender.field_ubication
+    - field.field.node.lender.field_web_page
+    - field.field.node.lender.field_whatsapp
+    - node.type.lender
+  module:
+    - ds
+    - field_group
+    - geolocation
+    - manage_display
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  field_group:
+    group_info:
+      children:
+        - field_network_address
+        - field_phone
+        - field_speciality
+      label: info
+      parent_name: ''
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: info
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_mapa:
+      children:
+        - field_location_map
+      label: mapa
+      parent_name: ''
+      region: hidden
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: mapa
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - links
+        - field_extension
+        - field_ubication
+        - field_type_plan
+        - field_provider_type
+        - field_oficina
+        - field_longitude
+        - field_latitude
+        - field_identification
+        - field_health
+        - field_google_maps_address
+        - field_essential
+        - field_dv
+        - field_consulting_room
+        - field_arp_atep_
+        - langcode
+        - field_web_page
+        - body
+        - field_network_address
+        - field_phone
+        - field_location_map
+        - field_speciality
+id: node.lender.teaser
+targetEntityType: node
+bundle: lender
+mode: teaser
+content:
+  field_location_map:
+    type: geolocation_token
+    label: above
+    settings:
+      tokenized_text: '<span id="verMapa" lat="[geolocation_current_item:lat]"  lng="[geolocation_current_item:lng]" dir="[node:field_network_address]">Ver mapa</span>'
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_network_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_speciality:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      link_to_entity: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -50
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_consulting_room: true
+  field_dv: true
+  field_extension: true
+  field_google_maps_address: true
+  field_identification: true
+  field_lender_category: true
+  field_oficina: true
+  field_phone: true
+  field_provider_type: true
+  field_schedules: true
+  field_telemedicine: true
+  field_type_plan: true
+  field_ubication: true
+  field_web_page: true
+  field_whatsapp: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

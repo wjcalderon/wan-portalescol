@@ -1,0 +1,13 @@
+uuid: b06e4e73-21ab-4e20-b31b-99b48a42b8cc
+langcode: es
+status: true
+dependencies:
+  theme:
+    - hdi_portal
+  menu:
+    - servicio-al-cliente
+id: servicio-al-cliente__hdi_portal
+menu: servicio-al-cliente
+theme: hdi_portal
+block_config: '[]'
+menu_config: '[]'

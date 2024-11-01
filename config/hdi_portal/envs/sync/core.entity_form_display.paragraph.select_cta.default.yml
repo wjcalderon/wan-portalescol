@@ -1,0 +1,100 @@
+uuid: 3c0025d0-f2a7-490e-ade9-8f335b1a9476
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.select_cta.field_c_classes
+    - field.field.paragraph.select_cta.field_c_title
+    - field.field.paragraph.select_cta.field_c_title_status
+    - field.field.paragraph.select_cta.field_c_width
+    - field.field.paragraph.select_cta.field_cta
+    - field.field.paragraph.select_cta.field_label
+    - paragraphs.paragraphs_type.select_cta
+  module:
+    - field_group
+    - link
+third_party_settings:
+  field_group:
+    group_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_component_title:
+      children:
+        - field_c_title_status
+        - field_c_title
+        - field_label
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.select_cta.default
+targetEntityType: paragraph
+bundle: select_cta
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cta:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_label:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

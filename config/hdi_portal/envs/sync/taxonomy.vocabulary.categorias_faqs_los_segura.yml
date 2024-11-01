@@ -1,0 +1,11 @@
+uuid: 5ce07b22-18bd-4a06-aa7a-9adefad32ca4
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: NHM_V_I9vVIVzXJ4SrKjZPLTFm6Sc_9IerrA1go54yY
+name: 'Categorías Faqs Los Segura'
+vid: categorias_faqs_los_segura
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,21 @@
+uuid: 26c3d9d9-8948-41e2-b526-8c25c54a250e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.banner_solo_imagen
+  module:
+    - options
+id: paragraph.banner_solo_imagen.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: banner_solo_imagen
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

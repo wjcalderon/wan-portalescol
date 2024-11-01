@@ -1,0 +1,8 @@
+uuid: d7ac54e7-2900-4c03-a82c-a9e6f56a585a
+langcode: es
+status: true
+dependencies: {  }
+id: acerca-de-liberty
+label: 'Acerca de Liberty Seguros'
+description: 'Menú Acerca de Liberty ubicado en el encabezado '
+locked: false

@@ -1,0 +1,14 @@
+uuid: addb5259-6513-42e9-b101-d87cd784fd7b
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+_core:
+  default_config_hash: y_1xgyu3-LLOZo0bsuISXI5QT9KDr6S5ZgTtVWEsM1Q
+id: capitulo_los_segura_creator
+label: 'Capítulo Los Segura creator'
+weight: 39
+is_admin: false
+permissions:
+  - 'delete own files'

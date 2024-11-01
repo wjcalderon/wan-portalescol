@@ -1,0 +1,14 @@
+uuid: 0e4605ea-af3f-42c9-a925-d9aad8068524
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.faq_los_segura_creator
+  module:
+    - user
+id: user_remove_role_action.faq_los_segura_creator
+label: 'Elimina el rol Faq Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: faq_los_segura_creator

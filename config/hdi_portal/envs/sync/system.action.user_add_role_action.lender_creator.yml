@@ -1,0 +1,14 @@
+uuid: 7abdbce0-f072-49dc-8d62-d0a0f0b29a13
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lender_creator
+  module:
+    - user
+id: user_add_role_action.lender_creator
+label: 'Añade el rol Prestador creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: lender_creator

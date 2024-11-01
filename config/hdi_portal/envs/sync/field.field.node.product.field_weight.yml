@@ -1,0 +1,23 @@
+uuid: efb47359-bc7c-4f79-b74d-a2ed15b906c7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.product
+  module:
+    - options
+id: node.product.field_weight
+field_name: field_weight
+entity_type: node
+bundle: product
+label: Peso
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 10
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

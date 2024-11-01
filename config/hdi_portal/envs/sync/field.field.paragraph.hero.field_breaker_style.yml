@@ -1,0 +1,25 @@
+uuid: 382b40f6-1e40-41f7-a698-cd9dd6be0738
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_breaker_style
+    - paragraphs.paragraphs_type.hero
+  module:
+    - options
+_core:
+  default_config_hash: 0-Q9BzPubeskQ8Vjd3bOKs1_BGHfK4tKnNqsLlfY3ik
+id: paragraph.hero.field_breaker_style
+field_name: field_breaker_style
+entity_type: paragraph
+bundle: hero
+label: 'Breaker Style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 50-50
+default_value_callback: ''
+settings: {  }
+field_type: list_string

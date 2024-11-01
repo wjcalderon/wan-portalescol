@@ -1,0 +1,22 @@
+uuid: f37a8281-f5b8-4193-bccf-bdd4b4cfc06f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - hdi_portal
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: hdi_portal_help
+theme: hdi_portal
+region: content
+weight: -46
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

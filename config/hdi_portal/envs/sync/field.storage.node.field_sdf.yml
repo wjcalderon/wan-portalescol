@@ -1,0 +1,21 @@
+uuid: 455789cc-e6e4-4b86-b122-71063f2927bd
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_sdf
+field_name: field_sdf
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

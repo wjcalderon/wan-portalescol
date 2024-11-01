@@ -1,0 +1,8 @@
+uuid: 98490e96-fd76-4d58-acfd-1bad119c575a
+langcode: es
+status: true
+dependencies: {  }
+id: banner_detalle
+label: 'banner detalle'
+revision: true
+description: 'Un bloque que puede ser utilizado como un conjunto de componentes flotantes en cualquier región del sitio.'

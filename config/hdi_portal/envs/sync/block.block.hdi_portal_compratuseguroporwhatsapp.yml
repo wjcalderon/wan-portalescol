@@ -1,0 +1,25 @@
+uuid: 52d28fcf-9535-4e21-9fd6-d2d749245564
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:d02bd347-a1c3-4f79-bdbd-5c7f52328cb8'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_compratuseguroporwhatsapp
+theme: hdi_portal
+region: blocks_activate
+weight: -14
+provider: null
+plugin: 'block_content:d02bd347-a1c3-4f79-bdbd-5c7f52328cb8'
+settings:
+  id: 'block_content:d02bd347-a1c3-4f79-bdbd-5c7f52328cb8'
+  label: 'Compra tu seguro de auto por WhatsApp'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

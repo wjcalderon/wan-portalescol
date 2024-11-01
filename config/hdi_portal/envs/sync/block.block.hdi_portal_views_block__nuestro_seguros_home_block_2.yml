@@ -1,0 +1,24 @@
+uuid: 6f6552d2-e1d7-4fc4-9c24-afa8d3bfeb9e
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.nuestro_seguros_home
+  module:
+    - views
+  theme:
+    - hdi_portal
+id: hdi_portal_views_block__nuestro_seguros_home_block_2
+theme: hdi_portal
+region: blocks_activate
+weight: -43
+provider: null
+plugin: 'views_block:nuestro_seguros_home-block_2'
+settings:
+  id: 'views_block:nuestro_seguros_home-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

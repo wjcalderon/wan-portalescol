@@ -1,0 +1,23 @@
+uuid: 33e12ef3-0159-42d5-8f16-4ebd228797b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_target_blank
+id: block_content.cta.field_target_blank
+field_name: field_target_blank
+entity_type: block_content
+bundle: cta
+label: 'Nueva ventana'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Si
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,15 @@
+uuid: d0692b7c-4edb-442b-8800-c08320fbd7b3
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.card
+label: Card
+description: ''
+targetEntityType: taxonomy_term
+cache: true

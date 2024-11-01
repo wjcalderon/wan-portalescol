@@ -1,0 +1,29 @@
+uuid: d14dab85-40b5-45a9-ab95-72b5f1022ba8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.news_inphography
+    - taxonomy.vocabulary.categories
+id: node.news_inphography.field_category
+field_name: field_category
+entity_type: node
+bundle: news_inphography
+label: Categoría
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categories: categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

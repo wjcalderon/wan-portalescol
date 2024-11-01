@@ -1,0 +1,23 @@
+uuid: 286f2836-6955-4963-a015-defc061a78f2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.panelizer
+    - node.type.landing_page
+  module:
+    - panelizer
+_core:
+  default_config_hash: EibIP4dWSOUE5fTiiIZ9CuZUNz9FpOSVIxUDjROIoEg
+id: node.landing_page.panelizer
+field_name: panelizer
+entity_type: node
+bundle: landing_page
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

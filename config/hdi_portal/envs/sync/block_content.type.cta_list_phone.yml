@@ -1,0 +1,10 @@
+uuid: 5a51a805-aad5-48fd-8d7e-4a5ac53d1d1e
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nqFf-iVGaGpBBjB37l13PQef2gCCljkb1xT_ZcWt35Y
+id: cta_list_phone
+label: 'CTA List Phone'
+revision: false
+description: 'CTA List Phone'

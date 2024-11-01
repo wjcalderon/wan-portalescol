@@ -1,0 +1,10 @@
+uuid: 553e892c-4e8c-4ce6-9fd8-7b68bc44c328
+langcode: es
+status: true
+dependencies: {  }
+id: card_media
+label: 'Card Media'
+icon_uuid: null
+icon_default: null
+description: 'Card Media.'
+behavior_plugins: {  }

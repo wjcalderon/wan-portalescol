@@ -1,0 +1,11 @@
+uuid: ac000fa8-1532-486a-a62f-6c21cdeb4f54
+langcode: es
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.testimonies
+id: paragraph.testimonies
+target_entity_type_id: paragraph
+target_bundle: testimonies
+default_langcode: site_default
+language_alterable: false

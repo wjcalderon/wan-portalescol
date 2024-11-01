@@ -1,0 +1,15 @@
+uuid: f9bd2168-4e52-4d61-9615-abbca586b89c
+langcode: es
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.card_foto
+label: 'Card foto'
+description: ''
+targetEntityType: paragraph
+cache: true

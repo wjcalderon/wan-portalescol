@@ -1,0 +1,8 @@
+uuid: 50ad52e5-6fcf-4849-bb7c-ac62130b4883
+langcode: es
+status: true
+dependencies: {  }
+id: buscas-ayuda
+label: '¿Necesitas ayuda?'
+description: 'Conjunto de opciones rápidas, que aparecen en la esquina inferior derecha de la página y se despliegan en una ventana flotante.'
+locked: false

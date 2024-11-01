@@ -1,0 +1,8 @@
+uuid: b933870d-b4fa-400c-85a0-c3c27aa16d23
+langcode: es
+status: true
+dependencies: {  }
+id: vista_blog_
+label: 'Vista Blog '
+revision: false
+description: ''

@@ -1,0 +1,26 @@
+uuid: db65e06c-be58-449f-b226-b5b2e63b0210
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.vista_blog_
+    - field.field.block_content.vista_blog_.field_view_ref
+  module:
+    - viewsreference
+id: block_content.vista_blog_.default
+targetEntityType: block_content
+bundle: vista_blog_
+mode: default
+content:
+  field_view_ref:
+    type: viewsreference_formatter
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

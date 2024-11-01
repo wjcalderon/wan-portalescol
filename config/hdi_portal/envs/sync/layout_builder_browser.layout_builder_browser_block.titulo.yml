@@ -1,0 +1,13 @@
+uuid: 97a8ef23-8f47-446b-bb78-6e748c3d5b2e
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6-JkMck73dUJO89KkWyu_qTkrJxYj7ZBJHvf64-be1c
+id: titulo
+block_id: 'inline_block:section_title'
+category: general
+label: Título
+image_path: ''
+image_alt: ''
+weight: -100

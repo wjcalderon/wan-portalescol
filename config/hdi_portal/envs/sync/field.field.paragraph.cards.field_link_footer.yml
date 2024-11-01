@@ -1,0 +1,23 @@
+uuid: b11adf80-b9aa-4757-a8cc-80aacb2f80a1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_footer
+    - paragraphs.paragraphs_type.cards
+  module:
+    - link
+id: paragraph.cards.field_link_footer
+field_name: field_link_footer
+entity_type: paragraph
+bundle: cards
+label: 'Link footer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

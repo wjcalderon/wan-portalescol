@@ -1,0 +1,41 @@
+uuid: 1e191f90-c4cc-4a62-983e-4ab734861bc4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_report_card.field_c_title
+    - field.field.paragraph.item_report_card.field_lead
+    - field.field.paragraph.item_report_card.field_report_documents
+    - paragraphs.paragraphs_type.item_report_card
+  module:
+    - entity_reference_revisions
+id: paragraph.item_report_card.default
+targetEntityType: paragraph
+bundle: item_report_card
+mode: default
+content:
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lead:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_report_documents:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

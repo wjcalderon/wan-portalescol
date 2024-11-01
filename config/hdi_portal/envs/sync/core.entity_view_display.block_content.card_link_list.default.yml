@@ -1,0 +1,28 @@
+uuid: efe57d2c-bf54-440a-ba96-405876795b25
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_link_list
+    - field.field.block_content.card_link_list.field_p_card_foto
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: NuXRJ5JpTxaHYmzcl4Ac0ZD6wmmgrZinxZJUNFs_fp8
+id: block_content.card_link_list.default
+targetEntityType: block_content
+bundle: card_link_list
+mode: default
+content:
+  field_p_card_foto:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

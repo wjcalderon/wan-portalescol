@@ -1,0 +1,7 @@
+uuid: 8c13513f-b809-47bd-904f-d2986fb991e2
+langcode: es
+status: false
+dependencies: {  }
+formId: node_lender_form
+captchaType: default
+label: node_lender_form

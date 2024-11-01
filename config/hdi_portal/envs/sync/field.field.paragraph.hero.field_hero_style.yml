@@ -1,0 +1,23 @@
+uuid: 48daf544-3b95-4564-9ce6-07fe94ea1944
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_style
+    - paragraphs.paragraphs_type.hero
+  module:
+    - options
+_core:
+  default_config_hash: EZvScsuJOfzSo0HpkiP_N_-UasbmV0Jzpb_rMcYujjU
+id: paragraph.hero.field_hero_style
+field_name: field_hero_style
+entity_type: paragraph
+bundle: hero
+label: 'Hero Style'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

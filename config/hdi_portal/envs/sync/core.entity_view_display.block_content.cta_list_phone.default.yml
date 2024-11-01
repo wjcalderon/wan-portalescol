@@ -1,0 +1,37 @@
+uuid: 18f03bcc-6a24-45f8-b6ba-a8d9fab4831c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_list_phone
+    - field.field.block_content.cta_list_phone.field_cta_list_phone_style
+    - field.field.block_content.cta_list_phone.field_p_cta_items
+  module:
+    - entity_reference_revisions
+    - options
+_core:
+  default_config_hash: OH3NLgQCuaaTX_YLNgVHr_h1KtF3p3YxlN5a5um0NrU
+id: block_content.cta_list_phone.default
+targetEntityType: block_content
+bundle: cta_list_phone
+mode: default
+content:
+  field_cta_list_phone_style:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_p_cta_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

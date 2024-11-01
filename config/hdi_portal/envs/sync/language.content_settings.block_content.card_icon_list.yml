@@ -1,0 +1,13 @@
+uuid: b69545e5-8ea9-483e-9642-5d109075734b
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card_icon_list
+_core:
+  default_config_hash: ShcX1ihiM8jZ_LP6DihJX7RltoELNCuGKCVByeHMZJ8
+id: block_content.card_icon_list
+target_entity_type_id: block_content
+target_bundle: card_icon_list
+default_langcode: site_default
+language_alterable: false

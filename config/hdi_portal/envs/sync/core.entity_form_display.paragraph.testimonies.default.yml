@@ -1,0 +1,94 @@
+uuid: f33b67d3-4d87-4a40-8d5a-3f268aa0342e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonies.field__testimony_item
+    - field.field.paragraph.testimonies.field_c_classes
+    - field.field.paragraph.testimonies.field_c_title
+    - field.field.paragraph.testimonies.field_c_title_status
+    - field.field.paragraph.testimonies.field_c_width
+    - paragraphs.paragraphs_type.testimonies
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_c_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_styling_settings:
+      children:
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.testimonies.default
+targetEntityType: paragraph
+bundle: testimonies
+mode: default
+content:
+  field__testimony_item:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: testimony_item
+    third_party_settings: {  }
+  field_c_classes:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

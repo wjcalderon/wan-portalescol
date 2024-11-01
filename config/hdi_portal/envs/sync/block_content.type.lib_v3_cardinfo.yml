@@ -1,0 +1,10 @@
+uuid: 25878998-b2de-4089-9c34-e46d891daee8
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tinFUwrEaIofYyh346LUNC-gipsoXNev2A4ntIJ1ptw
+id: lib_v3_cardinfo
+label: 'Tarjeta mas información v3'
+revision: false
+description: 'Componente grupo mas informacion'

@@ -1,0 +1,48 @@
+uuid: 3fa04550-c03b-4b6b-b209-f9323086be32
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.resultado_buscador
+    - field.field.node.document.field_category_doc
+    - field.field.node.document.field_pdf
+    - node.type.document
+  module:
+    - file
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.document.resultado_buscador
+targetEntityType: node
+bundle: document
+mode: resultado_buscador
+content:
+  field_category_doc:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

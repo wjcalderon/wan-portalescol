@@ -1,0 +1,19 @@
+uuid: 7f1082b2-eae7-45f9-a3cc-e970b92e2cc5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_vineta
+    - paragraphs.paragraphs_type.item_lista
+id: paragraph.item_lista.field_vineta
+field_name: field_vineta
+entity_type: paragraph
+bundle: item_lista
+label: Viñeta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

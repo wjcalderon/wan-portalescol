@@ -1,0 +1,25 @@
+uuid: 3e716fba-ed5a-4a1d-ab09-966d87f2df02
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+    - tb_megamenu
+  theme:
+    - hdi_portal
+id: hdi_portal_productosempresas
+theme: hdi_portal
+region: menu_desktop
+weight: 0
+provider: null
+plugin: 'tb_megamenu_menu_block:menu-principal-empresas'
+settings:
+  id: 'tb_megamenu_menu_block:menu-principal-empresas'
+  label: 'Productos Empresas'
+  label_display: '0'
+  provider: tb_megamenu
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/empresas\r\n/empresas/*"

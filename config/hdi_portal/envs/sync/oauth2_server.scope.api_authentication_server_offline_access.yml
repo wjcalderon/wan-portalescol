@@ -1,0 +1,8 @@
+uuid: d872ee31-429f-4394-a7e4-3f5cfb190fa3
+langcode: es
+status: true
+dependencies: {  }
+id: api_authentication_server_offline_access
+scope_id: offline_access
+server_id: api_authentication_server
+description: "Access the API when you're not present."

@@ -1,0 +1,23 @@
+uuid: 523ec4dc-41b1-4a85-a31a-adf090cc5ace
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aire_acondicionado
+    - node.type.vehiculo
+id: node.vehiculo.field_aire_acondicionado
+field_name: field_aire_acondicionado
+entity_type: node
+bundle: vehiculo
+label: 'Aire Acondicionado'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Con
+  off_label: Sin
+field_type: boolean

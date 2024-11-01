@@ -1,0 +1,25 @@
+uuid: 9f3e4d50-09d2-43e5-be48-7468cfc6a4f6
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:3bf98881-e53c-4ba2-ab42-20d94599e367'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineasdeatencion_4
+theme: hdi_portal
+region: blocks_activate
+weight: -10
+provider: null
+plugin: 'block_content:3bf98881-e53c-4ba2-ab42-20d94599e367'
+settings:
+  id: 'block_content:3bf98881-e53c-4ba2-ab42-20d94599e367'
+  label: 'Líneas de atención:'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: a603d91e-bf4a-46c6-9bbd-8a058dee0ce2
+langcode: es
+status: true
+dependencies: {  }
+id: api_authentication_server_openid
+scope_id: openid
+server_id: api_authentication_server
+description: 'Know who you are on Liberty Seguros'

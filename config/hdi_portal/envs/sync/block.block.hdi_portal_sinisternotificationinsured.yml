@@ -1,0 +1,21 @@
+uuid: 552051f6-9c7f-4c09-81c6-02f6dee193eb
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_sinisternotificationinsured
+theme: hdi_portal
+region: blocks_activate
+weight: -36
+provider: null
+plugin: sinister_notification_insured
+settings:
+  id: sinister_notification_insured
+  label: 'Sinister notification insured'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }

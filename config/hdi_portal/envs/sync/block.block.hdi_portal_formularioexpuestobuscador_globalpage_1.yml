@@ -1,0 +1,28 @@
+uuid: efa74ac3-61fd-48a8-b829-d5e362eb103d
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.buscador_global
+  module:
+    - system
+    - views
+  theme:
+    - hdi_portal
+id: hdi_portal_formularioexpuestobuscador_globalpage_1
+theme: hdi_portal
+region: menu_desktop_second
+weight: -43
+provider: null
+plugin: 'views_exposed_filter_block:buscador_global-page_1'
+settings:
+  id: 'views_exposed_filter_block:buscador_global-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

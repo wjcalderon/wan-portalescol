@@ -1,0 +1,14 @@
+uuid: 71ef9534-d806-4df0-bfd4-e619ee183943
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.landing_los_segura_creator
+  module:
+    - user
+id: user_remove_role_action.landing_los_segura_creator
+label: 'Elimina el rol Landing Los Segura creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: landing_los_segura_creator

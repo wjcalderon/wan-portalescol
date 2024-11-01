@@ -1,0 +1,30 @@
+uuid: fc2a11cb-68f6-4f4c-8e96-90ec61fc8c72
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_image:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+  module:
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_superintendenciafinanciera
+theme: hdi_portal
+region: footer_left
+weight: -46
+provider: null
+plugin: 'block_content:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+settings:
+  id: 'block_content:79faa13f-f3b3-44f2-b48a-aab924f37a2c'
+  label: 'super intendencia financiera'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

@@ -1,0 +1,10 @@
+uuid: 8aa772fd-6801-4fdb-b980-388b87aa9cf2
+langcode: es
+status: true
+dependencies: {  }
+id: lib_card_list_out
+label: 'Card List Destacados'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Lista de contenidos destacados.'
+behavior_plugins: {  }

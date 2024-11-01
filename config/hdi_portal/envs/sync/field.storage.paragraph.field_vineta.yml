@@ -1,0 +1,21 @@
+uuid: 7e092fe1-e345-4748-a612-9c72524b20b3
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_vineta
+field_name: field_vineta
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

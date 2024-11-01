@@ -1,0 +1,25 @@
+uuid: 312dd1b4-f135-47e8-bdf0-db1d2f58ea37
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:promotional:c62517ba-bb35-4f5c-a3a6-7badc75df24c'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_cotizaenlinea
+theme: hdi_portal
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'block_content:c62517ba-bb35-4f5c-a3a6-7badc75df24c'
+settings:
+  id: 'block_content:c62517ba-bb35-4f5c-a3a6-7badc75df24c'
+  label: 'Cotiza en línea'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: default
+visibility: {  }

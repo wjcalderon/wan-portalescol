@@ -1,0 +1,8 @@
+uuid: 4be1eb56-44c1-469c-9d84-63f751e0c997
+langcode: en
+status: true
+dependencies: {  }
+id: attention_lines
+label: 'Líneas de atención'
+revision: true
+description: 'Bloque personalizado con campos independientes para generar bloques de líneas de atención.'

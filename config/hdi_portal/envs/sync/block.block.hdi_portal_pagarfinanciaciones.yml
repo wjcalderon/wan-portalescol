@@ -1,0 +1,29 @@
+uuid: 2843c214-3282-437b-a176-2d5a04855461
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:card:d00853ed-4d3e-4eb2-8973-86062c64203e'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: pagar--mg-card
+id: hdi_portal_pagarfinanciaciones
+theme: hdi_portal
+region: blocks_activate
+weight: -24
+provider: null
+plugin: 'block_content:d00853ed-4d3e-4eb2-8973-86062c64203e'
+settings:
+  id: 'block_content:d00853ed-4d3e-4eb2-8973-86062c64203e'
+  label: 'Pagar - Financiaciones'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

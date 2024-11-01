@@ -1,0 +1,14 @@
+uuid: 7f6e3471-e141-4509-b189-a76c6ba2dcbe
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.news_article_creator
+  module:
+    - user
+id: user_remove_role_action.news_article_creator
+label: 'Elimina el rol Noticias artículo creator al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: news_article_creator

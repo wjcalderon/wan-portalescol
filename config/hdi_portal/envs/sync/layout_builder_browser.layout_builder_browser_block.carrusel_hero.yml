@@ -1,0 +1,13 @@
+uuid: 73d8a078-3792-493f-bb51-6405f557399a
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ch6cV386I2r3Po07cJlVBln2IwVbsE98vdA3Wk0lA5k
+id: carrusel_hero
+block_id: 'inline_block:hero_slider'
+category: multiples
+label: 'Carrusel - Hero'
+image_path: ''
+image_alt: ''
+weight: 1

@@ -1,0 +1,19 @@
+uuid: d4a2ec94-4b92-4f85-99e2-550f28d8ed05
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tipo_de_tall
+    - node.type.taller
+id: node.taller.field_tipo_de_tall
+field_name: field_tipo_de_tall
+entity_type: node
+bundle: taller
+label: 'Tipo de taller'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

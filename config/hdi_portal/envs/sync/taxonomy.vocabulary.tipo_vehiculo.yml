@@ -1,0 +1,9 @@
+uuid: eca82950-3d39-4227-a1b6-cc11a99b8d50
+langcode: es
+status: true
+dependencies: {  }
+name: 'Tipo de vehículo'
+vid: tipo_vehiculo
+description: 'Tipo de vehículo'
+weight: 0
+new_revision: false

@@ -1,0 +1,14 @@
+uuid: a04ec99f-7d62-4018-935f-71992c0415a1
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.faq_los_segura_reviewer
+  module:
+    - user
+id: user_add_role_action.faq_los_segura_reviewer
+label: 'Añade el rol Faq Los Segura reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: faq_los_segura_reviewer

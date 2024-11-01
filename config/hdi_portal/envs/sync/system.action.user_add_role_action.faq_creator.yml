@@ -1,0 +1,14 @@
+uuid: c969ea8f-a5aa-475a-a615-96dd3efe2a42
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.faq_creator
+  module:
+    - user
+id: user_add_role_action.faq_creator
+label: 'Add the Faq creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: faq_creator

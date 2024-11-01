@@ -1,0 +1,25 @@
+uuid: 5218f534-719f-4046-92d1-561f911596fc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:5e1aa48b-d040-48eb-bbf0-6e6877ed243b'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineasdeatencion
+theme: hdi_portal
+region: blocks_activate
+weight: -46
+provider: null
+plugin: 'block_content:5e1aa48b-d040-48eb-bbf0-6e6877ed243b'
+settings:
+  id: 'block_content:5e1aa48b-d040-48eb-bbf0-6e6877ed243b'
+  label: 'Canales de atención'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

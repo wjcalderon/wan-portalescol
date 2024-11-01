@@ -1,0 +1,29 @@
+uuid: 5b40c317-393a-429b-82cf-3781654b7c8e
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:31003fa7-43b5-4982-88d3-67f77e28b996'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: 'is-hidden faqs-popup'
+id: hdi_portal_faqspopups
+theme: hdi_portal
+region: blocks_popups
+weight: -33
+provider: null
+plugin: 'block_content:31003fa7-43b5-4982-88d3-67f77e28b996'
+settings:
+  id: 'block_content:31003fa7-43b5-4982-88d3-67f77e28b996'
+  label: 'faqs popups'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

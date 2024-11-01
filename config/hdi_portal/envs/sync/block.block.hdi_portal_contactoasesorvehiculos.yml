@@ -1,0 +1,25 @@
+uuid: 43d03e07-0dc6-46b3-be54-4c032ca8521e
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8128680b-c384-4e75-a7e9-0fc475ae2186'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_contactoasesorvehiculos
+theme: hdi_portal
+region: blocks_activate
+weight: -45
+provider: null
+plugin: 'block_content:8128680b-c384-4e75-a7e9-0fc475ae2186'
+settings:
+  id: 'block_content:8128680b-c384-4e75-a7e9-0fc475ae2186'
+  label: 'Contacto asesor vehículos '
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 6feae19d-297f-40e4-9c60-366968c26f58
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - hdi_portal
+id: hdi_portal_views_block__news_block_news
+theme: hdi_portal
+region: blocks_activate
+weight: -8
+provider: null
+plugin: 'views_block:news-block_news'
+settings:
+  id: 'views_block:news-block_news'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

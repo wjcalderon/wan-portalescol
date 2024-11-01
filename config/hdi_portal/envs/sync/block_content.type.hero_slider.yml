@@ -1,0 +1,10 @@
+uuid: 4f58f601-1a64-45c5-be89-dae2b96f6812
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sLa3rXPfobXlqm_iQ6tiuN4rEApRRjlEKZeaPbguWQw
+id: hero_slider
+label: 'Carrusel - Hero'
+revision: false
+description: ''

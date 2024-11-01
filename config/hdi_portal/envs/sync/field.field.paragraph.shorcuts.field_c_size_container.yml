@@ -1,0 +1,23 @@
+uuid: 3019996c-da79-49b3-9c24-448d11a7ff2b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_size_container
+    - paragraphs.paragraphs_type.shorcuts
+  module:
+    - options
+_core:
+  default_config_hash: 52FbRqYcwADPW409OFWavev9tfUbxuGW8s5T57BHjG0
+id: paragraph.shorcuts.field_c_size_container
+field_name: field_c_size_container
+entity_type: paragraph
+bundle: shorcuts
+label: 'Size container'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

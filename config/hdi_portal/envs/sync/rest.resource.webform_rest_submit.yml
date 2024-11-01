@@ -1,0 +1,20 @@
+uuid: 9c96b065-b250-4d81-98dc-731a8c671e59
+langcode: es
+status: true
+dependencies:
+  module:
+    - schemata_json_schema
+    - serialization
+    - user
+    - webform_rest
+id: webform_rest_submit
+plugin_id: webform_rest_submit
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - 'schema_json:json'
+    - json
+  authentication:
+    - cookie

@@ -1,0 +1,23 @@
+uuid: b79d7619-cf62-49cc-97a0-01b8badfadcb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_web_page
+    - node.type.lender
+  module:
+    - link
+id: node.lender.field_web_page
+field_name: field_web_page
+entity_type: node
+bundle: lender
+label: 'Página web'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

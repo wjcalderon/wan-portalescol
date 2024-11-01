@@ -1,0 +1,31 @@
+uuid: 878e7726-13f4-4084-b9f8-1027bf8ece37
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.referencia_adicional.field_marca_linea
+    - taxonomy.vocabulary.referencia_adicional
+  module:
+    - text
+id: taxonomy_term.referencia_adicional.default
+targetEntityType: taxonomy_term
+bundle: referencia_adicional
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_marca_linea:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

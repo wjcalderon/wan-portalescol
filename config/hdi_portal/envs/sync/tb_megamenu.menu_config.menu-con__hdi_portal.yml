@@ -1,0 +1,13 @@
+uuid: 4ad47ca2-27fd-4e26-a6e3-9103a8e1672e
+langcode: es
+status: true
+dependencies:
+  theme:
+    - hdi_portal
+  menu:
+    - menu-con
+id: menu-con__hdi_portal
+menu: menu-con
+theme: hdi_portal
+block_config: '{"animation":"none","duration":400,"delay":200,"style":"","auto-arrow":"1","always-show-submenu":"1","number-columns":3}'
+menu_config: '{"menu_link_content:716972ef-36a0-439c-95aa-6a5baf978396":{"rows_content":[[{"col_content":[{"block_id":"hdi_portal_tepodemosayudar","type":"block","tb_item_config":[]}],"col_config":{"width":"6","class":"","hidewcol":"","showblocktitle":"1"}},{"col_content":[{"block_id":"hdi_portal_lineasdeatencion","type":"block","tb_item_config":[]}],"col_config":{"width":"6","class":"","hidewcol":"","showblocktitle":"1"}}],[{"col_content":[{"plugin_id":"menu_link_content:89b84b18-0f43-4370-be9f-7b3d4a20ece3","type":"menu_item","tb_item_config":[],"weight":"-50"}],"col_config":{"width":"6","class":"","hidewcol":"0","showblocktitle":"1"}}]],"submenu_config":{"width":"1024","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}},"menu_link_content:89b84b18-0f43-4370-be9f-7b3d4a20ece3":{"rows_content":[],"submenu_config":{"width":"","class":"","group":"0"},"item_config":{"class":"","xicon":"","caption":"","alignsub":"","group":"0","hidewcol":"0","hidesub":"0","label":""}}}'

@@ -1,0 +1,31 @@
+uuid: f235642c-2563-418f-9918-74d7c457db6d
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:29d4619b-aac8-471e-9d75-7f1487816629'
+  module:
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_cotizadorenlineabanner
+theme: hdi_portal
+region: post_content
+weight: 0
+provider: null
+plugin: 'block_content:29d4619b-aac8-471e-9d75-7f1487816629'
+settings:
+  id: 'block_content:29d4619b-aac8-471e-9d75-7f1487816629'
+  label: 'Cotizador en Linea Banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /cotiza-en-linea/cotizador-autos

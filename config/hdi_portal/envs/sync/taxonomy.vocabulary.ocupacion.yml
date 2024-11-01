@@ -1,0 +1,9 @@
+uuid: f364167d-b4e9-4765-901b-3aae4e6c4e96
+langcode: es
+status: true
+dependencies: {  }
+name: Ocupación
+vid: ocupacion
+description: 'Listado de cargos u ocupaciones.'
+weight: 0
+new_revision: false

@@ -1,0 +1,23 @@
+uuid: fe5b83c3-133d-441f-93f1-f6d6b49a62e2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_commercial_bonus
+    - taxonomy.vocabulary.policy
+id: taxonomy_term.policy.field_commercial_bonus
+field_name: field_commercial_bonus
+entity_type: taxonomy_term
+bundle: policy
+label: 'Prima comercial'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

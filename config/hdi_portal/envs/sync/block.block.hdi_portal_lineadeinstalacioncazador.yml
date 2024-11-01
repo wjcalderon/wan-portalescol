@@ -1,0 +1,25 @@
+uuid: 04fe7e59-dcfc-431b-8ae2-a9a362596f62
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:attention_lines:3ced52b4-e26d-4cc5-a56c-e7034b16b6aa'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_lineadeinstalacioncazador
+theme: hdi_portal
+region: blocks_activate
+weight: -12
+provider: null
+plugin: 'block_content:3ced52b4-e26d-4cc5-a56c-e7034b16b6aa'
+settings:
+  id: 'block_content:3ced52b4-e26d-4cc5-a56c-e7034b16b6aa'
+  label: 'Línea de instalación cazador'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

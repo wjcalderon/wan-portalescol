@@ -1,0 +1,17 @@
+uuid: 53f41adf-fd6e-437d-aff4-fd31f69dd6fd
+langcode: es
+status: true
+dependencies:
+  config:
+    - crop.type.small
+  module:
+    - crop
+name: crop_small
+label: 'Cropped: Small'
+effects:
+  7f5ecff3-204f-453b-b93c-1822c5ce6a51:
+    uuid: 7f5ecff3-204f-453b-b93c-1822c5ce6a51
+    id: crop_crop
+    weight: null
+    data:
+      crop_type: small

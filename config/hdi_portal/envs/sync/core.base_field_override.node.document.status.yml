@@ -1,0 +1,22 @@
+uuid: 592573c1-427a-4f53-b30a-ab23ed7c3d3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.document
+id: node.document.status
+field_name: status
+entity_type: node
+bundle: document
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

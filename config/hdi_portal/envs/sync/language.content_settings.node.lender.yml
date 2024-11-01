@@ -1,0 +1,11 @@
+uuid: b3fc9670-4262-4a90-8aba-694fb89e34fc
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lender
+id: node.lender
+target_entity_type_id: node
+target_bundle: lender
+default_langcode: site_default
+language_alterable: false

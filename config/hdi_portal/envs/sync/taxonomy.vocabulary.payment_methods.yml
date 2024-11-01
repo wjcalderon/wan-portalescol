@@ -1,0 +1,9 @@
+uuid: 567bff27-629a-4474-be32-4ce82b5bd1c8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Métodos de pago'
+vid: payment_methods
+description: 'Métodos de pago asociados a los canales '
+weight: 0
+new_revision: false

@@ -1,0 +1,85 @@
+uuid: 88fe5be9-a02a-41be-b612-a02beef0ec2a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_additional_elements
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.item_lista
+  module:
+    - entity_reference_revisions
+id: paragraph.card.field_additional_elements
+field_name: field_additional_elements
+entity_type: paragraph
+bundle: card
+label: 'Additional elements'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      item_lista: item_lista
+    negate: 0
+    target_bundles_drag_drop:
+      acordeon:
+        weight: 20
+        enabled: false
+      assistance_item:
+        weight: 21
+        enabled: false
+      banner:
+        weight: 22
+        enabled: false
+      card:
+        weight: 23
+        enabled: false
+      cards:
+        weight: 24
+        enabled: false
+      drupal_block:
+        weight: 25
+        enabled: false
+      drupal_view:
+        weight: 26
+        enabled: false
+      image:
+        weight: 27
+        enabled: false
+      item_acordeon:
+        weight: 28
+        enabled: false
+      item_lista:
+        weight: 29
+        enabled: true
+      lista:
+        weight: 30
+        enabled: false
+      select_cta:
+        weight: 31
+        enabled: false
+      single_text:
+        weight: 32
+        enabled: false
+      slider:
+        weight: 33
+        enabled: false
+      tab_item:
+        weight: 35
+        enabled: false
+      tabs:
+        weight: 34
+        enabled: false
+      testimonies:
+        weight: 36
+        enabled: false
+      testimony_item:
+        weight: 37
+        enabled: false
+      webform:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

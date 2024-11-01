@@ -1,0 +1,10 @@
+uuid: 5f8d0ad1-57fa-4c46-b597-6366853ee282
+langcode: es
+status: true
+dependencies: {  }
+id: card_list_mmedia
+label: 'Multimedia Card List'
+icon_uuid: null
+icon_default: null
+description: 'Liberty Multimedia Card List.'
+behavior_plugins: {  }

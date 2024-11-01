@@ -1,0 +1,29 @@
+uuid: 557e321b-047f-4045-9cc1-41aaf39d8b13
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webform
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - file
+    - moderation_sidebar
+    - node
+    - toolbar
+id: webform_reviewer
+label: 'Webform reviewer'
+weight: 12
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any webform content'
+  - 'delete own files'
+  - 'edit any webform content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

@@ -1,0 +1,22 @@
+uuid: cef5bae1-4c44-4ea1-9043-85487ffa2541
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: fY9IlqVpP40wszNEXPHsQQVI1k2-Ogvhl0nkRY-sK24
+id: node.field_temporada
+field_name: field_temporada
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

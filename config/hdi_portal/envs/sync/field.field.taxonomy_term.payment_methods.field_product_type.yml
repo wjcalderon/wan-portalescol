@@ -1,0 +1,29 @@
+uuid: a4b5836c-a835-4d7e-a7a2-83a866e09bfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_product_type
+    - taxonomy.vocabulary.payment_methods
+    - taxonomy.vocabulary.product_type
+id: taxonomy_term.payment_methods.field_product_type
+field_name: field_product_type
+entity_type: taxonomy_term
+bundle: payment_methods
+label: 'Product type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      product_type: product_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,25 @@
+uuid: 90cc7ad6-9d08-410a-8bc0-dbf346fa7ffa
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1d9ea249-ff5d-4a6e-ae93-0e7bd7c1c939'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_servicioalclientecontactos
+theme: hdi_portal
+region: blocks_activate
+weight: -2
+provider: null
+plugin: 'block_content:1d9ea249-ff5d-4a6e-ae93-0e7bd7c1c939'
+settings:
+  id: 'block_content:1d9ea249-ff5d-4a6e-ae93-0e7bd7c1c939'
+  label: 'servicio al cliente - contactos'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

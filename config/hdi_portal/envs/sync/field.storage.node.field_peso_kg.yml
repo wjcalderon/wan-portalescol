@@ -1,0 +1,20 @@
+uuid: c3be3caf-862f-4235-9a94-ec8ea1e6ba7e
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_peso_kg
+field_name: field_peso_kg
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

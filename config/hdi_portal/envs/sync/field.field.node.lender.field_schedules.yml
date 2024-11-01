@@ -1,0 +1,21 @@
+uuid: 3e65dab8-f682-450e-b424-b439d33762ef
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_schedules
+    - node.type.lender
+  module:
+    - options
+id: node.lender.field_schedules
+field_name: field_schedules
+entity_type: node
+bundle: lender
+label: Horarios
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

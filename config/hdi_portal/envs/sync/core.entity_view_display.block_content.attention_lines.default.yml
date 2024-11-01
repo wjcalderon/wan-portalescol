@@ -1,0 +1,49 @@
+uuid: ceb97957-9ed6-46cd-aab0-8c0e1b6b534d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.attention_lines
+    - field.field.block_content.attention_lines.field_bogota
+    - field.field.block_content.attention_lines.field_numero_mst
+    - field.field.block_content.attention_lines.field_operadores
+    - field.field.block_content.attention_lines.field_resto_pais
+  module:
+    - text
+id: block_content.attention_lines.default
+targetEntityType: block_content
+bundle: attention_lines
+mode: default
+content:
+  field_bogota:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_numero_mst:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_operadores:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_resto_pais:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

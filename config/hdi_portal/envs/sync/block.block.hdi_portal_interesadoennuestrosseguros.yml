@@ -1,0 +1,30 @@
+uuid: 7d4344c9-53cb-478c-803d-89efaa415636
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_cta:95d5fa07-ed06-43e7-ab92-fbbfde599690'
+  module:
+    - block_content
+    - system
+  theme:
+    - hdi_portal
+id: hdi_portal_interesadoennuestrosseguros
+theme: hdi_portal
+region: footer_tool
+weight: -12
+provider: null
+plugin: 'block_content:95d5fa07-ed06-43e7-ab92-fbbfde599690'
+settings:
+  id: 'block_content:95d5fa07-ed06-43e7-ab92-fbbfde599690'
+  label: '¿Interesado en nuestros seguros?'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/blog/*"

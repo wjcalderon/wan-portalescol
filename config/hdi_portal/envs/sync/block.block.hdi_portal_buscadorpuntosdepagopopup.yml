@@ -1,0 +1,29 @@
+uuid: ba84a8aa-a8bc-45e8-a038-e505192247ed
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_detalle:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - hdi_portal
+third_party_settings:
+  block_class:
+    classes: is-hidden
+id: hdi_portal_buscadorpuntosdepagopopup
+theme: hdi_portal
+region: blocks_popups
+weight: -35
+provider: null
+plugin: 'block_content:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+settings:
+  id: 'block_content:a8a7d5aa-ddd0-45f7-85d3-206bf113a151'
+  label: 'Buscador puntos de pago popup'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

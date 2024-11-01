@@ -1,0 +1,14 @@
+uuid: f694a4ee-8f98-4de6-9b24-f17293ed4944
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.office_reviewer
+  module:
+    - user
+id: user_add_role_action.office_reviewer
+label: 'Añade el rol Sucursal reviewer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: office_reviewer

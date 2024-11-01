@@ -1,0 +1,25 @@
+uuid: 6c8f5c23-483e-4939-b06c-be457ec974f0
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ca263c5d-8cba-4cb2-9cc6-249c94048722'
+  module:
+    - block_content
+  theme:
+    - hdi_portal
+id: hdi_portal_cotizadoresautowhatsapp
+theme: hdi_portal
+region: blocks_activate
+weight: 0
+provider: null
+plugin: 'block_content:ca263c5d-8cba-4cb2-9cc6-249c94048722'
+settings:
+  id: 'block_content:ca263c5d-8cba-4cb2-9cc6-249c94048722'
+  label: 'Cotizadores Auto - Whatsapp'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

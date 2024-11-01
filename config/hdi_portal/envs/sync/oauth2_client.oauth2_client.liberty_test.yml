@@ -1,0 +1,10 @@
+uuid: 6006d4c4-251d-4476-b97f-9fb06ce65f9f
+langcode: es
+status: false
+dependencies: {  }
+id: liberty_test
+label: LibertyMutualTest
+description: ''
+oauth2_client_plugin_id: liberty_test
+credential_provider: oauth2_client
+credential_storage_key: ''

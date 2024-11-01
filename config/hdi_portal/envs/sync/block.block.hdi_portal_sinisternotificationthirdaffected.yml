@@ -1,0 +1,21 @@
+uuid: 84ed2f4c-3987-4f93-ac92-dd00a133039b
+langcode: es
+status: true
+dependencies:
+  module:
+    - lib_core
+  theme:
+    - hdi_portal
+id: hdi_portal_sinisternotificationthirdaffected
+theme: hdi_portal
+region: blocks_activate
+weight: -35
+provider: null
+plugin: sinister_notification_third
+settings:
+  id: sinister_notification_third
+  label: 'Sinister notification third affected'
+  label_display: '0'
+  provider: lib_core
+  my_block_settings: null
+visibility: {  }
