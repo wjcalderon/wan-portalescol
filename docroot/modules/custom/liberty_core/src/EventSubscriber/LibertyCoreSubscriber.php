@@ -8,6 +8,7 @@ use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 /**
  * Core of Liberty sponsors event subscriber.
@@ -46,10 +47,10 @@ class LibertyCoreSubscriber implements EventSubscriberInterface {
   /**
    * Kernel response event handler.
    *
-   * @param \Symfony\Component\HttpKernel\Event\FilterResponseEvent $event
+   * @param Symfony\Component\HttpKernel\Event\ResponseEvent $event
    *   Response event.
    */
-  public function onKernelResponse(FilterResponseEvent $event) {
+  public function onKernelResponse(ResponseEvent $event) {
     // $this->messenger->addStatus(__FUNCTION__);
   }
 

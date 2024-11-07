@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+{% if class_user %}
+{{ attach_library('hdi_aliados/login-js') }}
+  <div class="{{class_user}}">
+    {{ content }}
+  </div>
+{% elseif content %}
+  <div{{ attributes }}>
+    {{ content }}
+  </div>
+{% endif %}
+{# {% if url_vigilado_privado %}
+  {% if logo_vigilado_privado %}
+    {% include "@molecules/logo-corner/logo-corner.twig" with {
+      lcorner__image__src: logo_vigilado_privado,
+      lcorner__link__url : url_vigilado_privado
+    } %}
+  {% endif %}
+{% endif %} #}

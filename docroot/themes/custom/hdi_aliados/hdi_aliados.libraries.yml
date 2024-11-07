@@ -1,0 +1,63 @@
+global:
+  css:
+    theme:
+      assets/css/styles.css: {}
+  js:
+    assets/js/liberty-form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/once
+
+main-menu:
+  js:
+    assets/js/main-menu.js: {}
+  dependencies:
+    - core/drupal
+
+tabs:
+  js:
+    assets/js/tabs.js: {}
+  dependencies:
+    - core/drupal
+
+coverages:
+  js:
+    assets/js/coverage.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+cardservice:
+  js:
+    assets/js/cardservice.js: {}
+  dependencies:
+    - core/drupal
+
+jquery-validation:
+  js:
+    libraries/jquery-validation/dist/jquery.validate.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
+
+login-js:
+  js:
+    assets/js/login.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
+
+accordion-term:
+  js:
+    assets/js/accordion-term.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once

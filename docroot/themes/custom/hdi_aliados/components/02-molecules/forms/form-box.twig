@@ -1,0 +1,33 @@
+{% set forms__base_class = 'forms' %}
+
+<div {{ bem(forms__base_class, forms__modifiers, forms__blockname, forms__extra_classes) }}>
+  <div {{ bem('box', [], forms__base_class) }}>
+        <div {{ bem('icon', [], forms__base_class) }}>
+            {% include "@atoms/images/icons/_icon.twig" with {
+                icon_name: form__icon,
+            } %}
+        </div>
+        <div {{ bem('body', [], forms__base_class) }}>
+            {{ box__body }}
+        </div>
+        {% block form__content %}
+            <form>
+                <div class="form-item">
+                    <label for="text" class="form-item__label form-item__label--select">Select</label>
+                    <select id="select" name="select" class="form-item__select">
+                        <option hidden selected>Tipo de documento</option>
+                        <option value="value1">Cédula de ciudadanía</option>
+                        <option value="value2">Pasaporte</option>
+                    </select>
+                </div>
+                 <div class="form-item">
+                    <label for="text" class="form-item__label form-item__label--textfield">Number Input</label>
+                    <input id="text" type="number" class="form-item__textfield" placeholder="Número de identificación" pattern="[0-9]*">
+                </div>
+                {% include "@atoms/buttons/button.twig" with {
+                    button_content: form__button__send,
+                } %}
+            </form>
+        {% endblock %}
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<svg id="Icon_Left" data-name="Icon/Left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5.813" height="10.523" viewBox="0 0 5.813 10.523">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M0,.633,4.545,5.261,0,9.889l.645.633L5.813,5.261.645,0Z" fill="#1a1446"/>
+    </clipPath>
+  </defs>
+  <g id="Color_Liberty_Blue" data-name="Color/Liberty Blue">
+    <path id="Mask-2" data-name="Mask" d="M0,.633,4.545,5.261,0,9.889l.645.633L5.813,5.261.645,0Z" fill="#1a1446"/>
+    <g id="Color_Liberty_Blue-2" data-name="Color/Liberty Blue" clip-path="url(#clip-path)">
+      <g id="Color_Liberty_Blue-3" data-name="Color/Liberty Blue" transform="translate(-30 -28)">
+        <rect id="Rectangle_Copy" data-name="Rectangle Copy" width="67.333" height="64.667" fill="#1a1446"/>
+      </g>
+    </g>
+  </g>
+</svg>
