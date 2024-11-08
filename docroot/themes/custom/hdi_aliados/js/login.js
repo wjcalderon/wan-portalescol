@@ -5,11 +5,11 @@
 
   $('#user-login-form #edit-name, #user-login-form #edit-pass')
     .on('focus', function () {
-      $(this).parent().addClass("active");
+      $(this).parent().addClass("active")
     })
     .on('blur', function () {
       if ($(this).val() === '') {
-        $(this).parent().removeClass("active");
+        $(this).parent().removeClass("active")
       }
     })
-  })(jQuery);
+  })(jQuery)

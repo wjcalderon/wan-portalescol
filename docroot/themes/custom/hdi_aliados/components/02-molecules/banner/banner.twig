@@ -15,7 +15,7 @@
   </div>
   <div {{ bem('content-wrapper', [], banner__base_class) }}>
     <div {{ bem('content', [], banner__base_class) }}>
-      <h2>{{ banner__title }}</h2>
+      {{ banner__title }}
       <div>{{ banner__text|raw }}</div>
       {% if banner__button %}
       <div {{ bem('button', [], banner__base_class) }}>

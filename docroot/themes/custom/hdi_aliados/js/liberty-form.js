@@ -110,86 +110,20 @@ function getIdButton(id) {
       $(".terms-modal-wrap").removeClass("display");
     });
 
-    $('form').not('.user-login-form').on('focus', '#edit-id-type, #edit-id-number, #edit-email, #edit-phone, #edit-placa, #edit-name, #edit-last-name, #edit-actions-submit', () => {
+    $('form').not('.user-login-form')
+      .on('focus', '#edit-id-type, #edit-id-number, #edit-email, #edit-phone, #edit-placa, #edit-name, #edit-last-name, #edit-actions-submit', function() {
 
-      $(this).parent().parent().addClass("active");
+        $(this).parent().parent().addClass("active");
 
-      if ($(this).attr('id') === 'edit-id-type') {
-        $(this).parent().prev().removeClass("item-label-transition");
-      }
-    })
-
-    // $("#edit-id-type").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-id-type").parent().parent().addClass("active");
-    //   $("#edit-id-type").parent().prev().removeClass("item-label-transition");
-    // });
-
-    // $("#edit-id-number").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-id-number").parent().addClass("active");
-    // });
-
-    // $("#edit-email").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-email").parent().addClass("active");
-    // });
-
-    // $("#edit-phone").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-phone").parent().addClass("active");
-    // });
-
-    // $("#edit-placa").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-placa").parent().addClass("active");
-    // });
-
-    // $("#edit-name").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-name").parent().addClass("active");
-    // });
-
-    // $("#edit-last-name").focus(function (e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   $("#edit-last-name").parent().addClass("active");
-    // });
-
-    // $("#edit-actions-submit").click(function () {
-    //   $("#edit-id-type").parent().prev().removeClass("item-label-transition");
-    // });
-
-    // $("body").focus(function () {
-    //   if ($("#edit-id-type").val().length == 0) {
-    //     $("#edit-id-type").parent().parent().removeClass("active");
-    //     $("#edit-id-type").parent().prev().addClass("item-label-transition");
-    //   }
-    //   if ($("#edit-id-number").val().length == 0) {
-    //     $("#edit-id-number").parent().removeClass("active");
-    //   }
-    //   if ($("#edit-email").val().length == 0) {
-    //     $("#edit-email").parent().removeClass("active");
-    //   }
-    //   if ($("#edit-phone").val().length == 0) {
-    //     $("#edit-phone").parent().removeClass("active");
-    //   }
-    //   if ($("#edit-placa").val().length == 0) {
-    //     $("#edit-placa").parent().removeClass("active");
-    //   }
-    //   if ($("#edit-name").val().length == 0) {
-    //     $("#edit-name").parent().removeClass("active");
-    //   }
-    //   if ($("#edit-last-name").val().length == 0) {
-    //     $("#edit-last-name").parent().removeClass("active");
-    //   }
-    // });
+        if ($(this).attr('id') === 'edit-id-type') {
+          $(this).parent().prev().removeClass("item-label-transition");
+        }
+      })
+      .on('blur', function () {
+        if ($(this).val() === '') {
+          $(this).parent().removeClass("active");
+        }
+      })
 
     $(".accordion-term__tab1").click(function (e) {
       e.preventDefault();
