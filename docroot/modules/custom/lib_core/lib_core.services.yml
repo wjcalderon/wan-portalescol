@@ -8,8 +8,10 @@ services:
   lib_core.lib_core_controller_main:
     class: Drupal\lib_core\Controller\LibCoreControllerMain
     arguments:
+      - '@extension.path.resolver'
       - '@liberty_claims.claim_notification_controller'
   lib_core.lib_core_controller:
     class: Drupal\lib_core\Controller\LibCoreController
     arguments:
       - '@extension.path.resolver'
+      - '@liberty_claims.claim_notification_controller'

@@ -8,6 +8,8 @@ use Drupal\liberty_claims\Controller\ClaimNotificationController;
 use Drupal\webform\Entity\Webform;
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Extension\ExtensionPathResolver;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Controller routines for lib_core module.
@@ -21,12 +23,30 @@ class LibCoreControllerMain extends ControllerBase {
    */
   protected $claimNotificationController;
 
+  protected $pathResolver;
+
   /**
    * Constructs a new object.
    */
-  public function __construct(ClaimNotificationController $claim_notification_controller) {
+  public function __construct(
+    ExtensionPathResolver $path_resolver,
+    ClaimNotificationController $claim_notification_controller
+  ) {
+    $this->pathResolver = $path_resolver;
     $this->claimNotificationController = $claim_notification_controller;
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container)
+  {
+    return new static(
+      $container->get('extension.path.resolver'),
+      $container->get('lib_core.lib_core_controller_main'),
+    );
+  }
+
 
   /**
    * SinistersCitiesSelect.
@@ -44,7 +64,7 @@ class LibCoreControllerMain extends ControllerBase {
       $cities_file = '/data/ciudades-liberty-siniestros.yaml';
     }
 
-    $path_lib_core_module = drupal_get_path('module', 'lib_core');
+    $path_lib_core_module = $this->pathResolver->getPath('module', 'lib_core');
     $cities_decode = Yaml::decode(file_get_contents($path_lib_core_module . $cities_file));
     if (!empty($cities_decode)) {
       foreach ($cities_decode as $key => $value) {
@@ -63,7 +83,7 @@ class LibCoreControllerMain extends ControllerBase {
    */
   public function sinistersVehiclesBrandsSelect() {
     $opts = [];
-    $path_lib_core_module = drupal_get_path('module', 'lib_core');
+    $path_lib_core_module = $this->pathResolver->getPath('module', 'lib_core');
     $brand_files = file_get_contents($path_lib_core_module . '/data/marca_vehiculos_liberty.yaml');
     $brand_vehicles = Yaml::decode($brand_files);
     if (!empty($brand_vehicles)) {

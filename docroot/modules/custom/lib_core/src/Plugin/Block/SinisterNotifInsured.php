@@ -49,4 +49,10 @@ class SinisterNotifInsured extends BlockBase {
     );
   }
 
+  public function getCacheMaxAge()
+  {
+    // Disable block cache.
+    return 0;
+  }
+
 }
