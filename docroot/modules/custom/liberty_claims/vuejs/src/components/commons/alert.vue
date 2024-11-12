@@ -9,8 +9,10 @@
       <div class="body">
         <slot name="body"></slot>
       </div>
-      <button v-show="button" type="button" v-on:click="closeModal(true)">{{ buttonText }}</button>
-      <a  href="#" v-show="cancel" v-on:click.prevent="closeModal(false)">{{ cancelText }}</a>
+      <div class="actions">
+        <button v-show="button" type="button" v-on:click="closeModal(true)">{{ buttonText }}</button>
+        <a class="button button-secondary" href="#" v-show="cancel" v-on:click.prevent="closeModal(false)">{{ cancelText }}</a>
+      </div>
       <slot name="footer"></slot>
     </div>
     <div class="overlay"></div>

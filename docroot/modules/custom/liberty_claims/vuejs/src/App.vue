@@ -304,7 +304,7 @@ export default {
       firstStepData: null,
       secondStepData: null,
       thirdStepData: null,
-      fourthStepData: null, 
+      fourthStepData: null,
       firstStepDataThirdParty: null,
       caseStepData: null,
       secondStepDataThirdParty: null,

@@ -5,6 +5,8 @@ namespace Drupal\liberty_claims\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Access\CsrfTokenGenerator;
 
 /**
  * Provides a 'ClaimBlock' block.
@@ -31,11 +33,11 @@ class ClaimBlock extends BlockBase implements ContainerFactoryPluginInterface {
   protected $configFactory;
 
   /**
-   * Symfony\Component\HttpFoundation\Session\SessionInterface definition.
+   * Drupal\Core\Access\CsrfTokenGenerator definition.
    *
-   * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
+   * @var \Drupal\Core\Access\CsrfTokenGenerator
    */
-  protected $session;
+  protected $csrfToken;
 
   /**
    * Drupal\Core\Extension\ModuleHandlerInterface definition.
@@ -51,7 +53,7 @@ class ClaimBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $instance = new static($configuration, $plugin_id, $plugin_definition);
     $instance->libertyLogger = $container->get('liberty.logger');
     $instance->configFactory = $container->get('config.factory');
-    $instance->session = $container->get('session');
+    $instance->csrfToken = $container->get('csrf_token');
     $instance->moduleHandler = $container->get('module_handler');
     return $instance;
   }
@@ -61,7 +63,7 @@ class ClaimBlock extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build() {
     $config = $this->configFactory->get('liberty_claims.settings');
-    $token = $this->session->getId();
+    $token = $this->csrfToken->get();
 
     return [
       '#type' => 'markup',

@@ -81,7 +81,7 @@
               <button
                 type="button"
                 v-on:click="openModal(item)"
-                v-bind:class="{ assigned: item.codTaller === assigned }"
+                v-bind:class="{ 'button-secondary': item.codTaller !== assigned, 'button--primary': item.codTaller === assigned }"
               >
                 {{ buttonLabel(item.codTaller) }}
               </button>
@@ -454,7 +454,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     this.$http.get("/claim-data/cities-carshops").then(
       function(data) {
         this.cities = Object.entries(data.body).sort((a, b) => {

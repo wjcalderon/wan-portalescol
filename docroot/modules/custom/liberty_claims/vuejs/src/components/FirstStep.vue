@@ -1,6 +1,6 @@
 <template>
   <div class="pane first-step">
-    <h1>Comienza aquí</h1>
+    <h3>Comienza aquí</h3>
     <p>Por favor completa la siguiente información:</p>
 
     <div v-bind:class="{field: true, error: submited && hasError('tellus'), filled: casualtyData.tellus}">
@@ -42,7 +42,7 @@
     </div>
 
     <div class="actions">
-      <button v-on:click="getPolicy" type="button">Continuar</button>
+      <button v-on:click="getPolicy" type="button" class="button">Continuar</button>
     </div>
 
     <alert

@@ -33,4 +33,5 @@ services:
         "@claims.services",
         "@file_system",
         "@liberty.logger",
+        "@file.repository",
       ]
