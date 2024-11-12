@@ -162,15 +162,15 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#prefix' => '<div class="header-steps three-elements is-desktop">',
       '#suffix' => '</div>',
       '#markup' => '<span class="step-1 active">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t1-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t1-pasos-sini.svg"></span>
         <span class="label">Primer Paso</span>
         </span>
         <span class="step-2">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t2-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t2-pasos-sini.svg"></span>
         <span class="label">Segundo Paso</span>
         </span>
         <span class="step-3">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t3-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t3-pasos-sini.svg"></span>
         <span class="label">Tercer Paso</span>
         </span>',
     ];
@@ -937,7 +937,7 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#name' => 'back',
       '#attributes' => [
         'class' => [
-          'btn-submit-step btn-back is-hidden button--primary',
+          'btn-submit-step btn-back button-secondary',
         ],
         'cdtype' => 'back',
       ],

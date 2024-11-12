@@ -1,20 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
-body {
-  font-family: "Roboto", sans-serif !important;
-}
-
 .title-prin {
   font-size: 2.5rem;
   text-align: center;
-  font-weight: bold;
   margin-bottom: 0;
+  font-family: var(--hdi-font);
+  color: var(--hdi-universal-green);
+  margin-bottom: 2rem;
 }
 
 .lead-prin {
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   font-size: 1.25rem;
   font-weight: 300;
+  max-width: 30rem;
 }
 
 .no-results h3 {
@@ -32,12 +30,12 @@ body {
 }
 
 .list .no-results h3 {
-  color: #565656;
+  color: var(--gray-70);
   text-align: center;
 }
 
 .list .no-results p {
-  color: #565656;
+  color: var(--gray-70);
   font-size: 1.1rem;
   margin-bottom: 0;
   font-weight: 300;
@@ -79,16 +77,7 @@ body {
   padding-left: 2.9rem;
   font-weight: normal;
   margin-bottom: 0;
-  color: #7e7e7e;
-}
-
-.alert-taller a {
-  display: block;
-  border-bottom: none;
-  color: #343741;
-  text-decoration: underline !important;
-  width: 100px;
-  margin: auto;
+  color: var(--gray-50);
 }
 
 .modal {
@@ -103,6 +92,7 @@ body {
   max-width: 600px;
   box-sizing: border-box;
   width: 100%;
+  border-radius: 5px;
 }
 
 #steps .modal button.close {
@@ -124,22 +114,14 @@ body {
   background-position: center !important;
 }
 
-.pane .actions button.btn-secon,
-.pane .actions button.btn-secon:hover {
-  background-color: transparent;
-  border-color: #1a1446;
-  color: #1a1446;
-}
-
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: #003960F2;
   top: 0;
   left: 0;
   z-index: 10000;
-  opacity: 0.5;
   display: block;
 }
 
@@ -197,6 +179,8 @@ body {
   font-size: 0.9rem;
   color: #ccc;
   padding: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 #chooseTypeMenu ol li span,
@@ -216,15 +200,15 @@ body {
 
 #chooseTypeMenu ol li.current span,
 .form-steps .container-steps ul li.current span {
-  color: #28a3af;
-  border-color: #28a3af;
+  color: var(--hdi-light-green);
+  border-color: var(--hdi-light-green);
   font-weight: bold;
 }
 
 #chooseTypeMenu ol li.current,
 .form-steps .container-steps ul li.current {
-  color: #28a3af;
-  border-bottom: 2px solid #28a3af;
+  color: var(--hdi-light-green);
+  border-bottom: 2px solid var(--hdi-light-green);
   font-weight: bold;
   margin-bottom: 0;
 }
@@ -246,9 +230,9 @@ button.datepicker-day:focus {
 }
 
 .info-message {
-  padding: 3px 1rem;
+  padding: .5rem 0;
   font-size: 0.9rem;
-  color: #28a3af;
+  color: var(--hdi-light-blue);
 }
 
 .vue-dropzone > .dz-preview .dz-details {
@@ -282,10 +266,20 @@ button.datepicker-day:focus {
 .pane h1,
 #chooseType h2 {
   text-align: center;
+  font-size: 2rem;
 }
 
 .pane h1 {
   margin-bottom: 0;
+}
+
+.pane h3 {
+  font-family: var(--hdi-font);
+  color: var(--hdi-universal-green);
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  font-weight: 500;
+  text-align: center;
 }
 
 .pane p {
@@ -309,7 +303,7 @@ button.datepicker-day:focus {
 .field .label {
   display: inline-block;
   position: absolute;
-  color: #565656;
+  color: var(--gray-70);
   font-weight: normal;
   top: 10px;
   left: 1rem;
@@ -412,7 +406,6 @@ button.time-picker-column-item {
 .pane.second-step,
 .pane.third-step {
   width: 100%;
-  max-width: 800px;
   margin: auto;
 }
 
@@ -451,9 +444,9 @@ button.time-picker-column-item {
 
 #chooseTypeOption .pane.choose-type h3 {
   font-size: 1.25rem !important;
-  margin: 0 !important;
+  margin: 1.5rem 0 !important;
   font-weight: bold !important;
-  color: #1a1446 !important;
+  color: var(--hdi-universal-green) !important;
 }
 
 .vehicle-type .row {
@@ -467,24 +460,22 @@ button.time-picker-column-item {
   width: 31%;
   background-color: white;
   font-family: inherit;
-  border: 1px solid #29a3af;
-  -webkit-box-shadow: none;
+  border: 1px solid var(--hdi-light-green);
   box-shadow: none;
-  color: #29a3af;
+  color: var(--hdi-light-green);
   font-weight: normal !important;
   display: block;
   border-radius: 0.312rem;
   font-size: 1rem;
   padding: 0 1rem;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: border-color 0.45s ease-in-out;
   transition: border-color 0.45s ease-in-out;
   height: 50px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .vehicle-type {
@@ -493,17 +484,14 @@ button.time-picker-column-item {
 
 .vehicle-type .row button.selected,
 .vehicle-type .row .button.selected {
-  background-color: #29a3af;
+  background-color: var(--hdi-light-green);
   color: #fff;
-  border-color: #29a3af;
-  -webkit-box-shadow: 2px 4px 8px 0 rgba(40, 163, 175, 0.4) !important;
-  box-shadow: 2px 4px 8px 0 rgba(40, 163, 175, 0.4) !important;
+  border-color: var(--hdi-light-green);
 }
 
 .vehicle-type .row button.selected:focus,
 .vehicle-type .row .button.selected:focus {
   outline: none !important;
-  -webkit-box-shadow: 2px 4px 8px 0 rgba(40, 163, 175, 0.4) !important;
   box-shadow: 2px 4px 8px 0 rgba(40, 163, 175, 0.4) !important;
 }
 
@@ -511,6 +499,7 @@ button.time-picker-column-item {
   background: transparent no-repeat 1.2rem center;
   background-size: 3rem;
   height: auto;
+  padding: 1.5rem;
   padding-left: 5rem;
 }
 
@@ -546,13 +535,15 @@ button.time-picker-column-item {
 }
 
 .vehicle-type .row .button p {
-  color: #29a3af;
+  color: var(--hdi-light-green);
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.4;
   margin: 0;
   padding-bottom: 0.5rem;
   text-align: left;
+  font-weight: 300;
+  white-space: pre-line;
 }
 
 .vehicle-type .row .button.selected p {
@@ -566,7 +557,7 @@ button.time-picker-column-item {
 .vehicle-type .label {
   display: block;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .pane .actions {
@@ -582,7 +573,7 @@ button.time-picker-column-item {
   position: absolute;
   left: 29%;
   line-height: 3rem;
-  color: #343740;
+  color: var(--gray-80);
   font-weight: 500;
   background-image: url(../img/a-right.svg);
   background-repeat: no-repeat;
@@ -679,10 +670,9 @@ button.time-picker-column-item {
 }
 
 .pane .option-buttons .option-buttons-items button.selected {
-  background-color: #28a3af;
-  color: #fff;
-  border-color: #28a3af;
-  box-shadow: 0px 3px 8px #c0bfc0 !important;
+  background-color: var(--hdi-universal-green);
+  color: var(--white);
+  border-color: var(--hdi-universal-green);
 }
 
 .pane .option-buttons .option-buttons-items button.selected:focus {
@@ -694,17 +684,21 @@ button.time-picker-column-item {
   font-size: 1.5rem !important;
   font-weight: 500 !important;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .second-step h2 {
   font-size: 1.5rem !important;
   font-weight: 500 !important;
+  margin: 0.5rem 0 2rem;
+  text-align: center;
 }
 
 .pane .option-buttons .option-buttons-items button:first-child {
   border-radius: 0;
   border-top-left-radius: 0.312rem !important;
   border-bottom-left-radius: 0.312rem !important;
+  border-color: var(--hdi-universal-green);
 }
 
 .pane .option-buttons .option-buttons-items button:last-child {
@@ -722,7 +716,7 @@ button.time-picker-column-item {
 .pane select:focus,
 .pane .select2:focus {
   box-shadow: none !important;
-  border-color: #28a3af;
+  border-color: var(--hdi-light-green);
   outline: none !important;
   border-width: 2px;
   background-color: transparent !important;
@@ -730,8 +724,8 @@ button.time-picker-column-item {
 
 .pane .type {
   max-width: 50%;
-  box-shadow: 0 4px 16px 0 rgba(52, 55, 65, 0.16);
-  background-color: #ffffff;
+  box-shadow: 0 4px 16px 0 var(--shadow);
+  background-color: var(--white);
   margin: 0 1rem;
   padding: 1.75rem;
   border-radius: 3px;
@@ -741,16 +735,13 @@ button.time-picker-column-item {
 }
 
 .pane .type .icon-cont {
-  background-color: #f0fbfc;
   width: 90px;
   height: 90px;
-  border-radius: 50%;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem !important;
-  opacity: 1;
+  margin-bottom: 1rem !important;
 }
 
 .pane .type h3 {
@@ -761,42 +752,11 @@ button.time-picker-column-item {
 
 .pane .type p {
   margin: 0.4rem 0;
-  color: #565656;
+  color: var(--gray-70);
   font-size: 0.875rem;
   line-height: 1.71;
   text-align: center;
-}
-
-.pane .type button {
-  display: inline-block;
-  padding: 0 1.5rem;
-  line-height: 2rem;
-  border: 1px solid #343741 !important;
-  color: #343741;
-  margin-bottom: 0;
-  width: 50%;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 5px;
-  margin-top: 1.5rem;
-}
-
-.pane .actions button {
-  background: #00b1b7;
-  color: #f5f5f5;
-  border-radius: 0.3rem;
-  border: 1px solid #00b1b7;
-  padding: 0 3.125rem;
-  line-height: 2.75rem;
-  text-transform: none;
-  display: inline-block;
-  margin-bottom: 1.5625rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.pane .actions button:hover {
-  background-color: #00a1a7;
-  border-color: #00a1a7;
+  margin-bottom: 1.5rem;
 }
 
 .pane .image-car {
@@ -809,12 +769,16 @@ button.time-picker-column-item {
 .pane .image-car img {
   position: relative;
   z-index: 1;
+  width: 25rem;
+  margin: 0 auto;
 }
 
 .pane .image-car .p-default {
   position: absolute;
-  width: 140px;
+  width: 250px;
   white-space: pre-line;
+  font-size: 1.125rem;
+  color: var(--dark-blue-70);
 }
 
 .pane .image-car .p-default input:checked ~ .state label {
@@ -828,6 +792,7 @@ button.time-picker-column-item {
   background-position: center;
   background-size: 130%;
   border: none !important;
+  box-shadow: none;
 }
 
 .pane .image-car .p-default .state label:before {
@@ -840,14 +805,13 @@ button.time-picker-column-item {
   background-size: 14px;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  -webkit-box-shadow: 0 4px 16px 0 rgba(52, 55, 65, 0.28);
   box-shadow: 0 4px 16px 0 rgba(52, 55, 65, 0.28);
   border: 1px solid #efefef !important;
 }
 
 .pane .image-car .p-default:nth-child(2) {
-  top: 50px;
-  left: 53%;
+  top: 95px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   height: 90px;
@@ -861,8 +825,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(4) {
-  top: 355px;
-  left: 193px;
+  top: 300px;
+  left: 286px;
   transform: translateX(-50%);
   z-index: 10;
   padding-right: 3rem;
@@ -876,8 +840,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(3) {
-  top: 355px;
-  right: -29px;
+  top: 300px;
+  right: 20px;
   transform: translateX(-50%);
   z-index: 10;
   padding-left: 3rem;
@@ -889,8 +853,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(5) {
-  top: 650px;
-  right: -36px;
+  top: 530px;
+  right: 20px;
   transform: translateX(-50%);
   z-index: 10;
   padding-left: 3rem;
@@ -902,8 +866,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(6) {
-  top: 650px;
-  left: 200px;
+  top: 530px;
+  left: 286px;
   transform: translateX(-50%);
   z-index: 10;
   padding-right: 3rem;
@@ -917,8 +881,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(7) {
-  bottom: 172px;
-  left: 52%;
+  bottom: 200px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
@@ -935,8 +899,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(8) {
-  bottom: 392px;
-  left: 52%;
+  bottom: 360px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
@@ -953,8 +917,8 @@ button.time-picker-column-item {
 }
 
 .pane .image-car .p-default:nth-child(9) {
-  bottom: 59px;
-  left: 52%;
+  bottom: 80px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
@@ -995,7 +959,7 @@ button.time-picker-column-item {
 }
 
 .vue-dropzone .dz-message strong {
-  color: #28a3af;
+  color: var(--hdi-light-blue);
 }
 
 .pretty.p-default:not(.p-fill) input:checked ~ .state.p-primary-o label:after {
@@ -1014,66 +978,67 @@ button.time-picker-column-item {
 
 .modal.select-taller span {
   font-weight: 300;
+  font-size: 1.125rem;
+  margin: 1rem 0;
+  display: block;
+}
+
+.modal.select-taller span:first-of-type {
+  color: var(--hdi-green);
+  font-weight: 500;
 }
 
 .icon-modal-continue {
   background-image: url(../img/icon-continue.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 53px;
+  background-size: 7rem;
   width: 120px;
   height: 120px;
   margin: auto;
-  background-color: #f0fbfc;
-  border-radius: 50%;
 }
 
 .modal-continue h2 {
-  color: #11065d;
   font-size: 1.8rem !important;
   font-weight: 500;
-  margin-bottom: 0.5rem !important;
+  margin: 1.5rem 0 !important;
 }
 
-.modal-continue a {
-  display: block;
-  width: 60px;
-  margin: auto;
-  border-bottom: 0;
-  text-decoration: underline !important;
-  color: #3b3b3b !important;
+.modal-continue h2 {
+  font-size: 1.25rem;
+}
+
+.modal-continue .actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal-continue .actions {
+  margin-top: unset;
+}
+
+.modal-continue .actions a {
+  background: unset;
+  position: relative !important;
+  margin: unset;
+  left: unset;
+  line-height: inherit;
+  padding-left: unset;
+  padding: .625rem 2.875rem;
+  font-weight: 700;
 }
 
 .modal-continue p {
   padding: 0 3rem;
 }
 
-.modal.select-taller .body button {
-  background: #00b1b7 !important;
-  color: #ffffff !important;
-  border-radius: 0.3rem;
-  border: 1px solid #00b1b7;
-  padding: 0 3.125rem;
-  line-height: 2.75rem;
-  text-transform: none;
-  display: inline-block;
-  margin-bottom: 1.5625rem;
-  font-weight: bold !important;
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-.modal.select-taller .body button:hover {
-  background: #00a1a7 !important;
-  border: 1px solid #00a1a7;
-}
-
 .modal.select-taller h2 {
   margin-top: 0;
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.5rem;
   margin-bottom: 0.5rem;
+  font-family: var(--hdi-font);
 }
 
 .modal.select-taller .address {
@@ -1131,8 +1096,7 @@ button.time-picker-column-item {
 .car-shops ol li::before {
   content: counter(my-awesome-counter);
   color: #ffff;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: .85rem;
   position: absolute;
   background-image: url(../img/list.svg);
   background-repeat: no-repeat;
@@ -1165,6 +1129,8 @@ button.time-picker-column-item {
   background-size: 15px;
   padding-left: 1.8rem;
   margin-bottom: 0.7rem;
+  color: var(--gray-80);
+  font-weight: 300;
 }
 
 .car-shops .phone {
@@ -1173,14 +1139,16 @@ button.time-picker-column-item {
   background-position: left center;
   background-size: 17px;
   padding-left: 1.8rem;
+  color: var(--gray-80);
+  font-weight: 300;
 }
 
 .car-shops h3 {
-  margin: 1em 0 0.5em;
+  margin: 1em 0;
   font-size: 1.25rem;
   font-weight: inherit;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  text-align: left;
+  color: var(--gray-80);
 }
 
 .car-shops .row {
@@ -1195,30 +1163,19 @@ button.time-picker-column-item {
   margin-bottom: 0;
 }
 
+.car-shops .row.assigned {
+  background-color: var(--hdi-yellow);
+}
+
 .car-shops .row:hover {
   background-color: #f5f5f5;
 }
 
 .car-shops .total {
-  color: #2aa3af;
+  color: var(--blue-70);
   margin-bottom: 3px;
   display: inline-block;
   font-size: 0.8rem;
-}
-
-.car-shops button {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  padding: 0 3rem;
-  font-size: 1rem;
-}
-
-.car-shops button.assigned {
-  background-color: #2aa3af;
-  border: 1px solid #2aa3af;
-  padding: 0 3rem;
-  color: #fff;
-  font-weight: bold;
 }
 
 .car-shops .row .col:first-child {
@@ -1256,6 +1213,10 @@ button.time-picker-column-item {
   margin-bottom: 1.5rem;
 }
 
+.pane.fifth-step .summary h3 {
+  color: var(--hdi-green);
+}
+
 .datepicker-day:focus,
 .time-picker-column-item:focus {
   outline: none !important;
@@ -1265,12 +1226,14 @@ button.time-picker-column-item {
   position: relative !important;
   left: 0 !important;
   top: 0 !important;
+  color: var(--gray-80);
+  margin-bottom: .5rem;
 }
 
 .pane.fifth-step .summary .info {
   margin-bottom: 1rem;
   font-weight: 300 !important;
-  color: #565656 !important;
+  color: var(--gray-70) !important;
 }
 
 .pane.fifth-step .summary .info p {
@@ -1278,11 +1241,12 @@ button.time-picker-column-item {
   font-size: 1rem !important;
   margin-bottom: 0 !important;
   font-weight: 300 !important;
-  color: #565656 !important;
+  color: var(--gray-80) !important;
+  font-weight: 300;
 }
 
 .pane.fifth-step .summary .alert {
-  color: #565656;
+  color: var(--gray-80);
   font-weight: 400 !important;
 }
 
@@ -1293,7 +1257,7 @@ button.time-picker-column-item {
   padding-left: 1.9rem;
   line-height: 1.5rem;
   font-weight: normal;
-  color: #7e7e7e;
+  color: var(--gray-50);
 }
 
 .pane.fifth-step .summary .icon {
@@ -1357,7 +1321,6 @@ button.time-picker-column-item {
 .confirmation-page h2 {
   font-size: 2rem !important;
   font-weight: 600;
-  color: #1a1446;
 }
 
 .confirmation-page h1 {
@@ -1370,7 +1333,7 @@ button.time-picker-column-item {
 
 .confirmation-page h3 {
   margin-top: 0;
-  color: #565656;
+  color: var(--gray-70);
   font-size: 1.2rem !important;
   font-weight: 400 !important;
   margin-bottom: 2rem !important;
@@ -1384,29 +1347,15 @@ textarea {
   padding-top: 1.5rem !important;
 }
 
-.confirmation-page button {
-  background: #00b1b7;
-  color: #f5f5f5;
-  border-radius: 0.3rem;
-  border: 1px solid #00b1b7;
-  padding: 0 3.125rem;
-  line-height: 2.75rem;
-  text-transform: none;
-  display: inline-block;
-  margin-bottom: 1.5625rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .confirmation-page p {
-  width: 50%;
+  width: 60%;
   margin: auto;
-  color: #323744;
+  color: var(--gray-70);
   line-height: 1.2rem;
   font-weight: 300;
   margin-bottom: 3rem;
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .date-time-picker input {
@@ -1414,11 +1363,51 @@ textarea {
 }
 
 .confirmation-page h4 {
-  font-size: 1rem;
-  color: #323744;
+  font-size: 1.25rem;
   font-weight: 300;
   width: 50%;
-  margin: auto;
+  margin: 1.5rem auto;
+}
+
+.confirmation-page {
+  .icon {
+    align-items: center;
+    border: 3px solid var(--hdi-universal-green);
+    border-radius: 100%;
+    display: flex;
+    height: 11.375rem;
+    margin: 3rem auto;
+    width: 11.375rem;
+
+    img {
+      display: block;
+      height: 5.4375rem;
+      margin: 0 auto;
+      width: 5.4375rem;
+    }
+  }
+
+  .number {
+    color: var(--hdi-green);
+    font-size: 3rem !important;
+  }
+
+  .number ~ h3 {
+    color: var(--gray);
+    font-size: 1.25rem;
+  }
+
+  .links {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .actions {
+    .button-secondary {
+      margin-right: 2rem;
+    }
+  }
 }
 
 .field-clear-button[data-v-7d90c7dc] {
@@ -1473,18 +1462,18 @@ textarea {
 
 .confirmation-page .links a {
   font-weight: bold;
-  color: #1a1345;
+  color: var(--hdi-universal-green);
   border-bottom: none;
+  font-size: 1rem;
 }
 
 .confirmation-page .links a:first-child {
-  border-right: 1px solid #ccc;
-  padding-right: 1rem;
   background-image: url(../img/icon-pdf.svg);
-  background-repeat: no-repeat;
   background-position: left center;
+  background-repeat: no-repeat;
   background-size: 14px;
-  padding-left: 23px;
+  border-right: 1px solid var(--gray-40);
+  padding: .3rem 1rem .3rem 1.25rem;
 }
 
 .confirmation-page .links a:last-child {
@@ -1518,7 +1507,9 @@ button.has-tooltip {
 .pane > h1 {
   font-size: 2rem !important;
   font-weight: bold;
-  margin-top: 3rem !important;
+  margin: 1.5rem 0 !important;
+  font-family: var(--hdi-font);
+  color: var(--hdi-universal-green);
 }
 
 .invalid-plate .modal {
@@ -1530,7 +1521,7 @@ button.has-tooltip {
   width: 112px;
   margin: auto;
   border-bottom: none;
-  color: #565656;
+  color: var(--gray-70);
   text-decoration: underline;
 }
 
@@ -1545,7 +1536,7 @@ button.has-tooltip {
   bottom: 0;
   font-size: 0.8rem !important;
   line-height: 1.2rem !important;
-  color: #565656 !important;
+  color: var(--gray-70) !important;
 }
 
 .modal p {
@@ -1566,6 +1557,8 @@ button.has-tooltip {
   position: relative;
   left: 0;
   top: 0;
+  color: var(--gray-80);
+  font-weight: 500;
 }
 
 .modal .icon-invalid-plate {
@@ -1580,30 +1573,14 @@ button.has-tooltip {
 
 .modal .send-email-box .icon,
 .modal.send-email .icon {
-  background-color: #f0fbfc;
   background-image: url(../img/icon-send-email.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 63px;
+  background-size: 6rem;
   width: 143px;
   height: 143px;
   margin: auto;
-  border-radius: 50%;
-  position: relative;
-}
-
-.modal.send-email .icon:after {
-  content: " ";
-  background-image: url(../img/icon-send-email-check.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 50%;
-  margin-top: -12px;
-  right: -12px;
+  border: none;
 }
 
 .modal .send-email-box button {
@@ -1615,10 +1592,10 @@ button.has-tooltip {
 }
 
 .modal .send-email-box .body h3 {
-  font-size: 1.5rem;
-  padding: 0 5rem;
-  font-weight: 300;
-  color: #343740;
+  font-size: 2rem !important;
+  padding: 0 2rem;
+  font-weight: 500;
+  color: var(--hdi-universal-green);
   line-height: initial;
 }
 
@@ -1637,7 +1614,7 @@ button.has-tooltip {
 }
 
 .invalid-plate .footer-popup strong {
-  color: #28a3af;
+  color: var(--hdi-light-green);
 }
 
 #chooseTypeOption {
@@ -1669,17 +1646,7 @@ button.has-tooltip {
 }
 
 .modal button {
-  background: #99e5ea !important;
-  color: #343741 !important;
-  border-radius: 0.3rem;
-  border: 1px solid #99e5ea;
-  padding: 0 3.125rem;
-  line-height: 2.75rem;
-  text-transform: none;
-  display: inline-block;
-  margin-bottom: 1.5625rem;
-  font-weight: bold !important;
-  font-size: 1rem;
+  margin-top: 1.5rem;
 }
 
 .modal.alert-taller h1 {
@@ -1690,18 +1657,7 @@ button.has-tooltip {
 }
 
 .modal.alert-taller button {
-  background: transparent !important;
-  color: #343741 !important;
-  border-radius: 0.3rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem !important;
-  border: 1px solid #343741 !important;
-  padding: 0 3.125rem;
-  line-height: 2.75rem;
-  text-transform: none;
-  display: inline-block;
-  font-weight: bold !important;
-  font-size: 1rem;
+  margin-top: 1.5rem;
 }
 
 .modal.alert-taller button.close {
@@ -1716,7 +1672,7 @@ button.has-tooltip {
 }
 
 .tooltip .tooltip-inner {
-  background: #323744;
+  background: #174b6fe5;
   color: white;
   border-radius: 5px;
   padding: 20px 25px 20px;
@@ -1731,7 +1687,7 @@ button.has-tooltip {
   border-style: solid;
   position: absolute;
   margin: 5px;
-  border-color: #323744;
+  border-color: #174b6fe5;
   z-index: 1;
 }
 
@@ -1852,7 +1808,7 @@ button.has-tooltip {
 
 .radiobutton-group .case.selected {
   color: #ffffff;
-  background-color: #28a3af;
+  background-color: var(--hdi-light-green);
 }
 
 .radiobutton-group .case .icon-1 {
@@ -1897,14 +1853,19 @@ button.has-tooltip {
 .case-4-disclaimer h4 {
   text-align: center;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--hdi-green);
 }
 
 .case-4-disclaimer ul li {
   list-style-image: url(../img/icon-list-check.svg);
-  padding-left: 0.8rem;
+  padding-left: 1rem !important;
   margin-bottom: 0.5rem;
   font-weight: 300 !important;
+
+  &::marker {
+    font-size: 2rem;
+  }
 }
 
 .pane.fifth-step .summary ol li ul li {
@@ -2398,13 +2359,13 @@ p.countdown {
   position: relative;
   text-align: left;
   font-size: 1rem;
-  color: #426293;
+  color: var(--hdi-light-blue);
 }
 
 p.countdown .remain {
   position: absolute;
   right: 0;
-  color: #bd2424;
+  color: var(--hdi-red);
 }
 
 .align-items-end {
@@ -2421,4 +2382,49 @@ p.countdown .remain {
 
 .lh-normal {
   line-height: normal;
+}
+
+.vld-shown {
+  overflow: hidden;
+}
+
+.vld-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.vld-overlay.is-active {
+  display: flex;
+}
+
+.vld-overlay.is-full-page {
+  z-index: 9999;
+  position: fixed;
+}
+
+.vld-overlay .vld-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #003960F2 !important;
+  background-image: url("../img/loader.svg"), url('../img/logo-loader.svg') !important;
+  background-size: 12.5rem, 6rem !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  opacity: 1 !important;
+}
+
+.vld-overlay .vld-icon, .vld-parent {
+  position: relative;
+  display: none;
 }

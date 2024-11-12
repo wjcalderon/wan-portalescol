@@ -18,6 +18,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Drupal\file\FileRepositoryInterface;
+use Drupal\Core\File\FileExists;
 
 /**
  * Claim Notification Controller.
@@ -81,6 +83,13 @@ class ClaimNotificationController extends ControllerBase {
   protected $logger;
 
   /**
+   * Drupal\file\FileRepositoryInterface definition.
+   *
+   * @var \Drupal\file\FileRepositoryInterface
+   */
+  protected $fileInterface;
+
+  /**
    * Constructs a new SettingsForm object.
    */
   public function __construct(
@@ -91,7 +100,8 @@ class ClaimNotificationController extends ControllerBase {
     Session $session,
     ClaimServices $claim_services,
     FileSystemInterface $file_system,
-    LoggerServiceInterface $liberty_logger
+    LoggerServiceInterface $liberty_logger,
+    FileRepositoryInterface $file_interface
     ) {
     $this->libertyClaimsLogManager = $liberty_claims_log_manager;
     $this->mailManager = $mail_manager;
@@ -101,6 +111,7 @@ class ClaimNotificationController extends ControllerBase {
     $this->claimService = $claim_services;
     $this->fileSystem = $file_system;
     $this->logger = $liberty_logger;
+    $this->fileInterface = $file_interface;
   }
 
   /**
@@ -115,7 +126,8 @@ class ClaimNotificationController extends ControllerBase {
       $container->get('session'),
       $container->get('claims.services'),
       $container->get('file_system'),
-      $container->get('liberty.logger')
+      $container->get('liberty.logger'),
+      $container->get('file.repository')
     );
   }
 
@@ -340,11 +352,10 @@ class ClaimNotificationController extends ControllerBase {
 
         $data = file_get_contents($source);
 
-        /** @var Drupal\file\Entity\File $file */
-        $file = file_save_data(
+        $file = $this->fileInterface->writeData(
           $data,
           $path . $source->getClientOriginalName(),
-          $this->fileSystem::EXISTS_REPLACE
+          FileExists::Replace
         );
 
         $response['file_id'] = $file->id();

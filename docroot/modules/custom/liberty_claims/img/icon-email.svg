@@ -1,32 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="22px" height="14px" viewBox="0 0 22 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>Icon/PDF Copy</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M1.6410596,1.04646465 L19.192053,1.04646465 L10.4860927,8.4 L1.6410596,1.04646465 Z M15.2980132,6.81616162 L14.5192053,7.46666667 L18.9970728,12.9818182 L1.75231788,12.9818182 L6.28609272,7.41010101 L5.50728477,6.75959596 L1.0013245,12.3030303 L1.0013245,1.83838384 L10.4860927,9.75757576 L19.9705828,1.72525253 L19.9705828,12.6141414 L15.2980132,6.81616162 Z M20.4715232,0 L0.500662252,0 C0.222516556,0 0,0.226262626 0,0.509090909 L0,13.4909091 C0,13.7737374 0.222516556,14 0.500662252,14 L20.4993377,14 C20.7774834,14 21,13.7737374 21,13.4909091 L21,0.537373737 C20.9721854,0.226262626 20.7496689,0 20.4715232,0 L20.4715232,0 Z" id="path-1"></path>
-    </defs>
-    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="7.-Claims-Insured-Thanks" transform="translate(-700.000000, -1212.000000)">
-            <g id="Group-16" transform="translate(515.000000, 1155.000000)">
-                <g id="Group-25" transform="translate(0.000000, 50.000000)">
-                    <g id="Group-19" transform="translate(182.000000, 0.000000)">
-                        <g id="Icon/Mesagge">
-                            <g id="Color/Liberty-Blue" transform="translate(3.500000, 7.000000)">
-                                <mask id="mask-2" fill="white">
-                                    <use xlink:href="#path-1"></use>
-                                </mask>
-                                <use id="Mask" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
-                                <g id="Color/Medium" mask="url(#mask-2)" fill="#28A3AF">
-                                    <g transform="translate(-47.833333, -49.000000)" id="Rectangle-Copy-8">
-                                        <polygon points="0 0 118 0 118 113 0 113"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24.278 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_6811" data-name="Rectángulo 6811" width="24.278" height="16" transform="translate(0 0)" fill="#006729"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_29782" data-name="Grupo 29782" transform="translate(0 0)">
+    <g id="Grupo_29782-2" data-name="Grupo 29782" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <path id="Trazado_15816" data-name="Trazado 15816" d="M23.6,0H.683A.685.685,0,0,0,0,.683V15.318A.684.684,0,0,0,.683,16H23.6a.684.684,0,0,0,.683-.682V.683A.685.685,0,0,0,23.6,0m-.682,2.236V14.009L17.662,7.637l-1.053.868,5.053,6.13H2.354l5.109-6.2L6.41,7.567l-5.045,6.12V2.375l10.706,8.778.066.054ZM2.288,1.365H21.825L12.131,9.436Z" transform="translate(0 0)" fill="#006729"/>
     </g>
+  </g>
 </svg>

@@ -1,7 +1,7 @@
 <template>
   <div class="pane confirmation-page">
     <h2>¡Hemos recibido la información!</h2>
-    <h4>En Liberty queremos que estés tranquilo mientras nos encargamos de tu proceso.</h4>
+    <h4>En HDI Seguros queremos que estés tranquilo mientras nos encargamos de tu proceso.</h4>
     <div class="icon">
       <img v-bind:src="bgImage" alt="Resumen" />
     </div>
@@ -9,21 +9,20 @@
       {{ number }}
       <button v-tooltip="{ content: msg, placement: 'bottom-center' }"></button>
     </h1>
-    <h3>Número de radicado</h3>
+    <h3>Número de solicitud</h3>
 
     <div class="links">
       <a class="download-pdf" v-on:click.prevent="download" target="_blank" rel="noreferrer" href="#">Descarga PDF</a>
       <a class="send-email" href="#" v-on:click.prevent="sendEmail">Enviar por correo</a>
     </div>
     <p>
-      Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso. Para
-      mas información escribenos por <strong>Whatsapp al 3164821802</strong> de lunes a viernes de 7 a.m a 5 p.m y sabados
-      de 8 a.m a 12 p.m
+      Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso.
+      Para mas información escribenos por <strong>Whatsapp al 3164821802</strong> de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m
     </p>
 
     <div class="actions">
-      <button v-on:click="refresh('href')" class="btn-secon" type="button">Iniciar nuevo reporte</button>
-      <button v-on:click="refresh('origin')" type="button">Ir a inicio</button>
+      <button v-on:click="refresh('href')" class="button-secondary" type="button">Iniciar nuevo reporte</button>
+      <button v-on:click="refresh('origin')" class="disabled" type="button">Ir a inicio</button>
     </div>
 
     <component :is="modal" v-on:closeModal="close($event)" v-bind:userData="user"></component>
@@ -59,8 +58,8 @@ export default {
   computed: {
     bgImage: function () {
       return this.drupalSettings.assetsPath
-        ? "/" + this.drupalSettings.assetsPath + "Ilustracion-autos.png"
-        : "src/assets/Ilustracion-autos.png";
+        ? "/" + this.drupalSettings.assetsPath + "icon-check.svg"
+        : "src/assets/icon-check.svg";
     }
   },
   methods: {
@@ -74,6 +73,10 @@ export default {
       this.modal = null;
     },
     download: function () {
+      let loader = this.$loading.show({
+        canCancel: false,
+      });
+
       this.$http.post("/claim/download/" + this.number, this.user, {
         responseType: "blob"
       })
@@ -90,10 +93,14 @@ export default {
           document.body.appendChild(a);
           a.click();
           window.URL.revokeObjectURL(this.downloadUrl);
+
+          loader.hide()
         },
-          function (error) {
-            console.log(error);
-          });
+        function (error) {
+          console.log(error);
+
+          loader.hide()
+        });
     }
   },
   created() {
