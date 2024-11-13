@@ -5,7 +5,7 @@
     <div class="body">
       <h1>¿Estás seguro que deseas asignar otro taller?</h1>
       <button type="button" v-on:click="closeModal(true)">Asignar otro</button>
-      <a  href="#" v-on:click.prevent="closeModal(false)">Cancelar</a>
+      <a class="button button-secondary" href="#" v-on:click.prevent="closeModal(false)">Cancelar</a>
     </div>
   </div>
 </template>

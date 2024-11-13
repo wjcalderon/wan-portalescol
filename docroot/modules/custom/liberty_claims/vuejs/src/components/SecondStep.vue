@@ -1,6 +1,6 @@
 <template>
   <div class="pane second-step">
-    <h1>Información Personal</h1>
+    <h3>Información Personal</h3>
     <p>Por favor completa la siguiente información del asegurado:</p>
 
     <div class="row columns-row">

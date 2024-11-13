@@ -1,5 +1,323 @@
-/* .disabled_sinister{
-    border: 2px solid #c0bfc0 !important;
-    background: #c0bfc0 !important;
-    color: white !important;
-} */
+.component__tabs--sinister-notice {
+  .cp-tabs {
+    > .cog--flex {
+      border: none;
+
+      .header-tabs {
+        justify-content: center;
+      }
+    }
+  }
+
+  .component__title {
+    color: var(--hdi-universal-green);
+    font-family: var(--hdi-font);
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .component__subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 30rem;
+    text-align: center;
+  }
+
+  .main-links {
+    column-gap: 1rem;
+    justify-content: center;
+
+    li {
+      flex-basis: 30%;
+      justify-content: center !important;
+
+      .component__card {
+        align-items: center;
+        border-radius: 3px;
+        box-shadow: 0px 3px 16px var(--shadow);
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 18.3125rem;
+        padding: 1.75rem 3rem;
+
+        img {
+          margin: 1.5rem 0 2rem;
+          width: 3rem;
+        }
+
+        h4.name {
+          color: var(--hdi-universal-green);
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin: 1.5rem 0;
+        }
+
+        p.lead {
+          color: var(--gray-70);
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 1.71;
+          margin: 0.4rem 0 1.5rem;
+          text-align: center;
+          white-space: break-spaces;
+        }
+      }
+    }
+  }
+
+  .header-steps {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: -3rem 0 3rem;
+
+    .step-1, .step-2, .step-3 {
+      .label {
+        display: block;
+        margin-top: .5rem;
+        text-align: center;
+      }
+
+      &.check {
+        img {
+          content: url('/modules/custom/liberty_claims/img/icon-check.svg');
+        }
+      }
+    }
+  }
+
+  .steps {
+    margin: 0 auto;
+    max-width: 40rem;
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+
+    .switch {
+      margin-top: -.5rem;
+      text-align: left;
+
+      .btn {
+        background: transparent;
+        border: 1px solid var(--hdi-universal-green);
+        display: inline-block;
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        transition: background-color 300ms ease,color 300ms ease;
+      }
+
+      .btn-left {
+        border-radius: 2px 0 0 2px;
+      }
+
+      .btn-right {
+        border-radius: 0 2px 2px 0;
+      }
+
+      input[type="radio"].toggle {
+        display: none;
+      }
+
+      input[type="radio"].toggle + label {
+        cursor: pointer;
+        min-width: 7.5rem;
+        top: 0;
+      }
+
+      input[type="radio"].toggle + label:hover {
+        background: none;
+        color: #565656;
+      }
+
+      input[type="radio"].toggle + label:after {
+        background: transparent;
+        content: "";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transition: left 100ms cubic-bezier(0.77,0,0.175,1);
+        width: 100%;
+        z-index: -1;
+      }
+
+      input[type="radio"].toggle.toggle-left + label {
+        border-right: 0;
+        top: 0;
+      }
+
+      @media only screen and (max-width: 979px) {
+        input[type="radio"].toggle.toggle-left + label {
+          width:100%;
+          box-sizing: border-box;
+          border: 1px solid var(--hdi-universal-green);
+          margin-bottom: 1rem;
+          margin-left: -0.3rem;
+        }
+      }
+
+      input[type="radio"].toggle.toggle-left + label:after {
+        left: 100%;
+      }
+
+      input[type="radio"].toggle.toggle-right + label {
+        margin-left: -4px;
+      }
+
+      @media only screen and (max-width: 979px) {
+        input[type="radio"].toggle.toggle-right + label {
+          width:100%;
+          min-width: 100%;
+          box-sizing: border-box;
+        }
+      }
+
+      input[type="radio"].toggle.toggle-right + label:after {
+        left: -100%;
+      }
+
+      input[type="radio"].toggle:checked + label {
+        cursor: default;
+        background-color: var(--hdi-universal-green);
+        border-color: var(--hdi-universal-green);
+        color: var(--white);
+        transition: color 100ms;
+      }
+    }
+
+    .form-item {
+      &.switch-container {
+        margin: 0;
+      }
+
+      p {
+        margin: 1.5rem 0;
+        text-align: left;
+      }
+
+      .description {
+        color: var(--hdi-light-blue);
+        font-size: .9rem;
+        margin-top: .5rem;
+        text-align: left;
+      }
+    }
+
+    .step-3 {
+      h2 {
+        margin-left: -3rem;
+      }
+    }
+  }
+
+  .ctn-affected-vehicle-info {
+    #edit-area-vehicle--2 {
+      position: relative;
+
+      img {
+        margin: 3rem 0 7rem;
+      }
+
+      .form-type-checkbox {
+        position: absolute;
+
+        &:nth-child(3) {
+          top: 6rem;
+        }
+
+        &:nth-child(4) {
+          left: -20rem;
+          top: 20rem;
+        }
+
+        &:nth-child(5) {
+          left: 0;
+          top: 35rem;
+        }
+
+        &:nth-child(6) {
+          left: 20rem;
+          top: 20rem;
+        }
+
+        &:nth-child(7) {
+          left: -20rem;
+          top: 42rem;
+        }
+
+        &:nth-child(8) {
+          left: 20rem;
+          top: 42rem;
+        }
+
+        &:nth-child(9) {
+          bottom: -4rem;
+          left: 0;
+        }
+
+        &:nth-child(10) {
+          bottom: 0;
+          left: -14rem;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
+
+.hdi-portal-sinisterthankyoumessage {
+  background-color: var(--hdi-yellow);
+
+  .ctn-msg-notif-sinister {
+    padding: 2rem 0;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      color: var(--gray-70);
+      font-size: 1.25rem;
+      margin: 0 auto;
+      max-width: 41rem;
+
+      .number {
+        color: var(--hdi-light-blue);
+      }
+
+      a {
+        color: var(--hdi-light-blue);
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin: 2rem 0;
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      margin: 2rem auto;
+      width: 9rem;
+    }
+  }
+}

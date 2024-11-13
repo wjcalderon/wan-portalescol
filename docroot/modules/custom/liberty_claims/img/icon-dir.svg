@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="21px" viewBox="0 0 16 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>icon</title>
-    <desc>Created with Sketch.</desc>
+<svg viewBox="0 0 16 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <path d="M10.1633333,0 C14.2966667,0 17.66,3.35933333 17.66,7.488 C17.66,11.9746667 11.066,19.4073333 10.7853333,19.722 C10.6266667,19.8993333 10.4,20 10.1633333,20 L10.1553333,20 C9.91533333,19.9973333 9.688,19.892 9.53133333,19.7093333 C8.82866667,18.8926667 2.66666667,11.6066667 2.66666667,7.488 C2.66666667,3.35933333 6.03,0 10.1633333,0 Z M10.1633333,1.66666667 C6.94866667,1.66666667 4.33333333,4.278 4.33333333,7.488 C4.33333333,10.1586667 8.10733333,15.3433333 10.1746667,17.8793333 C12.24,15.4206667 15.9933333,10.3593333 15.9933333,7.488 C15.9933333,4.278 13.378,1.66666667 10.1633333,1.66666667 Z M10.1633333,4.00293333 C11.636,4.00293333 12.83,5.19493333 12.83,6.66626667 C12.83,8.1376 11.636,9.33026667 10.1633333,9.33026667 C8.69066667,9.33026667 7.49666667,8.1376 7.49666667,6.66626667 C7.49666667,5.19493333 8.69066667,4.00293333 10.1633333,4.00293333 Z" id="path-1"></path>
     </defs>
@@ -13,8 +10,8 @@
                     <mask id="mask-2" fill="white">
                         <use xlink:href="#path-1"></use>
                     </mask>
-                    <use id="Mask" fill="#1A1446" fill-rule="evenodd" xlink:href="#path-1"></use>
-                    <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#1A1446" fill-rule="evenodd">
+                    <use id="Mask" fill="#006729" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <g id="Elements-/-Color-/-Secundario-/-Blue-1" mask="url(#mask-2)" fill="#006729" fill-rule="evenodd">
                         <rect id="Rectangle" x="0" y="0" width="20" height="20"></rect>
                     </g>
                 </g>

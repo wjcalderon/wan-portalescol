@@ -1,3 +1,5 @@
+@import '../../mixins/responsive.scss';
+
 &--cifras {
   .component__heading {
     h2 {
@@ -52,6 +54,11 @@
       display: inline-block;
       font-size: 1rem;
       padding-right: 1.5rem;
+      margin-top: 2rem;
+
+      @include tablet-landscape-up {
+        margin-top: 0;
+      }
     }
   }
 

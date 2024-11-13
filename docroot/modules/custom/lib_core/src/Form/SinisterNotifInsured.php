@@ -21,14 +21,14 @@ class SinisterNotifInsured extends FormBase {
   protected $libCoreController;
 
   /**
-   *
+   * {@inheritdoc}
    */
   public function __construct(LibCoreControllerMain $libCoreController) {
     $this->libCoreController = $libCoreController;
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
     return new static(
@@ -164,15 +164,15 @@ class SinisterNotifInsured extends FormBase {
       '#prefix' => '<div class="header-steps three-elements is-desktop">',
       '#suffix' => '</div>',
       '#markup' => '<span class="step-1 active">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t1-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t1-pasos-sini.svg"></span>
         <span class="label">Primer Paso</span>
       </span>
       <span class="step-2">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t2-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t2-pasos-sini.svg"></span>
         <span class="label">Segundo Paso</span>
       </span>
       <span class="step-3">
-        <span class="img"><img src="/themes/custom/liberty_public/images/icons/t3-pasos-sini.svg"></span>
+        <span class="img"><img src="/modules/custom/liberty_claims/img/t3-pasos-sini.svg"></span>
         <span class="label">Tercer Paso</span>
       </span>',
     ];
@@ -183,11 +183,11 @@ class SinisterNotifInsured extends FormBase {
       '<div class="header-steps two-elements is-hidden is-desktop">',
       '#suffix' => '</div>',
       '#markup' => '<span class="step-1 active">
-          <span class="img"><img src="/themes/custom/liberty_public/images/icons/t1-pasos-sini.svg"></span>
+          <span class="img"><img src="/modules/custom/liberty_claims/img/t1-pasos-sini.svg"></span>
           <span class="label">Primer Paso</span>
         </span>
         <span class="step-2">
-          <span class="img"><img src="/themes/custom/liberty_public/images/icons/t2-pasos-sini.svg"></span>
+          <span class="img"><img src="/modules/custom/liberty_claims/img/t2-pasos-sini.svg"></span>
           <span class="label">Segundo Paso</span>
         </span>',
     ];
@@ -448,7 +448,7 @@ class SinisterNotifInsured extends FormBase {
 
     $form['step1']['driver_info']['subtitle_driver']['#markup'] = '<div class="form-item"><p>¿El conductor es el mismo asegurado?</p></div>';
 
-    $mrkup = '<div class="form-item">
+    $mrkup = '<div class="form-item switch-container">
       <div id="edit-driver-same-insure" class="switch" style="margin-top: 2rem;">
       <input data-drupal-selector="edit-driver-same-insure-si" type="radio" id="edit-driver-same-insure-si" name="driver_same_insure" value="Si" class="form-radio toggle toggle-left">
       <label for="edit-driver-same-insure-si" class="option btn btn-left">Si</label>
@@ -584,7 +584,7 @@ class SinisterNotifInsured extends FormBase {
 
     $form['step2']['declarant_info']['subtitle_declarant']['#markup'] = '<div class="form-item"><p>¿El declarante es el mismo asegurado?</p></div>';
 
-    $mrkup = '<div class="form-item">
+    $mrkup = '<div class="form-item switch-container">
       <div id="edit-driver-same-insure" class="switch" style="margin-top: 2rem;">
       <input data-drupal-selector="edit-declarant-same-insure-si" type="radio" id="edit-declarant-same-insure-si" name="declarant_same_insure" value="Si" class="form-radio toggle toggle-left">
       <label for="edit-declarant-same-insure-si" class="option btn btn-left">Si</label>
@@ -994,7 +994,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Sección delantera',
       '#name' => $section_front,
       '#attributes' => [
-        'id' => 'edit-' . $section_front,
+        'id' => "edit-$section_front",
+        'class' => ['section_front'],
       ],
     ];
 
@@ -1004,17 +1005,19 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Lateral delantero Izquierdo',
       '#name' => $section_front_left,
       '#attributes' => [
-        'id' => 'edit-' . $section_front_left,
+        'id' => "edit-$section_front_left",
+        'class' => ['section_front_left'],
       ],
     ];
 
     // Ceiling.
     $form['step3']['area_vehicle'][$section_roof] = [
       '#type' => 'checkbox',
-      '#title' => 'techo',
+      '#title' => 'Techo',
       '#name' => $section_roof,
       '#attributes' => [
-        'id' => 'edit-' . $section_roof,
+        'id' => "edit-$section_roof",
+        'class' => ['section_roof'],
       ],
     ];
 
@@ -1024,7 +1027,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Lateral delantero derecho',
       '#name' => $section_front_right,
       '#attributes' => [
-        'id' => 'edit-' . $section_front_right,
+        'id' => "edit-$section_front_right",
+        'class' => ['section_front_right'],
       ],
     ];
 
@@ -1034,7 +1038,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Lateral trasero izquierdo',
       '#name' => $section_back_left,
       '#attributes' => [
-        'id' => 'edit-' . $section_back_left,
+        'id' => "edit-$section_back_left",
+        'class' => ['section_back_left'],
       ],
     ];
 
@@ -1044,7 +1049,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Lateral trasero derecho',
       '#name' => $section_back_right,
       '#attributes' => [
-        'id' => 'edit-' . $section_back_right,
+        'id' => "edit-$section_back_right",
+        'class' => ['section_back_right'],
       ],
     ];
 
@@ -1054,7 +1060,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Sección posterior',
       '#name' => $section_back,
       '#attributes' => [
-        'id' => 'edit-' . $section_back,
+        'id' => "edit-$section_back",
+        'class' => ['section_back'],
       ],
     ];
 
@@ -1064,7 +1071,8 @@ class SinisterNotifInsured extends FormBase {
       '#title' => 'Por debajo',
       '#name' => $section_under,
       '#attributes' => [
-        'id' => 'edit-' . $section_under,
+        'id' => "edit-$section_under",
+        'class' => ['section_under'],
       ],
     ];
 
@@ -1078,7 +1086,7 @@ class SinisterNotifInsured extends FormBase {
       '#value' => 'Volver',
       '#name' => 'back',
       '#attributes' => [
-        'class' => ['btn-submit-step btn-back is-hidden button--primary'],
+        'class' => ['btn-submit-step btn-back button-secondary'],
         'cdtype' => 'back',
       ],
     ];

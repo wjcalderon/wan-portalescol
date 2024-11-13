@@ -1,3 +1,5 @@
+@import '../../mixins/responsive.scss';
+
 .component__view--productos {
   &.interesado-home {
     .component__heading {
@@ -17,24 +19,37 @@
   }
 
   .component__content {
-    margin: 2rem 0;
+    margin: 0 0 2rem;
+
+    @include tablet-landscape-up {
+      margin: 2rem 0;
+    }
 
     .slick-list {
       .slick-track {
         .slick-slide {
           .slick__slide {
             &.slide {
+              align-items: center;
               border: 3px solid var(--hdi-gray-30);
               display: flex !important;
               flex-direction: column;
               justify-content: flex-start;
               margin-bottom: 1rem;
-              margin-right: 1rem;
               min-height: 25rem;
               padding: 1.6875rem;
               padding-bottom: 5rem;
               position: relative;
               text-align: center;
+
+              @include phone-only {
+                margin: 0 1rem;
+                min-height: 27rem;
+              }
+
+              @include tablet-landscape-up {
+                margin-right: 1rem;
+              }
 
               .field-icon {
                 margin-bottom: 1.5rem;
