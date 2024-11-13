@@ -1,22 +1,4 @@
-@mixin phone-only {
-  @media (max-width: 599px) { @content; }
-}
-
-@mixin tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
-}
-
-@mixin tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
-}
-
-@mixin desktop {
-  @media (min-width: 1200px) { @content; }
-}
-
-@mixin big-desktop {
-  @media (min-width: 1800px) { @content; }
-}
+@import '../mixins/responsive.scss';
 
 .cog {
   &--flex {
@@ -39,18 +21,24 @@
   }
 
   &--mq {
-    margin: auto;
-    max-width: 1053px;
+    margin-left: 5%;
+    margin-right: 5%;
     padding-bottom: 1px;
     position: relative;
-    width: 100%;
+    width: 90%;
+
+    @include tablet-landscape-up {
+      margin: auto;
+      max-width: 1053px;
+      width: 100%;
+    }
   }
 }
 
 .is-mobile {
   display: block;
 
-  @media (min-width: 900px) {
+  @include phone-only {
     display: none !important;
   }
 }
@@ -58,7 +46,7 @@
 .is-desktop {
   display: none;
 
-  @media (min-width: 900px) {
+  @include tablet-landscape-up {
     display: block;
   }
 }

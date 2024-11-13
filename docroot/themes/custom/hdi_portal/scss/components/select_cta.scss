@@ -1,3 +1,5 @@
+@import '../mixins/responsive.scss';
+
 .component__select-cta {
   &.component__select-wizard {
     background-color: var(--hdi-yellow);
@@ -10,6 +12,11 @@
         .component__heading {
           h2 {
             font-size: 2rem;
+            padding-top: 3rem;
+
+            @include tablet-landscape-up {
+              padding-top: 0;
+            }
           }
         }
 
@@ -21,6 +28,15 @@
           width: 100%;
 
           .cog--items {
+            @include phone-only {
+              align-items: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              min-height: 13rem;
+              text-align: center;
+            }
+
             justify-content: space-evenly;
 
             label {
