@@ -1,3 +1,5 @@
+@import '../mixins/responsive.scss';
+
 body {
   &:not(.frontpage) {
     .cp-banner {
@@ -14,11 +16,24 @@ body {
   }
 
   .component__slider {
+    height: 25rem;
+    margin-bottom: 3rem;
+
+    @include tablet-landscape-up {
+      height: auto;
+      margin-bottom: unset;
+    }
+
     .slick-prev, .slick-next {
       background-size: 51px;
       height: 51px;
       width: 51px;
+      visibility: hidden;
       z-index: 1;
+
+      @include tablet-landscape-up {
+        visibility: visible;
+      }
     }
 
     .slick-prev {
@@ -38,8 +53,12 @@ body {
     }
 
     .slick-dots {
-      bottom: 2rem;
+      bottom: 8rem;
       position: absolute;
+
+      @include tablet-landscape-up {
+        bottom: 2rem;
+      }
     }
   }
 
@@ -62,16 +81,24 @@ body {
       align-items: center;
       display: flex;
       height: calc(100% - 55px);
-      left: 40%;
+      left: 45%;
       position: absolute;
       top: 0;
       transform: translateX(-50%);
 
+      @include tablet-landscape-up {
+        left: 40%;
+      }
+
       .cp-banner__heading {
         background-color: var(--white);
         height: auto;
-        flex-basis: 38%;
+        flex-basis: 100%;
         padding: 2rem 2.5rem;
+
+        @include tablet-landscape-up {
+          flex-basis: 38%;
+        }
 
         h2 {
           color: var(--hdi-universal-green);

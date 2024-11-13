@@ -1,3 +1,5 @@
+@import '../mixins/responsive.scss';
+
 .component__tabs {
   &--erescliente-home {
     margin-bottom: 6rem;
@@ -27,7 +29,10 @@
                 background-color: unset;
                 flex: 1;
                 padding: unset;
-                padding-bottom: 2rem;
+
+                @include tablet-landscape-up {
+                  padding-bottom: 2rem;
+                }
 
                 &.ui-state-active, &:hover {
                   & > div {
@@ -66,7 +71,13 @@
       }
 
       .tab-img-bg {
-        height: 20rem;
+        @include phone-only {
+          background-image: none !important;
+        }
+
+        @include tablet-landscape-up {
+          height: 20rem;
+        }
 
         .component__cards {
           .cog--items {
@@ -78,11 +89,15 @@
             border-radius: 2px;
             box-shadow: 0px 2px 4px #1A144633;
             flex: 1;
-            margin: 5rem 1.25rem;
-            margin-left: 0;
+            margin-bottom: 1rem;
             min-height: auto;
             padding: 1.875rem;
-            padding-bottom: 4rem;
+
+            @include tablet-landscape-up {
+              margin: 5rem 1.25rem;
+              margin-left: 0;
+              padding-bottom: 4rem;
+            }
 
             h3 {
               margin-top: 0;

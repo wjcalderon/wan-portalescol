@@ -1,3 +1,5 @@
+@import '../../mixins/responsive.scss';
+
 &.cards--image-cta {
   background-color: var(--gray-10);
   padding: 2rem 0;
@@ -17,10 +19,15 @@
       display: block;
 
       .component__card {
-        align-items: center;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         padding: 2rem 4rem;
+        justify-content: space-around;
+
+        @include tablet-landscape-up {
+          align-items: center;
+          flex-direction: row;
+        }
 
         h3 {
           color: var(--gray);

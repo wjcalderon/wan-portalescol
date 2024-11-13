@@ -1,3 +1,5 @@
+@import '../../mixins/responsive.scss';
+
 .component__view--faqs {
   .component__content {
     .item-list {
@@ -9,8 +11,12 @@
         li {
           align-items: center;
           display: flex;
-          flex-basis: 50%;
+          flex-basis: unset;
           padding: 1rem;
+
+          @include tablet-landscape-up {
+            flex-basis: 50%;
+          }
 
           &:nth-child(odd) {
             border-right: 1px solid var(--gray-20);
@@ -19,6 +25,12 @@
           .field-icon {
             margin-right: 1rem;
             width: 1.5rem;
+          }
+
+          .title {
+            @include phone-only {
+              width: 100%;
+            }
           }
         }
       }
