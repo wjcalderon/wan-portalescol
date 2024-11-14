@@ -37,7 +37,7 @@ cardservice:
 
 jquery-validation:
   js:
-    libraries/jquery-validation/dist/jquery.validate.js: {}
+    assets/js/jquery.validate.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings

@@ -1,0 +1,66 @@
+.channel-attention {
+  .contact-block {
+    width: 100vw;
+    position: relative;
+    left: calc(-1*(100vw - 100%) / 2);
+    background-color: var(--hdi-yellow);
+    background-repeat: no-repeat;
+    background-position: 20px bottom;
+    background-origin: content-box;
+    background-size: 18px;
+    padding: 1rem 0;
+    margin-top: 3rem;
+
+    @media (min-width: 720px) {
+      padding: 3rem 0;
+      background-position: 20px center;
+      background-origin: unset;
+    }
+
+    &__content {
+      max-width: 1224px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+
+      @media (min-width: 480px) {
+        padding: 0 1rem;
+      }
+    }
+
+    &__second {
+      padding: 2rem;
+      text-align: center;
+
+      @media (min-width: 920px) {
+        padding: 0;
+      }
+    }
+
+    &__text {
+      font-size: 1.15rem;
+      font-family: var(--hdi-font);
+      color: var(--hdi-green);
+    }
+
+    &__phone {
+      color: var(--hdi-light-blue);
+      display: inline-block;
+      font-family: var(--hdi-font);
+      font-weight: 400;
+      padding: 1rem 0;
+    }
+
+    &__bottom {
+      .text-long p strong {
+        color: var(--gray);
+        font-size: .75rem;
+        font-weight: 400;
+        margin: 0 0 1em;
+      }
+    }
+
+  }
+}

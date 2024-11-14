@@ -25,9 +25,9 @@
 
 @font-face {
   font-family: 'HDI Pro';
-  src: url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype")
+  src: url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype"),
     url("../../fonts/HDI-GerlingSans-Light.otf") format("opentype");
-  font-weight: light;
+  font-weight: 200;
 }
 
 :root {

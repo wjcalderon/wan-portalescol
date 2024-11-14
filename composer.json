@@ -228,6 +228,10 @@
         },
         "sort-packages": true
     },
+    "conflict": {
+        "drupal/drupal": "*",
+        "twig/twig": "3.14.1"
+    },
     "extra": {
         "scripts-dev": {
             "post-install-cmd": [
