@@ -1,0 +1,27 @@
+{% set lcorner__base_class = 'logo-corner' %}
+
+<div {{ bem(lcorner__base_class, lcorner__modifiers, lcorner__blockname, lcorner__extra_classes) }} id="logo-corner">
+    {# Image #}
+    {% block logo_corner__img %}
+        {% if lcorner__image__src %}
+        <a href="{{lcorner__link__url}}">
+        {% include "@atoms/images/image/responsive-image.twig" with {
+            image_blockname: lcorner__base_class,
+            output_image_tag: lcorner__image__output_image_tag,
+            image_src: lcorner__image__src,
+            image_alt: lcorner__image__alt,
+        } %}
+        </a>
+        {% endif %}
+    {% endblock %}
+    {# Link #}
+    {% if card__link__url %}
+        {% include "@atoms/links/link.twig" with {
+        link_base_class: lcorner__link__base_class|default('link'),
+        link_blockname: lcorner__base_class,
+        link_attributes: lcorner__link__attributes,
+        link_content: lcorner__link__text,
+        link_url: lcorner__link__url,
+        } %}
+    {% endif %}
+</div>

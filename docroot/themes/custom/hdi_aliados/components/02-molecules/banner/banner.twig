@@ -1,0 +1,33 @@
+{% set banner__base_class = 'banner' %}
+
+<div {{ bem(banner__base_class) }}>
+  <div {{ bem('image', [], banner__base_class) }}>
+    {% block banner__img %}
+      {% if banner__image__src %}
+        {% include "@atoms/images/image/responsive-image.twig" with {
+          image_blockname: banner__base_class,
+          output_image_tag: banner__image__output_image_tag,
+          image_src: banner__image__src,
+          image_alt: banner__image__alt,
+        } %}
+      {% endif %}
+    {% endblock %}
+  </div>
+  <div {{ bem('content-wrapper', [], banner__base_class) }}>
+    <div {{ bem('content', [], banner__base_class) }}>
+      {{ banner__title }}
+      <div>{{ banner__text|raw }}</div>
+      {% if banner__button %}
+      <div {{ bem('button', [], banner__base_class) }}>
+        <a {{ bem('button__href', [], banner__base_class) }} id="banner__button__href">
+          {% include "@atoms/buttons/button.twig" with {
+            button_content: banner__button,
+            button_extra_classes: ['form-modal'],
+          } %}
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>

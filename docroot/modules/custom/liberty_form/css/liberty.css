@@ -12,10 +12,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #00205bdb;
+  background-color: #003960F2;
   z-index: 10000;
-  background-image: url("../images/loading.png");
-  background-size: 100px;
+  background-image: url("../images/loader.svg"), url('../images/logo.svg');
+  background-size: 12.5rem, 6rem;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;

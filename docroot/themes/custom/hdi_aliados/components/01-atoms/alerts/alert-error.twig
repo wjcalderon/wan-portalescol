@@ -1,0 +1,8 @@
+{% set liberty_form__base_class = 'liberty-form' %}
+
+<div {{ bem(liberty_form__base_class) }}>
+    <div {{ bem('message', [liberty__form__type], liberty_form__base_class) }}>
+        <span {{ bem('heading', [], liberty_form__base_class) }}>{{ liberty__form__heading }}</span>
+        <span {{ bem('summary', [], liberty_form__base_class) }}>{{ liberty__form__summary }}</span>
+    </div>
+</div>

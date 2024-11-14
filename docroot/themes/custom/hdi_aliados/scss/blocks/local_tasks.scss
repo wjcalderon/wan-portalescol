@@ -1,0 +1,35 @@
+#block-hdi-aliados-local-tasks {
+  .tabs__nav--local-tasks {
+    align-content: center;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      flex: 1;
+
+      &:first-of-type {
+        a {
+          border-top-left-radius: 3px;
+        }
+      }
+
+      &:last-of-type {
+        a {
+          border-top-right-radius: 3px;
+        }
+      }
+
+      a {
+        background-color: var(--hdi-universal-green-70);
+        color: var(--white);
+        padding: .75rem;
+        text-align: center;
+
+        &.is-active {
+          background-color: var(--hdi-green);
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+}

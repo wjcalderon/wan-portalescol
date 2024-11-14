@@ -1,0 +1,63 @@
+form {
+  margin: 2rem auto;
+  max-width: 30.8125rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-item {
+    margin: 0 auto 1.5rem;
+    position: relative;
+    width: 100%;
+
+    label {
+      color: var(--gray-50);
+      display: inline-block;
+      font-weight: normal;
+      left: .7rem;
+      padding-right: 4px;
+      position: absolute;
+      top: 1rem;
+      transition: all 0.1s ease;
+      vertical-align: top;
+      z-index: 1;
+
+      &.error {
+        background-image: url(../../images/icons/exclamation.svg);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: .8rem;
+        color: var(--hdi-red);
+        font-size: .8rem;
+        left: 0;
+        padding-left: 1.3rem;
+        position: absolute;
+        top: -1.2rem;
+      }
+    }
+
+    &.active {
+      label:not(.error) {
+        font-size: .8rem;
+        top: .3rem;
+      }
+
+      select {
+        color: var(--dark-blue-70);
+      }
+    }
+  }
+
+  .captcha, .g-recaptcha {
+    margin: 1.5rem 0;
+
+    &:is(.captcha) {
+      legend {
+        display: none;
+      }
+    }
+  }
+}
+

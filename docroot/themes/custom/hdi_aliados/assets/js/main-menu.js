@@ -1,0 +1,2 @@
+Drupal.behaviors.mainMenu={attach(e){const n=e.getElementById("toggle-expand"),t=e.getElementById("main-nav");if(t){const e=t.getElementsByClassName("expand-sub");n.addEventListener("click",(e=>{n.classList.toggle("toggle-expand--open"),t.classList.toggle("main-nav--open"),e.preventDefault()})),Array.from(e).forEach((e=>{e.addEventListener("click",(e=>{const n=e.currentTarget,t=n.nextElementSibling;n.classList.toggle("expand-sub--open"),t.classList.toggle("main-menu--sub-open")}))}))}}};
+//# sourceMappingURL=main-menu.js.map

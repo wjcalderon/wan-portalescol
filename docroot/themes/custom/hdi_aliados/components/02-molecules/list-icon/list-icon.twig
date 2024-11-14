@@ -1,0 +1,20 @@
+{% set list_icon__base_class = 'list-icon' %}
+
+<div {{ bem(list_icon__base_class, list_icon__modifiers, list_icon__blockname, list_icon__extra_classes) }}>
+    <div {{ bem('icon', [], list_icon__base_class) }}>
+        {% block list_icon__src %}
+            {% if list_icon__src %}
+                {% include "@atoms/images/image/responsive-image.twig" with {
+                    image_blockname: list_icon_class,
+                    output_image_tag: list_icon__output_image_tag,
+                    image_src: list_icon__src,
+                    image_alt: list_icon__alt,
+                } %}
+            {% endif %}
+        {% endblock %}
+    </div>
+    <div {{ bem('text', [], list_icon__base_class) }}>
+        {{ list_icon__text }}
+    </div>
+  </a>
+</div>

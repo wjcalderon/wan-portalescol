@@ -1,0 +1,28 @@
+name: HDI Aliados
+type: theme
+description: "Theme for HDI Seguros Colombia sponsors."
+core_version_requirement: ^9 || ^10
+base theme: false
+favicon: 'images/favicon.png'
+libraries:
+  - hdi_aliados/global
+regions:
+  header: Header
+  content: Content # the content region is required
+  sidebar: 'Sidebar'
+  footer: Footer
+
+stylesheets-remove:
+  - core/assets/vendor/jquery.ui/themes/base/tabs.css
+  - core/assets/vendor/jquery.ui/themes/base/theme.css
+  - modules/contrib/webform/css/webform.form.css
+  - modules/contrib/webform/css/webform.element.details.toggle.css
+
+components:
+  namespaces:
+    base: components/00-base
+    atoms: components/01-atoms
+    molecules: components/02-molecules
+    organisms: components/03-organisms
+    templates: components/04-templates
+    pages: components/05-pages

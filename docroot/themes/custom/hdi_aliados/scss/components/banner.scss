@@ -1,0 +1,29 @@
+.banner {
+  .banner {
+    height: 30rem;
+    overflow: hidden;
+    position: relative;
+
+    picture {
+      img {
+        width: 100vw;
+      }
+    }
+
+    .banner__content-wrapper {
+      background-color: var(--white);
+      left: 20rem;
+      padding: 2rem;
+      padding-right: 2.5rem;
+      position: absolute;
+      top: 5.4375rem;
+      width: 23.125rem;
+
+      p {
+        color: var(--gray-70);
+        font-size: 1.125rem;
+        margin: 1rem 0 1.5rem;
+      }
+    }
+  }
+}

@@ -161,7 +161,7 @@
           },
         },
         errorPlacement: function (error, element) {
-          error.insertBefore("#edit-id-type");
+          error.insertAfter(element);
         },
         submitHandler: function (form) {
           form.submit();

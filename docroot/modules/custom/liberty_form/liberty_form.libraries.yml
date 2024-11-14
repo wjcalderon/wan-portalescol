@@ -51,7 +51,7 @@ liberty-validations:
     - core/drupalSettings
     - core/once
     - core/drupal
-    - liberty/jquery-validation
+    - hdi_aliados/jquery-validation
 
 liberty-callcenter-form-validation:
   version: VERSION
@@ -61,7 +61,7 @@ liberty-callcenter-form-validation:
     - core/jquery
     - core/drupalSettings
     - core/once
-    - liberty/jquery-validation
+    - hdi_aliados/jquery-validation
 
 liberty-callcenter-login-after:
   version: VERSION
@@ -71,7 +71,7 @@ liberty-callcenter-login-after:
     - core/jquery
     - core/drupalSettings
     - core/once
-    - liberty/jquery-validation
+    - hdi_aliados/jquery-validation
 
 liberty-google-analytics-links:
   version: VERSION

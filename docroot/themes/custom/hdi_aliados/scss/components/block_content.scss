@@ -1,0 +1,45 @@
+#block-hdi-aliados-content {
+  margin-top: 5.1875rem;
+
+  .webform-submission-call-center--form {
+    margin: 0 auto;
+
+    #edit-processed-text {
+      .form-modal {
+        &-flex {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+
+        }
+
+        &-icon {
+          height: 100px;
+          width: 100px;
+          background-image: url(../../images/icons/form.svg);
+          background-size: 96px;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin: 0.5rem auto;
+          flex: none;
+        }
+
+        &-title {
+          h3 {
+            color: var(--hdi-green);
+            font-size: 1.8125rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+          }
+        }
+
+        &-text {
+          p {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}

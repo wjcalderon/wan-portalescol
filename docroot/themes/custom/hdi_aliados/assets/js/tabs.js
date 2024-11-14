@@ -1,0 +1,2 @@
+Drupal.behaviors.tabs={attach(e){const t=e.querySelectorAll(".tabs"),s=e.querySelectorAll(".tabs__link"),l=e.querySelectorAll(".tabs__tab");let a=0;function i(e,t){e.addEventListener("click",(e=>{e.preventDefault(),function(e){e!==a&&e>=0&&e<=s.length&&(s[a].classList.remove("is-active"),s[e].classList.add("is-active"),l[a].classList.remove("is-active"),l[e].classList.add("is-active"),a=e)}(t)}))}for(let e=0;e<t.length;e+=1)t[e].classList.remove("no-js");for(let e=0;e<s.length;e+=1){i(s[e],e)}}};
+//# sourceMappingURL=tabs.js.map
