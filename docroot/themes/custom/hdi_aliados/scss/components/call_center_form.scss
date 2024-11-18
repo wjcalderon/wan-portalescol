@@ -1,0 +1,66 @@
+.webform-submission-call-center--form {
+  .terms_checkbox {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0 -2rem !important;
+    width: 35rem !important;
+
+    .form-item__description {
+      margin-left: 2rem;
+
+      .terms {
+        .terms-modal {
+          color: var(--hdi-light-blue);
+          display: inline;
+          font-size: 1rem;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  #edit-actions {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.webform-confirmation-modal {
+  border-radius: 3px !important;
+  box-shadow: 0px 2px 6px var(--shadow);
+  padding: 1rem 2rem 2rem;
+  text-align: center;
+  width: 30rem !important;
+
+  & ~ .ui-widget-overlay {
+    background-color: var(--overlay);
+    opacity: 1;
+  }
+
+  .ui-widget-header {
+    background-color: var(--white);
+    background-image: url(../../images/icons/icon-success.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 3rem 0;
+
+    .ui-button {
+      right: -.5rem;
+      top: 1rem;
+
+      .ui-icon {
+        background-image: url(../../images/icons/close.svg);
+        background-position: unset;
+      }
+    }
+  }
+
+  &--content {
+    color: var(--gray);
+    font-size: 1.25rem;
+  }
+}

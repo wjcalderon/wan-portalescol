@@ -1,0 +1,58 @@
+.block-backtohome {
+  & ~ #block-hdi-aliados-content {
+    margin-top: 5rem;
+  }
+
+  .backtohome {
+    align-items: center;
+    display: flex;
+    font-size: .8rem;
+    left: 19rem;
+    margin: 1rem 0;
+    position: absolute;
+
+    &__home {
+      a, span {
+        padding: 0.1rem;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        margin-right: 5px;
+        margin-top: -2px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-image: url(../../images/icons/Icon-Plus.svg);
+        vertical-align: middle;
+        border: 1px solid black;
+        padding: 18px;
+        border-radius: 3px;
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        margin-right: 5px;
+        margin-top: -2px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-image: url(../../images/icons/Icon-Left.svg);
+        vertical-align: middle;
+      }
+    }
+
+    &__page {
+      font-weight: 400;
+      color: var(--hdi-light-blue);
+    }
+  }
+}
