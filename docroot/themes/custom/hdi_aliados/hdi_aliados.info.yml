@@ -3,7 +3,7 @@ type: theme
 description: "Theme for HDI Seguros Colombia sponsors."
 core_version_requirement: ^9 || ^10
 base theme: false
-favicon: 'images/favicon.png'
+favicon: 'images/logo.svg'
 libraries:
   - hdi_aliados/global
 regions:

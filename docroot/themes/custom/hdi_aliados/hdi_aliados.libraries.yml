@@ -3,11 +3,7 @@ global:
     theme:
       assets/css/styles.css: {}
   js:
-    assets/js/liberty-form.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupalSettings
-    - core/once
+    assets/js/hdi_aliados.js: {}
 
 main-menu:
   js:

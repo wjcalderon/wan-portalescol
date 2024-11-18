@@ -51,7 +51,8 @@ form {
   }
 
   .captcha, .g-recaptcha {
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
+    width: fit-content;
 
     &:is(.captcha) {
       legend {
@@ -59,5 +60,8 @@ form {
       }
     }
   }
-}
 
+  .email_nodisplay_label, .email_nodisplay {
+    display: none !important;
+  }
+}

@@ -48,3 +48,52 @@ select {
     padding: 1rem;
   }
 }
+
+.custom-radio,
+.form-checkbox {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+
+  & ~ label {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  & ~ label:not(.error)::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: -.7rem;
+    top: -1rem;
+    margin-top: 0;
+    background-color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--hdi-gray-50);
+  }
+
+  &:checked ~ label::before {
+    background-image: url(../../images/icons/checkmark.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  &:hover ~ label::before {
+    border-color: var(--hdi-universal-green);
+  }
+
+  &:active ~ label:not(.error)::before,
+  &:focus ~ label:not(.error)::before {
+    border-color: var(--hdi-universal-green);
+    border-width: 2px;
+  }
+
+  &.error ~ label:not(.error)::before {
+    content: "";
+    border-color: var(--hdi-red-90);
+    background-color: var(--hdi-red-10);
+  }
+}

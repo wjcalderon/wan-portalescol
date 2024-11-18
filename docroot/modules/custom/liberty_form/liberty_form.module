@@ -66,6 +66,7 @@ function liberty_form_c_liberty_formnode_delete_confirm_submit($form, &$form_sta
   $query_initial = Drupal::entityTypeManager()->getStorage('node')->getQuery();
 
   $res_initial = $query_initial->condition('type', 'customer')
+    ->accessCheck(TRUE)
     ->condition('field_campaign_id', $cid)
     ->execute();
 
@@ -194,7 +195,7 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
           $form['#attributes']['id'][] = 'webform_submission_call_center';
 
           $form['actions']['submit_cancel'] = [
-            '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
+            '#prefix' => '<a class="edit-submit-cancel_form_sponsors button button-secondary js-form-submit form-submit form-item__input">Volver atrás',
             '#suffix' => '</a>',
           ];
 
@@ -753,6 +754,7 @@ function liberty_form_cron() {
             }
 
             $query_customer = \Drupal::entityQuery('node')
+              ->accessCheck(TRUE)
               ->condition('type', 'customer')
               ->condition('field_id_number', $id_identification);
             $results_customer = $query_customer->execute();
@@ -1116,6 +1118,7 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
 
   if (isset($identification_number)) {
     $query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type', 'customer')
       ->condition('field_id_number', $identification_number);
     $results_customer = $query->execute();

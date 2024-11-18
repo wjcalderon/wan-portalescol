@@ -2,24 +2,22 @@
 
 <div {{ bem(bth__base_class, bth__content_modifiers, bth__blockname) }}>
 <i class="fa fa-user"></i>
-    <a
-    {{ bem('home', bth_content_modifiers, bth__base_class) }}
-    {% for attribute, value in bth_attributes %}
-        {{ attribute }}="{{ value }}"
-    {% endfor %}
+  <a
+  {{ bem  ('home', bth_content_modifiers, bth__base_class) }}
+  {% for attribute, value in bth_attributes %}
+    {{ attribute }}="{{ value }}"
+  {% endfor %}
     href="{{ link_url }}"
-    >
+  >
     {% block bth_home_content %}
-        {{ bth_home_content }}
+      {{ bth_home_content }}
     {% endblock %}
-    </a>
-
-    <span
+  </a>
+  <span
     {{ bem('page', bth_content_modifiers, bth__base_class) }}
-    >
+  >
     {% block bth_page_content %}
-        {{ bth_page_content }}
+      {{ bth_page_content }}
     {% endblock %}
-    </span>
-    
+  </span>
 </div>
