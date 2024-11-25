@@ -1,0 +1,8 @@
+pqrsalesforce-form:
+  css:
+    component:
+        pqr_salesforce_form/dist/index.css: {}
+  js:
+    pqr_salesforce_form/dist/pqr-salesforce.js: {}
+  dependencies:
+    - core/drupalSettings

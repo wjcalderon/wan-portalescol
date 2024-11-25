@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Hook and preprocess PQR Salesforce integration.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function hdi_pqr_salesforce_theme($existing, $type, $theme, $path) {
+  return [
+    'pqr_salesforce' => [
+      'render element' => 'elements',
+    ],
+  ];
+}

@@ -8,7 +8,7 @@ form {
     margin-bottom: 2rem;
   }
 
-  .form-item {
+  .form-item:not(.form-type-radios, .form-type-checkbox) {
     margin: 0 auto 1.5rem auto;
     position: relative;
     width: 100%;
@@ -57,5 +57,14 @@ form {
     legend {
       display: none;
     }
+  }
+
+  .form-type-radios, .form-type-checkbox {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 }
