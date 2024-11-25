@@ -1,0 +1,24 @@
+import { SelectField } from './selectField'
+
+const genderList = {
+  'Masculino': 'Masculino',
+  'Femenino': 'Femenino',
+  'No aplica': 'No aplica',
+  'Trans': 'Trans',
+  'No binario': 'No binario',
+}
+
+const SelectGender = () => {
+  return (
+    <div className="form-item js-form-type-select form-type-select">
+      <label htmlFor="SSP_Sexo__c">Selecciona tu género</label>
+      <SelectField
+        name="SSP_Sexo__c"
+        optionList={genderList}
+        required={true}
+      />
+    </div>
+  )
+}
+
+export { SelectGender }

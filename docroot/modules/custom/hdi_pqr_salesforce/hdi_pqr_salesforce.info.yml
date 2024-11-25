@@ -1,0 +1,7 @@
+name: 'Integracion PQR con Salesforce'
+type: module
+description: Formulario de PQR con integracion de salesforce
+core_version_requirement: ^10 || ^11
+package: HDI
+dependencies:
+- block
