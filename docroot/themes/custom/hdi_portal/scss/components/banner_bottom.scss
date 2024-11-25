@@ -22,6 +22,10 @@
           padding: 3rem;
           text-align: center;
 
+          @include phone-only {
+            padding: 2rem 1rem 2rem 1rem;
+          }
+
           h2 {
             p {
               color: var(--hdi-universal-green);

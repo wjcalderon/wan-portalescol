@@ -28,6 +28,7 @@
           width: 100%;
 
           .cog--items {
+
             @include phone-only {
               align-items: center;
               display: flex;
@@ -35,9 +36,13 @@
               justify-content: space-between;
               min-height: 13rem;
               text-align: center;
+
+              label {
+                font-size: 1.4rem !important;
+                font-weight: 500 !important;
+              }
             }
 
-            justify-content: space-evenly;
 
             label {
               color: var(--hdi-green);

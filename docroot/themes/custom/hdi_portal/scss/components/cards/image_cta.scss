@@ -24,6 +24,12 @@
         padding: 2rem 4rem;
         justify-content: space-around;
 
+        @include phone-only {
+          padding: 0rem 0.5rem 0rem 0.5rem;
+          align-items: center;
+          background-color: var(--gray-10);
+        }
+
         @include tablet-landscape-up {
           align-items: center;
           flex-direction: row;

@@ -2,4 +2,8 @@
   @include tablet-landscape-up {
     display: none;
   }
+
+  @include phone-only {
+    display: none;
+  }
 }
