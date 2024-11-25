@@ -147,4 +147,62 @@
       }
     }
   }
+  &--contact {
+    .header-tabs {
+      .ui-tab {
+        &:hover, &.ui-tabs-active {
+          .component__card {
+            background-color: var(--hdi-light-green-10);
+            border-bottom: 5px solid var(--hdi-universal-green);
+            border-radius: 3px;
+            box-shadow: 0px 3px 8px var(--shadow);
+          }
+        }
+
+        .component__card {
+          text-align: center;
+          flex: 0 1 30%;
+          padding: 2rem 1rem;
+
+          .card__img--oval {
+            background-color: var(--white);
+            border: 1px solid var(--hdi-universal-green);
+            border-radius: 50%;
+            display: grid;
+            height: 8.75rem;
+            margin: 0 auto 1rem;
+            place-content: center;
+            width: 8.75rem;
+
+            img {
+              height: 4.375rem;
+              width: auto;
+            }
+          }
+
+          .name {
+            color: var(--hdi-green);
+            font-family: var(--hdi-font);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0 auto;
+            max-width: 14.625rem;
+            white-space: break-spaces;
+          }
+
+          .lead {
+            margin: 1.5rem 0;
+            max-width: 16.625rem;
+            white-space: break-spaces;
+          }
+
+          .cta {
+            .ui-tabs-anchor {
+              float: unset;
+            }
+          }
+        }
+      }
+    }
+  }
 }

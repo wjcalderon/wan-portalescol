@@ -54,12 +54,13 @@ input[type="checkbox"] {
   background-color: var(--white);
   border: 1px solid var(--gray-50);
   border-radius: 2px;
-  display: inline-block;
+  display: grid;
   font: inherit;
   height: 1.15em;
   margin: 0;
+  place-content: center;
   transform: translateY(-0.075em);
-  width: 1.15em;
+  width: 1.5em;
 
   & + label {
     margin-left: .5rem;
@@ -71,34 +72,25 @@ input[type="checkbox"] {
     border-color: var(--hdi-universal-green);
   }
 
+  &:focus {
+    border-width: 2px;
+  }
+
   &::before {
     content: "";
-    height: 0.65em;
+    background: transparent url(../../images/checkmark-on.svg) no-repeat center;
+    height: .85em;
     transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    width: 0.65em;
-    transform-origin: bottom left;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    width: .85em;
   }
-}
 
-input[type="checkbox"] + label {
-  position: relative;
-  padding-left: 1.5rem;
-  top: 0;
-  cursor: pointer;
-}
+  &:checked {
+    &::before {
+      transform: scale(1);
+    }
 
-input[type="checkbox"] + label::before {
-  position: absolute;
-  content: "";
-  left: 0;
-  width: 1.15rem;
-  height: 1.15rem;
-  border: 1px solid var(--gray-50);
-  border-radius: 2px;
-}
-
-input[type="checkbox"]:checked + label::before {
-  border: 2px solid var(--hdi-universal-green);
+    &:hover, &:focus {
+      border-color: var(--hdi-universal-green);
+    }
+  }
 }
