@@ -1,0 +1,8 @@
+name: 'HDI Internal'
+type: module
+description: 'Modulo para carga de imágenes como wallpaper y screensaver de HDI Internal.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:file
+  - drupal:core
