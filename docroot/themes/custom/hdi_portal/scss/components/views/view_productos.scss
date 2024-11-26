@@ -42,10 +42,6 @@
               position: relative;
               text-align: center;
 
-              @include phone-only {
-                margin: 0 1rem;
-                min-height: 27rem;
-              }
 
               @include tablet-landscape-up {
                 margin-right: 1rem;
@@ -70,11 +66,21 @@
 
               p {
                 margin: 1rem 0;
+
+                @include phone-only {
+                  width: 12rem;
+                }
               }
 
               a.button {
                 bottom: 1.5rem;
                 position: absolute;
+
+                @include phone-only {
+                  color: var(--black);
+                  font-weight: normal;
+                  font-size: 1rem;
+                }
               }
             }
 
@@ -122,6 +128,10 @@
                 border: none;
                 min-height: 28rem;
                 padding: 1rem;
+
+                @include phone-only {
+                  min-height: 23rem;
+                }
               }
             }
           }
@@ -141,14 +151,33 @@
         position: relative;
         text-align: center;
 
+        @include phone-only {
+          height: 14rem;
+          background-image: none;
+          flex-direction: column;
+          justify-content: space-evenly;
+          margin-top: 3rem;
+        }
+
+
         p {
           &:first-of-type {
             color: var(--hdi-green);
             flex-basis: 90%;
             font-size: 1.25rem;
             font-weight: 500;
-            margin-left: 20rem;
-            margin-right: 10rem;
+            margin-left: 3rem;
+            margin-right: 3rem;
+
+            @include phone-only {
+              flex-basis: 0%;
+              hyphens: manual;
+
+              .block_card-link a {
+                text-transform: uppercase;
+                font-weight: 400;
+              }
+            }
           }
 
           &:last-of-type {

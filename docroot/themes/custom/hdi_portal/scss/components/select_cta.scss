@@ -37,6 +37,11 @@
               justify-content: space-between;
               min-height: 13rem;
               text-align: center;
+
+              label {
+                font-size: 1.4rem !important;
+                font-weight: 500 !important;
+              }
             }
 
             label {
