@@ -10,8 +10,10 @@ import { TermsAndConditions } from './components/termsAndConditions'
 import { SelectSpecialCondition } from './components/selectSpecialCondition'
 import { SelectProduct } from './components/selectProduct'
 import { SelectMotive } from './components/selectMotive'
-import { UploadFiles } from './uploadFiles'
+import { UploadFiles } from './components/uploadFiles'
 import { SelectCity } from './components/selectCity'
+import { Loader } from './components/loader'
+import { Confirmation } from './components/confirmation'
 
 const App = () => {
   const [country, setCountry] = useState('Colombia')
@@ -35,14 +37,15 @@ const App = () => {
   const [motive, setMotive] = useState(null)
   const [uploadesFiles, setUploadedFiles] = useState([])
   const [disableSubmit, setDisableSubmit] = useState(window.drupalSettings.pqrSalesforce.showRecaptcha)
+  const [loading, setLoading] = useState(false)
+  const [caseNumber, setCaseNumber] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const formData = {
+    let formData = {
       'SSP_PaisEvento__c': country,
       'PQR_CasoReconsideracion__c': reconsideration,
-      'SFPQR_NumeroCasoWeb__c': reconsiderationNumber,
       'SFPQR_NombresApellidosRazonSocial__c': name,
       'PQR_TipoIdentificacion__c': documentType,
       'PQR_NumeroDocumentoIdentidad__c': documentNumber,
@@ -52,15 +55,42 @@ const App = () => {
       'PQR_CelularContacto__c': phone,
       'SSP_Sexo__c': gender,
       'SSP_AutorizacionTratamientoDatoSensibles__c': termsConditions,
-      'SSP_LGBTIQ__c': lgbti,
-      'SSP_TieneAlgunaCondicionEspecial__c': specicialCondition,
-      'SSP_CondicionEspecial__c': specialConditionOption,
       'description': description,
       'SFPQR_Producto__c': product,
-      'Placa__c': plate,
       'SSP_MotivoSFC__c': motive,
       'files': uploadesFiles,
     }
+
+    if (reconsideration) {
+      formData = {
+        ...formData,
+        'SFPQR_NumeroCasoWeb__c': reconsiderationNumber,
+      }
+    }
+
+    if (termsConditions) {
+      formData = {
+        ...formData,
+        'SSP_LGBTIQ__c': lgbti,
+        'SSP_TieneAlgunaCondicionEspecial__c': specicialCondition,
+      }
+    }
+
+    if (specicialCondition) {
+      formData = {
+        ...formData,
+        'SSP_CondicionEspecial__c': specialConditionOption,
+      }
+    }
+
+    if (product === 'AUTOS') {
+      formData = {
+        ...formData,
+        'Placa__c': plate,
+      }
+    }
+
+    setLoading(true)
 
     axios.post('/api/pqr-salesforce', formData, {
       headers: {
@@ -68,6 +98,10 @@ const App = () => {
         'Token': window.drupalSettings.pqrSalesforce.token,
       }
     })
+      .then(response => {
+        setCaseNumber(response.data.caseNumber)
+        setLoading(false)
+      })
   }
 
   const onChangeRecaptcha = () => {
@@ -244,6 +278,17 @@ const App = () => {
         </div>
 
       </form>
+
+      {loading &&
+        <Loader />
+      }
+
+      {caseNumber &&
+        <Confirmation
+          caseId={caseNumber}
+          email={email}
+        />
+      }
     </>
   )
 }

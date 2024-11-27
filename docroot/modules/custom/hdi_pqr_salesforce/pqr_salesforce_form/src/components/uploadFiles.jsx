@@ -66,31 +66,33 @@ const UploadFiles = ({handleChange}) => {
       <section className="container">
         <div {...getRootProps({ className: 'dropzone' })}>
           <input {...getInputProps()} />
-          <p>Arrastra archivos para adjuntar o búscalos en tu equipo</p>
+          <p>Arrastra archivos para adjuntar o <span>búscalos en tu equipo</span></p>
           <span>
             <strong>Peso máximo permitido 20 MB.</strong> Formatos permitidos: .PDF, .JPG, .JPEG, .PNG, .MP4, .DOC, .DOCX, .XLS,. XLSX, .BMP, .MP3 y .MSG
           </span>
         </div>
       </section>
 
-      <section className="uploaded-files">
-        <h4>Archivos subidos</h4>
-        <ul>
-          {acceptedFiles.map(file => (
-            <li key={file.path}>
-              <p>
-                <span>Documento</span>
-                {file.name}
-              </p>
-              <p>
-                <span>Tipo</span>
-                {fileTypes[file.type]}
-              </p>
-              <button onClick={removeFile(file)}>Remove File</button>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {uploadedFiles.length > 0 &&
+        <section className="uploaded-files">
+          <h4>Archivos subidos</h4>
+          <ul>
+            {acceptedFiles.map(file => (
+              <li key={file.path}>
+                <p className="name">
+                  <span>Documento</span>
+                  {file.name}
+                </p>
+                <p>
+                  <span>Tipo</span>
+                  {fileTypes[file.type]}
+                </p>
+                <button onClick={removeFile(file)}>Remove File</button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      }
     </div>
   )
 }
