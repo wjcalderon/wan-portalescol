@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
 
 const documentTypes = {
@@ -13,7 +14,7 @@ const documentTypes = {
   'Permiso de proteccion temporal PPT': 'Permiso de proteccion temporal PPT',
 }
 
-const SelectDocumentType = () => {
+const SelectDocumentType = ({ handleChange }) => {
   return (
     <div className="form-item js-form-type-select form-type-select">
       <label htmlFor="PQR_TipoIdentificacion__c">Selecciona tu tipo de documento</label>
@@ -21,9 +22,14 @@ const SelectDocumentType = () => {
         name="PQR_TipoIdentificacion__c"
         optionList={documentTypes}
         required={true}
+        handleChange={handleChange}
       />
     </div>
   )
+}
+
+SelectDocumentType.propTypes = {
+  handleChange: PropTypes.func,
 }
 
 export { SelectDocumentType }

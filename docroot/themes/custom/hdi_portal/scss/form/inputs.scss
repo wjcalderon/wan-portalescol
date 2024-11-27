@@ -29,7 +29,7 @@ textarea {
     border-color: var(--hdi-gray-50);
   }
 
-  &.error {
+  &.error, &:user-invalid {
     background-color: var(--hdi-red-10);
     border-color: var(--hdi-red-90);
   }

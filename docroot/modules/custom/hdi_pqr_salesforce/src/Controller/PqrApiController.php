@@ -68,9 +68,10 @@ final class PqrApiController extends ControllerBase {
     $request_data = $request->getContent();
     $form_data = json_decode($request_data, TRUE);
 
-    // dump($form_data);
+    // Submit to webform
     $this->submitWebform($form_data);
 
+    // Submit to salesforce
     return new JsonResponse($this->submitDataSalesforce($form_data));
   }
 

@@ -13,7 +13,7 @@ const SelectField = ({ optionList, name, defaultValue, required = false, handleC
       className="form-select"
       defaultValue={defaultValue}
       required={required}
-      onChange={handleChange}
+      onChange={(e) => handleChange(e.target.value)}
     >
       <option value="">--</option>
       {options.map((option) => (
@@ -24,7 +24,7 @@ const SelectField = ({ optionList, name, defaultValue, required = false, handleC
 }
 
 SelectField.propTypes = {
-  optionList: PropTypes.array,
+  optionList: PropTypes.object,
   name: PropTypes.string,
   defaultValue: PropTypes.string,
   required: PropTypes.bool,

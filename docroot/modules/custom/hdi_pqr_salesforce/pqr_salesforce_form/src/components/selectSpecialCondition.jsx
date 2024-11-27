@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
+import { useEffect, useRef, useState } from 'react'
 
 const conditionList = {
   'Adulto mayor': 'Adulto mayor',
@@ -22,17 +24,32 @@ const conditionList = {
   'Víctima del conflicto armado': 'Víctima del conflicto armado',
 }
 
-const SelectSpecialCondition = () => {
+const SelectSpecialCondition = ({ handleChange }) => {
+  const selectRef = useRef()
+  const [activeClass, setActiveClass] = useState('')
+
+  useEffect(() => {
+    if (selectRef?.current?.value !== '') {
+      setActiveClass('form__input--activo')
+    }
+  }, [selectRef])
+
   return (
-    <div className="form-item js-form-type-select form-type-select">
+    <div className={`form-item js-form-type-select form-type-select ${activeClass}`}>
       <label htmlFor="SSP_CondicionEspecial__c">Condición Especial</label>
       <SelectField
+        ref={selectRef}
         name="SSP_CondicionEspecial__c"
         optionList={conditionList}
         required={true}
+        handleChange={handleChange}
       />
     </div>
   )
+}
+
+SelectSpecialCondition.propTypes = {
+  handleChange: PropTypes.func,
 }
 
 export { SelectSpecialCondition }

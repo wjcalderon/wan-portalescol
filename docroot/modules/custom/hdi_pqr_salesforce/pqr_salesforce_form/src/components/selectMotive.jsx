@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
 
 const motivesList = {
@@ -73,7 +74,7 @@ const motivesList = {
   'Inconformidad con procesos internos de conocimiento del cliente y SARLAFT': 'Inconformidad con procesos internos de conocimiento del cliente y SARLAFT',
 }
 
-const SelectMotive = () => {
+const SelectMotive = ({ handleChange }) => {
   return (
     <div className="form-item js-form-type-select form-type-select">
       <label htmlFor="SSP_MotivoSFC__c">Selecciona el motivo de tu queja o reclamo</label>
@@ -81,9 +82,14 @@ const SelectMotive = () => {
         name="SSP_MotivoSFC__c"
         optionList={motivesList}
         required={true}
+        handleChange={handleChange}
       />
     </div>
   )
+}
+
+SelectMotive.propTypes = {
+  handleChange: PropTypes.func,
 }
 
 export { SelectMotive }

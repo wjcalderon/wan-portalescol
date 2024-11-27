@@ -1,4 +1,8 @@
 #block-hdi-portal-pqrsalesforceform {
+  h2 {
+    text-align: center;
+  }
+
   .tool-tip {
     background-image: url(./assets/Icon-Help.svg);
     background-position: center;
@@ -91,7 +95,7 @@
     }
 
     .close {
-      background-image: url('/themes/custom/hdi_portal/images/close.svg');
+      background-image: url(./assets/close.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -156,5 +160,15 @@
         color: var(--hdi-green);
       }
     }
+  }
+
+  .recaptcha {
+    display: grid;
+    margin: 1rem auto;
+    place-content: center;
+  }
+
+  .form-actions {
+    margin-top: 2rem;
   }
 }

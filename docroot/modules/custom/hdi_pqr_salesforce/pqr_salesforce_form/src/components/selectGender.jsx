@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
 
 const genderList = {
@@ -8,7 +9,7 @@ const genderList = {
   'No binario': 'No binario',
 }
 
-const SelectGender = () => {
+const SelectGender = ({ handleChange }) => {
   return (
     <div className="form-item js-form-type-select form-type-select">
       <label htmlFor="SSP_Sexo__c">Selecciona tu género</label>
@@ -16,9 +17,14 @@ const SelectGender = () => {
         name="SSP_Sexo__c"
         optionList={genderList}
         required={true}
+        handleChange={handleChange}
       />
     </div>
   )
+}
+
+SelectGender.propTypes = {
+  handleChange: PropTypes.func,
 }
 
 export { SelectGender }

@@ -20,7 +20,7 @@ const SelectProduct = ({ handleChange }) => {
         name="SFPQR_Producto__c"
         optionList={productList}
         required={true}
-        handleChange={(e) => handleChange(e.target.value)}
+        handleChange={handleChange}
       />
     </div>
   )

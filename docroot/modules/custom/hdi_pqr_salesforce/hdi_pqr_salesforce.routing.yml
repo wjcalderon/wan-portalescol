@@ -12,7 +12,6 @@ pqrsalesforce.submitform:
   path: 'api/pqr-salesforce'
   defaults:
     _controller: '\Drupal\hdi_pqr_salesforce\Controller\PqrApiController::submitForm'
-    _format: json
   methods: [POST]
   requirements:
     _access: 'TRUE'
