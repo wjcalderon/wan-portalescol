@@ -1,0 +1,6 @@
+hdi_pqr_salesforce.admin_settings_form:
+  title: 'PQR Salesforce integration'
+  route_name: pqrsalesforce.admin_settings_form
+  description: 'PQR Salesforce integration'
+  parent: system.admin_config_system
+  weight: 99

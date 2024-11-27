@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
 
 const citiesList = {
@@ -1126,7 +1127,7 @@ const citiesList = {
   'CO-47980': 'Zona bananera',
 }
 
-const SelectCity = () => {
+const SelectCity = ({ handleChange }) => {
   return (
     <div className="form-item js-form-type-select form-type-select">
       <label htmlFor="PQR_DescripcionCiudad__c">Selecciona la ciudad del evento</label>
@@ -1134,9 +1135,14 @@ const SelectCity = () => {
         name="PQR_DescripcionCiudad__c"
         optionList={citiesList}
         required={true}
+        handleChange={handleChange}
       />
     </div>
   )
+}
+
+SelectCity.propTypes = {
+  handleChange: PropTypes.func,
 }
 
 export { SelectCity }

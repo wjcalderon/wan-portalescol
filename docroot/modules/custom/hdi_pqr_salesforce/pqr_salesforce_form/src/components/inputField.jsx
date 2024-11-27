@@ -9,11 +9,13 @@ const InputField = ({
   label, toolTipId = '',
   toolTipText = '',
   pattern = '',
+  setState,
 }) => {
   const [activeClass, setActiveClass] = useState('')
 
   const handleChange = (e) => {
     const val = e.target.value
+    setState(val)
 
     if (val !== '') {
       setActiveClass('form__input--activo')
@@ -23,14 +25,25 @@ const InputField = ({
   return (
     <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
       <label htmlFor={name}>{label}</label>
-      <input
-        type={type}
-        required={required}
-        name={name}
-        className={`form-${type}`}
-        pattern={pattern}
-        onChange={(e) => handleChange(e)}
-      />
+      {pattern === '' &&
+        <input
+          type={type}
+          required={required}
+          name={name}
+          className={`form-${type}`}
+          onChange={(e) => handleChange(e)}
+        />
+      }
+      {pattern !== '' &&
+        <input
+          type={type}
+          required={required}
+          name={name}
+          className={`form-${type}`}
+          pattern={pattern}
+          onChange={(e) => handleChange(e)}
+        />
+      }
       {toolTipId !== '' &&
         <ToolTip
           id={toolTipId}
@@ -48,7 +61,8 @@ InputField.propTypes = {
   label: PropTypes.string,
   toolTipId: PropTypes.string,
   toolTipText: PropTypes.string,
-  pattern: PropTypes.string
+  pattern: PropTypes.string,
+  setState: PropTypes.func,
 }
 
 export { InputField }

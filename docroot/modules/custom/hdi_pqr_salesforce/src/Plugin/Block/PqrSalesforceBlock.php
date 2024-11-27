@@ -16,6 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 final class PqrSalesforceBlock extends BlockBase implements
   ContainerFactoryPluginInterface {
+
   /**
    * Drupal\Core\Config\ConfigFactoryInterface definition.
    *
@@ -24,11 +25,11 @@ final class PqrSalesforceBlock extends BlockBase implements
   protected $configFactory;
 
   /**
-   * Symfony\Component\HttpFoundation\Session\SessionInterface definition.
+   * Drupal\Core\Access\CsrfTokenGenerator definition.
    *
-   * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
+   * @var \Drupal\Core\Access\CsrfTokenGenerator
    */
-  protected $session;
+  protected $csrfToken;
 
   /**
    * {@inheritdoc}
@@ -41,7 +42,7 @@ final class PqrSalesforceBlock extends BlockBase implements
   ) {
     $instance = new static($configuration, $plugin_id, $plugin_definition);
     $instance->configFactory = $container->get('config.factory');
-    $instance->session = $container->get('session');
+    $instance->csrfToken = $container->get('csrf_token');
     return $instance;
   }
 
@@ -64,6 +65,7 @@ final class PqrSalesforceBlock extends BlockBase implements
           'pqrSalesforce' => [
             'recaptchaKey' => $this->recaptchaKey(),
             'token' => $this->userToken(),
+            'showRecaptcha' => $this->showRecaptcha(),
           ],
         ],
       ],
@@ -91,7 +93,19 @@ final class PqrSalesforceBlock extends BlockBase implements
    *   Token used for save form data.
    */
   private function userToken(): string {
-    return 'token';
+    return $this->csrfToken->get();
+  }
+
+  /**
+   * Show / hide recaptcha..
+   *
+   * @return bool
+   *   Module configuration.
+   */
+  private function showRecaptcha(): bool {
+    $config = $this->configFactory->get('pqrsalesforce.settings');
+
+    return $config->get('use_recaptcha');
   }
 
 }
