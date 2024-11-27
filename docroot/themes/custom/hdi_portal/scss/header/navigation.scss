@@ -189,6 +189,20 @@
     }
   }
 
+  @include phone-only {
+
+    #nav__principal {
+      display: none;
+    }
+
+    #nav__secundario {
+      #block-hdi-portal-menusecundario, #block-hdi-portal-menucontactenos {
+        display: none;
+
+      }
+    }
+  }
+
   #nav__secundario {
     @import './tepodemosayudar.scss';
 

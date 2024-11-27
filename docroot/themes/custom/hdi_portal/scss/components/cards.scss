@@ -1,3 +1,5 @@
+@import '../mixins/responsive.scss';
+
 .component__cards {
   .component__heading {
     .cog--mq {
@@ -45,13 +47,30 @@
           color: var(--hdi-green);
           font-size: 1.5rem;
           margin: 1.5rem 0;
+
+          @include phone-only {
+            font-weight: 500 !important;
+            text-align: center;
+          }
         }
 
         p {
           color: var(--gray);
           margin-bottom: 1.5rem;
+
+          @include phone-only {
+            text-align: center;
+          }
         }
       }
+    }
+  }
+
+  @include phone-only {
+    #component-112 h3 {
+      font-size: 2.2rem !important;
+      text-align: center;
+      font-weight: 500;
     }
   }
 

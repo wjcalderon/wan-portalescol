@@ -22,6 +22,10 @@
 
       li {
         a {
+          @include phone-only {
+            padding: 1rem 0;
+          }
+
           padding: 1.5625rem 0;
 
           &.active {

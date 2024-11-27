@@ -8,6 +8,21 @@ header {
   #header {
     background-color: var(--hdi-gray-10);
 
+    @include phone-only {
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+       a > img {
+        width: 7rem;
+        height: 4rem;
+        padding: 0px;
+        position: sticky;
+       }
+
+    }
+
     @include tablet-landscape-up {
       padding: 0 4rem;
       position: relative;

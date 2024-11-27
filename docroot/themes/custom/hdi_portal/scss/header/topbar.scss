@@ -3,6 +3,11 @@
   background: var(--hdi-green);
   display: flex;
 
+  @include phone-only {
+    display: flex;
+    justify-content: center;
+  }
+
   @include tablet-landscape-up {
     padding: 0.4rem 4rem;
   }

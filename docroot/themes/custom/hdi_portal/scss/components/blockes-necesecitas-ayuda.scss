@@ -15,6 +15,22 @@
     padding: .6875rem 3.875rem .6875rem 2.875rem;
     position: absolute;
     right: 2.875rem;
+
+    @include phone-only {
+      background-position: 50% center;
+      overflow: hidden;
+      text-indent: -9999rem;
+      white-space: nowrap;
+      background-size: 3rem;
+      background-color: var(--hdi-green-70) !important;
+      border-radius: 50%;
+      padding: 0em;
+      right: 1rem;
+      height: 4rem;
+      width: 4rem;
+      bottom: 1.4rem;
+      right: 1.4rem
+    }
   }
 
   .menu {
@@ -28,6 +44,11 @@
     right: 2.875rem;
     width: 17.5rem;
 
+    @include phone-only {
+      bottom: 6.5rem;
+      right: 1.4rem;
+    }
+
     li {
       &.close {
         background-image: url(../../images/close.svg);
@@ -38,6 +59,10 @@
         cursor: pointer;
         display: block;
         height: 1rem;
+
+        @include phone-only {
+          display: none;
+        }
       }
 
       &:not(.close) {
@@ -61,4 +86,15 @@
       }
     }
   }
+}
+
+@include phone-only {
+
+  #show-menu-help > .block_card-link a--alpha.active, .button--alpha.active {
+    background-image: url(../../images/need-help-close.svg) !important;
+    background-color: ar(--hdi-green-70);
+    font-size: 0.875rem;
+    border: none;
+  }
+
 }
