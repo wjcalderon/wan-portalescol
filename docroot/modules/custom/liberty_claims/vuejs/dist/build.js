@@ -47207,6 +47207,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
 
 
 
@@ -50680,7 +50681,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__ = __webpack_require__(44);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7f926196_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55609a36_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50697,7 +50698,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7f926196_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55609a36_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50767,7 +50768,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
             field: true,
             error: _vm.submited && _vm.hasError('casualties'),
             filled: _vm.casualtyData.casualties
-          }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label)+"\n              ")])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v("\n            "+_vm._s(_vm.hasError("casualties"))+"\n          ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n            ¿Hubo un tercero involucrado en el accidente?\n          ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withInvolved === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withInvolved === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', false)}}},[_vm._v("\n              No\n            ")])])])])]),_vm._v(" "),(_vm.casualtyData.withInvolved)?_c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Conoce la placa del tercero involucrado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
+          }},[_c('float-label',{attrs:{"label":"¿Cuántos?"}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.casualties),expression:"casualtyData.casualties"}],attrs:{"disabled":_vm.casualtyData.withInjured === false},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "casualties", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.counts),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label)+"\n              ")])}),0)]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('casualties')),expression:"submited && hasError('casualties')"}],staticClass:"error-message"},[_vm._v("\n            "+_vm._s(_vm.hasError("casualties"))+"\n          ")])],1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("\n            ¿Hubo un tercero involucrado en el accidente?\n          ")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{ selected: _vm.casualtyData.withInvolved === true },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', true)}}},[_vm._v("\n              Si\n            ")]),_vm._v(" "),_c('button',{class:{ selected: _vm.casualtyData.withInvolved === false },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules('withInvolved', 'withThirdPartyInvolved', false)}}},[_vm._v("\n              No\n            ")])])])]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),(_vm.casualtyData.withInvolved)?_c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"option-buttons"},[_c('div',{staticClass:"label"},[_vm._v("¿Conoce la placa del tercero involucrado?")]),_vm._v(" "),_c('div',{staticClass:"option-buttons-items"},[_c('button',{class:{
                   selected: _vm.casualtyData.withThirdPartyInvolvedPlate === true
                 },attrs:{"type":"button"},on:{"click":function($event){return _vm.changeRules(
                     'withThirdPartyInvolvedPlate',
