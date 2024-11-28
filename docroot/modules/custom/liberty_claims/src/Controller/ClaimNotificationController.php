@@ -523,7 +523,7 @@ class ClaimNotificationController extends ControllerBase {
    */
   public function sendEmail(Request $request) {
     $params = json_decode($request->getContent(), true);
-    $params['subject'] = 'HDI Seguros Colombia | Tu siniestro ha sido radicado';
+    $params['subject'] = 'HDI Seguros | Tu siniestro ha sido radicado';
     $params['headers'] = [
       'Content-Type' => 'text/html; charset=UTF-8;',
     ];

@@ -781,6 +781,11 @@ button.time-picker-column-item {
   color: var(--dark-blue-70);
 }
 
+.pane .image-car .p-default input {
+  height: 3rem;
+  width: 3rem;
+}
+
 .pane .image-car .p-default input:checked ~ .state label {
   font-weight: bold;
 }
@@ -817,6 +822,11 @@ button.time-picker-column-item {
   height: 90px;
 }
 
+.pane .image-car .p-default:nth-child(2) input {
+  left: 40%;
+  top: 2.5rem;
+}
+
 .pane .image-car .p-default:nth-child(2) label:before {
   top: auto !important;
   transform: translateX(-50%) !important;
@@ -832,6 +842,12 @@ button.time-picker-column-item {
   padding-right: 3rem;
 }
 
+.pane .image-car .p-default:nth-child(4) input {
+  left: unset;
+  right: 0;
+  top: .5rem;
+}
+
 .pane .image-car .p-default:nth-child(4) label:before {
   top: 50% !important;
   left: auto;
@@ -845,6 +861,10 @@ button.time-picker-column-item {
   transform: translateX(-50%);
   z-index: 10;
   padding-left: 3rem;
+}
+
+.pane .image-car .p-default:nth-child(3) input {
+  top: .5rem;
 }
 
 .pane .image-car .p-default:nth-child(3) label:before {
@@ -873,6 +893,11 @@ button.time-picker-column-item {
   padding-right: 3rem;
 }
 
+.pane .image-car .p-default:nth-child(6) input {
+  right: 0;
+  left: unset;
+}
+
 .pane .image-car .p-default:nth-child(6) label:before {
   top: 50% !important;
   left: auto;
@@ -885,6 +910,11 @@ button.time-picker-column-item {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+.pane .image-car .p-default:nth-child(7) input {
+  left: 40%;
+  top: .5rem;
 }
 
 .pane .image-car .p-default:nth-child(7) label {
@@ -905,6 +935,11 @@ button.time-picker-column-item {
   z-index: 10;
 }
 
+.pane .image-car .p-default:nth-child(8) input {
+  left: 40%;
+  top: .5rem;
+}
+
 .pane .image-car .p-default:nth-child(8) label:before {
   top: 7px !important;
   transform: translateX(-50%) !important;
@@ -921,6 +956,11 @@ button.time-picker-column-item {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+.pane .image-car .p-default:nth-child(9) input {
+  left: 40%;
+  top: .5rem;
 }
 
 .pane .image-car .p-default:nth-child(9) label {

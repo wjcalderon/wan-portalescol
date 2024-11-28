@@ -8,14 +8,13 @@ body {
 
     h2 {
       &.component__title {
+        margin: 3rem 0 2rem;
+        text-align: center;
 
         @include phone-only {
           font-size: 2rem !important;
           hyphens: manual;
         }
-
-        margin: 3rem 0 2rem;
-        text-align: center;
       }
     }
 
