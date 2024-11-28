@@ -422,6 +422,7 @@
             </div>
           </div>
         </div>
+        <div class="col"></div>
       </div>
 
       <div v-if="casualtyData.withInvolved">
