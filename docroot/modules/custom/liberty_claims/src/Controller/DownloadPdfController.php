@@ -23,11 +23,13 @@ class DownloadPdfController extends ControllerBase {
   public function download(Request $request, $number) {
     global $base_root, $base_path;
 
+    $module_path = \Drupal::service('extension.path.resolver')->getPath('module', 'liberty_claims');
+
     $data = json_decode($request->getContent(), TRUE);
     $build = [
       '#theme' => 'download_pdf',
       '#data' => [
-        'url' => 'http://127.0.0.1' . $base_path . drupal_get_path('module', 'liberty_claims'),
+        'url' => 'http://127.0.0.1' . $base_path . $module_path,
         'number' => $number,
         'radicate_date' => date('d / m / Y'),
         'year' => date('Y'),
@@ -39,7 +41,7 @@ class DownloadPdfController extends ControllerBase {
     $options = new Options();
     $options->setIsRemoteEnabled(TRUE);
     $options->setIsPhpEnabled(TRUE);
-    $options->setIsHtml5ParserEnabled(FALSE);
+    $options->setIsHtml5ParserEnabled(TRUE);
     $options->setIsJavascriptEnabled(FALSE);
     $options->setTempDir('/tmp');
 
