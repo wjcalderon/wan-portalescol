@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useTransition } from 'react'
 import { useDropzone } from 'react-dropzone'
 import PropTypes from 'prop-types'
 
@@ -16,8 +16,9 @@ const fileTypes = {
   'application/vnd.ms-outlook': ['.msg'],
 }
 
-const UploadFiles = ({handleChange}) => {
+const UploadFiles = ({ handleChange }) => {
   const [uploadedFiles, setUploadedFiles] = useState([])
+  const [isPending, startTransition] = useTransition()
 
   const onDrop = useCallback(
     acceptedFiles => {
@@ -31,7 +32,8 @@ const UploadFiles = ({handleChange}) => {
           Title: file.name,
           PathOnClient: file.name,
           ContentLocation: "S",
-          VersionData: ''
+          VersionData: '',
+          type: fileTypes[file.type][0],
         }
 
         const fileReader = new FileReader()
@@ -49,15 +51,16 @@ const UploadFiles = ({handleChange}) => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: fileTypes,
     maxSize: 20971520, // 20MB
+    maxFiles: 10,
     onDrop,
   })
 
   const removeFile = (file) => () => {
-    console.log('removeFile...')
-    acceptedFiles.splice(acceptedFiles.indexOf(file), 1)
-    setUploadedFiles(acceptedFiles)
-    handleChange(uploadedFiles)
-    console.log(acceptedFiles)
+    startTransition(() => {
+      uploadedFiles.splice(uploadedFiles.indexOf(file), 1)
+      setUploadedFiles(uploadedFiles)
+      handleChange(uploadedFiles)
+    })
   }
 
   return (
@@ -73,19 +76,19 @@ const UploadFiles = ({handleChange}) => {
         </div>
       </section>
 
-      {uploadedFiles.length > 0 &&
+      {!isPending && uploadedFiles.length > 0 &&
         <section className="uploaded-files">
           <h4>Archivos subidos</h4>
           <ul>
-            {acceptedFiles.map(file => (
+            {uploadedFiles.map(file => (
               <li key={file.path}>
                 <p className="name">
                   <span>Documento</span>
-                  {file.name}
+                  {file.Title}
                 </p>
                 <p>
                   <span>Tipo</span>
-                  {fileTypes[file.type]}
+                  {file.type}
                 </p>
                 <button onClick={removeFile(file)}>Remove File</button>
               </li>

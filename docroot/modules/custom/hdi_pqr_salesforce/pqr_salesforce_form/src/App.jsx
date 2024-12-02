@@ -131,6 +131,7 @@ const App = () => {
             type="number"
             name="SFPQR_NumeroCasoWeb__c"
             setState={setReconsiderationNumber}
+            minLength={4}
           />
         }
 
@@ -140,6 +141,8 @@ const App = () => {
           name="SFPQR_NombresApellidosRazonSocial__c"
           required={true}
           setState={setName}
+          minLength={5}
+          maxLength={40}
         />
 
         <SelectDocumentType
@@ -152,6 +155,7 @@ const App = () => {
           name="PQR_NumeroDocumentoIdentidad__c"
           required={true}
           setState={setDocumentNumber}
+          minLength={5}
         />
 
         <InputField
@@ -162,7 +166,7 @@ const App = () => {
           toolTipText="Por este canal generamos la respuesta a tu caso"
           required={true}
           setState={setEmail}
-        />
+          />
 
         <SelectCity
           handleChange={setCity}
@@ -174,6 +178,7 @@ const App = () => {
           name="PQR_Direccion__c"
           required={true}
           setState={setAddress}
+          minLength={5}
         />
 
         <InputField
@@ -182,6 +187,7 @@ const App = () => {
           name="PQR_CelularContacto__c"
           required={true}
           setState={setPhone}
+          minLength={7}
         />
 
         <SelectGender
@@ -239,7 +245,7 @@ const App = () => {
           handleChange={setProduct}
         />
 
-        {product === 'AUTOS' &&
+        {(product === 'AUTOS' || product === 'SOAT') &&
           <InputField
             label="Ingresa tu placa"
             type="text"

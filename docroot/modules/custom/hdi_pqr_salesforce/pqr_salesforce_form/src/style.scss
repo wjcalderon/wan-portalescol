@@ -335,4 +335,8 @@
     width: 100vw;
     z-index: 15;
   }
+
+  .react-tooltip {
+    z-index: 100;
+  }
 }

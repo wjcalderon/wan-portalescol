@@ -5,7 +5,6 @@ const genderList = {
   'Masculino': 'Masculino',
   'Femenino': 'Femenino',
   'No aplica': 'No aplica',
-  'Trans': 'Trans',
   'No binario': 'No binario',
 }
 

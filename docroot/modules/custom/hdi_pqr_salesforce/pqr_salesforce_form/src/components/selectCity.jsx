@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import ToolTip from './toolTip'
 import { SelectField } from './selectField'
 
 const citiesList = {
@@ -1136,6 +1137,10 @@ const SelectCity = ({ handleChange }) => {
         optionList={citiesList}
         required={true}
         handleChange={handleChange}
+      />
+      <ToolTip
+        id="DescripcionCiudad"
+        text="Ciudad de ocurrencia del evento"
       />
     </div>
   )

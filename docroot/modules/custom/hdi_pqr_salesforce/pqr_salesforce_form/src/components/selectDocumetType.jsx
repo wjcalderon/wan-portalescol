@@ -23,6 +23,7 @@ const SelectDocumentType = ({ handleChange }) => {
         optionList={documentTypes}
         required={true}
         handleChange={handleChange}
+        defaultValue="Cédula de ciudadanía"
       />
     </div>
   )

@@ -10,6 +10,8 @@ const InputField = ({
   toolTipText = '',
   pattern = '',
   setState,
+  minLength = 3,
+  maxLength = 60,
 }) => {
   const [activeClass, setActiveClass] = useState('')
 
@@ -32,6 +34,8 @@ const InputField = ({
           name={name}
           className={`form-${type}`}
           onChange={(e) => handleChange(e)}
+          minLength={minLength}
+          maxLength={maxLength}
         />
       }
       {pattern !== '' &&
@@ -42,6 +46,8 @@ const InputField = ({
           className={`form-${type}`}
           pattern={pattern}
           onChange={(e) => handleChange(e)}
+          minLength={minLength}
+          maxLength={maxLength}
         />
       }
       {toolTipId !== '' &&
@@ -63,6 +69,8 @@ InputField.propTypes = {
   toolTipText: PropTypes.string,
   pattern: PropTypes.string,
   setState: PropTypes.func,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
 }
 
 export { InputField }
