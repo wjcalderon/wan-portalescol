@@ -258,7 +258,7 @@ const SelectCountry = ({ handleChange }) => {
       />
       <ToolTip
         id="PaisEvento"
-        text="País en donde ocurrió el evento o donde se requiere el servicio"
+        text="País en donde ocurrió el evento o servicio"
       />
     </div>
   )

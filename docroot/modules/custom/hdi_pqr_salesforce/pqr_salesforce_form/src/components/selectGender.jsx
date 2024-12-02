@@ -4,7 +4,7 @@ import { SelectField } from './selectField'
 const genderList = {
   'Masculino': 'Masculino',
   'Femenino': 'Femenino',
-  'No aplica': 'No aplica',
+  'No aplica': 'Prefiero no decir',
   'No binario': 'No binario',
 }
 
