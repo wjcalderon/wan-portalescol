@@ -1,15 +1,15 @@
-* , *::before , *::after{
+* , *::before , *::after {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
 }
-*::before , *::after{
+*::before , *::after {
   display: block;
 }
 
-img , picture , video , iframe , figure{
+img , picture , video , iframe , figure {
   max-width: 100%;
   width: 100%;
   display: block;

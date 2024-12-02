@@ -48,18 +48,17 @@
       });
 
       // Search box
-      const navSecundario = $('#nav__secundario')
       const buscadorGlobal = $('#buscador')
       const buscardorText = buscadorGlobal.find('.form-autocomplete.form-text')
 
-      navSecundario
-        .on('click', buscadorGlobal, () => {
-          $('#block-hdi-portal-transversales').addClass('is-hidden')
+      buscadorGlobal
+        .on('click', () => {
+          $('#block-hdi-portal-menusecundario').addClass('is-hidden')
           buscadorGlobal.addClass('buscador__input--activo')
         })
         .on('blur, focusout', buscardorText, () => {
           if (buscardorText.val() === undefined || buscardorText.val() === '') {
-            $('#block-hdi-portal-transversales').removeClass('is-hidden')
+            $('#block-hdi-portal-menusecundario').removeClass('is-hidden')
             buscadorGlobal.removeClass('buscador__input--activo')
           }
         })

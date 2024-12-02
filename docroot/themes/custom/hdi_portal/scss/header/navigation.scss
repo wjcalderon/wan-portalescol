@@ -205,13 +205,8 @@
 
   #nav__secundario {
     @import './tepodemosayudar.scss';
-
-    #block-hdi-portal-transversales {
-      transition: all 1s ease-in-out;
-
-      @import './siniestros.scss';
-      @import './pagos.scss';
-    }
+    @import './siniestros.scss';
+    @import './pagos.scss';
 
     &.is-hidden {
       #block-hdi-portal-transversales {
@@ -219,7 +214,7 @@
       }
     }
 
-    #block-hdi-portal-contactanos {
+    #block-hdi-portal-menucontactenos {
       .dropdown-toggle {
         color: var(--hdi-gray-10);
         background-image: url(../../images/menu-contact@2x.png);

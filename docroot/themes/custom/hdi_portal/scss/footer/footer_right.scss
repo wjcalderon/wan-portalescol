@@ -1,7 +1,15 @@
+@import '../mixins/responsive.scss';
+
 #footer__right {
+  display: none;
   flex-basis: 20%;
   padding-right: 2rem;
   padding-top: 2.5rem;
+
+  @include tablet-landscape-up {
+    display: block;
+  }
+
 
   .navigation {
     & > .menu {

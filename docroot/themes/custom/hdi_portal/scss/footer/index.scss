@@ -1,5 +1,4 @@
 footer {
-  display: none;
   position: relative;
 
   @include tablet-landscape-up {
@@ -11,8 +10,12 @@ footer {
     display: flex;
 
     .footer__content {
-      background-color: var(--gray-30);
-      flex-basis: 80%;
+      background-color: var(--gray-20);
+      flex-basis: 100%;
+
+      @include tablet-landscape-up {
+        flex-basis: 80%;
+      }
 
       &::before {
         background: linear-gradient(90deg, var(--hdi-universal-green) 40%, var(--hdi-green) 40%);
