@@ -146,4 +146,13 @@ body {
   .slick-dotted.slick-slider {
     margin-bottom: 0;
   }
+
+  .ui-widget-content a {
+    color: unset;
+  }
+
+  .bg-content--light-blue .component__content .cog--items,
+  .bg-component--light-blue {
+    background-color: var(--hdi-yellow);
+  }
 }

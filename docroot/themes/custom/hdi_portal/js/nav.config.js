@@ -14,12 +14,14 @@
         }
       });
 
-      $("#navigation-mb .nav__mb, #block-menufooter .nav__mb").on(
+      $("#navigation-mb .nav__mb, #block-hdi-portal-menufooter .nav__mb").on(
         "click",
         function () {
           let nav = $(this);
+
+          console.log(nav)
+
           if (nav.siblings("ul").hasClass("desplegado")) {
-            nav.siblings("ul").css("height", 0);
             nav.siblings("ul").removeClass("desplegado");
             nav.removeClass("nav__mb--open");
           } else {
@@ -27,7 +29,6 @@
               hijos = nav.siblings("ul").children("li").length,
               altoTotal = alto * hijos;
             nav.siblings("ul").addClass("desplegado");
-            nav.siblings("ul").css("height", altoTotal);
             nav.addClass("nav__mb--open");
           }
         }
@@ -129,7 +130,7 @@
           e.preventDefault();
           pop = PopupCenter($(this).attr("href"), $(this).text(), "600", "800"),
             $(this).attr("resizable", "no");
-          
+
           console.log(pop);
         });
 

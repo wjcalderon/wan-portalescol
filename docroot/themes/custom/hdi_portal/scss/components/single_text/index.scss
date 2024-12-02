@@ -1,5 +1,9 @@
 .component__single-text {
-  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 
   .component__heading {
     h2 {
