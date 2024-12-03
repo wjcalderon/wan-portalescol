@@ -124,6 +124,7 @@ trait PqrSalesforce {
       $form_data[$key]['FirstPublishLocationId'] = $case_id;
       $form_data[$key]['LGM_DocType__c'] = 'Documentos de radicación';
       $form_data[$key]['LGM_Process__c'] = 'PQR';
+      unset($form_data[$key]['type']);
     }
 
     $data = [

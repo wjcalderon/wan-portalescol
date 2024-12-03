@@ -27,7 +27,7 @@ const InputField = ({
   return (
     <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
       <label htmlFor={name}>{label}</label>
-      {pattern === '' &&
+      {pattern === '' && type !== 'number' &&
         <input
           type={type}
           required={required}
@@ -38,7 +38,7 @@ const InputField = ({
           maxLength={maxLength}
         />
       }
-      {pattern !== '' &&
+      {pattern !== '' && type !== 'number' &&
         <input
           type={type}
           required={required}
@@ -48,6 +48,17 @@ const InputField = ({
           onChange={(e) => handleChange(e)}
           minLength={minLength}
           maxLength={maxLength}
+        />
+      }
+      {type === 'number' &&
+        <input
+          type={type}
+          required={required}
+          name={name}
+          className={`form-${type}`}
+          onChange={(e) => handleChange(e)}
+          min={minLength}
+          max={maxLength}
         />
       }
       {toolTipId !== '' &&

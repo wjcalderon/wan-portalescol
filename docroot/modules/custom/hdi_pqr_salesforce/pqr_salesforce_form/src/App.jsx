@@ -20,7 +20,7 @@ const App = () => {
   const [reconsideration, setReconsideration] = useState(false)
   const [reconsiderationNumber, setReconsiderationNumber] = useState(0)
   const [name, setName] = useState('')
-  const [documentType, setDocumentType] = useState('')
+  const [documentType, setDocumentType] = useState('Cédula de ciudadanía')
   const [documentNumber, setDocumentNumber] = useState('')
   const [email, setEmail] = useState('')
   const [city, setCity] = useState('')
@@ -83,7 +83,7 @@ const App = () => {
       }
     }
 
-    if (product === 'AUTOS') {
+    if (product === 'AUTOS' || product === 'SOAT') {
       formData = {
         ...formData,
         'Placa__c': plate,
@@ -131,7 +131,8 @@ const App = () => {
             type="number"
             name="SFPQR_NumeroCasoWeb__c"
             setState={setReconsiderationNumber}
-            minLength={4}
+            minLength={9999}
+            maxLength={99999999}
           />
         }
 
@@ -155,7 +156,8 @@ const App = () => {
           name="PQR_NumeroDocumentoIdentidad__c"
           required={true}
           setState={setDocumentNumber}
-          minLength={5}
+          minLength={99}
+          maxLength={9999999999}
         />
 
         <InputField
@@ -187,7 +189,8 @@ const App = () => {
           name="PQR_CelularContacto__c"
           required={true}
           setState={setPhone}
-          minLength={7}
+          minLength={999999}
+          maxLength={9999999999}
         />
 
         <SelectGender
