@@ -1,7 +1,10 @@
 form {
   margin: 2rem auto;
-  max-width: 30.8125rem;
   text-align: center;
+
+  @include tablet-landscape-up {
+    max-width: 30.8125rem !important;
+  }
 
   h2 {
     font-size: 2rem;

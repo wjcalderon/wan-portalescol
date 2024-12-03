@@ -57,7 +57,7 @@
 
       $(".nav-contact").on("click", function () {
         let el = $(this),
-          cont = $(".mb__info-cont");
+          cont = $(".block--attention-lines");
 
         if (cont.hasClass("is-visible")) {
           cont.removeClass("is-visible");
