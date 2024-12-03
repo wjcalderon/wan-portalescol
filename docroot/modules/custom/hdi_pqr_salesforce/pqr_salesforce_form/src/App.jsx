@@ -83,7 +83,7 @@ const App = () => {
       }
     }
 
-    if (product === 'AUTOS') {
+    if (product === 'AUTOS' || product === 'SOAT') {
       formData = {
         ...formData,
         'Placa__c': plate,
