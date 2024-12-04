@@ -2,15 +2,28 @@
   margin-bottom: 2rem;
   max-width: 53rem;
   text-align: center;
+  
+  h1 {
+    font-size: 1.125rem;
+    color: var(--gray);
+    margin: -2rem 0;
+
+    strong {
+      color: var(--hdi-green);
+      display: block;
+      font-size: 1.5rem;
+      margin: -2rem 0;
+    }
+  }
 
   p {
     font-size: 1.125rem;
     color: var(--gray);
 
     strong {
-      color: var(--hdi-green);
+      color: var(--black);
       display: block;
-      font-size: 1.5625rem;
+      font-size: 0.9rem;
       margin: 1.5rem 0;
     }
   }

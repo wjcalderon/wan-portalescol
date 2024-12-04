@@ -4,7 +4,7 @@ footer {
   position: relative;
 
   &::before {
-    background: linear-gradient(90deg, var(--hdi-universal-green) 0% 40%, var(--hdi-green) 40% 80%, var(--hdi-light-blue) 80%) fixed;
+    background: linear-gradient(90deg, var(--hdi-universal-green) 0% 33.3%, var(--hdi-green) 33.3% 66.6%, var(--hdi-light-blue) 66.6%) fixed;
     content: "";
     display: block;
     height: .625rem;
