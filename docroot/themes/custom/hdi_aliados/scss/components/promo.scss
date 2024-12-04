@@ -1,0 +1,19 @@
+.promo {
+    margin-bottom: 4rem;
+    max-width: 90rem;
+    text-align: center;
+    
+    p {
+      font-size: 1.125rem;
+      color: var(--gray);
+  
+      strong {
+        color: var(--hdi-universal-green);
+        display: block;
+        font-size: 1.7rem;
+        margin: 1.5rem 0;
+        text-align: center;
+      }
+    }
+  }
+  
