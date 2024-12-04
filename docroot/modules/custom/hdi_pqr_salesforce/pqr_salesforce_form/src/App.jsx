@@ -130,6 +130,7 @@ const App = () => {
             label="Ingresa el número de tu caso"
             type="number"
             name="SFPQR_NumeroCasoWeb__c"
+            required={true}
             setState={setReconsiderationNumber}
             minLength={9999}
             maxLength={99999999}
