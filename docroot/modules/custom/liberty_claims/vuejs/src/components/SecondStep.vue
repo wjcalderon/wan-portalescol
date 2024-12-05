@@ -114,7 +114,7 @@
               v-model="casualtyData.brand"
               tabindex=8
               placeholder="¿Cuál es la marca de tu vehículo?"
-              v-bind:isDisabled="personalInfo.brand">
+              v-bind:isDisabled="personalInfo.brand ? true : false">
             </search-select>
           </float-label>
           <div class="error-message" v-show="submited && hasError('brand')">{{ hasError('brand') }}</div>
@@ -210,7 +210,7 @@ export default {
       return this.maskField(this.personalInfo.address, 5);
     },
   },
-  created() {
+  mounted() {
     this.$http.get('/claim-data/brands').then(function (data) {
        Object.values(data.body).forEach(element => {
          this.brands.push({ value: element, text: element });

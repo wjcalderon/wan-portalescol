@@ -33,5 +33,6 @@ services:
         "@claims.services",
         "@file_system",
         "@liberty.logger",
+        "@entity_type.manager",
         "@file.repository",
       ]

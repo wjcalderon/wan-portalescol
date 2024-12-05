@@ -284,7 +284,7 @@ export default {
       }
     },
   },
-  created() {
+  mounted() {
     delete this.documentTypes['¿Cuál es tu tipo de documento?'];
     this.documentTypes['Tipo de documento'] = 0;
     this.$http.get('/claim-data/cities-carshops').then(function (data) {

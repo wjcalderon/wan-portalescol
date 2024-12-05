@@ -1,29 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="143px" height="143px" viewBox="0 0 143 143" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>Group 44</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M42.1333333,6.93866667 C22.72,6.93866667 6.93333333,22.7253333 6.93333333,42.1386667 C6.93333333,61.5466667 22.72,77.3333333 42.1333333,77.3333333 C61.5466667,77.3333333 77.3333333,61.5466667 77.3333333,42.1386667 C77.3333333,22.7253333 61.5466667,6.93866667 42.1333333,6.93866667 M42.1333333,0 C65.3653333,0 84.2666667,18.9013333 84.2666667,42.1386667 C84.2666667,65.3706667 65.3653333,84.272 42.1333333,84.272 C18.9013333,84.272 0,65.3706667 0,42.1386667 C0,18.9013333 18.9013333,0 42.1333333,0 Z M46.5376501,58.1499269 L37.7716341,58.1499269 L37.7716341,66.6237424 L46.5376501,66.6237424 L46.5376501,58.1499269 Z M46.8298507,16 L37.3333333,16 L38.5021355,50.9910139 L45.7340987,50.9910139 L46.8298507,16 Z" id="path-1"></path>
-    </defs>
-    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="3.1-Claims-Insured-modal-plate" transform="translate(-612.000000, -833.000000)">
-            <g id="Group-44" transform="translate(612.000000, 833.000000)">
-                <circle id="Oval-2" fill="#F0FBFC" fill-rule="nonzero" cx="71.5" cy="71.5" r="71.5"></circle>
-                <g id="Icon/Exclamation" transform="translate(7.000000, 8.000000)">
-                    <g id="Color/Liberty-Blue" transform="translate(21.333333, 21.333333)">
-                        <mask id="mask-2" fill="white">
-                            <use xlink:href="#path-1"></use>
-                        </mask>
-                        <use id="Mask" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
-                        <g mask="url(#mask-2)" fill="#121820" fill-rule="nonzero" id="Rectangle-Copy">
-                            <g transform="translate(-218.666667, -218.666667)">
-                                <polygon points="0 0 539 0 539 517 0 517"></polygon>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="97" height="97" viewBox="0 0 97 97">
+  <g id="Grupo_29773" data-name="Grupo 29773" transform="translate(-674 -215)">
+    <circle id="Oval" cx="48" cy="48" r="48" transform="translate(674.5 215.5)" fill="#fff4f5" stroke="#e92243" stroke-width="1"/>
+    <g id="Group" transform="translate(717.719 239.705)">
+      <g id="Group_9" data-name="Group 9" transform="translate(0 0)">
+        <path id="Fill_2917" data-name="Fill 2917" d="M0,0,1.083,32H7.8L8.816,0Z" transform="translate(0)" fill="#e92243"/>
+        <path id="Fill_2918" data-name="Fill 2918" d="M0,8.134H8.118V0H0Z" transform="translate(0.422 38.866)" fill="#e92243"/>
+      </g>
     </g>
+  </g>
 </svg>

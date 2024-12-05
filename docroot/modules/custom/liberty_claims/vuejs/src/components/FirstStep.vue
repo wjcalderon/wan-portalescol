@@ -102,10 +102,8 @@ export default {
         'CLAIM_TYPE_PPH': 'Hurto de cualquier parte o accesorio de su vehículo.',
         'CLAIM_TYPE_PTH': 'Hurto de su vehículo.',
         'CLAIM_TYPE_AC': 'Pequeños accesorios.',
-        'CLAIM_TYPE_PL': 'Perdida de llaves.',
         'CLAIM_TYPE_LR': 'Llantas estalladas.',
         'CLAIM_TYPE_CL': 'Cobertura de llaves.',
-        'CLAIM_TYPE_CR': 'Rotura de cristales.',
       }
       return opts;
     },
@@ -204,10 +202,10 @@ export default {
               data.body == "not-in-time" ||
               data.body == "error" ||
               data.body == "no-data") {
-              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-0';
+              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17695';
             }
             else if (data.status != 200) {
-              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-0';
+              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17695';
             }
             else {
 

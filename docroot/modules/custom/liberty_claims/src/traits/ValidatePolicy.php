@@ -17,8 +17,9 @@ trait ValidatePolicy {
     if (array_key_exists('token', $return)) {
       if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
         $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia);
-      } elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
-        $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia, true);
+      }
+      elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
+        $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia, TRUE);
       }
 
       $matches = \explode(' /', $return['personalInfo']['address']);
@@ -33,12 +34,12 @@ trait ValidatePolicy {
 
       if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
         $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-        if (strpos($brand, 'GREAT WALL') !== false) {
+        if (strpos($brand, 'GREAT WALL') !== FALSE) {
           $return['personalInfo']['brand'] = 'GREAT WALL MOTOR';
         }
       }
 
-      // Previus policy from HDI
+      // Previus policy from HDI.
       $return['previusPolicy'] = $polizas[$index_vigencia]['polizaAnterior'] ?? '';
 
       return $return;
@@ -55,7 +56,40 @@ trait ValidatePolicy {
     return 'no-guarantee';
   }
 
-  private function policyBasicData ($polizas, $index_vigencia, $type): array {
+  /**
+   * Verify model range is correct.
+   *
+   * @param $oldest_model string
+   *    Oldest model for GMFChevrolet
+   * @param $latest_model string
+   *    New model for GMFChevrolet
+   * @param $model string
+   *    Actual vehicle model
+   *
+   * @return bool
+   */
+  private function checkInRange($oldest_model, $latest_model, $model) {
+    $oldest_model = strtotime($oldest_model);
+    $latest_model = strtotime($latest_model);
+    $model = strtotime($model);
+
+    if ($model >= $oldest_model && $model <= $latest_model) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Get basic data for selected policy.
+   *
+   * @param $polizas array
+   * @param $index_vigencia string
+   * @param $type string
+   *
+   * @return array
+   */
+  private function policyBasicData($polizas, $index_vigencia, $type): array {
     $codes = Yaml::decode($this->config->get('insured_codes'));
     $data = [];
 
@@ -70,11 +104,13 @@ trait ValidatePolicy {
         $data['token'] = $this->crypt($dataToEncrypt, 'en');
         $brokers = Yaml::decode($this->config->get('brokers'));
         if (is_array($brokers) && in_array($polizas[$index_vigencia]['codigoBroker'], $brokers)) {
-          $data['broker'] = true;
+          $data['broker'] = TRUE;
         }
-      } elseif ($item['codigoGarantia'] == 756 || $item['codigoGarantia'] == 9036) {
+      }
+      elseif ($item['codigoGarantia'] == 756 || $item['codigoGarantia'] == 9036) {
         $data['guarantees']['rc1'] = $item['codigoGarantia'];
-      } elseif ($item['codigoGarantia'] == 757 || $item['codigoGarantia'] == 9037) {
+      }
+      elseif ($item['codigoGarantia'] == 757 || $item['codigoGarantia'] == 9037) {
         $data['guarantees']['rc3'] = $item['codigoGarantia'];
       }
     }
@@ -87,26 +123,29 @@ trait ValidatePolicy {
 
     $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
     $model_base = date('Y');
-    $model_actual = date('Y-m-d', strtotime($model_base . '+ 1 year'));
+    $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
 
-    $six_year = date('Y', strtotime($this->config->get('last_model') . '- 6 year'));
+    $oldest_model = date('Y', strtotime($this->config->get('last_model') . '- 8 year'));
 
     if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_chevrolet')) {
       $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
       if (
-        $this->checkInRange($six_year, $model_actual, $model) && strtoupper($marca_poliza) === "CHEVROLET"
+        $this->checkInRange($oldest_model, $latest_model, $model) && strtoupper($marca_poliza) === "CHEVROLET"
       ) {
         $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
         $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
-      } else {
+      }
+      else {
         if (isset($_SESSION['GMFChevrolet'])) {
           unset($_SESSION['GMFChevrolet']);
         }
       }
-    } else {
+    }
+    else {
       if (isset($_SESSION['GMFChevrolet'])) {
         unset($_SESSION['GMFChevrolet']);
       }
     }
   }
+
 }

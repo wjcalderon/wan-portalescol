@@ -88,26 +88,20 @@
       });
 
       let getUrlParameter = function (sParam) {
-        let sPageURL = window.location.search.substring(1),
-          sURLVariables = sPageURL.split("&"),
-          sParameterName,
-          i;
-        for (i = 0; i < sURLVariables.length; i++) {
-          sParameterName = sURLVariables[i].split("=");
-
-          if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined
-              ? true
-              : decodeURIComponent(sParameterName[1]);
-          }
+        const urlParams = new URL(document.location)
+        if (urlParams?.hash.includes(sParam)) {
+          return urlParams?.hash.split('-')[1]
         }
-      };
 
-      let active_tab = getUrlParameter("tab");
-
-      if (active_tab !== undefined) {
-        $('a[href="#tabs-' + active_tab + '"]').click();
+        return false
       }
+
+      $(function () {
+        let active_tab = getUrlParameter("tab")
+        if (active_tab !== undefined) {
+          $('a[href="#tab-' + active_tab + '"]').trigger('click')
+        }
+      })
 
       $(".cp-tabs.is-shorcut .normal-tab a").on("click", function (e) {
         e.preventDefault();

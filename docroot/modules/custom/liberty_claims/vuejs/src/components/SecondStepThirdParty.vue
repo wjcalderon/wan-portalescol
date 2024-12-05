@@ -170,8 +170,7 @@ export default {
       return modelsList;
      }
   },
-  created() {
-
+  mounted() {
     // Gets brands list.
     this.$http.get('/claim-data/brands').then(function (data) {
        Object.values(data.body).forEach(element => {
