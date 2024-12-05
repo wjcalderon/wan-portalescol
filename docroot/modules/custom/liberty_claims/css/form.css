@@ -1665,7 +1665,7 @@ button.has-tooltip {
   font-size: 1.5rem !important;
   line-height: 2rem;
   font-weight: 400;
-  color: #343741;
+  color: var(--hdi-universal-green);
   margin-bottom: 0.5rem;
   padding: 0 3rem;
   margin-top: 2rem;

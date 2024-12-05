@@ -23,7 +23,7 @@
       <div v-bind:class="{ field: true, filled: claimCity }">
         <float-label label="Buscar ciudad de reparación" fixed>
           <select
-            v-model="claimCity"
+            v-model="claimCitySelected"
             v-on:change="findCarShops"
             ref="citySelect"
             @click="getData"
@@ -246,7 +246,8 @@ export default {
       showError: false,
       defaultCS: null,
       noWorkshopsCities: [],
-      ciudad_original: false
+      ciudad_original: false,
+      claimCitySelected: '',
     };
   },
   computed: {
@@ -305,16 +306,17 @@ export default {
         if (brand.includes("GREAT--WALL--MOTOR")) {
           brand = "GREAT--WALL";
         }
-        const path = `/${this.claimCity}/${brand}/${model}/${this.vehicleData.vehicleType}`;
+        const path = `/${this.claimCitySelected}/${brand}/${model}/${this.vehicleData.vehicleType}`;
         this.$http.get("/claim-data/carshops" + path).then(
           function(data) {
-            if (data.statusCode != 401 && Array.isArray(data.body)) {
+            if (data.statusCode != 401 && (Array.isArray(data.body) || Object.keys(data.body).length > 0)) {
               const vm = this;
+              const dataBody = Array.isArray(data.body) ? data.body : Object.values(data.body)
               if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
                 vm.defaultCS = data.body;
               }
 
-              let result = data.body.filter(carShop => {
+              let result = dataBody.filter(carShop => {
                 if (
                   carShop.nombre.includes("Taller para Arreglo Directo") &&
                   carShop.codExternal === undefined
@@ -344,10 +346,9 @@ export default {
                 }
                 return 1;
               });
-
               this.carShops = result;
             } else {
-              this.claimCity = 0;
+              this.claimCitySelected = 0;
             }
 
             loader.hide();
@@ -387,7 +388,7 @@ export default {
           if ("codExternal" in this.selected) {
             this.casualtyData.repairCity = this.selected.codExternal;
           } else {
-            this.casualtyData.repairCity = this.claimCity;
+            this.casualtyData.repairCity = this.claimCitySelected;
           }
 
           this.modal = null;
@@ -398,7 +399,7 @@ export default {
     },
     assignTRD: function() {
       this.casualtyData = this.defaultCS;
-      this.casualtyData.repairCity = this.claimCity;
+      this.casualtyData.repairCity = this.claimCitySelected;
       this.assigned = this.defaultCS.codTaller;
     },
     validateCarShop: function() {
@@ -454,7 +455,7 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     this.$http.get("/claim-data/cities-carshops").then(
       function(data) {
         this.cities = Object.entries(data.body).sort((a, b) => {
@@ -474,7 +475,8 @@ export default {
     this.findCarShops();
   },
   watch: {
-    claimCity: function(val, oldVal) {
+    claimCity: function (val, oldVal) {
+      this.claimCitySelected = val
       if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
         this.findCarShops();
       }

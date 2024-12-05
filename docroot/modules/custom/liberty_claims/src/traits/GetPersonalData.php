@@ -18,53 +18,30 @@ trait GetPersonalData {
     $person_field = $is_juridic ? 'aseguradoPersonaJuridica' : 'aseguradoPersonaNatural';
     $personal_data = $polizas[$index_vigencia]['riesgoAuto'][$person_field];
     $conductor_data = $polizas[$index_vigencia]['riesgoAuto']['conductorPersonaNatural'][0] ?? null;
+    $driverData = null;
 
     // If personal_data have more than one array index, then use
     // conductorPersonalData.
-    $name = '';
-    $last_name = '';
-    $document_id = '';
-    $doc_type = '';
-    $email = '';
-    $address = '';
-    $phone = '';
-
     if (isset($personal_data[0]) && count($personal_data) > 1) {
-      if (isset($conductor_data)) {
-        $driverData = $this->driverData($conductor_data);
-        $name = $driverData['name'];
-        $last_name = $driverData['last_name'];
-        $document_id = $driverData['document_id'];
-        $doc_type = $driverData['doc_type'];
-        $email = $driverData['email'];
-        $address = $driverData['address'];
-        $phone = $driverData['phone'];
-      }
+      $driverData = $this->driverData($conductor_data ?? $personal_data[0]);
     } else {
       $driverData = $this->driverData($personal_data, $is_juridic);
-      $name = $driverData['name'];
-      $last_name = $driverData['last_name'];
-      $document_id = $driverData['document_id'];
-      $doc_type = $driverData['doc_type'];
-      $email = $driverData['email'];
-      $address = $driverData['address'];
-      $phone = $driverData['phone'];
     }
 
     return [
-      'name' => $name ?? '',
-      'lastname' => $last_name ?? '',
-      'documentId' => $document_id ?? '',
-      'docType' => $doc_type ?? '',
-      'email' => $email ?? '',
-      'address' => $address ?? '',
+      'name' => $driverData['name'] ?? '',
+      'lastname' => $driverData['last_name'] ?? '',
+      'documentId' => $driverData['document_id'] ?? '',
+      'docType' => $driverData['doc_type'] ?? '',
+      'email' => $driverData['email'] ?? '',
+      'address' => $driverData['address'] ?? '',
       'brand' => isset($polizas[$index_vigencia])
         ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca']
         : '',
       'model' => isset($polizas[$index_vigencia])
         ? $polizas[$index_vigencia]['riesgoAuto']['automovil']['version']
         : '',
-      'phone' => $phone ?? '',
+      'phone' => $driverData['phone'] ?? '',
       'isJuridic' => $is_juridic,
     ];
   }

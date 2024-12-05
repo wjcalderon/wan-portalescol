@@ -805,7 +805,7 @@
 
     <div
       class="damages-section pt-2"
-      v-if="claimType !== 'CLAIM_TYPE_PTH' && claimType !== 'CLAIM_TYPE_PL'"
+      v-if="claimType !== 'CLAIM_TYPE_PTH' && claimType !== 'CLAIM_TYPE_CL'"
     >
       <h2>Marca las zonas afectadas de tu vehículo</h2>
 

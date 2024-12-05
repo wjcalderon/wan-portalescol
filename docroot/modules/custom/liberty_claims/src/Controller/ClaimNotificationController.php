@@ -7,6 +7,7 @@ use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Mail\MailManagerInterface;
@@ -83,6 +84,13 @@ class ClaimNotificationController extends ControllerBase {
   protected $logger;
 
   /**
+   * Drupal\Core\Entity\EntityTypeManager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
+
+  /**
    * Drupal\file\FileRepositoryInterface definition.
    *
    * @var \Drupal\file\FileRepositoryInterface
@@ -101,6 +109,7 @@ class ClaimNotificationController extends ControllerBase {
     ClaimServices $claim_services,
     FileSystemInterface $file_system,
     LoggerServiceInterface $liberty_logger,
+    EntityTypeManager $entity_type_manager,
     FileRepositoryInterface $file_interface
     ) {
     $this->libertyClaimsLogManager = $liberty_claims_log_manager;
@@ -111,6 +120,7 @@ class ClaimNotificationController extends ControllerBase {
     $this->claimService = $claim_services;
     $this->fileSystem = $file_system;
     $this->logger = $liberty_logger;
+    $this->entityTypeManager = $entity_type_manager;
     $this->fileInterface = $file_interface;
   }
 
@@ -127,7 +137,8 @@ class ClaimNotificationController extends ControllerBase {
       $container->get('claims.services'),
       $container->get('file_system'),
       $container->get('liberty.logger'),
-      $container->get('file.repository')
+      $container->get('entity_type.manager'),
+      $container->get('file.repository'),
     );
   }
 
@@ -237,31 +248,29 @@ class ClaimNotificationController extends ControllerBase {
    */
   private function loadChevroletCarShopsByCity($city) {
     // Load taxonomy terms for talleres_chevrolet vocabulary.
-    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
       'vid' => 'talleres_chevrolet',
     ]);
 
-    $datos = [];
-    foreach ($terms as $key => $term) {
-      // Extract necessary data from the loaded terms and populate $datos array.
-      $datos[$key]['nit'] = $term->field_nit->value;
-      $datos[$key]['codTaller']  = $term->field_codtaller->value;
-      $datos[$key]['aixis'] = $term->field_aixis->value;
-      $datos[$key]['nombre'] = $term->name->value;
-      $datos[$key]['direccion']  = $term->field_direccion->value;
-      $datos[$key]['ciudad'] = $term->field_ciudad->value;
-      $datos[$key]['cod ciudad'] = $term->field_cod_ciudad->value;
-      $datos[$key]['email'] = $term->field_email->value;
-      $datos[$key]['telefono'] = $term->field_telefono->value;
-      $datos[$key]['sucursal'] = $term->field_sucursal->value;
-    }
-
-    // Filter data by city.
     $filterData = [];
-    foreach ($datos as $key => $value) {
-      if ($city == $value['cod ciudad']) {
-        $filterData[] = $value;
+    foreach ($terms as $key => $term) {
+      $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
+
+      if ($field_city !== $city) {
+        continue;
       }
+
+      // Extract necessary data from the loaded terms and populate $datos array.
+      $filterData[$key]['nit'] = $term->field_nit->value;
+      $filterData[$key]['codTaller'] = $term->field_codtaller->value;
+      $filterData[$key]['aixis'] = $term->field_aixis->value;
+      $filterData[$key]['nombre'] = $term->name->value;
+      $filterData[$key]['direccion'] = $term->field_direccion->value;
+      $filterData[$key]['ciudad'] = $term->field_ciudad->value;
+      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad->value;
+      $filterData[$key]['email'] = $term->field_email->value;
+      $filterData[$key]['telefono'] = $term->field_telefono->value;
+      $filterData[$key]['sucursal'] = $term->field_sucursal->value;
     }
 
     return $filterData;
@@ -283,7 +292,7 @@ class ClaimNotificationController extends ControllerBase {
    *   List of carshop by filter
    */
   public function getCarShops($city, $brand, $model, $type) {
-    if ($_SESSION['GMFChevrolet']) {
+    if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
       $filterData = $this->loadChevroletCarShopsByCity($city);
 
       $result = $this->filterByConcesionario($filterData);
@@ -311,15 +320,13 @@ class ClaimNotificationController extends ControllerBase {
    *   Service response.
    */
   public function validatePlate(Request $request, string $plate, string $type, string $date) {
-
     if ($request->headers->get('token')) {
       $this->logger->logActivity($plate, $request->headers->get('token'));
 
       return new JsonResponse($this->claimService->validatePlate($request, $plate, $type, $date));
     }
-    else {
-      $this->logger->logActivity($plate, 'No token received');
-    }
+
+    $this->logger->logActivity($plate, 'No token received');
 
     return new JsonResponse(['error' => 'remote not trusted']);
   }
@@ -338,19 +345,22 @@ class ClaimNotificationController extends ControllerBase {
    *   The token.
    */
   public function manageFiles(Request $request, $folder, $op) {
-    if ($request->headers->get('token')) {
-      if ($op === 'save') {
-        /** @var Symfony\Component\HttpFoundation\UploadedFile $source */
-        $source = $request->files->get('file', []);
+    if (!$request->headers->get('token')) {
+      return new JsonResponse(['error' => 'remote not trusted']);
+    }
 
-        $path = 'public://claimfiles/' . $folder . '/';
+    if ($op === 'save') {
+      /** @var Symfony\Component\HttpFoundation\UploadedFile $source */
+      $source = $request->files->get('file', []);
 
-        $this->fileSystem->prepareDirectory(
-          $path,
-          $this->fileSystem::CREATE_DIRECTORY
-        );
+      $path = 'public://claimfiles/' . $folder . '/';
 
-        $data = file_get_contents($source);
+      $this->fileSystem->prepareDirectory(
+        $path,
+        $this->fileSystem::CREATE_DIRECTORY
+      );
+
+      $data = file_get_contents($source);
 
         $file = $this->fileInterface->writeData(
           $data,
@@ -358,38 +368,34 @@ class ClaimNotificationController extends ControllerBase {
           FileExists::Replace
         );
 
-        $response['file_id'] = $file->id();
-        $file->setMimeType = $source->getClientMimeType();
-        $file->save();
+      $response['file_id'] = $file->id();
+      $file->setMimeType = $source->getClientMimeType();
+      $file->save();
 
-        // Updates logger activity.
-        $this->logger->set(
-              'has_files',
-              1,
-              $request->headers->get('token')
-          );
-        $this->logger->set(
-          'document_id',
-          $folder,
-          $request->headers->get('token')
-        );
-      }
-
-      if ($op === 'delete') {
-        $json = $request->getContent();
-        $response = json_decode($json, true);
-        if (array_key_exists('fileId', $response)) {
-          $file = File::load($response['fileId']);
-          $file->delete();
-          return new JsonResponse(['fileDeleted' => 'ok']);
-        }
-      }
-
-      return new JsonResponse($response);
+      // Updates logger activity.
+      $this->logger->set(
+        'has_files',
+        1,
+        $request->headers->get('token')
+      );
+      $this->logger->set(
+        'document_id',
+        $folder,
+        $request->headers->get('token')
+      );
     }
-    else {
-      return new JsonResponse(['error' => 'remote not trusted']);
+
+    if ($op === 'delete') {
+      $json = $request->getContent();
+      $response = json_decode($json, TRUE);
+      if (array_key_exists('fileId', $response)) {
+        $file = File::load($response['fileId']);
+        $file->delete();
+        return new JsonResponse(['fileDeleted' => 'ok']);
+      }
     }
+
+    return new JsonResponse($response);
   }
 
   /**
@@ -409,26 +415,25 @@ class ClaimNotificationController extends ControllerBase {
     }
 
     $response = $request->getContent();
-    $data = json_decode($response, true);
+    $data = json_decode($response, TRUE);
     $token = $request->headers->get('token') . $data['plate'];
 
     $this->logger->set(
-        $type == 'Asegurado' ? 'submitdataasegurado' : 'post_sipo_tercero',
-        json_encode([
-          'submitData' => [
-            'date' => date('Y-m-d\TH:i:s'),
-            'data' => json_decode($response),
-          ],
-        ]),
-        $token
+      $type == 'Asegurado' ? 'submitdataasegurado' : 'post_sipo_tercero',
+      json_encode([
+        'submitData' => [
+          'date' => date('Y-m-d\TH:i:s'),
+          'data' => json_decode($response),
+        ],
+      ]),
+      $token
     );
 
     if ($type == 'Asegurado') {
       return $this->processAsegurado($response, $token);
     }
-    else {
-      return $this->processTercero($response, $token);
-    }
+
+    return $this->processTercero($response, $token);
   }
 
   /**
@@ -472,24 +477,23 @@ class ClaimNotificationController extends ControllerBase {
    *   JSON response indicating success or error.
    */
   private function processAsegurado($request, $token) {
-    $request_auto_mail = json_decode($request, true);
+    $request_auto_mail = json_decode($request, TRUE);
     if (isset($request_auto_mail) && $request_auto_mail['tellus'] == 'CLAIM_TYPE_PTH') {
       $this->sendEmailAutoEmail($request_auto_mail);
     }
 
     $code = $this->claimService->postIaxis($request, $token);
 
-    if (isset($code['numeroSiniestro'])) {
-      $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
+    if (!isset($code['numeroSiniestro'])) {
+      $this->logger->set('iaxis_id', 'error', $token);
 
-      $sipo = $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
-      $this->claimService->postFiles($request, $sipo['numeroCaso']);
-
-      return new JsonResponse(['success' => $code['numeroSiniestro']]);
+      return new JsonResponse(['error' => $code['mensajeOperacion']]);
     }
 
-    $this->logger->set('iaxis_id', 'error', $token);
-    return new JsonResponse(['error' => $code['mensajeOperacion']]);
+    $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
+    $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
+
+    return new JsonResponse(['success' => $code['numeroSiniestro']]);
   }
 
   /**
@@ -522,7 +526,7 @@ class ClaimNotificationController extends ControllerBase {
    *   Mail rendered.
    */
   public function sendEmail(Request $request) {
-    $params = json_decode($request->getContent(), true);
+    $params = json_decode($request->getContent(), TRUE);
     $params['subject'] = 'HDI Seguros | Tu siniestro ha sido radicado';
     $params['headers'] = [
       'Content-Type' => 'text/html; charset=UTF-8;',
@@ -531,8 +535,8 @@ class ClaimNotificationController extends ControllerBase {
     $module = 'liberty_claims';
     $to = $params['email'];
     $langcode = 'es';
-    $send = true;
-    $result = $mailManager->mail($module, 'send_email', $to, $langcode, $params, null, $send);
+    $send = TRUE;
+    $result = $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
 
     return new JsonResponse([
       'result' => $result['result'],
@@ -605,8 +609,8 @@ class ClaimNotificationController extends ControllerBase {
     $mailManager = $this->mailManager;
 
     $langcode = 'es';
-    $send = true;
-    $mailManager->mail($module, 'send_email', $to, $langcode, $params, null, $send);
+    $send = TRUE;
+    $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
   }
 
 }

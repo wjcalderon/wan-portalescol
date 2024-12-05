@@ -17,11 +17,9 @@ class SettingsForm extends ConfigFormBase {
     'CLAIM_TYPE_PTH',
     'CLAIM_TYPE_PPH',
     'CLAIM_TYPE_PPD',
-    'CLAIM_TYPE_PL',
     'CLAIM_TYPE_LR',
     'CLAIM_TYPE_AC',
     'CLAIM_TYPE_CL',
-    'CLAIM_TYPE_CR',
   ];
 
   /**

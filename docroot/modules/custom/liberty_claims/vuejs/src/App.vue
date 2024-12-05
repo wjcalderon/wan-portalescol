@@ -138,7 +138,7 @@
     <alert :open="modal" icon="invalid-plate" v-on:closeModal="closeModal($event)">
       <div slot="body">
         <div v-if="modal == 'claim-error'">
-          <h2>Ups, su solicitud no pudo ser registrada debido a un error en el sistema.</h2>
+          <h2>Su solicitud no pudo ser registrada debido a un error en el sistema.</h2>
           <p>{{ error }}</p>
           <p>Revise la información e intente más tarde.</p>
         </div>

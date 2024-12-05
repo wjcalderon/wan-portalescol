@@ -161,10 +161,10 @@ export default {
             loader.hide();
             // console.log(data);
             if (data.body == "invalid" || data.body == "no-guarantee" || data.body == "not-in-time" || data.body == "error") {
-              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-1';
+              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17697';
             }
             else if (data.status != 200) {
-              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-1';
+              document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17697';
             }
             else {
               this.casualtyData.policy = data.body;
