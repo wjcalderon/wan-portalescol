@@ -96,30 +96,29 @@
 
 {% set class_container = 'cog--items cog--flex' %}
 {% if add_container %}
-   {% set class_container = class_container~ ' '~ 'cog--mq' %}
+  {% set class_container = class_container~ ' '~ 'cog--mq' %}
 {% endif %}
 
-
 <section{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
-    {% if paragraph_title and paragraph_title_status %}
-      <div class="component__heading">
-          {% if add_container %}<div class="cog--mq">{% endif %}
-              {% if paragraph_title is not empty %}
-                <h2 class="component__title">{{- paragraph_title -}}</h2>
-              {% endif %}
-              {% if paragraph_subtitle is not empty %}
-                <h3 class="component__subtitle">{{- paragraph_subtitle -}}</h3>
-              {% endif %}
-              {% if paragraph_lead is not empty %}
-                <p class="lead"> {{- paragraph_lead -}} </p>
-              {% endif %}
-          {% if add_container %}</div>{% endif %}
-      </div>
-    {% endif %}
+  {% if paragraph_title and paragraph_title_status %}
+    <div class="component__heading">
+      {% if add_container %}<div class="cog--mq">{% endif %}
+      {% if paragraph_title is not empty %}
+        <h2 class="component__title">{{- paragraph_title -}}</h2>
+      {% endif %}
+      {% if paragraph_subtitle is not empty %}
+        <h3 class="component__subtitle">{{- paragraph_subtitle -}}</h3>
+      {% endif %}
+      {% if paragraph_lead is not empty %}
+        <p class="lead"> {{- paragraph_lead -}} </p>
+      {% endif %}
+      {% if add_container %}</div>{% endif %}
+    </div>
+  {% endif %}
   <div class="component__content">
-      <div class="{{ class_container }}">
-          {{ content|without('field_c_title', 'field_lead','field_c_subtitle', 'field_c_title_status', 'field_c_width', 'field_c_classes', 'field_link_footer') }}
-      </div>
+    <div class="{{ class_container }}">
+      {{ content|without('field_c_title', 'field_lead','field_c_subtitle', 'field_c_title_status', 'field_c_width', 'field_c_classes', 'field_link_footer') }}
+    </div>
   </div>
   {% if content.field_link_footer %}
     <div class="component__footer">
