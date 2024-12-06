@@ -2,11 +2,12 @@
 
 .cog {
   &--flex {
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     @include tablet-landscape-up {
       align-items: center;
-      display: flex;
+      flex-direction: row;
     }
   }
 
