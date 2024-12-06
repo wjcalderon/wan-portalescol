@@ -1,0 +1,15 @@
+/* HDI Pro Bold */
+@font-face {
+    font-family: 'HDI Pro Bold';
+    src: url('../../fonts/maintenance/HDI-pro/HDIPro-Bold.ttf');
+}
+/* HDI Pro Medium */
+@font-face {
+    font-family: 'HDI Pro Medium';
+    src: url('../../fonts/maintenance/HDI-pro/HDIPro-Medium.ttf');
+}
+/* HDI Pro Book */
+@font-face {
+    font-family: 'HDI Pro Book';
+    src: url('../../fonts/maintenance/HDI-pro/HDIPro-Book.ttf');
+}
