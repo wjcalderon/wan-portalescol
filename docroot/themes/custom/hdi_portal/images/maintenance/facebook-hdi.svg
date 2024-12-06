@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.366" height="27.366" viewBox="0 0 27.366 27.366">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M13.683,27.366A13.683,13.683,0,0,1,4.008,4.008,13.683,13.683,0,0,1,23.358,23.358,13.594,13.594,0,0,1,13.683,27.366ZM10.034,10.841v2.807h1.72v8.244H15.06V13.613h2.307l.246-2.772H15.06V9.263c0-.631.11-.913.764-.913h1.789V5.473H15.324c-2.4,0-3.57,1.033-3.57,3.158v2.211Z" fill="#1a1446"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_28975" data-name="Grupo 28975" transform="translate(-116 -962)">
+    <rect id="Rectángulo_6848" data-name="Rectángulo 6848" width="12.439" height="19.073" transform="translate(123.049 966.136)" fill="#006729"/>
+    <g id="facebook-liberty" transform="translate(116 962)">
+      <path id="Mask-2" data-name="Mask" d="M13.683,27.366A13.683,13.683,0,0,1,4.008,4.008,13.683,13.683,0,0,1,23.358,23.358,13.594,13.594,0,0,1,13.683,27.366ZM10.034,10.841v2.807h1.72v8.244H15.06V13.613h2.307l.246-2.772H15.06V9.263c0-.631.11-.913.764-.913h1.789V5.473H15.324c-2.4,0-3.57,1.033-3.57,3.158v2.211Z" transform="translate(0 0)" fill="#1a1446"/>
+      <g id="facebook-liberty-2" data-name="facebook-liberty" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <g id="Color" transform="translate(0 0)">
+          <rect id="Rectangle" width="27.366" height="27.366" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
