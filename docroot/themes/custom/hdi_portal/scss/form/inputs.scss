@@ -1,10 +1,9 @@
-input[type="text"],
+input[type="text"]:not(.glb-form-text),
 input[type="number"],
 input[type="email"],
-input[type="text"],
 input[type="password"],
-select,
-textarea {
+select:not(.glb-form-element),
+textarea:not(.glb-form-element) {
   background-color: var(--white);
   border-radius: 3px;
   border: 1px solid var(--hdi-gray-50);
@@ -35,7 +34,7 @@ textarea {
   }
 }
 
-select {
+select:not(.glb-form-element) {
   color: transparent;
   padding-right: 2rem;
   background-image: url(../../images/select-down.svg);
@@ -49,7 +48,7 @@ select {
   }
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]:not(.glb-form-element) {
   appearance: none;
   background-color: var(--white);
   border: 1px solid var(--gray-50);

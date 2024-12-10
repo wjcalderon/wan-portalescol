@@ -41,7 +41,7 @@
 
 <div{{attributes.addClass(classes)}}>
   <div class="{{ classes_content_container|join(' ') }}">
-    {% embed "themes/custom/liberty_public/templates/new-components/components/molecules/tabs-bootstrap/tabs-bootstrap.twig" with {
+    {% embed "modules/custom/esn_layouts/templates/tabs-bootstrap/tabs-bootstrap.twig" with {
         tabs: content,
         tab_id_global: tab_id_global,
         tab_id_content: tab_id_content,
@@ -53,33 +53,37 @@
     %}
 
       {% block tabs_header %}
-        {% for key, tab in content['#settings'].tabs if key|first != '#' %}
-          {{}}
-          {% set key = key + 1 %}
-          {% include "@molecules/tabs-bootstrap/_tab-item-bootstrap.twig" with {
-            tab_text: tab.detail.label,
-            tab_icon: '',
-            tab_icon_svg: '',
-            tab_link: false,
-            tab_id: tab.detail.label|clean_class,
-          } %}
+        {% for key, tab in content['#settings'].tabs%}
+          {% if key|first != '#' %}
+            {% set key = key + 1 %}
+            {% include "modules/custom/esn_layouts/templates/tabs-bootstrap/_tab-item-bootstrap.twig" with {
+              tab_text: tab.detail.label,
+              tab_icon: '',
+              tab_icon_svg: '',
+              tab_link: false,
+              tab_id: tab.detail.label|clean_class,
+            } %}
+          {% endif %}
         {% endfor %}
       {% endblock %}
 
       {% block tabs_content %}
         {% set content_keys = [] %}
-        {% for key, tab in content['#settings'].tabs if key|first != '#' %}
-          {% set content_keys = content_keys|merge([key]) %}
-        {% endfor %}
-        {% for key, item in content if key|first != '#' %}
-          {% set key_dup = key|last %}
-          {% set key_content = content_keys[key_dup - 1] %}
-
-          {% set active_class = "" %}
-          {% if key_dup == 1 %}
-            {% set active_class = "show active" %}
+        {% for key, tab in content['#settings'].tabs %}
+          {% if key|first != '#' %}
+            {% set content_keys = content_keys|merge([key]) %}
           {% endif %}
-          {% set tab_pane_classes = [
+        {% endfor %}
+        {% for key, item in content %}
+          {% if key|first != '#' %}
+            {% set key_dup = key|last %}
+            {% set key_content = content_keys[key_dup - 1] %}
+
+            {% set active_class = "" %}
+            {% if key_dup == 1 %}
+              {% set active_class = "show active" %}
+            {% endif %}
+            {% set tab_pane_classes = [
               "tab-pane",
               "tab-pane_content",
               "fade",
@@ -93,6 +97,7 @@
             >
               {{ item }}
             </div>
+          {% endif %}
         {% endfor %}
       {% endblock %}
     {% endembed %}

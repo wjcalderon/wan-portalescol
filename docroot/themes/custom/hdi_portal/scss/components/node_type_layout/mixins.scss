@@ -1,0 +1,197 @@
+$x-superSmall: 440px;
+$x-small: 480px;
+$x-medium: 768px;
+$x-large: 960px;
+$x-xl: 1170px;
+$nc-small: 280px;
+$nc-medium: 900px;
+$nc-large: 1024px;
+$nc-xl: 1280px;
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) { @content; }
+}
+
+// Mixin - small Breakpoint
+/// Allows easier @include small {} syntax
+@mixin superSmall {
+  @include breakpoint($x-superSmall) {
+    @content;
+  }
+}
+
+/// Mixin - small Breakpoint
+/// Allows easier @include small {} syntax
+@mixin small {
+  @include breakpoint($x-small) {
+    @content;
+  }
+}
+
+/// Mixin - medium Breakpoint
+/// Allows easier @include medium {} syntax
+@mixin medium {
+  @include breakpoint($x-medium) {
+    @content;
+  }
+}
+
+/// Mixin - large Breakpoint
+/// Allows easier @include large {} syntax
+@mixin large {
+  @include breakpoint($x-large) {
+    @content;
+  }
+}
+
+/// Mixin - xl Breakpoint
+/// Allows easier @include xl {} syntax
+@mixin xl {
+  @include breakpoint($x-xl) {
+    @content;
+  }
+}
+
+@mixin new-heading-large(
+  $font-family: var(--hdi-font),
+  $font-size: 54px,
+  $line-height: 1.2,
+  $color: var(--hdi-universal-green),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 400,
+  $margin: 0 0 1rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+  font-stretch: normal;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin new-heading-medium(
+  $font-family: var(--hdi-font),
+  $font-size: 39.6px,
+  $line-height: 1.2,
+  $color: var(--hdi-universal-green),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 400,
+  $margin: 0 0 2rem,
+  $font-size-desk: 2rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+  font-stretch: normal;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin new-heading-small(
+  $font-family: var(--hdi-font),
+  $font-size: 24.75px,
+  $line-height: 1.2,
+  $color: var(--hdi-universal-green),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 400,
+  $margin: 0 0 1rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+  font-stretch: normal;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin new-heading-xs(
+  $font-family: var(--hdi-font),
+  $font-size: 21.6px,
+  $line-height: 1.2,
+  $color: var(--hdi-universal-green),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 400,
+  $margin: 0 0 1rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin new-heading-xxs(
+  $font-family: var(--hdi-font),
+  $font-size: 18px,
+  $line-height: 1,
+  $color: var(--hdi-universal-green),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $margin: 0 0 1rem
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}

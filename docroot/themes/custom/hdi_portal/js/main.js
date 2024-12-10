@@ -27,8 +27,13 @@
         checkWindowWidth();
       });
 
-      //AddtoAny social networks
-      $(".addtoany_list").insertAfter(".component__banner.cp-banner");
+      $('.link-hdi-tools').on('click', function(e) {
+        const hash = this.hash
+        e.preventDefault()
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 300)
+      })
 
       // external links open in new window.
       $(".link__external").attr("target", "_blank");

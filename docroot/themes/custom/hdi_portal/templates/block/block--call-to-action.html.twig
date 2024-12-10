@@ -36,7 +36,7 @@
   {{ title_prefix }}
   {{ title_suffix }}
   {% block content %}
-    {% embed "themes/custom/hdi_portal/sass/components/new-components/02-molecules/cta/cta.twig" with {
+    {% embed "themes/custom/hdi_portal/templates/new-components/components/molecules/cta/cta.twig" with {
       cta__heading: content.field_title_html|field_value,
       cta__body: content.body|field_value,
       cta__button__content: content.field_link[0]['#title'],
