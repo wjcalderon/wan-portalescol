@@ -34,7 +34,8 @@ function hdi_portal_preprocess_paragraph(&$variables)
       $fid = $media->getSource()->getSourceFieldValue($media);
       $file = File::load($fid);
       $file_value = $file->uri->getValue()[0]['value'];
-      $variables['items_imagen'][$clave] = file_create_url($file->getFileUri());
+      $variables['items_imagen'][$clave] = \Drupal::service('file_url_generator')
+        ->generateAbsoluteString($file->getFileUri());
     }
   }
 
@@ -58,7 +59,8 @@ function hdi_portal_preprocess_paragraph(&$variables)
           $fid = $media->getSource()->getSourceFieldValue($media);
           $file = File::load($fid);
           $file_value = $file->uri->getValue()[0]['value'];
-          $variables['items_tab_content'][$clave]['content']['image'] = file_create_url($file->getFileUri());
+          $variables['items_tab_content'][$clave]['content']['image'] = \Drupal::service('file_url_generator')
+            ->generateAbsoluteString($file->getFileUri());
         }
       }
     }
@@ -77,7 +79,6 @@ function hdi_portal_preprocess_html(&$variables)
   $variables['#attached']['library'][] = 'hdi_portal/slick';
   $variables['#attached']['library'][] = 'hdi_portal/accordion';
   $variables['#attached']['library'][] = 'hdi_portal/forms';
-  $variables['#attached']['library'][] = 'hdi_portal/chat';
   $variables['#attached']['library'][] = 'hdi_portal/nav';
   $variables['#attached']['library'][] = 'hdi_portal/splidejs';
 
@@ -334,7 +335,8 @@ function _hdi_portal_preprocess_block_card(&$vars, $block)
           $media = Media::load($fid[0]['target_id']);
           $fid = $media->getSource()->getSourceFieldValue($media);
           $file = File::load($fid);
-          $urlicon = file_create_url($file->getFileUri());
+          $urlicon = \Drupal::service('file_url_generator')
+            ->generateAbsoluteString($file->getFileUri());
         }
 
         $vars['card_items'][$key]['cta__heading'] = $title;

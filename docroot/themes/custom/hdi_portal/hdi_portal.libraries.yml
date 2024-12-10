@@ -21,6 +21,7 @@ global_javascript:
     - jquery_ui_tabs/tabs
     - jquery_ui_autocomplete/autocomplete
     - jquery_ui_datepicker/datepicker
+
 jquery_validate:
   version: VERSION
   js:

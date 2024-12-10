@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg width="130" height="130" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g data-name="Icon/System/Error Alert/16px" id="Icon_System_Error_Alert_16px">
+   <path d="m9.39,54.62a31.98,31.98 0 1 1 22.61,9.38a31.79,31.79 0 0 1 -22.61,-9.38zm-5.39,-22.62a28,28 0 1 0 28,-28a28.03,28.03 0 0 0 -28,28zm25.87,16.57l0,-4.25l4.21,0l0,4.25l-4.21,0zm0.42,-7.95l-0.46,-25.18l4.21,0l-0.46,25.18l-3.29,0z" data-name="Combined Shape" fill="#e60018" id="Combined_Shape-2"/>
+  </g>
+ </g>
+
+</svg>

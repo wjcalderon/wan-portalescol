@@ -17,7 +17,7 @@
     </div>
     <p>
       Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso.
-      Para mas información escribenos por <strong>Whatsapp al 3164821802</strong> de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m
+      Para mas información escribenos por <strong>Whatsapp al 316 4821802</strong> de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m
     </p>
 
     <div class="actions">
