@@ -166,3 +166,17 @@ carousel:
     js/src/03-organisms/carousel/carousel.js: {}
   dependencies:
     - liberty_seguros/splidejs
+
+maintenance:
+  css:
+    theme:
+      css/maintenance/reset.css: {}
+      css/maintenance/style.css: {}
+      css/maintenance/slick.css: {}
+  js:
+    js/maintenance/jquery-1.11.0.min.js: {}
+    js/maintenance/jquery-migrate-1.2.1.min.js: {}
+    js/maintenance/slick.min.js: {}
+    js/maintenance/maintenance.js: {}
+  dependencies:
+    - core/jquery

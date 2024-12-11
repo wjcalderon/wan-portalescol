@@ -148,11 +148,8 @@ body {
   .day-0-banner {
     .banner--container {
       .cp-banner__heading {
-        background-color: var(--hdi-universal-green);
-
-        @include tablet-landscape-up {
-          background-color: transparent;
-        }
+        padding: 0;
+        background-color: transparent;
 
         .cp-banner__title {
 
@@ -160,28 +157,52 @@ body {
             background-color: var(--hdi-universal-green);
             color: var(--white);
             font-size: 2.25rem;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 2rem 6rem 2rem;
+            width: 95%;
+            position: relative;
+            z-index: 3;
+            margin: 0 auto;
+
+            &::before {
+              content: "";
+              position: absolute;
+              background-color: #f8cf00;
+              display: block;
+              bottom: 0rem;
+              width: 100%;
+              height: 15px;
+              left: 0;
+            }
 
             @include tablet-landscape-up {
               position: absolute;
               width: 22.3125rem;
               top: 5rem;
               padding: 1.5rem 3rem 6rem;
+              margin: unset;
+
+              &::before {
+                content: unset;
+              }
             }
           }
 
           .c__subtitle {
-            background-color: var(--white);
-            color: var(--gray);
+            background-color: var(--hdi-green);
+            color: var(--white);
             font-size: 1.25rem;
             padding: 1.5rem 2rem;
+            margin-top: -1rem;
 
             @include tablet-landscape-up {
+              background-color: var(--white);
+              color: var(--gray);
               position: absolute;
               width: 27.3125rem;
               left: 15rem;
               top: 17rem;
               padding: 3rem 2rem 2rem;
+              margin: unset;
             }
 
             @include tablet-landscape-up {
@@ -213,9 +234,12 @@ body {
             background-color: var(--white);
             border-color: var(--white);
             color: var(--hdi-green);
+            position: absolute;
+            top: 12rem;
+            left: 3rem;
+            z-index: 5;
 
             @include tablet-landscape-up {
-              position: absolute;
               left: 6.5rem;
               top: 13.5rem;
             }
