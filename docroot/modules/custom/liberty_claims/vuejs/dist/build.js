@@ -51046,7 +51046,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_confirmation_vue__ = __webpack_require__(50);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0c95dc88_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5293decc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__ = __webpack_require__(112);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -51063,7 +51063,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_confirmation_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0c95dc88_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5293decc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confirmation_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -51123,7 +51123,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane confirmation-page"},[_c('h2',[_vm._v("¡Hemos recibido la información!")]),_vm._v(" "),_c('h4',[_vm._v("En HDI Seguros queremos que estés tranquilo mientras nos encargamos de tu proceso.")]),_vm._v(" "),_c('div',{staticClass:"icon"},[_c('img',{attrs:{"src":_vm.bgImage,"alt":"Resumen"}})]),_vm._v(" "),_c('h1',{staticClass:"number"},[_vm._v("\n    "+_vm._s(_vm.number)+"\n    "),_c('button',{directives:[{name:"tooltip",rawName:"v-tooltip",value:({ content: _vm.msg, placement: 'bottom-center' }),expression:"{ content: msg, placement: 'bottom-center' }"}]})]),_vm._v(" "),_c('h3',[_vm._v("Número de solicitud")]),_vm._v(" "),_c('div',{staticClass:"links"},[_c('a',{staticClass:"download-pdf",attrs:{"target":"_blank","rel":"noreferrer","href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.download.apply(null, arguments)}}},[_vm._v("Descarga PDF")]),_vm._v(" "),_c('a',{staticClass:"send-email",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.sendEmail.apply(null, arguments)}}},[_vm._v("Enviar por correo")])]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('button',{staticClass:"button-secondary",attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('href')}}},[_vm._v("Iniciar nuevo reporte")]),_vm._v(" "),_c('button',{staticClass:"disabled",attrs:{"type":"button"},on:{"click":function($event){return _vm.refresh('origin')}}},[_vm._v("Ir a inicio")])]),_vm._v(" "),_c(_vm.modal,{tag:"component",attrs:{"userData":_vm.user},on:{"closeModal":function($event){return _vm.close($event)}}}),_vm._v(" "),_c('div',{class:{ overlay: true, hide: _vm.modal === null }})],1)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("\n    Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso.\n    Para mas información escribenos por "),_c('strong',[_vm._v("Whatsapp al 3164821802")]),_vm._v(" de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m\n  ")])}]
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("\n    Te hemos enviado un correo electrónico con la información del taller y los pasos para continuar con tu proceso.\n    Para mas información escribenos por "),_c('strong',[_vm._v("Whatsapp al 316 4821802")]),_vm._v(" de lunes a viernes de 7 a.m a 5 p.m y sabados de 8 a.m a 12 p.m\n  ")])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
