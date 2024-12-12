@@ -88,6 +88,11 @@
   #block-hdi-portal-lineasdeasistenciamovil {
     margin: -2rem 0 2rem;
     line-height: 3;
+    flex-direction: column;
+
+    @include tablet-landscape-up {
+      flex-direction: row;
+    }
 
     h3 {
       color: var(--hdi-green);

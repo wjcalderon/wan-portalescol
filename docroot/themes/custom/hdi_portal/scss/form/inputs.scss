@@ -40,6 +40,7 @@ select:not(.glb-form-element) {
   background-repeat: no-repeat;
   background-position: 95% center;
   background-size: 1rem;
+  color: transparent;
 
   &.select-cta {
     color: var(--dark-blue-70);

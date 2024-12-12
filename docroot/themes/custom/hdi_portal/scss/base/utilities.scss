@@ -37,30 +37,25 @@
 }
 
 .is-hidden {
-  display: none !important;
+  display: none;
 }
 
 .is-mobile {
-  display: none !important;
+  display: inherit;
 
-  @include phone-only {
-    display: block !important;
+  @include tablet-landscape-up {
+    display: none !important;
   }
 }
 
 .is-desktop {
-  visibility: hidden;
-  height: 0;
-  padding: 0;
-  margin: 0;
+  display: none;
 
   @include tablet-landscape-up {
-    visibility: visible;
-    display: inherit;
-    height: unset;
+    display: inherit !important;
   }
 }
 
 .is-visible {
-  display: block !important;
+  display: inherit !important;
 }

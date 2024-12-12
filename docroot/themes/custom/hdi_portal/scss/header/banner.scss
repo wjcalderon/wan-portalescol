@@ -3,6 +3,10 @@
 body {
   &:not(.frontpage) {
     .cp-banner {
+      @include phone-only {
+        height: 23rem;
+      }
+
       .banner--container {
         text-align: center;
 
@@ -240,7 +244,7 @@ body {
             z-index: 5;
 
             @include tablet-landscape-up {
-              left: 6.5rem;
+              left: 4rem;
               top: 13.5rem;
             }
 

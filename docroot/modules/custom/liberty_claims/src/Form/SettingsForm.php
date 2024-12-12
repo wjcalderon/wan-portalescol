@@ -113,6 +113,14 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('test')['token_uri'],
     ];
 
+    $form['endpoint_settings']['test']['api_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Apigee api_key'),
+      '#maxlength' => 128,
+      '#size' => 64,
+      '#default_value' => $config->get('test')['api_key'],
+    ];
+
     $form['endpoint_settings']['live'] = [
       '#title' => $this->t('Live settings'),
       '#type' => 'details',
@@ -171,6 +179,14 @@ class SettingsForm extends ConfigFormBase {
       '#maxlength' => 256,
       '#size' => 64,
       '#default_value' => $config->get('live')['token_uri'],
+    ];
+
+    $form['endpoint_settings']['live']['api_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Apigee api_key'),
+      '#maxlength' => 128,
+      '#size' => 64,
+      '#default_value' => $config->get('live')['api_key'],
     ];
 
     $form['endpoint_settings']['mode'] = [

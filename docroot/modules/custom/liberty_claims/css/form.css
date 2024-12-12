@@ -198,6 +198,13 @@
   float: left;
 }
 
+@media (max-width: 480px) {
+  #chooseTypeMenu ol li span,
+  .form-steps .container-steps ul li span {
+    padding: 0 .5rem;
+  }
+}
+
 #chooseTypeMenu ol li.current span,
 .form-steps .container-steps ul li.current span {
   color: var(--hdi-light-green);
@@ -453,6 +460,14 @@ button.time-picker-column-item {
   display: flex;
   justify-content: space-between;
   grid-gap: 0;
+
+}
+
+@media (max-width: 768px) {
+  .vehicle-type .row {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .vehicle-type .row button,
@@ -620,7 +635,7 @@ button.time-picker-column-item {
   background-position: 97% center !important;
   background-size: 13px !important;
   padding-right: 10% !important;
-  color: #757575;
+  color: #757575 !important;
 }
 
 .pane input[type="text"],
@@ -630,7 +645,11 @@ button.time-picker-column-item {
 .pane textarea,
 .pane select,
 .pane .select2 {
-  padding-top: 3px;
+  padding-top: 3px !important;
+}
+
+.pane select option:first-of-type {
+  color: #757575;
 }
 
 .pane .filled input[type="text"],
@@ -640,7 +659,7 @@ button.time-picker-column-item {
 .pane .filled textarea,
 .pane .filled select,
 .pane .filled .select2 {
-  padding-top: 12px;
+  padding-top: 15px !important;
 }
 
 .pane .filled select,
@@ -659,6 +678,8 @@ button.time-picker-column-item {
   top: 3.2rem;
   font-size: 0.75rem;
   color: #999;
+  width: 100%;
+  left: 0;
 }
 
 .pane .option-buttons .option-buttons-items {
@@ -994,7 +1015,7 @@ button.time-picker-column-item {
   background-image: url(../img/load.svg);
   background-repeat: no-repeat;
   background-position: left center;
-  background-size: 16px;
+  background-size: 15px;
   padding-left: 28px;
 }
 
@@ -1212,7 +1233,7 @@ button.time-picker-column-item {
 }
 
 .car-shops .total {
-  color: var(--blue-70);
+  color: var(--blue-80);
   margin-bottom: 3px;
   display: inline-block;
   font-size: 0.8rem;
@@ -1248,13 +1269,16 @@ button.time-picker-column-item {
 .pane.fifth-step .summary h3,
 .pane.fifth-step .summary ol li {
   font-size: 1.5rem !important;
-  color: #1a1446 !important;
   font-weight: bold !important;
   margin-bottom: 1.5rem;
 }
 
 .pane.fifth-step .summary h3 {
   color: var(--hdi-green);
+}
+
+.pane.fifth-step .summary ol li {
+  color: #1a1446 !important;
 }
 
 .datepicker-day:focus,
@@ -1314,7 +1338,7 @@ button.time-picker-column-item {
 
 .campo-heridos .field,
 .campo-muerte .field {
-  margin-top: 21px;
+  margin-top: 14px;
 }
 
 .campo-heridos {
@@ -1457,11 +1481,11 @@ textarea {
 }
 
 .header-picker {
-  background-color: #99e5ea !important;
+  background-color: #7fcda3 !important;
 }
 
 .header-picker[data-v-6d49f11d] {
-  color: #343740 !important;
+  color: var(--white) !important;
 }
 
 .header-picker[data-v-651b7c9a] {
@@ -1481,11 +1505,11 @@ textarea {
 }
 
 .datepicker-today {
-  background-color: #99e5ea !important;
+  background-color: var(--hdi-universal-green) !important;
 }
 
 .datepicker-day:hover .datepicker-day-effect[data-v-4853a012] {
-  background-color: #99e5ea !important;
+  background-color: var(--hdi-universal-green) !important;
 }
 
 .time-picker-column-item-effect[data-v-3e2f539f] {
@@ -1493,11 +1517,50 @@ textarea {
 }
 
 .datepicker-button[data-v-601c6e79] {
-  background-color: #99e5ea !important;
+  background-color: var(--hdi-universal-green) !important;
 }
 
-.datepicker-button svg[data-v-601c6e79] {
-  fill: #191244 !important;
+.datepicker-container .datepicker-days .datepicker-day.enable:hover .datepicker-day-effect,
+.time-picker-column-item:hover .time-picker-column-item-effect,
+.datepicker-container .datepicker-controls .date-buttons:hover .custom-button-effect {
+  background-color: #7fcda3 !important;
+}
+
+.datepicker-container .datepicker-days .datepicker-day.enable .datepicker-day-text,
+.datepicker-container .datepicker-controls .date-buttons span,
+.time-picker-column-item .time-picker-column-item-text {
+  color: var(--hdi-green) !important;
+}
+.datepicker-container .datepicker-days .datepicker-day.selected .datepicker-day-text,
+.time-picker-column-item.active .time-picker-column-item-text {
+  color: var(--white) !important;
+}
+.datepicker-container .datepicker-days .datepicker-day.selected .datepicker-day-effect {
+  background-color: var(--hdi-universal-green) !important;
+}
+
+.datepicker-container .datepicker-days .datepicker-day .datepicker-today ~ .datepicker-day-text {
+  color: var(--white) !important;
+}
+
+.time-picker-column-item.active .time-picker-column-item-effect {
+  background-color: var(--hdi-universal-green) !important;
+}
+
+.datepicker-button svg {
+  fill: var(--white) !important;
+}
+
+.datepicker-container .datepicker-controls .datepicker-button svg {
+  fill: var(--hdi-green) !important;
+}
+
+.field.is-focused .field-input {
+  border-color: var(--hdi-universal-green) !important;
+}
+
+.field.is-focused .field-label {
+  color: var(--gray-50) !important;
 }
 
 .confirmation-page .links a {
@@ -1672,7 +1735,7 @@ button.has-tooltip {
 }
 
 .third-step .field.address {
-  margin-top: 1.3rem;
+  margin-top: 1.8rem;
 }
 
 .documents-list ul li {
@@ -2078,6 +2141,19 @@ button.has-tooltip {
     background-color: #fff !important;
   }
 
+  @media (max-width: 768px) {
+    .datetimepicker {
+      height: 50vh !important;
+      top: unset !important;
+      bottom: 0;
+    }
+
+    .datetimepicker .datepicker {
+      top: 0 !important;
+      bottom: 0 !important;
+    }
+  }
+
   .datetimepicker:not(.inline) .datepicker[data-v-6e81f291] {
     overflow-y: scroll !important;
     overscroll-behavior: contain;
@@ -2095,7 +2171,7 @@ button.has-tooltip {
 
   .pane .image-car .p-default:nth-child(3) {
     top: 245px !important;
-    right: -99px !important;
+    right: -12rem !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-left: 0 !important;
@@ -2125,7 +2201,7 @@ button.has-tooltip {
 
   .pane .image-car .p-default:nth-child(5) {
     top: 413px !important;
-    right: -100px !important;
+    right: -12rem !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-left: 0 !important;
@@ -2372,6 +2448,9 @@ button.has-tooltip {
 
   .vehicle-type .row .button {
     width: 100%;
+    padding-left: 7rem;
+    padding-right: 2rem;
+    background: transparent no-repeat 3rem center;
   }
 }
 

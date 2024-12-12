@@ -22,7 +22,7 @@ trait ErrorEmails {
    *   Response for email trasaction.
    */
   public function sendEmailErrorIaxis(array $info, string $error): JsonResponse {
-    $path = \Drupal::request()->getSchemeAndHttpHost();
+    $path = 'http://127.0.0.1';
     $client = new Client(['base_uri' => $path]);
 
     $response = $client->request('GET', '/claim-data/cities-carshops', [

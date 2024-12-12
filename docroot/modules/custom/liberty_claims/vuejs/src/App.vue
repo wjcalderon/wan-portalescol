@@ -297,6 +297,7 @@ export default {
     },
     closeModal: function () {
       this.modal = null;
+      window.location.reload()
     }
   },
   data () {
