@@ -476,16 +476,22 @@ class ClaimServices {
     $body = Yaml::decode($body);
 
     $currentToken = $this->getConnectionData('validate_plate_token') ?? '';
+    $api_endpoint_base = $this->getConnectionData('base_uri');
+    $api_endpoint = $api_endpoint_base . '/andino/co/policy-servicing/consultaspolizas';
+    $header_token = "VND.LMIG.Authorization: $currentToken \n Country: 1";
+
+    if (str_contains($api_endpoint, 'hdiseguros.com.co')) {
+      $currentToken = $this->getConnectionData('api_key') ?? '';
+      $api_endpoint = $api_endpoint_base . '/fnol/consultaspolizas';
+      $header_token = "x-api-key: $currentToken \n Country: 1";
+    }
 
     $this->tokenLog = $request->headers->get('token') . $plate;
 
     $opts = [
       'http' => [
         'user_agent' => 'PHPSoapClient',
-        'header' =>
-        'VND.LMIG.Authorization: ' .
-        $currentToken .
-        " \n Country: 1",
+        'header' => $header_token,
       ],
     ];
 
@@ -513,12 +519,6 @@ class ClaimServices {
       $extensionPath = \Drupal::service('extension.list.module')->getPath('liberty_claims');
       $wsdlPath = $extensionPath . '/data/' . 'consulta_placa.wsdl';
       $client = new \SoapClient($wsdlPath, $params);
-
-      $api_endpoint_base = $this->getConnectionData('base_uri');
-      $api_endpoint = $api_endpoint_base . '/andino/co/policy-servicing/consultaspolizas';
-      if (str_contains($api_endpoint, 'hdiseguros.com.co')) {
-        $api_endpoint = $api_endpoint_base . '/fnol/consultaspolizas';
-      }
 
       $client->__setLocation($api_endpoint);
       $response = $client->__soapCall('consultarPolizas', $body);
@@ -651,6 +651,7 @@ class ClaimServices {
         ],
       ]), $this->tokenLog);
       $this->drupalLogger->error($th->getMessage());
+      error_log($th->getMessage());
 
       return 'error';
     }

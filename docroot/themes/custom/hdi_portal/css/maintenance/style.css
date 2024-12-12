@@ -580,7 +580,7 @@ body {
         color: white;
 
         @media (max-width: 768px) {
-          font-size: 0.8rem;;
+          font-size: 0.8rem;
         }
 
       }
@@ -590,7 +590,7 @@ body {
         color: white;
 
         @media (max-width: 768px) {
-          font-size: 0.8rem;;
+          font-size: 0.8rem;
         }
       }
 
@@ -599,7 +599,7 @@ body {
         color: white;
 
         @media (max-width: 768px) {
-          font-size: 0.8rem;;
+          font-size: 0.8rem;
         }
       }
     }

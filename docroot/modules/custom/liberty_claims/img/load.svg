@@ -1,32 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>Icon/Arrow</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M1.301,8.27335 L1.301,13.07735 C1.301,13.48435 1.631,13.81435 2.038,13.81435 L10.863,13.81435 C11.271,13.81435 11.601,13.48435 11.601,13.07735 L11.601,8.27335 L12.902,8.27335 L12.902,13.07735 C12.902,14.20135 11.988,15.11535 10.863,15.11535 L2.038,15.11535 C0.914,15.11535 0,14.20135 0,13.07735 L0,8.27335 L1.301,8.27335 Z M7.0599,0 L7.0599,9.677 L8.9519,7.812 L9.8119,8.661 L6.8819,11.549 C6.6439,11.784 6.2589,11.784 6.0209,11.549 L3.0899,8.661 L3.9509,7.812 L5.8429,9.677 L5.8429,0 L7.0599,0 Z" id="path-1"></path>
-    </defs>
-    <g id="DSK-Siniestros" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Claims-Insured-stp2" transform="translate(-518.000000, -1243.000000)">
-            <g id="Group-18" transform="translate(351.000000, 1226.000000)">
-                <g id="Group-6" transform="translate(162.000000, 13.000000)">
-                    <g id="Group-12">
-                        <g id="Icon/Download" transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) ">
-                            <g id="Color/Liberty-Blue" transform="translate(6.000000, 4.000000)">
-                                <mask id="mask-2" fill="white">
-                                    <use xlink:href="#path-1"></use>
-                                </mask>
-                                <use id="Mask" fill="#1A1446" fill-rule="nonzero" xlink:href="#path-1"></use>
-                                <g id="Color/Liberty-Dark-Gray" mask="url(#mask-2)" fill="#343741" fill-rule="nonzero">
-                                    <g transform="translate(-43.000000, -44.000000)" id="Rectangle-Copy-3">
-                                        <polygon points="0 0 101 0 101 97 0 97"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0"?>
+<svg viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="#006729" fill-rule="evenodd" id="DSK-Siniestros" transform="translate(0 -0.166667) translate(0 0.166667) translate(0 0.166667) translate(0 0.166667) translate(0 0.166667) translate(0 0.166667) translate(-1 0) matrix(-1 1.22465e-16 -1.22465e-16 -1 13.9 15.12)">
+   <path d="m1.3,8.27l0,4.81c0,0.4 0.33,0.73 0.74,0.73l8.82,0c0.41,0 0.74,-0.33 0.74,-0.73l0,-4.81l1.3,0l0,4.81c0,1.12 -0.91,2.04 -2.04,2.04l-8.82,0c-1.13,0 -2.04,-0.92 -2.04,-2.04l0,-4.81l1.3,0zm5.76,-8.27l0,9.68l1.89,-1.87l0.86,0.85l-2.93,2.89c-0.24,0.23 -0.62,0.23 -0.86,0l-2.93,-2.89l0.86,-0.85l1.89,1.87l0,-9.68l1.22,0z" id="path-1"/>
+  </g>
+ </g>
 </svg>

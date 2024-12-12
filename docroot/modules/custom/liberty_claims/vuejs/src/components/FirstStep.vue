@@ -12,7 +12,11 @@
           <option :value="index"
             v-for="(option, index) in tellusOptions"
             v-bind:key="index"
-          >{{ option }}</option>
+            :disabled="option === '¿Qué nos quieres contar?'"
+            :selected="option === '¿Qué nos quieres contar?'"
+          >
+            {{ option }}
+          </option>
         </select>
       </float-label>
       <div class="error-message" v-show="submited && hasError('tellus')">{{ hasError('tellus') }}</div>
