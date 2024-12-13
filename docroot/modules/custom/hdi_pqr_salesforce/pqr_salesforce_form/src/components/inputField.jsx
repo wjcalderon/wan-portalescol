@@ -1,18 +1,20 @@
 import PropTypes from 'prop-types'
 import ToolTip from './toolTip'
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
 
-const InputField = ({
+const InputField = forwardRef(({
   type,
   required = false,
   name,
-  label, toolTipId = '',
+  label,
+  toolTipId = '',
   toolTipText = '',
   pattern = '',
   setState,
   minLength = 3,
   maxLength = 60,
-}) => {
+  error,
+}, ref) => {
   const [activeClass, setActiveClass] = useState('')
 
   const handleChange = (e) => {
@@ -21,44 +23,59 @@ const InputField = ({
 
     if (val !== '') {
       setActiveClass('form__input--activo')
+    } else {
+      setActiveClass('')  // Si el campo está vacío, se restablece la clase activa.
     }
   }
 
+
   return (
     <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
-      <label htmlFor={name}>{label}</label>
+      {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor={name} className={`label-${type} ${error ? 'input-error' : ''}`}>{label}</label>
       {pattern === '' && type !== 'number' &&
         <input
+          ref={ref}
           type={type}
           required={required}
           name={name}
-          className={`form-${type}`}
-          onChange={(e) => handleChange(e)}
+          className={`form-${type} ${error ? 'input-error' : ''}`}
+          onChange={handleChange}
           minLength={minLength}
           maxLength={maxLength}
+          error={error}
         />
       }
       {pattern !== '' && type !== 'number' &&
         <input
+          ref={ref}
           type={type}
           required={required}
           name={name}
-          className={`form-${type}`}
+          className={`form-${type} ${error ? 'input-error' : ''}`}
+          onChange={handleChange}
           pattern={pattern}
-          onChange={(e) => handleChange(e)}
           minLength={minLength}
           maxLength={maxLength}
+          error={error}
         />
       }
       {type === 'number' &&
         <input
+          ref={ref}
           type={type}
           required={required}
           name={name}
-          className={`form-${type}`}
-          onChange={(e) => handleChange(e)}
+          className={`form-${type} ${error ? 'input-error' : ''}`}
+          onChange={handleChange}
           min={minLength}
           max={maxLength}
+          error={error}
         />
       }
       {toolTipId !== '' &&
@@ -69,7 +86,7 @@ const InputField = ({
       }
     </div>
   )
-}
+})
 
 InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'number']),
@@ -82,6 +99,7 @@ InputField.propTypes = {
   setState: PropTypes.func,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
+  error: PropTypes.string,
 }
 
 export { InputField }

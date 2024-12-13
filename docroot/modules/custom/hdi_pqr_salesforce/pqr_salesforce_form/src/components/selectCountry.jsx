@@ -253,7 +253,7 @@ const SelectCountry = ({ handleChange }) => {
         name="SSP_PaisEvento__c"
         defaultValue="Colombia"
         optionList={countryList}
-        required={true}
+        //required={true}
         handleChange={handleChange}
       />
       <ToolTip
