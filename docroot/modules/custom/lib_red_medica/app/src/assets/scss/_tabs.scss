@@ -2,28 +2,35 @@
   h3 {
     text-align: center;
     font-size: 1.875rem;
+    color: var(--hdi-universal-green);;
   }
+
   p {
     color: #707070;
     text-align: center;
+    margin: 1.5rem 0;
   }
+
   ul.tabs {
     @media only screen and (max-width: 320px) {
       margin: 0 0 1rem 0;
       padding: 0;
     }
+
     list-style: none;
     margin-top: .5rem;
     text-align: left;
+
     li {
-      color: #707070;
+      color: var(--hdi-gray-70);
       cursor: pointer;
       display: inline-block;
       margin-bottom: 1rem;
       margin-right: .5rem;
-      padding: .5rem 1rem;
+      padding: .5rem 1rem !important;
+
       &.is-active {
-        border-bottom: 2px solid #06748c;
+        border-bottom: 2px solid var(--hdi-green);
         color: #1a1446;
         font-weight: bold;
       }
@@ -36,18 +43,23 @@
         text-align: left;
         li {
           color: #707070;
+
           &.letter {
-            background-color: #99e3ea;
+            background-color: var(--hdi-green);
             border-radius: 3px;
-            color: #1a1446;
+            color: var(--white);
             display: inline;
             font-size: 1.5625rem;
             font-weight: bolder;
             padding: .2rem .7rem;
             text-align: left;
+            font-family: var(--hdi-font);
+            margin-bottom: 1rem;
+            display: inline-block;
           }
+
           &.term {
-            color: #1a1446;
+            color: var(--hdi-universal-green);
             font-weight: 500;
           }
         }

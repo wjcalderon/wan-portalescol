@@ -1,6 +1,7 @@
 #app {
   &:not(.mobile) {
-    background-color: #fff;
+    background-color: var(--white);
+    margin-top: 2rem;
   }
   .back {
     color: #06748c;
@@ -13,7 +14,7 @@
     position: relative;
     text-align: left;
     &::before {
-      background-image: url("~@/assets/img/back-filters.svg");
+      background-image: url("@/assets/img/back-filters.svg");
       background-repeat: no-repeat;
       background-size: contain;
       content: "";

@@ -1,35 +1,42 @@
 .medical-network-form-container {
   &:not(.mobile) {
-    background-color: #ffffff;
+    background-color: var(--white);
   }
+
   padding-bottom: 1rem;
+
   .medical-network-form {
     &:not(.mobile) {
-      background-color: #fff;
+      background-color: var(--white);
       border-radius: 5px;
-      box-shadow: 0px 3px 8px #c0bfc0;
+      box-shadow: 0px 3px 8px var(--shadow);
     }
+
     fieldset {
       border: none;
       margin: 0;
       padding: 0;
+
       &.plan-types {
         @media only screen and (max-width: 320px) {
           margin-top: -1.5rem;
         }
+
         .form-item {
           margin: 2.375rem 0;
           position: relative;
           text-align: center;
+
           label {
-            color: #1a1446;
+            color: var(--dark-blue-70);
             font-size: 1.375rem;
             font-weight: bolder;
             left: 35%;
             position: absolute;
             top: 0;
+
             &::before {
-              border: solid 1px #979797;
+              border: solid 1px var(--hdi-gray-50);
               border-radius: 50%;
               content: " ";
               height: 1.0625rem;
@@ -37,44 +44,65 @@
               position: absolute;
               top: .15rem;
               width: 1.0625rem;
+              display: grid;
+              place-content: center;
+            }
+
+            &:hover {
+              &::before {
+                border: 2px solid var(--hdi-universal-green);
+              }
             }
           }
+
           input {
             opacity: 0;
+
             &:checked ~ label::before {
-              background-color: #00a1a7;
-              border-color: #00a1a7;
-              background-image: url('~@/assets/img/checkmark-on.svg');
-              background-repeat: no-repeat;
-              background-position: center center;
-              background-size: .85rem;
-              color: #fff;
+              content: "\2022";
+              border-color: var(--gray-70);
+              color: var(--gray-70);
+              font-size: 2.5rem;
+              padding-top: .2rem;
             }
           }
         }
       }
+
       &.form-lists {
         padding: 0 1rem;
+
+        .form-item {
+          label {
+            left: 1.7rem;
+          }
+        }
       }
+
       &.filter-icons {
         margin: 0;
         padding: 0;
         text-align: center;
+        justify-content: end;
+
         p {
           margin-bottom: 2rem;
         }
+
         .form-item {
           position: relative;
+
           label {
             display: block;
             margin-top: 1rem;
             cursor: pointer;
             position: relative;
+
             &::before {
               background-repeat: no-repeat;
               background-position: center center;
               border-radius: 50%;
-              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+              border: 1px solid var(--hdi-universal-green);
               content: "";
               display: block;
               height: 2.5rem;
@@ -83,14 +111,17 @@
               width: 2.5rem;
             }
           }
+
           &.form-item-search-telemedicine {
             label {
+              margin-top: 2rem;
+
               &::before {
                 background-image: url('~@/assets/img/rm-telemedicina.svg');
-                border: none;
               }
             }
           }
+
           &.form-item-search-institutions {
             label {
               &::before {
@@ -98,6 +129,7 @@
               }
             }
           }
+
           &.form-item-search-specialists {
             label {
               &::before {
@@ -105,35 +137,43 @@
               }
             }
           }
+
           input {
             height: 0;
             margin: 0;
             visibility: hidden;
             width: 0;
+
             & + label::before {
               content: "";
             }
+
             &:disabled ~ label::before {
-              background-color: #f5f5f5;
+              background-color: var(--gray-10);
             }
+
             &:checked ~ label::before {
-              background-color: #99e3ea;
+              background-color: var(--hdi-universal-green-30);
             }
           }
         }
       }
+
       .error {
         display: block;
+
         &.error-message {
           background-color: #fff;
           color: #f66c6a;
           font-size: .8rem;
         }
       }
+
       .glossary-link {
         color: #1a1446;
         cursor: pointer;
         position: relative;
+
         &::before {
           background-image: url('~@/assets/img/servicios-icon-red.svg');
           background-position: center;
@@ -141,48 +181,52 @@
           background-size: 1rem;
           content: "";
           height: 1rem;
-          left: -1.25rem;
+          left: 2.75rem;
           position: absolute;
-          top: .25rem;
+          top: .1rem;
           width: 1rem;
         }
       }
+
       &.bottom-form {
         border-top: 1px solid #d8d8d8;
         margin: 0 1.5rem;
-        padding-top: 2rem;
-        input[type="checkbox"] {
-          height: 0;
-          width: 0;
-          & + label {
-            top: 0;
+        padding: 1rem 0;
+
+        .form-item {
+          margin-bottom: unset;
+          justify-content: flex-start;
+
+          label {
+            cursor: pointer;
           }
-        }
-        .button {
-          background-color: #00b1b7;
-          border-color: #00b1b7;
-          border-radius: 3px;
-          box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .15);
-          color: #f5f5f5;
-          margin-top: -.5rem;
-          &:hover {
-            background-color: #00a1a7;
-            border-color: #00a1a7;
+
+          input[type="checkbox"] {
+            height: 1.15rem;
+            width: 1.15rem;
+
+            & + label {
+              top: 0;
+            }
           }
         }
       }
     }
+
     &.mobile {
       .form-item {
         margin-bottom: 1.3rem;
         width: 100%;
+
         @media only screen and (max-width: 320px) {
           margin-bottom: .7rem;
         }
       }
+
       fieldset {
         &.plan-types {
           margin-bottom: 1rem;
+
           .form-item {
             background-color: #fff;
             border-radius: 5px;
@@ -190,12 +234,14 @@
             display: block;
             margin: 1rem;
             padding: 1rem;
+
             label {
               left: 0;
               position: relative;
               text-align: left;
               top: .25rem;
               width: 90%;
+
               &::after {
                 content: "";
                 background-image: url('~@/assets/img/elements-icon-glyph-arrow-right.svg');
@@ -208,6 +254,7 @@
                 width: 1rem;
               }
             }
+
             &.selected {
               border-radius: 0;
               border-bottom: 2px solid #06748c;
@@ -215,6 +262,7 @@
               margin: 0;
               text-align: center;
               width: 100%;
+
               label {
                 &::after {
                   content: unset;
@@ -223,29 +271,36 @@
             }
           }
         }
+
         &.form-lists {
           margin-bottom: -1rem;
           padding: 0;
         }
+
         &.filter-icons {
           display: block !important;
           padding: 0;
+
           & > div {
             p {
               margin-bottom: 1rem;
               width: 100%;
             }
+
             & > div {
               width: 33%;
+
               .form-item {
                 flex: 0 1 30%;
                 flex-direction: row;
                 justify-content: space-evenly;
                 margin: 0 .5rem;
                 text-align: left;
+
                 label {
                   margin: 2rem 0 1rem;
                 }
+
                 &.form-item-search-telemedicine,
                 &.form-item-search-institutions,
                 &.form-item-search-specialists {
@@ -270,6 +325,7 @@
           text-align: center;
           align-items: center;
           flex-direction: column;
+
           .glossary-link {
             bottom: 1rem;
             margin-top: 1rem;
@@ -285,10 +341,12 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .15);
     margin-top: 1rem;
     padding: 2rem;
+
     span {
       color: #343741;
       padding-left: 1.5rem;
       position: relative;
+
       &.institutions, &.specialists {
         &::before {
           content: "";
@@ -306,20 +364,24 @@
           width: 4rem;
         }
       }
+
       &.institutions {
         &::before {
           background-image: url('~@/assets/img/rm-favorite.svg');
         }
       }
+
       &.specialists {
         &::before {
           background-image: url('~@/assets/img/rm-especialistas-favorite.svg');
         }
       }
+
       &.info {
         color: #06748c;
         cursor: pointer;
         font-size: .85rem;
+
         &::before {
           border-radius: 100%;
           content: "\24D8";
@@ -333,15 +395,19 @@
         }
       }
     }
+
     &.mobile {
       padding: 1rem;
+
       h4 {
         font-size: 1rem;
         margin-top: .5rem;
       }
+
       span {
         &.institutions, &.specialists {
           font-size: .9rem;
+
           &::before {
             background-size: 2.5rem;
             display: block;
@@ -353,15 +419,18 @@
             width: 3rem;
           }
         }
+
         &.info {
           display: block;
           margin-top: 1rem;
           text-align: center;
+
           &::before {
             left: 6.5rem;
           }
         }
       }
+
       .back {
         background: #fff;
         display: block !important;
@@ -372,6 +441,7 @@
         top: 0;
         width: 100%;
         z-index: 9999999;
+
         &::before {
           left: 1rem !important;
           top: 2.25rem !important;
@@ -379,11 +449,14 @@
       }
     }
   }
+
   .selected-filters {
     margin-top: 1rem;
     text-align: center;
+
     ul {
       list-style: none;
+
       li {
         background-color: #27a3af;
         border-radius: 3px;
@@ -391,6 +464,7 @@
         display: inline-block;
         margin: 0 .3rem;
         padding: .1rem .5rem;
+
         span {
           background-color: #1f97a3;
           cursor: pointer;
@@ -400,6 +474,7 @@
         }
       }
     }
+
     &.mobile {
       ul {
         li {

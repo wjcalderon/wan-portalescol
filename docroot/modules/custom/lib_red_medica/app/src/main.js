@@ -4,6 +4,7 @@ import store from './store'
 
 import Tooltip from 'vue-directive-tooltip'
 import 'vue-directive-tooltip/dist/vueDirectiveTooltip.css'
+import 'bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css'
 
 Vue.config.productionTip = false
 

@@ -1,9 +1,11 @@
 .map-result {
   .modal-content {
     padding: 0;
+    
     div#map {
       margin-top: 0;
       min-height: 30rem;
+
       .info {
         font-size: .95rem;
         padding: 0 1rem;
@@ -11,11 +13,14 @@
       }
     }
   }
+
   &.mobile {
     .modal-content {
       height: 100%;
+
       div#map {
         height: 100%;
+
         .info {
           span {
             &.address, &.phone, &.whatsapp {

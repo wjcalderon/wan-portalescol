@@ -55,7 +55,7 @@ input[type="checkbox"]:not(.glb-form-element) {
   border-radius: 2px;
   display: grid;
   font: inherit;
-  height: 1.15em;
+  height: 1.5em;
   margin: 0;
   place-content: center;
   transform: translateY(-0.075em);
@@ -65,6 +65,11 @@ input[type="checkbox"]:not(.glb-form-element) {
     margin-left: .5rem;
     position: relative;
     top: 0;
+    width: max-content;
+
+    @include phone-only {
+      width: min-content;
+    }
   }
 
   &:hover {
@@ -78,9 +83,9 @@ input[type="checkbox"]:not(.glb-form-element) {
   &::before {
     content: "";
     background: transparent url(../../images/checkmark-on.svg) no-repeat center;
-    height: .85em;
+    height: .9em;
     transform: scale(0);
-    width: .85em;
+    width: .9em;
   }
 
   &:checked {

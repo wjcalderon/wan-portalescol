@@ -59,6 +59,8 @@
         "drupal/facets": "^2.0",
         "drupal/features": "^3.14",
         "drupal/field_group": "^3.6",
+        "drupal/file_delete": "^2.0",
+        "drupal/file_delete_ui": "^1.0@beta",
         "drupal/geocoder": "^4.25",
         "drupal/geolocation": "^4.0@alpha",
         "drupal/gin": "^3.0@RC",

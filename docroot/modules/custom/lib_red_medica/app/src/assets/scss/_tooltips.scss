@@ -1,9 +1,8 @@
 .vue-tooltip {
   &.custom-tooltip {
-    background-color: #fff;
+    background-color: var(--overlay);
     border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
-    color: #1a1446;
+    color: var(--white);
     font-size: .75rem;
     line-height: 1.7;
     min-width: 21.5rem;
@@ -11,12 +10,12 @@
   }
   &[x-placement^=bottom] {
     .tooltip-arrow {
-      border-bottom-color: #fff !important;
+      border-bottom-color: var(--overlay) !important;
     }
   }
   &[x-placement^=top] {
     .tooltip-arrow {
-      border-top-color: #fff !important;
+      border-top-color: var(--overlay) !important;
     }
   }
 }
