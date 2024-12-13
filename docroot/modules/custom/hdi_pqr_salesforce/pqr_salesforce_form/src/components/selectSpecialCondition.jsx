@@ -36,12 +36,19 @@ const SelectSpecialCondition = ({ handleChange }) => {
 
   return (
     <div className={`form-item js-form-type-select form-type-select ${activeClass}`}>
-      <label htmlFor="SSP_CondicionEspecial__c">Condición Especial</label>
+      {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor="SSP_CondicionEspecial__c" className={`label-${type} ${error ? 'select-error' : ''}`}>Condición Especial</label>
       <SelectField
         ref={selectRef}
         name="SSP_CondicionEspecial__c"
+        className={`form-${type} ${error ? 'select-error' : ''}`}
         optionList={conditionList}
-        required={true}
+        //required={true}
         handleChange={handleChange}
       />
     </div>
@@ -49,7 +56,9 @@ const SelectSpecialCondition = ({ handleChange }) => {
 }
 
 SelectSpecialCondition.propTypes = {
+  type: PropTypes.oneOf(['select']),
   handleChange: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export { SelectSpecialCondition }

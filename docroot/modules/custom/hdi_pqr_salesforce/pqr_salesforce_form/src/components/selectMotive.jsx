@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
+import { useEffect, useRef, useState } from 'react'
 
 const motivesList = {
   'Demora o no emisión de la póliza': 'Demora o no emisión de la póliza',
@@ -74,14 +75,31 @@ const motivesList = {
   'Inconformidad con procesos internos de conocimiento del cliente y SARLAFT': 'Inconformidad con procesos internos de conocimiento del cliente y SARLAFT',
 }
 
-const SelectMotive = ({ handleChange }) => {
+const SelectMotive = ({ type, error, handleChange }) => {
+  const selectRef = useRef()
+  const [activeClass, setActiveClass] = useState('')
+
+  useEffect(() => {
+    if (selectRef?.current?.value !== '') {
+      setActiveClass('form__input--activo')
+    }
+  }, [selectRef])
+
   return (
-    <div className="form-item js-form-type-select form-type-select">
-      <label htmlFor="SSP_MotivoSFC__c">Selecciona el motivo de tu queja o reclamo</label>
+    <div className={`form-item js-form-type-select form-type-select ${activeClass}`}>
+      {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor="SSP_MotivoSFC__c" className={`label-${type} ${error ? 'select-error' : ''}`}>Selecciona el motivo de tu queja o reclamo</label>
       <SelectField
+        ref={selectRef}
         name="SSP_MotivoSFC__c"
         optionList={motivesList}
-        required={true}
+        className={`form-${type} ${error ? 'select-error' : ''}`}
+        //required={true}
         handleChange={handleChange}
       />
     </div>
@@ -89,7 +107,9 @@ const SelectMotive = ({ handleChange }) => {
 }
 
 SelectMotive.propTypes = {
+  type: PropTypes.oneOf(['select']),
   handleChange: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export { SelectMotive }

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import ToolTip from './toolTip'
 import { SelectField } from './selectField'
+import { useEffect, useRef, useState } from 'react'
 
 const citiesList = {
   'CO-13490': 'NOROSÍ',
@@ -1128,15 +1129,34 @@ const citiesList = {
   'CO-47980': 'Zona bananera',
 }
 
-const SelectCity = ({ handleChange }) => {
+const SelectCity = ({ type, error, handleChange }) => {
+  const selectRef = useRef()
+  const [activeClass, setActiveClass] = useState('')
+
+  useEffect(() => {
+    if (selectRef?.current?.value !== '') {
+      setActiveClass('form__input--activo')
+    }
+  }, [selectRef])
+
+
   return (
-    <div className="form-item js-form-type-select form-type-select">
-      <label htmlFor="PQR_DescripcionCiudad__c">Selecciona la ciudad del evento</label>
+    <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
+      {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor="PQR_DescripcionCiudad__c" className={`label-${type} ${error ? 'select-error' : ''}`}>Selecciona la ciudad del evento</label>
       <SelectField
+        ref={selectRef}
+        type={type}
         name="PQR_DescripcionCiudad__c"
+        className={`form-${type} ${error ? 'select-error' : ''}`}
         optionList={citiesList}
-        required={true}
         handleChange={handleChange}
+        error={error}
       />
       <ToolTip
         id="DescripcionCiudad"
@@ -1144,10 +1164,13 @@ const SelectCity = ({ handleChange }) => {
       />
     </div>
   )
+
 }
 
 SelectCity.propTypes = {
+  type: PropTypes.oneOf(['select']),
   handleChange: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export { SelectCity }

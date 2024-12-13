@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
+import { useEffect, useRef, useState } from 'react'
 
 const documentTypes = {
   'Cédula de ciudadanía': 'Cédula de ciudadanía',
@@ -14,15 +15,32 @@ const documentTypes = {
   'Permiso de proteccion temporal PPT': 'Permiso de proteccion temporal PPT',
 }
 
-const SelectDocumentType = ({ handleChange }) => {
+const SelectDocumentType =  ({ type, error, handleChange }) => {
+  const selectRef = useRef()
+  const [activeClass, setActiveClass] = useState('')
+
+  useEffect(() => {
+    if (selectRef?.current?.value !== '') {
+      setActiveClass('form__input--activo')
+    }
+  }, [selectRef])
+
   return (
-    <div className="form-item js-form-type-select form-type-select form__input--activo">
-      <label htmlFor="PQR_TipoIdentificacion__c">Selecciona tu tipo de documento</label>
+    <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
+       {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor="PQR_TipoIdentificacion__c" className={`label-${type} ${error ? 'select-error' : ''}`}>Selecciona tu tipo de documento</label>
       <SelectField
+        ref={selectRef}
         name="PQR_TipoIdentificacion__c"
-        defaultValue="Cédula de ciudadanía"
+        className={`form-${type} ${error ? 'select-error' : ''}`}
+        //defaultValue="Cédula de ciudadanía"
         optionList={documentTypes}
-        required={true}
+        //required={true}
         handleChange={handleChange}
       />
     </div>
@@ -30,7 +48,9 @@ const SelectDocumentType = ({ handleChange }) => {
 }
 
 SelectDocumentType.propTypes = {
+  type: PropTypes.oneOf(['select']),
   handleChange: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export { SelectDocumentType }

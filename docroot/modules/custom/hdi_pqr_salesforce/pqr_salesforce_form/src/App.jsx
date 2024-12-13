@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { InputField } from './components/inputField'
@@ -20,7 +20,7 @@ const App = () => {
   const [reconsideration, setReconsideration] = useState(false)
   const [reconsiderationNumber, setReconsiderationNumber] = useState(0)
   const [name, setName] = useState('')
-  const [documentType, setDocumentType] = useState('Cédula de ciudadanía')
+  const [documentType, setDocumentType] = useState('')
   const [documentNumber, setDocumentNumber] = useState('')
   const [email, setEmail] = useState('')
   const [city, setCity] = useState('')
@@ -32,16 +32,76 @@ const App = () => {
   const [specicialCondition, setSpecialCondition] = useState(false)
   const [specialConditionOption, setSpecialConditionOption] = useState(false)
   const [description, setDescription] = useState(false)
-  const [product, setProduct] = useState(null)
+  const [product, setProduct] = useState('')
   const [plate, setPlate] = useState(null)
-  const [motive, setMotive] = useState(null)
+  const [motive, setMotive] = useState('')
   const [uploadesFiles, setUploadedFiles] = useState([])
   const [disableSubmit, setDisableSubmit] = useState(window.drupalSettings.pqrSalesforce.showRecaptcha)
   const [loading, setLoading] = useState(false)
   const [caseNumber, setCaseNumber] = useState(false)
+  const [errors, setErrors] = useState({name: '', documentNumber: '', documentType: '', email: '', city: '', address: '', phone: '', description: '', plate: '', product: '', gender: '', motive: ''});
+  const nameRef = useRef(null);
+  const documentTypeRef = useRef(null);
+  const documentNumberRef = useRef(null);
+  const emailRef = useRef(null);
+  const cityRef = useRef(null);
+  const addressRef = useRef(null);
+  const phoneRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const productRef = useRef(null);
+  const genderRef = useRef(null);
+  const motiveRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    let newErrors = {};
+
+    if (!name) newErrors.name = 'El nombre es obligatorio';
+    if (documentType === '') newErrors.documentType = 'El tipo de documento es obligatorio';
+    if (!documentNumber) newErrors.documentNumber = 'El número de documento es obligatorio';
+    if (!email) newErrors.email = 'El correo electrónico es obligatorio';
+    if (city === '') newErrors.city = 'La ciudad es obligatoria';
+    if (!address) newErrors.address = 'La dirección es obligatoria';
+    if (!phone) newErrors.phone = 'El teléfono es obligatorio';
+    if (!description) newErrors.description = 'La descripción es obligatoria';
+    if (gender === '') newErrors.gender = 'Selecciona un genero';
+    if (product === '') newErrors.product = 'Selecciona un producto';
+    if (motive === '') newErrors.motive = 'Selecciona un motivo';
+
+    setErrors(newErrors);
+
+  // Si hay errores, desplazarse al primer campo con error
+  if (Object.keys(newErrors).length > 0) {
+    const firstErrorField = Object.keys(newErrors)[0];
+
+    // Mover el scroll hasta el campo correspondiente con error
+    if (firstErrorField === 'name' && nameRef.current) {
+      nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'documentType' && documentTypeRef.current) {
+      documentTypeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'documentNumber' && documentNumberRef.current) {
+      documentNumberRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'email' && emailRef.current) {
+      emailRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'city' && cityRef.current) {
+      cityRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'address' && addressRef.current) {
+      addressRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'phone' && phoneRef.current) {
+      phoneRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'description' && descriptionRef.current) {
+      descriptionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'product' && productRef.current) {
+      productRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'gender' && genderRef.current) {
+      genderRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (firstErrorField === 'motive' && motiveRef.current) {
+      motiveRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return; // Detener el envío si hay errores
+  }
+
 
     let formData = {
       'SSP_PaisEvento__c': country,
@@ -130,72 +190,96 @@ const App = () => {
             label="Ingresa el número de tu caso"
             type="number"
             name="SFPQR_NumeroCasoWeb__c"
-            required={true}
+            class="inputText"
             setState={setReconsiderationNumber}
-            minLength={9999}
-            maxLength={99999999}
+            minLength={4}
+            maxLength={11}
           />
         }
 
+
         <InputField
+          ref={nameRef}
           label="Ingresa tu nombre completo"
           type="text"
           name="SFPQR_NombresApellidosRazonSocial__c"
-          required={true}
+          class="inputText"
           setState={setName}
           minLength={5}
           maxLength={40}
+          error={errors.name}
         />
 
         <SelectDocumentType
+          ref={documentTypeRef}
+          type="select"
           handleChange={setDocumentType}
+          setState={setDocumentType}
+          defaultValue="Cédula de ciudadanía"
+          error={errors.documentType}
         />
 
         <InputField
+          ref={documentNumberRef}
           label="Ingresa tu número de identificación"
-          type="number"
+          type="text"
           name="PQR_NumeroDocumentoIdentidad__c"
-          required={true}
+          class="inputText"
           setState={setDocumentNumber}
-          minLength={99}
-          maxLength={9999999999}
+          minLength={4}
+          maxLength={11}
+          error={errors.documentNumber}
         />
 
         <InputField
+          ref={emailRef}
           label="Ingresa tu correo electrónico"
           type="email"
           name="PQR_CorreoElectronico__c"
           toolTipId="CorreoElectronico"
           toolTipText="Por este canal generamos la respuesta a tu caso"
-          required={true}
+          //required={true}
           setState={setEmail}
+          error={errors.email}
           />
 
         <SelectCity
+          ref={cityRef}
+          type="select"
           handleChange={setCity}
+          setState={setCity}
+          error={errors.city}
         />
 
         <InputField
+          ref={addressRef}
           label="Ingresa tu dirección"
           type="text"
           name="PQR_Direccion__c"
-          required={true}
+          //required={true}
           setState={setAddress}
           minLength={5}
+          error={errors.address}
         />
 
         <InputField
+          ref={phoneRef}
           label="Ingresa tu celular de contacto"
           type="number"
           name="PQR_CelularContacto__c"
-          required={true}
+          //required={true}
           setState={setPhone}
-          minLength={999999}
-          maxLength={9999999999}
+          minLength={7}
+          maxLength={12}
+          error={errors.phone}
         />
 
         <SelectGender
           handleChange={setGender}
+          ref={genderRef}
+          type="select"
+          setState={setGender}
+          error={errors.gender}
         />
 
         <TermsAndConditions
@@ -233,12 +317,13 @@ const App = () => {
           <label htmlFor="description">Describe tu queja o reclamo</label>
           <div>
             <textarea
+              ref={descriptionRef}
               name="description"
               rows="5"
               cols="60"
               className="form-textarea"
               autoComplete="off"
-              required={true}
+              //required={true}
               onChange={(e) => setDescription(e.target.value)}
             >
             </textarea>
@@ -247,6 +332,10 @@ const App = () => {
 
         <SelectProduct
           handleChange={setProduct}
+          ref={productRef}
+          type="select"
+          setState={setProduct}
+          error={errors.product}
         />
 
         {(product === 'AUTOS' || product === 'SOAT') &&
@@ -254,7 +343,7 @@ const App = () => {
             label="Ingresa tu placa"
             type="text"
             name="Placa__c"
-            required={true}
+            //required={true}
             pattern='[A-Za-z]{3}\d{3}|[A-Za-z]\d{5}|[A-Za-z]{3}\d{2}[A-Za-z]|\d{3}[A-Z]a-z{3}'
             setState={setPlate}
           />
@@ -262,6 +351,10 @@ const App = () => {
 
         <SelectMotive
           handleChange={setMotive}
+          ref={motiveRef}
+          type="select"
+          setState={setMotive}
+          error={errors.motive}
         />
 
         <UploadFiles
