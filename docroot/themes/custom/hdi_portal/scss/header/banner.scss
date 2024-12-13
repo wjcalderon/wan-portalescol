@@ -180,10 +180,11 @@ body {
 
             @include tablet-landscape-up {
               position: absolute;
-              width: 22.3125rem;
+              width: 24.8rem;
               top: 5rem;
               padding: 1.5rem 3rem 6rem;
               margin: unset;
+              z-index: unset;
 
               &::before {
                 content: unset;

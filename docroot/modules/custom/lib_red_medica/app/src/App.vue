@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="[(this.isMobile ? 'mobile' : '')]" ref="main">
+  <div id="app" :class="[(this.isMobile ? 'mobile' : ''), 'bootstrap-wrapper']" ref="main">
     <network-form :plan_list="plan_list" :isMobile="this.isMobile" @search="show_results = true" @reset="show_results = false" ref="network_form" @hideResults="hideResults"/>
     <component :is="showResults" :isMobile="this.isMobile" @reset="newSearch" />
   </div>

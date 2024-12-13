@@ -30,7 +30,7 @@
       <div :class="['show-map', (isMobile ? 'hide-mobile' : '')]" @click="show_map = true">
         Ver mapa
       </div>
-      <button class="report" @click="show_error_form = true">Reportar datos errados</button>
+      <button class="button button-secondary report" @click="show_error_form = true">Reportar datos errados</button>
     </div>
     <component :is="showMap" :latLong="data.field_location_map.split(', ')" :data="data" :services_list="services_list"
       :plan_list="plan_list" @close="show_map = false" :isMobile="isMobile" />

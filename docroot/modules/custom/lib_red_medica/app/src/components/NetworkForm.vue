@@ -154,7 +154,7 @@
         >
           <p class="col-sm-12">Haz clic en los iconos para filtrar</p>
           <div
-            class="form-item form-type-checkbox form-item-search-telemedicine col-md-4"
+            class="form-item form-item-search-telemedicine col-md-4"
           >
             <input
               type="checkbox"
@@ -196,9 +196,8 @@
       <fieldset
         :class="['bottom-form', 'row', selected_plan_tids ? '' : 'hide-mobile']"
       >
-        <legend></legend>
         <div
-          class="form-item form-type-checkbox form-item-search-telemedicine col-md-5 col-sm-12"
+          class="form-item form-type-checkbox form-item-search-telemedicine col-md-3 col-sm-12"
         >
           <input
             type="checkbox"
@@ -212,7 +211,7 @@
             ¡No esta habilitado el acceso a la ubicación!
           </span>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-5 col-sm-12">
           <input
             type="submit"
             value="Buscar"
@@ -223,7 +222,7 @@
           />
         </div>
         <span
-          class="glossary-link col-md-3 col-sm-12"
+          class="glossary-link col-md-4 col-sm-12"
           @click="show_glossary = true"
         >
           Glosario de especialidades

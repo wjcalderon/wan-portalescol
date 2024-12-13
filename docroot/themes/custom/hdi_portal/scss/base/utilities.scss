@@ -41,21 +41,17 @@
 }
 
 .is-mobile {
-  display: inherit;
-
   @include tablet-landscape-up {
     display: none !important;
   }
 }
 
 .is-desktop {
-  display: none;
-
-  @include tablet-landscape-up {
-    display: inherit !important;
+  @include phone-only {
+    display: none !important;
   }
 }
 
 .is-visible {
-  display: inherit !important;
+  display: unset;
 }

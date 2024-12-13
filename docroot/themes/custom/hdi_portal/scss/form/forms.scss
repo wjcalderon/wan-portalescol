@@ -1,9 +1,11 @@
-form:not(.glb-form) {
+form {
   margin: 2rem auto;
   text-align: center;
 
   @include tablet-landscape-up {
-    max-width: 30.8125rem !important;
+    &:not(.glb-form, .medical-network-form) {
+      max-width: 30.8125rem !important;
+    }
   }
 
   h2 {
@@ -69,5 +71,6 @@ form:not(.glb-form) {
     flex-wrap: nowrap;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    align-items: center;
   }
 }
