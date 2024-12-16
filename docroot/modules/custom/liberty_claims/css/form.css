@@ -765,6 +765,10 @@ button.time-picker-column-item {
   margin-bottom: 1rem !important;
 }
 
+.pane .type .icon-cont img {
+  width: 100%;
+}
+
 .pane .type h3 {
   font-size: 1.5rem;
   text-align: center;

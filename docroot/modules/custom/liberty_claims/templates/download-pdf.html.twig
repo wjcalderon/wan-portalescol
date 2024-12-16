@@ -5,7 +5,7 @@
   CLAIM_TYPE_AC: 'Pequeños accesorios.',
   CLAIM_TYPE_LR: 'Llantas estalladas.',
   CLAIM_TYPE_CL: 'Cobertura de llaves.',
-  THIRD_PARTY: 'Daños ocasionados por un asegurado de Liberty.',
+  THIRD_PARTY: 'Daños ocasionados por un asegurado de HDI Seguros.',
 } %}
 
 <!DOCTYPE html>
@@ -16,16 +16,35 @@
 		<meta content="IE=edge" http-equiv="X-UA-Compatible">
 		<title>HDI Seguros - ¡Tu siniestro ha sido radicado!</title>
 		<style>
-      @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
-      @font-face{font-family:"HDI Pro";src:url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDIW05-Book.woff) format("woff"),url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDIW05-Book.woff2) format("woff2"),url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDI-GerlingSans-Regular.otf) format("opentype"),url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDI-GerlingSansCond-Regular.otf) format("opentype");font-weight:400}@font-face{font-family:"HDI Pro";src:url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDIW05-Medium.woff) format("woff"),url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDIW05-Medium.woff2) format("woff2");font-weight:500}@font-face{font-family:"HDI Pro";src:url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDI-GerlingSans-Bold.otf) format("opentype");font-weight:700}@font-face{font-family:"HDI Pro";src:url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDI-GerlingSans-Light.otf) format("opentype"),url(http://127.0.01/themes/custom/hdi_portal/fonts/fonts/HDI-GerlingSans-Light.otf) format("opentype");font-weight:200}:root{--hdi-font:"HDI Pro","Open Sans",sans-serif;--roboto-font:"Roboto","Open Sans",sans-serif}
-      @page { margin: 0px; }
+			@font-face {
+				font-family: "Roboto";
+				src: url('/themes/custom/hdi_portal/fonts/Roboto-Regular.ttf') format("truetype")
+			}
+			@font-face {
+				font-family: "HDI Pro";
+				src: url('/themes/custom/hdi_portal/fonts/HDIW05-Book.ttf') format("truetype");
+				font-weight: 400
+			}
+			@font-face {
+				font-family: "HDI Pro";
+				src: url('/themes/custom/hdi_portal/fonts/HDIW05-Medium.ttf') format("truetype");
+				font-weight: 500
+			}
+			@font-face {
+				font-family: "HDI Pro";
+				src: url('/themes/custom/hdi_portal/fonts/HDIW05-Bold.ttf') format("truetype");
+				font-weight: 700
+			}
+			@page {
+				margin: 0;
+			}
 			html,
 			body {
 				color: #565656;
-				font-family: 'Roboto', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				font-family: "Roboto", "Open Sans", sans-serif;
 				font-size: 11px;
 				line-height: 1;
-        margin: 0px;
+				margin: 0;
 			}
 			.container {
 				background-color: #ffffff;
@@ -34,24 +53,23 @@
 			header {
 				height: 7.2rem;
 				background-color: #ffffff;
-        border-bottom: 1px solid #0000001A;
-				padding: 0;
-				padding-left: 5rem;
+				border-bottom: 1px solid #0000001A;
+				padding: 0 0 0 5rem;
 				text-align: left;
 			}
 			header img {
-        border: 1px solid #C6C6C6;
-        box-shadow: 0px 3px 6px #00000029;
+				border: 1px solid #C6C6C6;
+				box-shadow: 0 3px 6px #00000029;
 				height: 7rem;
 			}
 			.logo_vigilado {
-			  bottom: 22rem;
-			  height: 13rem;
+				bottom: 22rem;
+				height: 13rem;
 				left: 1rem;
-			  position: absolute;
+				position: absolute;
 			}
 			.container {
-			  position: relative;
+				position: relative;
 				text-align: center;
 			}
 			.container .content {
@@ -59,7 +77,7 @@
 			}
 			.container .content .razon-social-hdi {
 				height: 10rem;
-			  position: absolute;
+				position: absolute;
 				right: 0;
 				top: 10rem;
 			}
@@ -67,19 +85,20 @@
 				color: #65A518;
 				font-size: 2rem;
 				font-weight: bolder;
-        font-family: "HDI Pro", "Open Sans", sans-serif;
+				font-family: "HDI Pro", "Open Sans", sans-serif;
 			}
 			.container h3 {
 				color: #565656;
 				font-weight: lighter;
 				line-height: .5;
+				font-family: "Roboto", "Open Sans", sans-serif;
 			}
 			.container .ilustracion {
 				height: 5rem;
 				margin-top: 2rem;
-        padding: 2rem;
-        border-radius: 50%;
-        border: 1px solid #65A518;
+				padding: 2rem;
+				border-radius: 50%;
+				border: 1px solid #65A518;
 			}
 			.container p {
 				font-size: 1.2rem;
@@ -90,11 +109,11 @@
 				font-size: 1.6rem;
 				margin-top: 1.6rem;
 			}
-      .container p.radicado b {
-        display: block;
-        color: #006729;
-        font-size: 3rem;
-      }
+			.container p.radicado b {
+				display: block;
+				color: #006729;
+				font-size: 3rem;
+			}
 			.container div.description {
 				padding: 2rem;
 				border: 1px solid #e4e4e4;
@@ -121,36 +140,36 @@
 			.container div.description p {
 				margin: 0;
 			}
-      footer {
+			footer {
 				background-color: #E8E8E8;
 				color: #000000;
 				display: block;
 				position: absolute;
 				vertical-align: middle;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        right: 0;
-        text-align: center;
+				bottom: 0;
+				width: 100%;
+				left: 0;
+				right: 0;
+				text-align: center;
 			}
-      footer .before {
-        margin: -.5rem;
-      }
-      footer .before span {
-        display: inline-block;
-        width: 33%;
-        height: .5rem;
-        margin-right: -5px;
-      }
-      footer .before span.light-green {
-        background-color: #65A518;
-      }
-      footer .before span.dark-green {
-        background-color: #006729;
-      }
-      footer .before span.light-blue {
-        background-color: #00A3A8;
-      }
+			footer .before {
+				margin: -0.5rem;
+			}
+			footer .before span {
+				display: inline-block;
+				width: 33%;
+				height: 0.5rem;
+				margin-right: -5px;
+			}
+			footer .before span.light-green {
+				background-color: #65A518;
+			}
+			footer .before span.dark-green {
+				background-color: #006729;
+			}
+			footer .before span.light-blue {
+				background-color: #00A3A8;
+			}
 			footer p {
 				margin: 0;
 			}
@@ -162,64 +181,64 @@
 				vertical-align: middle;
 				width: 1.5rem;
 			}
-      footer .contact {
-        padding-top: 2.5rem;
-        vertical-align: middle;
-      }
-      footer .contact span {
-        color: #006729;
-      }
-      footer .contact b {
-        color: #6E6E6E;
-        font-family: "HDI Pro", "Open Sans", sans-serif;
-      }
-      footer .contact .cellphone {
-        height: 1.8rem;
-        width: auto;
-      }
-      footer .contact .cellphone ~ b {
-        font-size: 1.3rem;
-      }
-      footer .social {
-        padding: 1.5rem 0;
-      }
-      footer .social span {
-        margin-left: 1rem;
-      }
-      footer .logos {
-        margin-bottom: 1.5rem;
-      }
-      footer .logos img {
-        height: 1.875rem;
-        width: auto;
-        padding: 1rem;
-      }
+			footer .contact {
+				padding-top: 2.5rem;
+				vertical-align: middle;
+			}
+			footer .contact span {
+				color: #006729;
+			}
+			footer .contact b {
+				color: #6E6E6E;
+				font-family: "HDI Pro", "Open Sans", sans-serif;
+			}
+			footer .contact .cellphone {
+				height: 1.8rem;
+				width: auto;
+			}
+			footer .contact .cellphone ~ b {
+				font-size: 1.3rem;
+			}
+			footer .social {
+				padding: 1.5rem 0;
+			}
+			footer .social span {
+				margin-left: 1rem;
+			}
+			footer .logos {
+				margin-bottom: 1.5rem;
+			}
+			footer .logos img {
+				height: 1.875rem;
+				width: auto;
+				padding: 1rem;
+			}
 			footer .signature {
-        background-color: #006729;
+				background-color: #006729;
 				color: #ffffff;
 				padding: 12px 0;
 			}
 			footer .signature .separator {
-        border-left: 1px solid #fff;
-      }
-      .logo-white {
-        float: right;
-        bottom: .5rem;
-        margin-right: 1rem;
-        width: 2rem;
-        height: auto;
-        z-index: 10;
-      }
+				border-left: 1px solid #fff;
+			}
+			.logo-white {
+				float: right;
+				bottom: 0.5rem;
+				margin-right: 1rem;
+				width: 2rem;
+				height: auto;
+				z-index: 10;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<header>
-				<img alt="HDI Seguros antes Liberty" src="{{ data.url }}/img/Email/logo.png">
+				<img alt="HDI Seguros" src="{{ data.url }}/img/Email/logo.png">
 			</header>
 			<div class="content">
 				<h1>¡Tu siniestro ha sido radicado!</h1>
-				<h3>En HDISeguros queremos que est&eacute;s tranquilo mientras nos encargamos de tu proceso.</h3>
+				<h3>En HDI Seguros queremos que est&eacute;s tranquilo mientras nos encargamos de tu proceso.</h3>
 				<h3>A continuaci&oacute;n te mostramos toda la informaci&oacute;n de tu siniestro:</h3>
 				<img alt="Ilustracion" src="{{ data.url }}/img/Email/icon-check.png" class="ilustracion">
 				<p class="radicado">
@@ -251,46 +270,49 @@
 			</div>
 			<img class="logo_vigilado" src="{{ data.url }}/img/Email/logo_vigilado.png" alt="Vigilado por la superintendencia bancaria de Colombia">
 		</div>
-    <footer>
-      <div class="before">
-        <span class="light-green">&nbsp;</span>
-        <span class="dark-green">&nbsp;</span>
-        <span class="light-blue">&nbsp;</span>
-      </div>
-      <p class="contact">
-        <span>L&iacute;neas de asistencia</span>
-        <img src="{{ data.url }}/img/Email/icon-cellphone.png" alt="L&iacute;neas de atenci&oacute;n" class="cellphone">
-        <b>#224</b>
-        Desde cualquier operador: TIGO, Movistar, Claro, WOM
-        <img src="{{ data.url }}/img/Email/icon-phone.png" alt="L&iacute;neas de atenci&oacute;n">&nbsp;&nbsp;
-                                      Bogot&aacute;:
-        <b>(57 1) 3077050 - #224</b>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            Resto del Pa&iacute;s:
-        <b>01 8000 113390</b>
-      </p>
-      <p class="social">
-        <img src="{{ data.url }}/img/Email/icon-whatsapp.png" alt="Whatsapp">
-        Comunícate con nuestro WhatsApp
-        <b>57 316 482 1802</b>
-        <span>
-          Síguenos
-          <img src="{{ data.url }}/img/Email/icon-facebook.png" alt="Facebook">
-          <img src="{{ data.url }}/img/Email/icon-linkedin.png" alt="Linkedin">
-        </span>
-      </p>
-      <p class="logos">
-        <img src="{{ data.url }}/img/Email/superfinanciera.png" alt="Superfinanciera">
-        <img src="{{ data.url }}/img/Email/fasecolda.png" alt="Fasecolda">
-        <img src="{{ data.url }}/img/Email/talanx.png" alt="Talanx">
-        <img src="{{ data.url }}/img/Email/vivaseguro.png" alt="Vivaseguro">
-      </p>
-      <p class="signature">
-        <b>HDI Seguros</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Copyright &copy; {{ data.year }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="separator">&nbsp;</span>
-        <span>Términos de uso y privacidad</span>
-        <img src="{{ data.url }}/img/Email/logo-white.png" alt="HDI Seguros" class="logo-white">
-      </p>
-    </footer>
+		<footer>
+			<div class="before">
+				<span class="light-green">&nbsp;</span>
+				<span class="dark-green">&nbsp;</span>
+				<span class="light-blue">&nbsp;</span>
+			</div>
+			<p class="contact">
+				<span>L&iacute;neas de asistencia</span>
+				<img src="{{ data.url }}/img/Email/icon-cellphone.png" alt="L&iacute;neas de atenci&oacute;n" class="cellphone">
+				<b>#224</b>
+				Desde cualquier operador: TIGO, Movistar, Claro, WOM
+				<img src="{{ data.url }}/img/Email/icon-phone.png" alt="L&iacute;neas de atenci&oacute;n">&nbsp;&nbsp;
+				                    Bogot&aacute;:
+				<b>(57 1) 3077050 - #224</b>&nbsp;&nbsp;&nbsp;&nbsp;
+					                      Resto del Pa&iacute;s:
+				<b>01 8000 113390</b>
+			</p>
+			<p class="social">
+				<img src="{{ data.url }}/img/Email/icon-whatsapp.png" alt="Whatsapp">
+				Comunícate con nuestro WhatsApp
+				<b>57 316 482 1802</b>
+				<span>
+					Síguenos
+					<img src="{{ data.url }}/img/Email/icon-facebook.png" alt="Facebook">
+					<img src="{{ data.url }}/img/Email/icon-linkedin.png" alt="Linkedin">
+				</span>
+			</p>
+			<p class="logos">
+				<img src="{{ data.url }}/img/Email/superfinanciera.png" alt="Superfinanciera">
+				<img src="{{ data.url }}/img/Email/fasecolda.png" alt="Fasecolda">
+				<img src="{{ data.url }}/img/Email/talanx.png" alt="Talanx">
+				<img src="{{ data.url }}/img/Email/vivaseguro.png" alt="Vivaseguro">
+			</p>
+			<p class="signature">
+				<b>HDI Seguros</b>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    Copyright &copy;
+				{{ data.year }}
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="separator">&nbsp;</span>
+				<span>Términos de uso y privacidad</span>
+				<img src="{{ data.url }}/img/Email/logo-white.png" alt="HDI Seguros" class="logo-white">
+			</p>
+		</footer>
 	</body>
 </html>

@@ -1,0 +1,10 @@
+{
+    "hdi pro": {
+        "500": "\/var\/www\/html\/docroot\/themes\/custom\/hdi_portal\/fonts\/HDIW05-Medium",
+        "400": "\/var\/www\/html\/docroot\/themes\/custom\/hdi_portal\/fonts\/HDIW05-Book",
+        "700": "\/var\/www\/html\/docroot\/themes\/custom\/hdi_portal\/fonts\/HDIW05-Bold"
+    },
+    "roboto": {
+        "normal": "\/var\/www\/html\/docroot\/themes\/custom\/hdi_portal\/fonts\/Roboto-Regular"
+    }
+}
