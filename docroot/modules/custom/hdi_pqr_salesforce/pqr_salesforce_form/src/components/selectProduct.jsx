@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { SelectField } from './selectField'
+import { useEffect, useRef, useState } from 'react'
 
 const productList = {
   'ARL': 'ARL',
@@ -12,14 +13,31 @@ const productList = {
   'VIDA R.M.': 'VIDA R.M.',
 }
 
-const SelectProduct = ({ handleChange }) => {
+const SelectProduct = ({ type, error, handleChange }) => {
+  const selectRef = useRef()
+  const [activeClass, setActiveClass] = useState('')
+
+  useEffect(() => {
+    if (selectRef?.current?.value !== '') {
+      setActiveClass('form__input--activo')
+    }
+  }, [selectRef])
+
   return (
-    <div className="form-item js-form-type-select form-type-select">
-      <label htmlFor="SFPQR_Producto__c">Selecciona tu producto</label>
+    <div className={`form-item js-form-type-select form-type-select ${activeClass}`}>
+      {error !== '' && (
+        <div className="error-message">
+          <span className="error-icon"></span>
+          <span>{error}</span>
+        </div>
+      )}
+      <label htmlFor="SFPQR_Producto__c" className={`label-${type} ${error ? 'select-error' : ''}`}>Selecciona tu producto</label>
       <SelectField
+        ref={selectRef}
         name="SFPQR_Producto__c"
         optionList={productList}
-        required={true}
+        className={`form-${type} ${error ? 'select-error' : ''}`}
+        //required={true}
         handleChange={handleChange}
       />
     </div>
@@ -28,6 +46,9 @@ const SelectProduct = ({ handleChange }) => {
 
 SelectProduct.propTypes = {
   handleChange: PropTypes.func,
+  type: PropTypes.oneOf(['select']),
+  handleChange: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export { SelectProduct }
