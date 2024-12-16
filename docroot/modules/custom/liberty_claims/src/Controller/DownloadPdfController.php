@@ -43,7 +43,14 @@ class DownloadPdfController extends ControllerBase {
     $options->setIsPhpEnabled(TRUE);
     $options->setIsHtml5ParserEnabled(TRUE);
     $options->setIsJavascriptEnabled(FALSE);
+    $options->setDefaultFont('Roboto');
+    $options->setFontDir($_SERVER['DOCUMENT_ROOT'] . '/themes/custom/hdi_portal/fonts');
     $options->setTempDir('/tmp');
+    $options->setFontCache($_SERVER['DOCUMENT_ROOT'] . '/themes/custom/hdi_portal/fonts');
+    $options->setChroot([
+      $_SERVER['DOCUMENT_ROOT'] . '/themes/custom/hdi_portal/fonts',
+      '/tmp'
+    ]);
 
     $dompdf = new Dompdf($options);
 
