@@ -43,7 +43,7 @@ function lib_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   if ($form_id == 'views_exposed_form' && isset($form['#id']) && $form['#id'] == 'views-exposed-form-clauses-documents-page-2') {
     $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
-    $form['title']['#attributes']['placeholder'] = 'Encuentra la documentación que necesitas para tus procesos con Liberty';
+    $form['title']['#attributes']['placeholder'] = 'Encuentra la documentación que necesitas para tus procesos con HDI Seguros';
     $form['title']['#size'] = 60;
     $form['#action'] = "/zona-de-cliente/clausulas-y-documentos";
   }
