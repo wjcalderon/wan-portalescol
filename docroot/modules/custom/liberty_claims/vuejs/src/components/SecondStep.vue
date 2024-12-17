@@ -161,7 +161,7 @@
     </div>
 
     <div class="actions">
-      <a  href="#" v-on:click.prevent="prevStep">Volver</a>
+      <a href="#" v-on:click.prevent="prevStep">Volver</a>
       <button v-on:click="nextStep" type="button">Continuar</button>
     </div>
   </div>

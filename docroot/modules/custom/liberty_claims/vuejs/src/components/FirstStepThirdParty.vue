@@ -22,7 +22,7 @@
       <float-label>
         <input type="text" name="plate" v-model="casualtyData.plate" placeholder="¿Cuál es la placa del vehículo que te afectó?" v-uppercase>
       </float-label>
-      <span class="ayudas">Placa del vehículo asegurado por Liberty</span>
+      <span class="ayudas">Placa del vehículo asegurado por HDI Seguros</span>
       <div class="error-message" v-show="submited && hasError('plate')">{{ hasError('plate') }}</div>
     </div>
 
@@ -133,7 +133,7 @@ export default {
       },
       tellusOptions: {
         0: '¿Qué nos quieres contar?',
-        'THIRD_PARTY': 'Daños ocasionados por un asegurado de Liberty.',
+        'THIRD_PARTY': 'Daños ocasionados por un asegurado de HDI Seguros.',
       },
       modal: null
     }

@@ -579,7 +579,8 @@ button.time-picker-column-item {
   width: 100%;
   margin-top: 2rem;
   text-align: center;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .pane .actions a {
@@ -1419,7 +1420,7 @@ textarea {
   width: 60%;
   margin: auto;
   color: var(--gray-70);
-  line-height: 1.2rem;
+  line-height: 1.7rem;
   font-weight: 300;
   margin-bottom: 3rem;
   margin-top: 1rem;
@@ -1739,7 +1740,7 @@ button.has-tooltip {
 }
 
 .third-step .field.address {
-  margin-top: 1.8rem;
+  margin-top: 1.3rem;
 }
 
 .documents-list ul li {
@@ -1750,10 +1751,6 @@ button.has-tooltip {
   text-align: left;
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-}
-
-.modal button {
-  margin-top: 1.5rem;
 }
 
 .modal.alert-taller h1 {
