@@ -329,6 +329,7 @@ body {
           padding: 1rem;
           text-align: center;
           grid-template-rows: 3.5rem 3rem 4.5rem 2.5rem;
+          grid-template-columns: 1fr;
           align-content: space-between;
           align-items: stretch;
 
@@ -619,8 +620,12 @@ body {
       }
 
       span:not(.green) {
-        display: flex;
-        gap: 1rem;
+        display: none;
+
+        @media (max-width: 768px) {
+          display: flex;
+          gap: 1rem;
+        }
       }
     }
   }
