@@ -88,7 +88,7 @@ export default {
         case: ''
       },
       cases: [
-        {value: 1, label: 'Tengo un seguro con una compañia diferente a Liberty'},
+        {value: 1, label: 'Tengo un seguro con una compañia diferente a HDI Seguros'},
         {value: 2, label: 'No tengo seguro con ninguna compañia'},
         {value: 3, label: 'Quiero que me devuelvan el valor del deducible'}
       ]

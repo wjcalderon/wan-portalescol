@@ -26,7 +26,7 @@ body {
   }
 
   h2 {
-    font-family: 'HDI Pro Book', sans-serif;
+    font-family: 'HDI Pro Medium', sans-serif;
     font-size: 1.5rem;
   }
 
@@ -322,18 +322,16 @@ body {
         }
 
         .card-button {
-          width: 210px;
-          height: 274px;
+          width: 15rem;
+          height: 18rem;
           background-color: #ffffff;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          align-items: center;
-          justify-content: space-around;
-          padding-left: 10px;
-          padding-right: 10px;
-          padding-top: 35px;
-          padding-bottom: 10px;
+          display: grid;
+          padding: 1rem;
+          text-align: center;
+          grid-template-rows: 3.5rem 3rem 4.5rem 2.5rem;
+          grid-template-columns: 1fr;
+          align-content: space-between;
+          align-items: stretch;
 
           @media (max-width: 768px) {
             width: 100%;
@@ -368,6 +366,7 @@ body {
             font-size: .56rem;
             color: #333333;
             margin-top: -5px;
+            display: block;
           }
         }
       }
@@ -621,8 +620,12 @@ body {
       }
 
       span:not(.green) {
-        display: flex;
-        gap: 1rem;
+        display: none;
+
+        @media (max-width: 768px) {
+          display: flex;
+          gap: 1rem;
+        }
       }
     }
   }

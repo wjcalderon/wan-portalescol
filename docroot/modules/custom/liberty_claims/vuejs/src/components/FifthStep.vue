@@ -94,7 +94,7 @@
             </li>
             <li class="item-list">
               <p>
-                Radica los documentos mediante nuestra página Web https://www.libertyseguros.co/ en las
+                Radica los documentos mediante nuestra página Web https://www.hdiseguros.com.co/ en las
                 siguientes Opciones <strong>&#8594; ¿Te paso Algo? &#8594; ¿Tienes una solicitud del siniestro de tu vehículo? &#8594; Crear solicitud &#8594; Siniestros vehículos.</strong>
               </p>
             </li>

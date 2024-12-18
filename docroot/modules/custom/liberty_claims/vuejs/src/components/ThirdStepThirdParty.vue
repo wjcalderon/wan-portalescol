@@ -108,7 +108,7 @@
         <div class="option-buttons">
           <div class="label">¿Hubo heridos?</div>
           <div class="option-buttons-items">
-            <button type="button" v-on:click="`changeRules`('withInjured', 'casualties', true)"
+            <button type="button" v-on:click="changeRules('withInjured', 'casualties', true)"
               v-bind:class="{ selected: casualtyData.withInjured === true }">
               Si
             </button>

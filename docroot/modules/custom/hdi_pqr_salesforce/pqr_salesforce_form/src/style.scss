@@ -13,6 +13,7 @@
     top: 0;
     width: 1rem;
     position: absolute;
+    cursor: help;
   }
 
   .form-type-radios {
@@ -74,6 +75,24 @@
         color: var(--hdi-light-blue);
         cursor: pointer;
         text-decoration: underline;
+      }
+    }
+  }
+
+  .form-type-textarea {
+    &.form__input--activo {
+      label {
+        background-color: var(--white);
+        width: 95%;
+        text-align: left;
+        padding: .5rem 0 0;
+        margin-top: -.2rem;
+      }
+    }
+
+    textarea {
+      &::-webkit-scrollbar-button {
+        background-color: var(--hdi-light-blue-70);
       }
     }
   }
@@ -241,6 +260,7 @@
 
       h4 {
         color: var(--hdi-green);
+        margin: 1.5rem 0 2rem;
       }
 
       ul {
@@ -253,6 +273,7 @@
           flex-direction: row;
           justify-content: space-between;
           margin-left: 4rem;
+          margin-right: .5rem;
           margin-top: .5rem;
           padding: 0 .5rem;
           position: relative;
@@ -263,11 +284,11 @@
             background-position: center left;
             background-repeat: no-repeat;
             background-size: 1.5rem;
-            border-right: 1px solid var(--hdi-universal-green);
+            border-right: 2px solid var(--hdi-light-blue-30);
             height: 3rem;
             padding-right: 1rem;
             position: absolute;
-            left: -4rem;
+            left: -3.5rem;
             width: 2.5rem;
           }
 
@@ -275,6 +296,21 @@
             &.name {
               color: var(--hdi-light-blue);
               text-decoration: underline;
+              position: relative;
+              padding-left: 2rem;
+
+              &::before {
+                position: absolute;
+                content: '';
+                background-image: url(./assets/icon-success.svg);
+                background-position: center left;
+                background-repeat: no-repeat;
+                background-size: 1rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                top: calc(50% - .75rem);
+                left: 0;
+              }
 
               span {
                 text-decoration: none;
@@ -307,6 +343,18 @@
             padding: 1rem;
             width: 1rem;
           }
+        }
+      }
+
+      .bottom-text {
+        display: block;
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: 500;
+
+        i {
+          font-weight: 400;
+          color: var(--hdi-light-blue-70);
         }
       }
     }

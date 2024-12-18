@@ -94,6 +94,7 @@ const UploadFiles = ({ handleChange }) => {
               </li>
             ))}
           </ul>
+          <span className='bottom-text'>Arrastra más archivos para adjuntar o <i>búscalos en tu equipo</i></span>
         </section>
       }
     </div>

@@ -42,7 +42,7 @@ function lib_core_update_8001(&$sandbox) {
 
   $cards = Paragraph::create([
     'type' => 'cards',
-    'field_c_title' => 'En Liberty nos interesa poder resolver de form fácil y oportuna todas tus dudas o sugerencias',
+    'field_c_title' => 'En HDI Seguros nos interesa poder resolver de form fácil y oportuna todas tus dudas o sugerencias',
   ]);
   $cards->save();
 
