@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 
 
-const SelectField = ({ optionList, name, error, className,  defaultValue, handleChange }) => {
+const SelectField = ({ optionList, name, className,  defaultValue, handleChange }) => {
   const selectRef = useRef()
-  const [activeClass, setActiveClass] = useState('')
-
-  useEffect(() => {
-    if (selectRef?.current?.value !== '') {
-      setActiveClass('form__input--activo')
-    }
-  }, [selectRef])
-
   const options = []
 
   for (const [key, value] of Object.entries(optionList)) {
@@ -24,8 +16,7 @@ const SelectField = ({ optionList, name, error, className,  defaultValue, handle
       name={name}
       className={className}
       defaultValue={defaultValue}
-      onChange={(e) => handleChange(e)}
-      error={error}
+      onChange={(e) => handleChange(e.target.value)}
     >
       <option value="">--</option>
       {options.map((option) => (
@@ -41,7 +32,7 @@ SelectField.propTypes = {
   defaultValue: PropTypes.string,
   required: PropTypes.bool,
   handleChange: PropTypes.func,
-  error: PropTypes.string,
+  className: PropTypes.string,
 }
 
 export { SelectField }

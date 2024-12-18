@@ -17,7 +17,7 @@ const Confirmation = ({caseId, email}) => {
       </span>
       <img src={IconConfirmation} alt="¡Gracias por tus comentarios!" />
       <h3>¡Gracias por tus comentarios!</h3>
-      <h4>Tu caso quedó bajo el radicado N° <span>{ caseId }</span></h4>
+      <h4>Tu caso quedó bajo el radicado <span>N° { caseId }</span></h4>
       <p>Te contactaremos dentro de las próximas 24 horas hábiles al email registrado:</p>
       <h4><span>{ email }</span></h4>
 

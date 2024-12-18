@@ -37,7 +37,6 @@ const SelectProduct = ({ type, error, handleChange }) => {
         name="SFPQR_Producto__c"
         optionList={productList}
         className={`form-${type} ${error ? 'select-error' : ''}`}
-        //required={true}
         handleChange={handleChange}
       />
     </div>
@@ -45,10 +44,9 @@ const SelectProduct = ({ type, error, handleChange }) => {
 }
 
 SelectProduct.propTypes = {
-  handleChange: PropTypes.func,
   type: PropTypes.oneOf(['select']),
-  handleChange: PropTypes.func,
   error: PropTypes.string,
+  handleChange: PropTypes.func,
 }
 
 export { SelectProduct }
