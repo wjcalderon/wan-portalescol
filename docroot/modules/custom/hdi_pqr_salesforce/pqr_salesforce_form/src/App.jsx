@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { InputField } from './components/inputField'
@@ -36,10 +36,24 @@ const App = () => {
   const [plate, setPlate] = useState(null)
   const [motive, setMotive] = useState('')
   const [uploadesFiles, setUploadedFiles] = useState([])
-  const [disableSubmit, setDisableSubmit] = useState(window.drupalSettings.pqrSalesforce.showRecaptcha)
+  const [disableSubmit, setDisableSubmit] = useState(true)
   const [loading, setLoading] = useState(false)
   const [caseNumber, setCaseNumber] = useState(false)
-  const [errors, setErrors] = useState({name: '', documentNumber: '', documentType: '', email: '', city: '', address: '', phone: '', description: '', plate: '', product: '', gender: '', motive: ''});
+  const [errors, setErrors] = useState(
+    {
+      name: '',
+      documentNumber: '',
+      documentType: '',
+      email: '',
+      city: '',
+      address: '',
+      phone: '',
+      description: '',
+      plate: '',
+      product: '',
+      gender: '',
+      motive: '',
+    })
   const nameRef = useRef(null);
   const documentTypeRef = useRef(null);
   const documentNumberRef = useRef(null);
@@ -51,6 +65,23 @@ const App = () => {
   const productRef = useRef(null);
   const genderRef = useRef(null);
   const motiveRef = useRef(null);
+
+  window.onbeforeunload = null
+
+  useEffect(() => {
+    if (reconsideration || name !== '' || documentNumber !== '') {
+      setDisableSubmit(false)
+      const onBeforeUnload = (e) => {
+        e.preventDefault()
+      }
+
+      window.addEventListener("beforeunload", onBeforeUnload)
+
+      return () => {
+        window.removeEventListener("beforeunload", onBeforeUnload)
+      }
+    }
+  }, [reconsideration, name, documentNumber])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -71,37 +102,36 @@ const App = () => {
 
     setErrors(newErrors);
 
-  // Si hay errores, desplazarse al primer campo con error
-  if (Object.keys(newErrors).length > 0) {
-    const firstErrorField = Object.keys(newErrors)[0];
+    // Si hay errores, desplazarse al primer campo con error
+    if (Object.keys(newErrors).length > 0) {
+      const firstErrorField = Object.keys(newErrors)[0];
 
-    // Mover el scroll hasta el campo correspondiente con error
-    if (firstErrorField === 'name' && nameRef.current) {
-      nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'documentType' && documentTypeRef.current) {
-      documentTypeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'documentNumber' && documentNumberRef.current) {
-      documentNumberRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'email' && emailRef.current) {
-      emailRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'city' && cityRef.current) {
-      cityRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'address' && addressRef.current) {
-      addressRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'phone' && phoneRef.current) {
-      phoneRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'description' && descriptionRef.current) {
-      descriptionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'product' && productRef.current) {
-      productRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'gender' && genderRef.current) {
-      genderRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (firstErrorField === 'motive' && motiveRef.current) {
-      motiveRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Mover el scroll hasta el campo correspondiente con error
+      if (firstErrorField === 'name' && nameRef.current) {
+        nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'documentType' && documentTypeRef.current) {
+        documentTypeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'documentNumber' && documentNumberRef.current) {
+        documentNumberRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'email' && emailRef.current) {
+        emailRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'city' && cityRef.current) {
+        cityRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'address' && addressRef.current) {
+        addressRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'phone' && phoneRef.current) {
+        phoneRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'description' && descriptionRef.current) {
+        descriptionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'product' && productRef.current) {
+        productRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'gender' && genderRef.current) {
+        genderRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (firstErrorField === 'motive' && motiveRef.current) {
+        motiveRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return; // Detener el envío si hay errores
     }
-    return; // Detener el envío si hay errores
-  }
-
 
     let formData = {
       'SSP_PaisEvento__c': country,
@@ -214,7 +244,6 @@ const App = () => {
           ref={documentTypeRef}
           type="select"
           handleChange={setDocumentType}
-          setState={setDocumentType}
           defaultValue="Cédula de ciudadanía"
           error={errors.documentType}
         />
@@ -238,7 +267,6 @@ const App = () => {
           name="PQR_CorreoElectronico__c"
           toolTipId="CorreoElectronico"
           toolTipText="Por este canal generamos la respuesta a tu caso"
-          //required={true}
           setState={setEmail}
           error={errors.email}
           />
@@ -256,7 +284,6 @@ const App = () => {
           label="Ingresa tu dirección"
           type="text"
           name="PQR_Direccion__c"
-          //required={true}
           setState={setAddress}
           minLength={5}
           error={errors.address}
@@ -265,12 +292,10 @@ const App = () => {
         <InputField
           ref={phoneRef}
           label="Ingresa tu celular de contacto"
-          type="number"
+          type="text"
           name="PQR_CelularContacto__c"
-          //required={true}
           setState={setPhone}
-          minLength={7}
-          maxLength={12}
+          pattern='\d{10}'
           error={errors.phone}
         />
 
@@ -323,7 +348,6 @@ const App = () => {
               cols="60"
               className="form-textarea"
               autoComplete="off"
-              //required={true}
               onChange={(e) => setDescription(e.target.value)}
             >
             </textarea>
@@ -343,7 +367,6 @@ const App = () => {
             label="Ingresa tu placa"
             type="text"
             name="Placa__c"
-            //required={true}
             pattern='[A-Za-z]{3}\d{3}|[A-Za-z]\d{5}|[A-Za-z]{3}\d{2}[A-Za-z]|\d{3}[A-Z]a-z{3}'
             setState={setPlate}
           />

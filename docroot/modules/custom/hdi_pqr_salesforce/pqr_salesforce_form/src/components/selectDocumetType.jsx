@@ -38,9 +38,8 @@ const SelectDocumentType =  ({ type, error, handleChange }) => {
         ref={selectRef}
         name="PQR_TipoIdentificacion__c"
         className={`form-${type} ${error ? 'select-error' : ''}`}
-        //defaultValue="Cédula de ciudadanía"
+        defaultValue="Cédula de ciudadanía"
         optionList={documentTypes}
-        //required={true}
         handleChange={handleChange}
       />
     </div>
