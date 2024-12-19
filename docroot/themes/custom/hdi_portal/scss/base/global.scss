@@ -335,7 +335,7 @@ body {
       padding: 1rem 1rem;
       position: fixed;
       transform: translate(-50%, -50%);
-      top: 80%;
+      top: 50%;
       width: 100%;
 
       .modal-close{
@@ -385,11 +385,11 @@ body {
           gap: 0.5rem;
 
           .container-button-left{
-            margin: 1rem 0rem 2rem 2rem;
+            margin: 1rem 0rem 2rem 2.5rem;
           }
 
           .container-button-right{
-            margin: 1rem 1rem 1rem 2rem;
+            margin: 0rem 0rem 2rem -1rem;
           }
 
           .button{
