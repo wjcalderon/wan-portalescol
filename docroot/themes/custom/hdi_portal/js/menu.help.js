@@ -30,11 +30,18 @@
     attach: function (context, settings) {
       $(function () {
 
-        $(".component .component__card .citasmedicaspopup").on("click", ".modal-open-cita-medica", function (e) {
+        $(".component.component__card.citasmedicaspopup").on("click", function (e) {
           $("#block-hdi-portal-citasmedicaspopup").css("display", "block");
+          $("#block-hdi-portal-citasmedicaspopup").addClass("is-fixed-global");
+        });
+
+        $("#block-hdi-portal-citasmedicaspopup").on("click", ".button.button-secondary", function (e) {
+          $("#block-hdi-portal-citasmedicaspopup").removeClass("is-fixed-global");
+          $("#block-hdi-portal-citasmedicaspopup").css("display", "none");
         });
 
         $("#block-hdi-portal-citasmedicaspopup").on("click", ".modal-close", function (e) {
+          $("#block-hdi-portal-citasmedicaspopup").removeClass("is-fixed-global");
           $("#block-hdi-portal-citasmedicaspopup").css("display", "none");
         });
 
