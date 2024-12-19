@@ -29,6 +29,15 @@
   Drupal.behaviors.menuHelpJS = {
     attach: function (context, settings) {
       $(function () {
+
+        $(".component .component__card .citasmedicaspopup").on("click", ".modal-open-cita-medica", function (e) {
+          $("#block-hdi-portal-citasmedicaspopup").css("display", "block");
+        });
+
+        $("#block-hdi-portal-citasmedicaspopup").on("click", ".modal-close", function (e) {
+          $("#block-hdi-portal-citasmedicaspopup").css("display", "none");
+        });
+
         let modal_fallback = $(".modal-link-fallback-popup");
         if (!modal_fallback.hasClass("modal-close")) {
           if (modal_fallback.length > 0) {
