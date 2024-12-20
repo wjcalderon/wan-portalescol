@@ -649,6 +649,10 @@ button.time-picker-column-item {
   padding-top: 3px !important;
 }
 
+.pane .date-time-picker .has-value input {
+  padding-top: 15px !important;
+}
+
 .pane select option:first-of-type {
   color: #757575;
 }
@@ -1429,6 +1433,7 @@ textarea {
 
 .date-time-picker input {
   padding-right: 45px !important;
+  padding-top: 15px !important;
 }
 
 .confirmation-page h4 {

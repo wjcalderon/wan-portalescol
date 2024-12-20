@@ -583,7 +583,7 @@ class SinisterNotifthirdAffectedd extends FormBase {
     <h3>¿El declarante es el mismo tercero afectado?</h3>
     <div id="edit-declarant-same-third" class="switch" style="margin-top: 2rem;">
     <input data-drupal-selector="edit-declarant-same-third-si" type="radio" id="edit-declarant-same-third-si" name="declarant_same_third" value="Si" class="form-radio toggle toggle-left">
-    <label for="edit-declarant-same-third-si" class="option btn btn-left">Si</label>
+    <label for="edit-declarant-same-third-si" class="option btn btn-left">Sí</label>
     <input data-drupal-selector="edit-declarant-same-third-no" type="radio" id="edit-declarant-same-third-no" name="declarant_same_third" value="No" class="form-radio toggle toggle-right" checked="checked">
     <label for="edit-declarant-same-third-no" class="option btn btn-right" style="margin-left: 0px;">No</label>
     </div>
@@ -737,7 +737,7 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#required' => TRUE,
       '#name' => $sinister_has_deaths,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#attributes' => [
@@ -767,7 +767,7 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#required' => TRUE,
       '#name' => $sinister_police,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#attributes' => [
@@ -782,7 +782,7 @@ class SinisterNotifthirdAffectedd extends FormBase {
       '#required' => TRUE,
       '#name' => $sinister_injured,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#attributes' => [

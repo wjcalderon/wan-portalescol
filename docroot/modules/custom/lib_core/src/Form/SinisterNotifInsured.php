@@ -451,7 +451,7 @@ class SinisterNotifInsured extends FormBase {
     $mrkup = '<div class="form-item switch-container">
       <div id="edit-driver-same-insure" class="switch" style="margin-top: 2rem;">
       <input data-drupal-selector="edit-driver-same-insure-si" type="radio" id="edit-driver-same-insure-si" name="driver_same_insure" value="Si" class="form-radio toggle toggle-left">
-      <label for="edit-driver-same-insure-si" class="option btn btn-left">Si</label>
+      <label for="edit-driver-same-insure-si" class="option btn btn-left">Sí</label>
       <input data-drupal-selector="edit-driver-same-insure-no" type="radio" id="edit-driver-same-insure-no" name="driver_same_insure" value="No" class="form-radio toggle toggle-right" checked="checked">
       <label for="edit-driver-same-insure-no" class="option btn btn-right" style="margin-left: 0px;">No</label>
       </div>
@@ -587,7 +587,7 @@ class SinisterNotifInsured extends FormBase {
     $mrkup = '<div class="form-item switch-container">
       <div id="edit-driver-same-insure" class="switch" style="margin-top: 2rem;">
       <input data-drupal-selector="edit-declarant-same-insure-si" type="radio" id="edit-declarant-same-insure-si" name="declarant_same_insure" value="Si" class="form-radio toggle toggle-left">
-      <label for="edit-declarant-same-insure-si" class="option btn btn-left">Si</label>
+      <label for="edit-declarant-same-insure-si" class="option btn btn-left">Sí</label>
       <input data-drupal-selector="edit-declarant-same-insure-no" type="radio" id="edit-declarant-same-insure-no" name="declarant_same_insure" value="No" class="form-radio toggle toggle-right" checked="checked">
       <label for="edit-declarant-same-insure-no" class="option btn btn-right" style="margin-left: 0px;">No</label>
       </div>
@@ -747,7 +747,7 @@ class SinisterNotifInsured extends FormBase {
       '#name' => $sinister_has_deaths,
       '#required' => TRUE,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#attributes' => [
@@ -778,7 +778,7 @@ class SinisterNotifInsured extends FormBase {
       '#id' => $involved,
       '#name' => $involved,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#default_value' => 'No',
@@ -793,7 +793,7 @@ class SinisterNotifInsured extends FormBase {
       '#id' => $know_plate_involved,
       '#name' => $know_plate_involved,
       '#options' => [
-        'Si' => 'Si',
+        'Si' => 'Sí',
         'No' => 'No',
       ],
       '#default_value' => 'No',
