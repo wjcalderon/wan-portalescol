@@ -129,6 +129,12 @@ function hdi_portal_preprocess_page(&$variables)
   } else {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
   }
+
+  $maintenance_mode = \Drupal::state()->get('system.maintenance_mode');
+  if (!empty($maintenance_mode)) {
+    //use can do other stuff here, but in my case I want to remove status message
+    \Drupal::messenger()->deleteByType('status');
+  }
 }
 
 /**
