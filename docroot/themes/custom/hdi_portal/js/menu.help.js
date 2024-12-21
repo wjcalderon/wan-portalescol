@@ -29,6 +29,29 @@
   Drupal.behaviors.menuHelpJS = {
     attach: function (context, settings) {
       $(function () {
+        $(".unificacion-popup").on("click", function (e) {
+          e.preventDefault()
+
+          let modal = '#block-hdi-portal-modalconsultapolizas'
+          if ($(this).hasClass('citasmedicas')) {
+            modal = "#block-hdi-portal-citasmedicaspopup"
+          }
+
+          $(modal)
+            .show()
+            .addClass("is-fixed-global")
+            .removeClass("is-hidden")
+        })
+
+        $('.unificacion-modal').on("click", '.close-button', function (e) {
+          e.stopPropagation()
+
+          $('.unificacion-modal').parent('.is-fixed-global')
+            .removeClass("is-fixed-global")
+            .addClass("is-hidden")
+            .hide()
+        })
+
         let modal_fallback = $(".modal-link-fallback-popup");
         if (!modal_fallback.hasClass("modal-close")) {
           if (modal_fallback.length > 0) {
