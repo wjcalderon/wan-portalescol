@@ -29,24 +29,28 @@
   Drupal.behaviors.menuHelpJS = {
     attach: function (context, settings) {
       $(function () {
+        $(".unificacion-popup").on("click", function (e) {
+          e.preventDefault()
 
-        $(".component.component__card.citasmedicaspopup").on("click", function (e) {
-          $("#block-hdi-portal-citasmedicaspopup").css("display", "block");
-          $("#block-hdi-portal-citasmedicaspopup").addClass("is-fixed-global");
-          $("#block-hdi-portal-citasmedicaspopup").removeClass("is-hidden");
-        });
+          let modal = '#block-hdi-portal-modalconsultapolizas'
+          if ($(this).hasClass('citasmedicas')) {
+            modal = "#block-hdi-portal-citasmedicaspopup"
+          }
 
-        $("#block-hdi-portal-citasmedicaspopup").on("click", ".button.button-secondary", function (e) {
-          $("#block-hdi-portal-citasmedicaspopup").removeClass("is-fixed-global");
-          $("#block-hdi-portal-citasmedicaspopup").addClass("is-hidden");
-          $("#block-hdi-portal-citasmedicaspopup").css("display", "none");
-        });
+          $(modal)
+            .show()
+            .addClass("is-fixed-global")
+            .removeClass("is-hidden")
+        })
 
-        $("#block-hdi-portal-citasmedicaspopup").on("click", ".modal-close", function (e) {
-          $("#block-hdi-portal-citasmedicaspopup").removeClass("is-fixed-global");
-          $("#block-hdi-portal-citasmedicaspopup").addClass("is-hidden");
-          $("#block-hdi-portal-citasmedicaspopup").css("display", "none");
-        });
+        $('.unificacion-modal').on("click", '.close-button', function (e) {
+          e.stopPropagation()
+
+          $('.unificacion-modal').parent('.is-fixed-global')
+            .removeClass("is-fixed-global")
+            .addClass("is-hidden")
+            .hide()
+        })
 
         let modal_fallback = $(".modal-link-fallback-popup");
         if (!modal_fallback.hasClass("modal-close")) {
