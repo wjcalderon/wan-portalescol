@@ -37,6 +37,9 @@
             modal = "#block-hdi-portal-citasmedicaspopup"
           }
 
+          $('.unificacion-popup.unificacion-modal').css('z-index', '9999');
+          $('.tb-megamenu .mega > .mega-dropdown-menu').css('z-index', '1');
+
           $(modal)
             .show()
             .addClass("is-fixed-global")
