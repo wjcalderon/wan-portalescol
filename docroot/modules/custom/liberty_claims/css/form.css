@@ -243,7 +243,12 @@ button.datepicker-day:focus {
 }
 
 .vue-dropzone > .dz-preview .dz-details {
-  background-color: rgb(152, 229, 234) !important;
+  background-color: var(--hdi-green-70) !important;
+}
+
+.vue-dropzone > .dz-preview {
+  margin: unset !important;
+  height: 2rem !important;
 }
 
 .label-img-adj,
@@ -811,6 +816,13 @@ button.time-picker-column-item {
   color: var(--dark-blue-70);
 }
 
+@media (max-width: 768px) {
+  .pane .image-car .p-default label {
+    text-shadow: none;
+    color: transparent;
+  }
+}
+
 .pane .image-car .p-default input {
   height: 3rem;
   width: 3rem;
@@ -1005,7 +1017,7 @@ button.time-picker-column-item {
 }
 
 .vfl-label-on-input {
-  top: 0;
+  top: 0 !important;
   z-index: 10;
   left: 17px !important;
 }
@@ -1014,6 +1026,16 @@ button.time-picker-column-item {
   border: 2px dashed #ccc !important;
   min-height: 60px !important;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .vue-dropzone {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .vue-dropzone .dz-message {
@@ -1030,6 +1052,46 @@ button.time-picker-column-item {
 
 .vue-dropzone .dz-message strong {
   color: var(--hdi-light-blue);
+}
+
+.vue-dropzone .dz-preview, .dropzone .dz-preview {
+  min-height: unset !important;
+  margin: unset;
+}
+
+.vue-dropzone > .dz-preview .dz-remove {
+  left: unset !important;
+  right: 0 !important;
+  border: unset !important;
+  width: 2rem !important;
+  background-color: var(--hdi-green) !important;
+  font-size: 0 !important;
+  height: 2rem !important;
+  border: unset !important;
+  bottom: 0 !important;
+  opacity: 1 !important;
+  padding: unset !important;
+  display: grid !important;
+  place-content: center !important;
+  border-radius: 0 3px 3px 0;
+}
+
+.vue-dropzone > .dz-preview .dz-remove::before {
+  content: "";
+  background-image: url(../img/close-white.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1rem;
+  height: 1rem;
+}
+
+.vue-dropzone>.dz-preview .dz-details {
+  padding: .5rem !important;
+  border-radius: 3px !important;
+}
+
+.dropzone .dz-preview .dz-details .dz-size {
+  display: none !important;
 }
 
 .pretty.p-default:not(.p-fill) input:checked ~ .state.p-primary-o label:after {
@@ -1431,6 +1493,12 @@ textarea {
   font-size: 1.25rem;
 }
 
+@media (max-width: 768px) {
+  .confirmation-page p {
+    width: 100%;
+  }
+}
+
 .date-time-picker input {
   padding-right: 45px !important;
   padding-top: 15px !important;
@@ -1441,6 +1509,10 @@ textarea {
   font-weight: 300;
   width: 50%;
   margin: 1.5rem auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .confirmation-page {
@@ -1453,11 +1525,21 @@ textarea {
     margin: 3rem auto;
     width: 11.375rem;
 
+    @media (max-width: 768px) {
+      height: 7.375rem;
+      width: 7.375rem;
+    }
+
     img {
       display: block;
       height: 5.4375rem;
       margin: 0 auto;
       width: 5.4375rem;
+
+      @media (max-width: 768px) {
+        height: 4rem;
+        width: 4rem;
+      }
     }
   }
 
@@ -1475,11 +1557,26 @@ textarea {
     align-items: center;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 
   .actions {
     .button-secondary {
       margin-right: 2rem;
+
+      @media (max-width: 768px) {
+        margin-right: unset;
+      }
+    }
+
+    button {
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
   }
 }
@@ -2075,10 +2172,6 @@ button.has-tooltip {
   height: 100px;
 }
 
-.documents-step .dropzone {
-  padding-bottom: 3px;
-}
-
 .documents-step .dropzone .dz-message {
   text-align: center;
   display: flex;
@@ -2176,8 +2269,8 @@ button.has-tooltip {
   }
 
   .pane .image-car .p-default:nth-child(3) {
-    top: 245px !important;
-    right: -12rem !important;
+    top: 280px !important;
+    right: -208px !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-left: 0 !important;
@@ -2191,8 +2284,8 @@ button.has-tooltip {
   }
 
   .pane .image-car .p-default:nth-child(4) {
-    top: 245px !important;
-    left: 71px !important;
+    top: 280px !important;
+    left: 85px !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-right: 0 !important;
@@ -2206,8 +2299,8 @@ button.has-tooltip {
   }
 
   .pane .image-car .p-default:nth-child(5) {
-    top: 413px !important;
-    right: -12rem !important;
+    top: 490px !important;
+    right: -200px !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-left: 0 !important;
@@ -2221,8 +2314,8 @@ button.has-tooltip {
   }
 
   .pane .image-car .p-default:nth-child(6) {
-    top: 413px !important;
-    left: 76px !important;
+    top: 490px !important;
+    left: 85px !important;
     transform: translateX(-50%);
     z-index: 10;
     padding-right: 0 !important;
@@ -2237,14 +2330,13 @@ button.has-tooltip {
 
   .pane .image-car .p-default:nth-child(7) {
     bottom: 163px !important;
-    left: 52% !important;
+    left: 50% !important;
     transform: translateX(-50%);
     z-index: 10;
   }
 
   .pretty .state label {
-    color: #fff;
-    text-shadow: 2px 1px 2px #1a1446;
+    color: #343741;
   }
 
   .vehicle-type .row .button {
@@ -2310,8 +2402,11 @@ button.has-tooltip {
 
   .modal {
     padding: 2rem 2rem;
-    max-width: 600px;
-    width: 85%;
+    max-width: unset;
+    width: 100vw;
+    bottom: 0;
+    top: unset;
+    transform: translate(-50%, 0);
   }
 
   .invalid-plate h2 {
@@ -2326,6 +2421,11 @@ button.has-tooltip {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    gap: 1rem;
+  }
+
+  .modal .pane .actions {
+    flex-direction: column;
   }
 
   .pane .actions a {
@@ -2334,6 +2434,13 @@ button.has-tooltip {
     width: 57px;
     margin-right: 0;
     left: auto;
+  }
+
+  .modal .pane .actions a {
+    width: 50%;
+  }
+  .modal .pane .actions button {
+    width: 60%;
   }
 
   #chooseTypeMenu ol li.current,
@@ -2386,6 +2493,10 @@ button.has-tooltip {
     transform: translateX(-50%);
     z-index: 10;
     padding-left: 3rem;
+  }
+
+  .pane .image-car .p-default:nth-child(9) label {
+    color: #343741;
   }
 
   .radiobutton-group {
@@ -2456,7 +2567,8 @@ button.has-tooltip {
     width: 100%;
     padding-left: 7rem;
     padding-right: 2rem;
-    background: transparent no-repeat 3rem center;
+    background: transparent no-repeat 2rem center;
+    background-size: 3.5rem;
   }
 }
 
@@ -2552,4 +2664,12 @@ p.countdown .remain {
 .vld-overlay .vld-icon, .vld-parent {
   position: relative;
   display: none;
+}
+
+.pane .descrip .vfl-label-on-input {
+  top: .5rem !important;
+}
+
+.pane .descrip .vfl-label-on-input ~ textarea {
+  padding-top: 1.5rem !important;
 }

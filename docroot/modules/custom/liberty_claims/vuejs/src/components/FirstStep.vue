@@ -4,6 +4,7 @@
     <p>Por favor completa la siguiente información:</p>
 
     <div v-bind:class="{field: true, error: submited && hasError('tellus'), filled: casualtyData.tellus}">
+      <div class="error-message" v-show="submited && hasError('tellus')">{{ hasError('tellus') }}</div>
       <float-label label="¿Qué nos quieres contar?" :dispatch="false">
         <select
           name="tellus"
@@ -19,18 +20,18 @@
           </option>
         </select>
       </float-label>
-      <div class="error-message" v-show="submited && hasError('tellus')">{{ hasError('tellus') }}</div>
     </div>
 
     <div v-bind:class="{field: true, error: submited && hasError('plate'), filled: casualtyData.plate}">
+      <div class="error-message" v-show="submited && hasError('plate')">{{ hasError('plate') }}</div>
       <float-label>
         <input type="text" name="plate" v-model="casualtyData.plate" placeholder="¿Cuál es la placa de tu vehículo?" v-uppercase>
       </float-label>
       <span class="ayudas">Ejemplo: FOV 575</span>
-      <div class="error-message" v-show="submited && hasError('plate')">{{ hasError('plate') }}</div>
     </div>
 
     <div v-bind:class="{field: true, error: submited && hasError('date')}">
+      <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>
       <datepicker
         format='YYYY-MM-DD HH:mm'
         v-show="page"
@@ -42,11 +43,17 @@
         strict='true'>
       </datepicker>
        <span class="ayudas">Día/ Mes/ Año</span>
-      <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>
     </div>
 
     <div class="actions">
-      <button v-on:click="getPolicy" type="button" class="button">Continuar</button>
+      <button
+        v-on:click="getPolicy"
+        type="button"
+        class="button"
+        :disabled="isDisabled"
+      >
+        Continuar
+      </button>
     </div>
 
     <alert
@@ -141,7 +148,14 @@ export default {
     },
     hasCancelLink: function () {
       return this.modal === 'theft';
-    }
+    },
+    isDisabled: function () {
+      if (this.casualtyData.tellus === 0 || this.casualtyData.plate === '' || this.casualtyData.date === '') {
+        return true
+      }
+
+      return false
+    },
   },
   data() {
     return {
@@ -175,7 +189,8 @@ export default {
         GMFChevrolet: {},
         previusPolicy: '',
       },
-      modal: null
+      modal: null,
+      disabled: true,
     }
   },
   methods: {
