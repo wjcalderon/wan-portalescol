@@ -22,7 +22,7 @@
 
     <div class="actions">
       <button v-on:click="refresh('href')" class="button-secondary" type="button">Iniciar nuevo reporte</button>
-      <button v-on:click="refresh('origin')" class="disabled" type="button">Ir a inicio</button>
+      <button v-on:click="refresh('origin')" type="button">Ir a inicio</button>
     </div>
 
     <component :is="modal" v-on:closeModal="close($event)" v-bind:userData="user"></component>

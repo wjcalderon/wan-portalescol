@@ -4,6 +4,7 @@
     <p>Por favor completa la siguiente información:</p>
 
     <div v-bind:class="{field: true, error: submited && hasError('tellus'), filled: casualtyData.tellus}">
+      <div class="error-message" v-show="submited && hasError('tellus')">{{ hasError('tellus') }}</div>
       <float-label label="¿Qué nos quieres contar?" :dispatch="false">
         <select
           name="tellus"
@@ -15,18 +16,18 @@
           >{{ option }}</option>
         </select>
       </float-label>
-      <div class="error-message" v-show="submited && hasError('tellus')">{{ hasError('tellus') }}</div>
     </div>
 
     <div v-bind:class="{field: true, error: submited && hasError('plate'), filled: casualtyData.plate}">
+      <div class="error-message" v-show="submited && hasError('plate')">{{ hasError('plate') }}</div>
       <float-label>
         <input type="text" name="plate" v-model="casualtyData.plate" placeholder="¿Cuál es la placa del vehículo que te afectó?" v-uppercase>
       </float-label>
       <span class="ayudas">Placa del vehículo asegurado por HDI Seguros</span>
-      <div class="error-message" v-show="submited && hasError('plate')">{{ hasError('plate') }}</div>
     </div>
 
     <div v-bind:class="{field: true, error: submited && hasError('date')}">
+      <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>
       <datepicker
         format='YYYY-MM-DD HH:mm'
         v-show="page"
@@ -38,7 +39,6 @@
         strict='true'>
       </datepicker>
       <span class="ayudas">Día/ Mes/ Año</span>
-      <div class="error-message" v-show="submited && hasError('date')">{{ hasError('date') }}</div>
     </div>
 
     <div class="actions">

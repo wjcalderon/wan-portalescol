@@ -1,0 +1,16 @@
+<svg id="Icons_Delete_Copy" data-name="Icons/Delete Copy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M7.917,8.969,1.052,15.833,0,14.781,6.865,7.916,0,1.052,1.052,0,7.917,6.864,14.781,0l1.052,1.052L8.969,7.917l6.864,6.864-1.052,1.052Z" fill="#13112b"/>
+    </clipPath>
+  </defs>
+  <rect id="Icons_Delete_background" data-name="Icons/Delete background" width="20" height="20" fill="none"/>
+  <g id="Color_Liberty_Blue" data-name="Color/Liberty Blue" transform="translate(1.667 2.5)">
+    <path id="Mask-2" data-name="Mask" d="M7.917,8.969,1.052,15.833,0,14.781,6.865,7.916,0,1.052,1.052,0,7.917,6.864,14.781,0l1.052,1.052L8.969,7.917l6.864,6.864-1.052,1.052Z" fill="#ffffff"/>
+    <g id="Color_Liberty_Blue-2" data-name="Color/Liberty Blue" clip-path="url(#clip-path)">
+      <g id="Color_Liberty_Blue-3" data-name="Color/Liberty Blue" transform="translate(-33.333 -32.5)">
+        <rect id="Rectangle" width="83.333" height="83.333" fill="#ffffff"/>
+      </g>
+    </g>
+  </g>
+</svg>

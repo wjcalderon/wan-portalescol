@@ -20,7 +20,7 @@
         error: submited && hasError('description')
       }"
     >
-      <float-label label="Descripción de los hechos.">
+      <float-label label="Descripción de los hechos, piezas afectadas, lugares etc.">
         <textarea
           @click="getData"
           name="description"
@@ -315,6 +315,12 @@
           filled: casualtyData.whereAddress
         }"
       >
+        <div
+          class="error-message"
+          v-show="submited && hasError('whereAddress')"
+        >
+          {{ hasError("whereAddress") }}
+        </div>
         <float-label>
           <input
             type="text"
@@ -328,12 +334,6 @@
             el siniestro</span
           >
         </float-label>
-        <div
-          class="error-message"
-          v-show="submited && hasError('whereAddress')"
-        >
-          {{ hasError("whereAddress") }}
-        </div>
       </div>
     </div>
 
@@ -371,6 +371,12 @@
               filled: casualtyData.casualties
             }"
           >
+            <div
+              class="error-message"
+              v-show="submited && hasError('casualties')"
+            >
+              {{ hasError("casualties") }}
+            </div>
             <float-label label="¿Cuántos?">
               <select
                 v-model="casualtyData.casualties"
@@ -384,12 +390,6 @@
                 </option>
               </select>
             </float-label>
-            <div
-              class="error-message"
-              v-show="submited && hasError('casualties')"
-            >
-              {{ hasError("casualties") }}
-            </div>
           </div>
         </div>
       </div>
@@ -472,6 +472,12 @@
                 filled: casualtyData.plateThirdPartyInvolved
               }"
             >
+              <div
+                class="error-message"
+                v-show="submited && hasError('plateThirdPartyInvolved')"
+              >
+                {{ hasError("plateThirdPartyInvolved") }}
+              </div>
               <float-label>
                 <input
                   type="text"
@@ -484,12 +490,6 @@
                   v-uppercase
                 />
               </float-label>
-              <div
-                class="error-message"
-                v-show="submited && hasError('plateThirdPartyInvolved')"
-              >
-                {{ hasError("plateThirdPartyInvolved") }}
-              </div>
             </div>
           </div>
         </div>
@@ -541,6 +541,12 @@
                 filled: casualtyData.plateThirdPartyInvolvedName
               }"
             >
+              <div
+                class="error-message"
+                v-show="submited && hasError('plateThirdPartyInvolvedName')"
+              >
+                {{ hasError("plateThirdPartyInvolvedName") }}
+              </div>
               <float-label>
                 <input
                   type="text"
@@ -553,12 +559,6 @@
                   v-uppercase
                 />
               </float-label>
-              <div
-                class="error-message"
-                v-show="submited && hasError('plateThirdPartyInvolvedName')"
-              >
-                {{ hasError("plateThirdPartyInvolvedName") }}
-              </div>
             </div>
           </div>
         </div>
@@ -616,6 +616,12 @@
                 filled: casualtyData.plateThirdPartyInvolvedTypeIdentificaction
               }"
             >
+              <div
+                class="error-message"
+                v-show="submited && hasError('plateThirdPartyInvolvedTypeIdentificaction')"
+              >
+                {{ hasError("plateThirdPartyInvolvedTypeIdentificaction") }}
+              </div>
               <float-label label="Tipo de documento" :dispatch="false">
                 <select
                   v-model="
@@ -635,15 +641,6 @@
                   >
                 </select>
               </float-label>
-              <div
-                class="error-message"
-                v-show="
-                  submited &&
-                    hasError('plateThirdPartyInvolvedTypeIdentificaction')
-                "
-              >
-                {{ hasError("plateThirdPartyInvolvedTypeIdentificaction") }}
-              </div>
             </div>
           </div>
         </div>
@@ -702,6 +699,12 @@
                 filled: casualtyData.plateThirdPartyInvolvedIdentificaction
               }"
             >
+              <div
+                class="error-message"
+                v-show="submited && hasError('plateThirdPartyInvolvedIdentificaction')"
+              >
+                {{ hasError("plateThirdPartyInvolvedIdentificaction") }}
+              </div>
               <float-label>
                 <input
                   type="text"
@@ -714,14 +717,6 @@
                   v-uppercase
                 />
               </float-label>
-              <div
-                class="error-message"
-                v-show="
-                  submited && hasError('plateThirdPartyInvolvedIdentificaction')
-                "
-              >
-                {{ hasError("plateThirdPartyInvolvedIdentificaction") }}
-              </div>
             </div>
           </div>
         </div>
@@ -757,6 +752,9 @@
               filled: casualtyData.deaths
             }"
           >
+            <div class="error-message" v-show="submited && hasError('deaths')">
+              {{ hasError("deaths") }}
+            </div>
             <float-label label="¿Cuántos?">
               <select
                 v-model="casualtyData.deaths"
@@ -770,9 +768,6 @@
                 </option>
               </select>
             </float-label>
-            <div class="error-message" v-show="submited && hasError('deaths')">
-              {{ hasError("deaths") }}
-            </div>
           </div>
         </div>
       </div>
