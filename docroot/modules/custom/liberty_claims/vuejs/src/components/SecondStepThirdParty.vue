@@ -4,55 +4,55 @@
     <p>Por favor completa la siguiente información:</p>
 
     <div class="row columns-row terceros">
+      <div class="error-message" v-show="submited && hasError('name')">{{ hasError('name') }}</div>
         <div v-bind:class="{field: true, error: submited && hasError('name'), filled: casualtyData.name}">
           <float-label>
             <input type="text" name="name" v-model.lazy="casualtyData.name" placeholder="¿Cuál es tu nombre?" tabindex=1>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('name')">{{ hasError('name') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('lastname'), filled: casualtyData.lastname}">
+          <div class="error-message" v-show="submited && hasError('lastname')">{{ hasError('lastname') }}</div>
           <float-label>
             <input type="text" name="lastname" v-model="casualtyData.lastname" placeholder="¿Cuales son tus apellidos?" tabindex=2>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('lastname')">{{ hasError('lastname') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('docType'), filled: casualtyData.docType}">
+          <div class="error-message" v-show="submited && hasError('docType')">{{ hasError('docType') }}</div>
           <float-label label="Tipo de documento" :dispatch="false">
             <select v-model="casualtyData.docType" tabindex=3>
               <option v-for="(index, option) in documentTypes" v-bind:key="index" :value="index" >{{ option }}</option>
             </select>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('docType')">{{ hasError('docType') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('documentId'), filled: casualtyData.documentId}" >
+          <div class="error-message" v-show="submited && hasError('documentId')">{{ hasError('documentId') }}</div>
           <float-label>
             <input type="text" name="id" v-model="casualtyData.documentId" placeholder="Escribe tu número de documento" tabindex=4>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('documentId')">{{ hasError('documentId') }}</div>
         </div>
 
         <div v-bind:class="{field: true, address: true, error: submited && hasError('address'), filled: casualtyData.address}" >
+          <div class="error-message" v-show="submited && hasError('address')">{{ hasError('address') }}</div>
           <float-label>
             <input type="text" name="address" v-model="casualtyData.address" placeholder="¿Cuál es tu dirección?" tabindex=7>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('address')">{{ hasError('address') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('phone'), filled: casualtyData.phone}">
+          <div class="error-message" v-show="submited && hasError('phone')">{{ hasError('phone') }}</div>
           <float-label>
             <input type="text" v-model="casualtyData.phone" name="phone" placeholder="¿Cuál es tu número de teléfono?" tabindex=6>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('phone')">{{ hasError('phone') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('email'), filled: casualtyData.email}" >
+          <div class="error-message" v-show="submited && hasError('email')">{{ hasError('email') }}</div>
           <float-label>
             <input type="mail" name="mail" v-model="casualtyData.email" placeholder="¿Cuál es tu email?" tabindex=5>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('email')">{{ hasError('email') }}</div>
         </div>
 
 
@@ -62,6 +62,7 @@
     <div class="row">
       <div class="col">
         <div v-bind:class="{field: true, error: submited && hasError('plateAffected'), filled: casualtyData.plateAffected}">
+          <div class="error-message" v-show="submited && hasError('plateAffected')">{{ hasError('plateAffected') }}</div>
           <float-label>
             <input
               type="text"
@@ -71,45 +72,44 @@
               v-uppercase
               tabindex=8>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('plateAffected')">{{ hasError('plateAffected') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('model'), filled: casualtyData.model}">
+          <div class="error-message" v-show="submited && hasError('model')">{{ hasError('model') }}</div>
           <float-label label="¿Qué modelo es tu vehículo?" :dispatch="false">
             <select v-model="casualtyData.model" tabindex=9>
               <option v-for="option in models" v-bind:key="option.value" :value="option.value">{{ option.label }}</option>
             </select>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('model')">{{ hasError('model') }}</div>
         </div>
       </div>
 
       <div class="col">
         <div v-bind:class="{field: true, error: submited && hasError('brand'), filled: casualtyData.brand}">
+          <div class="error-message" v-show="submited && hasError('brand')">{{ hasError('brand') }}</div>
           <float-label label="¿Cuál es la marca de tu vehículo?" :dispatch="false">
             <search-select :options="brands"
               v-model="casualtyData.brand"
               placeholder="¿Cuál es la marca de tu vehículo?">
             </search-select>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('brand')">{{ hasError('brand') }}</div>
         </div>
 
         <div v-bind:class="{field: true, error: submited && hasError('repairCity'), filled: casualtyData.repairCity}">
+          <div class="error-message" v-show="submited && hasError('repairCity')">{{ hasError('repairCity') }}</div>
           <float-label label="Ciudad de reparación de tu vehículo" :dispatch="false">
             <select v-model="casualtyData.repairCity" name="repairCity">
               <option v-for="item in cities" v-bind:key="item[0]" v-bind:value="item[0]">{{ item[1] }}</option>
             </select>
           </float-label>
-          <div class="error-message" v-show="submited && hasError('repairCity')">{{ hasError('repairCity') }}</div>
         </div>
       </div>
     </div>
 
     <div class="vehicle-type">
       <h2>Selecciona tu tipo de vehículo</h2>
+      <div class="error-message" v-show="submited && hasError('vehicleType')">{{ hasError('vehicleType') }}</div>
       <div class="label label-type">Por favor indícanos tu tipo de vehículo</div>
-
       <div class="row">
         <div
           @click="updateVehicle('Liviano')"
@@ -130,7 +130,6 @@
           <p>Motocarro, motocicleta</p>
         </div>
       </div>
-      <div class="error-message" v-show="submited && hasError('vehicleType')">{{ hasError('vehicleType') }}</div>
     </div>
 
     <div class="actions">

@@ -99,13 +99,11 @@ export default {
       if (this.userData) {
         return {
           url: '/claim/files/' + this.userData.documentId + '/save',
-          thumbnailWidth: 150,
           acceptedFiles: 'image/jpeg, application/pdf',
           addRemoveLinks: true,
-          /*resizeWidth: 600,
-          resizeHeight: 400,*/
           dictFileTooBig: 'El archivo es demasiado grande ({{filesize}}MB), supera el máximo de {{maxFilesize}}MB.',
           createImageThumbnails: false,
+          disablePreviews: true,
           headers: {
             'token': this.drupalSettings.token
           }
