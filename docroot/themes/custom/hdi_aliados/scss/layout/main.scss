@@ -1,8 +1,25 @@
 .main {
   background-color: var(--gray-10);
-  padding-bottom: 3rem;
+  position: relative;
+  padding-bottom: 19rem;
+
+  @media (min-width: 900px) {
+    padding-bottom: 3rem;
+  }
 
   main {
     min-height: 45rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url(../../images/footer.svg);
+    background-size: contain;
+    bottom: 3rem;
+    left: 1rem;
+    width: 3rem;
+    height: 14rem;
+    background-repeat: no-repeat;
   }
 }
