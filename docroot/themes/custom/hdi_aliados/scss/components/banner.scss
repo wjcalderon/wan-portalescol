@@ -12,23 +12,55 @@
 
     .banner__content-wrapper {
       background-color: var(--white);
-      left: 20rem;
       padding: 2rem;
-      padding-right: 2.5rem;
       position: absolute;
-      top: 5.4375rem;
-      width: 23.125rem;
+      bottom: 3rem;
+      top: unset;
+      left: 0;
+      width: 100%;
 
-      .banner__content p {
-        color: var(--black);
-        font-size: 2rem;
+      @media (min-width: 900px) {
+        padding-right: 2.5rem;
+        left: 10rem;
+        top: 5.4375rem;
+        width: 23.125rem;
+        bottom: unset;
+      }
+
+      @media (min-width: 1468px) {
+        left: 20rem;
+      }
+
+      .banner__content > p {
+        color: var(--hdi-universal-green);
+        font-size: 1.8125rem;
         margin: 1rem 0 1.5rem;
+        font-family: var(--hdi-font);
+        line-height: 1.5rem;
+        font-weight: 400;
+
+        @media (min-width: 900px) {
+          font-size: 2rem;
+          line-height: 1;
+        }
+
+        & > strong {
+          font-weight: 400;
+        }
       }
 
       .banner__content div p {
         color: var(--black);
         font-size: 1.0rem;
         margin: 1rem 0 1.5rem;
+      }
+
+      .banner__button__href {
+        .button {
+          @media (max-width: 599px) {
+            width: 100%;
+          }
+        }
       }
     }
   }

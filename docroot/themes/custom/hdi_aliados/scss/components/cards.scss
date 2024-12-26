@@ -3,6 +3,12 @@
   background-color: var(--white);
   max-width: 480px;
   border-radius: 10px;
+  width: 90vw;
+
+  @media (min-width: 900px) {
+    width: 100%;
+    border: unset;
+  }
 
   .card-service {
     display: block;
@@ -21,6 +27,7 @@
       justify-content: center;
       align-items: center;
       padding: 1rem;
+      border: 1px solid var(--hdi-universal-green);
     }
 
     &__image {

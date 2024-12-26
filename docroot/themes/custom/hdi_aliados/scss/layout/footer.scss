@@ -18,24 +18,26 @@ footer {
     position: relative;
     width: 100%;
 
+    img {
+      margin: 1rem auto;
+      width: 4rem;
+
+      @media (min-width: 900px) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 2.625rem;
+        height: 1.625rem;
+        margin: 0;
+      }
+    }
+
     p {
       color: var(--white);
       font-family: var(--hdi-font);
       font-size: .85rem;
       font-weight: bolder;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-image: url(../../images/footer-logo.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      width: 2.625rem;
-      height: 1.625rem;
+      text-align: center;
     }
   }
 }
