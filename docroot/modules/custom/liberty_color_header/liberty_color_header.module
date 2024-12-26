@@ -63,7 +63,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -77,7 +77,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -96,7 +96,7 @@ function liberty_color_header_preprocess_page(&$variables) {
           $node_id = base64_decode($nid);
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -117,7 +117,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -131,7 +131,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -149,7 +149,7 @@ function liberty_color_header_preprocess_page(&$variables) {
           $node_id = base64_decode($nid);
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -170,7 +170,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($$node && node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -185,7 +185,7 @@ function liberty_color_header_preprocess_page(&$variables) {
         if (isset($node_id)) {
           $node_storage = \Drupal::entityTypeManager()->getStorage('node');
           $node = $node_storage->load($node_id);
-          if ($node->getType() == "campaign") {
+          if ($node && $node->getType() == "campaign") {
             $color_header = $node->get('field_color_header')->getValue()[0]['value'];
             // Add a JS library.
             $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';
@@ -201,7 +201,7 @@ function liberty_color_header_preprocess_page(&$variables) {
       if (isset($node_id)) {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $node = $node_storage->load($node_id);
-        if ($node && $node->getType() == "campaign") {
+        if ($node && $node && $node->getType() == "campaign") {
           $color_header = $node->get('field_color_header')->getValue()[0]['value'];
           // Add a JS library.
           $variables['#attached']['library'][] = 'liberty_color_header/liberty_color_header-js';

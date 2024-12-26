@@ -13,14 +13,25 @@ header {
     justify-content: flex-start;
     position: relative;
     z-index: 1;
+    max-width: 90vw;
+    margin-left: 1rem;
+
+    @media (min-width: 900px) {
+      max-width: unset;
+      margin-left: unset;
+    }
 
     .header__sponsor {
       border-left: 1px solid var(--hdi-gray-40);
       padding: 0 2rem;
 
       img {
-        height: 4rem;
+        height: 2.5rem;
         width: auto;
+
+        @media (min-width: 900px) {
+          height: 4rem;
+        }
       }
     }
   }

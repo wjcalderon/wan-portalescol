@@ -52,7 +52,7 @@ blockquote:before, blockquote:after, q:before, q:after {
 form , input, textarea, select , button , label{
   font-family: inherit;
   font-size: inherit;
-  hyphens: auto;
+  hyphens: none;
   background-color: transparent;
   color:inherit;
   display: block;
@@ -71,9 +71,9 @@ svg{
 }
 
 body {
-  min-height  : 100vh;
-  font-size   : 100%;
-  hyphens: auto;
+  min-height: 100vh;
+  font-size: 100%;
+  hyphens: none;
 }
 
 .ui-widget.ui-widget-content {
