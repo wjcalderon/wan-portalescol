@@ -27,22 +27,14 @@ function getIdButton(id) {
   const valor_product = $("#cover_1").find("h2").find("p").text();
   let valor_product_token = btoa(valor_product);
   let link;
-  if (enviroment == "prod") {
     link = `/node/55666?nid=${nid_token}&valor_product_token=${valor_product_token}`;
-  } else {
-    link = `/node/6211?nid=${nid_token}&valor_product_token=${valor_product_token}`;
-  }
 
   $("#banner__button__href").attr("href", link);
 
   for (let w = 0; w < 5; w++) {
     let button_href = $(`#cover_${w}`).find("h2").find("p").text();
     button_href = btoa(button_href);
-    if (enviroment == "prod") {
       link = `/node/55666?nid=${nid_token}&valor_product_token=${button_href}`;
-    } else {
-      link = `/node/6211?nid=${nid_token}&valor_product_token=${button_href}`;
-    }
     $(`#cover_${w}`).find(".banner__button__href").attr("href", link);
   }
 
