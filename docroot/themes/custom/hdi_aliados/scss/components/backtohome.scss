@@ -11,6 +11,15 @@
     margin: 1rem 0;
     position: absolute;
 
+    @media (max-width: 599px) {
+      align-items: center;
+      display: flex;
+      font-size: .8rem;
+      left: 1rem;
+      margin: -3.5rem 0;
+      position: absolute;
+    }
+
     &__home {
       a, span {
         padding: 0.1rem;
