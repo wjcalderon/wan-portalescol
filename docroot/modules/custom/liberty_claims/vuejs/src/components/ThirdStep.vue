@@ -85,7 +85,7 @@
               v-on:click="isDriver(true)"
               v-bind:class="{ selected: casualtyData.isDriver === true }"
             >
-              Si
+              Sí
             </button>
             <button
               type="button"
@@ -213,7 +213,7 @@
               v-on:click="isDeclarant(true)"
               v-bind:class="{ selected: casualtyData.isDeclarant === true }"
             >
-              Si
+              Sí
             </button>
             <button
               type="button"
@@ -351,7 +351,7 @@
                 v-on:click="changeRules('withInjured', 'casualties', true)"
                 v-bind:class="{ selected: casualtyData.withInjured === true }"
               >
-                Si
+                Sí
               </button>
               <button
                 type="button"
@@ -408,7 +408,7 @@
                 "
                 v-bind:class="{ selected: casualtyData.withInvolved === true }"
               >
-                Si
+                Sí
               </button>
               <button
                 type="button"
@@ -444,7 +444,7 @@
                     selected: casualtyData.withThirdPartyInvolvedPlate === true
                   }"
                 >
-                  Si
+                  Sí
                 </button>
                 <button
                   type="button"
@@ -513,7 +513,7 @@
                     selected: casualtyData.withThirdPartyInvolvedName === true
                   }"
                 >
-                  Si
+                  Sí
                 </button>
                 <button
                   type="button"
@@ -584,7 +584,7 @@
                       true
                   }"
                 >
-                  Si
+                  Sí
                 </button>
                 <button
                   type="button"
@@ -667,7 +667,7 @@
                       true
                   }"
                 >
-                  Si
+                  Sí
                 </button>
                 <button
                   type="button"
@@ -732,7 +732,7 @@
                 v-on:click="changeRules('withDeaths', 'deaths', true)"
                 v-bind:class="{ selected: casualtyData.withDeaths === true }"
               >
-                Si
+                Sí
               </button>
               <button
                 type="button"
@@ -782,7 +782,7 @@
                 v-on:click="yesNoOptions('withPolice', true)"
                 v-bind:class="{ selected: casualtyData.withPolice === true }"
               >
-                Si
+                Sí
               </button>
               <button
                 type="button"
@@ -1191,7 +1191,7 @@ export default {
       counts: [
         { value: 0, label: "¿Cuántos?" },
         { value: 1, label: "1" },
-        { value: "more", label: "Mas de uno" }
+        { value: "more", label: "Más de uno" }
       ],
       damages: [
         "Sección delantera",
