@@ -7,7 +7,7 @@
     let boton = $(this),
       menu = boton.parent("#block-hdi-portal-buscasayuda").find("ul.menu"),
       body = $("body");
-    // console.log(boton.hasClass('active'));
+
     if (boton.hasClass("active")) {
       boton.removeClass("active");
       menu.addClass("is-hidden");
@@ -152,7 +152,7 @@
 
           switch (id) {
             // payment points
-            case "#block-buscadorpuntosdepagopopup":
+            case "#block-hdi-portal-buscadorpuntosdepagopopup":
               block_help.addClass("no-transform-y");
               block_help.find("#edit-name, #edit-title").each(function () {
                 $(this).val("");
@@ -212,7 +212,7 @@
 
               break;
             // medical network
-            case "#block-redmedicapopup":
+            case "#block-hdi-portal-redmedicapopup":
               let block_search = block_help.find(".wrapper-form-search");
               block_help
                 .find("#edit-plan-type input[name=plan_type]")
@@ -318,7 +318,7 @@
 
               break;
             // faqs
-            case "#block-faqspopups":
+            case "#block-hdi-portal-faqspopups":
               // reinit slick on mobile
               if ($("body").hasClass("js-mobile")) {
                 setTimeout(function () {
