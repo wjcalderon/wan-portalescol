@@ -86,71 +86,11 @@
 }
 
 .nodetype--page_layout {
-  .block.block--button {
-    .button {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: max-content;
-      margin-bottom: 1rem;
-
-      @include tablet-landscape-up {
-        display: inline-block;
-        margin-left: initial;
-        max-width: initial;
-        margin-right: initial;
-      }
-    }
-  }
-
-  @mixin nc-button {
-    border: none;
-    border-radius: 3rem;
-    transform: scale(1);
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-
-    &:hover {
-      transform: scale(1.05);
-      background-color: var(--hdi-green);
-      border: none;
-      transition: all 0.5s ease-in-out;
-    }
-  }
-
-  @mixin nc-button-alpha {
-    background-color: var(--hdi-green-70) !important;
-    color: white !important;
-
-    &:hover {
-      background-color: var(--hdi-green) !important;
-    }
-  }
-
-  @mixin nc-button-primary {
-    background-color: var(--hdi-universal-green) !important;
-    color: var(--hdi-green-70) !important;
-
-    &:hover {
-      background-color: var(--hdi-green) !important;
-      color: white !important;
-    }
-  }
-
-  @mixin nc-button-secondary {
-    background-color: var(--hdi-yellow) !important;
-    color: var(--hdi-green-70) !important;
-
-    &:hover {
-      background-color: var(--hdi-green) !important;
-      color: white !important;
-    }
-  }
-
   .layout {
+    padding: 1.5rem 0;
+
     &.bg-lightgray {
-      background-color: var(--hdi-gray-10);
+      background-color: var(--hdi-yellow);
     }
 
     .layout-content {
@@ -158,6 +98,23 @@
         // max-width: $nc-xl;
         max-width: 1140px;
         margin: 0 auto;
+      }
+    }
+
+    &-fourcol {
+      .layout-content {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        a {
+          font-family: var(--hdi-font);
+          color: var(--hdi-universal-green);
+          font-size: 1.25rem;
+          margin-top: 2rem;
+        }
       }
     }
   }
@@ -168,31 +125,6 @@
     padding-right: 0;
   }
 
-  .hero,
-  .card,
-  .hero-breaker,
-  .card-foto,
-  .card-list,
-  .card-link,
-  .carousel--breaker,
-  .cta {
-    .button {
-      @include nc-button;
-      @include nc-button-alpha;
-
-      &--alpha {
-        @include nc-button-alpha;
-      }
-
-      &--primary {
-        @include nc-button-primary;
-      }
-
-      &--secondary {
-        @include nc-button-secondary;
-      }
-    }
-  }
   .h1.text-center {
     text-align: center;
   }
@@ -984,11 +916,6 @@
       justify-content: flex-start;
     }
 
-    &__button {
-      @include nc-button;
-      @include nc-button-alpha;
-    }
-
     &--theme1 {
       .hero__content {
         background-color: white;
@@ -1229,23 +1156,6 @@
         gap: 1rem;
       }
 
-      .button {
-        padding: 0 1rem;
-        @include nc-button;
-        @include nc-button-alpha;
-
-        &--alpha {
-          @include nc-button-alpha;
-        }
-
-        &--primary {
-          @include nc-button-primary;
-        }
-
-        &--secondary {
-          @include nc-button-secondary;
-        }
-      }
     }
 
     &__heading {
@@ -1752,25 +1662,11 @@
           }
         }
 
-        &:hover {
-          &::after {
-            content: "";
-            background-color: var(--hdi-universal-green);
-            border-radius: 14px;
-            width: 100%;
-            height: 7px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-          }
-        }
-
         .link {
           padding: 10px;
           width: auto;
           height: 100%;
           font-weight: 700;
-          color: var(--hdi-green-70);
           outline: none;
           box-sizing: border-box;
           display: flex;
@@ -1812,7 +1708,7 @@
 
     .nav {
       flex-direction: column;
-      
+
       @media screen and (min-width: $nc-large) {
         margin-right: 25px;
       }
@@ -1897,6 +1793,8 @@
         background-color: transparent;
         font-weight: 600;
         outline: none;
+        color: var(--hdi-green-70);
+        font-size: 1.125rem;
 
         &::after {
           content: "";
