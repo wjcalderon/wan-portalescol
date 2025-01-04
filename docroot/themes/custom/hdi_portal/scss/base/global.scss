@@ -103,12 +103,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 1000;
     background-color: var(--overlay);
     overflow-y: scroll;
 
-    .modal-link-fallback-popup {
+    .modal-link-fallback-popup, & > .field {
       background-color: var(--white);
       border-radius: 8px;
       left: 50%;
@@ -160,6 +160,11 @@ body {
         font-size: 1.1rem;
         font-weight: normal;
       }
+    }
+
+    & > .field {
+      overflow-y: scroll;
+      height: 100%;
     }
 
   }

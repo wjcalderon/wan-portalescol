@@ -1,9 +1,12 @@
-form {
-  margin: 2rem auto;
-  text-align: center;
+form, .view-filters {
+
+  &:not(.view-filters) {
+    margin: 2rem auto;
+    text-align: center;
+  }
 
   @include tablet-landscape-up {
-    &:not(.glb-form, .medical-network-form) {
+    &:not(.glb-form, .medical-network-form, .view-filters) {
       max-width: 30.8125rem !important;
     }
   }
@@ -72,5 +75,11 @@ form {
     justify-content: space-between;
     margin-bottom: 1.5rem;
     align-items: center;
+  }
+
+  &.view-filters {
+    .form-actions {
+      display: none;
+    }
   }
 }

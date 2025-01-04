@@ -23,9 +23,8 @@
         }
       }
 
-      $(
-        ".form-text, .form-email, .form-number, .form-select, .form-item textarea, .form-item .select--tabs"
-      ).each(function () {
+      $(".form-text, .form-email, .form-number, .form-select, .form-item textarea, .form-item .select--tabs")
+        .each(function () {
         let el = $(this),
           item = el.parents(".form-item");
         if (el.parents("form").prop("autocomplete") !== "off") {
