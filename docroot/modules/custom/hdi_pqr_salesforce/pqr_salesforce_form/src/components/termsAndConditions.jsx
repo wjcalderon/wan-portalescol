@@ -47,7 +47,7 @@ const TermsAndConditions = ({setTermsConditions}) => {
           id="closeDialogHeader">
         </span>
         <h3>Tratamiento y uso de datos sensibles</h3>
-        <p>Autorizo a <strong>HDI Seguros Colombia S.A y HDI Compañía de Servicios e Inversiones S.A.S. (Las Compañías)</strong> el uso de mi información personal y sensible para efectos relacionados con la atención de mi reclamación. Declaro que he sido informado de la existencia de las Políticas de Tratamiento de datos personales, las cuales se encuentran publicadas en <strong>www.hdiseguros.com.co</strong> y también pueden ser solicitadas a <strong>atención.cliente@libertycolombia.com</strong> o al teléfono <strong>57 1 307 7050</strong> de Bogotá.</p>
+        <p>Autorizo a <strong>HDI Seguros Colombia S.A y HDI Compañía de Servicios e Inversiones S.A.S. (Las Compañías)</strong> el uso de mi información personal y sensible para efectos relacionados con la atención de mi reclamación. Declaro que he sido informado de la existencia de las Políticas de Tratamiento de datos personales, las cuales se encuentran publicadas en <strong>www.hdiseguros.com.co</strong> y también pueden ser solicitadas a <strong>atencion.cliente@hdiseguros.com.co</strong> o al teléfono <strong>57 1 307 7050</strong> de Bogotá.</p>
 
         <button onClick={() => handleAccept()}>Aceptar</button>
       </dialog>
