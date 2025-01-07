@@ -14,17 +14,36 @@ footer {
       flex-basis: 100%;
 
       @include tablet-landscape-up {
+        flex-basis: 70%;
+      }
+
+      @include small-desktop {
+        flex-basis: 75%;
+      }
+
+      @include desktop {
         flex-basis: 80%;
       }
 
       &::before {
-        background: linear-gradient(90deg, var(--hdi-universal-green) 40%, var(--hdi-green) 40%);
         content: " ";
         display: block;
         height: .625rem;
         position: absolute;
         top: 0;
         width: 100%;
+
+        @include tablet-landscape-up {
+          background: linear-gradient(90deg, var(--hdi-universal-green) 35%, var(--hdi-green) 35%);
+        }
+
+        @include small-desktop {
+          background: linear-gradient(90deg, var(--hdi-universal-green) 37%, var(--hdi-green) 37%);
+        }
+
+        @include desktop {
+          background: linear-gradient(90deg, var(--hdi-universal-green) 40%, var(--hdi-green) 40%);
+        }
       }
 
       & > div {

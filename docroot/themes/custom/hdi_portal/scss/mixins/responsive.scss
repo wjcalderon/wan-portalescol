@@ -10,8 +10,12 @@
   @media (min-width: 900px) { @content; }
 }
 
-@mixin desktop {
+@mixin small-desktop {
   @media (min-width: 1200px) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: 1500px) { @content; }
 }
 
 @mixin big-desktop {

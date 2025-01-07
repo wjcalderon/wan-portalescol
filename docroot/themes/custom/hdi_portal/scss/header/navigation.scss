@@ -53,6 +53,12 @@
                 font-weight: 500;
               }
             }
+
+            &.active > a {
+              background-image: none;
+              background-color: var(--white);
+              font-weight: 500;
+            }
           }
         }
 
