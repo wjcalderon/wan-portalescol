@@ -20,7 +20,7 @@ const App = () => {
   const [reconsideration, setReconsideration] = useState(false)
   const [reconsiderationNumber, setReconsiderationNumber] = useState(0)
   const [name, setName] = useState('')
-  const [documentType, setDocumentType] = useState('')
+  const [documentType, setDocumentType] = useState('Cédula de ciudadanía')
   const [documentNumber, setDocumentNumber] = useState('')
   const [email, setEmail] = useState('')
   const [city, setCity] = useState('')
@@ -69,19 +69,23 @@ const App = () => {
   window.onbeforeunload = null
 
   useEffect(() => {
+    const onBeforeUnload = (e) => {
+      e.preventDefault()
+    }
+
     if (reconsideration || name !== '' || documentNumber !== '') {
       setDisableSubmit(false)
-      const onBeforeUnload = (e) => {
-        e.preventDefault()
-      }
-
       window.addEventListener("beforeunload", onBeforeUnload)
-
-      return () => {
-        window.removeEventListener("beforeunload", onBeforeUnload)
-      }
+    } else {
+      setDisableSubmit(false)
     }
+
+    return () => window.removeEventListener("beforeunload", onBeforeUnload)
   }, [reconsideration, name, documentNumber])
+
+  useEffect(() => {
+    return () => window.removeEventListener("beforeunload", this)
+  }, [caseNumber])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -89,7 +93,6 @@ const App = () => {
     let newErrors = {};
 
     if (!name) newErrors.name = 'El nombre es obligatorio';
-    if (documentType === '') newErrors.documentType = 'El tipo de documento es obligatorio';
     if (!documentNumber) newErrors.documentNumber = 'El número de documento es obligatorio';
     if (!email) newErrors.email = 'El correo electrónico es obligatorio';
     if (city === '') newErrors.city = 'La ciudad es obligatoria';
@@ -130,7 +133,7 @@ const App = () => {
       } else if (firstErrorField === 'motive' && motiveRef.current) {
         motiveRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-      return; // Detener el envío si hay errores
+      return;
     }
 
     let formData = {
@@ -218,10 +221,11 @@ const App = () => {
         {reconsideration &&
           <InputField
             label="Ingresa el número de tu caso"
-            type="number"
+            type="text"
             name="SFPQR_NumeroCasoWeb__c"
             class="inputText"
             setState={setReconsiderationNumber}
+            pattern='^\d{4,11}$'
             minLength={4}
             maxLength={11}
           />

@@ -1,0 +1,30 @@
+diff --git a/index.php b/index.php
+index 750dc282..76786789 100644
+--- a/index.php
++++ b/index.php
+@@ -16,6 +16,25 @@
+ $kernel = new DrupalKernel('prod', $autoloader);
+
+ $request = Request::createFromGlobals();
++
++$lm_domains = [
++  'nonprodportal.libertyseguros.co',
++];
++
++$host = $request->getHost();
++$path = $request->getPathInfo();
++$query = $request->getQueryString();
++
++if (in_array($host, $lm_domains)) {
++  $url = 'https://nonprodportal.hdiseguros.com.co';
++
++  if ($path !== '/') $url .= $path;
++  if ($query) $url .= '?' . $query;
++
++  header('Location: ' . $url, true, 301);
++  die();
++}
++
+ $response = $kernel->handle($request);
+ $response->send();
+
