@@ -17,6 +17,13 @@ body {
         .cp-banner__heading {
           h2 {
             margin-bottom: 0;
+
+            @include phone-only {
+              bottom: 8rem;
+              width: 95%;
+              padding: 1rem;
+              position: absolute;
+            }
           }
         }
       }
@@ -115,6 +122,10 @@ body {
         height: auto;
         flex-basis: 100%;
         padding: 2rem 2.5rem;
+
+        @include phone-only {
+          padding: 2rem 0.5rem;
+        }
 
         @include tablet-landscape-up {
           flex-basis: 38%;
