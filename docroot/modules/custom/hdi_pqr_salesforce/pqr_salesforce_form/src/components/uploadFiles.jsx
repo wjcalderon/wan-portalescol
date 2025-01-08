@@ -39,7 +39,8 @@ const UploadFiles = ({ handleChange }) => {
         const fileReader = new FileReader()
         fileReader.readAsDataURL(file);
         fileReader.onload = () => {
-          fileInfo.VersionData = btoa(fileReader.result)
+          const base64 = fileReader.result.split(',')
+          fileInfo.VersionData = base64[1]
         }
 
         fileList.push(fileInfo)
