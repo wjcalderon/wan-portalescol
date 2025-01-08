@@ -69,6 +69,8 @@ const App = () => {
   window.onbeforeunload = null
 
   useEffect(() => {
+    if (caseNumber) return
+
     const onBeforeUnload = (e) => {
       e.preventDefault()
     }
@@ -81,11 +83,7 @@ const App = () => {
     }
 
     return () => window.removeEventListener("beforeunload", onBeforeUnload)
-  }, [reconsideration, name, documentNumber])
-
-  useEffect(() => {
-    return () => window.removeEventListener("beforeunload", this)
-  }, [caseNumber])
+  }, [reconsideration, name, documentNumber, caseNumber])
 
   const handleSubmit = (e) => {
     e.preventDefault()
