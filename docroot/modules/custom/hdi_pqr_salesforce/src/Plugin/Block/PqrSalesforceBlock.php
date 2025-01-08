@@ -65,7 +65,7 @@ final class PqrSalesforceBlock extends BlockBase implements
           'pqrSalesforce' => [
             'recaptchaKey' => $this->recaptchaKey(),
             'token' => $this->userToken(),
-            'showRecaptcha' => $this->showRecaptcha(),
+            'showRecaptcha' => $this->showRecaptcha() ?? false,
           ],
         ],
       ],
@@ -105,7 +105,7 @@ final class PqrSalesforceBlock extends BlockBase implements
   private function showRecaptcha(): bool {
     $config = $this->configFactory->get('pqrsalesforce.settings');
 
-    return $config->get('use_recaptcha');
+    return $config->get('use_recaptcha') ?? false;
   }
 
 }

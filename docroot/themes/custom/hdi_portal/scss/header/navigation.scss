@@ -46,9 +46,18 @@
               color: var(--gray);
               border: none;
 
-              &:hover, &:visited, &:active {
+              &:hover, &:visited, &:active, .active-trail.nav-submb__link {
                 color: var(--gray);
+                background-color: var(--white);
+                background-image: none;
+                font-weight: 500;
               }
+            }
+
+            &.active > a {
+              background-image: none;
+              background-color: var(--white);
+              font-weight: 500;
             }
           }
         }

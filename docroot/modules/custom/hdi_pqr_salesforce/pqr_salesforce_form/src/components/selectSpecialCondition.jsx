@@ -24,7 +24,7 @@ const conditionList = {
   'Víctima del conflicto armado': 'Víctima del conflicto armado',
 }
 
-const SelectSpecialCondition = ({ handleChange }) => {
+const SelectSpecialCondition = ({ type, handleChange, error }) => {
   const selectRef = useRef()
   const [activeClass, setActiveClass] = useState('')
 
@@ -48,7 +48,6 @@ const SelectSpecialCondition = ({ handleChange }) => {
         name="SSP_CondicionEspecial__c"
         className={`form-${type} ${error ? 'select-error' : ''}`}
         optionList={conditionList}
-        //required={true}
         handleChange={handleChange}
       />
     </div>

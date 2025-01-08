@@ -2,6 +2,10 @@
   .webform-submission-call-center--form {
     margin: 0 auto;
 
+    @media (max-width: 599px) {
+      margin: 0rem 2rem 0rem 2rem;
+    }
+
     #edit-processed-text {
       .form-modal {
         &-flex {
@@ -29,12 +33,23 @@
             font-size: 1.8125rem;
             font-weight: 500;
             margin-bottom: 1rem;
+
+            @media (max-width: 599px) {
+              color: var(--hdi-green);
+              font-size: 1.6rem;
+              font-weight: 500;
+              margin-bottom: 1rem;
+            }
           }
         }
 
         &-text {
           p {
             font-size: 1.125rem;
+
+            @media (max-width: 599px) {
+              font-size: 0.9rem;
+            }
           }
         }
       }
