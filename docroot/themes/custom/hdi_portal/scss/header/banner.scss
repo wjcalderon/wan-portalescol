@@ -110,7 +110,7 @@ body {
       height: calc(100% - 55px);
       left: 45%;
       position: absolute;
-      top: 0;
+      top: 0.5rem;
       transform: translateX(-50%);
 
       @include tablet-landscape-up {
