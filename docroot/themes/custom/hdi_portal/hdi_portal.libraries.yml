@@ -58,7 +58,7 @@ slick:
 accordion:
   version: VERSION
   js:
-      assets/js/accordion.config.js: {}
+    assets/js/accordion.config.js: {}
   dependencies:
     - core/jquery
 
