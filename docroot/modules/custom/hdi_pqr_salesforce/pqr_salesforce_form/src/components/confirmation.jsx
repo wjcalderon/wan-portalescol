@@ -26,7 +26,7 @@ const Confirmation = ({caseId, email}) => {
         <ul>
           <li className="whatsapp">
             WhatsApp
-            <span>+57 316 82 1802</span>
+            <span>+57 316 482 1802</span>
           </li>
           <li className="phone">
             Bogotá
