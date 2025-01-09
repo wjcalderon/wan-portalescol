@@ -1,7 +1,7 @@
 @import '../../mixins/responsive.scss';
 
 .component__view--productos {
-  &.interesado-home {
+  &.interesado-home, &.component__view--categorias-documentos {
     .component__heading {
       h2 {
         color: var(--hdi-universal-green);
