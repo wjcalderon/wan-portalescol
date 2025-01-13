@@ -39,6 +39,10 @@
           font-family: var(--hdi-font);
           font-size: 1.125rem;
           width: 7rem;
+
+          &.hdi--cargo {
+            width: 4rem;
+          }
         }
       }
     }
