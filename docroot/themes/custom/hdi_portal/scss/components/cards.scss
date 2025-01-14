@@ -23,6 +23,16 @@
     }
   }
 
+  &.component__documents {
+    .component__heading {
+      .cog--mq {
+        h4 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
   .component__content {
     .cog--flex {
       .component__card {

@@ -35,7 +35,7 @@ class MsnApi extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Url consumo'),
       '#description' => $this->t('Ingrese url de consumo'),
-      '#maxlength' => 64,
+      '#maxlength' => 128,
       '#size' => 64,
       '#default_value' => $config->get('url_fetch'),
     ];
@@ -43,7 +43,7 @@ class MsnApi extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Url token'),
       '#description' => $this->t('Ingrese url del token'),
-      '#maxlength' => 64,
+      '#maxlength' => 128,
       '#size' => 64,
       '#default_value' => $config->get('url_token'),
     ];
@@ -51,7 +51,7 @@ class MsnApi extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Client ID'),
       '#description' => $this->t('Ingrese el ID del cliente'),
-      '#maxlength' => 64,
+      '#maxlength' => 128,
       '#size' => 64,
       '#default_value' => $config->get('client_id'),
     ];
@@ -59,7 +59,7 @@ class MsnApi extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Client secret key'),
       '#description' => $this->t('Ingrese la llave de usuario secreta'),
-      '#maxlength' => 64,
+      '#maxlength' => 128,
       '#size' => 64,
       '#default_value' => $config->get('client_secret_key'),
     ];

@@ -88,13 +88,11 @@
   }
 }
 
-@include phone-only {
-
-  #show-menu-help > .block_card-link a--alpha.active, .button--alpha.active {
+#show-menu-help > .block_card-link a--alpha.active, .button--alpha.active {
+  @include phone-only {
     background-image: url(../../images/need-help-close.svg) !important;
     background-color: ar(--hdi-green-70);
     font-size: 0.875rem;
     border: none;
   }
-
 }
