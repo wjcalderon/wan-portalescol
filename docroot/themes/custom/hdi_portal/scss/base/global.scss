@@ -86,15 +86,14 @@ body {
   }
 
   div[role="contentinfo"] {
-    background-color: var(--hdi-light-blue-30);
-    color: var(--blue-70);
+    background-color: var(--hdi-light-green-10);
+    color: var(--hdi-green);
     display: flex;
-    padding: 1rem;
+    padding: 1rem 2rem;
     width: 100%;
 
     em {
-      color: var(--blue);
-      padding: 0 1rem;
+      font-weight: 500;
     }
   }
 
@@ -180,5 +179,33 @@ body {
   .bg-content--light-blue .component__content .cog--items,
   .bg-component--light-blue {
     background-color: var(--hdi-yellow);
+  }
+
+  #block-hdi-portal-local-tasks {
+    background-color: var(--hdi-yellow);
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--gray-20);
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      li {
+        a {
+          font-family: var(--hdi-font);
+
+          &:hover {
+            color: var(--hdi-green);
+          }
+
+          &.is-active {
+            font-weight: 500;
+          }
+        }
+      }
+    }
   }
 }
