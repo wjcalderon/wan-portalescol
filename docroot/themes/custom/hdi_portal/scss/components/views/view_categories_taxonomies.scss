@@ -180,7 +180,7 @@
     box-shadow: 0 26px 70px 0 var(--shadow);
     display: flex;
     justify-content: center;
-    max-width: 60rem;
+    border-radius: 4px;
   }
 
   form {
@@ -188,48 +188,59 @@
     align-items: center;
     justify-content: left;
     margin-bottom: 0;
-    max-width: 45rem !important;
+    width: 60rem;
+    max-width: 100% !important;
 
     @include phone-only {
       display: block;
     }
 
-    .form-item{
-      margin: 0px;
-      max-width: 53rem;
+    .form-item {
+      margin: 0;
       margin-right: 2rem;
+
+      input {
+        padding: .7rem;
+      }
     }
   }
+
   .form-actions{
     @include phone-only {
       display: block;
       margin: 1rem 0;
+    }
 
-      input{
-        width: 100%;
-      }
+    input {
+      width: 100%;
     }
   }
 }
 
-.viewsreference--view-title{
+.viewsreference--view-title {
   text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .documentos-frecuentes, .documentos-por-categoria, .documentos--lista {
   margin: 1.5rem 0;
 
   .component__content {
-    div[class^='js-view-dom'] {
+    margin-top: 1.5rem;
+
+    div[class*='js-view-dom'] {
       display: flex;
       flex-direction: row;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
 
       .views-row {
-        flex-basis: 30%;
         display: flex;
         gap: 1rem;
+        flex: 1 1 30%;
 
         .field-icon {
           flex-shrink: 0;
@@ -238,13 +249,23 @@
             width: 1rem;
           }
         }
+
+        .title {
+          a:hover {
+            font-weight: 500;
+          }
+        }
       }
     }
   }
 
   .pager {
-    display: block;
+    display: flex;
     margin: 0 auto;
+    flex: 1 0 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 
     ul {
       display: flex;
