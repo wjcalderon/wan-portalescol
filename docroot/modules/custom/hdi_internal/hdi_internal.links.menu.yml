@@ -1,0 +1,6 @@
+hdi_internal.form:
+  title: 'HDI - Wallpaper y Screensaver'
+  route_name: hdi_internal.form
+  description: 'HDI - Configuración de Wallpaper y Screensaver'
+  parent: system.admin_config_media
+  weight: 90

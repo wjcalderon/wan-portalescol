@@ -2,6 +2,6 @@ hdi_internal.form:
   path: '/admin/config/media/hdi-internal'
   defaults:
     _form: '\Drupal\hdi_internal\Form\HdiInternalForm'
-    _title: 'Configuración de Wallpaper y Screensaver HDI Internal'
+    _title: 'HDI - Configuración de Wallpaper y Screensaver'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer'
