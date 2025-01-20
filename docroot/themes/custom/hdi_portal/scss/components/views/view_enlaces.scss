@@ -3,13 +3,32 @@
     .views-element-container {
       .item-list {
         ul {
-          margin-left: 2rem;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
 
           li {
-            list-style: disc;
+            flex-basis: 50%;
 
             span:not(.file) {
               display: none;
+            }
+
+            a {
+              color: var(--hdi-light-blue);
+              padding-left: 1.5rem;
+              position: relative;
+
+              &::before {
+                background-image: url(../../images/download-outline.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                content: "";
+                height: 1rem;
+                left: 0;
+                position: absolute;
+                width: 1rem;
+              }
             }
           }
         }
