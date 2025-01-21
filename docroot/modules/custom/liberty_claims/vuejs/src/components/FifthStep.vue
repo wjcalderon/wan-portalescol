@@ -40,7 +40,7 @@
             <li>
               <p>
                 Radica el denuncio por hurto, junto con el certificado de No recuperación mediante nuestra
-                página Web <a href="https://www.libertyseguros.co/">https://www.libertyseguros.co/</a>
+                página Web <a href="https://www.hdiseguros.com.co/">https://www.hdiseguros.com.co/</a>
                 en las siguientes Opciones &#8594; <strong>¿Te paso Algo? &#8594; ¿Tienes una solicitud del siniestro de tu vehículo? &#8594; Crear solicitud &#8594;
                 Siniestros vehículos.</strong>
               </p>
