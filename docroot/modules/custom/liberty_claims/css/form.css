@@ -586,21 +586,17 @@ button.time-picker-column-item {
   text-align: center;
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
 
 .pane .actions a {
   text-decoration: none;
-  margin-right: 3rem;
-  position: absolute;
-  left: 29%;
-  line-height: 3rem;
   color: var(--gray-80);
   font-weight: 500;
   background-image: url(../img/a-right.svg);
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: 1rem center;
   background-size: 15px;
-  padding-left: 22px;
   border-bottom: none;
 }
 
@@ -1744,13 +1740,13 @@ button.has-tooltip {
   padding-bottom: 7rem;
 }
 
+.invalid-plate .modal .actions {
+  flex-direction: row-reverse;
+}
+
 .invalid-plate .modal a {
-  display: block;
-  width: 112px;
-  margin: auto;
   border-bottom: none;
   color: var(--gray-70);
-  text-decoration: underline;
 }
 
 .modal .footer-popup {
