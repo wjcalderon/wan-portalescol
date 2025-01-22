@@ -1,0 +1,72 @@
+.alias--buscador-global {
+  #content {
+    h2 {
+      position: relative;
+      width: 90%;
+
+      @include tablet-landscape-up {
+        margin: 1.5rem auto;
+        max-width: 1053px;
+        width: 100%;
+      }
+    }
+
+    .componet-content {
+      background-color: var(--hdi-yellow);
+      padding: 1.5rem 0;
+
+      .facets-widget-checkbox {
+        & > label {
+          margin-bottom: 1.5rem;
+        }
+
+        .item-list__checkbox {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+
+          li {
+            flex-basis: 25%;
+            display: flex;
+            flex-shrink: 0;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .views-element-container {
+    margin: 1.5rem 0;
+
+    .view-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .views-row {
+        box-shadow: 0px 3px 8px var(--shadow);
+        flex-basis: calc(33% - 1rem);
+        padding: 1rem;
+        border-radius: 3px;
+        min-height: 8rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .icon {
+          svg {
+            width: auto;
+            height: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
