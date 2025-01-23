@@ -187,6 +187,8 @@ export default {
         personalData: {},
         guarantees: {},
         GMFChevrolet: {},
+        RCINissan: {},
+        RCIRenault: {},
         previusPolicy: '',
       },
       modal: null,
@@ -227,11 +229,20 @@ export default {
               document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17695';
             }
             else {
-
               if (data.body.GMFChevrolet) {
                 localStorage.setItem('GMFChevrolet-codigoConcesionario', data.body.GMFChevrolet.codigoConcesionario)
-              }else{
+              } else{
                 localStorage.removeItem('GMFChevrolet-codigoConcesionario');
+              }
+              if (data.body.RCINissan) {
+                localStorage.setItem('RCINissan-codigoConcesionario', data.body.RCINissan.codigoConcesionario)
+              } else{
+                localStorage.removeItem('RCINissan-codigoConcesionario');
+              }
+              if (data.body.RCIRenault) {
+                localStorage.setItem('RCIRenault-codigoConcesionario', data.body.RCIRenault.codigoConcesionario)
+              } else{
+                localStorage.removeItem('RCIRenault-codigoConcesionario');
               }
 
               this.casualtyData.policy = data.body.token;

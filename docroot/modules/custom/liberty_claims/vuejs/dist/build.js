@@ -1065,11 +1065,11 @@ var update = __webpack_require__(8)("85afa21c", content, true, {});
 function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+  return module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
     return typeof o;
   } : function (o) {
     return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports, _typeof(o);
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -1365,7 +1365,7 @@ module.exports = baseAssignValue;
 /* unused harmony export watchPostEffect */
 /* unused harmony export watchSyncEffect */
 /*!
- * Vue.js v2.7.15
+ * Vue.js v2.7.16
  * (c) 2014-2023 Evan You
  * Released under the MIT License.
  */
@@ -1442,8 +1442,15 @@ function toString(val) {
     return val == null
         ? ''
         : Array.isArray(val) || (isPlainObject(val) && val.toString === _toString)
-            ? JSON.stringify(val, null, 2)
+            ? JSON.stringify(val, replacer, 2)
             : String(val);
+}
+function replacer(_key, val) {
+    // avoid circular deps from v3
+    if (val && val.__v_isRef) {
+        return val.value;
+    }
+    return val;
 }
 /**
  * Convert an input value to a number for persistence.
@@ -2109,6 +2116,11 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
 var uid$2 = 0;
 var pendingCleanupDeps = [];
 var cleanupDeps = function () {
@@ -2339,7 +2351,8 @@ function observe(value, shallow, ssrMockReactivity) {
 /**
  * Define a reactive property on an Object.
  */
-function defineReactive(obj, key, val, customSetter, shallow, mock) {
+function defineReactive(obj, key, val, customSetter, shallow, mock, observeEvenIfShallow) {
+    if (observeEvenIfShallow === void 0) { observeEvenIfShallow = false; }
     var dep = new Dep();
     var property = Object.getOwnPropertyDescriptor(obj, key);
     if (property && property.configurable === false) {
@@ -2352,7 +2365,7 @@ function defineReactive(obj, key, val, customSetter, shallow, mock) {
         (val === NO_INITIAL_VALUE || arguments.length === 2)) {
         val = obj[key];
     }
-    var childOb = !shallow && observe(val, false, mock);
+    var childOb = shallow ? val && val.__ob__ : observe(val, false, mock);
     Object.defineProperty(obj, key, {
         enumerable: true,
         configurable: true,
@@ -2400,7 +2413,7 @@ function defineReactive(obj, key, val, customSetter, shallow, mock) {
             else {
                 val = newVal;
             }
-            childOb = !shallow && observe(newVal, false, mock);
+            childOb = shallow ? newVal && newVal.__ob__ : observe(newVal, false, mock);
             if (false) {
                 dep.notify({
                     type: "set" /* TriggerOpTypes.SET */,
@@ -3891,11 +3904,10 @@ function renderMixin(Vue) {
         // to the data on the placeholder node.
         vm.$vnode = _parentVnode;
         // render self
+        var prevInst = currentInstance;
+        var prevRenderInst = currentRenderingInstance;
         var vnode;
         try {
-            // There's no need to maintain a stack because all render fns are called
-            // separately from one another. Nested component's render fns are called
-            // when parent component is patched.
             setCurrentInstance(vm);
             currentRenderingInstance = vm;
             vnode = render.call(vm._renderProxy, vm.$createElement);
@@ -3919,8 +3931,8 @@ function renderMixin(Vue) {
             }
         }
         finally {
-            currentRenderingInstance = null;
-            setCurrentInstance();
+            currentRenderingInstance = prevRenderInst;
+            setCurrentInstance(prevInst);
         }
         // if the returned array contains only a single node, allow it
         if (isArray(vnode) && vnode.length === 1) {
@@ -4830,7 +4842,10 @@ function doWatch(source, cb, _a) {
     var instance = currentInstance;
     var call = function (fn, type, args) {
         if (args === void 0) { args = null; }
-        return invokeWithErrorHandling(fn, null, args, instance, type);
+        var res = invokeWithErrorHandling(fn, null, args, instance, type);
+        if (deep && res && res.__ob__)
+            res.__ob__.dep.depend();
+        return res;
     };
     var getter;
     var forceTrigger = false;
@@ -4855,6 +4870,7 @@ function doWatch(source, cb, _a) {
                     return s.value;
                 }
                 else if (isReactive(s)) {
+                    s.__ob__.dep.depend();
                     return traverse(s);
                 }
                 else if (isFunction(s)) {
@@ -5406,7 +5422,7 @@ function onErrorCaptured(hook, target) {
 /**
  * Note: also update dist/vue.runtime.mjs when adding new exports to this file.
  */
-var version = '2.7.15';
+var version = '2.7.16';
 /**
  * @internal type is manually declared in <root>/types/v3-define-component.d.ts
  */
@@ -5724,10 +5740,10 @@ function initProps$1(vm, propsOptions) {
                         "Instead, use a data or computed property based on the prop's " +
                         "value. Prop being mutated: \"".concat(key, "\""), vm);
                 }
-            });
+            }, true /* shallow */);
         }
         else {
-            defineReactive(props, key, value);
+            defineReactive(props, key, value, undefined, true /* shallow */);
         }
         // static props are already proxied on the component's prototype
         // during Vue.extend(). We only need to proxy props defined at
@@ -6048,6 +6064,9 @@ function initMixin$1(Vue) {
         vm.__v_skip = true;
         // effect scope
         vm._scope = new EffectScope(true /* detached */);
+        // #13134 edge case where a child component is manually created during the
+        // render of a parent component
+        vm._scope.parent = undefined;
         vm._scope._vm = true;
         // merge options
         if (options && options._isComponent) {
@@ -7298,7 +7317,7 @@ function matches(pattern, name) {
     return false;
 }
 function pruneCache(keepAliveInstance, filter) {
-    var cache = keepAliveInstance.cache, keys = keepAliveInstance.keys, _vnode = keepAliveInstance._vnode;
+    var cache = keepAliveInstance.cache, keys = keepAliveInstance.keys, _vnode = keepAliveInstance._vnode, $vnode = keepAliveInstance.$vnode;
     for (var key in cache) {
         var entry = cache[key];
         if (entry) {
@@ -7308,6 +7327,7 @@ function pruneCache(keepAliveInstance, filter) {
             }
         }
     }
+    $vnode.componentOptions.children = undefined;
 }
 function pruneCacheEntry(cache, key, keys, current) {
     var entry = cache[key];
@@ -9645,10 +9665,8 @@ function updateStyle(oldVnode, vnode) {
     }
     for (name in newStyle) {
         cur = newStyle[name];
-        if (cur !== oldStyle[name]) {
-            // ie9 setting to null has no effect, must use empty string
-            setProp(el, name, cur == null ? '' : cur);
-        }
+        // ie9 setting to null has no effect, must use empty string
+        setProp(el, name, cur == null ? '' : cur);
     }
 }
 var style$1 = {
@@ -13831,6 +13849,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         personalData: {},
         guarantees: {},
         GMFChevrolet: {},
+        RCINissan: {},
+        RCIRenault: {},
         previusPolicy: ''
       },
       modal: null,
@@ -13861,11 +13881,20 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
           } else if (data.status != 200) {
             document.location.href = document.location.origin + '/aviso-de-siniestros-webform#tab-17695';
           } else {
-
             if (data.body.GMFChevrolet) {
               localStorage.setItem('GMFChevrolet-codigoConcesionario', data.body.GMFChevrolet.codigoConcesionario);
             } else {
               localStorage.removeItem('GMFChevrolet-codigoConcesionario');
+            }
+            if (data.body.RCINissan) {
+              localStorage.setItem('RCINissan-codigoConcesionario', data.body.RCINissan.codigoConcesionario);
+            } else {
+              localStorage.removeItem('RCINissan-codigoConcesionario');
+            }
+            if (data.body.RCIRenault) {
+              localStorage.setItem('RCIRenault-codigoConcesionario', data.body.RCIRenault.codigoConcesionario);
+            } else {
+              localStorage.removeItem('RCIRenault-codigoConcesionario');
             }
 
             this.casualtyData.policy = data.body.token;
@@ -47247,6 +47276,28 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }, function (params) {
           this.cities = {};
         });
+      } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/nissan").then(function (data) {
+          this.cities = Object.entries(data.body).sort(function (a, b) {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+          this.cities.unshift([0, "Ciudad"]);
+        }, function (params) {
+          this.cities = {};
+        });
+      } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/renault").then(function (data) {
+          this.cities = Object.entries(data.body).sort(function (a, b) {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+          this.cities.unshift([0, "Ciudad"]);
+        }, function (params) {
+          this.cities = {};
+        });
       } else {
         this.$http.get("/claim-data/cities-carshops").then(function (data) {
           this.cities = Object.entries(data.body).sort(function (a, b) {
@@ -47875,6 +47926,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
               vm.defaultCS = data.body;
             }
+            if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+              vm.defaultCS = data.body;
+            }
+            if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+              vm.defaultCS = data.body;
+            }
 
             var result = dataBody.filter(function (carShop) {
               if (carShop.nombre.includes("Taller para Arreglo Directo") && carShop.codExternal === undefined) {
@@ -47975,6 +48032,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           this.cities = {
             "63001": "ARMENIA",
             "08001": "BARRANQUILLA",
+            "11001": "BOGOTA"
+          };
+        });
+      } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/nissan").then(function (data) {
+          this.cities = Object.entries(data.body).sort(function (a, b) {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+        }, function (params) {
+          this.cities = {
+            "11001": "BOGOTA"
+          };
+        });
+      } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/renault").then(function (data) {
+          this.cities = Object.entries(data.body).sort(function (a, b) {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+        }, function (params) {
+          this.cities = {
             "11001": "BOGOTA"
           };
         });
@@ -49160,7 +49241,7 @@ var _typeof = __webpack_require__(20)["default"];
 var toPrimitive = __webpack_require__(127);
 function toPropertyKey(t) {
   var i = toPrimitive(t, "string");
-  return "symbol" == _typeof(i) ? i : String(i);
+  return "symbol" == _typeof(i) ? i : i + "";
 }
 module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -50297,7 +50378,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__ = __webpack_require__(32);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ac3a4d04_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_80a3dace_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__ = __webpack_require__(90);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50314,7 +50395,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FirstStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ac3a4d04_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_80a3dace_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FirstStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50651,7 +50732,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStepThirdParty_vue__ = __webpack_require__(43);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_683b3aa7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3c260a2b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__ = __webpack_require__(97);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50668,7 +50749,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_SecondStepThirdParty_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_683b3aa7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3c260a2b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_SecondStepThirdParty_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50683,7 +50764,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane second-step"},[_c('h1',[_vm._v("Información Personal")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{staticClass:"row columns-row terceros"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('name')),expression:"submited && hasError('name')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('name')))]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('name'), filled: _vm.casualtyData.name}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.name),expression:"casualtyData.name",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"¿Cuál es tu nombre?","tabindex":"1"},domProps:{"value":(_vm.casualtyData.name)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "name", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('lastname'), filled: _vm.casualtyData.lastname}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('lastname')),expression:"submited && hasError('lastname')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('lastname')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.lastname),expression:"casualtyData.lastname"}],attrs:{"type":"text","name":"lastname","placeholder":"¿Cuales son tus apellidos?","tabindex":"2"},domProps:{"value":(_vm.casualtyData.lastname)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "lastname", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('docType'), filled: _vm.casualtyData.docType}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('docType')),expression:"submited && hasError('docType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('docType')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.docType),expression:"casualtyData.docType"}],attrs:{"tabindex":"3"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "docType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('documentId'), filled: _vm.casualtyData.documentId}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('documentId')),expression:"submited && hasError('documentId')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('documentId')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.documentId),expression:"casualtyData.documentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento","tabindex":"4"},domProps:{"value":(_vm.casualtyData.documentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "documentId", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, address: true, error: _vm.submited && _vm.hasError('address'), filled: _vm.casualtyData.address}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('address')),expression:"submited && hasError('address')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('address')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.address),expression:"casualtyData.address"}],attrs:{"type":"text","name":"address","placeholder":"¿Cuál es tu dirección?","tabindex":"7"},domProps:{"value":(_vm.casualtyData.address)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "address", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('phone'), filled: _vm.casualtyData.phone}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('phone')),expression:"submited && hasError('phone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('phone')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.phone),expression:"casualtyData.phone"}],attrs:{"type":"text","name":"phone","placeholder":"¿Cuál es tu número de teléfono?","tabindex":"6"},domProps:{"value":(_vm.casualtyData.phone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "phone", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('email'), filled: _vm.casualtyData.email}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('email')),expression:"submited && hasError('email')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('email')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.email),expression:"casualtyData.email"}],attrs:{"type":"mail","name":"mail","placeholder":"¿Cuál es tu email?","tabindex":"5"},domProps:{"value":(_vm.casualtyData.email)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "email", $event.target.value)}}})])],1)]),_vm._v(" "),_c('h2',[_vm._v("Información del vehículo")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plateAffected'), filled: _vm.casualtyData.plateAffected}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plateAffected')),expression:"submited && hasError('plateAffected')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plateAffected')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plateAffected),expression:"casualtyData.plateAffected"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plateAffected","placeholder":"¿Cuál es la placa de tu vehículo?","tabindex":"8"},domProps:{"value":(_vm.casualtyData.plateAffected)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plateAffected", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('model'), filled: _vm.casualtyData.model}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('model')),expression:"submited && hasError('model')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('model')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"¿Qué modelo es tu vehículo?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.model),expression:"casualtyData.model"}],attrs:{"tabindex":"9"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "model", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.models),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)])],1)]),_vm._v(" "),_c('div',{staticClass:"col"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('brand'), filled: _vm.casualtyData.brand}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('brand')),expression:"submited && hasError('brand')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('brand')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"¿Cuál es la marca de tu vehículo?","dispatch":false}},[_c('search-select',{attrs:{"options":_vm.brands,"placeholder":"¿Cuál es la marca de tu vehículo?"},model:{value:(_vm.casualtyData.brand),callback:function ($$v) {_vm.$set(_vm.casualtyData, "brand", $$v)},expression:"casualtyData.brand"}})],1)],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('repairCity'), filled: _vm.casualtyData.repairCity}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('repairCity')),expression:"submited && hasError('repairCity')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('repairCity')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad de reparación de tu vehículo","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.repairCity),expression:"casualtyData.repairCity"}],attrs:{"name":"repairCity"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "repairCity", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)])],1)])]),_vm._v(" "),_c('div',{staticClass:"vehicle-type"},[_c('h2',[_vm._v("Selecciona tu tipo de vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('vehicleType')),expression:"submited && hasError('vehicleType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('vehicleType')))]),_vm._v(" "),_c('div',{staticClass:"label label-type"},[_vm._v("Por favor indícanos tu tipo de vehículo")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{class:{col: true, button: true, liviano: true, selected: _vm.casualtyData.vehicleType === 'Liviano'},on:{"click":function($event){return _vm.updateVehicle('Liviano')}}},[_c('strong',[_vm._v("Liviano")]),_vm._v(" "),_c('p',[_vm._v("Automovíl, camioneta, SUV's")])]),_vm._v(" "),_c('div',{class:{col: true, button: true, pesado: true, selected: _vm.casualtyData.vehicleType === 'Pesado'},on:{"click":function($event){return _vm.updateVehicle('Pesado')}}},[_c('strong',[_vm._v("Pesado")]),_vm._v(" "),_c('p',[_vm._v("Bus, camión, remolcador, furgon, volqueta, chasis")])]),_vm._v(" "),_c('div',{class:{col: true, button: true, moto: true, selected: _vm.casualtyData.vehicleType === 'Moto'},on:{"click":function($event){return _vm.updateVehicle('Moto')}}},[_c('strong',[_vm._v("Moto")]),_vm._v(" "),_c('p',[_vm._v("Motocarro, motocicleta")])])])]),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pane second-step"},[_c('h1',[_vm._v("Información Personal")]),_vm._v(" "),_c('p',[_vm._v("Por favor completa la siguiente información:")]),_vm._v(" "),_c('div',{staticClass:"row columns-row terceros"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('name')),expression:"submited && hasError('name')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('name')))]),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('name'), filled: _vm.casualtyData.name}},[_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.casualtyData.name),expression:"casualtyData.name",modifiers:{"lazy":true}}],attrs:{"type":"text","name":"name","placeholder":"¿Cuál es tu nombre?","tabindex":"1"},domProps:{"value":(_vm.casualtyData.name)},on:{"change":function($event){return _vm.$set(_vm.casualtyData, "name", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('lastname'), filled: _vm.casualtyData.lastname}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('lastname')),expression:"submited && hasError('lastname')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('lastname')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.lastname),expression:"casualtyData.lastname"}],attrs:{"type":"text","name":"lastname","placeholder":"¿Cuales son tus apellidos?","tabindex":"2"},domProps:{"value":(_vm.casualtyData.lastname)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "lastname", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('docType'), filled: _vm.casualtyData.docType}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('docType')),expression:"submited && hasError('docType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('docType')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"Tipo de documento","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.docType),expression:"casualtyData.docType"}],attrs:{"tabindex":"3"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "docType", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.documentTypes),function(index,option){return _c('option',{key:index,domProps:{"value":index}},[_vm._v(_vm._s(option))])}),0)])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('documentId'), filled: _vm.casualtyData.documentId}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('documentId')),expression:"submited && hasError('documentId')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('documentId')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.documentId),expression:"casualtyData.documentId"}],attrs:{"type":"text","name":"id","placeholder":"Escribe tu número de documento","tabindex":"4"},domProps:{"value":(_vm.casualtyData.documentId)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "documentId", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, address: true, error: _vm.submited && _vm.hasError('address'), filled: _vm.casualtyData.address}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('address')),expression:"submited && hasError('address')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('address')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.address),expression:"casualtyData.address"}],attrs:{"type":"text","name":"address","placeholder":"¿Cuál es tu dirección?","tabindex":"7"},domProps:{"value":(_vm.casualtyData.address)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "address", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('phone'), filled: _vm.casualtyData.phone}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('phone')),expression:"submited && hasError('phone')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('phone')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.phone),expression:"casualtyData.phone"}],attrs:{"type":"text","name":"phone","placeholder":"¿Cuál es tu número de teléfono?","tabindex":"6"},domProps:{"value":(_vm.casualtyData.phone)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "phone", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('email'), filled: _vm.casualtyData.email}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('email')),expression:"submited && hasError('email')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('email')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.email),expression:"casualtyData.email"}],attrs:{"type":"mail","name":"mail","placeholder":"¿Cuál es tu email?","tabindex":"5"},domProps:{"value":(_vm.casualtyData.email)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "email", $event.target.value)}}})])],1)]),_vm._v(" "),_c('h2',[_vm._v("Información del vehículo")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('plateAffected'), filled: _vm.casualtyData.plateAffected}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('plateAffected')),expression:"submited && hasError('plateAffected')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('plateAffected')))]),_vm._v(" "),_c('float-label',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.plateAffected),expression:"casualtyData.plateAffected"},{name:"uppercase",rawName:"v-uppercase"}],attrs:{"type":"text","name":"plateAffected","placeholder":"¿Cuál es la placa de tu vehículo?","tabindex":"8"},domProps:{"value":(_vm.casualtyData.plateAffected)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.casualtyData, "plateAffected", $event.target.value)}}})])],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('model'), filled: _vm.casualtyData.model}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('model')),expression:"submited && hasError('model')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('model')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"¿Qué modelo es tu vehículo?","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.model),expression:"casualtyData.model"}],attrs:{"tabindex":"9"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "model", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.models),function(option){return _c('option',{key:option.value,domProps:{"value":option.value}},[_vm._v(_vm._s(option.label))])}),0)])],1)]),_vm._v(" "),_c('div',{staticClass:"col"},[_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('brand'), filled: 'RENAULT'}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('brand')),expression:"submited && hasError('brand')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('brand')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"¿Cuál es la marca de tu vehículo?","dispatch":false}},[_c('search-select',{attrs:{"options":_vm.brands,"placeholder":"¿Cuál es la marca de tu vehículo?"},model:{value:(_vm.casualtyData.brand),callback:function ($$v) {_vm.$set(_vm.casualtyData, "brand", $$v)},expression:"casualtyData.brand"}})],1)],1),_vm._v(" "),_c('div',{class:{field: true, error: _vm.submited && _vm.hasError('repairCity'), filled: _vm.casualtyData.repairCity}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('repairCity')),expression:"submited && hasError('repairCity')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('repairCity')))]),_vm._v(" "),_c('float-label',{attrs:{"label":"Ciudad de reparación de tu vehículo","dispatch":false}},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.casualtyData.repairCity),expression:"casualtyData.repairCity"}],attrs:{"name":"repairCity"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.casualtyData, "repairCity", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.cities),function(item){return _c('option',{key:item[0],domProps:{"value":item[0]}},[_vm._v(_vm._s(item[1]))])}),0)])],1)])]),_vm._v(" "),_c('div',{staticClass:"vehicle-type"},[_c('h2',[_vm._v("Selecciona tu tipo de vehículo")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.submited && _vm.hasError('vehicleType')),expression:"submited && hasError('vehicleType')"}],staticClass:"error-message"},[_vm._v(_vm._s(_vm.hasError('vehicleType')))]),_vm._v(" "),_c('div',{staticClass:"label label-type"},[_vm._v("Por favor indícanos tu tipo de vehículo")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{class:{col: true, button: true, liviano: true, selected: _vm.casualtyData.vehicleType === 'Liviano'},on:{"click":function($event){return _vm.updateVehicle('Liviano')}}},[_c('strong',[_vm._v("Liviano")]),_vm._v(" "),_c('p',[_vm._v("Automovíl, camioneta, SUV's")])]),_vm._v(" "),_c('div',{class:{col: true, button: true, pesado: true, selected: _vm.casualtyData.vehicleType === 'Pesado'},on:{"click":function($event){return _vm.updateVehicle('Pesado')}}},[_c('strong',[_vm._v("Pesado")]),_vm._v(" "),_c('p',[_vm._v("Bus, camión, remolcador, furgon, volqueta, chasis")])]),_vm._v(" "),_c('div',{class:{col: true, button: true, moto: true, selected: _vm.casualtyData.vehicleType === 'Moto'},on:{"click":function($event){return _vm.updateVehicle('Moto')}}},[_c('strong',[_vm._v("Moto")]),_vm._v(" "),_c('p',[_vm._v("Motocarro, motocicleta")])])])]),_vm._v(" "),_c('div',{staticClass:"actions"},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.prevStep.apply(null, arguments)}}},[_vm._v("Volver")]),_vm._v(" "),_c('button',{attrs:{"type":"button"},on:{"click":_vm.nextStep}},[_vm._v("Continuar")])])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -50695,7 +50776,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__ = __webpack_require__(44);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11cf7666_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_daf83ae4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50712,7 +50793,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11cf7666_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_daf83ae4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -50877,7 +50958,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__ = __webpack_require__(46);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1f93b52d_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e2c36bfc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50894,7 +50975,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1f93b52d_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e2c36bfc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -55696,19 +55777,13 @@ if (GlobalVue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var toPropertyKey = __webpack_require__(55);
-function _defineProperty(obj, key, value) {
-  key = toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
+function _defineProperty(e, r, t) {
+  return (r = toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : e[r] = t, e;
 }
 module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -55733,10 +55808,8 @@ module.exports = toPrimitive, module.exports.__esModule = true, module.exports["
 /* 128 */
 /***/ (function(module, exports) {
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
 module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -55745,22 +55818,16 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 /***/ (function(module, exports, __webpack_require__) {
 
 var toPropertyKey = __webpack_require__(55);
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey(o.key), o);
   }
 }
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
 }
 module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
 

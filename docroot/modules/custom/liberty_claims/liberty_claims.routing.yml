@@ -38,6 +38,22 @@ liberty_claims.get_cities_carshops_chevrolet:
   requirements:
     _permission: 'access content'
 
+liberty_claims.get_cities_carshops_nissan:
+  path: '/claim-data/cities-carshops/nissan'
+  defaults:
+    _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsNissan'
+    _title: 'Cities Carshops'
+  requirements:
+    _permission: 'access content'
+
+liberty_claims.get_cities_carshops_renault:
+  path: '/claim-data/cities-carshops/renault'
+  defaults:
+    _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsRenault'
+    _title: 'Cities Carshops'
+  requirements:
+    _permission: 'access content'
+
 liberty_claims.get_brands:
   path: '/claim-data/brands'
   defaults:

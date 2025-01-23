@@ -315,6 +315,12 @@ export default {
               if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
                 vm.defaultCS = data.body;
               }
+              if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+                vm.defaultCS = data.body;
+              }
+              if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+                vm.defaultCS = data.body;
+              }
 
               let result = dataBody.filter(carShop => {
                 if (
@@ -431,6 +437,36 @@ export default {
             this.cities = {
               "63001": "ARMENIA",
               "08001": "BARRANQUILLA",
+              "11001": "BOGOTA"
+            };
+          }
+        );
+      } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/nissan").then(
+          function(data) {
+            this.cities = Object.entries(data.body).sort((a, b) => {
+              if (a[1] > b[1]) return 1;
+              if (a[1] < b[1]) return -1;
+              return 0;
+            });
+          },
+          function(params) {
+            this.cities = {
+              "11001": "BOGOTA"
+            };
+          }
+        );
+      } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/renault").then(
+          function(data) {
+            this.cities = Object.entries(data.body).sort((a, b) => {
+              if (a[1] > b[1]) return 1;
+              if (a[1] < b[1]) return -1;
+              return 0;
+            });
+          },
+          function(params) {
+            this.cities = {
               "11001": "BOGOTA"
             };
           }

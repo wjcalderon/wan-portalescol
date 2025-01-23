@@ -218,6 +218,26 @@ class ClaimNotificationController extends ControllerBase {
   }
 
   /**
+   * Cities carshops nissan.
+   *
+   * @return string
+   *   Return a list of cities.
+   */
+  public function getCitiesCarShopsNissan() {
+    return $this->getResource('cities.nissan');
+  }
+
+  /**
+   * Cities carshops renault.
+   *
+   * @return string
+   *   Return a list of cities.
+   */
+   public function getCitiesCarShopsRenault() {
+    return $this->getResource('cities.renault');
+  }
+
+  /**
    * Filters car shops data by concesionario.
    *
    * @param array $filterData
@@ -230,6 +250,12 @@ class ClaimNotificationController extends ControllerBase {
     $filterData2 = [];
     foreach ($filterData as $value) {
       if ($_SESSION['GMFChevrolet']['codigoConcesionario'] == $value['aixis']) {
+        $filterData2[] = $value;
+      }
+      if ($_SESSION['RCINissan']['codigoConcesionario'] == $value['aixis']) {
+        $filterData2[] = $value;
+      }
+      if ($_SESSION['RCIRenault']['codigoConcesionario'] == $value['aixis']) {
         $filterData2[] = $value;
       }
     }
@@ -276,6 +302,84 @@ class ClaimNotificationController extends ControllerBase {
     return $filterData;
   }
 
+    /**
+   * Loads Nissan car shops filtered by city.
+   *
+   * @param int $city
+   *   The city filter.
+   *
+   * @return array
+   *   Filtered car shops by city.
+   */
+  private function loadNissanCarShopsByCity($city) {
+    // Load taxonomy terms for talleres_nissan vocabulary.
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'vid' => 'talleres_nissan',
+    ]);
+
+    $filterData = [];
+    foreach ($terms as $key => $term) {
+      $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
+
+      if ($field_city !== $city) {
+        continue;
+      }
+
+      // Extract necessary data from the loaded terms and populate $datos array.
+      $filterData[$key]['nit'] = $term->field_nit_nissan->value;
+      $filterData[$key]['codTaller'] = $term->field_codtaller_nissan->value;
+      $filterData[$key]['aixis'] = $term->field_aixis_nissan->value;
+      $filterData[$key]['nombre'] = $term->name_nissan->value;
+      $filterData[$key]['direccion'] = $term->field_direccion_nissan->value;
+      $filterData[$key]['ciudad'] = $term->field_ciudad_nissan->value;
+      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_nissan->value;
+      $filterData[$key]['email'] = $term->field_email_nissan->value;
+      $filterData[$key]['telefono'] = $term->field_telefono_nissan->value;
+      $filterData[$key]['sucursal'] = $term->field_sucursal_nissan->value;
+    }
+
+    return $filterData;
+  }
+
+  /**
+   * Loads Renault car shops filtered by city.
+   *
+   * @param int $city
+   *   The city filter.
+   *
+   * @return array
+   *   Filtered car shops by city.
+   */
+  private function loadRenaultCarShopsByCity($city) {
+    // Load taxonomy terms for talleres_renault vocabulary.
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'vid' => 'talleres_renault',
+    ]);
+
+    $filterData = [];
+    foreach ($terms as $key => $term) {
+      $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
+
+      if ($field_city !== $city) {
+        continue;
+      }
+
+      // Extract necessary data from the loaded terms and populate $datos array.
+      $filterData[$key]['nit'] = $term->field_nit_renault->value;
+      $filterData[$key]['codTaller'] = $term->field_codtaller_renault->value;
+      $filterData[$key]['aixis'] = $term->field_aixis_renault->value;
+      $filterData[$key]['nombre'] = $term->name_renault->value;
+      $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
+      $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
+      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
+      $filterData[$key]['email'] = $term->field_email_renault->value;
+      $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
+      $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
+    }
+
+    return $filterData;
+  }
+
   /**
    * Gets car shops list.
    *
@@ -294,6 +398,16 @@ class ClaimNotificationController extends ControllerBase {
   public function getCarShops($city, $brand, $model, $type) {
     if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
       $filterData = $this->loadChevroletCarShopsByCity($city);
+
+      $result = $this->filterByConcesionario($filterData);
+    }
+    else if (isset($_SESSION['RCINissan']) && $_SESSION['RCINissan']) {
+      $filterData = $this->loadNissanCarShopsByCity($city);
+
+      $result = $this->filterByConcesionario($filterData);
+    }
+    else if (isset($_SESSION['RCIRenault']) && $_SESSION['RCIRenault']) {
+      $filterData = $this->loadRenaultCarShopsByCity($city);
 
       $result = $this->filterByConcesionario($filterData);
     }

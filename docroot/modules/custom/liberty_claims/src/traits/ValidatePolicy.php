@@ -31,6 +31,9 @@ trait ValidatePolicy {
       }
 
       $this->validateChevrolet($polizas, $index_vigencia, $return);
+      $this->validateNissan($polizas, $index_vigencia, $return);
+      $this->validateRenault($polizas, $index_vigencia, $return);
+      $this->validateChevyPlan($polizas, $index_vigencia, $return);
 
       if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
         $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
@@ -144,6 +147,96 @@ trait ValidatePolicy {
     else {
       if (isset($_SESSION['GMFChevrolet'])) {
         unset($_SESSION['GMFChevrolet']);
+      }
+    }
+  }
+
+  private function validateNissan($polizas, $index_vigencia, &$return): void {
+    $config2 = $this->configFactory->get('liberty_claims_email.settings');
+
+    $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
+    $model_base = date('Y');
+    $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
+
+    $oldest_model = date('Y', strtotime($this->config->get('last_model') . '- 5 year'));
+
+    if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_nissan')) {
+      $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+      if (
+        $this->checkInRange($oldest_model, $latest_model, $model) && strtoupper($marca_poliza) === "NISSAN"
+      ) {
+        $return['RCINissan']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
+        $_SESSION['RCINissan'] = $return['RCINissan'];
+      }
+      else {
+        if (isset($_SESSION['RCINissan'])) {
+          unset($_SESSION['RCINissan']);
+        }
+      }
+    }
+    else {
+      if (isset($_SESSION['RCINissan'])) {
+        unset($_SESSION['RCINissan']);
+      }
+    }
+  }
+
+  private function validateRenault($polizas, $index_vigencia, &$return): void {
+    $config2 = $this->configFactory->get('liberty_claims_email.settings');
+
+    $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
+    $model_base = date('Y');
+    $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
+
+    $oldest_model = date('Y', strtotime($this->config->get('last_model') . '- 5 year'));
+
+    if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_renault')) {
+      $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+      if (
+        $this->checkInRange($oldest_model, $latest_model, $model) && strtoupper($marca_poliza) === "RENAULT"
+      ) {
+        $return['RCIRenault']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
+        $_SESSION['RCIRenault'] = $return['RCIRenault'];
+      }
+      else {
+        if (isset($_SESSION['RCIRenault'])) {
+          unset($_SESSION['RCIRenault']);
+        }
+      }
+    }
+    else {
+      if (isset($_SESSION['RCIRenault'])) {
+        unset($_SESSION['RCIRenault']);
+      }
+    }
+  }
+
+  private function validateChevyplan($polizas, $index_vigencia, &$return): void {
+    $config2 = $this->configFactory->get('liberty_claims_email.settings');
+
+    $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
+    $model_base = date('Y');
+    $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
+
+    $oldest_model = date('Y', strtotime($this->config->get('last_model') . '- 8 year'));
+
+    if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get('cod_chevyplan')) {
+      $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+      if (
+        $this->checkInRange($oldest_model, $latest_model, $model) && strtoupper($marca_poliza) === "CHEVROLET"
+      ) {
+        $return['RCIChevyplan']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
+        $_SESSION['RCIChevyplan'] = $return['RCIChevyplan'];
+      }
+      else {
+        if (isset($_SESSION['RCIChevyplan'])) {
+          unset($_SESSION['RCIChevyplan']);
+        }
+      }
+    }
+    else {
+      if (isset($_SESSION['RCIChevyplan'])) {
+        unset($_SESSION['RCIChevyplan']);
       }
     }
   }

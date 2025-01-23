@@ -876,6 +876,34 @@ export default {
             this.cities = {};
           }
         );
+      } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/nissan").then(
+          function(data) {
+            this.cities = Object.entries(data.body).sort((a, b) => {
+              if (a[1] > b[1]) return 1;
+              if (a[1] < b[1]) return -1;
+              return 0;
+            });
+            this.cities.unshift([0, "Ciudad"]);
+          },
+          function(params) {
+            this.cities = {};
+          }
+        );
+      } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
+        this.$http.get("/claim-data/cities-carshops/renault").then(
+          function(data) {
+            this.cities = Object.entries(data.body).sort((a, b) => {
+              if (a[1] > b[1]) return 1;
+              if (a[1] < b[1]) return -1;
+              return 0;
+            });
+            this.cities.unshift([0, "Ciudad"]);
+          },
+          function(params) {
+            this.cities = {};
+          }
+        );
       } else {
         this.$http.get("/claim-data/cities-carshops").then(
           function(data) {
