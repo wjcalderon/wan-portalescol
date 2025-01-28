@@ -1,0 +1,115 @@
+.alias--siniestros-talleres-preferenciales {
+  div[class*="js-view-dom-id"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .views-exposed-form {
+      display: flex;
+      gap: 1rem;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      max-width: unset !important;
+
+      .form-item {
+        margin-bottom: 0;
+
+        select {
+          padding: .7rem;
+        }
+      }
+    }
+
+    .views-row {
+      flex-basis: calc(25% - 2rem);
+      box-shadow: 0 4px 16px 0 var(--shadow);
+      padding: 7rem 1.5rem 1.5rem;
+      border-radius: 5px;
+      position: relative;
+
+      &::before {
+        content: "";
+        background-size: contain;
+        background-position: center;
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../images/icon-taller.svg);
+        transform: translate(calc(100% + 2.5rem), 2rem);
+      }
+
+      .views-field-title, .views-field-field-ubicacion {
+        color: var(--hdi-green);
+        font-family: var(--hdi-font);
+        margin-bottom: .5rem;
+        text-align: center;
+      }
+
+      .views-field-field-ubicacion {
+        font-weight: 500;
+        margin-bottom: .75rem;
+      }
+
+      .views-field-field-direccion, .views-field-field-nombre, .views-field-field-telefono {
+        font-size: .9rem;
+        margin-bottom: .5rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--gray);
+
+        &::before {
+          content: "";
+          background-size: 1rem;
+          background-position: center;
+          width: 1rem;
+          height: 1rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        &:is(.views-field-field-direccion) {
+          &::before {
+            background-image: url(../../images/map-mb.svg);
+          }
+        }
+
+        &:is(.views-field-field-nombre) {
+          &::before {
+            background-image: url(../../images/ingresar-mb.svg);
+          }
+        }
+
+        &:is(.views-field-field-telefono) {
+          &::before {
+            background-image: url(../../images/contac-mb.svg);
+          }
+        }
+      }
+    }
+  }
+
+  .component__cards--funciones {
+    background-color: var(--hdi-yellow);
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+
+    .component__content {
+      .cog--items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .component__card {
+          flex-basis: 33%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
