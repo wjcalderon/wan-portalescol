@@ -168,16 +168,20 @@ class LibertyDatabaseMigratorForm extends ConfirmFormBase {
   public function getBranches($id_sponsor) {
     $branch = [];
     if ($id_sponsor != NULL) {
-      $query = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(
-        [
-          'type' => 'campaign',
-          'field_sponsor' => $id_sponsor,
-        ]
-      );
+      $query = \Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->loadByProperties(
+          [
+            'type' => 'campaign',
+            'field_sponsor' => $id_sponsor,
+          ]
+        );
       foreach ($query as $campaign) {
         $tid = $campaign->field_campaing_tax;
         $bid = $tid[0]->target_id;
-        $query = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['tid' => $bid]);
+        $query = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->loadByProperties(['tid' => $bid]);
         foreach ($query as $i) {
           $data = $i->name->value;
         }
@@ -221,7 +225,11 @@ class LibertyDatabaseMigratorForm extends ConfirmFormBase {
     $bid = $form_state->getValue('ramos');
     $cid = $form_state->getValue('campaing');
 
-    $query_initial = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+    $query_initial = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->getQuery();
+
+    $query_initial->accessCheck(TRUE);
 
     $res_initial = $query_initial->condition('type', 'customer')
       ->condition('field_campaign_id', $cid)
@@ -242,12 +250,9 @@ class LibertyDatabaseMigratorForm extends ConfirmFormBase {
           $node->field_status->value = 0;
           $node->save();
         }
-
       }
-
     }
 
-    // $query = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
     $destination = File::load($fid[0]);
     $num = 0;
     $uriFile = $destination->getFileUri();
@@ -292,13 +297,19 @@ class LibertyDatabaseMigratorForm extends ConfirmFormBase {
         $id_failed['error'] = 'ERROR';
         $error_log[0] = $id_failed;
 
-        $query2 = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+        $query2 = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->getQuery();
+
+        $query2->accessCheck(TRUE);
+
         $res = $query2->condition('type', 'customer')
           ->condition('field_id_number', $doc_number)
           ->condition('field_document_type', $doc_type)
           ->condition('field_campaign_id', $cid)
           ->condition('field_status', 1)
           ->execute();
+
         if ($res == []) {
           if (empty($country) && $field_errors == 0) {
             $id_failed['error'] = 'no existe el País';
