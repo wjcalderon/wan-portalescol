@@ -68,7 +68,7 @@
     margin: 0 auto;
 
     @include phone-only {
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 2rem;
     }
 

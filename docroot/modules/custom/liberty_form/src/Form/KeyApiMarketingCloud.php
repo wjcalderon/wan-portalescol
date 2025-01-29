@@ -31,6 +31,7 @@ class KeyApiMarketingCloud extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('liberty_form.KeyApiMarketingCloud');
+
     $form['variable_get_key_auth'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Ingrese la url del Api Marketing Cloud Autenticación'),
@@ -39,6 +40,7 @@ class KeyApiMarketingCloud extends ConfigFormBase {
       '#size' => 255,
       '#default_value' => $config->get('variable_get_key_auth'),
     ];
+
     $form['variable_get_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Ingrese la url del Api Marketing Cloud Rest'),
@@ -47,6 +49,15 @@ class KeyApiMarketingCloud extends ConfigFormBase {
       '#size' => 255,
       '#default_value' => $config->get('variable_get_key'),
     ];
+
+    $form['api_client_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t("Id Cliente"),
+      '#default_value' => $config->get('api_client_id'),
+      '#maxlength' => 255,
+      '#weight' => 1,
+    ];
+
     $form['api_service_auth'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Clave Secreta'),
@@ -55,10 +66,26 @@ class KeyApiMarketingCloud extends ConfigFormBase {
       '#weight' => 1,
     ];
 
-    $form['api_client_id'] = [
+    $form['account_id'] = [
       '#type' => 'textfield',
-      '#title' => $this->t("Id Cliente"),
-      '#default_value' => $config->get('api_client_id'),
+      '#title' => $this->t('Account ID'),
+      '#default_value' => $config->get('account_id'),
+      '#maxlength' => 255,
+      '#weight' => 1,
+    ];
+
+    $form['journey_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Journey name'),
+      '#default_value' => $config->get('journey_name'),
+      '#maxlength' => 255,
+      '#weight' => 1,
+    ];
+
+    $form['journey_api_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Journey API key'),
+      '#default_value' => $config->get('journey_api_key'),
       '#maxlength' => 255,
       '#weight' => 1,
     ];
@@ -77,6 +104,9 @@ class KeyApiMarketingCloud extends ConfigFormBase {
       ->set('variable_get_key', $form_state->getValue('variable_get_key'))
       ->set('api_service_auth', $form_state->getValue('api_service_auth'))
       ->set('api_client_id', $form_state->getValue('api_client_id'))
+      ->set('account_id', $form_state->getValue('account_id'))
+      ->set('journey_name', $form_state->getValue('journey_name'))
+      ->set('journey_api_key', $form_state->getValue('journey_api_key'))
       ->save();
   }
 
