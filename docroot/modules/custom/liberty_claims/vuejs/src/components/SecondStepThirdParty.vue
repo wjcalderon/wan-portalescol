@@ -85,7 +85,7 @@
       </div>
 
       <div class="col">
-        <div v-bind:class="{field: true, error: submited && hasError('brand'), filled: 'RENAULT'}">
+        <div v-bind:class="{field: true, error: submited && hasError('brand'), filled: casualtyData.brand}">
           <div class="error-message" v-show="submited && hasError('brand')">{{ hasError('brand') }}</div>
           <float-label label="¿Cuál es la marca de tu vehículo?" :dispatch="false">
             <search-select :options="brands"

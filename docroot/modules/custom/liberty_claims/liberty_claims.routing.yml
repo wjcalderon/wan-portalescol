@@ -172,18 +172,18 @@ liberty_claims.list_log_hurto:
   requirements:
     _permission: 'access administration pages'
 
-liberty_claims.import_renault_form:
-  path: '/admin/config/liberty_claims/settings/import_renault'
-  defaults:
-    _form: '\Drupal\liberty_claims\Form\ImportFormRenault'
-    _title: 'Import Taxonomy Terms Renault'
-  requirements:
-    _permission: 'access administration pages'
-
 liberty_claims.import_nissan_form:
   path: '/admin/config/liberty_claims/settings/import_nissan'
   defaults:
     _form: '\Drupal\liberty_claims\Form\ImportFormNissan'
     _title: 'Import Taxonomy Terms Nissan'
+  requirements:
+    _permission: 'access administration pages'
+
+liberty_claims.import_renault_form:
+  path: '/admin/config/liberty_claims/settings/import_renault'
+  defaults:
+    _form: '\Drupal\liberty_claims\Form\ImportFormRenault'
+    _title: 'Import Taxonomy Terms Renault'
   requirements:
     _permission: 'access administration pages'
