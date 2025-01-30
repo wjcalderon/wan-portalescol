@@ -208,4 +208,31 @@ body {
       }
     }
   }
+
+  .pager {
+    display: flex;
+    margin: 1rem auto 0;
+    flex: 1 0 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      li {
+        &.is-active {
+          background-color: var(--hdi-universal-green);
+          padding: .3rem .5rem;
+
+          a {
+            color: var(--white);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
 }
