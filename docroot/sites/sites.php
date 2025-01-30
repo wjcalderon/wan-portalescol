@@ -86,8 +86,10 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     case 'local':
       $sites['local.hdi-portal.co'] = 'default';
       $sites['local.hdi-portal-upgrade.co'] = 'default';
+      $sites['portal.local.co'] = 'default';
       $sites['local.hdi-aliados.co'] = 'sponsors';
       $sites['local.hdi-aliados-upgrade.co'] = 'sponsors';
+      $sites['aliados.local.co'] = 'sponsors';
       break;
   }
 }

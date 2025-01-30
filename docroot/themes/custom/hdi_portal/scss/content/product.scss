@@ -30,7 +30,7 @@ body {
     }
 
     .component__content {
-      ul {
+      & > ul {
         li {
           padding: 0.3rem 0;
 
