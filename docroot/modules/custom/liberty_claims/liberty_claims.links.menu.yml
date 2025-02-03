@@ -11,3 +11,17 @@ liberty_claims.logs:
   description: 'Liberty logs page'
   parent: system.admin_reports
   weight: 3
+
+liberty_claims.import_nissan_form:
+  title: 'Claims Upload Nissan'
+  route_name: liberty_claims.import_nissan_form
+  description: 'Liberty Upload Nissan Page'
+  parent: system.admin_config_system
+  weight: 4
+
+liberty_claims.import_renault_form:
+  title: 'Claims Upload Renault'
+  route_name: liberty_claims.import_renault_form
+  description: 'Liberty Upload Renault Page'
+  parent: system.admin_config_system
+  weight: 4
