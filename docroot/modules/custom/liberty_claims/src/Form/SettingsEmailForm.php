@@ -59,6 +59,14 @@ class SettingsEmailForm extends ConfigFormBase {
       '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_nissan') ? '' : $this->t('Introduzca código convenio nissan'),
     ];
 
+    $form['acordeon_destinatario']['cod_nissan_colectivo'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Introduzca código convenio nissan colectivo'),
+      '#required' => TRUE,
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan_colectivo') ?? '',
+      '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_nissan_colectivo') ? '' : $this->t('Introduzca código convenio nissan colectivo'),
+    ];
+
     $form['acordeon_destinatario']['cod_renault'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Introduzca código convenio renault'),
@@ -67,12 +75,28 @@ class SettingsEmailForm extends ConfigFormBase {
       '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_renault') ? '' : $this->t('Introduzca código convenio renault'),
     ];
 
+    $form['acordeon_destinatario']['cod_renault_colectivo'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Introduzca código convenio renault colectivo'),
+      '#required' => TRUE,
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_renault_colectivo') ?? '',
+      '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_renault_colectivo') ? '' : $this->t('Introduzca código convenio renault colectivo'),
+    ];
+
     $form['acordeon_destinatario']['cod_chevyplan'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Introduzca código convenio chevyplan'),
       '#required' => TRUE,
       '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan') ?? '',
       '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan') ? '' : $this->t('Introduzca código convenio chevyplan'),
+    ];
+
+    $form['acordeon_destinatario']['cod_chevyplan_colectivo'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Introduzca código convenio chevyplan colectivo'),
+      '#required' => TRUE,
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan_colectivo') ?? '',
+      '#placeholder' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan_colectivo') ? '' : $this->t('Introduzca código convenio chevyplan colectivo'),
     ];
 
     $form['acordeon_correo_carros'] = [
