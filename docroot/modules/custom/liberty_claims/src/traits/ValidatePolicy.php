@@ -99,9 +99,6 @@ trait ValidatePolicy {
     $cod_brand = 'cod_' . strtolower($brand);
     $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
 
-    $this->unsetSessionForBrand('GMFChevrolet');
-    $this->unsetSessionForBrand('RCI' . ucfirst(strtolower($brand)));
-
     if ($marca_poliza === 'CHEVROLET') {
         $this->handleChevrolet($polizas, $index_vigencia, $return);
     }
@@ -109,12 +106,17 @@ trait ValidatePolicy {
         $this->handleOtherBrands($polizas, $index_vigencia, $return, $brand);
     }
     else {
-        $this->unsetSessionForBrand('GMFChevrolet');
-        $this->unsetSessionForBrand('RCI' . ucfirst(strtolower($brand)));
+      $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
+      foreach ($brands as $brand) {
+        if (isset($_SESSION[$brand])) {
+          $this->unsetSessionForBrand($brand);
+        }
+      }
     }
-}
+  }
 
 private function handleChevrolet($polizas, $index_vigencia, &$return): void {
+
     $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
     $model_base = date('Y');
     $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
@@ -126,19 +128,17 @@ private function handleChevrolet($polizas, $index_vigencia, &$return): void {
     } else {
         $this->unsetSessionForBrand('GMFChevrolet');
     }
-}
+  }
 
 private function handleOtherBrands($polizas, $index_vigencia, &$return, $brand): void {
     $sessionKey = 'RCI' . ucfirst(strtolower($brand));
     $return[$sessionKey]['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
     $_SESSION[$sessionKey] = $return[$sessionKey];
-}
+  }
 
 private function unsetSessionForBrand($brandSessionKey): void {
     if (isset($_SESSION[$brandSessionKey])) {
         unset($_SESSION[$brandSessionKey]);
     }
-}
-
-
+  }
 }

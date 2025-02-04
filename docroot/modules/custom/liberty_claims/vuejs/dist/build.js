@@ -47600,8 +47600,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_steps__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_popUpCarShops__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_popUpChangeCarShop__ = __webpack_require__(104);
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 //
 //
 //
@@ -47883,9 +47881,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       return "Asignar Taller";
     },
     findCarShops: function findCarShops() {
-      this.carShops = [];
-      this.searchExecuted = false;
-
       if (this.vehicleData && this.vehicleData.brand) {
         var loader = this.$loading.show({
           canCancel: false
@@ -47913,9 +47908,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           if (data.statusCode != 401 && (Array.isArray(data.body) || Object.keys(data.body).length > 0)) {
             var vm = this;
             var dataBody = Array.isArray(data.body) ? data.body : Object.values(data.body);
-            if (localStorage.getItem("GMFChevrolet-codigoConcesionario") || localStorage.getItem("RCINissan-codigoConcesionario") || localStorage.getItem("RCIRenault-codigoConcesionario")) {
-              vm.defaultCS = data.body;
-            }
+            var brands = ["GMFChevrolet", "RCINissan", "RCIRenault"];
+
+            brands.forEach(function (brand) {
+              if (localStorage.getItem(brand + "-codigoConcesionario")) {
+                vm.defaultCS = data.body;
+              }
+            });
+
             var result = dataBody.filter(function (carShop) {
               if (carShop.nombre.includes("Taller para Arreglo Directo") && carShop.codExternal === undefined) {
                 vm.defaultCS = carShop;
@@ -48006,61 +48006,41 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     getData: function getData() {
       var _this2 = this;
 
-      var getCitiesData = function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-          var _ref2, data;
+      var brandUrls = {
+        "GMFChevrolet": "/claim-data/cities-carshops/chevrolet",
+        "RCINissan": "/claim-data/cities-carshops/nissan",
+        "RCIRenault": "/claim-data/cities-carshops/renault"
+      };
 
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.prev = 0;
-                  _context.next = 3;
-                  return _this2.$http.get(url);
+      var fetchCities = function fetchCities(url, fallbackCities) {
+        _this2.$http.get(url).then(function (data) {
+          this.cities = Object.entries(data.body).sort(function (a, b) {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+        }, function () {
+          this.cities = fallbackCities;
+        });
+      };
 
-                case 3:
-                  _ref2 = _context.sent;
-                  data = _ref2.data;
-                  return _context.abrupt("return", Object.entries(data.body).sort(function (a, b) {
-                    return a[1].localeCompare(b[1]);
-                  }));
-
-                case 8:
-                  _context.prev = 8;
-                  _context.t0 = _context["catch"](0);
-                  return _context.abrupt("return", {
-                    "63001": "ARMENIA",
-                    "08001": "BARRANQUILLA",
-                    "11001": "BOGOTA"
-                  });
-
-                case 11:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee, _this2, [[0, 8]]);
-        }));
-
-        return function getCitiesData(_x) {
-          return _ref.apply(this, arguments);
-        };
-      }();
-
-      var url = "/claim-data/cities-carshops";
-
-      if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
-        url = "/claim-data/cities-carshops/chevrolet";
-      } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
-        url = "/claim-data/cities-carshops/nissan";
-      } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
-        url = "/claim-data/cities-carshops/renault";
+      var brandFound = false;
+      for (var brand in brandUrls) {
+        if (localStorage.getItem(brand + "-codigoConcesionario")) {
+          brandFound = true;
+          fetchCities.call(this, brandUrls[brand], {
+            "11001": "BOGOTA"
+          });
+          break;
+        }
       }
-
-      // Llamar a la función para obtener las ciudades
-      getCitiesData(url).then(function (cities) {
-        _this2.cities = cities;
-      });
+      if (!brandFound) {
+        fetchCities.call(this, "/claim-data/cities-carshops", {
+          "63001": "ARMENIA",
+          "08001": "BARRANQUILLA",
+          "11001": "BOGOTA"
+        });
+      }
     }
   },
   created: function created() {
@@ -48082,8 +48062,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
   watch: {
     claimCity: function claimCity(val, oldVal) {
-      this.carShops = [];
-      this.searchExecuted = false;
       this.claimCitySelected = val;
       if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
         this.findCarShops();
@@ -50947,7 +50925,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__ = __webpack_require__(46);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_171a3f2f_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ac0549c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__ = __webpack_require__(106);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50964,7 +50942,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FourthStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_171a3f2f_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ac0549c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FourthStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
