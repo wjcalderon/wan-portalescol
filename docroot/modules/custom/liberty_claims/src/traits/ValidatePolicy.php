@@ -97,15 +97,26 @@ trait ValidatePolicy {
 
     $config2 = $this->configFactory->get('liberty_claims_email.settings');
     $cod_brand = 'cod_' . strtolower($brand);
+    $cod_brand_colectivo = 'cod_' . strtolower($brand). '_colectivo';
     $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-
-    if ($marca_poliza === 'CHEVROLET') {
+    if($polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_colectivo))
+    {
+      if ($marca_poliza === 'CHEVROLET') {
         $this->handleChevrolet($polizas, $index_vigencia, $return);
+      }
+      else if ($marca_poliza === 'NISSAN' || $marca_poliza === 'RENAULT') {
+          $this->handleOtherBrands($polizas, $index_vigencia, $return, $brand);
+      }
+      else {
+        $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
+        foreach ($brands as $brand) {
+          if (isset($_SESSION[$brand])) {
+            $this->unsetSessionForBrand($brand);
+          }
+        }
+      }
     }
-    else if ($marca_poliza === 'NISSAN' || $marca_poliza === 'RENAULT') {
-        $this->handleOtherBrands($polizas, $index_vigencia, $return, $brand);
-    }
-    else {
+    else{
       $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
       foreach ($brands as $brand) {
         if (isset($_SESSION[$brand])) {
