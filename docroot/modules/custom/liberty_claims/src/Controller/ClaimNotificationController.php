@@ -323,7 +323,7 @@ class ClaimNotificationController extends ControllerBase {
 
     $filterData = [];
     foreach ($terms as $key => $term) {
-      $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
+      $field_city = str_pad($term->field_cod_ciudad_nissan->value, 5, "0", STR_PAD_LEFT);
 
       if ($field_city !== $city) {
         continue;
@@ -331,9 +331,9 @@ class ClaimNotificationController extends ControllerBase {
 
       // Extract necessary data from the loaded terms and populate $datos array.
       $filterData[$key]['nit'] = $term->field_nit_nissan->value;
-      $filterData[$key]['codTaller'] = $term->field_codtaller_nissan->value;
+      $filterData[$key]['codTaller'] = $term->field_cod_taller_nissan->value;
       $filterData[$key]['aixis'] = $term->field_aixis_nissan->value;
-      $filterData[$key]['nombre'] = $term->name_nissan->value;
+      $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_nissan->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_nissan->value;
       $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_nissan->value;
@@ -362,7 +362,7 @@ class ClaimNotificationController extends ControllerBase {
 
     $filterData = [];
     foreach ($terms as $key => $term) {
-      $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
+      $field_city = str_pad($term->field_cod_ciudad_renault->value, 5, "0", STR_PAD_LEFT);
 
       if ($field_city !== $city) {
         continue;
@@ -370,9 +370,9 @@ class ClaimNotificationController extends ControllerBase {
 
       // Extract necessary data from the loaded terms and populate $datos array.
       $filterData[$key]['nit'] = $term->field_nit_renault->value;
-      $filterData[$key]['codTaller'] = $term->field_codtaller_renault->value;
+      $filterData[$key]['codTaller'] = $term->field_cod_taller_renault->value;
       $filterData[$key]['aixis'] = $term->field_aixis_renault->value;
-      $filterData[$key]['nombre'] = $term->name_renault->value;
+      $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
       $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
