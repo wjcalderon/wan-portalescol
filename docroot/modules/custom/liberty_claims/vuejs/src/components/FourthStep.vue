@@ -283,6 +283,9 @@ export default {
       return "Asignar Taller";
     },
     findCarShops: function() {
+      this.carShops = [];
+      this.searchExecuted = false;
+
       if (this.vehicleData && this.vehicleData.brand) {
         let loader = this.$loading.show({
           canCancel: false
@@ -312,16 +315,9 @@ export default {
             if (data.statusCode != 401 && (Array.isArray(data.body) || Object.keys(data.body).length > 0)) {
               const vm = this;
               const dataBody = Array.isArray(data.body) ? data.body : Object.values(data.body)
-              if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
+              if (localStorage.getItem("GMFChevrolet-codigoConcesionario") || localStorage.getItem("RCINissan-codigoConcesionario") || localStorage.getItem("RCIRenault-codigoConcesionario") ) {
                 vm.defaultCS = data.body;
               }
-              if (localStorage.getItem("RCINissan-codigoConcesionario")) {
-                vm.defaultCS = data.body;
-              }
-              if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
-                vm.defaultCS = data.body;
-              }
-
               let result = dataBody.filter(carShop => {
                 if (
                   carShop.nombre.includes("Taller para Arreglo Directo") &&
@@ -424,71 +420,33 @@ export default {
       }
     },
     getData() {
+      const getCitiesData = async (url) => {
+        try {
+          const { data } = await this.$http.get(url);
+          return Object.entries(data.body).sort((a, b) => a[1].localeCompare(b[1]));
+        } catch (error) {
+          return {
+            "63001": "ARMENIA",
+            "08001": "BARRANQUILLA",
+            "11001": "BOGOTA"
+          };
+        }
+      };
+
+      let url = "/claim-data/cities-carshops";
+
       if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
-        this.$http.get("/claim-data/cities-carshops/chevrolet").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-          },
-          function(params) {
-            this.cities = {
-              "63001": "ARMENIA",
-              "08001": "BARRANQUILLA",
-              "11001": "BOGOTA"
-            };
-          }
-        );
+        url = "/claim-data/cities-carshops/chevrolet";
       } else if (localStorage.getItem("RCINissan-codigoConcesionario")) {
-        this.$http.get("/claim-data/cities-carshops/nissan").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-          },
-          function(params) {
-            this.cities = {
-              "11001": "BOGOTA"
-            };
-          }
-        );
+        url = "/claim-data/cities-carshops/nissan";
       } else if (localStorage.getItem("RCIRenault-codigoConcesionario")) {
-        this.$http.get("/claim-data/cities-carshops/renault").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-          },
-          function(params) {
-            this.cities = {
-              "11001": "BOGOTA"
-            };
-          }
-        );
-      } else {
-        this.$http.get("/claim-data/cities-carshops").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-          },
-          function(params) {
-            this.cities = {
-              "63001": "ARMENIA",
-              "08001": "BARRANQUILLA",
-              "11001": "BOGOTA"
-            };
-          }
-        );
+        url = "/claim-data/cities-carshops/renault";
       }
+
+      // Llamar a la función para obtener las ciudades
+      getCitiesData(url).then(cities => {
+        this.cities = cities;
+      });
     }
   },
   created() {
@@ -512,6 +470,8 @@ export default {
   },
   watch: {
     claimCity: function (val, oldVal) {
+      this.carShops = [];
+      this.searchExecuted = false;
       this.claimCitySelected = val
       if (this.claimType !== "CLAIM_TYPE_PTH" && !oldVal && val) {
         this.findCarShops();
