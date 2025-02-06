@@ -37,19 +37,17 @@
     .cog--flex {
       .component__card {
         .card__img--oval {
-          background-color: var(--white);
-          border: 1px solid var(--hdi-universal-green);
-          border-radius: 100%;
           height: 8.75rem;
           margin: 2rem auto 0;
           position: relative;
           width: 8.75rem;
 
-          svg {
+          svg, img {
             left: calc(50% - 2rem);
             position: absolute;
             top: calc(50% - 2rem);
-            width: 4rem;
+            width: auto;
+            height: 4rem;
           }
         }
 

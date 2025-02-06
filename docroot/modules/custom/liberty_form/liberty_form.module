@@ -145,131 +145,46 @@ function liberty_form_form_alter(&$form, &$form_state, $form_id) {
     $form['#attached']['library'][] = 'liberty_form/liberty-validations-campaing-form';
   }
 
-  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-      case 'prod':
-        if ($form_id === "webform_submission_call_center__node_55666_add_form") {
-          $form['#attributes']['id'][] = 'webform_submission_call_center';
-          $form['actions']['submit_cancel'] = [
-            '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
-            '#suffix' => '</a>',
-          ];
 
-          if ($cookie_type_id = \Drupal::request()->cookies->get('type_id')) {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
+  if ($form_id === "webform_submission_call_center__node_55666_add_form") {
+    $form['#attributes']['id'][] = 'webform_submission_call_center';
+    $form['actions']['submit_cancel'] = [
+      '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
+      '#suffix' => '</a>',
+    ];
 
-            switch ($cookie_type_id) {
-              case 1:
-                $document_type = 'Cedula de ciudadania';
-                break;
+    if ($cookie_type_id = \Drupal::request()->cookies->get('type_id')) {
+      $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
 
-              case 2:
-                $document_type = 'Cedula de extranjeria';
-                break;
-
-              case 3:
-                $document_type = 'Pasaporte';
-                break;
-
-              default:
-                $document_type = '';
-            }
-
-            if ($cookie_user_id = \Drupal::request()->cookies->get('user_id')) {
-              $form['elements']['id_type']['#value'] = $document_type;
-              $form['elements']['id_number']['#value'] = $cookie_user_id;
-              $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
-              $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
-            }
-          }
-
-          else {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-          }
-          $form['#attached']['drupalSettings']['enviroment'] = 'prod';
-        }
-        break;
-
-      default:
-        if ($form_id === "webform_submission_call_center__node_6211_add_form") {
-          $form['#attributes']['id'][] = 'webform_submission_call_center';
-
-          $form['actions']['submit_cancel'] = [
-            '#prefix' => '<a class="edit-submit-cancel_form_sponsors button button-secondary js-form-submit form-submit form-item__input">Volver atrás',
-            '#suffix' => '</a>',
-          ];
-
-          if ($type_id_cookie = \Drupal::request()->cookies->get('type_id')) {
-            if ($user_id_cookie = \Drupal::request()->cookies->get('user_id')) {
-              $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
-
-              switch ($type_id_cookie) {
-                case 1:
-                  $document_type = 'Cedula de ciudadania';
-                  break;
-
-                case 2:
-                  $document_type = 'Cedula de extranjeria';
-                  break;
-
-                case 3:
-                  $document_type = 'Pasaporte';
-                  break;
-
-                default:
-                  $document_type = '';
-              }
-
-              $form['elements']['id_type']['#value'] = $document_type;
-              $form['elements']['id_number']['#value'] = $user_id_cookie;
-              $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
-              $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
-            }
-          }
-
-          else {
-            $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-          }
-        }
-        break;
-    }
-  }
-  else {
-    if ($form_id === "webform_submission_call_center__node_6211_add_form") {
-      $form['#attributes']['id'][] = 'webform_submission_call_center';
-
-      $form['actions']['submit_cancel'] = [
-        '#prefix' => '<a  class="edit-submit-cancel_form_sponsors button js-form-submit form-submit form-item__input">Volver atrás',
-        '#suffix' => '</a>',
-      ];
-
-      if ($type_id = \Drupal::request()->cookies->get('type_id')) {
-        $user_id = \Drupal::request()->cookies->get('user_id');
-
-        if ($type_id == 1) {
+      switch ($cookie_type_id) {
+        case 1:
           $document_type = 'Cedula de ciudadania';
-        }
-        elseif ($type_id == 2) {
-          $document_type = 'Cedula de extranjeria';
-        }
-        elseif ($type_id == 3) {
-          $document_type = 'Pasaporte';
-        }
-        else {
-          $document_type = '';
-        }
+          break;
 
-        $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-login-after';
+        case 2:
+          $document_type = 'Cedula de extranjeria';
+          break;
+
+        case 3:
+          $document_type = 'Pasaporte';
+          break;
+
+        default:
+          $document_type = '';
+      }
+
+      if ($cookie_user_id = \Drupal::request()->cookies->get('user_id')) {
         $form['elements']['id_type']['#value'] = $document_type;
-        $form['elements']['id_number']['#value'] = $user_id;
+        $form['elements']['id_number']['#value'] = $cookie_user_id;
         $form['elements']['id_number']['#attributes'] = ['hidden' => TRUE];
         $form['elements']['id_type']['#attributes'] = ['hidden' => TRUE];
       }
-      else {
-        $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
-      }
-
     }
+
+    else {
+      $form['#attached']['library'][] = 'liberty_form/liberty-callcenter-form-validation';
+    }
+    $form['#attached']['drupalSettings']['enviroment'] = 'prod';
   }
 
   switch ($form_id) {
@@ -1043,7 +958,8 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
 
   // $form['actions']['submit']['#submit'] = "::confirmForm";
   // Cargar la entidad actual del formulario web y su configuración de terceros.
-  $webform = Drupal::entityTypeManager()->getStorage('webform')->load($form['#webform_id']);
+  $webform = Drupal::entityTypeManager()->getStorage('webform')
+    ->load($form['#webform_id']);
   $third_party_settings = $webform->getThirdPartySettings('api_settings');
 
   // Set and format input parameters.
@@ -1055,25 +971,30 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   $api_service_auth = $config->get('variable_get_key_auth');
   $api_client_id = $config->get('api_client_id');
   $api_client_secret = $config->get('api_service_auth');
+  $account_id = $config->get('account_id');
+  $journey_api_key = $config->get('journey_api_key');
   $api_service_params = [];
 
   foreach ($third_party_settings['params'] as $param) {
     $api_service_params[$param['ws_param_ws_parameter']] = $values[$param['ws_param_webform_field']];
   }
 
-  $data = [
+  $form_params = [
     "grant_type" => "client_credentials",
     "client_id" => $api_client_id,
     "client_secret" => $api_client_secret,
-    "account_id" => "518002376",
+    "account_id" => $account_id,
   ];
+
   $access_token = "";
-  $ch = curl_init("https://" . $api_service_auth);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-  $response = curl_exec($ch);
-  curl_close($ch);
+
+  $response = \Drupal::httpClient()->post($api_service_auth, [
+    'verify' => false,
+    'form_params' => $form_params,
+    'headers' => [
+      'Content-type' => 'application/x-www-form-urlencoded',
+    ],
+  ])->getBody()->getContents();
 
   if (!$response) {
     \Drupal::logger('liberty_form')->error($response);
@@ -1081,11 +1002,7 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   else {
     \Drupal::logger('liberty_form')->notice("Conexión exitosa con la api");
     $resultado = json_decode($response);
-    foreach ($resultado as $key => $value) {
-      if ($key == "access_token") {
-        $access_token = $value;
-      }
-    }
+    $access_token = $resultado->access_token;
   }
 
   // Verifica si tiene cedula la sesion creada.
@@ -1095,26 +1012,36 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
   }
   $path = \Drupal::request()->getpathInfo();
   $arg = explode('/', $path);
-  if (end($arg) == "formulario") {
 
+  if (end($arg) == "formulario") {
     $request = $requestStack->getCurrentRequest();
     $nid = $request->get('nid') ?? FALSE;
+
     if (isset($nid)) {
       if ($nid) {
         $node_id = base64_decode($nid);
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $node = $node_storage->load($node_id);
+
         if ($node) {
           $correo = $node->get('field_mail_call_center')->getString();
           $campaign_country = $node->get('field_campaign_country')->first();
           $pais = $campaign_country ? $campaign_country->value : NULL;
           $business_key = $node->get('field_business_key')->first();
           $field_business_key = $business_key ? $business_key->value : NULL;
+
+          $api_service_params['sponsor'] = $node->get('field_sponsor')->getString();
+          $api_service_params['ramo'] = $node->get('field_campaing_tax')->getString();
+          $api_service_params['id_rand'] = random_int(1111111111, 9999999999);
         }
       }
     }
-
   }
+
+  $field_city = '';
+  $field_birth_day = '';
+  $field_gender = '';
+  $origen_ingreso = "Url Publica";
 
   if (isset($identification_number)) {
     $query = \Drupal::entityQuery('node')
@@ -1131,24 +1058,21 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
 
     }
   }
-  else {
-    $field_city = '';
-    $field_birth_day = '';
-    $field_gender = '';
-    $origen_ingreso = "Url Publica";
-  }
 
-  // kint($api_service_params['sponsor']);
   // trae los nombres de las taxonomy.
-  $term_name_sponsor1 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($api_service_params['sponsor'])->name->value;
+  $term_name_sponsor1 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->load($api_service_params['sponsor'])
+    ->name
+    ->value;
+
   $term_name_ramo = Term::load($api_service_params['ramo'])->name->value;
 
   // Fecha actual.
   $hoy = date("d/m/Y");
-  $data4 = [];
+  $recipients = [];
   $correo = explode(", ", $correo);
   foreach ($correo as $valor) {
-    array_push($data4, [
+    array_push($recipients, [
       "contactKey" => $api_service_params['id_type'] . $api_service_params['id_number'],
       "to" => $valor,
       "attributes" => [
@@ -1174,34 +1098,24 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
     ]);
   }
 
-  $data2 = [
-    "definitionKey" => "65b885ab-c2b4-46fe-85d0-d6cb8be-2202",
-    "recipients" => $data4,
+  $journey_data = [
+    "definitionKey" => $journey_api_key,
+    "recipients" => $recipients,
   ];
 
-  $data3 = json_encode($data2);
+  $journey_json = json_encode($journey_data);
 
-  // \Drupal::logger('liberty_form')->notice('json =>'. $data3);
-  // Send json for mail sending
-  // url contra la que atacamos
-  $ch = curl_init("https://" . $api_service_url . "messaging/v1/email/messages/");
-  // A true, obtendremos una respuesta de la url, en otro caso,
-  // true si es correcto, false si no lo es.
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-  // Establecemos el verbo http que queremos utilizar para la petición.
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  $headers = [
-    'Content-type: application/json',
-    'Authorization: Bearer ' . $access_token,
-  ];
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-  // Enviamos el array data.
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $data3);
-  // Obtenemos la respuesta.
-  $response = curl_exec($ch);
+  \Drupal::logger('liberty_form')->notice('journey_data: ' . $journey_json);
 
-  // Se cierra el recurso CURL y se liberan los recursos del sistema
-  // curl_close($ch);
+  $response = \Drupal::httpClient()->post($api_service_url . "messaging/v1/email/messages", [
+    'verify' => false,
+    'body' => $journey_json,
+    'headers' => [
+      'Content-type' => 'application/json',
+      'Authorization' => "Bearer $access_token",
+    ],
+  ])->getBody()->getContents();
+
   $resultado = json_decode($response, TRUE);
 
   if (isset($resultado['responses'])) {
@@ -1213,7 +1127,6 @@ function _liberty_form_webform_submission_form_submit(array &$form, FormStateInt
       else {
         \Drupal::logger('liberty_form')->error($resultado);
       }
-
     }
   }
 
@@ -1300,58 +1213,30 @@ function liberty_form_preprocess_node(&$variables) {
         'langcode' => 'es',
       ])->save();
 
-      if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == "prod") {
+      $path_alias_manager = \Drupal::entityTypeManager()->getStorage('path_alias');
+      $alias_objects = $path_alias_manager->loadByProperties([
+        'alias'     => '/' . $term_name_replace . '/formulario',
+        'langcode' => 'es',
+      ]);
 
-        $path_alias_manager = \Drupal::entityTypeManager()->getStorage('path_alias');
-        $alias_objects = $path_alias_manager->loadByProperties([
-          'alias'     => '/' . $term_name_replace . '/formulario',
-          'langcode' => 'es',
-        ]);
-
-        if (count($alias_objects) > 0) {
-          foreach ($alias_objects as $alias_object) {
-            $alias_object->alias = '/' . $term_name_replace . '/formulario';
-            $alias_object->save();
-          }
+      if (count($alias_objects) > 0) {
+        foreach ($alias_objects as $alias_object) {
+          $alias_object->alias = '/' . $term_name_replace . '/formulario';
+          $alias_object->save();
         }
-        else {
-          PathAlias::create([
-            'path' => "/node/55666",
-            'alias' => '/' . $term_name_replace . '/formulario',
-            'langcode' => 'es',
-          ])->save();
-        }
-
       }
       else {
-        $path_alias_manager = \Drupal::entityTypeManager()->getStorage('path_alias');
-        $alias_objects = $path_alias_manager->loadByProperties([
-          'alias'     => '/' . $term_name_replace . '/formulario',
+        PathAlias::create([
+          'path' => "/node/55666",
+          'alias' => '/' . $term_name_replace . '/formulario',
           'langcode' => 'es',
-        ]);
-        if (count($alias_objects) > 0) {
-          foreach ($alias_objects as $alias_object) {
-            $alias_object->alias = '/' . $term_name_replace . '/formulario';
-            $alias_object->save();
-          }
-        }
-        else {
-          PathAlias::create([
-            'path' => "/node/6211",
-            'alias' => '/' . $term_name_replace . '/formulario',
-            'langcode' => 'es',
-          ])->save();
-        }
+        ])->save();
       }
 
       $path = \Drupal::request()->getpathInfo();
       $arg = explode('/', $path);
 
-      if ($arg[2] == "node") {
-        header("Location: /es/" . $term_name_replace . "/polizas/" . $nid, TRUE, 301);
-        exit();
-      }
-      elseif ($arg[1] == "node") {
+      if ($arg[2] == "node" || $arg[1] == "node") {
         header("Location: /es/" . $term_name_replace . "/polizas/" . $nid, TRUE, 301);
         exit();
       }
@@ -1372,19 +1257,9 @@ function liberty_form_preprocess_node(&$variables) {
       $path = \Drupal::request()->getpathInfo();
       $arg = explode('/', $path);
 
-      if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == "prod") {
-
-        if (end($arg) == "55666") {
-          header("Location: /es/" . $term_name_replace . "/formulario?nid=" . $nid . "&valor_product_token=" . $valor_product_token, TRUE, 301);
-          exit();
-        }
-      }
-      else {
-
-        if (end($arg) == "6211") {
-          header("Location: /es/" . $term_name_replace . "/formulario?nid=" . $nid . "&valor_product_token=" . $valor_product_token, TRUE, 301);
-          exit();
-        }
+      if (end($arg) == "55666") {
+        header("Location: /es/" . $term_name_replace . "/formulario?nid=" . $nid . "&valor_product_token=" . $valor_product_token, TRUE, 301);
+        exit();
       }
       break;
   }

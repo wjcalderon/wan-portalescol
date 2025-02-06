@@ -6,7 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
-use phpseclib\Net\SFTP;
+use phpseclib3\Net\SFTP;
 
 /**
  * Class liberty services sftp .
@@ -50,6 +50,7 @@ class LibertySftpMarketingController extends ControllerBase {
 
       // Traemos la data del campaña creada.
       $query = \Drupal::entityQuery('node')
+        ->accessCheck(TRUE)
         ->condition('type', 'customer')
         ->condition('field_campaign_id', $cid)
         ->condition('field_status', 1);

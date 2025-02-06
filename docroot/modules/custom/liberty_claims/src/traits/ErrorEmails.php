@@ -98,7 +98,7 @@ trait ErrorEmails {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   Response for email trasaction.
    */
-  public function sendEmailErrorSipo(array $data, string $data_taller, string $error): JsonResponse {
+  public function sendEmailErrorSipo(array $data, string $data_taller = "", string $error): JsonResponse {
     $date = date('d/m/Y');
 
     $subject = 'Error creación siniestro SIPO - #' . $data['caso']['numeroSiniestroiAxis'];
