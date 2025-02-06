@@ -246,7 +246,7 @@ class ClaimNotificationController extends ControllerBase {
    * @return array
    *   Filtered data by concesionario.
    */
-  private function filterByConcesionario($filterData) {
+  private function filterByConcesionario($filterData, $brand) {
 
     $concesionarios = [
         'GMFChevrolet' => 'codigoConcesionario',
@@ -255,11 +255,22 @@ class ClaimNotificationController extends ControllerBase {
     ];
 
     $filterData2 = array_filter($filterData, function($value) use ($concesionarios) {
-      foreach ($concesionarios as $sessionKey => $codigoKey) {
-            if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['aixis']) {
-                return true;
-            }
+      foreach ($concesionarios as $sessionKey => $codigoKey)
+      {
+        if($brand=='RENAULT')
+        {
+          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['clave']) {
+            return true;
+          }
         }
+        else
+        {
+          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['aixis']) {
+            return true;
+          }
+        }
+      }
+
         return false;
     });
 
@@ -370,7 +381,7 @@ class ClaimNotificationController extends ControllerBase {
 
       // Extract necessary data from the loaded terms and populate $datos array.
       $filterData[$key]['nit'] = $term->field_nit_renault->value;
-      $filterData[$key]['codTaller'] = $term->field_cod_taller_renault->value;
+      //$filterData[$key]['codTaller'] = $term->field_cod_taller_renault->value;
       $filterData[$key]['aixis'] = $term->field_aixis_renault->value;
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
@@ -379,6 +390,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['email'] = $term->field_email_renault->value;
       $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
+      $filterData[$key]['codTaller'] = $term->field_clave_renault->value;
     }
 
     return $filterData;
@@ -412,7 +424,7 @@ class ClaimNotificationController extends ControllerBase {
     foreach ($carShopFunctions as $sessionKey => $functionName) {
         if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey]) {
             $filterData = $this->$functionName($city);
-            $result = $this->filterByConcesionario($filterData);
+            $result = $this->filterByConcesionario($filterData, $brand);
             break;
         }
     }

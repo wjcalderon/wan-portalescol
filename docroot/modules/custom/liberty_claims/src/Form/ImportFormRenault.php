@@ -105,6 +105,7 @@ class ImportFormRenault extends FormBase {
           $field_telefono_renault = isset($rowData[6]) ? $rowData[6] : '';
           $field_ciudad_renault = isset($rowData[7]) ? $rowData[7] : '';
           $field_cod_ciudad_renault = isset($rowData[8]) ? $rowData[8] : '';
+          $field_clave_renault = isset($rowData[9]) ? $rowData[9] : '';
 
           // Buscar el término existente por su Id del taller en el vocabulario
           $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
@@ -125,6 +126,7 @@ class ImportFormRenault extends FormBase {
               'field_telefono_renault' => $field_telefono_renault,
               'field_ciudad_renault' => $field_ciudad_renault,
               'field_cod_ciudad_renault' => $field_cod_ciudad_renault,
+              'field_clave_renault' => $field_clave_renault,
             ]);
             $term->save();
             $inserted_count++;

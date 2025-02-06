@@ -47278,9 +47278,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     getData: function getData() {
       var concesionarios = {
-        "GMFChevrolet-codigoConcesionario": "/claim-data/cities-carshops/chevrolet",
-        "RCINissan-codigoConcesionario": "/claim-data/cities-carshops/nissan",
-        "RCIRenault-codigoConcesionario": "/claim-data/cities-carshops/renault"
+        "GMFChevrolet-codigoConcesionario": "/claim-data/cities-carshops/chevrolet"
       };
 
       var concesionario = false;
@@ -50743,7 +50741,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__ = __webpack_require__(44);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_19121ec2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1a4271ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__ = __webpack_require__(100);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -50760,7 +50758,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ThirdStep_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_19121ec2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1a4271ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ThirdStep_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
