@@ -1,0 +1,25 @@
+&.alias--strategic-dialogue-2025 {
+  #header__eyebrow, #header__zona-usuario {
+    display: none !important;
+  }
+
+  #header {
+    #burguer-menu, #navegacion, #herramientas--mb {
+      display: none !important;
+    }
+  }
+
+  #navigation-mb {
+    display: none !important;
+  }
+
+  #footer {
+    .footer__top {
+      display: none !important;
+    }
+  }
+
+  #blocks-necesecitas-ayuda {
+    display: none !important;
+  }
+}
