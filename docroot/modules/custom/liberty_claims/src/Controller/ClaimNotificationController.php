@@ -218,6 +218,26 @@ class ClaimNotificationController extends ControllerBase {
   }
 
   /**
+   * Cities carshops nissan.
+   *
+   * @return string
+   *   Return a list of cities.
+   */
+  public function getCitiesCarShopsNissan() {
+    return $this->getResource('cities.nissan');
+  }
+
+  /**
+   * Cities carshops renault.
+   *
+   * @return string
+   *   Return a list of cities.
+   */
+   public function getCitiesCarShopsRenault() {
+    return $this->getResource('cities.renault');
+  }
+
+  /**
    * Filters car shops data by concesionario.
    *
    * @param array $filterData
@@ -226,16 +246,37 @@ class ClaimNotificationController extends ControllerBase {
    * @return array
    *   Filtered data by concesionario.
    */
-  private function filterByConcesionario($filterData) {
-    $filterData2 = [];
-    foreach ($filterData as $value) {
-      if ($_SESSION['GMFChevrolet']['codigoConcesionario'] == $value['aixis']) {
-        $filterData2[] = $value;
-      }
-    }
+  private function filterByConcesionario($filterData, $brand) {
 
-    return (!empty($filterData2)) ? $filterData2 : $filterData;
-  }
+    $concesionarios = [
+        'GMFChevrolet' => 'codigoConcesionario',
+        'RCINissan' => 'codigoConcesionario',
+        'RCIRenault' => 'codigoConcesionario'
+    ];
+
+    $filterData2 = array_filter($filterData, function($value) use ($concesionarios) {
+      foreach ($concesionarios as $sessionKey => $codigoKey)
+      {
+        if($brand=='RENAULT')
+        {
+          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['clave']) {
+            return true;
+          }
+        }
+        else
+        {
+          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['aixis']) {
+            return true;
+          }
+        }
+      }
+
+        return false;
+    });
+
+    return !empty($filterData2) ? $filterData2 : $filterData;
+}
+
 
   /**
    * Loads Chevrolet car shops filtered by city.
@@ -276,6 +317,85 @@ class ClaimNotificationController extends ControllerBase {
     return $filterData;
   }
 
+    /**
+   * Loads Nissan car shops filtered by city.
+   *
+   * @param int $city
+   *   The city filter.
+   *
+   * @return array
+   *   Filtered car shops by city.
+   */
+  private function loadNissanCarShopsByCity($city) {
+    // Load taxonomy terms for talleres_nissan vocabulary.
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'vid' => 'talleres_nissan',
+    ]);
+
+    $filterData = [];
+    foreach ($terms as $key => $term) {
+      $field_city = str_pad($term->field_cod_ciudad_nissan->value, 5, "0", STR_PAD_LEFT);
+
+      if ($field_city !== $city) {
+        continue;
+      }
+
+      // Extract necessary data from the loaded terms and populate $datos array.
+      $filterData[$key]['nit'] = $term->field_nit_nissan->value;
+      $filterData[$key]['codTaller'] = $term->field_cod_taller_nissan->value;
+      $filterData[$key]['aixis'] = $term->field_aixis_nissan->value;
+      $filterData[$key]['nombre'] = $term->name->value;
+      $filterData[$key]['direccion'] = $term->field_direccion_nissan->value;
+      $filterData[$key]['ciudad'] = $term->field_ciudad_nissan->value;
+      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_nissan->value;
+      $filterData[$key]['email'] = $term->field_email_nissan->value;
+      $filterData[$key]['telefono'] = $term->field_telefono_nissan->value;
+      $filterData[$key]['sucursal'] = $term->field_sucursal_nissan->value;
+    }
+
+    return $filterData;
+  }
+
+  /**
+   * Loads Renault car shops filtered by city.
+   *
+   * @param int $city
+   *   The city filter.
+   *
+   * @return array
+   *   Filtered car shops by city.
+   */
+  private function loadRenaultCarShopsByCity($city) {
+    // Load taxonomy terms for talleres_renault vocabulary.
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'vid' => 'talleres_renault',
+    ]);
+
+    $filterData = [];
+    foreach ($terms as $key => $term) {
+      $field_city = str_pad($term->field_cod_ciudad_renault->value, 5, "0", STR_PAD_LEFT);
+
+      if ($field_city !== $city) {
+        continue;
+      }
+
+      // Extract necessary data from the loaded terms and populate $datos array.
+      $filterData[$key]['nit'] = $term->field_nit_renault->value;
+      //$filterData[$key]['codTaller'] = $term->field_cod_taller_renault->value;
+      $filterData[$key]['aixis'] = $term->field_aixis_renault->value;
+      $filterData[$key]['nombre'] = $term->name->value;
+      $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
+      $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
+      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
+      $filterData[$key]['email'] = $term->field_email_renault->value;
+      $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
+      $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
+      $filterData[$key]['codTaller'] = $term->field_clave_renault->value;
+    }
+
+    return $filterData;
+  }
+
   /**
    * Gets car shops list.
    *
@@ -292,17 +412,30 @@ class ClaimNotificationController extends ControllerBase {
    *   List of carshop by filter
    */
   public function getCarShops($city, $brand, $model, $type) {
-    if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
-      $filterData = $this->loadChevroletCarShopsByCity($city);
 
-      $result = $this->filterByConcesionario($filterData);
+    $carShopFunctions = [
+        'GMFChevrolet' => 'loadChevroletCarShopsByCity',
+        'RCINissan' => 'loadNissanCarShopsByCity',
+        'RCIRenault' => 'loadRenaultCarShopsByCity'
+    ];
+
+    $result = [];
+
+    foreach ($carShopFunctions as $sessionKey => $functionName) {
+        if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey]) {
+            $filterData = $this->$functionName($city);
+            $result = $this->filterByConcesionario($filterData, $brand);
+            break;
+        }
     }
-    else {
-      $result = $this->claimService->carShops($city, $brand, $model, $type);
+
+    if (empty($result)) {
+        $result = $this->claimService->carShops($city, $brand, $model, $type);
     }
 
     return new JsonResponse($result);
-  }
+}
+
 
   /**
    * Page of the validaction plate.
