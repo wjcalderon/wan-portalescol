@@ -51,22 +51,6 @@ class SettingsEmailForm extends ConfigFormBase {
       '#placeholder' => $this->t('Introduzca código convenio chevrolet'),
     ];
 
-    $form['acordeon_destinatario']['cod_nissan'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio nissan'),
-      '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio nissan'),
-    ];
-
-    $form['acordeon_destinatario']['cod_nissan_colectivo'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio nissan colectivo'),
-      '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan_colectivo') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio nissan colectivo'),
-    ];
-
     $form['acordeon_destinatario']['cod_renault'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Introduzca código convenio renault'),
@@ -83,20 +67,28 @@ class SettingsEmailForm extends ConfigFormBase {
       '#placeholder' => $this->t('Introduzca código convenio renault colectivo'),
     ];
 
-    $form['acordeon_destinatario']['cod_chevyplan'] = [
+    $form['acordeon_destinatario']['cod_nissan'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio chevyplan'),
+      '#title' => $this->t('Introduzca código convenio nissan'),
       '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio chevyplan'),
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan') ?? '',
+      '#placeholder' => $this->t('Introduzca código convenio nissan'),
     ];
 
-    $form['acordeon_destinatario']['cod_chevyplan_colectivo'] = [
+    $form['acordeon_destinatario']['cod_nissan_colectivo'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio chevyplan colectivo'),
+      '#title' => $this->t('Introduzca código convenio nissan colectivo'),
       '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_chevyplan_colectivo') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio chevyplan colectivo'),
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan_colectivo') ?? '',
+      '#placeholder' => $this->t('Introduzca código convenio nissan colectivo'),
+    ];
+
+    $form['acordeon_destinatario']['cod_chevyseguro_colectivo'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Introduzca código convenio chevyseguro colectivo'),
+      '#required' => TRUE,
+      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_chevyseguro_colectivo') ?? '',
+      '#placeholder' => $this->t('Introduzca código convenio chevyseguro colectivo'),
     ];
 
     $form['acordeon_correo_carros'] = [
@@ -156,12 +148,11 @@ class SettingsEmailForm extends ConfigFormBase {
 
     $this->config('liberty_claims_email.settings')
       ->set('cod_chevrolet', $form_state->getValue('cod_chevrolet'))
-      ->set('cod_nissan', $form_state->getValue('cod_nissan'))
       ->set('cod_renault', $form_state->getValue('cod_renault'))
-      ->set('cod_chevyplan', $form_state->getValue('cod_chevyplan'))
-      ->set('cod_nissan_colectivo', $form_state->getValue('cod_nissan_colectivo'))
       ->set('cod_renault_colectivo', $form_state->getValue('cod_renault_colectivo'))
-      ->set('cod_chevyplan_colectivo', $form_state->getValue('cod_chevyplan_colectivo'))
+      ->set('cod_nissan', $form_state->getValue('cod_nissan'))
+      ->set('cod_nissan_colectivo', $form_state->getValue('cod_nissan_colectivo'))
+      ->set('cod_chevyseguro_colectivo', $form_state->getValue('cod_chevyseguro_colectivo'))
       ->set('email_send', $value_email)
       ->set('email_send_car', $form_state->getValue('email_send_car'))
       ->set('template_correo', $form_state->getValue('template_correo'))
