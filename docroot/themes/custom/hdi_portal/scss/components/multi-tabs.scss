@@ -12,11 +12,11 @@
       .cog--mq {
         ul {
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           background-color: transparent;
 
           li {
-            padding: 1rem 2rem;
+            padding: 1rem;
 
             a {
               display: flex;
@@ -43,6 +43,11 @@
 
         ul {
           background-color: var(--hdi-light-green-10);
+
+          @include phone-only {
+            width: 100vw;
+            margin-left: -2rem;
+          }
         }
       }
     }
