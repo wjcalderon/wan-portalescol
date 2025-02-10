@@ -1,0 +1,65 @@
+&.alias--strategic-dialogue-2025 {
+  #header__eyebrow, #header__zona-usuario {
+    display: none !important;
+  }
+
+  #header {
+    #burguer-menu, #navegacion, #herramientas--mb {
+      display: none !important;
+    }
+  }
+
+  #navigation-mb {
+    display: none !important;
+  }
+
+  #footer {
+    .footer__top {
+      display: none !important;
+    }
+  }
+
+  #blocks-necesecitas-ayuda {
+    display: none !important;
+  }
+
+  .single_text_class {
+    table {
+      tbody {
+        tr {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          td {
+            &:first-of-type {
+              flex-grow: 0;
+              flex-shrink: 0;
+
+              div {
+                display: grid;
+                place-content: center;
+              }
+            }
+
+            img {
+              width: 4rem;
+              align-content: center;
+            }
+
+            h3 {
+              font-family: var(--hdi-font);
+              color: var(--hdi-universal-green);
+            }
+          }
+        }
+      }
+    }
+  }
+}
