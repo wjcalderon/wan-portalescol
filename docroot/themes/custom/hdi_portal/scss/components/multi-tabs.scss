@@ -14,8 +14,11 @@
           display: flex;
           justify-content: space-between;
           background-color: transparent;
-          overflow-x: scroll;
-          overflow-y: hidden;
+
+          @include phone-only {
+            overflow-x: scroll;
+            overflow-y: hidden;
+          }
 
           li {
             padding: 1rem;
