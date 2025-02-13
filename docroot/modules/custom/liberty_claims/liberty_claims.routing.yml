@@ -38,6 +38,22 @@ liberty_claims.get_cities_carshops_chevrolet:
   requirements:
     _permission: 'access content'
 
+liberty_claims.get_cities_carshops_nissan:
+  path: '/claim-data/cities-carshops/nissan'
+  defaults:
+    _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsNissan'
+    _title: 'Cities Carshops'
+  requirements:
+    _permission: 'access content'
+
+liberty_claims.get_cities_carshops_renault:
+  path: '/claim-data/cities-carshops/renault'
+  defaults:
+    _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsRenault'
+    _title: 'Cities Carshops'
+  requirements:
+    _permission: 'access content'
+
 liberty_claims.get_brands:
   path: '/claim-data/brands'
   defaults:
@@ -153,5 +169,21 @@ liberty_claims.list_log_hurto:
   defaults:
     _title: 'Claims Hurto Vehiculo'
     _controller: '\Drupal\liberty_claims\Controller\LoggerReportHurtoController::build'
+  requirements:
+    _permission: 'access administration pages'
+
+liberty_claims.import_nissan_form:
+  path: '/admin/config/liberty_claims/settings/import_nissan'
+  defaults:
+    _form: '\Drupal\liberty_claims\Form\ImportFormNissan'
+    _title: 'Import Taxonomy Terms Nissan'
+  requirements:
+    _permission: 'access administration pages'
+
+liberty_claims.import_renault_form:
+  path: '/admin/config/liberty_claims/settings/import_renault'
+  defaults:
+    _form: '\Drupal\liberty_claims\Form\ImportFormRenault'
+    _title: 'Import Taxonomy Terms Renault'
   requirements:
     _permission: 'access administration pages'

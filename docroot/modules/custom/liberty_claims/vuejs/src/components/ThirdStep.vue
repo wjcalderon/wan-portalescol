@@ -861,35 +861,39 @@ export default {
     Alert
   },
   methods: {
+    getCities(url) {
+      this.$http.get(url).then(
+        function(data) {
+          this.cities = Object.entries(data.body).sort((a, b) => {
+            if (a[1] > b[1]) return 1;
+            if (a[1] < b[1]) return -1;
+            return 0;
+          });
+          this.cities.unshift([0, "Ciudad"]);
+        },
+        function(params) {
+          this.cities = {};
+        }
+      );
+    },
     getData() {
-      if (localStorage.getItem("GMFChevrolet-codigoConcesionario")) {
-        this.$http.get("/claim-data/cities-carshops/chevrolet").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-            this.cities.unshift([0, "Ciudad"]);
-          },
-          function(params) {
-            this.cities = {};
-          }
-        );
-      } else {
-        this.$http.get("/claim-data/cities-carshops").then(
-          function(data) {
-            this.cities = Object.entries(data.body).sort((a, b) => {
-              if (a[1] > b[1]) return 1;
-              if (a[1] < b[1]) return -1;
-              return 0;
-            });
-            this.cities.unshift([0, "Ciudad"]);
-          },
-          function(params) {
-            this.cities = {};
-          }
-        );
+      const concesionarios = {
+        "GMFChevrolet-codigoConcesionario": "/claim-data/cities-carshops/chevrolet",
+        "RCINissan-codigoConcesionario": "/claim-data/cities-carshops/nissan",
+        "RCIRenault-codigoConcesionario": "/claim-data/cities-carshops/renault"
+      };
+
+      let concesionario = false;
+
+      for (let key in concesionarios) {
+        if (localStorage.getItem(key)) {
+          this.getCities(concesionarios[key]);
+          concesionario = true;
+          break;
+        }
+      }
+      if (!concesionario) {
+        this.getCities("/claim-data/cities-carshops");
       }
     },
     changeRules: function(field, required, opt) {
