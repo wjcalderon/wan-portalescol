@@ -367,7 +367,6 @@
         ],
         "post-drupal-scaffold-cmd": [
             "cd docroot && patch -p1 < ../patches/htaccess-ips-blocked.patch",
-            "cd docroot && patch -p1 < ../patches/redirect-hdi.patch",
             "rm docroot/.htaccess.orig"
         ]
     }

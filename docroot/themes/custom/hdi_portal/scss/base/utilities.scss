@@ -55,3 +55,76 @@
 .is-visible {
   display: unset;
 }
+
+.card--image-border {
+  svg, img {
+    border: 1px solid var(--hdi-universal-green);
+    background-color: var(--white);
+    padding: 1rem;
+    width: 5.7rem !important;
+    left: calc(50% - 2.85rem) !important;
+  }
+}
+
+.unordered--list {
+  & > ul {
+    padding-left: 1rem;
+
+    li {
+      list-style: disc;
+    }
+  }
+}
+
+.ordered--list {
+  & > ol {
+    padding-left: 1rem;
+
+    li {
+      list-style: decimal
+    }
+  }
+}
+
+.text--center {
+  text-align: center;
+}
+
+.document--list {
+  ul {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+
+    li {
+      flex-basis: calc(50% - 1rem);
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      a {
+        color: var(--hdi-light-blue);
+        padding-left: 1.5rem;
+        position: relative;
+
+        &::before {
+          background-image: url(../../images/download-outline.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          content: "";
+          height: 1rem;
+          left: 0;
+          position: absolute;
+          width: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.center--block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
