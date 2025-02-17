@@ -257,7 +257,8 @@ class ClaimNotificationController extends ControllerBase {
     $filterData2 = array_filter($filterData, function($value) use ($concesionarios) {
       foreach ($concesionarios as $sessionKey => $codigoKey)
       {
-        if($brand=='RENAULT')
+
+        if($brand==='RENAULT')
         {
           if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['clave']) {
             return true;

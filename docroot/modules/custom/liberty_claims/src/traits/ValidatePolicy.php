@@ -32,7 +32,8 @@ trait ValidatePolicy {
 
       $key_brand = $polizas[$index_vigencia]['codigoBroker'];
       $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-      $this->validateBrand($polizas, $index_vigencia, $return, $brand, $keyBrand);
+
+      $this->validateBrand($polizas, $index_vigencia, $return, $brand, $key_brand);
 
       // Si la marca es "GREAT WALL", modificar el nombre de la marca.
       if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
@@ -103,7 +104,8 @@ trait ValidatePolicy {
     if($polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_colectivo) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy))
     {
       $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-      if ($marca_poliza === 'CHEVROLET' && $polizas[$index_vigencia]['codigoBroker'] != $config2->get($cod_brand_chevy)) {
+      
+      if ($marca_poliza === 'CHEVROLET' && $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy)) {
         $brands = ['RCIRenault', 'RCINissan'];
         foreach ($brands as $brand) {
           if (isset($_SESSION[$brand])) {
@@ -113,13 +115,14 @@ trait ValidatePolicy {
         $this->handleChevrolet($polizas, $index_vigencia, $return, false);
       }
       else if ($marca_poliza != 'CHEVROLET' && $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy)) {
-        $brands = ['RCIRenault', 'RCINissan'];
+        $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
         foreach ($brands as $brand) {
           if (isset($_SESSION[$brand])) {
             $this->unsetSessionForBrand($brand);
           }
         }
-        $this->handleChevrolet($polizas, $index_vigencia, $return, true);
+
+        $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza);
       }
       else if ($marca_poliza === 'NISSAN' || $marca_poliza === 'RENAULT') {
         $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
