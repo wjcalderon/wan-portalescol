@@ -32,6 +32,7 @@ trait ValidatePolicy {
 
       $key_brand = $polizas[$index_vigencia]['codigoBroker'];
       $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+
       $this->validateBrand($polizas, $index_vigencia, $return, $brand, $key_brand);
 
       // Si la marca es "GREAT WALL", modificar el nombre de la marca.
@@ -103,7 +104,7 @@ trait ValidatePolicy {
     if($polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_colectivo) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy))
     {
       $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-
+      
       if ($marca_poliza === 'CHEVROLET' && $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy)) {
         $brands = ['RCIRenault', 'RCINissan'];
         foreach ($brands as $brand) {
@@ -120,6 +121,7 @@ trait ValidatePolicy {
             $this->unsetSessionForBrand($brand);
           }
         }
+
         $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza);
       }
       else if ($marca_poliza === 'NISSAN' || $marca_poliza === 'RENAULT') {
