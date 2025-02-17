@@ -22,7 +22,7 @@
           let button1 = $("div.clearfix").find(
             `input[name="field_cover_${index}_subform_field_cover_caracteristic_add_more"]`
           );
-          button1.css("display", "unset");
+          button1.css("display", "block");
         }
       }
 
@@ -39,7 +39,7 @@
           let button2 = $("div.clearfix").find(
             `input[name="field_cover_${index2}_subform_field_  benefits_add_more"]`
           );
-          button2.css("display", "unset");
+          button2.css("display", "block");
         }
       }
     }

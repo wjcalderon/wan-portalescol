@@ -15,6 +15,11 @@
           justify-content: space-between;
           background-color: transparent;
 
+          @include phone-only {
+            overflow-x: scroll;
+            overflow-y: hidden;
+          }
+
           li {
             padding: 1rem;
 
