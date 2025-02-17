@@ -61,26 +61,6 @@ body {
     font-weight: 500;
   }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--hdi-light-blue-70) var(--hdi-light-blue-70);
-}
-
-/* Works on Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: var(--white);
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--hdi-light-blue-70);
-    border-radius: 20px;
-    border: 1px solid var(--hdi-light-blue-70);
-  }
-
   .is-hidden {
     display: none !important;
   }

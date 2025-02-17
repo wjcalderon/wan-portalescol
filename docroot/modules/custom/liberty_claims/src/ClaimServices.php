@@ -339,7 +339,7 @@ class ClaimServices {
             $this->logger->set('response_iaxis', $error, $token);
           }
           $this->sendEmailErrorIaxis($data, $error);
-          unset($_SESSION['GMFChevrolet']);
+          unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
         }
 
         return json_decode($body ?? '{}', TRUE);
@@ -424,7 +424,7 @@ class ClaimServices {
         ],
         $token
       );
-      unset($_SESSION['GMFChevrolet']);
+      unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
     }
     catch (RequestException $e) {
       if ($e->hasResponse()) {
@@ -434,7 +434,7 @@ class ClaimServices {
       }
 
       $this->sendEmailErrorSipo($request, $data_taller, $error);
-      unset($_SESSION['GMFChevrolet']);
+      unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
     }
 
     $body = json_decode($body, TRUE);
