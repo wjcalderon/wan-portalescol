@@ -207,7 +207,7 @@ export default {
       return this.maskField(this.personalInfo.documentId.toString(), 3);
     },
     addressMask: function () {
-      return this.maskField(this.personalInfo.address, 5);
+      return this.maskField(this.personalInfo.address, 3);
     },
   },
   mounted() {
