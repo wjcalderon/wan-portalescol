@@ -51,28 +51,12 @@ class SettingsEmailForm extends ConfigFormBase {
       '#placeholder' => $this->t('Introduzca código convenio chevrolet'),
     ];
 
-    $form['acordeon_destinatario']['cod_renault'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio renault'),
-      '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_renault') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio renault'),
-    ];
-
     $form['acordeon_destinatario']['cod_renault_colectivo'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Introduzca código convenio renault colectivo'),
       '#required' => TRUE,
       '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_renault_colectivo') ?? '',
       '#placeholder' => $this->t('Introduzca código convenio renault colectivo'),
-    ];
-
-    $form['acordeon_destinatario']['cod_nissan'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Introduzca código convenio nissan'),
-      '#required' => TRUE,
-      '#default_value' => $this->config('liberty_claims_email.settings')->get('cod_nissan') ?? '',
-      '#placeholder' => $this->t('Introduzca código convenio nissan'),
     ];
 
     $form['acordeon_destinatario']['cod_nissan_colectivo'] = [
