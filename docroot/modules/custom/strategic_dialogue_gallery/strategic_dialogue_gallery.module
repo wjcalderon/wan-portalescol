@@ -1,0 +1,50 @@
+<?php
+
+use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\DependencyInjection\Reference;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Block\BlockBase;
+
+function strategic_dialogue_gallery_theme() {
+  return [
+    'strategic_dialogue_gallery_block' => [
+      'variables' => ['images' => NULL],
+      'template' => 'strategic-dialogue-gallery-block',
+    ],
+  ];
+}
+
+class StrategicDialogueGalleryBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build() {
+    // Consultar los nodos del tipo de contenido "Imagen Strategic Dialogue"
+    $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+      'type' => 'imagen_strategic_dialogue', // Tipo de contenido personalizado
+    ]);
+
+    $images = [];
+    foreach ($nodes as $node) {
+      if ($node->hasField('field_imagen')) {
+        $image_field = $node->get('field_imagen')->entity;
+        if ($image_field) {
+          // Agregar las imágenes al arreglo
+          $images[] = $image_field->getFileUri();
+        }
+      }
+    }
+
+    return [
+      '#theme' => 'strategic_dialogue_gallery_block',
+      '#images' => $images,
+      '#attached' => [
+        'library' => [
+          'strategic_dialogue_gallery/slick_carousel',
+        ],
+      ],
+    ];
+  }
+}
+
