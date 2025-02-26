@@ -153,3 +153,4 @@ certs
 docroot/libraries
 grumphp.yml
 load_fonts.php
+.phpactor.json
