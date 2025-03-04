@@ -158,7 +158,7 @@ trait ValidatePolicy {
     } else {
       if($brand === 'RENAULT')
       {
-        if ($this->claimServices->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker']))
+        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker']))
         {
           $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
           $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
