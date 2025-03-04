@@ -158,15 +158,28 @@ trait ValidatePolicy {
     } else {
       if($brand === 'RENAULT')
       {
-        $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-        $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-        foreach ($brands as $brand) {
-          if (isset($_SESSION[$brand])) {
-            $this->unsetSessionForBrand($brand);
+        if ($this->claimServices->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker']))
+        {
+          $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
+          foreach ($brands as $brand) {
+            if (isset($_SESSION[$brand])) {
+              $this->unsetSessionForBrand($brand);
+            }
+          }
+          $_SESSION[$marca_poliza]['colectivo'] = false;
+          $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, false);
+        }
+        else
+        {
+          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
+          foreach ($brands as $brand) {
+            if (isset($_SESSION[$brand])) {
+              $this->unsetSessionForBrand($brand);
+            }
           }
         }
-        $_SESSION[$marca_poliza]['colectivo'] = false;
-        $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, false);
+
       }
       else{
         $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
