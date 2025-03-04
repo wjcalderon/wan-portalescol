@@ -17,6 +17,7 @@ use Drupal\oauth2_client\Service\Oauth2ClientServiceInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class Claims Services.
@@ -96,6 +97,13 @@ class ClaimServices {
   protected $fileSystem;
 
   /**
+   * Services Claim.
+   *
+   * @var string
+   */
+  protected $claimServices;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
@@ -108,6 +116,7 @@ class ClaimServices {
     LoggerChannelFactoryInterface $drupal_logger,
     FileSystemInterface $file_system
   ) {
+    $this->claimServices = $this;
     $this->mailManager = $mail_manager;
     $this->configFactory = $config_factory;
     $this->oauth2ClientService = $oauth2_client_service;
@@ -1121,6 +1130,29 @@ class ClaimServices {
     $this->fileSystem->deleteRecursive($file_path);
 
     return json_encode($body, TRUE);
+  }
+
+  /**
+   * Validate CodigoBroker is in Talleres Renault Taxonomy.
+   *
+   * @param string $string
+   *   codigoBroker data.
+   *
+   * @return string
+   *   Boolean TRUE or FALSE
+   */
+  public function validateBrokerInTaxonomy($codigo_broker) {
+
+    $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $terms = $term_storage->loadByProperties(['vid' => 'talleres_renault']);
+
+    foreach ($terms as $term) {
+      $field_clave_renault = $term->get('field_clave_renault')->value;
+      if ($codigo_broker == $field_clave_renault) {
+        return TRUE;
+      }
+    }
+    return FALSE;
   }
 
 }
