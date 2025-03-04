@@ -1,0 +1,10 @@
+name: 'Strategic Dialogue Gallery'
+type: module
+description: 'Módulo personalizado para mostrar una galería de imágenes en un carrusel Slick.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:slick
+  - drupal:media
+libraries:
+  - strategic_dialogue_gallery/slick_carousel
