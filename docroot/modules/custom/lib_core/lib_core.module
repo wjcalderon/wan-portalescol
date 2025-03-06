@@ -81,6 +81,20 @@ function lib_core_views_pre_view(ViewExecutable $view, $display_id, array &$args
 }
 
 /**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function lib_core_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+  $view = $form_state->get('view');
+
+  if ($view->id() == 'talleres') {
+    $cities = $form['field_ubicacion_target_id']['#options'];
+    asort($cities);
+    $form['field_ubicacion_target_id']['#options'] = $cities;
+  }
+}
+
+/**
  * Implements hook_theme().
  */
 function lib_core_theme($existing, $type, $theme, $path) {
