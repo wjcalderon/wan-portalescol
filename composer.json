@@ -1,9 +1,9 @@
 {
-    "name": "esinergia/drupal",
+    "name": "hdi/portal",
     "type": "project",
-    "description": "Liberty Colombia public portal.",
+    "description": "HDI Seguros Colombia public portal.",
     "license": "proprietary",
-    "homepage": "https://libertyseguros.co",
+    "homepage": "https://www.hdiseguros.com.co",
     "require": {
         "php": ">=8.1",
         "ext-dom": "*",
@@ -107,6 +107,7 @@
         "drupal/maxlength": "^3.1",
         "drupal/media_entity_instagram": "^3.0",
         "drupal/media_entity_twitter": "^2.9",
+        "drupal/media_gallery": "^3.0",
         "drupal/memcache": "^2.7",
         "drupal/menu_link_attributes": "^1.5",
         "drupal/migrate_spreadsheet": "^2.1",
@@ -325,6 +326,9 @@
             },
             "drupal/externalauth": {
                 "Add missing table after upgrade": "patches/externalauth_add_missing_table.patch"
+            },
+            "drupal/lightning_media": {
+                "The mapping definition is not accurate": "patches/mapping-definition-entity-browser-upload-validators-3456919.patch"
             }
         },
         "patches-ignore": {
