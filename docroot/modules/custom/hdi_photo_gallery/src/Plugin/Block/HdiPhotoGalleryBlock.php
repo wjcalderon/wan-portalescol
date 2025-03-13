@@ -20,8 +20,9 @@ use Drupal\image\Entity\ImageStyle;
  *   category = @Translation("Custom")
  * )
  */
-class HdiPhotoGalleryBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
+class HdiPhotoGalleryBlock extends BlockBase implements
+  ContainerFactoryPluginInterface
+{
   /**
    * The entity type manager.
    *
@@ -43,16 +44,6 @@ class HdiPhotoGalleryBlock extends BlockBase implements ContainerFactoryPluginIn
    */
   protected $fileSystem;
 
-  // public function __construct(
-  //   EntityTypeManagerInterface $entity_type_manager,
-  //   FileUrlGenerator $fileUrlGenerator,
-  //   FileSystem $fileSystem,
-  // ) {
-  //   $this->entityTypeManager = $entity_type_manager;
-  //   $this->fileUrlGenerator = $fileUrlGenerator;
-  //   $this->fileSystem = $fileSystem;
-  // }
-
   /**
    * {@inheritdoc}
    */
@@ -60,64 +51,77 @@ class HdiPhotoGalleryBlock extends BlockBase implements ContainerFactoryPluginIn
     ContainerInterface $container,
     array $configuration,
     $plugin_id,
-    $plugin_definition,
-  ) {
+    $plugin_definition
+  ): HdiPhotoGalleryBlock {
     $instance = new static($configuration, $plugin_id, $plugin_definition);
-    $instance->entityTypeManager = $container->get('entity_type.manager');
-    $instance->fileUrlGenerator = $container->get('file_url_generator');
-    $instance->fileSystem = $container->get('file_system');
+    $instance->entityTypeManager = $container->get("entity_type.manager");
+    $instance->fileUrlGenerator = $container->get("file_url_generator");
+    $instance->fileSystem = $container->get("file_system");
     return $instance;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function build() {
-    $media_items = $this->entityTypeManager->getStorage('media')
-      ->loadByProperties(['bundle' => 'photo_gallery']);
+  public function build(): array
+  {
+    $media_items = $this->entityTypeManager
+      ->getStorage("media")
+      ->loadByProperties(["bundle" => "photo_gallery"]);
     $images = [];
 
-    if (empty($media_items)) return [
-      '#markup' => 'No se encontraron elementos de galería.',
-    ];
+    if (empty($media_items)) {
+      return [
+        "#markup" => "No se encontraron elementos de galería.",
+      ];
+    }
 
     foreach ($media_items as $media) {
-      $images_list = $media->get('image')->getvalue();
+      $images_list = $media->get("field_photo_gallery")->getvalue();
 
       foreach ($images_list as $image) {
-        $file = $this->entityTypeManager->getStorage('file')->load($image['target_id']);
+        $photo = $this->entityTypeManager
+          ->getStorage("media")
+          ->load($image["target_id"]);
+
+        $photo_array = $photo->toArray();
+
+        $file = $this->entityTypeManager
+          ->getStorage("file")
+          ->load($photo_array["image"][0]["target_id"]);
 
         if ($file instanceof \Drupal\file\Entity\File) {
           $file_uri = $file->getFileUri();
-          $file_url = $this->fileUrlGenerator->generateAbsoluteString($file_uri);
+          $file_url = $this->fileUrlGenerator->generateAbsoluteString(
+            $file_uri
+          );
           $file_name = $this->fileSystem->basename($file_uri);
 
-          $thumbnail = ImageStyle::load('medium')->buildUrl($file_uri);
-          $large = ImageStyle::load('banner_768x600')->buildUrl($file_uri);
+          $thumbnail = ImageStyle::load("medium")->buildUrl($file_uri);
+          $large = ImageStyle::load("banner_768x600")->buildUrl($file_uri);
 
           $images[] = [
-            'url' => $file_url,
-            'name' => $file_name,
-            'alt' => $image['alt'],
-            'title' => $image['title'],
-            'thumbnail' => $thumbnail,
-            'large' => $large,
+            "url" => $file_url,
+            "name" => $file_name,
+            "alt" => $photo_array["image"][0]["alt"] ?? $file_name,
+            "thumbnail" => $thumbnail,
+            "large" => $large,
           ];
         }
       }
     }
 
-    if (empty($images)) return [
-      '#markup' => 'No se pudieron encontrar imágenes válidas.',
-    ];
+    if (empty($images)) {
+      return [
+        "#markup" => "No se pudieron encontrar imágenes válidas.",
+      ];
+    }
 
     return [
-      '#theme' => 'photo_gallery',
-      '#images' => $images,
-      '#attached' => [
-        'library' => [
-          'hdi_photo_gallery/zooming',
-        ],
+      "#theme" => "photo_gallery",
+      "#images" => $images,
+      "#attached" => [
+        "library" => ["hdi_photo_gallery/zooming"],
       ],
     ];
   }
