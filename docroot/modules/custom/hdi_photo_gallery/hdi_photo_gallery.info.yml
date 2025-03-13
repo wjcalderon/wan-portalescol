@@ -1,0 +1,8 @@
+name: 'HDI Galeria de fotos'
+type: module
+description: 'Módulo personalizado Galería de imágenes.'
+core_version_requirement: ^10 || ^11
+package: HDI
+dependencies:
+  - drupal:media
+  - block
