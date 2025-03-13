@@ -1,0 +1,9 @@
+zooming:
+  version: 1.x
+  js:
+    js/venobox.min.js: { type: file, scope: footer }
+    js/hdi_photo_gallery.js: { type: file, scope: footer }
+  css:
+    theme:
+      css/venobox.min.css: { type: file }
+      css/hdi_photo_gallery.css: { type: file }

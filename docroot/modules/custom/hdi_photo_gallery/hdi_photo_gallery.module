@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hook and preprocess HDI Photo Gallery.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function hdi_photo_gallery_theme($existing, $type, $theme, $path) {
+  return [
+    'photo_gallery' => [
+      'render element' => 'elements',
+      'variables' => [
+        'images' => [],
+      ],
+    ],
+  ];
+}
