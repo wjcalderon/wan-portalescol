@@ -10,55 +10,54 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 /**
  * Form custom import form.
  */
-class ImportForm extends FormBase {
-
+class ImportForm extends FormBase
+{
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
-    return 'csv_import_form';
+  public function getFormId()
+  {
+    return "csv_import_form";
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['import_csv'] = [
-      '#type' => 'managed_file',
-      '#title' => $this->t('Upload file here'),
-      '#upload_location' => 'public://',
-      '#default_value' => '',
+  public function buildForm(array $form, FormStateInterface $form_state)
+  {
+    $form["import_csv"] = [
+      "#type" => "managed_file",
+      "#title" => $this->t("Upload file here"),
+      "#upload_location" => "public://",
+      "#default_value" => "",
       "#upload_validators" => [
-        "file_validate_extensions" => [
-          "xls xlsx",
-        ],
+        "file_validate_extensions" => ["xls xlsx"],
       ],
-      '#states' => [
-        'visible' => [
+      "#states" => [
+        "visible" => [
           ':input[name="File_type"]' => [
-            'value' => $this->t('Upload Your File'),
+            "value" => $this->t("Upload Your File"),
           ],
         ],
       ],
     ];
 
-    $form['inicializar'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Borra los prestadores actuales'),
-      '#default_value' => 0,
+    $form["inicializar"] = [
+      "#type" => "checkbox",
+      "#title" => $this->t("Borra los prestadores actuales"),
+      "#default_value" => 0,
     ];
 
-    $form['actions']['#type'] = 'actions';
+    $form["actions"]["#type"] = "actions";
 
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Upload'),
-      '#button_type' => 'primary',
+    $form["actions"]["submit"] = [
+      "#type" => "submit",
+      "#value" => $this->t("Upload"),
+      "#button_type" => "primary",
     ];
 
-    $form['description'] = [
-      '#markup' => '<div class="ayudas">
+    $form["description"] = [
+      "#markup" => '<div class="ayudas">
         <p>Tenga en cuenta estas instrucciones para cuando vaya a realizar un cargue o actualización de registros</p>
         <ul>
         <li>Si se sube el excel nuevamente actualiza los registros</li>
@@ -70,9 +69,10 @@ class ImportForm extends FormBase {
         </div>',
     ];
 
-    $form['download'] = [
-      '#type' => 'markup',
-      '#markup' => '<span><a href="/red-medica/export">Descargar base de datos existente</a></span>',
+    $form["download"] = [
+      "#type" => "markup",
+      "#markup" =>
+        '<span><a href="/red-medica/export">Descargar base de datos existente</a></span>',
     ];
 
     return $form;
@@ -81,20 +81,22 @@ class ImportForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    $csv_file = $form_state->getValue('import_csv');
+  public function submitForm(array &$form, FormStateInterface $form_state)
+  {
+    $csv_file = $form_state->getValue("import_csv");
     $file = File::load($csv_file[0]);
     if ($file) {
       $file->setPermanent();
       $file->save();
-    }
-    else {
-      \Drupal::messenger()->addMessage('Error al cargar archivo');
+    } else {
+      \Drupal::messenger()->addMessage("Error al cargar archivo");
     }
 
-    if ($form_state->getValue('inicializar') == 1) {
+    if ($form_state->getValue("inicializar") == 1) {
       $operations = [];
-      $query = \Drupal::entityQuery('node')->condition('type', 'lender');
+      $query = \Drupal::entityQuery("node")
+        ->accessCheck(true)
+        ->condition("type", "lender");
 
       $result = $query->count()->execute();
       $residuo = $result % 1000;
@@ -105,27 +107,26 @@ class ImportForm extends FormBase {
 
       for ($i = 0; $i < $result; $i++) {
         $operations[] = [
-          '\Drupal\lib_migrate\AddImportContentRedMedica::removeImportContentItem',
-          [
-            $i,
-          ],
+          "\Drupal\lib_migrate\AddImportContentRedMedica::removeImportContentItem",
+          [$i],
         ];
       }
 
       $batch = [
-        'title' => $this->t('Removiendo Data...'),
-        'operations' => $operations,
-        'init_message' => $this->t('Removiendo is starting.'),
-        'finished' => '\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItemCallback',
+        "title" => $this->t("Removiendo Data..."),
+        "operations" => $operations,
+        "init_message" => $this->t("Removiendo is starting."),
+        "finished" =>
+          "\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItemCallback",
       ];
       batch_set($batch);
-      return TRUE;
+      return true;
     }
+    $pFilename = \Drupal::service("file_system")->realpath($file->getFileUri());
 
-    $type = IOFactory::identify($file->getFileUri());
+    $type = IOFactory::identify($pFilename);
     $reader = IOFactory::createReader($type);
-    $reader->setReadDataOnly(TRUE);
-    $pFilename = \Drupal::service('file_system')->realpath($file->getFileUri());
+    $reader->setReadDataOnly(true);
     $workbook = $reader->load($pFilename);
     $sheetData = $workbook->getActiveSheet();
     $rowIterator = $sheetData->getRowIterator();
@@ -137,27 +138,27 @@ class ImportForm extends FormBase {
       }
       $cellIterator = $row->getCellIterator();
       foreach ($cellIterator as $cell) {
-        $data[$row->getRowIndex()][$cell->getColumn()] = $cell->getCalculatedValue();
+        $data[$row->getRowIndex()][
+          $cell->getColumn()
+        ] = $cell->getCalculatedValue();
       }
       $row = $data[$row->getRowIndex()];
       $operations[] = [
-        '\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItem',
-        [
-          $row,
-        ],
+        "\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItem",
+        [$row],
       ];
     }
 
-    $_SESSION['time_log_latlng'] = time();
-    $_SESSION['date_log_latlng'] = date('d_m_Y', time());
+    $_SESSION["time_log_latlng"] = time();
+    $_SESSION["date_log_latlng"] = date("d_m_Y", time());
 
     $batch = [
-      'title' => $this->t('Importing Data...'),
-      'operations' => $operations,
-      'init_message' => $this->t('Import is starting.'),
-      'finished' => '\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItemCallback',
+      "title" => $this->t("Importing Data..."),
+      "operations" => $operations,
+      "init_message" => $this->t("Import is starting."),
+      "finished" =>
+        "\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItemCallback",
     ];
     batch_set($batch);
   }
-
 }
