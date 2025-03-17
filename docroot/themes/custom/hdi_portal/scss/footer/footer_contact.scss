@@ -88,6 +88,14 @@
           &:is(.linkedin)::before {
             background-image: url(../../images/Icon-Social-Linkedin-Blue.svg);
           }
+
+          &:is(.instagram)::before {
+            background-image: url(../../images/Icon-Social-Instagram.svg);
+          }
+
+          &:is(.youtube)::before {
+            background-image: url(../../images/Icon-Social-Youtube.svg);
+          }
         }
       }
     }

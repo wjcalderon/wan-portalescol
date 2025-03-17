@@ -1,0 +1,40 @@
+#block-hdi-portal-hdiphotogalleryblock {
+  width: 100%;
+  display: block;
+
+  .photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+    align-content: center;
+    flex-direction: row;
+
+    a {
+      flex: 0 0 calc(23% - 1rem);
+
+      @media only screen and (max-width: 600px) {
+        flex-basis: 100%;
+      }
+
+      img {
+        width: auto;
+        object-fit: cover;
+        height: 200px;
+
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+.vbox-share a {
+  font-size: 1.5rem !important;
+}
+
+.vbox-tooltip, .vbox-tooltip {
+  display: none !important;
+}

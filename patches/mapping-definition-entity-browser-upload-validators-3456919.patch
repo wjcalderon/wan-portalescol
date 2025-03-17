@@ -1,0 +1,15 @@
+diff --git a/config/schema/lightning_media.schema.yml b/config/schema/lightning_media.schema.yml
+--- a/config/schema/lightning_media.schema.yml	(revision d4b0f46cf6dd2e63e44bc3a5039751bb2e86c5e2)
++++ b/config/schema/lightning_media.schema.yml	(date 1720785570018)
+@@ -41,9 +41,9 @@
+         type: string
+         label: 'Media type ID'
+     upload_validators:
+-      type: mapping
++      type: sequence
+       label: 'Upload validators'
+-      mapping:
++      sequence:
+         type: sequence
+         label: 'Validator arguments'
+         sequence:
