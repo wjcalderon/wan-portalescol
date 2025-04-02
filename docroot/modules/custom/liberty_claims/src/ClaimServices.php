@@ -139,12 +139,13 @@ class ClaimServices {
    * @param int $type
    *   The filter of type.
    *
-   * @return JSON
+   * @return array
    *   List of carshop by filter
    */
-  public function carShops($city, $brand, $model, $type) {
+  public function carShops($city, $brand, $model, $type): array {
     $brand = str_replace('--', ' ', $brand);
     $brand = str_replace('++', '/', $brand);
+
     $parameters = [
       'http_errors' => TRUE,
       'headers' => [
@@ -154,24 +155,23 @@ class ClaimServices {
         'Authorization' => 'Bearer ' . $this->getMainToken(),
       ],
       'query' => [
-        'ciudad' => $city,
+        'ciudad' => str_pad($city, 5, "0", STR_PAD_LEFT),
         'modelo' => $model,
         'marca' => $brand,
         strtolower($type) . ($type == 'Moto' ? 's' : '') => 'true',
       ],
     ];
 
-    $carshops = [];
     $carshops = $this->carShopsService($parameters);
 
     $parameters['query']['concesionario'] = 'true';
     $carshops = array_merge($carshops, $this->carShopsService($parameters));
 
     $filterCS = array_filter($carshops, function ($v) {
-      return strpos($v->nombre, 'INACTIVO)') === FALSE &&
-        strpos($v->nombre, 'Taller para PTH') === FALSE &&
-        strpos($v->nombre, 'Taller para RCDBT') === FALSE &&
-        strpos($v->nombre, 'Taller para Arreglo Directo') === FALSE;
+      return !str_contains($v->nombre, 'INACTIVO)') &&
+        !str_contains($v->nombre, 'Taller para PTH') &&
+        !str_contains($v->nombre, 'Taller para RCDBT') &&
+        !str_contains($v->nombre, 'Taller para Arreglo Directo');
     });
 
     if (!$filterCS) {
@@ -249,6 +249,7 @@ class ClaimServices {
    *
    * @return array
    *   Carshops list.
+   * @throws \GuzzleHttp\Exception\GuzzleException
    */
   private function carShopsService(array $parameters = []) {
     $client = new Client([
@@ -348,7 +349,7 @@ class ClaimServices {
             $this->logger->set('response_iaxis', $error, $token);
           }
           $this->sendEmailErrorIaxis($data, $error);
-          unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
+          unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
         }
 
         return json_decode($body ?? '{}', TRUE);
@@ -367,14 +368,11 @@ class ClaimServices {
    *   IAXIS id.
    * @param string $token
    *   Unique token of the claim.
-   * @param string $code
-   *   Unique code of the claim.
    *
    * @return array|null
    *   Response.
    */
-  public function postSipo(string $json, string $iaxis_id, string $token, $code):array|null {
-    $data['code_request'] = $code;
+  public function postSipo(string $json, string $iaxis_id, string $token):array|null {
     $data = json_decode($json, TRUE);
     $config = $this->configFactory->get('liberty_claims.settings');
 
@@ -400,7 +398,7 @@ class ClaimServices {
     }
 
     $brand = $request['vehiculo']['marca'];
-    if (strpos($brand, 'GREAT WALL MOTOR') !== FALSE) {
+    if (str_contains($brand, 'GREAT WALL MOTOR')) {
       $request['vehiculo']['marca'] = 'GREAT WALL';
     }
 
@@ -411,6 +409,7 @@ class ClaimServices {
     ]);
 
     $body = NULL;
+
     try {
       $response = $client->request('POST', '/fnol/asignacionCaso', [
         'http_errors' => TRUE,
@@ -691,20 +690,20 @@ class ClaimServices {
    *
    * @param array $resource
    *   Resource from the service.
-   * @param string $data
+   * @param array $data
    *   Data from the app.
    *
    * @return array
    *   Resource matched.
    */
-  private function matchValues($resource, $data) {
+  private function matchValues(array $resource, array $data): array {
     foreach ($resource as $k => $value) {
       if (is_array($value)) {
         $new = $this->matchValues($value, $data);
         $resource[$k] = $new;
       }
       elseif (is_string($value)) {
-        if (strpos($value, '_#@') === 0) {
+        if (str_starts_with($value, '_#@')) {
           $input = str_replace('_#@', '', $value);
           if (isset($data[$input])) {
             $resource[$k] = $data[$input];
@@ -1135,14 +1134,15 @@ class ClaimServices {
   /**
    * Validate CodigoBroker is in Talleres Renault Taxonomy.
    *
-   * @param string $string
+   * @param string $codigo_broker
    *   codigoBroker data.
    *
-   * @return string
+   * @return bool
    *   Boolean TRUE or FALSE
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function validateBrokerInTaxonomy($codigo_broker) {
-
+  public function validateBrokerInTaxonomy(string $codigo_broker): bool {
     $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     $terms = $term_storage->loadByProperties(['vid' => 'talleres_renault']);
 

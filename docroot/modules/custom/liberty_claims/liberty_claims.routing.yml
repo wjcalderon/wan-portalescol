@@ -138,6 +138,7 @@ liberty_claims.detail:
     _title: 'Claim Detail'
   requirements:
     _permission: 'access administration pages'
+
 liberty_claims.purge_logs_form:
   path: 'admin/reports/claims/purge'
   defaults:

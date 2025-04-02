@@ -10,7 +10,11 @@ trait ValidatePolicy {
 
   use GetPersonalData;
 
-  public function validatePolicy($polizas, $index_vigencia, $type) {
+  /**
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  public function validatePolicy($polizas, $index_vigencia, $type): array|string {
     $this->config = $this->configFactory->get('liberty_claims.settings');
     $return = $this->policyBasicData($polizas, $index_vigencia, $type);
 
@@ -30,15 +34,14 @@ trait ValidatePolicy {
         }
       }
 
-      $key_brand = $polizas[$index_vigencia]['codigoBroker'];
-      $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
+      $policy_broker_code = $polizas[$index_vigencia]['codigoBroker'];
+      $policy_brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
 
-      $this->validateBrand($polizas, $index_vigencia, $return, $brand, $key_brand);
+      $this->validateBrand($polizas, $index_vigencia, $return, $policy_brand, $policy_broker_code);
 
       // Si la marca es "GREAT WALL", modificar el nombre de la marca.
       if (isset($polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'])) {
-        $brand = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-        if (strpos($brand, 'GREAT WALL') !== FALSE) {
+        if (str_contains($policy_brand, 'GREAT WALL')) {
           $return['personalInfo']['brand'] = 'GREAT WALL MOTOR';
         }
       }
@@ -61,7 +64,7 @@ trait ValidatePolicy {
     return 'no-guarantee';
   }
 
-  private function checkInRange($oldest_model, $latest_model, $model) {
+  private function checkInRange($oldest_model, $latest_model, $model): bool {
     $oldest_model = strtotime($oldest_model);
     $latest_model = strtotime($latest_model);
     $model = strtotime($model);
@@ -95,144 +98,84 @@ trait ValidatePolicy {
     return $data;
   }
 
-  private function validateBrand($polizas, $index_vigencia, &$return, $brand, $key_brand): void {
+  /**
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  private function validateBrand($polizas, $index_vigencia, &$return, $policy_brand, $policy_broker_code): void {
+    $config = $this->configFactory->get('liberty_claims_email.settings');
 
-    $config2 = $this->configFactory->get('liberty_claims_email.settings');
-    $cod_brand_colectivo = 'cod_' . strtolower($brand). '_colectivo';
-    $cod_brand_chevy = 'cod_chevyseguro_colectivo';
-    if($polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_colectivo) || $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy))
-    {
-      $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-            if ($marca_poliza === 'CHEVROLET') {
-        if ($polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy)) {
-          $brands = ['RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-          $this->handleChevrolet($polizas, $index_vigencia, $return, true);
-        } else {
-          $brands = ['RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-          $this->handleChevrolet($polizas, $index_vigencia, $return, false);
-        }
-      }
-      else if ($marca_poliza != 'CHEVROLET' && $polizas[$index_vigencia]['codigoBroker'] == $config2->get($cod_brand_chevy)) {
-        $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-        foreach ($brands as $brand) {
-          if (isset($_SESSION[$brand])) {
-            $this->unsetSessionForBrand($brand);
-          }
-        }
+    $this->unsetSessionForBrand('RCIRenault');
+    $this->unsetSessionForBrand('RCINissan');
+    $this->unsetSessionForBrand('GMFChevrolet');
 
-        $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, false);
-      }
-      else if ($marca_poliza === 'NISSAN' || $marca_poliza === 'RENAULT') {
-        if ($polizas[$index_vigencia]['codigoBroker'] != $config2->get($cod_brand_colectivo)) {
-          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-          $_SESSION[$marca_poliza]['colectivo'] = false;
-          $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, false);
-        }
-        else
-        {
-          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-          $_SESSION[$marca_poliza]['colectivo'] = true;
-          $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, true);
-        }
-      }
-    } else {
-      if($brand === 'RENAULT')
-      {
-        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker']))
-        {
-          $marca_poliza = $polizas[$index_vigencia]['riesgoAuto']['automovil']['marca'];
-          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-          $_SESSION[$marca_poliza]['colectivo'] = false;
-          $this->handleOtherBrands($polizas, $index_vigencia, $return, $marca_poliza, false);
-        }
-        else
-        {
-          $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-          foreach ($brands as $brand) {
-            if (isset($_SESSION[$brand])) {
-              $this->unsetSessionForBrand($brand);
-            }
-          }
-        }
+    $brokers_codes = [
+      'RCIRenault' => trim($config->get('cod_renault_colectivo')),
+      'RCINissan' => trim($config->get('cod_nissan_colectivo')),
+      'GMFChevrolet' => trim($config->get('cod_chevrolet')),
+      'RCIChevyseguros' => trim($config->get('cod_chevyseguro_colectivo')),
+    ];
 
-      }
-      else{
-        $brands = ['GMFChevrolet', 'RCIRenault', 'RCINissan'];
-        foreach ($brands as $brand) {
-          if (isset($_SESSION[$brand])) {
-            $this->unsetSessionForBrand($brand);
-          }
+    switch ($policy_brand) {
+      case 'CHEVROLET':
+        $chevy_seguros = false;
+        if ($policy_broker_code === $brokers_codes['RCIChevyseguros']) {
+          $chevy_seguros = true;
         }
-      }
-
+        if ($policy_broker_code === $brokers_codes['RCIChevyseguros'] ||
+          $policy_broker_code === $brokers_codes['GMFChevrolet']) {
+          $this->handleChevrolet($polizas, $index_vigencia, $return, $chevy_seguros);
+        }
+        break;
+      case 'NISSAN':
+      case 'RENAULT':
+        if ($policy_broker_code === $brokers_codes['RCIRenault'] ||
+          $policy_broker_code === $brokers_codes['RCINissan']) {
+          $this->handleOtherBrands($polizas, $index_vigencia, $return, $policy_brand, TRUE);
+        }
+        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker'])) {
+          $_SESSION[$policy_brand]['colectivo'] = false;
+          $this->handleOtherBrands($polizas, $index_vigencia, $return, $policy_brand, false);
+        }
+        break;
+      default:
+        $this->unsetSessionForBrand('RCIRenault');
+        $this->unsetSessionForBrand('RCINissan');
+        $this->unsetSessionForBrand('GMFChevrolet');
+        break;
     }
   }
 
-private function handleChevrolet($polizas, $index_vigencia, &$return, $chevy): void {
+  private function handleChevrolet(array $polizas, int $index_vigencia, array &$return, bool $chevy): void {
+    $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
+    $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
 
-    if($chevy === false){
+    if (!$chevy) {
       $model = $polizas[$index_vigencia]['riesgoAuto']['automovil']['version'];
       $model_base = date('Y');
       $latest_model = date('Y-m-d', strtotime($model_base . '+ 1 year'));
       $oldest_model = date('Y', strtotime($this->config->get('last_model') . '- 8 year'));
 
-      if ($this->checkInRange($oldest_model, $latest_model, $model)) {
-          $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
-          $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
-      } else {
-          $this->unsetSessionForBrand('GMFChevrolet');
+      if (!$this->checkInRange($oldest_model, $latest_model, $model)) {
+        $this->unsetSessionForBrand('GMFChevrolet');
       }
     }
-    else
-    {
-      $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
-      $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
-    }
   }
 
-private function handleOtherBrands($polizas, $index_vigencia, &$return, $brand, $collective): void {
+  private function handleOtherBrands($polizas, $index_vigencia, &$return, $brand, $collective): void {
+    $sessionKey = 'RCI' . ucfirst(strtolower($brand));
+    $codigoConcesionario = $polizas[$index_vigencia]['codigoBroker'];
+    if ($collective) {
+      $codigoConcesionario = $polizas[$index_vigencia]['codigoConcesionario'];
+    }
 
-    if($collective === true)
-    {
-      $sessionKey = 'RCI' . ucfirst(strtolower($brand));
-      $return[$sessionKey]['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
-      $_SESSION[$sessionKey] = $return[$sessionKey];
-    }
-    else{
-      $sessionKey = 'RCI' . ucfirst(strtolower($brand));
-      $return[$sessionKey]['codigoConcesionario'] = $polizas[$index_vigencia]['codigoBroker'];
-      $_SESSION[$sessionKey] = $return[$sessionKey];
-    }
+    $return[$sessionKey]['codigoConcesionario'] = $codigoConcesionario;
+    $_SESSION[$sessionKey] = $return[$sessionKey];
   }
 
-private function unsetSessionForBrand($brandSessionKey): void {
+  private function unsetSessionForBrand($brandSessionKey): void {
     if (isset($_SESSION[$brandSessionKey])) {
-        unset($_SESSION[$brandSessionKey]);
+      unset($_SESSION[$brandSessionKey]);
     }
   }
 }
