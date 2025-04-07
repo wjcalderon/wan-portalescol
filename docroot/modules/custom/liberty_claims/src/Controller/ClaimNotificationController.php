@@ -293,6 +293,7 @@ class ClaimNotificationController extends ControllerBase {
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
       'vid' => 'talleres_chevrolet',
     ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -309,7 +310,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email->value;
       $filterData[$key]['telefono'] = $term->field_telefono->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal->value;
@@ -332,6 +333,7 @@ class ClaimNotificationController extends ControllerBase {
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
       'vid' => 'talleres_nissan',
     ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -348,7 +350,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_nissan->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_nissan->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_nissan->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email_nissan->value;
       $filterData[$key]['telefono'] = $term->field_telefono_nissan->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_nissan->value;
@@ -368,9 +370,11 @@ class ClaimNotificationController extends ControllerBase {
    */
   private function loadRenaultCarShopsByCity($city) {
     // Load taxonomy terms for talleres_renault vocabulary.
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-      'vid' => 'talleres_renault',
-    ]);
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->loadByProperties([
+        'vid' => 'talleres_renault',
+      ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -387,7 +391,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email_renault->value;
       $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
@@ -415,19 +419,19 @@ class ClaimNotificationController extends ControllerBase {
   public function getCarShops($city, $brand, $model, $type) {
 
     $carShopFunctions = [
-        'GMFChevrolet' => 'loadChevroletCarShopsByCity',
-        'RCINissan' => 'loadNissanCarShopsByCity',
-        'RCIRenault' => 'loadRenaultCarShopsByCity'
+      'GMFChevrolet' => 'loadChevroletCarShopsByCity',
+      'RCINissan' => 'loadNissanCarShopsByCity',
+      'RCIRenault' => 'loadRenaultCarShopsByCity'
     ];
 
     $result = [];
 
     foreach ($carShopFunctions as $sessionKey => $functionName) {
-        if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey]) {
-            $filterData = $this->$functionName($city);
-            $result = $this->filterByConcesionario($filterData, $brand);
-            break;
-        }
+      if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey]) {
+        $filterData = $this->$functionName($city);
+        $result = $this->filterByConcesionario($filterData, $brand);
+        break;
+      }
     }
 
     if (empty($result)) {
@@ -496,11 +500,11 @@ class ClaimNotificationController extends ControllerBase {
 
       $data = file_get_contents($source);
 
-        $file = $this->fileInterface->writeData(
-          $data,
-          $path . $source->getClientOriginalName(),
-          FileExists::Replace
-        );
+      $file = $this->fileInterface->writeData(
+        $data,
+        $path . $source->getClientOriginalName(),
+        FileExists::Replace
+      );
 
       $response['file_id'] = $file->id();
       $file->setMimeType = $source->getClientMimeType();
@@ -617,17 +621,19 @@ class ClaimNotificationController extends ControllerBase {
     }
 
     $code = $this->claimService->postIaxis($request, $token);
-
+    
     if (!isset($code['numeroSiniestro'])) {
       $this->logger->set('iaxis_id', 'error', $token);
-
-      return new JsonResponse(['error' => $code['mensajeOperacion']]);
+      $code['numeroSiniestro'] = 0;
+      $result = ['error' => $code['mensajeOperacion']];
+    } else {
+      $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
+      $result = ['success' => $code['numeroSiniestro']];
     }
 
-    $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
     $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
 
-    return new JsonResponse(['success' => $code['numeroSiniestro']]);
+    return new JsonResponse($result);
   }
 
   /**
