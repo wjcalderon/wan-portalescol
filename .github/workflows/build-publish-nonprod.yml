@@ -39,8 +39,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.AWS_REGISTRY }}
-          username: ${{ secrets.NONPROD_KEY_ID }}
-          password: ${{ secrets.NONPROD_ACCESS_KEY }}
+          username: ${{ secrets.PRUEBAS_K }}
+          password: ${{ secrets.PRUEBAS_A }}
           logout: true
 
       - name: Install dependencies
