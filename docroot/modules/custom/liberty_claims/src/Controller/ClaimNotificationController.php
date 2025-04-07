@@ -2,6 +2,8 @@
 
 namespace Drupal\liberty_claims\Controller;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Cache\CacheableMetadata;
@@ -145,10 +147,10 @@ class ClaimNotificationController extends ControllerBase {
   /**
    * Claim.
    *
-   * @return string
+   * @return array
    *   Return Wrapper for a Vue App.
    */
-  public function claim() {
+  public function claim(): array {
     $config = $this->configFactory->get('liberty_claims.settings');
     $token = $this->currentSession->getId();
 
@@ -247,7 +249,6 @@ class ClaimNotificationController extends ControllerBase {
    *   Filtered data by concesionario.
    */
   private function filterByConcesionario($filterData, $brand) {
-
     $concesionarios = [
         'GMFChevrolet' => 'codigoConcesionario',
         'RCINissan' => 'codigoConcesionario',
@@ -255,24 +256,19 @@ class ClaimNotificationController extends ControllerBase {
     ];
 
     $filterData2 = array_filter($filterData, function($value) use ($concesionarios, $brand) {
-      foreach ($concesionarios as $sessionKey => $codigoKey)
-      {
-
-        if($brand === 'RENAULT' && $_SESSION[$brand]['colectivo'] === false)
-        {
+      foreach ($concesionarios as $sessionKey => $codigoKey) {
+        if ($brand === 'RENAULT' && $_SESSION[$brand]['colectivo'] === false) {
           if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['codTaller']) {
             return true;
           }
-        }
-        else
-        {
+        } else {
           if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['aixis']) {
             return true;
           }
         }
       }
 
-        return false;
+      return false;
     });
 
     return !empty($filterData2) ? $filterData2 : $filterData;
@@ -368,15 +364,19 @@ class ClaimNotificationController extends ControllerBase {
    */
   private function loadRenaultCarShopsByCity($city) {
     // Load taxonomy terms for talleres_renault vocabulary.
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-      'vid' => 'talleres_renault',
-    ]);
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->loadByProperties([
+        'vid' => 'talleres_renault',
+      ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
       $field_city = str_pad($term->field_cod_ciudad_renault->value, 5, "0", STR_PAD_LEFT);
 
-      if ($field_city !== $city) {
+      if ($field_city !== $city ||
+        $term->field_clave_renault->value == 'PENDIENTE'
+      ) {
         continue;
       }
 
@@ -387,7 +387,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email_renault->value;
       $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
@@ -406,28 +406,28 @@ class ClaimNotificationController extends ControllerBase {
    *   The filter of brand.
    * @param int $model
    *   The filter of model.
-   * @param int $type
+   * @param string $type
    *   The filter of type.
    *
-   * @return JSON
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   List of carshop by filter
    */
-  public function getCarShops($city, $brand, $model, $type) {
-
-    $carShopFunctions = [
-        'GMFChevrolet' => 'loadChevroletCarShopsByCity',
-        'RCINissan' => 'loadNissanCarShopsByCity',
-        'RCIRenault' => 'loadRenaultCarShopsByCity'
-    ];
-
+  public function getCarShops(int $city, string $brand, int $model, string $type): JsonResponse {
     $result = [];
 
-    foreach ($carShopFunctions as $sessionKey => $functionName) {
-        if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey]) {
-            $filterData = $this->$functionName($city);
-            $result = $this->filterByConcesionario($filterData, $brand);
-            break;
-        }
+    if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
+      $filterData = $this->loadChevroletCarShopsByCity($city);
+      $result = $this->filterByConcesionario($filterData, $brand);
+    }
+
+    if (isset($_SESSION['RCINissan']) && $_SESSION['RCINissan']) {
+      $filterData = $this->loadNissanCarShopsByCity($city);
+      $result = $this->filterByConcesionario($filterData, $brand);
+    }
+
+    if (isset($_SESSION['RCIRenault']) && $_SESSION['RCIRenault']) {
+      $filterData = $this->loadRenaultCarShopsByCity($city);
+      $result = $this->filterByConcesionario($filterData, $brand);
     }
 
     if (empty($result)) {
@@ -450,10 +450,10 @@ class ClaimNotificationController extends ControllerBase {
    * @param string $date
    *   Claim date.
    *
-   * @return array
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   Service response.
    */
-  public function validatePlate(Request $request, string $plate, string $type, string $date) {
+  public function validatePlate(Request $request, string $plate, string $type, string $date): JsonResponse {
     if ($request->headers->get('token')) {
       $this->logger->logActivity($plate, $request->headers->get('token'));
 
@@ -496,11 +496,11 @@ class ClaimNotificationController extends ControllerBase {
 
       $data = file_get_contents($source);
 
-        $file = $this->fileInterface->writeData(
-          $data,
-          $path . $source->getClientOriginalName(),
-          FileExists::Replace
-        );
+      $file = $this->fileInterface->writeData(
+        $data,
+        $path . $source->getClientOriginalName(),
+        FileExists::Replace
+      );
 
       $response['file_id'] = $file->id();
       $file->setMimeType = $source->getClientMimeType();
@@ -543,7 +543,7 @@ class ClaimNotificationController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   JSON response indicating success or error.
    */
-  public function submit(Request $request, $type) {
+  public function submit(Request $request, string $type): JsonResponse {
     if (!$request->headers->get('token')) {
       return new JsonResponse(['error' => 'remote not trusted']);
     }
@@ -581,7 +581,7 @@ class ClaimNotificationController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   JSON response indicating success.
    */
-  private function processTercero($response, $token) {
+  private function processTercero(string $response, string $token): JsonResponse {
     $this->logger->set(
       'post_sipo_tercero',
       json_encode([
@@ -593,7 +593,7 @@ class ClaimNotificationController extends ControllerBase {
       $token
     );
 
-    $sipo = $this->claimService->postSipo($response, 1, $token, 1);
+    $sipo = $this->claimService->postSipo($response, 1, $token);
     $this->claimService->postFiles($response, $sipo['numeroCaso']);
 
     return new JsonResponse(['success' => $sipo['numeroCaso']]);
@@ -610,7 +610,7 @@ class ClaimNotificationController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   JSON response indicating success or error.
    */
-  private function processAsegurado($request, $token) {
+  private function processAsegurado(string $request, string $token): JsonResponse {
     $request_auto_mail = json_decode($request, TRUE);
     if (isset($request_auto_mail) && $request_auto_mail['tellus'] == 'CLAIM_TYPE_PTH') {
       $this->sendEmailAutoEmail($request_auto_mail);
@@ -620,14 +620,16 @@ class ClaimNotificationController extends ControllerBase {
 
     if (!isset($code['numeroSiniestro'])) {
       $this->logger->set('iaxis_id', 'error', $token);
-
-      return new JsonResponse(['error' => $code['mensajeOperacion']]);
+      $code['numeroSiniestro'] = 0;
+      $result = ['error' => $code['mensajeOperacion']];
+    } else {
+      $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
+      $result = ['success' => $code['numeroSiniestro']];
     }
 
-    $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
     $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
 
-    return new JsonResponse(['success' => $code['numeroSiniestro']]);
+    return new JsonResponse($result);
   }
 
   /**
