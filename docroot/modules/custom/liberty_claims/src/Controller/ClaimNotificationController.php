@@ -368,9 +368,7 @@ class ClaimNotificationController extends ControllerBase {
       ->loadByProperties([
         'vid' => 'talleres_renault',
       ]);
-
-
-    dump($city);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -389,7 +387,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_renault->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_renault->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email_renault->value;
       $filterData[$key]['telefono'] = $term->field_telefono_renault->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_renault->value;
@@ -433,11 +431,12 @@ class ClaimNotificationController extends ControllerBase {
     }
 
     if (empty($result)) {
-      $result = $this->claimService->carShops($city, $brand, $model, $type);
+        $result = $this->claimService->carShops($city, $brand, $model, $type);
     }
 
     return new JsonResponse($result);
-  }
+}
+
 
   /**
    * Page of the validaction plate.
@@ -497,11 +496,11 @@ class ClaimNotificationController extends ControllerBase {
 
       $data = file_get_contents($source);
 
-        $file = $this->fileInterface->writeData(
-          $data,
-          $path . $source->getClientOriginalName(),
-          FileExists::Replace
-        );
+      $file = $this->fileInterface->writeData(
+        $data,
+        $path . $source->getClientOriginalName(),
+        FileExists::Replace
+      );
 
       $response['file_id'] = $file->id();
       $file->setMimeType = $source->getClientMimeType();
@@ -621,14 +620,16 @@ class ClaimNotificationController extends ControllerBase {
 
     if (!isset($code['numeroSiniestro'])) {
       $this->logger->set('iaxis_id', 'error', $token);
-
-      return new JsonResponse(['error' => $code['mensajeOperacion']]);
+      $code['numeroSiniestro'] = 0;
+      $result = ['error' => $code['mensajeOperacion']];
+    } else {
+      $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
+      $result = ['success' => $code['numeroSiniestro']];
     }
 
-    $this->logger->set('iaxis_id', $code['numeroSiniestro'], $token);
-    $this->claimService->postSipo($request, $code['numeroSiniestro'], $token);
+    $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
 
-    return new JsonResponse(['success' => $code['numeroSiniestro']]);
+    return new JsonResponse($result);
   }
 
   /**
