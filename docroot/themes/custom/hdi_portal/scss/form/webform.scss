@@ -1,0 +1,121 @@
+.webform-submission-form, .confirmation-registro-nuevos-intermediaries {
+  max-width: 90vw;
+
+  @include tablet-landscape-up {
+    max-width: 50.8125rem;
+  }
+
+  &.confirmation-registro-nuevos-intermediaries {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .webform-progress {
+    .webform-progress-tracker {
+      .progress-step {
+        .progress-marker {
+          color: var(--hdi-green);
+
+          &::before {
+            background-color: var(--white);
+            border: 1px solid var(--hdi-universal-green);
+            padding: .5rem;
+            width: 2rem;
+            height: 2rem;
+          }
+
+          &::after {
+            top: .95rem;
+            background-color: var(--hdi-universal-green);
+            height: 2px;
+          }
+
+          .progress-text {
+            color: var(--hdi-universal-green);
+
+            .progress-title {
+              font-family: var(--hdi-font);
+            }
+          }
+        }
+
+        &.is-active {
+          &:hover {
+            .progress-marker {
+              &::before {
+                background-color: var(--hdi-universal-green);
+                color: var(--white);
+              }
+            }
+          }
+
+          .progress-text {
+            color: var(--hdi-green);
+          }
+        }
+
+        &.is-complete {
+          .progress-marker {
+            &::before {
+              background-color: var(--hdi-universal-green);
+              color: var(--white);
+            }
+          }
+
+          .progress-text {
+            color: var(--hdi-green);
+          }
+        }
+      }
+    }
+  }
+
+  .webform-table {
+    border-collapse: separate;
+    border-spacing: .5rem 0;
+  }
+
+  .js-form-type-webform-document-file {
+    .description {
+      text-align: left;
+      font-size: .8rem;
+      color: var(--gray-50);
+    }
+  }
+
+  div[role="alert"]:has(> div[role="contentinfo"]) {
+    background-color: var(--hdi-red-10);
+    color: var(--hdi-red-90);
+  }
+
+  .captcha {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-item-acepto {
+    background-color: var(--hdi-yellow);
+    padding: 1rem;
+    gap: 1rem;
+    text-align: left;
+    color: var(--gray-70);
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+  }
+
+  div[id^="ajax-wrapper-"] .js-webform-document-file {
+    background-color: var(--white);
+    border-radius: 3px;
+    border: 1px solid var(--hdi-gray-50);
+    display: flex;
+    padding: 1.5rem .6rem .5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ajax-progress-throbber {
+     position: absolute;
+     right: 0;
+     top: 1rem;
+   }
+}

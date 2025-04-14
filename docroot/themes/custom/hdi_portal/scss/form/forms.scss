@@ -6,7 +6,7 @@ form, .view-filters {
   }
 
   @include tablet-landscape-up {
-    &:not(.glb-form, .medical-network-form, .view-filters) {
+    &:not(.glb-form, .medical-network-form, .view-filters, .webform-submission-form) {
       max-width: 30.8125rem !important;
     }
   }
@@ -47,7 +47,7 @@ form, .view-filters {
       }
     }
 
-    &.form__input--activo {
+    &.form__input--activo, &.form-type-date, &.form-type-webform-document-file {
       label:not(.error) {
         font-size: .8rem;
         top: .3rem;
@@ -68,7 +68,6 @@ form, .view-filters {
   }
 
   .form-type-radios, .form-type-checkbox {
-    align-items: stretch;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
