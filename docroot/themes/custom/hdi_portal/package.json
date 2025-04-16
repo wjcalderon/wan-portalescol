@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "HDI Seguros Colombia portal",
   "main": "index.js",
-  "author": "Jonathan Esquivel<jonathan.esquivel@libertycolombia.com>",
+  "author": "Jonathan Esquivel<jonathan.esquivel@hdiseguros.com.co>",
   "license": "private",
   "private": true,
   "devDependencies": {
@@ -11,7 +11,7 @@
     "gulp": "^5.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^2.1.0",
     "sass": "^1.79.4"
   }

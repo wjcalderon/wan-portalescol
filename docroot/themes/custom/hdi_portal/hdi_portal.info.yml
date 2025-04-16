@@ -41,3 +41,6 @@ stylesheets-remove:
   - core/assets/vendor/jquery.ui/themes/base/theme.css
   - modules/contrib/webform/css/webform.form.css
   - modules/contrib/webform/css/webform.element.details.toggle.css
+
+ckeditor5-stylesheets:
+  - css/ckeditor.css
