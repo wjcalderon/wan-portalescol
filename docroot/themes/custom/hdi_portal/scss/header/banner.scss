@@ -246,7 +246,7 @@ body {
             }
           }
 
-          .c__cta {
+          .c__cta a:not(.link--full) {
             background-color: var(--white);
             border-color: var(--white);
             color: var(--hdi-green);
@@ -254,6 +254,7 @@ body {
             top: 12rem;
             left: 3rem;
             z-index: 5;
+            padding: .625rem 2.875rem;
 
             @include tablet-landscape-up {
               left: 4rem;
