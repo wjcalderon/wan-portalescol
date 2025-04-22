@@ -39,12 +39,10 @@
  */
 #}
 
-{%
-  set classes = [
-    'component',
-    'component__' ~ paragraph.bundle|clean_class
-  ]
-%}
+{% set classes = [
+  'component',
+  'component__' ~ paragraph.bundle|clean_class
+] %}
 
 {# Container by default. #}
 {% set add_container = true %}
@@ -52,9 +50,9 @@
 {# Width. #}
 {% if content.field_c_width|render %}
   {% set c_width = content.field_c_width['#items'].getString() %}
-    {% if c_width == 'edge2edge' %}
-      {% set add_container = false %}
-    {% endif %}
+  {% if c_width == 'edge2edge' %}
+    {% set add_container = false %}
+  {% endif %}
 {% endif %}
 
 {# Sets Unique ID for paragraph from Paragraph ID. #}
@@ -67,7 +65,7 @@
 {% set paragraph_id = 'component-' ~ paragraph.id.value %}
 
 {# Sets paragraph title for paragraph. #}
-{% set paragraph_title = content.field_c_title|field_value  %}
+{% set paragraph_title = content.field_c_title|field_value %}
 {% set paragraph_title_html = content.field_c_title_html|field_value %}
 
 {# Sets paragraph title status for paragraph. #}
@@ -82,52 +80,53 @@
 {# Sets paragraph CTA for paragraph. #}
 {% set paragraph_cta = content.field_cta|render %}
 {# Add custom paragraph CSS class(es). #}
-{%  set c_clasess = content.field_c_classes|render %}
+{% set c_clasess = content.field_c_classes|render %}
 {% if c_clasess %}
   {% set striped_custom_classes = c_clasess|striptags|lower %}
   {% set split_custom_classes = striped_custom_classes|split(' ') %}
   {% for custom_class in split_custom_classes %}
     {% set clened_custom_class = [ custom_class|clean_class ] %}
     {% set classes = classes|merge(clened_custom_class) %}
-  {%  endfor %}
+  {% endfor %}
 {% endif %}
 
 <section{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
-  {% if content.field_cta[0]['#url'] is not empty %}
+  {% if add_container %}
+  <div class="cog--mq">{% endif %}
+    {{ content|without('field_c_title', 'field_c_subtitle', 'field_cta', 'field_c_size_container', 'field_c_title_status', 'field_c_width', 'field_c_classes', 'field_c_title_html') }}
+    {% if content.field_cta[0]['#url'] is not empty and paragraph_title and paragraph_title_status %}
     {% set link_id = '' %}
     {% if content.field_cta[0]['#options']['attributes']['id'] %}
       {% set link_id = 'id=' ~ content.field_cta[0]['#options']['attributes']['id'] %}
     {% endif %}
-    <a href="{{ content.field_cta[0]['#url'] }}" class="link--full" {{ link_id }}>
-  {% endif %}
-
-  {% if add_container %}<div class="cog--mq">{% endif %}
-    {{ content|without('field_c_title', 'field_c_subtitle', 'field_cta', 'field_c_size_container', 'field_c_title_status', 'field_c_width', 'field_c_classes', 'field_c_title_html') }}
-    <div class="cog--mq banner--container">
-      <div class="{{- c_container_title~ " "~ "cp-banner__heading" }}">
-        {% if paragraph_title and paragraph_title_status %}
-          <div class="cp-banner__title">
-            {% if paragraph_title_html is not empty %}
-              <h2 class="c__title">{{- paragraph_title_html -}}</h2>
-            {% else %}
-              {% if paragraph_title is not empty %}
-                <h2 class="c__title">{{- paragraph_title -}}</h2>
+    <a href="{{ content.field_cta[0]['#url'] }}"
+       class="link--full" {{ link_id }}>
+      {% endif %}
+      <div class="cog--mq banner--container">
+        <div class="{{- c_container_title~ " "~ "cp-banner__heading" }}">
+          {% if paragraph_title and paragraph_title_status %}
+            <div class="cp-banner__title">
+              {% if paragraph_title_html is not empty %}
+                <h2 class="c__title">{{- paragraph_title_html -}}</h2>
+              {% else %}
+                {% if paragraph_title is not empty %}
+                  <h2 class="c__title">{{- paragraph_title -}}</h2>
+                {% endif %}
               {% endif %}
-            {% endif %}
-            {% if paragraph_subtitle is not empty %}
-              <p class="c__subtitle">{{- paragraph_subtitle -}}</p>
-            {% endif %}
-            {% if paragraph_cta is not empty %}
-              <div class="c__cta button button--primary">{{- paragraph_cta -}}</div>
-            {% endif %}
-          </div>
-        {% endif %}
+              {% if paragraph_subtitle is not empty %}
+                <p class="c__subtitle">{{- paragraph_subtitle -}}</p>
+              {% endif %}
+              {% if paragraph_cta is not empty %}
+                <div
+                  class="c__cta button button--primary">{{- paragraph_cta -}}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
       </div>
-    </div>
-  {% if add_container %}</div>{% endif %}
-
-  {% if content.field_cta[0]['#url'] is not empty %}
+      {% if content.field_cta[0]['#url'] is not empty and paragraph_title and paragraph_title_status %}
     </a>
-  {% endif %}
+    {% endif %}
+    {% if add_container %}</div>{% endif %}
 
 </section>
