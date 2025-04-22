@@ -294,7 +294,7 @@ class ClaimNotificationController extends ControllerBase {
     foreach ($terms as $key => $term) {
       $field_city = str_pad($term->field_cod_ciudad->value, 5, "0", STR_PAD_LEFT);
 
-      if ($field_city !== $city) {
+      if ($field_city !== "$city") {
         continue;
       }
 
@@ -305,7 +305,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email->value;
       $filterData[$key]['telefono'] = $term->field_telefono->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal->value;
@@ -333,7 +333,7 @@ class ClaimNotificationController extends ControllerBase {
     foreach ($terms as $key => $term) {
       $field_city = str_pad($term->field_cod_ciudad_nissan->value, 5, "0", STR_PAD_LEFT);
 
-      if ($field_city !== $city) {
+      if ($field_city !== "$city") {
         continue;
       }
 
@@ -344,7 +344,7 @@ class ClaimNotificationController extends ControllerBase {
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_nissan->value;
       $filterData[$key]['ciudad'] = $term->field_ciudad_nissan->value;
-      $filterData[$key]['codCiudad'] = $term->field_cod_ciudad_nissan->value;
+      $filterData[$key]['codCiudad'] = $field_city;
       $filterData[$key]['email'] = $term->field_email_nissan->value;
       $filterData[$key]['telefono'] = $term->field_telefono_nissan->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal_nissan->value;
@@ -374,7 +374,7 @@ class ClaimNotificationController extends ControllerBase {
     foreach ($terms as $key => $term) {
       $field_city = str_pad($term->field_cod_ciudad_renault->value, 5, "0", STR_PAD_LEFT);
 
-      if ($field_city !== $city ||
+      if ($field_city !== "$city" ||
         $term->field_clave_renault->value == 'PENDIENTE'
       ) {
         continue;
