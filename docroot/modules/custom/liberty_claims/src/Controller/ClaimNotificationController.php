@@ -415,18 +415,20 @@ class ClaimNotificationController extends ControllerBase {
   public function getCarShops(int $city, string $brand, int $model, string $type): JsonResponse {
     $result = [];
 
+    $textCity = str_pad($city, 5, "0", STR_PAD_LEFT);
+
     if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
-      $filterData = $this->loadChevroletCarShopsByCity($city);
+      $filterData = $this->loadChevroletCarShopsByCity($textCity);
       $result = $this->filterByConcesionario($filterData, $brand);
     }
 
     if (isset($_SESSION['RCINissan']) && $_SESSION['RCINissan']) {
-      $filterData = $this->loadNissanCarShopsByCity($city);
+      $filterData = $this->loadNissanCarShopsByCity($textCity);
       $result = $this->filterByConcesionario($filterData, $brand);
     }
 
     if (isset($_SESSION['RCIRenault']) && $_SESSION['RCIRenault']) {
-      $filterData = $this->loadRenaultCarShopsByCity($city);
+      $filterData = $this->loadRenaultCarShopsByCity($textCity);
       $result = $this->filterByConcesionario($filterData, $brand);
     }
 
