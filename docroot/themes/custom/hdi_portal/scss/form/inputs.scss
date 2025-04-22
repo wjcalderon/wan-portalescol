@@ -1,6 +1,8 @@
 input[type="text"]:not(.glb-form-text),
 input[type="number"],
+input[type="date"],
 input[type="email"],
+input[type="file"],
 input[type="password"],
 select:not(.glb-form-element),
 textarea:not(.glb-form-element) {
