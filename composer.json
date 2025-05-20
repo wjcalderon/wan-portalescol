@@ -67,6 +67,7 @@
         "drupal/gin_lb": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@RC",
         "drupal/google_analytics": "^4.0",
+        "drupal/gtm": "^1.9",
         "drupal/honeypot": "^2.2",
         "drupal/hreflang": "^1.14",
         "drupal/http_cache_control": "^2.2",
