@@ -406,6 +406,7 @@ class ClaimServices {
 
     $client = new Client([
       'base_uri' => $this->getConnectionData('base_uri'),
+      'timeout' => 360
     ]);
 
     $body = NULL;
