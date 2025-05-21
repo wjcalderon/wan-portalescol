@@ -52,6 +52,11 @@ body {
 
       @include tablet-landscape-up {
         visibility: visible;
+        top: calc(50% + 5rem);
+      }
+
+      @include desktop {
+        top: 50%;
       }
     }
 
