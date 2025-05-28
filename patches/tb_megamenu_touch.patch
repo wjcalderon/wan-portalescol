@@ -1,0 +1,21 @@
+diff --git a/js/tb-megamenu-frontend.js b/js/tb-megamenu-frontend.js
+index f1cb498..6b206d4 100644
+--- a/js/tb-megamenu-frontend.js
++++ b/js/tb-megamenu-frontend.js
+@@ -428,7 +428,7 @@
+           }
+         });
+ 
+-        var isTouch = window.matchMedia('(pointer: coarse)').matches;
++        var isTouch = 'ontouchstart' in window && !(/hp-tablet/gi).test(navigator.appVersion)
+ 
+         if (!isTouch) {
+           var mm_duration = 0;
+@@ -517,6 +517,7 @@
+             var tbitem = $(this).parent();
+ 
+             $item.click(function (event) {
++
+               // If the menu link has already been clicked once...
+               if ($item.hasClass("tb-megamenu-clicked")) {
+                 var $uri = $item.attr("href");

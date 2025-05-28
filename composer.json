@@ -309,7 +309,8 @@
                 "ComponentPluginTranslate::isTranslation() must implement interface": "https://www.drupal.org/files/issues/2019-07-24/isTranslation-null-given.patch"
             },
             "drupal/tb_megamenu": {
-                "Fix submenu rendering": "patches/tb_megamenu.patch"
+                "Fix submenu rendering": "patches/tb_megamenu.patch",
+                "Fix menu hover on touch devices": "patches/tb_megamenu_touch.patch"
             },
             "drupal/seckit": {
                 "Change Feature Policy to Permissions Policy (D8/D9)": "https://www.drupal.org/files/issues/2023-08-11/seckit-3185024-permissions-policy-22_0.patch"
