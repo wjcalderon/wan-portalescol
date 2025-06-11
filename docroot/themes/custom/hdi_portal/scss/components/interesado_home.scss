@@ -37,6 +37,24 @@
           background: transparent url(../../images/arrow-right-black.svg) no-repeat center center;
         }
 
+        .slick-prev {
+          @include phone-only {
+            left: 0;
+          }
+        }
+
+        .slick-next {
+          @include phone-only {
+            left: 0;
+          }
+        }
+
+        .slick__arrow {
+          @include phone-only {
+            width: 78%;
+          }
+        }
+
         .slick__slide {
           display: flex !important;
           flex-direction: column;
