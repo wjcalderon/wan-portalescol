@@ -15,6 +15,7 @@
         "drupal/admin_toolbar": "^3.5",
         "drupal/advagg": "^6.0@alpha",
         "drupal/ape": "^1.6",
+        "drupal/asset_injector": "^2.21",
         "drupal/auto_entitylabel": "^3.3",
         "drupal/autologout": "^2.0",
         "drupal/backup_migrate": "^5.0",

@@ -123,6 +123,7 @@
   h2 {
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 1.5rem;
   }
 
   .h1.text-center {
@@ -171,7 +172,7 @@
     flex-direction: column;
 
     &__image {
-      height: 40%;
+      height: auto;
       overflow: hidden;
       display: flex;
       @include medium {
@@ -184,9 +185,10 @@
         width: 100%;
 
         img {
-          object-fit: cover;
-          height: 100%;
-          width: 100%;
+          object-fit: contain;
+          height: 8rem;
+          margin: 0 auto;
+          width: 60%;
         }
       }
     }
@@ -224,6 +226,11 @@
           padding: 0;
           margin: 0;
         }
+      }
+
+      h3 {
+        text-align: center;
+        padding-bottom: 1rem;
       }
     }
 
@@ -1795,6 +1802,7 @@
         outline: none;
         color: var(--hdi-green-70);
         font-size: 1.125rem;
+        white-space: normal;
 
         &::after {
           content: "";
