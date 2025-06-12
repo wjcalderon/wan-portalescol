@@ -7,7 +7,8 @@
       if (
         $("body").hasClass("js-mobile") ||
         $("body").hasClass("alias--cotiza-en-linea-cotizador-autos") ||
-        $("body").find(".accordion--block").length > 0
+        $("body").find(".accordion--block").length > 0 ||
+        $("body").find(".component__acordeon").length > 0
       ) {
         let accordion = $(".js-accordion");
 
@@ -46,14 +47,15 @@
                 });
 
               acc.addClass("desplegado");
-              acc.next(".js-accordion-options").css("height", "auto");
+              acc.next(".js-accordion-options").css("height", "auto").addClass('is-open');
 
               $(".js-accordion").not(acc).removeClass("desplegado");
               $(".js-accordion")
                 .not(acc)
                 .next(".js-accordion-options")
                 .css("height", 0)
-                .css("overflow", "hidden");
+                .css("overflow", "hidden")
+                removeClass('is-open');
             }
           });
       }
