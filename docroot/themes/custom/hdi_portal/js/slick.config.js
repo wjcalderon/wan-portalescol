@@ -29,7 +29,7 @@
         dots: true,
         arrows: false,
         infinite: true,
-        speed: 300,
+        speed: 1200,
         centerMode: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -39,7 +39,7 @@
         dots: true,
         arrows: false,
         infinite: true,
-        speed: 300,
+        speed: 1200,
         centerMode: false,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -130,7 +130,7 @@
         .not(".slick-initialized")
         .slick({
           infinite: true,
-          speed: 300,
+          speed: 800,
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
@@ -161,7 +161,7 @@
 
       $(".component__card-person-list .field__items").slick({
         infinite: true,
-        speed: 500,
+        speed: 800,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
