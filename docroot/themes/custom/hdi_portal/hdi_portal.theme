@@ -80,7 +80,6 @@ function hdi_portal_preprocess_html(&$variables)
   $variables['#attached']['library'][] = 'hdi_portal/accordion';
   $variables['#attached']['library'][] = 'hdi_portal/forms';
   $variables['#attached']['library'][] = 'hdi_portal/nav';
-  $variables['#attached']['library'][] = 'hdi_portal/splidejs';
 
   $path = \Drupal::service('path.current')->getPath();
   $alias = trim(\Drupal::service('path_alias.manager')

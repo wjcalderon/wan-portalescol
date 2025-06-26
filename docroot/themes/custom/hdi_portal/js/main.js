@@ -167,10 +167,10 @@
 
         if ($("body").hasClass("alias--oficinas")) {
           image.url =
-            "/themes/custom/liberty_public/images/icons/icon-oficina.svg";
+            "/themes/custom/hdi_portal/images/icons/icon-oficina.svg";
         } else {
           image.url =
-            "/themes/custom/liberty_public/images/icons/pin-map-red.svg";
+            "/themes/custom/hdi_portal/images/icons/pin-map-red.svg";
         }
         centerLati += 0.002;
         if ($("body").hasClass("alias--nuestras-oficinas")) {
