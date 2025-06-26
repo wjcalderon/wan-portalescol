@@ -63,7 +63,7 @@ class MedicalNetworkBlock extends BlockBase implements
 
     $currentPath = \Drupal::request()->getSchemeAndHttpHost();
 
-    $renderable = [
+    return [
       '#theme' => 'medical_network',
       '#attached' => [
         'library' => ['lib_red_medica/main'],
@@ -86,8 +86,6 @@ class MedicalNetworkBlock extends BlockBase implements
         ],
       ],
     ];
-
-    return $renderable;
   }
 
   /**
