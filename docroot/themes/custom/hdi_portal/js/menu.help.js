@@ -57,6 +57,8 @@
         })
 
         let modal_fallback = $(".modal-link-fallback-popup");
+        const slickSlider = $(".component.component__slider .cog--items.slick-initialized");
+
         if (!modal_fallback.hasClass("modal-close")) {
           if (modal_fallback.length > 0) {
             // Get dates
@@ -80,6 +82,10 @@
             }
           }
         } else {
+          if (modal_fallback) {
+            slickSlider.slick('slickPause');
+          }
+
           $("#blocks-necesecitas-ayuda")
             .addClass("is-fixed-global")
             .removeClass("is-hidden");
@@ -89,6 +95,10 @@
             .on("click", function () {
               $("#blocks-necesecitas-ayuda").removeClass("is-fixed-global");
               modal_fallback.addClass("is-hidden");
+
+              if (modal_fallback) {
+                slickSlider.slick('slickPlay');
+              }
             });
         }
       });
@@ -134,7 +144,7 @@
             close_btn = "";
           } else {
             close_btn =
-              '<div class="head-modal"><span id="close-mb" class="close"><img src="/themes/custom/liberty_public/images/icons/close.svg"></span></div>';
+              '<div class="head-modal"><span id="close-mb" class="close"><img src="/themes/custom/hdi_portal/images/close.svg" alt="Cerrar"></span></div>';
             block_help.find(".field--name-field-banner").prepend(close_btn);
           }
 

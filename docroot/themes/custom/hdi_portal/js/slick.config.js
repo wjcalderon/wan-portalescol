@@ -6,7 +6,7 @@
         dots: false,
         arrows: true,
         infinite: false,
-        speed: 800,
+        speed: 1200,
         slidesToShow: 3,
         slidesToScroll: 3,
         prevArrow: '<button type="button" class="slick-prev">Previous</button>',
