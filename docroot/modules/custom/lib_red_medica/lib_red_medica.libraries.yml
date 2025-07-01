@@ -5,6 +5,5 @@ main:
   css:
     component:
       app/dist/css/app.css: {}
-      app/dist/css/chunk-vendors.css: {}
   dependencies:
     - core/drupalSettings

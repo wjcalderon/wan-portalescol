@@ -79,7 +79,7 @@
 }
 
 .startButtonWrapper .uiButton--default:hover, .startButtonWrapper .uiButton--default:focus, .startButtonWrapper .uiButton--default.is-selected {
-    background: #99E5EA !important; 
+    background: #99E5EA !important;
 }
 
 .uiButton--default.is-selected .label:after {
@@ -115,7 +115,7 @@
 /*-------------------Top Bar Spacing----------------*/
 @media screen and (min-width: 979px) {
     #header__zona-usuario {
-	padding: 0 4rem; 
+	padding: 0 4rem;
     }
 }
 
@@ -140,7 +140,7 @@
 }
 
 .agentInitial {
-    background-image: url(/themes/custom/liberty_public/images/logo-liberty.svg);
+    background-image: url(/themes/custom/hdi_portal/images/logo.svg);
 }
 
 .embeddedServiceLiveAgentStateChatInputFooter.dynamicResizeTextOneRow .chasitorText {
@@ -194,7 +194,7 @@
 
 @media screen and (max-width:480px) {
     .embeddedServiceLiveAgentStateChatAction.uiButton {
-        height: initial;	
+        height: initial;
     }
 
     .embeddedServiceLiveAgentStateChatInputFooter .fileInfo {

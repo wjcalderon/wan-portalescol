@@ -1,0 +1,13 @@
+@import '../../mixins/responsive.scss';
+
+&.component__view--productos {
+  &.cog__items--center {
+    .component__content {
+      .cog--flex {
+        @include tablet-landscape-up {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
