@@ -1,0 +1,21 @@
+&.cards--situacion-discapacidad {
+  .component__content {
+    .cog--items {
+      justify-content: space-evenly;
+      margin-top: 1.5rem;
+
+      .component__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        min-height: 20rem;
+
+        .card__img--oval {
+          flex: 0 0 7rem;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
