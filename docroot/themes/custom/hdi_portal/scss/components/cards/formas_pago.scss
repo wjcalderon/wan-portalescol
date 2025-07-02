@@ -1,3 +1,5 @@
+@import '../../mixins/responsive.scss';
+
 &.component__cards--formas-pago {
   .component__content {
     .cog--items {
@@ -15,7 +17,11 @@
           margin: 1rem auto;
 
           svg {
-            height: 2rem;
+            height: 2.5rem;
+
+            @include tablet-landscape-up {
+              height: 2rem;
+            }
           }
         }
 
