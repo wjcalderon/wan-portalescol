@@ -76,7 +76,7 @@
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
-            infinite: true,
+            infinite: false,
             touchMove: true,
             variableWidth: true,
           });
