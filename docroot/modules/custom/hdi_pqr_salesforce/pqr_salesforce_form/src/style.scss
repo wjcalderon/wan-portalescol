@@ -249,6 +249,16 @@
       }
     }
 
+    .file-error {
+      display: inline-block;
+      background-color: var(--hdi-red);
+      padding: 1rem 5rem;
+      margin: 1rem 0 0;
+      border-radius: 3px;
+      color: var(--white);
+      font-weight: bold;
+    }
+
     .uploaded-files {
       background-color: var(--white);
       border: 1px solid var(--gray-40);
