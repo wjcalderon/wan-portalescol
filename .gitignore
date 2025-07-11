@@ -129,6 +129,7 @@ nbproject/*
 *.gz
 *.sql
 *.zip
+*.mysql
 
 # PHPStorm
 atlassian-ide-plugin.xml

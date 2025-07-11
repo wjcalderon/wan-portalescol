@@ -49,9 +49,9 @@ const UploadFiles = ({ handleChange }) => {
       handleChange([...uploadedFiles, ...fileList])
     }, [uploadedFiles, handleChange])
 
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+  const { acceptedFiles,fileRejections, getRootProps, getInputProps } = useDropzone({
     accept: fileTypes,
-    maxSize: 20971520, // 20MB
+    maxSize: 4194304, // 4MB
     maxFiles: 10,
     onDrop,
   })
@@ -72,7 +72,7 @@ const UploadFiles = ({ handleChange }) => {
           <input {...getInputProps()} />
           <p>Arrastra archivos para adjuntar o <span>búscalos en tu equipo</span></p>
           <span>
-            <strong>Peso máximo permitido 20 MB.</strong> Formatos permitidos: .PDF, .JPG, .JPEG, .PNG, .MP4, .DOC, .DOCX, .XLS,. XLSX, .BMP, .MP3 y .MSG
+            <strong>Peso máximo permitido 4 MB.</strong> Formatos permitidos: .PDF, .JPG, .JPEG, .PNG, .MP4, .DOC, .DOCX, .XLS,. XLSX, .BMP, .MP3 y .MSG
           </span>
         </div>
       </section>
@@ -98,6 +98,13 @@ const UploadFiles = ({ handleChange }) => {
           <span className='bottom-text'>Arrastra más archivos para adjuntar o <i>búscalos en tu equipo</i></span>
         </section>
       }
+
+      {!isPending && fileRejections.length > 0 &&
+        <span className="file-error">
+          El archivo excede el tamaño maximo permitido.
+        </span>
+      }
+
     </div>
   )
 }
