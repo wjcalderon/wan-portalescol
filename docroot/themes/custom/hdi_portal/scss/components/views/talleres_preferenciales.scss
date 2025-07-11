@@ -97,7 +97,7 @@
           }
         }
 
-        &:is(.views-field-field-nombre) {
+        &:is(.views-field-field-nombre), &:is(.views-field-field-contacto) {
           &::before {
             background-image: url(../../images/ingresar-mb.svg);
           }
