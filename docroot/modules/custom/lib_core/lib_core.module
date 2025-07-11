@@ -87,9 +87,10 @@ function lib_core_form_views_exposed_form_alter(&$form, FormStateInterface $form
 {
   $view = $form_state->get('view');
 
-  if ($view->id() == 'talleres') {
+  if ($view->id() == 'talleres' || $view->id() == 'cda' || $view->id() == 'duplicado_de_talleres') {
     $cities = $form['field_ubicacion_target_id']['#options'];
     asort($cities);
+    $cities['All'] = t('Filtra por tu ciudad');
     $form['field_ubicacion_target_id']['#options'] = $cities;
   }
 }
