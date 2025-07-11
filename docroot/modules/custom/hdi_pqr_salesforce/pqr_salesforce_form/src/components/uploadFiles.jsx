@@ -72,7 +72,7 @@ const UploadFiles = ({ handleChange }) => {
           <input {...getInputProps()} />
           <p>Arrastra archivos para adjuntar o <span>búscalos en tu equipo</span></p>
           <span>
-            <strong>Peso máximo permitido 4 MB.</strong> Formatos permitidos: .PDF, .JPG, .JPEG, .PNG, .MP4, .DOC, .DOCX, .XLS,. XLSX, .BMP, .MP3 y .MSG
+            <strong>Peso máximo permitido 4 MB por archivo.</strong> Formatos permitidos: .PDF, .JPG, .JPEG, .PNG, .MP4, .DOC, .DOCX, .XLS,. XLSX, .BMP, .MP3 y .MSG
           </span>
         </div>
       </section>
