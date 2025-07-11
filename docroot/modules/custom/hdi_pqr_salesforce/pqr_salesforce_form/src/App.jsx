@@ -144,7 +144,7 @@ const App = () => {
       'PQR_DescripcionCiudad__c': city,
       'PQR_Direccion__c': address,
       'PQR_CelularContacto__c': phone,
-      'SSP_Sexo__c': documentType === 'NIT' ? 'No aplica' : gender,
+      'SSP_Sexo__c': gender,
       'SSP_AutorizacionTratamientoDatoSensibles__c': termsConditions,
       'description': description,
       'SFPQR_Producto__c': product,
