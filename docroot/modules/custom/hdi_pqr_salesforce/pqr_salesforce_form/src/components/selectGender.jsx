@@ -5,7 +5,8 @@ import { useEffect, useRef, useState } from 'react'
 const genderList = {
   'Masculino': 'Masculino',
   'Femenino': 'Femenino',
-  'No aplica': 'Prefiero no decir',
+  'No binario': 'No binario',
+  'No aplica': 'No aplica',
 }
 
 const SelectGender = ({ type, error, handleChange }) => {

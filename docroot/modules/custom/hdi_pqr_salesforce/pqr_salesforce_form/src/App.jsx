@@ -229,7 +229,6 @@ const App = () => {
           />
         }
 
-
         <InputField
           ref={nameRef}
           label="Ingresa tu nombre completo"
@@ -271,7 +270,7 @@ const App = () => {
           toolTipText="Por este canal generamos la respuesta a tu caso"
           setState={setEmail}
           error={errors.email}
-          />
+        />
 
         <SelectCity
           ref={cityRef}
