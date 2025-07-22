@@ -910,3 +910,9 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+
+if (getenv('AH_SITE_ENVIRONMENT') === 'local' || getenv('AH_SITE_ENVIRONMENT') === 'dev') {
+  if (getenv('Redis_host') && getenv('Redis_port')) {
+    include $app_root . '/' . $site_path . '/redis.settings.php';
+  }
+}

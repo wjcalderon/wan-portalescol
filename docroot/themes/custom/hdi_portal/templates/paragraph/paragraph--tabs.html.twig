@@ -75,7 +75,8 @@
 {# Add custom paragraph CSS class(es). #}
 {%  set c_clasess = content.field_c_classes|render %}
 {% set js_slider_class = false %}
-{% set select_mobile_class = false %}
+{% set select_mobile_class = 'cog--flex' %}
+{% set is_mobile = false %}
 {% set popup_class = false %}
 {% if c_clasess %}
 	{% set striped_custom_classes = c_clasess|striptags|lower %}
@@ -87,7 +88,8 @@
 		{% endif %}
 
 		{% if custom_class|trim == 'component__tab--content-select-mb' %}
-			{% set select_mobile_class = true %}
+			{% set select_mobile_class = 'cog--mq cog--flex is-desktop' %}
+      {% set is_mobile = true %}
 		{% endif %}
 
 		{% if custom_class|trim == 'popup-no-tabs' %}
@@ -119,78 +121,66 @@
 
 	<div class="component__content cp-cards__list siniestros_card">
 		<div class="cp-tabs {{ striped_custom_classes|trim }}">
-			{% if select_mobile_class %}
-				<div class="cog--mq cog--flex is-desktop">
-				{% else %}
-					<div class="cog--flex">
-					{% endif %}
-					<ul class="cog--mq main-links header-tabs">
-						{% for key, item in paragraph_tabs['#items'] %}
-						  {% set id_key = item.entity.id.value ?? key %}
-							<li>
-								{% if item.entity.field_cta is not empty %}
-									<div
-										class="component__card">
+        <ul class="{{ select_mobile_class|trim }} main-links header-tabs">
+          {% for key, item in paragraph_tabs['#items'] %}
+            {% set id_key = item.entity.id.value ?? key %}
+            <li>
+              {% if item.entity.field_cta is not empty %}
+                <div class="component__card">
+                  {# Button tabs #}
+                  {% if item.entity.field_image is not empty %}
+                    {% if item.entity.field_class_wrapper_image is not empty %}
+                      <div class="{{ item.entity.field_class_wrapper_image.value }}">
+                      {% endif %}
+                      <img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
+                      {% if item.entity.field_class_wrapper_image is not empty %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                  {% if item.entity.field_name is not empty %}
+                    <h4 class="name">{{ item.entity.field_name.value }}</h4>
+                  {% endif %}
+                  {% if item.entity.field_lead is not empty %}
+                    <p class="lead">{{ item.entity.field_lead.value }}</p>
+                  {% endif %}
+                  <p class="cta">
+                    {% if popup_class %}
+                      <a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
+                    {% elseif item.entity.field_c_classes.0.value == 'popup-no-tabs' %}
+                      <a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs">{{ item.entity.field_cta.0.title }}</a>
 
-										{# Button tabs #}
-										{% if item.entity.field_image is not empty %}
-											{% if item.entity.field_class_wrapper_image is not empty %}
-												<div class="{{ item.entity.field_class_wrapper_image.value }}">
-												{% endif %}
-												<img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
+                    {% elseif item.entity.field_c_classes.0.value == 'external' %}
+                      <a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs" id="external">{{ item.entity.field_cta.0.title }}</a>
+                    {% else %}
+                      <a href="#tab-{{id_key}}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
+                    {% endif %}
+                  </p>
+                </div>
+              {% else %}
+                {# Normal tabs #}
+                <div class="normal-tab">
+                  <a href="#tab-{{id_key}}" title="{{ item.entity.field_name.value }}">
+                    {% if item.entity.field_image is not empty %}
+                      {% if item.entity.field_class_wrapper_image is not empty %}
+                        <div class="{{ item.entity.field_class_wrapper_image.value }}">
+                      {% endif %}
+                        <img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
+                      {% if item.entity.field_class_wrapper_image is not empty %}
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                    {% if item.entity.field_name is not empty %}
+                      {{ item.entity.field_name.value }}
+                    {% endif %}
+                  </a>
+                </div>
+              {% endif %}
+            </li>
 
-												{% if item.entity.field_class_wrapper_image is not empty %}
-												</div>
-											{% endif %}
-										{% endif %}
-										{% if item.entity.field_name is not empty %}
-											<h4 class="name">{{ item.entity.field_name.value }}</h4>
-										{% endif %}
-										{% if item.entity.field_lead is not empty %}
-											<p class="lead">{{ item.entity.field_lead.value }}</p>
-										{% endif %}
-										<p class="cta">
+          {% endfor %}
+        </ul>
 
-											{% if popup_class %}
-												<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
-											{% elseif item.entity.field_c_classes.0.value == 'popup-no-tabs' %}
-												<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs">{{ item.entity.field_cta.0.title }}</a>
-
-											{% elseif item.entity.field_c_classes.0.value == 'external' %}
-												<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs" id="external">{{ item.entity.field_cta.0.title }}</a>
-											{% else %}
-												<a href="#tab-{{id_key}}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
-											{% endif %}
-										</p>
-									</div>
-								{% else %}
-									{# Normal tabs #}
-									<div class="normal-tab">
-										<a href="#tab-{{id_key}}" title="{{ item.entity.field_name.value }}">
-
-											{% if item.entity.field_image is not empty %}
-												{% if item.entity.field_class_wrapper_image is not empty %}
-													<div class="{{ item.entity.field_class_wrapper_image.value }}">
-												{% endif %}
-													<img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
-												{% if item.entity.field_class_wrapper_image is not empty %}
-													</div>
-												{% endif %}
-											{% endif %}
-											{% if item.entity.field_name is not empty %}
-												{{ item.entity.field_name.value }}
-											{% endif %}
-										</a>
-									</div>
-								{% endif %}
-
-							</li>
-
-						{% endfor %}
-					</ul>
-				</div>
-
-				{% if select_mobile_class %}
+				{% if is_mobile %}
 					<div class="component__heading--mb is-mobile">
 						<div class="cog--mq">
 							<div class="form-item">
