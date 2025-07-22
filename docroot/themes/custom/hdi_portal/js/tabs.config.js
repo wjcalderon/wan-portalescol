@@ -115,7 +115,7 @@
           .stop(true, true)
           .animate(
             {
-              scrollTop: $(strAncla).offset().top - 70,
+              scrollTop: $(strAncla).offset().top - 100,
             },
             1000
           );
@@ -214,7 +214,7 @@
         let menu = $(".is-shorcut .main-links");
         if (menu.length > 0) {
           let menuFixed = Math.ceil(menu.offset().top),
-            menuFixedheight = menuFixed - 10;
+            menuFixedheight = menuFixed - 20;
 
           $(window).scroll(function () {
             let windowHeight = $(window).scrollTop();
@@ -224,12 +224,14 @@
                 .parent(".cog--mq")
                 .addClass("is-fixed")
                 .css("margin-bottom", "5.25rem");
+              $('body').addClass('menu-fixed')
             } else {
               menu
                 .removeClass("fixed")
                 .parent(".cog--mq")
                 .removeClass("is-fixed")
                 .css("margin-bottom", "");
+              $('body').removeClass('menu-fixed')
             }
           });
         }
@@ -243,7 +245,7 @@
             menu.find("div.tabs").each(function () {
               let el = $(this),
                 id = el.attr("id"),
-                menuFixed = Math.ceil(el.offset().top) - 80,
+                menuFixed = Math.ceil(el.offset().top) - 150,
                 menuFixedheight = menuFixed,
                 windowHeight = $(window).scrollTop();
 
@@ -266,7 +268,6 @@
         let strAncla = $(this).attr("href"); //id del ancla
 
         let pop2 = $(strAncla).offset().top;
-        console.log(pop2);
         $("html, body")
           .stop(true, true)
           .animate(

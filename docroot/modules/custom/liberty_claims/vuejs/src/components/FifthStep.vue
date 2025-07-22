@@ -25,8 +25,7 @@
           </div> -->
 
           <div class="alert">
-            <strong>Recomendamos realizar el ingreso de tu vehículo en los próximos 10 días,
-              recuerda contactar al taller para coordinar el ingreso</strong>
+            <strong>Recomendamos realizar el ingreso de tu vehículo dentro de los próximos 10 días, recuerda contactar al taller para coordinar el ingreso</strong>
           </div>
         </div>
       </div>
