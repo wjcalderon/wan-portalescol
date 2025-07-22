@@ -9,12 +9,22 @@
       margin: 2rem 0 4rem;
     }
 
-    .header-tabs {
+    &.header-tabs {
       align-items: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
       width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1500;
+      margin: 1rem auto 0;
+
+      &.ui-tabs-nav {
+        position: relative;
+        margin: 2rem 0 4rem;
+        border-bottom: 1px solid var(--gray-10);
+      }
 
       @include tablet-landscape-up {
         flex-direction: row;
@@ -30,10 +40,10 @@
         }
 
         a {
-          padding: 1.5625rem 0;
+          padding: 1.5rem 3rem;
 
           @include phone-only {
-            padding: 1rem 0;
+            padding: 1rem;
           }
 
           &.active {
@@ -44,21 +54,10 @@
 
       &.fixed {
         background: var(--white);
-        position: fixed;
-        top: 0;
-        z-index: 1;
 
         @include phone-only {
           flex-direction: row;
         }
-
-        li {
-          padding: 1rem;
-        }
-      }
-
-      .slick-track {
-
       }
     }
   }
