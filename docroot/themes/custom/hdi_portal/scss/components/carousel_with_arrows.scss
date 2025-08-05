@@ -1,0 +1,141 @@
+@import '../mixins/responsive.scss';
+
+.component__drupal-view {
+
+    .component__view--news {
+        .component__heading {
+            h2 {
+                font-size: 2rem;
+
+                @include phone-only {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        .component__content {
+            .views-element-container {
+                .slick-list {
+                    min-height: 24rem;
+                }
+
+                .slick-prev,
+                .slick-next {
+                    background-size: 51px;
+                    height: 51px;
+                    top: calc(50% - 4rem);
+                    width: 51px;
+                }
+
+                .slick-prev::before {
+                    background: transparent url(../../images/arrow-left-black.svg) no-repeat center center;
+                }
+
+                .slick-next:before {
+                    background: transparent url(../../images/arrow-right-black.svg) no-repeat center center;
+                }
+
+                .slick-prev {
+                    @include phone-only {
+                        left: 0;
+                    }
+                }
+
+                .slick-next {
+                    @include phone-only {
+                        left: 0;
+                    }
+                }
+
+                .slick__arrow {
+                    @include phone-only {
+                        width: 78%;
+                    }
+                }
+
+                .slick__slide {
+                    display: flex !important;
+                    flex-direction: column;
+                    justify-content: center;
+                    min-height: 23rem;
+                    padding-bottom: 2rem;
+                    text-align: center;
+
+                    &:hover {
+                        background-color: var(--white);
+                        box-shadow: 0px 3px 8px var(--hdi-gray-40);
+                        border-radius: 3px;
+
+                        @include phone-only {
+                            background-color: none;
+                            box-shadow: none;
+                            border-radius: none;
+                        }
+
+                    }
+
+                    .views-field-field-icon {
+                        flex: 1;
+                        margin-bottom: 1.25rem;
+
+                        @include phone-only {
+                            flex: none;
+                            margin-bottom: 2rem;
+                        }
+
+                        .card__img--oval {
+                            height: 8.75rem;
+                            margin: 2rem auto 0;
+                            position: relative;
+                            width: 8.75rem;
+
+                            img {
+                                left: calc(50% - 2.2rem);
+                                position: absolute;
+                                top: calc(50% - 2.2rem);
+                                width: 4.4375rem;
+                            }
+                        }
+                    }
+
+                    .views-field-name {
+                        flex: 1;
+
+                        h3 {
+                            color: var(--hdi-green);
+                            font-size: 1.5rem;
+                            width: 13rem;
+
+                            @include tablet-landscape-up {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .views-field-description__value {
+                        flex: 1;
+                        padding: 0 3rem;
+
+                        @include phone-only {
+                            padding: 0 3rem 2rem;
+                        }
+
+                        .field-content {
+                            p {
+                                color: var(--hdi-gray);
+                            }
+                        }
+                    }
+
+                    .views-field-field-cta {
+                        flex: 1;
+
+                        .button--inverse {
+                            border: 1px solid var(--hdi-universal-green);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
