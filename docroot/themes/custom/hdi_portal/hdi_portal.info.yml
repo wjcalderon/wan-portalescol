@@ -35,6 +35,7 @@ regions:
   footer_terminos: "Footer terminos"
   blocks_activate: "Blocks Activate"
   blocks_popups: "Blocks Popups"
+  hidden_region: "Hidden"
 
 stylesheets-remove:
   - core/assets/vendor/jquery.ui/themes/base/tabs.css

@@ -1,0 +1,26 @@
+.component__columns.column-60-36 {
+    .component__content {
+        .cog--mq {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .component__column {
+                flex: 0 0 60%;
+                max-width: 60%;
+
+                &:nth-child(2) {
+                    flex: 0 0 36%;
+                    max-width: 36%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .component__column {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
