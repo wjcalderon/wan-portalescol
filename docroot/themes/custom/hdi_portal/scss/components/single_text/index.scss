@@ -36,6 +36,10 @@
     }
   }
 
+  &.single-link-button {
+    text-align: center
+  }
+
   @import './single_text_cotiza.scss';
   @import './single_text_interesado.scss';
   @import './single_text_responsabilidad.scss';

@@ -1,26 +1,20 @@
-.component__columns.column-60-36 {
-    .component__content {
-        .cog--mq {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+@import "../../mixins/responsive.scss";
+
+
+.component__columns.column-news-blog {
+    .component__content.columns-container {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            padding: 0 6rem;
 
             .component__column {
-                flex: 0 0 60%;
-                max-width: 60%;
-
-                &:nth-child(2) {
-                    flex: 0 0 36%;
-                    max-width: 36%;
-                }
+                padding: 1rem;
             }
 
-            @media (max-width: 768px) {
-                .component__column {
-                    flex: 0 0 100%;
-                    max-width: 100%;
-                }
+            @include phone-only {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+                row-gap: 1rem;
             }
-        }
     }
 }

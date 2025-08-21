@@ -17,20 +17,23 @@
         .component__content {
             .views-element-container {
                 .slick-list {
-                    
-                    min-height: 24rem;
 
                     .slick-track {
                         display: flex;
                         gap: 1.063rem;
                     }
+                }
 
-                    @include phone-only {
-                        .slick-list {
-                            padding: 0 !important;
-                            .slick-track {
-                                gap: 0;
-                            }
+                @include phone-only {
+                    .custom-carousel {
+                        margin-bottom: 4rem;
+                    }
+                    .slick-list {
+                        padding: 0;
+                        margin-bottom: 1rem;
+
+                        .slick-track {
+                            gap: 0;
                         }
                     }
                 }

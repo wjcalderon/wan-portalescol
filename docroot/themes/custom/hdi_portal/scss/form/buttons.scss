@@ -166,4 +166,10 @@
   &--third {
     color: var(--white) !important;
   }
+
+  &--link {
+    color: var(--hdi-green);
+    background-color: var(--white);
+    border-color: var(--hdi-universal-green);
+  }
 }

@@ -1,17 +1,14 @@
-<div class="content-wrapper blog-news">
+<div class="content-wrapper blog-news__destacado-preview">
     <div class="field field-image">
         {{ content.field_big_image }}
     </div>
     
     <div class="text-container">
-
-        <div class="field-category">
-            {{ content.field_category[0]['#plain_text'] }}
-        </div>       
+        
         <div class="field-label">
             {{ node.label }}
         </div>
-
+        
         {% if title_prefix or title_suffix or display_submitted or unpublished or (not page and label) %}
         {{ title_prefix }}
 
