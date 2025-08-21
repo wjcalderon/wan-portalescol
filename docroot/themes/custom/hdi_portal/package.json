@@ -6,6 +6,11 @@
   "author": "Jonathan Esquivel<jonathan.esquivel@hdiseguros.com.co>",
   "license": "private",
   "private": true,
+  "scripts":{
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "clean": "gulp clean"
+  },
   "devDependencies": {
     "delete": "^1.1.0",
     "gulp": "^5.0.0",

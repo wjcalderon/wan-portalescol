@@ -33,4 +33,4 @@ function watchSassJs() {
 
 exports.build = series(clean, parallel(compileScss, javascript))
 exports.clean = clean
-exports.watch = series(clean, watchSassJs)
+exports.watch = series(clean, parallel(compileScss, javascript), watchSassJs)

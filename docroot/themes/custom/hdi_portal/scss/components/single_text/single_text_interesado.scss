@@ -23,3 +23,24 @@
     }
   }
 }
+
+&--cotizar-seguro {
+  padding: 1rem 3rem;
+  .component__content {
+    padding: 1rem 2rem 4rem;
+    align-items: center;
+    p:first-of-type {
+      font-size: 1.125rem;
+      padding: 0 0 1rem;
+    }
+
+    h6 {
+      margin: 3rem 0;
+    }
+
+    img {
+      width: 2.583rem;
+      height: 2.629rem;
+    }
+  }
+}
