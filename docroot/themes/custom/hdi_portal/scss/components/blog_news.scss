@@ -37,6 +37,12 @@
     }
   }
 
+  &.blog-news__with-social-networks {
+    @include phone-only {
+      margin-bottom: 2.188rem;
+    }
+  }
+
   &.blog-news__destacado-preview,
   &.blog-news__with-social-networks {
     cursor: default;
@@ -49,6 +55,18 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+
+    @include phone-only {
+      .field.field-image img {
+        height: 13.25rem;
+      }
+
+      .text-container {
+        padding: 1.438rem;
+        border-radius: 0 0 0.188rem 0.188rem;
+        box-shadow: 0 0 0.75rem var(--shadow);
       }
     }
   }
@@ -64,14 +82,17 @@
     .field-image img {
       height: 18.75rem;
     }
+    @include phone-only {
+      margin: 2.063rem 0;
+    }
   }
 
   &.blog-news,
   &.blog-news__destacado-preview,
   &.blog-news__with-social-networks {
-
     .field-image img {
       width: 100%;
+      border-radius: 0.188rem 0.188rem 0 0;
 
       @include phone-only {
         height: auto;
@@ -98,7 +119,7 @@
           font-size: 0.875rem;
         }
       }
-      
+
       .field-summary {
         color: var(--gray);
         font-size: 1rem;
@@ -125,10 +146,9 @@
 
 .component__drupal-view.featured-news {
   padding: 0 6rem 2.5rem;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 
   .component__heading {
-    
     .component__title {
       text-align: left;
       color: var(--hdi-green);
@@ -137,5 +157,56 @@
       margin: 0;
     }
   }
-  
+
+  @include phone-only {
+    padding: 1.688rem;
+
+    .component__heading {
+      .component__title {
+        padding-top: 1.938rem;
+      }
+    }
+  }
+}
+
+.component__drupal-view {
+  &.featured-news,
+  &.news-list {
+      @include phone-only {
+        .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+    }
+  }
+}
+
+.blog-news__full {
+  margin-bottom: 2.188rem;
+
+  .news-container {
+    padding: 0 6.8rem;
+
+    .field-created {
+      font-size: 1rem;
+      color: #c0bfc0;
+      margin-top: 1.594rem;
+    }
+    .field-category {
+      font-size: 1.125rem;
+      color: var(--hdi-green);
+      margin: 1.25rem 0;
+    }
+  }
+
+  @include phone-only {
+    .news-container {
+      padding: 0 2.438rem;
+
+      .field-created {
+        margin-top: 1.438rem;
+      }
+    }
+  }
 }
