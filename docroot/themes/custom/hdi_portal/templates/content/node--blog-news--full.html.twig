@@ -1,0 +1,23 @@
+  <div class="content blog-news__full">
+    <section class="component component__banner news-blog-banner cp-banner">
+        <div class="cp-banner__image">
+            {{ content.field_big_image }}
+        </div>
+        <div class="cog--mq banner--container">
+            <div class="cp-banner__heading">
+                <div class="cp-banner__title">
+                    <h1 class="c__title">{{ content.title[0]['#title']['#context']['value'] }} </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="content news-container">
+        <div class="field-created">
+         {{ content.created[0]['#text'] }}
+        </div>
+        <div class="field-category">
+            {{ content.field_category[0]['#plain_text'] }}
+        </div>
+        {{ content.body }}
+    </div>
+</div>
