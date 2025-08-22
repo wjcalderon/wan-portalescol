@@ -1,4 +1,6 @@
-  <div class="content blog-news__full">
+{{dump(content)}}
+
+<article class="content blog-news__full">
     <section class="component component__banner news-blog-banner cp-banner">
         <div class="cp-banner__image">
             {{ content.field_big_image }}
@@ -11,13 +13,33 @@
             </div>
         </div>
     </section>
-    <div class="content news-container">
-        <div class="field-created">
+    <section class="content news-container">
+      <div class="content-data">
+        <span class="field-created">
          {{ content.created[0]['#text'] }}
-        </div>
-        <div class="field-category">
+        </span>
+        <span class="field-category">
             {{ content.field_category[0]['#plain_text'] }}
-        </div>
+        </span>
+      </div>
+
+      <section class="news-blog-content">
         {{ content.body }}
-    </div>
-</div>
+      </section>
+
+      <section class="news-blog-footer">
+        <div class="field-social">
+
+          <div class="social-share">
+            share <span class="a2a_counter"></span>
+
+            <div class="social-share-links">
+              {{ drupal_block("social_sharing_buttons_block") }}
+            </div>
+          </div>
+
+          {{ content.likeit }}
+        </div>
+      </section>
+    </section>
+</article>
