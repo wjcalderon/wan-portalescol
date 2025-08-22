@@ -98,6 +98,7 @@
         "drupal/lightning_layout": "^3.0",
         "drupal/lightning_media": "^5.0",
         "drupal/lightning_workflow": "^4.0",
+        "drupal/likeit": "^3.1",
         "drupal/link_attributes": "^2.1",
         "drupal/link_class": "^2.1",
         "drupal/linkit": "^6.1",
@@ -332,6 +333,9 @@
             },
             "drupal/lightning_media": {
                 "The mapping definition is not accurate": "patches/mapping-definition-entity-browser-upload-validators-3456919.patch"
+            },
+            "drupal/likeit": {
+                "Fix module basic functions": "patches/likeit.patch"
             }
         },
         "patches-ignore": {
