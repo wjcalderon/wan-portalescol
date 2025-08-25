@@ -50,4 +50,10 @@
   @include phone-only {
     margin: 1.563rem 1.375rem;
   }
+
+  @include tablet-portrait-up {
+   .component__content {
+    padding-bottom: .2rem;
+   }
+  }
 }

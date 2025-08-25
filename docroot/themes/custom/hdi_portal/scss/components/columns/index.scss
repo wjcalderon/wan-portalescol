@@ -2,14 +2,6 @@
 
 .component__columns.column-news-blog {
   .component__content.columns-container {
-    display: grid;
-    grid-template-columns: 65% 35%;
-    padding: 0 6rem;
-
-    .component__column {
-      padding: 1rem;
-    }
-
     @include phone-only {
       grid-template-columns: 1fr;
       padding: 0 1rem;
@@ -17,6 +9,26 @@
 
       .component__column {
         padding: 0;
+      }
+    }
+
+    @include tablet-portrait-up {
+      grid-template-columns: 1fr;
+      padding: 0;
+      row-gap: 1rem;
+
+      .component__column {
+        padding: 0;
+      }
+    }
+
+    @include tablet-landscape-up {
+      display: grid;
+      grid-template-columns: 65% 35%;
+      padding: 0 6rem;
+
+      .component__column {
+        padding: 1rem;
       }
     }
   }

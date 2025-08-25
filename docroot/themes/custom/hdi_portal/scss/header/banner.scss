@@ -38,6 +38,10 @@ body {
       height: 30rem;
     }
 
+    @include tablet-portrait-up {
+      height: auto;
+    }
+
     @include tablet-landscape-up {
       height: auto;
       margin-bottom: unset;
@@ -170,14 +174,14 @@ body {
   }
 
   .component__banner.news-blog-banner {
-    padding: 0 6.8rem;
 
     .cp-banner__image {
       height: 300px;
     }
     .banner--container {
-      left: 48%;
-      top: 1.5rem;
+      width: 80%;
+      left: 42rem;
+      top: 2rem;
 
       .cp-banner__heading {
         padding: 0.8rem 2.5rem;
@@ -214,6 +218,22 @@ body {
         height: auto;
       }
     }
+    
+    @include tablet-portrait-up {
+      padding: 0 2rem;
+      .banner--container {
+        width: 40%;
+        left: 15.5rem;
+      }
+    }
+
+    @include tablet-landscape-up {
+      padding: 0 6.8rem;
+      .banner--container {
+        left: 35rem;
+      }
+    }
+    
   }
 
   .slider-news-blog {
