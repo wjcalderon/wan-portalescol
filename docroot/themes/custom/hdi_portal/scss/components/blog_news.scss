@@ -48,7 +48,7 @@
     cursor: default;
 
     .text-container {
-      padding: 1rem 1rem 2rem 0;
+      padding: 1rem 0 2rem 0;
       text-align: left;
 
       .link {
@@ -83,7 +83,7 @@
       height: 18.75rem;
     }
     @include phone-only {
-      margin: 2.063rem 0;
+      margin: 1rem 0;
     }
   }
 
@@ -142,77 +142,15 @@
       }
     }
   }
-}
 
-.component__drupal-view.featured-news {
-  padding: 0 6rem 2.5rem;
-  background-color: #f5f5f5;
-
-  .component__heading {
-    .component__title {
-      text-align: left;
-      color: var(--hdi-green);
-      font-size: 2rem;
-      padding: 4.563rem 0 1.875rem;
-      margin: 0;
-    }
-  }
-
-  @include phone-only {
-    padding: 1.688rem;
-
-    .component__heading {
-      .component__title {
-        padding-top: 1.938rem;
-      }
-    }
-  }
-}
-
-.component__drupal-view {
-  &.featured-news,
-  &.news-list {
-      @include phone-only {
-        .views-view-responsive-grid.views-view-responsive-grid--horizontal {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 10px;
-        }
-    }
-  }
-}
-
-.blog-news__full {
-  margin-bottom: 2.188rem;
-
-  .news-container {
-    padding: 0 6.8rem;
-
-    .news-blog-content, .content-data, .news-blog-footer .likeit {
-      font-family: var(--hdi-font);
-    }
-
-    .content-data {
-      display: block;
-      margin-top: 1.594rem;
-
-      .field-created {
-        font-size: 1rem;
-        color: #c0bfc0;
-      }
-      .field-category {
-        font-size: 1.125rem;
-        color: var(--hdi-green);
-        display: block;
-        margin: 1.25rem 0;
-      }
-    }
-
+  &.blog-news__full,
+  &.blog-news__destacado-preview,
+  &.blog-news__with-social-networks {
     .news-blog-footer {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
-      margin: 1rem 0 5rem;
+      margin: 1rem 0;
 
       .field-social {
         align-items: center;
@@ -227,7 +165,7 @@
           &:hover {
             .like {
               .icon-like {
-                stroke: var(--hdi-universal-green)
+                stroke: var(--hdi-universal-green);
               }
             }
 
@@ -240,20 +178,20 @@
           .like {
             .icon-like {
               width: 1rem;
-              stroke: var(--hdi-gray-50)
+              stroke: var(--hdi-gray-50);
             }
           }
 
           .likeit__count {
             color: var(--hdi-gray-50);
-            font-size: .85rem;
+            font-size: 0.85rem;
           }
         }
 
         .social-share {
           color: var(--hdi-gray-50);
           cursor: pointer;
-          font-size: .85rem;
+          font-size: 0.85rem;
           position: relative;
           display: block;
           width: 1rem;
@@ -292,22 +230,23 @@
             top: -3rem;
 
             &::after {
-              border-color: var(--overlay-news) transparent transparent transparent;
+              border-color: var(--overlay-news) transparent transparent
+                transparent;
               border-style: solid;
               border-width: 9px;
               content: " ";
               position: absolute;
-              right: .5rem;
+              right: 0.5rem;
               top: 100%;
-          }
+            }
 
             .block-social-sharing-buttons-block {
               .social-sharing-buttons {
                 margin: unset;
-                padding: 0 .5rem;
+                padding: 0 0.5rem;
 
                 a {
-                  padding: .5rem .25rem;
+                  padding: 0.5rem 0.25rem;
 
                   svg {
                     border: 1px solid var(--white);
@@ -323,16 +262,137 @@
         }
       }
     }
+    .text-container_title_and_social {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &.blog-news__full {
+    margin-bottom: 2.188rem;
+
+    .news-container {
+      .news-blog-footer {
+        margin: 1rem 0 5rem;
+      }
+      .news-blog-content,
+      .content-data,
+      .news-blog-footer .likeit {
+        font-family: var(--hdi-font);
+      }
+
+      .content-data {
+        display: block;
+        margin-top: 1.594rem;
+
+        .field-created {
+          font-size: 1rem;
+          color: #c0bfc0;
+        }
+        .field-category {
+          font-size: 1.125rem;
+          color: var(--hdi-green);
+          display: block;
+          margin: 1.25rem 0;
+        }
+      }
+    }
+
+    @include phone-only {
+      .news-container {
+        padding: 0 2.438rem;
+
+        .content-data {
+          .field-created {
+            margin-top: 1.438rem;
+          }
+        }
+      }
+    }
+
+    @include tablet-portrait-up {
+      .news-container {
+        padding: 0 2.188rem;
+      }
+    }
+
+    @include tablet-landscape-up {
+      .news-container {
+        padding: 0 6.8rem;
+      }
+    }
+  }
+}
+
+.component__drupal-view.featured-news {
+  background-color: #f5f5f5;
+
+  .component__heading {
+    .component__title {
+      text-align: left;
+      color: var(--hdi-green);
+      font-size: 2rem;
+      padding: 4.563rem 0 1.875rem;
+      margin: 0;
+    }
   }
 
   @include phone-only {
-    .news-container {
-      padding: 0 2.438rem;
+    padding: 1.688rem;
 
-      .content-data {
-        .field-created {
-          margin-top: 1.438rem;
-        }
+    .component__heading {
+      .component__title {
+        padding-top: 1.938rem;
+      }
+    }
+  }
+
+  @include tablet-portrait-up {
+    padding: 1.688rem;
+    .component__heading {
+      .component__title {
+        padding-top: 0.563rem;
+      }
+    }
+    .component__content {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  @include tablet-landscape-up {
+    padding: 0 6rem 2.5rem;
+
+    .component__content {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
+
+.component__drupal-view {
+  &.featured-news,
+  &.news-list {
+    @include phone-only {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    @include tablet-portrait-up {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @include tablet-landscape-up {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }

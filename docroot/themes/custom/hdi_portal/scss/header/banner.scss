@@ -38,6 +38,10 @@ body {
       height: 30rem;
     }
 
+    @include tablet-portrait-up {
+      height: auto;
+    }
+
     @include tablet-landscape-up {
       height: auto;
       margin-bottom: unset;
@@ -170,14 +174,14 @@ body {
   }
 
   .component__banner.news-blog-banner {
-    padding: 0 6.8rem;
 
     .cp-banner__image {
       height: 300px;
     }
     .banner--container {
-      left: 48%;
-      top: 1.5rem;
+      width: 80%;
+      left: 42rem;
+      top: 2rem;
 
       .cp-banner__heading {
         padding: 0.8rem 2.5rem;
@@ -195,7 +199,7 @@ body {
 
       .cog--mq.banner--container {
         left: 45%;
-        margin-top: 7.938rem;
+        margin-top: 7.438rem;
         height: auto;
 
         .cp-banner__heading {
@@ -214,6 +218,24 @@ body {
         height: auto;
       }
     }
+    
+    @include tablet-portrait-up {
+      padding: 0 2rem;
+      margin-bottom: 1rem;
+      
+      .banner--container {
+        width: 40%;
+        left: 15.5rem;
+      }
+    }
+
+    @include tablet-landscape-up {
+      padding: 0 6.8rem;
+      .banner--container {
+        left: 35rem;
+      }
+    }
+    
   }
 
   .slider-news-blog {
@@ -222,7 +244,7 @@ body {
       margin-bottom: 2.563rem;
 
       .component__banner.news-blog-banner .cog--mq.banner--container {
-        margin-top: 7rem;
+        margin-top: 6.5rem;
       }
     }
   }

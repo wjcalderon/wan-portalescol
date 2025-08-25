@@ -1,43 +1,44 @@
-<article class="content blog-news__full">
-    <section class="component component__banner news-blog-banner cp-banner">
-        <div class="cp-banner__image">
-            {{ content.field_big_image }}
+<article class="content content-wrapper blog-news__full">
+  <section class="component component__banner news-blog-banner cp-banner">
+    <div class="cp-banner__image">
+      {{ content.field_big_image }}
+    </div>
+    <div class="cog--mq banner--container">
+      <div class="cp-banner__heading">
+        <div class="cp-banner__title">
+          <h1 class="c__title">
+            {{ content.title[0]["#title"]["#context"]["value"] }}
+          </h1>
         </div>
-        <div class="cog--mq banner--container">
-            <div class="cp-banner__heading">
-                <div class="cp-banner__title">
-                    <h1 class="c__title">{{ content.title[0]['#title']['#context']['value'] }} </h1>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="content news-container">
-      <div class="content-data">
-        <span class="field-created">
-         {{ content.created[0]['#text'] }}
-        </span>
-        <span class="field-category">
-            {{ content.field_category[0]['#plain_text'] }}
-        </span>
       </div>
+    </div>
+  </section>
+  <section class="content news-container">
+    {{ drupal_entity("block", "hdi_portal_breadcrumbs_2") }}
+    <div class="content-data">
+      <span class="field-created">
+        {{ content.created[0]["#text"] }}
+      </span>
+      <span class="field-category">
+        {{ content.field_category[0]["#plain_text"] }}
+      </span>
+    </div>
 
-      <section class="news-blog-content">
-        {{ content.body }}
-      </section>
-
-      <section class="news-blog-footer">
-        <div class="field-social">
-
-          <div class="social-share">
-            share <span class="a2a_counter"></span>
-
-            <div class="social-share-links">
-              {{ drupal_block("social_sharing_buttons_block") }}
-            </div>
-          </div>
-
-          {{ content.likeit }}
-        </div>
-      </section>
+    <section class="news-blog-content">
+      {{ content.body }}
     </section>
+
+    <section class="news-blog-footer">
+      <div class="field-social">
+        <div class="social-share">
+          share <span class="a2a_counter"></span>
+
+          <div class="social-share-links">
+            {{ drupal_block("social_sharing_buttons_block") }}
+          </div>
+        </div>
+        {{ content.likeit }}
+      </div>
+    </section>
+  </section>
 </article>

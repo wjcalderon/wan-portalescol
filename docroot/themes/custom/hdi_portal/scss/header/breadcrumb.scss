@@ -3,8 +3,6 @@
 body {
   #block-hdi-portal-breadcrumbs,
   #block-hdi-portal-breadcrumbs-2 {
-    padding: 1rem 6.8rem;
-
     ol {
       display: flex;
       justify-content: left;
@@ -44,7 +42,7 @@ body {
   }
 
   #block-hdi-portal-breadcrumbs-2 {
-      display: none;
+    display: none;
   }
 
   @include phone-only {
@@ -54,6 +52,24 @@ body {
     #block-hdi-portal-breadcrumbs-2 {
       display: block;
       padding: 0 2.188rem;
+      margin-top: 2rem;
+    }
+    .news-container  #block-hdi-portal-breadcrumbs-2 {
+      padding: 0;
+    }
+  }
+
+  @include tablet-portrait-up {
+    #block-hdi-portal-breadcrumbs,
+    #block-hdi-portal-breadcrumbs-2 {
+      padding: 1rem 1.938rem;
+    }
+  }
+
+  @include tablet-landscape-up {
+    #block-hdi-portal-breadcrumbs,
+    #block-hdi-portal-breadcrumbs-2 {
+      padding: 1rem 6.8rem;
     }
   }
 }
