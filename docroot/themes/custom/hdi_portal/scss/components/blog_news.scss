@@ -83,7 +83,7 @@
       height: 18.75rem;
     }
     @include phone-only {
-      margin: 2.063rem 0;
+      margin: 1rem 0;
     }
   }
 
@@ -273,8 +273,6 @@
     margin-bottom: 2.188rem;
 
     .news-container {
-      padding: 0 6.8rem;
-
       .news-blog-footer {
         margin: 1rem 0 5rem;
       }
@@ -310,6 +308,18 @@
             margin-top: 1.438rem;
           }
         }
+      }
+    }
+
+    @include tablet-portrait-up {
+      .news-container {
+        padding: 0 2.188rem;
+      }
+    }
+
+    @include tablet-landscape-up {
+      .news-container {
+        padding: 0 6.8rem;
       }
     }
   }
@@ -381,7 +391,7 @@
     }
 
     @include tablet-landscape-up {
-     .views-view-responsive-grid.views-view-responsive-grid--horizontal {
+      .views-view-responsive-grid.views-view-responsive-grid--horizontal {
         grid-template-columns: 1fr 1fr 1fr;
       }
     }

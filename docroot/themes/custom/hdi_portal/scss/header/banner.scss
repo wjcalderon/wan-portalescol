@@ -199,7 +199,7 @@ body {
 
       .cog--mq.banner--container {
         left: 45%;
-        margin-top: 7.938rem;
+        margin-top: 7.438rem;
         height: auto;
 
         .cp-banner__heading {
@@ -221,6 +221,8 @@ body {
     
     @include tablet-portrait-up {
       padding: 0 2rem;
+      margin-bottom: 1rem;
+      
       .banner--container {
         width: 40%;
         left: 15.5rem;
@@ -242,7 +244,7 @@ body {
       margin-bottom: 2.563rem;
 
       .component__banner.news-blog-banner .cog--mq.banner--container {
-        margin-top: 7rem;
+        margin-top: 6.5rem;
       }
     }
   }
