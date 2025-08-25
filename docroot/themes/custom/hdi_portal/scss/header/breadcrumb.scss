@@ -1,44 +1,59 @@
+@import "../mixins/responsive.scss";
+
 body {
-  #block-hdi-portal-breadcrumbs {
-    left: 10rem;
-    position: absolute;
-    top: 1rem;
-    z-index: 2;
+  #block-hdi-portal-breadcrumbs,
+  #block-hdi-portal-breadcrumbs-2 {
+    padding: 1rem 6.8rem;
 
     ol {
       display: flex;
-      justify-content: space-between;
-      width: calc(100% + 1.5rem);
+      justify-content: left;
+      gap: 1.563rem;
 
       li {
         font-family: "HDI Pro";
         position: relative;
-
-        &::after {
-          color: var(--white);
-          content: "/";
-          font-weight: bolder;
-          position: absolute;
-          right: -1rem;
-          top: 0;
-        }
-
-        &:last-of-type::after {
-          content: unset;
-        }
+        font-size: 1rem;
 
         a {
+          color: var(--gray);
           font-size: 1rem;
-          font-weight: bolder;
-          color: var(--white);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: -1.625rem;
+          top: 0.375rem;
+          height: 0.75rem;
+          width: 1.813rem;
+          background: transparent url(../../images/breadcrumb-arrow.svg)
+            no-repeat center center;
+          background-size: 0.563rem;
+        }
+
+        &:last-of-type {
+          color: var(--hdi-blue-90);
+
+          &::after {
+            content: unset;
+          }
         }
       }
     }
   }
 
-  &.frontpage {
+  #block-hdi-portal-breadcrumbs-2 {
+      display: none;
+  }
+
+  @include phone-only {
     #block-hdi-portal-breadcrumbs {
       display: none;
+    }
+    #block-hdi-portal-breadcrumbs-2 {
+      display: block;
+      padding: 0 2.188rem;
     }
   }
 }

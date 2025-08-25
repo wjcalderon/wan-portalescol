@@ -1,156 +1,155 @@
-@import '../mixins/responsive.scss';
+@import "../mixins/responsive.scss";
 
 .component__drupal-view {
+  &.component__view--news {
+    .component__heading {
+      h2 {
+        font-size: 2rem;
 
-    &.component__view--news {
-
-        .component__heading {
-            h2 {
-                font-size: 2rem;
-
-                @include phone-only {
-                    font-size: 1.6rem;
-                }
-            }
+        @include phone-only {
+          font-size: 1.6rem;
         }
-
-        .component__content {
-            .views-element-container {
-                .slick-list {
-
-                    .slick-track {
-                        display: flex;
-                        gap: 1.063rem;
-                    }
-                }
-
-                @include phone-only {
-                    .custom-carousel {
-                        margin-bottom: 4rem;
-                    }
-                    .slick-list {
-                        padding: 0;
-                        margin-bottom: 1rem;
-
-                        .slick-track {
-                            gap: 0;
-                        }
-                    }
-                }
-
-                .slick-prev,
-                .slick-next {
-                    background-size: 3.188rem;
-                    height: 3.188rem;
-                    top: calc(50% - 1rem);
-                    width: 3.188rem;
-                }
-
-                .slick-prev::before {
-                    background: transparent url(../../images/arrow-left-black.svg) no-repeat center center;
-                }
-
-                .slick-next:before {
-                    background: transparent url(../../images/arrow-right-black.svg) no-repeat center center;
-                }
-
-                .slick-prev {
-                    @include phone-only {
-                        left: 0;
-                    }
-                }
-
-                .slick-next {
-                    @include phone-only {
-                        left: 0;
-                    }
-                }
-
-                .slick__arrow {
-                    @include phone-only {
-                        width: 78%;
-                    }
-                }
-
-                .slick__slide {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    min-height: 23rem;
-                    text-align: center;
-
-                    &:hover {
-                        background-color: var(--white);
-                    }
-
-                    .views-field-field-icon {
-                        flex: 1;
-                        margin-bottom: 1.25rem;
-
-                        @include phone-only {
-                            flex: none;
-                            margin-bottom: 2rem;
-                        }
-
-                        .card__img--oval {
-                            height: 8.75rem;
-                            margin: 2rem auto 0;
-                            position: relative;
-                            width: 8.75rem;
-
-                            img {
-                                left: calc(50% - 2.2rem);
-                                position: absolute;
-                                top: calc(50% - 2.2rem);
-                                width: 4.4375rem;
-                            }
-                        }
-                    }
-
-                    .views-field-name {
-                        flex: 1;
-
-                        h3 {
-                            color: var(--hdi-green);
-                            font-size: 1.5rem;
-                            width: 13rem;
-
-                            @include tablet-landscape-up {
-                                width: 100%;
-                            }
-                        }
-                    }
-
-                    .views-field-description__value {
-                        flex: 1;
-                        padding: 0 3rem;
-
-                        @include phone-only {
-                            padding: 0 3rem 2rem;
-                        }
-
-                        .field-content {
-                            p {
-                                color: var(--hdi-gray);
-                            }
-                        }
-                    }
-
-                    .views-field-field-cta {
-                        flex: 1;
-
-                        .button--inverse {
-                            border: 0.063rem solid var(--hdi-universal-green);
-                        }
-                    }
-                }
-
-                .slick-slide{
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-            }
-        }
+      }
     }
+
+    .component__content {
+      .views-element-container {
+        .slick-list {
+          .slick-track {
+            display: flex;
+            gap: 1.063rem;
+          }
+        }
+
+        .slick-prev,
+        .slick-next {
+          background-size: 3.188rem;
+          height: 3.188rem;
+          top: calc(50% - 1rem);
+          width: 3.188rem;
+        }
+
+        .slick-prev::before {
+          background: transparent url(../../images/arrow-left-black.svg)
+            no-repeat center center;
+        }
+
+        .slick-next:before {
+          background: transparent url(../../images/arrow-right-black.svg)
+            no-repeat center center;
+        }
+
+        .slick-prev {
+          @include phone-only {
+            left: 0;
+          }
+        }
+
+        .slick-next {
+          @include phone-only {
+            left: 0;
+          }
+        }
+
+        .slick__arrow {
+          @include phone-only {
+            width: 78%;
+          }
+        }
+
+        .slick__slide {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 23rem;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          &:hover {
+            background-color: var(--white);
+          }
+
+          .views-field-field-icon {
+            flex: 1;
+            margin-bottom: 1.25rem;
+
+            @include phone-only {
+              flex: none;
+              margin-bottom: 2rem;
+            }
+
+            .card__img--oval {
+              height: 8.75rem;
+              margin: 2rem auto 0;
+              position: relative;
+              width: 8.75rem;
+
+              img {
+                left: calc(50% - 2.2rem);
+                position: absolute;
+                top: calc(50% - 2.2rem);
+                width: 4.4375rem;
+              }
+            }
+          }
+
+          .views-field-name {
+            flex: 1;
+
+            h3 {
+              color: var(--hdi-green);
+              font-size: 1.5rem;
+              width: 13rem;
+
+              @include tablet-landscape-up {
+                width: 100%;
+              }
+            }
+          }
+
+          .views-field-description__value {
+            flex: 1;
+            padding: 0 3rem;
+
+            @include phone-only {
+              padding: 0 3rem 2rem;
+            }
+
+            .field-content {
+              p {
+                color: var(--hdi-gray);
+              }
+            }
+          }
+
+          .views-field-field-cta {
+            flex: 1;
+
+            .button--inverse {
+              border: 0.063rem solid var(--hdi-universal-green);
+            }
+          }
+        }
+
+        @include phone-only {
+          .custom-carousel {
+            margin-bottom: 2rem;
+          }
+          .slick-list {
+            padding: 0;
+            margin-bottom: 1rem;
+
+            .slick-track {
+              gap: 0;
+            }
+          }
+
+          .slick__slide {
+            min-height: auto;
+          }
+        }
+      }
+    }
+  }
 }
