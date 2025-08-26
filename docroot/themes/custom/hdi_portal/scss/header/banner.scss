@@ -232,6 +232,7 @@ body {
     @include tablet-landscape-up {
       padding: 0 6.8rem;
       .banner--container {
+        width: 46rem;
         left: 35rem;
       }
     }
