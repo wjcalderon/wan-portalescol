@@ -405,18 +405,18 @@
       }
 
       // News share
-      $(".news-blog-footer .field-social").on(
-        "click",
-        ".social-share",
-        function () {
+      $(".news-blog-footer .social-share").each(function () {
+        $(this).on("click", function (e) {
+          e.preventDefault();
+
           const $parent = $(this).closest(".field-social");
           const $links = $parent.find(".social-share-links");
 
           $(".news-blog-footer .social-share-links").not($links).hide();
 
           $links.toggle();
-        }
-      );
+        });
+      });
     },
   };
 })(jQuery, Drupal, this, this.document);
