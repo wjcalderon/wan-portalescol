@@ -220,3 +220,31 @@ function lib_core_createsubmit($webform_data) {
 function lib_core_preprocess_node(&$variables) {
   $variables['#attached']['library'][] = "lib_core/lib_core";
 }
+
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function lib_core_views_data_alter(&$data) {
+$data['likeit']['table']['group'] = 'Like It';
+  $data['likeit']['table']['join'] = [
+    'node_field_data' => [
+      'left_field' => 'nid',
+      'field' => 'target_entity_id',
+      'extra' => [
+        [
+          'field' => 'target_entity_type',
+          'value' => 'node',
+        ],
+      ],
+    ],
+  ];
+
+  // Definir un criterio de ordenación "Número de likes".
+  $data['likeit']['target_entity_id']['sort'] = [
+    'title' => 'Number of likes',
+    'help' => 'Sort nodes by the number of likes',
+    'id' => 'standard',
+    'aggregate' => TRUE,
+  ];
+}

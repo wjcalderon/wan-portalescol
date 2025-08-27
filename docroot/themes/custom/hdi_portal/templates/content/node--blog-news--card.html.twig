@@ -1,0 +1,30 @@
+<div class="content-wrapper blog-news">
+    <div class="field field-image">
+        {{ content.field_big_image }}
+    </div>
+    
+    <div class="text-container">
+
+        <div class="field-category">
+            {{ content.field_category[0]['#plain_text'] }}
+        </div>       
+        <div class="field-label">
+            {{ node.label }}
+        </div>
+
+        {% if title_prefix or title_suffix or display_submitted or unpublished or (not page and label) %}
+        {{ title_prefix }}
+
+        {% if not page and label %}
+        <h3{{ title_attributes }}>
+            <a href="{{ url }}">{{ label }}</a>
+            </h3>
+            {% endif %}
+            {{ title_suffix }}
+            {% endif %}
+            <div class="field-summary">
+                {{ content.body[0]['#text']}}
+            </div>
+            <a href="{{ url }}" class="blog-news__link link">Leer más</a>
+    </div>
+</div>

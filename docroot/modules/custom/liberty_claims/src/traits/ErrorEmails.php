@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Send email in case a request fail.
  */
-trait ErrorEmails {
+trait ErrorEmails
+{
 
   /**
    * Send notificacion error email for IAXIS.
@@ -21,7 +22,8 @@ trait ErrorEmails {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   Response for email trasaction.
    */
-  public function sendEmailErrorIaxis(array $info, string $error): JsonResponse {
+  public function sendEmailErrorIaxis(array $info, string $error): JsonResponse
+  {
     $path = 'http://127.0.0.1';
     $client = new Client(['base_uri' => $path]);
 
@@ -44,7 +46,7 @@ trait ErrorEmails {
 
     $body = "Buen día,\n
         Al momento de crear el siniestro en IAXIS en el flujo de asegurado hubo un error.\n" .
-    " La información relevante para su creación manual es:
+      " La información relevante para su creación manual es:
         Que te pasó: " . ($quetepaso[$info['tellus']] ?? 'Tipo de reclamo desconocido') . "
         Fecha y hora: {$info['date']}
         Siniestro: 0
@@ -77,8 +79,12 @@ trait ErrorEmails {
     $to = $config->get('email_send');
     $langcode = 'es';
     $send = TRUE;
+    $result = ['result' => true];
 
-    $result = $this->mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
+    // Siniestro duplicado
+    if (!str_contains($error, '#17')) {
+      $result = $this->mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
+    }
 
     return new JsonResponse([
       'result' => $result['result'],
@@ -98,14 +104,15 @@ trait ErrorEmails {
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   Response for email trasaction.
    */
-  public function sendEmailErrorSipo(array $data, string $data_taller = "", string $error): JsonResponse {
+  public function sendEmailErrorSipo(array $data, string $data_taller = "", string $error): JsonResponse
+  {
     $date = date('d/m/Y');
 
     $subject = 'Error creación siniestro SIPO - #' . $data['caso']['numeroSiniestroiAxis'];
 
     $body = "Buen día,\n
         Al momento de crear el siniestro en SIPO, el flujo de asegurado presentó un error.\n" .
-    " La información relevante para su creación manual es:
+      " La información relevante para su creación manual es:
         Número de caso de Iaxis: {$data['caso']['numeroSiniestroiAxis']}
         Datos del asegurado: {$data['asegurado']['nombre']}
         Placa: {$data['vehiculo']['placa']}

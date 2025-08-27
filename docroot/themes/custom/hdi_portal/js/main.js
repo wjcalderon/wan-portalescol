@@ -27,7 +27,7 @@
         checkWindowWidth();
       });
 
-      $('.link-hdi-tools').on('click', function(e) {
+      $('.link-hdi-tools').on('click', function (e) {
         const hash = this.hash
         e.preventDefault()
         $('html, body').animate({
@@ -178,11 +178,11 @@
         }
         let map = new google.maps.Map(document.getElementById("map"), {
           zoom: 16,
-          center: { lat: centerLati, lng: lngi },
+          center: {lat: centerLati, lng: lngi},
         });
 
         let beachMarker = new google.maps.Marker({
-          position: { lat: lati, lng: lngi },
+          position: {lat: lati, lng: lngi},
           optimized: false,
           map: map,
           icon: image,
@@ -208,61 +208,61 @@
         if (el.hasClass("mapaSucursal")) {
           $("#infomap").html(
             "<div class='content__infomap'>" +
-              '<div class="tooltip"><span class="tooltiptext">' +
-              counter +
-              "</span></div>" +
-              '<span class="close"></span><h2>' +
-              title +
-              "</h2>" +
-              '<div class="info">\n' +
-              '<div class="info-right">\n' +
-              '  <p class="red__direccion"><span>' +
-              direc +
-              "</span></p>\n" +
-              '  <p class="red__telefonos"><span class="name-element-office">Tel\xE9fonos</span>' +
-              tel +
-              "</p>\n" +
-              '  <p class="horarios"> \n' +
-              '<span style="\n' +
-              "    display: block;\n" +
-              '">Horario de atenci\xF3n</span>\n' +
-              "" +
-              schedule +
-              "\n" +
-              "</p>\n" +
-              "</div>\n" +
-              "</div>"
+            '<div class="tooltip"><span class="tooltiptext">' +
+            counter +
+            "</span></div>" +
+            '<span class="close"></span><h2>' +
+            title +
+            "</h2>" +
+            '<div class="info">\n' +
+            '<div class="info-right">\n' +
+            '  <p class="red__direccion"><span>' +
+            direc +
+            "</span></p>\n" +
+            '  <p class="red__telefonos"><span class="name-element-office">Tel\xE9fonos</span>' +
+            tel +
+            "</p>\n" +
+            '  <p class="horarios"> \n' +
+            '<span style="\n' +
+            "    display: block;\n" +
+            '">Horario de atenci\xF3n</span>\n' +
+            "" +
+            schedule +
+            "\n" +
+            "</p>\n" +
+            "</div>\n" +
+            "</div>"
           );
         } else {
           if (el.hasClass("payment_points")) {
             $("#infomap").html(
               "<div class='content__infomap'>" +
-                '<span class="close"></span>' +
-                "<h2>" +
-                title +
-                "</h2>" +
-                '<div class="info">' +
-                '<div class="red__direccion">' +
-                '<p class="info-right">' +
-                direc +
-                "</p>" +
-                "</div>" +
-                '<p class="red__telefonos">' +
-                tel +
-                "</p>" +
-                "</div></div></div>"
+              '<span class="close"></span>' +
+              "<h2>" +
+              title +
+              "</h2>" +
+              '<div class="info">' +
+              '<div class="red__direccion">' +
+              '<p class="info-right">' +
+              direc +
+              "</p>" +
+              "</div>" +
+              '<p class="red__telefonos">' +
+              tel +
+              "</p>" +
+              "</div></div></div>"
             );
           } else {
             $("#infomap").html(
               "<div class='content__infomap'>" +
-                '<span class="close"></span>' +
-                "<h2>" +
-                title +
-                "</h2>" +
-                "<p>" +
-                direc +
-                "</p>" +
-                "</div>"
+              '<span class="close"></span>' +
+              "<h2>" +
+              title +
+              "</h2>" +
+              "<p>" +
+              direc +
+              "</p>" +
+              "</div>"
             );
           }
         }
@@ -330,6 +330,7 @@
           $(".js-accordion-options").css("overflow", "hidden");
         }
       );
+
       //Ajustes
 
       function clickSection(button) {
@@ -349,6 +350,7 @@
         //     }
         // });
       }
+
       clickSection(".component__form--red-medica .component__content");
 
       // workshops filter
@@ -400,6 +402,12 @@
         let label_adjuntar = $(this).find("label").html();
         label_adjuntar = label_adjuntar + "<br>";
       }
+
+      // News share
+      $('.news-blog-footer .field-social').on('click', '.social-share', function () {
+        $('.social-share-links').toggle()
+      })
+
     },
   };
 })(jQuery, Drupal, this, this.document);
