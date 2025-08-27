@@ -27,13 +27,16 @@
         checkWindowWidth();
       });
 
-      $('.link-hdi-tools').on('click', function (e) {
-        const hash = this.hash
-        e.preventDefault()
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 300)
-      })
+      $(".link-hdi-tools").on("click", function (e) {
+        const hash = this.hash;
+        e.preventDefault();
+        $("html, body").animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          300
+        );
+      });
 
       // external links open in new window.
       $(".link__external").attr("target", "_blank");
@@ -53,20 +56,20 @@
       });
 
       // Search box
-      const buscadorGlobal = $('#buscador')
-      const buscardorText = buscadorGlobal.find('.form-autocomplete.form-text')
+      const buscadorGlobal = $("#buscador");
+      const buscardorText = buscadorGlobal.find(".form-autocomplete.form-text");
 
       buscadorGlobal
-        .on('click', () => {
-          $('#block-hdi-portal-menusecundario').addClass('is-hidden')
-          buscadorGlobal.addClass('buscador__input--activo')
+        .on("click", () => {
+          $("#block-hdi-portal-menusecundario").addClass("is-hidden");
+          buscadorGlobal.addClass("buscador__input--activo");
         })
-        .on('blur, focusout', buscardorText, () => {
-          if (buscardorText.val() === undefined || buscardorText.val() === '') {
-            $('#block-hdi-portal-menusecundario').removeClass('is-hidden')
-            buscadorGlobal.removeClass('buscador__input--activo')
+        .on("blur, focusout", buscardorText, () => {
+          if (buscardorText.val() === undefined || buscardorText.val() === "") {
+            $("#block-hdi-portal-menusecundario").removeClass("is-hidden");
+            buscadorGlobal.removeClass("buscador__input--activo");
           }
-        })
+        });
 
       let urlParam = function (name) {
         let results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
@@ -166,11 +169,9 @@
         }
 
         if ($("body").hasClass("alias--oficinas")) {
-          image.url =
-            "/themes/custom/hdi_portal/images/icons/icon-oficina.svg";
+          image.url = "/themes/custom/hdi_portal/images/icons/icon-oficina.svg";
         } else {
-          image.url =
-            "/themes/custom/hdi_portal/images/icons/pin-map-red.svg";
+          image.url = "/themes/custom/hdi_portal/images/icons/pin-map-red.svg";
         }
         centerLati += 0.002;
         if ($("body").hasClass("alias--nuestras-oficinas")) {
@@ -178,11 +179,11 @@
         }
         let map = new google.maps.Map(document.getElementById("map"), {
           zoom: 16,
-          center: {lat: centerLati, lng: lngi},
+          center: { lat: centerLati, lng: lngi },
         });
 
         let beachMarker = new google.maps.Marker({
-          position: {lat: lati, lng: lngi},
+          position: { lat: lati, lng: lngi },
           optimized: false,
           map: map,
           icon: image,
@@ -208,61 +209,61 @@
         if (el.hasClass("mapaSucursal")) {
           $("#infomap").html(
             "<div class='content__infomap'>" +
-            '<div class="tooltip"><span class="tooltiptext">' +
-            counter +
-            "</span></div>" +
-            '<span class="close"></span><h2>' +
-            title +
-            "</h2>" +
-            '<div class="info">\n' +
-            '<div class="info-right">\n' +
-            '  <p class="red__direccion"><span>' +
-            direc +
-            "</span></p>\n" +
-            '  <p class="red__telefonos"><span class="name-element-office">Tel\xE9fonos</span>' +
-            tel +
-            "</p>\n" +
-            '  <p class="horarios"> \n' +
-            '<span style="\n' +
-            "    display: block;\n" +
-            '">Horario de atenci\xF3n</span>\n' +
-            "" +
-            schedule +
-            "\n" +
-            "</p>\n" +
-            "</div>\n" +
-            "</div>"
+              '<div class="tooltip"><span class="tooltiptext">' +
+              counter +
+              "</span></div>" +
+              '<span class="close"></span><h2>' +
+              title +
+              "</h2>" +
+              '<div class="info">\n' +
+              '<div class="info-right">\n' +
+              '  <p class="red__direccion"><span>' +
+              direc +
+              "</span></p>\n" +
+              '  <p class="red__telefonos"><span class="name-element-office">Tel\xE9fonos</span>' +
+              tel +
+              "</p>\n" +
+              '  <p class="horarios"> \n' +
+              '<span style="\n' +
+              "    display: block;\n" +
+              '">Horario de atenci\xF3n</span>\n' +
+              "" +
+              schedule +
+              "\n" +
+              "</p>\n" +
+              "</div>\n" +
+              "</div>"
           );
         } else {
           if (el.hasClass("payment_points")) {
             $("#infomap").html(
               "<div class='content__infomap'>" +
-              '<span class="close"></span>' +
-              "<h2>" +
-              title +
-              "</h2>" +
-              '<div class="info">' +
-              '<div class="red__direccion">' +
-              '<p class="info-right">' +
-              direc +
-              "</p>" +
-              "</div>" +
-              '<p class="red__telefonos">' +
-              tel +
-              "</p>" +
-              "</div></div></div>"
+                '<span class="close"></span>' +
+                "<h2>" +
+                title +
+                "</h2>" +
+                '<div class="info">' +
+                '<div class="red__direccion">' +
+                '<p class="info-right">' +
+                direc +
+                "</p>" +
+                "</div>" +
+                '<p class="red__telefonos">' +
+                tel +
+                "</p>" +
+                "</div></div></div>"
             );
           } else {
             $("#infomap").html(
               "<div class='content__infomap'>" +
-              '<span class="close"></span>' +
-              "<h2>" +
-              title +
-              "</h2>" +
-              "<p>" +
-              direc +
-              "</p>" +
-              "</div>"
+                '<span class="close"></span>' +
+                "<h2>" +
+                title +
+                "</h2>" +
+                "<p>" +
+                direc +
+                "</p>" +
+                "</div>"
             );
           }
         }
@@ -404,10 +405,18 @@
       }
 
       // News share
-      $('.news-blog-footer .field-social').on('click', '.social-share', function () {
-        $('.social-share-links').toggle()
-      })
+      $(".news-blog-footer .field-social").on(
+        "click",
+        ".social-share",
+        function () {
+          const $parent = $(this).closest(".field-social");
+          const $links = $parent.find(".social-share-links");
 
+          $(".news-blog-footer .social-share-links").not($links).hide();
+
+          $links.toggle();
+        }
+      );
     },
   };
 })(jQuery, Drupal, this, this.document);
