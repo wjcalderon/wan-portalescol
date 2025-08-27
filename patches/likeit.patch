@@ -1,0 +1,332 @@
+diff --git a/js/likeit_widget_2.js b/js/likeit_widget_2.js
+index 91e2ff6..1f2a4cd 100644
+--- a/js/likeit_widget_2.js
++++ b/js/likeit_widget_2.js
+@@ -8,7 +8,7 @@
+ 
+   Drupal.behaviors.likeit = {
+     attach: function () {
+-      $('.likeit-widget-2').once('likeit-widget-2').each(function () {
++      $(once('likeit-widget-2', '.likeit-widget-2')).each(function () {
+         let $widget = $(this);
+         $widget.find('.like a').click(function () {
+           let url = $(this).data('url');
+@@ -20,7 +20,8 @@
+   };
+ 
+   window.likeItService = window.likeItService || function () {
+-    function likeItService () {}
++    function likeItService() {
++    }
+ 
+     likeItService.do = function (url, htmlId) {
+       $.ajax({
+diff --git a/likeit.install b/likeit.install
+index b2ead5a..f3527c9 100644
+--- a/likeit.install
++++ b/likeit.install
+@@ -19,3 +19,66 @@ function likeit_install() {
+     ->set('token_seed', Crypt::randomBytesBase64())
+     ->save();
+ }
++
++/**
++ * Implements hook_schema().
++ */
++function likeit_schema() {
++  $schema['likeit'] = [
++    'description' => 'Stores data for My Module.',
++    'fields' => [
++      'id' => [
++        'type' => 'serial',
++        'not null' => TRUE,
++        'description' => 'The primary identifier.',
++      ],
++      'uuid' => [
++        'type' => 'varchar',
++        'length' => 255,
++        'not null' => TRUE,
++        'description' => 'The primary identifier.',
++      ],
++      'target_entity_type' => [
++        'type' => 'varchar',
++        'length' => 255,
++        'not null' => TRUE,
++        'default' => '',
++        'description' => 'The name field.',
++      ],
++      'target_entity_id' => [
++        'type' => 'int',
++        'not null' => TRUE,
++        'description' => 'A text value.',
++      ],
++      'user_id' => [
++        'type' => 'int',
++        'not null' => TRUE,
++        'description' => 'A text value.',
++      ],
++      'session_id' => [
++        'type' => 'text',
++        'not null' => TRUE,
++        'description' => 'A text value.',
++      ],
++      'created' => [
++        'type' => 'text',
++        'not null' => TRUE,
++        'description' => 'A text value.',
++      ],
++    ],
++    'primary key' => ['id'],
++    'indexes' => [
++      'name_index' => ['target_entity_type', 'target_entity_id'],
++    ],
++  ];
++
++  return $schema;
++}
++
++/**
++ * Implements hook_uninstall().
++ */
++function my_module_uninstall() {
++  // Drop the custom table when the module is uninstalled.
++  \Drupal::database()->schema()->dropTable('likeit');
++}
+diff --git a/src/LikeitHelper.php b/src/LikeitHelper.php
+index 3a2ae0f..99ad7bf 100644
+--- a/src/LikeitHelper.php
++++ b/src/LikeitHelper.php
+@@ -17,7 +17,8 @@ use Drupal\user\UserInterface;
+ /**
+  * Service for like/unlike functionality.
+  */
+-class LikeitHelper {
++class LikeitHelper
++{
+ 
+   use StringTranslationTrait;
+ 
+@@ -87,11 +88,12 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    */
+-  public function __construct(AccountInterface $current_user,
++  public function __construct(AccountInterface           $current_user,
+                               EntityTypeManagerInterface $entity_type_manager,
+-                              LikeItCsrfTokenGenerator $csrf_token_generator,
+-                              RendererInterface $renderer,
+-                              ConfigFactoryInterface $config_factory) {
++                              LikeItCsrfTokenGenerator   $csrf_token_generator,
++                              RendererInterface          $renderer,
++                              ConfigFactoryInterface     $config_factory)
++  {
+     $this->currentUser = $current_user;
+     $this->entityTypeManager = $entity_type_manager;
+     $this->likeitStorage = $entity_type_manager->getStorage('likeit');
+@@ -111,7 +113,8 @@ class LikeitHelper {
+    * @return array
+    *   Render array with theme.
+    */
+-  protected function theme(array $variables) {
++  protected function theme(array $variables)
++  {
+     $variables['#theme'] = $this->widgetType;
+     return $variables;
+   }
+@@ -130,14 +133,14 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    */
+-  public function getLink(string $entity_type, string $id) {
++  public function getLink(string $entity_type, string $id)
++  {
+     $user = $this->currentUser;
+     $action = $this->getLinkActionType($entity_type, $id);
+ 
+     if (LikeItController::checkAccess($action, $user)) {
+       return $this->buildLink($entity_type, $id, $action);
+-    }
+-    elseif (LikeItController::checkAccess('view', $user)) {
++    } elseif (LikeItController::checkAccess('view', $user)) {
+       return $this->buildView($entity_type, $id);
+     }
+ 
+@@ -153,10 +156,12 @@ class LikeitHelper {
+    * @return int
+    *   Likes count for the entity.
+    */
+-  public function getCount(EntityInterface $entity) {
++  public function getCount(EntityInterface $entity)
++  {
+     $like_count = 0;
+ 
+     $likes = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('target_entity_id', $entity->id())
+       ->condition('target_entity_type', $entity->getEntityType()->id())
+       ->execute();
+@@ -182,7 +187,8 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    */
+-  public function buildView(string $entity_type, string $id) {
++  public function buildView(string $entity_type, string $id)
++  {
+     $entity = $this->entityTypeManager->getStorage($entity_type)->load($id);
+ 
+     if (!$entity) {
+@@ -223,7 +229,8 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    */
+-  public function buildLink(string $entity_type, string $id, string $action = 'like') {
++  public function buildLink(string $entity_type, string $id, string $action = 'like')
++  {
+     $user = $this->currentUser;
+     $count = '';
+ 
+@@ -247,8 +254,7 @@ class LikeitHelper {
+       $url = Url::fromRoute('likeit.likeit_controller_unlike', $parameters);
+       $title = $this->t('Unlike');
+       $class = 'liked';
+-    }
+-    else {
++    } else {
+       $url = Url::fromRoute('likeit.likeit_controller_like', $parameters);
+     }
+ 
+@@ -290,15 +296,15 @@ class LikeitHelper {
+    * @return string
+    *   The session id.
+    */
+-  protected function getUserSessionId() {
++  protected function getUserSessionId()
++  {
+     $session_id = uniqid();
+     $user = $this->currentUser;
+     if ($user->isAnonymous()) {
+       $cookie = $this->getCookie();
+       if (!empty($cookie)) {
+         $session_id = $cookie;
+-      }
+-      else {
++      } else {
+         $this->setCookie($session_id);
+       }
+     }
+@@ -319,7 +325,8 @@ class LikeitHelper {
+    *
+    * @throws \Drupal\Core\Entity\EntityStorageException
+    */
+-  public function doLike(EntityInterface $entity, AccountInterface $account = NULL) {
++  public function doLike(EntityInterface $entity, AccountInterface $account = NULL)
++  {
+     if (empty($account)) {
+       $account = $this->currentUser;
+     }
+@@ -369,7 +376,8 @@ class LikeitHelper {
+    *
+    * @throws \Drupal\Core\Entity\EntityStorageException
+    */
+-  public function doUnlike(EntityInterface $entity, AccountInterface $account = NULL) {
++  public function doUnlike(EntityInterface $entity, AccountInterface $account = NULL)
++  {
+     if (empty($account)) {
+       $account = $this->currentUser;
+     }
+@@ -385,6 +393,7 @@ class LikeitHelper {
+ 
+     $entity_type = $entity->getEntityType()->id();
+     $query = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('target_entity_type', $entity_type)
+       ->condition('target_entity_id', $entity->id())
+       ->condition('user_id', $account->id());
+@@ -417,7 +426,8 @@ class LikeitHelper {
+    * @param string $session_id
+    *   User session id.
+    */
+-  public function setCookie(string $session_id) {
++  public function setCookie(string $session_id)
++  {
+     setcookie('likeit_session', $session_id, time() + (86400 * 7), '/');
+ 
+     // Likeit uses Ajax and page isn't reloading.
+@@ -433,7 +443,8 @@ class LikeitHelper {
+    * @return string|bool
+    *   Cookie id or False.
+    */
+-  public function getCookie() {
++  public function getCookie()
++  {
+     return !empty($_COOKIE['likeit_session']) ? $_COOKIE['likeit_session'] : FALSE;
+   }
+ 
+@@ -451,7 +462,8 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    */
+-  protected function getLinkActionType(string $entity_type, string $id) {
++  protected function getLinkActionType(string $entity_type, string $id)
++  {
+     $action = 'like';
+     $user = $this->currentUser;
+ 
+@@ -461,6 +473,7 @@ class LikeitHelper {
+     }
+ 
+     $query = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('target_entity_type', $entity_type)
+       ->condition('target_entity_id', $entity->id())
+       ->condition('user_id', $user->id());
+@@ -495,12 +508,14 @@ class LikeitHelper {
+    * @return bool
+    *   User like status. TRUE if entity was already liked.
+    */
+-  public function statusCheck(EntityInterface $entity, AccountInterface $user = NULL) {
++  public function statusCheck(EntityInterface $entity, AccountInterface $user = NULL)
++  {
+     if (empty($user)) {
+       $user = $this->currentUser;
+     }
+ 
+     $query = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('target_entity_type', $entity->getEntityTypeId())
+       ->condition('target_entity_id', $entity->id())
+       ->condition('user_id', $user->id());
+@@ -533,8 +548,10 @@ class LikeitHelper {
+    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+    * @throws \Drupal\Core\Entity\EntityStorageException
+    */
+-  public function removeFromUser(UserInterface $account) {
++  public function removeFromUser(UserInterface $account)
++  {
+     $likes = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('user_id', $account->id())
+       ->execute();
+ 
+@@ -548,8 +565,7 @@ class LikeitHelper {
+         foreach ($entities as $likeit) {
+           $likeit->setOwnerId(0)->save();
+         }
+-      }
+-      else {
++      } else {
+         // Delete Likeit content.
+         $this->likeitStorage->delete($entities);
+       }
+@@ -566,8 +582,10 @@ class LikeitHelper {
+    *
+    * @throws \Drupal\Core\Entity\EntityStorageException
+    */
+-  public function removeFromEntity(string $type, string $id) {
++  public function removeFromEntity(string $type, string $id)
++  {
+     $likes = $this->likeitStorage->getQuery()
++      ->accessCheck(TRUE)
+       ->condition('target_entity_type', $type)
+       ->condition('target_entity_id', $id)
+       ->execute();

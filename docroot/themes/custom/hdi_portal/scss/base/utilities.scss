@@ -1,4 +1,4 @@
-@import '../mixins/responsive.scss';
+@import "../mixins/responsive.scss";
 
 .cog {
   &--flex {
@@ -27,6 +27,11 @@
     padding-bottom: 1px;
     position: relative;
     width: 90%;
+
+    @include tablet-portrait-up {
+      margin: auto;
+      width: 92%;
+    }
 
     @include tablet-landscape-up {
       margin: auto;
@@ -57,7 +62,8 @@
 }
 
 .card--image-border {
-  svg, img {
+  svg,
+  img {
     border: 1px solid var(--hdi-universal-green);
     background-color: var(--white);
     padding: 1rem;
@@ -81,7 +87,7 @@
     padding-left: 1rem;
 
     li {
-      list-style: decimal
+      list-style: decimal;
     }
   }
 }

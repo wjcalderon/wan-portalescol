@@ -104,7 +104,7 @@
             </div>
         {% endif %}
     {% endif %}
-    <div class="component__content">
+    <div class="component__content columns-container">
         {% if add_container %}<div class="cog--mq">{% endif %}
             {{ content|without('field_c_title', 'field_c_subtitle', 'field_c_title_status', 'field_c_width', 'field_c_classes') }}
             {% if add_container %}</div>{% endif %}
