@@ -240,21 +240,19 @@
               top: 100%;
             }
 
-            .block-social-sharing-buttons-block {
-              .social-sharing-buttons {
-                margin: unset;
-                padding: 0 0.5rem;
+            .social-sharing-buttons {
+              margin: unset;
+              padding: 0 0.5rem;
 
-                a {
-                  padding: 0.5rem 0.25rem;
+              a {
+                padding: 0.5rem 0.25rem;
 
-                  svg {
-                    border: 1px solid var(--white);
-                    border-radius: 50% !important;
-                    fill: var(--white);
-                    height: 1.5rem;
-                    width: 1.5rem;
-                  }
+                svg {
+                  border: 1px solid var(--white);
+                  border-radius: 50% !important;
+                  fill: var(--white);
+                  height: 1.5rem;
+                  width: 1.5rem;
                 }
               }
             }
