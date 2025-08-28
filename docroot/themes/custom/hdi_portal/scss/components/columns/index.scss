@@ -29,6 +29,10 @@
 
       .component__column {
         padding: 1rem;
+
+        .cog--mq {
+          max-width: none;
+        }
       }
     }
   }

@@ -176,7 +176,7 @@ body {
   .component__banner.news-blog-banner {
 
     .cp-banner__image {
-      height: 300px;
+      height: 18.75rem;
     }
     .banner--container {
       width: 80%;
@@ -236,7 +236,12 @@ body {
         left: 35rem;
       }
     }
-    
+
+    @include big-desktop {  
+      .cp-banner__image {
+        height: 25rem;
+      }
+    }
   }
 
   .slider-news-blog {

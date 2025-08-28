@@ -406,14 +406,13 @@
 
       // News share
       $(".news-blog-footer .social-share").each(function () {
-        $(this).on("click", function (e) {
-          e.preventDefault();
+        $(this).on("click", function () {
+          console.log('Test');
 
           const $parent = $(this).closest(".field-social");
           const $links = $parent.find(".social-share-links");
 
           $(".news-blog-footer .social-share-links").not($links).hide();
-
           $links.toggle();
         });
       });
