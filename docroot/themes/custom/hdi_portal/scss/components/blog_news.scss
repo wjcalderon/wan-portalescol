@@ -339,7 +339,7 @@
 
     .component__heading {
       .component__title {
-        padding-top: 1.938rem;
+        padding-top: 1rem;
       }
     }
   }
@@ -361,6 +361,11 @@
   @include tablet-landscape-up {
     padding: 0 6rem 2.5rem;
 
+    .component__heading {
+      .component__title {
+        padding-top: 3rem;
+      }
+    }
     .component__content {
       .views-view-responsive-grid.views-view-responsive-grid--horizontal {
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -390,6 +395,20 @@
       .views-view-responsive-grid.views-view-responsive-grid--horizontal {
         grid-template-columns: 1fr 1fr 1fr;
       }
+    }
+  }
+
+  &.news-list {
+    @include phone-only {
+      margin-bottom: 3rem;
+    }
+
+    @include tablet-portrait-up {
+      margin-bottom: 3rem;
+    }
+
+    @include tablet-landscape-up {
+      margin-bottom: 1rem;
     }
   }
 }
