@@ -272,6 +272,17 @@
       .news-blog-footer {
         margin: 1rem 0 5rem;
       }
+
+      .news-blog-content {
+        & > ul {
+          padding-left: 1rem;
+
+          li {
+            list-style: disc;
+          }
+        }
+      }
+
       .news-blog-content,
       .content-data,
       .news-blog-footer .likeit {
