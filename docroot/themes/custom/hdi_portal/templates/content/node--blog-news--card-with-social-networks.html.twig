@@ -37,7 +37,7 @@
     {{ title_suffix }}
     {% endif %}
     <div class="field-summary">
-      {{ content.body[0]["#text"] }}
+      {{ content.body[0]['#text']|truncate(50, false, ' ...') }}
     </div>
     <a href="{{ url }}" class="blog-news__link link">Leer más</a>
   </div>
