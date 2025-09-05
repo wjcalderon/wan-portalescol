@@ -440,9 +440,6 @@ class ClaimNotificationController extends ControllerBase
     if (isset($_SESSION['RCINissan']) && $_SESSION['RCINissan']) {
       $filterData = $this->loadNissanCarShopsByCity($textCity);
       $result = $this->filterByConcesionario($filterData, $brand);
-
-
-      dump($result);
     }
 
     if (isset($_SESSION['RCIRenault']) && $_SESSION['RCIRenault']) {
