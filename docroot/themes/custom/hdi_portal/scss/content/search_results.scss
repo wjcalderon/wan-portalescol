@@ -47,7 +47,7 @@
       gap: 1rem;
 
       .views-row {
-        box-shadow: 0px 3px 8px var(--shadow);
+        box-shadow: 0 3px 8px var(--shadow);
         flex-basis: calc(33% - 1rem);
         padding: 1rem;
         border-radius: 3px;
@@ -62,6 +62,18 @@
           svg {
             width: auto;
             height: 3rem;
+          }
+        }
+
+        .blog-news {
+          width: 100%;
+
+          .text-container {
+            border: none;
+
+            .blog-news__link {
+              
+            }
           }
         }
       }
