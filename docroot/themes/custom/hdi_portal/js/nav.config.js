@@ -52,21 +52,8 @@
       });
 
       if ($("body").hasClass("js-mobile")) {
-        $(".nav-contact, .nav__mb").removeAttr("href").css("cursor", "pointer");
+        $(".nav__mb").removeAttr("href").css("cursor", "pointer");
       }
-
-      $(".nav-contact").on("click", function () {
-        let el = $(this),
-          cont = $(".block--attention-lines");
-
-        if (cont.hasClass("is-visible")) {
-          cont.removeClass("is-visible");
-          el.removeClass("nav-herramientas__link--active");
-        } else {
-          cont.addClass("is-visible");
-          el.addClass("nav-herramientas__link--active");
-        }
-      });
 
       // Componente cuentanos de ti
       $(".component__select-cta .component__content button").click(function () {
