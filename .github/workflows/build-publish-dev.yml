@@ -14,7 +14,7 @@ env:
 jobs:
   build_and_publish:
     name: Build and publish develop
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     permissions:
       contents: read
