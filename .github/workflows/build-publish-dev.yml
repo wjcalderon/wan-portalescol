@@ -42,24 +42,14 @@ jobs:
           password: ${{ secrets.DESARROLLO_A }}
           logout: true
 
-#      - name: Install dependencies
-#        uses: php-actions/composer@v6
-#        with:
-#          php_version: "8.1"
-#          version: "2.2"
-#          args: "--ignore-platform-reqs --optimize-autoloader"
-
-
-      # - name: Install dependencies
-      #   uses: php-actions/composer@v6.1.0
-      #   with:
-      #     php_version: "8.1"
-      #     version: "2.2"
-      #     args: "--ignore-platform-reqs --optimize-autoloader"
-
-      - name: Install dependencies
-        run: |
-          composer install --ignore-platform-reqs --optimize-autoloader
+      - uses: shivammathur/setup-php@v2 # Or another action to set up PHP and Composer
+        with:
+          php-version: '8.1'
+          composer-version: '2'
+      - uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: 'prefer-stable' # Or 'highest', 'lowest'
+          composer-options: '--no-dev --optimize-autoloader'
 
 
       - name: Extract metadata (tags, labels) for Docker
