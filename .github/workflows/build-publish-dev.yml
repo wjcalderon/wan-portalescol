@@ -42,12 +42,21 @@ jobs:
           password: ${{ secrets.DESARROLLO_A }}
           logout: true
 
+#      - name: Install dependencies
+#        uses: php-actions/composer@v6
+#        with:
+#          php_version: "8.1"
+#          version: "2.2"
+#          args: "--ignore-platform-reqs --optimize-autoloader"
+
+          
       - name: Install dependencies
-        uses: php-actions/composer@v6
+        uses: php-actions/composer@v6.1.0
         with:
           php_version: "8.1"
           version: "2.2"
           args: "--ignore-platform-reqs --optimize-autoloader"
+
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
