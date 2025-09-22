@@ -32,7 +32,7 @@ jobs:
       - name: Pull base image
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.GH_REGISTRY }} -u ${{ github.actor }} --password-stdin
-          docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.5
+          docker pull ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -50,12 +50,16 @@ jobs:
 #          args: "--ignore-platform-reqs --optimize-autoloader"
 
 
+      # - name: Install dependencies
+      #   uses: php-actions/composer@v6.1.0
+      #   with:
+      #     php_version: "8.1"
+      #     version: "2.2"
+      #     args: "--ignore-platform-reqs --optimize-autoloader"
+
       - name: Install dependencies
-        uses: php-actions/composer@v6.1.0
-        with:
-          php_version: "8.1"
-          version: "2.2"
-          args: "--ignore-platform-reqs --optimize-autoloader"
+        run: |
+          composer install --ignore-platform-reqs --optimize-autoloader
 
 
       - name: Extract metadata (tags, labels) for Docker
