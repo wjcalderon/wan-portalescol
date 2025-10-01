@@ -121,7 +121,7 @@ trait ValidatePolicy
 
     switch ($policy_brand) {
       case 'CHEVROLET':
-        if ('4092908' !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy('4092908', $policy_brand)) {
+        if ($policy_broker_code  !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy($policy_broker_code , $policy_brand)) {
           $_SESSION[$policy_brand]['colectivo'] = FALSE;
           $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
         }
@@ -170,7 +170,7 @@ trait ValidatePolicy
   private function handle_other_brands($polizas, $index_vigencia, &$return, $brand, $collective): void
   {
     $sessionKey = 'RCI' . ucfirst(strtolower($brand));
-    $codigoConcesionario = '4092908';
+    $codigoConcesionario = $polizas[$index_vigencia]['codigoBroker'];
 
     if ($collective) {
       $codigoConcesionario = $polizas[$index_vigencia]['codigoConcesionario'];
