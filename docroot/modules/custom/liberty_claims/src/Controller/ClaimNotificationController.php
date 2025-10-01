@@ -9,6 +9,7 @@ use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
@@ -29,32 +30,34 @@ use Drupal\Core\File\FileExists;
  */
 class ClaimNotificationController extends ControllerBase
 {
+  const REMOTE_NOT_TRUSTED = 'remote not trusted';
+  const DATE_FORMAT = 'Y-m-d\TH:i:s';
 
   /**
    * El servicio de gestión de logs.
    *
-   * @var \Drupal\liberty_claims\Service\LibertyClaimsLogManager
+   * @var LibertyClaimsLogManager
    */
-  protected $libertyClaimsLogManager;
+  protected LibertyClaimsLogManager $libertyClaimsLogManager;
 
   /**
    * The mail manager.
    *
-   * @var \Drupal\Core\Mail\MailManagerInterface
+   * @var MailManagerInterface
    */
-  protected $mailManager;
+  protected MailManagerInterface $mailManager;
 
   /**
    * Drupal\Core\Extension\ModuleHandlerInterface definition.
    *
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   * @var ModuleHandlerInterface
    */
   protected $moduleHandler;
 
   /**
    * Drupal\Core\Config\ConfigFactory definition.
    *
-   * @var \Drupal\Core\Config\ConfigFactory
+   * @var ConfigFactory
    */
   protected $configFactory;
 
@@ -75,30 +78,30 @@ class ClaimNotificationController extends ControllerBase
   /**
    * Drupal\Core\File\FileSystemInterface definition.
    *
-   * @var \Drupal\Core\File\FileSystemInterface
+   * @var FileSystemInterface
    */
-  protected $fileSystem;
+  protected FileSystemInterface $fileSystem;
 
   /**
    * Drupal\liberty_claims\LoggerServiceInterface definition.
    *
-   * @var \Drupal\liberty_claims\LoggerServiceInterface
+   * @var LoggerServiceInterface
    */
-  protected $logger;
+  protected LoggerServiceInterface $logger;
 
   /**
    * Drupal\Core\Entity\EntityTypeManager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManager
+   * @var EntityTypeManager
    */
   protected $entityTypeManager;
 
   /**
    * Drupal\file\FileRepositoryInterface definition.
    *
-   * @var \Drupal\file\FileRepositoryInterface
+   * @var FileRepositoryInterface
    */
-  protected $fileInterface;
+  protected FileRepositoryInterface $fileInterface;
 
   /**
    * Constructs a new SettingsForm object.
@@ -186,67 +189,67 @@ class ClaimNotificationController extends ControllerBase
   /**
    * Cities.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of citites.
    *   Return a list of citites.
    */
-  public function getCities()
+  public function getCities(): CacheableJsonResponse|string
   {
-    return $this->getResource('cities');
+    return $this->get_resource('cities');
   }
 
   /**
    * Brands.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of brands.
    *   Return a list of brands.
    */
-  public function getBrands()
+  public function getBrands(): CacheableJsonResponse|string
   {
-    return $this->getResource('brands');
+    return $this->get_resource('brands');
   }
 
   /**
    * Cities carshops.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of cities.
    *   Return a list of cities.
    */
-  public function getCitiesCarShops()
+  public function getCitiesCarShops(): CacheableJsonResponse|string
   {
-    return $this->getResource('cities.carshops');
+    return $this->get_resource('cities.carshops');
   }
 
   /**
    * Cities carshops chevrolet.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of cities.
    *   Return a list of cities.
    */
-  public function getCitiesCarShopsChevrolet()
+  public function getCitiesCarShopsChevrolet(): CacheableJsonResponse|string
   {
-    return $this->getResource('cities.chevrolet');
+    return $this->get_resource('cities.chevrolet');
   }
 
   /**
    * Cities carshops nissan.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of cities.
    *   Return a list of cities.
    */
-  public function getCitiesCarShopsNissan()
+  public function getCitiesCarShopsNissan(): CacheableJsonResponse|string
   {
-    return $this->getResource('cities.nissan');
+    return $this->get_resource('cities.nissan');
   }
 
   /**
    * Cities carshops renault.
    *
-   * @return string
+   * @return CacheableJsonResponse|string Return a list of cities.
    *   Return a list of cities.
    */
-  public function getCitiesCarShopsRenault()
+  public function getCitiesCarShopsRenault(): CacheableJsonResponse|string
   {
-    return $this->getResource('cities.renault');
+    return $this->get_resource('cities.renault');
   }
 
   /**
@@ -254,35 +257,51 @@ class ClaimNotificationController extends ControllerBase
    *
    * @param array $filterData
    *   Data to be filtered by concesionario.
+   * @param string $brand
+   *   Vehicle brand.
    *
    * @return array
    *   Filtered data by concesionario.
    */
-  private function filterByConcesionario($filterData, $brand)
+  private function filter_by_concesionario(array $filterData, $brand): array
   {
-    $concesionarios = [
-      'GMFChevrolet' => 'codigoConcesionario',
-      'RCINissan' => 'codigoConcesionario',
-      'RCIRenault' => 'codigoConcesionario'
-    ];
+    $filterData2 = array_filter($filterData, function ($value) use ($brand) {
+      $concesionarios = [
+        'GMFChevrolet' => 'codigoConcesionario',
+        'RCINissan' => 'codigoConcesionario',
+        'RCIRenault' => 'codigoConcesionario',
+        'RCIChevrolet' => 'codigoConcesionario',
+      ];
+      $valueField = ($brand === 'CHEVROLET') ? ($value['chevySeguros'] ?? NULL) : ($value['codTaller'] ?? NULL);
+      $aixis = $value['aixis'] ?? NULL;
 
-    $filterData2 = array_filter($filterData, function ($value) use ($concesionarios, $brand) {
       foreach ($concesionarios as $sessionKey => $codigoKey) {
-        if ($brand === 'RENAULT' && $_SESSION[$brand]['colectivo'] === false) {
-          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['codTaller']) {
-            return true;
-          }
-        } else {
-          if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey][$codigoKey] == $value['aixis']) {
-            return true;
-          }
+        if ($this->concesionario_matches($sessionKey, $codigoKey, $valueField, $aixis, $brand)) {
+          return TRUE;
         }
       }
 
-      return false;
+      return FALSE;
     });
 
     return !empty($filterData2) ? $filterData2 : $filterData;
+  }
+
+  private function concesionario_matches(string $sessionKey, string $codigoKey, $valueField, $aixis, $brand): bool
+  {
+    if (!isset($_SESSION[$sessionKey])) {
+      return FALSE;
+    }
+
+    $codigo = $_SESSION[$sessionKey][$codigoKey] ?? NULL;
+    if ($codigo === NULL) {
+      return FALSE;
+    }
+
+    $notColectivo = (isset($_SESSION[$brand]['colectivo']) && $_SESSION[$brand]['colectivo'] === FALSE);
+
+    return ($notColectivo && $valueField !== NULL && $codigo == $valueField)
+      || ($aixis !== NULL && $codigo == $aixis);
   }
 
 
@@ -295,7 +314,7 @@ class ClaimNotificationController extends ControllerBase
    * @return array
    *   Filtered car shops by city.
    */
-  private function loadChevroletCarShopsByCity($city)
+  private function load_chevrolet_carshops_by_city(int $city): array
   {
     // Load taxonomy terms for talleres_chevrolet vocabulary.
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
@@ -321,6 +340,7 @@ class ClaimNotificationController extends ControllerBase
       $filterData[$key]['email'] = $term->field_email->value;
       $filterData[$key]['telefono'] = $term->field_telefono->value;
       $filterData[$key]['sucursal'] = $term->field_sucursal->value;
+      $filterData[$key]['chevySeguros'] = $term->field_clave_chevyseguros->value;
     }
 
     return $filterData;
@@ -335,7 +355,7 @@ class ClaimNotificationController extends ControllerBase
    * @return array
    *   Filtered car shops by city.
    */
-  private function loadNissanCarShopsByCity($city)
+  private function load_nissan_carshops_by_city(int $city): array
   {
     // Load taxonomy terms for talleres_nissan vocabulary.
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
@@ -374,8 +394,10 @@ class ClaimNotificationController extends ControllerBase
    *
    * @return array
    *   Filtered car shops by city.
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
-  private function loadRenaultCarShopsByCity($city)
+  private function load_renault_carshops_by_city(int $city): array
   {
     // Load taxonomy terms for talleres_renault vocabulary.
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')
@@ -396,7 +418,6 @@ class ClaimNotificationController extends ControllerBase
 
       // Extract necessary data from the loaded terms and populate $datos array.
       $filterData[$key]['nit'] = $term->field_nit_renault->value;
-      //$filterData[$key]['codTaller'] = $term->field_cod_taller_renault->value;
       $filterData[$key]['aixis'] = $term->field_aixis_renault->value;
       $filterData[$key]['nombre'] = $term->name->value;
       $filterData[$key]['direccion'] = $term->field_direccion_renault->value;
@@ -423,7 +444,7 @@ class ClaimNotificationController extends ControllerBase
    * @param string $type
    *   The filter of type.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return JsonResponse
    *   List of carshop by filter
    */
   public function getCarShops(int $city, string $brand, int $model, string $type): JsonResponse
@@ -433,32 +454,46 @@ class ClaimNotificationController extends ControllerBase
     $textCity = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     if (isset($_SESSION['GMFChevrolet']) && $_SESSION['GMFChevrolet']) {
-      $filterData = $this->loadChevroletCarShopsByCity($textCity);
-      $result = $this->filterByConcesionario($filterData, $brand);
+      $filterData = $this->load_chevrolet_carshops_by_city($textCity);
+      $result = $this->filter_by_concesionario($filterData, $brand);
     }
 
     if (isset($_SESSION['RCINissan']) && $_SESSION['RCINissan']) {
-      $filterData = $this->loadNissanCarShopsByCity($textCity);
-      $result = $this->filterByConcesionario($filterData, $brand);
+      $filterData = $this->load_nissan_carshops_by_city($textCity);
+      $result = $this->filter_by_concesionario($filterData, $brand);
     }
 
     if (isset($_SESSION['RCIRenault']) && $_SESSION['RCIRenault']) {
-      $filterData = $this->loadRenaultCarShopsByCity($textCity);
-      $result = $this->filterByConcesionario($filterData, $brand);
+      $filterData = $this->load_renault_carshops_by_city($textCity);
+      $result = $this->filter_by_concesionario($filterData, $brand);
+    }
+
+    if (isset($_SESSION['RCIChevrolet']) && $_SESSION['RCIChevrolet']) {
+      $filterData = $this->load_chevrolet_carshops_by_city($textCity);
+      $result = $this->filter_by_concesionario($filterData, $brand);
+
+      if (count($result) > 1) {
+        $result = array_filter($result, function ($item) {
+          return $item['chevySeguros'] !== NULL;
+        });
+      }
+
+      array_walk($result, function (&$item) {
+        unset($item['chevySeguros']);
+      });
     }
 
     if (empty($result)) {
-      $result = $this->claimService->carShops($city, $brand, $model, $type);
+      $result = $this->claimService->car_shops($city, $brand, $model, $type);
     }
 
     return new JsonResponse($result);
   }
 
-
   /**
    * Page of the validaction plate.
    *
-   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @param Request $request
    *   Controller request object.
    * @param string $plate
    *   Plate of the vehicle.
@@ -467,7 +502,7 @@ class ClaimNotificationController extends ControllerBase
    * @param string $date
    *   Claim date.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return JsonResponse
    *   Service response.
    */
   public function validatePlate(Request $request, string $plate, string $type, string $date): JsonResponse
@@ -475,31 +510,32 @@ class ClaimNotificationController extends ControllerBase
     if ($request->headers->get('token')) {
       $this->logger->logActivity($plate, $request->headers->get('token'));
 
-      return new JsonResponse($this->claimService->validatePlate($request, $plate, $type, $date));
+      return new JsonResponse($this->claimService->validate_plate($request, $plate, $type, $date));
     }
 
     $this->logger->logActivity($plate, 'No token received');
 
-    return new JsonResponse(['error' => 'remote not trusted']);
+    return new JsonResponse(['error' => self::REMOTE_NOT_TRUSTED]);
   }
 
   /**
    * Gets the car shops service token.
    *
-   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @param Request $request
    *   Controller request object.
    * @param string $folder
    *   Folder name.
    * @param string $op
    *   Operation to be processed.
    *
-   * @return string
+   * @return JsonResponse|string The token.
    *   The token.
+   * @throws EntityStorageException
    */
-  public function manageFiles(Request $request, $folder, $op)
+  public function manageFiles(Request $request, $folder, $op): JsonResponse|string
   {
     if (!$request->headers->get('token')) {
-      return new JsonResponse(['error' => 'remote not trusted']);
+      return new JsonResponse(['error' => self::REMOTE_NOT_TRUSTED]);
     }
 
     if ($op === 'save') {
@@ -554,18 +590,19 @@ class ClaimNotificationController extends ControllerBase
   /**
    * Method to submit the result of the form.
    *
-   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @param Request $request
    *   The request object containing form data.
    * @param string $type
    *   Type of submission ('Asegurado' or other).
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return JsonResponse
    *   JSON response indicating success or error.
    */
   public function submit(Request $request, string $type): JsonResponse
   {
+    $dateFormat = self::DATE_FORMAT;
     if (!$request->headers->get('token')) {
-      return new JsonResponse(['error' => 'remote not trusted']);
+      return new JsonResponse(['error' => self::REMOTE_NOT_TRUSTED]);
     }
 
     $response = $request->getContent();
@@ -576,7 +613,7 @@ class ClaimNotificationController extends ControllerBase
       $type == 'Asegurado' ? 'submitdataasegurado' : 'post_sipo_tercero',
       json_encode([
         'submitData' => [
-          'date' => date('Y-m-d\TH:i:s'),
+          'date' => date($dateFormat),
           'data' => json_decode($response),
         ],
       ]),
@@ -584,10 +621,10 @@ class ClaimNotificationController extends ControllerBase
     );
 
     if ($type == 'Asegurado') {
-      return $this->processAsegurado($response, $token);
+      return $this->process_asegurado($response, $token);
     }
 
-    return $this->processTercero($response, $token);
+    return $this->process_tercero($response, $token);
   }
 
   /**
@@ -598,24 +635,24 @@ class ClaimNotificationController extends ControllerBase
    * @param string $token
    *   The token associated with the request.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return JsonResponse
    *   JSON response indicating success.
    */
-  private function processTercero(string $response, string $token): JsonResponse
+  private function process_tercero(string $response, string $token): JsonResponse
   {
     $this->logger->set(
       'post_sipo_tercero',
       json_encode([
         'submitData' => [
-          'date' => date('Y-m-d\TH:i:s'),
+          'date' => date(self::DATE_FORMAT),
           'data' => json_decode($response),
         ],
       ]),
       $token
     );
 
-    $sipo = $this->claimService->postSipo($response, 1, $token);
-    $this->claimService->postFiles($response, $sipo['numeroCaso']);
+    $sipo = $this->claimService->post_sipo($response, 1, $token);
+    $this->claimService->post_files($response, $sipo['numeroCaso']);
 
     return new JsonResponse(['success' => $sipo['numeroCaso']]);
   }
@@ -628,17 +665,17 @@ class ClaimNotificationController extends ControllerBase
    * @param string $token
    *   The token associated with the request.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return JsonResponse
    *   JSON response indicating success or error.
    */
-  private function processAsegurado(string $request, string $token): JsonResponse
+  private function process_asegurado(string $request, string $token): JsonResponse
   {
     $request_auto_mail = json_decode($request, TRUE);
     if (isset($request_auto_mail) && $request_auto_mail['tellus'] == 'CLAIM_TYPE_PTH') {
       $this->sendEmailAutoEmail($request_auto_mail);
     }
 
-    $code = $this->claimService->postIaxis($request, $token);
+    $code = $this->claimService->post_iaxis($request, $token);
 
     if (!isset($code['numeroSiniestro'])) {
       $this->logger->set('iaxis_id', 'error', $token);
@@ -649,7 +686,7 @@ class ClaimNotificationController extends ControllerBase
       $result = ['success' => $code['numeroSiniestro']];
     }
 
-    $this->claimService->postSipo($request, $code['numeroSiniestro'], $token, $code);
+    $this->claimService->post_sipo($request, $code['numeroSiniestro'], $token, $code);
 
     return new JsonResponse($result);
   }
@@ -660,10 +697,10 @@ class ClaimNotificationController extends ControllerBase
    * @param string $name
    *   The name of the resource.
    *
-   * @return string
+   * @return CacheableJsonResponse|string JSON Data
    *   JSON Data
    */
-  private function getResource($name)
+  private function get_resource(string $name): CacheableJsonResponse|string
   {
     $path_module = $this->moduleHandler
       ->getModule('liberty_claims')
@@ -678,13 +715,13 @@ class ClaimNotificationController extends ControllerBase
   /**
    * Send notificacion Email.
    *
-   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @param Request $request
    *   Controller request object.
    *
    * @return mixed
    *   Mail rendered.
    */
-  public function sendEmail(Request $request)
+  public function sendEmail(Request $request): mixed
   {
     $params = json_decode($request->getContent(), TRUE);
     $params['subject'] = 'HDI Seguros | Tu siniestro ha sido radicado';
@@ -706,10 +743,11 @@ class ClaimNotificationController extends ControllerBase
   /**
    * Send an email for a stolen car report.
    */
-  public function sendEmailAutoEmail(array $data)
+  public function sendEmailAutoEmail(array $data): void
   {
     $config = $this->configFactory->get('liberty_claims_email.settings');
-    $template = '<html><body>';
+    $fieldPhone = '[liberty_claims:PhoneFijo]';
+    $template = '<html lang="es-ES"><body>';
     $template .= $config->get('template_correo')['value'] ?? '';
 
     $subject = $config->get('subject') ?? '';
@@ -726,11 +764,11 @@ class ClaimNotificationController extends ControllerBase
     ];
 
     if (isset($data['PhoneFijo']) && $data['PhoneFijo'] != '') {
-      $replacements['[liberty_claims:PhoneFijo]'] = $data['PhoneFijo'];
+      $replacements[$fieldPhone] = $data['PhoneFijo'];
     } else {
-      unset($replacements['[liberty_claims:PhoneFijo]']);
+      unset($replacements[$fieldPhone]);
       $template = str_replace('Teléfono fijo: [liberty_claims:PhoneFijo]', '', $template);
-      $replacements['[liberty_claims:PhoneFijo]'] = '';
+      $replacements[$fieldPhone] = '';
       $replacements['Teléfono fijo:'] = '';
     }
 
@@ -762,15 +800,13 @@ class ClaimNotificationController extends ControllerBase
     $params['message'] = $template;
     $params['message'] = str_replace("\n\n", "\n", $params['message']);
     $params['emails'] = $config->get('email_send_car');
-    $params['date'] = date('Y-m-d\TH:i:s');
+    $params['date'] = date(self::DATE_FORMAT);
     $this->libertyClaimsLogManager->agregarNuevaTraza($params);
     $module = 'liberty_claims';
     $to = $config->get('email_send_car');
     $mailManager = $this->mailManager;
 
     $langcode = 'es';
-    $send = TRUE;
-    $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, $send);
+    $mailManager->mail($module, 'send_email', $to, $langcode, $params, NULL, TRUE);
   }
-
 }
