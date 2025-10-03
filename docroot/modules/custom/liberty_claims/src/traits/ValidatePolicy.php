@@ -8,8 +8,7 @@ use Drupal\Component\Serialization\Yaml;
 use Drupal\liberty_claims\traits\GetPersonalData;
 use function explode;
 
-trait ValidatePolicy
-{
+trait ValidatePolicy {
   private $config;
 
   use GetPersonalData;
@@ -26,7 +25,8 @@ trait ValidatePolicy
     if (array_key_exists('token', $return)) {
       if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
         $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia);
-      } elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
+      }
+      elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
         $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia, TRUE);
       }
 
@@ -90,9 +90,11 @@ trait ValidatePolicy
         if (is_array($brokers) && in_array($polizas[$index_vigencia]['codigoBroker'], $brokers)) {
           $data['broker'] = TRUE;
         }
-      } elseif (in_array($item['codigoGarantia'], [756, 9036])) {
+      }
+      elseif (in_array($item['codigoGarantia'], [756, 9036])) {
         $data['guarantees']['rc1'] = $item['codigoGarantia'];
-      } elseif (in_array($item['codigoGarantia'], [757, 9037])) {
+      }
+      elseif (in_array($item['codigoGarantia'], [757, 9037])) {
         $data['guarantees']['rc3'] = $item['codigoGarantia'];
       }
     }
@@ -171,7 +173,6 @@ trait ValidatePolicy
   {
     $sessionKey = 'RCI' . ucfirst(strtolower($brand));
     $codigoConcesionario = $polizas[$index_vigencia]['codigoBroker'];
-
     if ($collective) {
       $codigoConcesionario = $polizas[$index_vigencia]['codigoConcesionario'];
     }

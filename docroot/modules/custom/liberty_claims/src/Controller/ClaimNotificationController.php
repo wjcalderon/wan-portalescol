@@ -108,17 +108,16 @@ class ClaimNotificationController extends ControllerBase
    */
   public function __construct(
     LibertyClaimsLogManager $liberty_claims_log_manager,
-    MailManagerInterface    $mail_manager,
-    ModuleHandlerInterface  $module_handler,
-    ConfigFactory           $config_factory,
-    Session                 $session,
-    ClaimServices           $claim_services,
-    FileSystemInterface     $file_system,
-    LoggerServiceInterface  $liberty_logger,
-    EntityTypeManager       $entity_type_manager,
+    MailManagerInterface $mail_manager,
+    ModuleHandlerInterface $module_handler,
+    ConfigFactory $config_factory,
+    Session $session,
+    ClaimServices $claim_services,
+    FileSystemInterface $file_system,
+    LoggerServiceInterface $liberty_logger,
+    EntityTypeManager $entity_type_manager,
     FileRepositoryInterface $file_interface
-  )
-  {
+    ) {
     $this->libertyClaimsLogManager = $liberty_claims_log_manager;
     $this->mailManager = $mail_manager;
     $this->moduleHandler = $module_handler;
@@ -134,8 +133,7 @@ class ClaimNotificationController extends ControllerBase
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container)
-  {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('liberty_claims.log_manager'),
       $container->get('plugin.manager.mail'),
@@ -156,8 +154,7 @@ class ClaimNotificationController extends ControllerBase
    * @return array
    *   Return Wrapper for a Vue App.
    */
-  public function claim(): array
-  {
+  public function claim(): array {
     $config = $this->configFactory->get('liberty_claims.settings');
     $token = $this->currentSession->getId();
 
@@ -172,9 +169,9 @@ class ClaimNotificationController extends ControllerBase
           'claimSettings' => [
             'dataBasePath' => '/claim-data',
             'assetsPath' =>
-              $this->moduleHandler
-                ->getModule('liberty_claims')
-                ->getPath() . '/vuejs/src/assets/',
+            $this->moduleHandler
+              ->getModule('liberty_claims')
+              ->getPath() . '/vuejs/src/assets/',
             'token' => $token,
             'imageSize' => $config->get('image_size'),
             'documentSize' => $config->get('document_size'),
@@ -285,7 +282,7 @@ class ClaimNotificationController extends ControllerBase
     });
 
     return !empty($filterData2) ? $filterData2 : $filterData;
-  }
+}
 
   private function concesionario_matches(string $sessionKey, string $codigoKey, $valueField, $aixis, $brand): bool
   {
@@ -346,7 +343,7 @@ class ClaimNotificationController extends ControllerBase
     return $filterData;
   }
 
-  /**
+    /**
    * Loads Nissan car shops filtered by city.
    *
    * @param int $city
@@ -447,8 +444,7 @@ class ClaimNotificationController extends ControllerBase
    * @return JsonResponse
    *   List of carshop by filter
    */
-  public function getCarShops(int $city, string $brand, int $model, string $type): JsonResponse
-  {
+  public function getCarShops(int $city, string $brand, int $model, string $type): JsonResponse {
     $result = [];
 
     $textCity = str_pad($city, 5, "0", STR_PAD_LEFT);
@@ -488,7 +484,7 @@ class ClaimNotificationController extends ControllerBase
     }
 
     return new JsonResponse($result);
-  }
+}
 
   /**
    * Page of the validaction plate.
@@ -505,8 +501,7 @@ class ClaimNotificationController extends ControllerBase
    * @return JsonResponse
    *   Service response.
    */
-  public function validatePlate(Request $request, string $plate, string $type, string $date): JsonResponse
-  {
+  public function validatePlate(Request $request, string $plate, string $type, string $date): JsonResponse {
     if ($request->headers->get('token')) {
       $this->logger->logActivity($plate, $request->headers->get('token'));
 
