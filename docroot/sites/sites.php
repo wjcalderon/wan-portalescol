@@ -58,38 +58,24 @@
 
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+    case 'local':
+      $sites['portal.local.co'] = 'default';
+      $sites['aliados.local.co'] = 'sponsors';
+      break;
     case 'dev':
       $sites['devportal.hdicolombia.com.co'] = 'default';
       $sites['aliados-dev.hdicolombia.com.co'] = 'sponsors';
       break;
     case 'test':
-      $sites['nonprodportal.hdiseguros.com.co'] = 'default';
-      $sites['aliados-nonprod.hdiseguros.com.co'] = 'sponsors';
-      $sites['nonprodportal.libertyseguros.co'] = 'default';
-      $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
     case 'stage':
       $sites['nonprodportal.hdiseguros.com.co'] = 'default';
       $sites['aliados-nonprod.hdiseguros.com.co'] = 'sponsors';
-      $sites['nonprodportal.libertyseguros.co'] = 'default';
-      $sites['aliados-nonprod.libertyseguros.co'] = 'sponsors';
       break;
     case 'prod':
+    default:
       $sites['hdiseguros.com.co'] = 'default';
       $sites['www.hdiseguros.com.co'] = 'default';
       $sites['aliados.hdiseguros.com.co'] = 'sponsors';
-      $sites['libertyseguros.co'] = 'default';
-      $sites['libertycolombia.com.co'] = 'default';
-      $sites['www.libertyseguros.co'] = 'default';
-      $sites['www.libertycolombia.com.co'] = 'default';
-      $sites['aliados.libertyseguros.co'] = 'sponsors';
-      break;
-    case 'local':
-      $sites['local.hdi-portal.co'] = 'default';
-      $sites['local.hdi-portal-upgrade.co'] = 'default';
-      $sites['portal.local.co'] = 'default';
-      $sites['local.hdi-aliados.co'] = 'sponsors';
-      $sites['local.hdi-aliados-upgrade.co'] = 'sponsors';
-      $sites['aliados.local.co'] = 'sponsors';
       break;
   }
 }

@@ -293,13 +293,18 @@ export default {
         this.selected = {};
         this.casualtyData = {};
 
-        let brand = this.vehicleData.brand.replace(/\s+/g, "--");
-        brand = brand.replace(/[\/]/g, "++");
+        let brand = this.vehicleData.brand.replaceAll(/\s+/g, "--");
+        brand = brand.replaceAll(/[\/]/g, "++");
         let model = this.vehicleData.model;
+
+        const year = parseInt(this.drupalSettings.lastModel, 10);
+        const currentDate = new Date();
+        const date = new Date(year, currentDate.getMonth(), currentDate.getDay());
+        date.setFullYear(date.getFullYear() - 5);
 
         if (
           this.isBroker &&
-          this.vehicleData.model >= this.drupalSettings.lastModel - 5
+          this.vehicleData.model > date.getFullYear()
         ) {
           model = this.drupalSettings.lastModel;
         }
