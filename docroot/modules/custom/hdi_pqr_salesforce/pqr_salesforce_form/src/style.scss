@@ -423,39 +423,21 @@
     font-size: .8rem;
     top: 0.5rem;
   }
-  .label-text.input-error{
+  .label-text.input-error,
+  .label-select.select-error,
+  .label-email.input-error,
+  .label-number.input-error,
+  .form-textarea.input-error,
+  .textarea-error {
     font-size: .8rem;
     top: 1.5rem;
   }
 
-  .form-text.input-error {
-    border-color: red;
-  }
-
-  .label-select.select-error{
-    font-size: .8rem;
-    top: 1.5rem;
-  }
-
-  .form-select.select-error {
-    border-color: red;
-  }
-
-  .label-email.input-error{
-    font-size: .8rem;
-    top: 1.5rem;
-  }
-
-  .form-email.input-error {
-    border-color: red;
-  }
-
-  .label-number.input-error{
-    font-size: .8rem;
-    top: 1.5rem;
-  }
-
-  .form-number.input-error {
+  .form-text.input-error,
+  .form-select.select-error,
+  .form-email.input-error,
+  .form-number.input-error,
+  .form-textarea.input-error {
     border-color: red;
   }
 }
