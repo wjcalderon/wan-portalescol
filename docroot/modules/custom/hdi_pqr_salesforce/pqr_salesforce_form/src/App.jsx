@@ -340,14 +340,20 @@ const App = () => {
         <hr />
 
         <div className="form-item js-form-type-textarea form-type-textarea">
-          <label htmlFor="description">Describe tu queja o reclamo</label>
+          {errors.description !== '' && (
+            <div className="error-message">
+              <span className="error-icon"></span>
+              <span>{errors.description}</span>
+            </div>
+          )}
+          <label htmlFor="description" className={`${errors.description ? 'textarea-error' : ''}`}>Describe tu queja o reclamo</label>
           <div>
             <textarea
               ref={descriptionRef}
               name="description"
               rows="5"
               cols="60"
-              className="form-textarea"
+              className={`form-textarea ${errors.description ? 'input-error' : ''}`}
               autoComplete="off"
               onChange={(e) => setDescription(e.target.value)}
             >
@@ -370,6 +376,7 @@ const App = () => {
             name="Placa__c"
             pattern='[A-Za-z]{3}\d{3}|[A-Za-z]\d{5}|[A-Za-z]{3}\d{2}[A-Za-z]|\d{3}[A-Z]a-z{3}'
             setState={setPlate}
+            required={true}
           />
         }
 
