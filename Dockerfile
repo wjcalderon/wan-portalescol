@@ -26,7 +26,7 @@ FROM files AS final
 
 RUN chown -R nginx:nginx /var/www/html/
 RUN chmod -R 755 /var/www/html/
-USER nginx:nginx
+USER nginx:root
 
 RUN ls -altrh
 
