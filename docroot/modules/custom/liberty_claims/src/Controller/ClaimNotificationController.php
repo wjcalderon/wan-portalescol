@@ -317,6 +317,7 @@ class ClaimNotificationController extends ControllerBase
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
       'vid' => 'talleres_chevrolet',
     ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -358,6 +359,7 @@ class ClaimNotificationController extends ControllerBase
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
       'vid' => 'talleres_nissan',
     ]);
+    $city = str_pad($city, 5, "0", STR_PAD_LEFT);
 
     $filterData = [];
     foreach ($terms as $key => $term) {
@@ -466,12 +468,17 @@ class ClaimNotificationController extends ControllerBase
 
     if (isset($_SESSION['RCIChevrolet']) && $_SESSION['RCIChevrolet']) {
       $filterData = $this->load_chevrolet_carshops_by_city($textCity);
-      $result = $this->filter_by_concesionario($filterData, $brand);
+      $workShopList = $this->filter_by_concesionario($filterData, $brand);
 
-      if (count($result) > 1) {
-        $result = array_filter($result, function ($item) {
+      if (count($workShopList) > 1) {
+        $workShopList = array_filter($workShopList, function ($item) {
           return $item['chevySeguros'] !== NULL;
         });
+      }
+
+      $result = [];
+      foreach ($workShopList as $item) {
+        $result[] = $item;
       }
 
       array_walk($result, function (&$item) {
