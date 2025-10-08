@@ -1,7 +1,5 @@
 FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6 AS base
 
-USER nginx:nginx
-
 WORKDIR /var/www/html/
 COPY . .
 
@@ -23,6 +21,8 @@ RUN chmod 777 docroot/sites/sponsors/files -R
 COPY start.sh /opt/start.sh
 
 FROM files AS final
+
+USER nginx:nginx
 
 EXPOSE 80
 
