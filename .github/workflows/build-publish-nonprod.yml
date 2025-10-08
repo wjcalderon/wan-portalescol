@@ -43,13 +43,6 @@ jobs:
           password: ${{ secrets.PRUEBAS_A }}
           logout: true
 
-      - name: Install dependencies
-        uses: php-actions/composer@v6
-        with:
-          php_version: "8.1"
-          version: "2.2"
-          args: "--ignore-platform-reqs --optimize-autoloader"
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
