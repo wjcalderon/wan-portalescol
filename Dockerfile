@@ -1,5 +1,7 @@
 FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6 AS base
 
+USER nginx:nginx
+
 WORKDIR /var/www/html/
 COPY . .
 
