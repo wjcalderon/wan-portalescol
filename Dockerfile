@@ -20,7 +20,14 @@ RUN mkdir -p docroot/sites/sponsors/files
 RUN chmod 777 docroot/sites/sponsors/files -R
 COPY start.sh /opt/start.sh
 
+RUN ls -altrh
+
 FROM files AS final
+
+RUN chown -R nginx:nginx /var/www/html/
+RUN chmod -R 755 /var/www/html/
+
+RUN ls -altrh
 
 EXPOSE 80
 
