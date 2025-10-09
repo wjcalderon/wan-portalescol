@@ -754,8 +754,6 @@ class ClaimServices
 
     $data_to_array = $this->match_values($data_to_array, $source);
 
-    $preguntasExtraGarantia = $this->withDeathsInjuries($source);
-
     if ($data_to_array['numeroProducto'] == '900753') {
       foreach ($data_to_array['preguntasAsociadasAGarantia'] as $key => $question) {
         $numeroPregunta = $question['preguntaAsociadaAGarantia']['numeroPregunta'] ?? NULL;
@@ -773,11 +771,6 @@ class ClaimServices
 
     $data_to_array['preguntasAsociadasAGarantia'] = array_values(
       $data_to_array['preguntasAsociadasAGarantia']
-    );
-
-    $data_to_array['preguntasAsociadasAGarantia'] = array_merge(
-      $data_to_array['preguntasAsociadasAGarantia'],
-      $preguntasExtraGarantia
     );
 
     return json_encode($data_to_array, JSON_PRETTY_PRINT);

@@ -244,7 +244,7 @@ export default {
       page: 0,
       offset: 4,
       showError: false,
-      defaultCS: {codTaller: 0},
+      defaultCS: null,
       noWorkshopsCities: [],
       ciudad_original: false,
       claimCitySelected: '',
@@ -321,7 +321,7 @@ export default {
 
               brands.forEach(brand => {
                 if (localStorage.getItem(`${brand}-codigoConcesionario`)) {
-                  vm.defaultCS = {...vm.defaultCS, ...data.body};
+                  vm.defaultCS = data.body;
                 }
               });
 
@@ -330,7 +330,7 @@ export default {
                   carShop.nombre.includes("Taller para Arreglo Directo") &&
                   carShop.codExternal === undefined
                 ) {
-                  vm.defaultCS = {...vm.defaultCS, ...carShop};
+                  vm.defaultCS = carShop;
                 }
                 if (this.claimType === "CLAIM_TYPE_LR") {
                   return carShop.nombre.includes("LLANTAS ESTALLADAS");
