@@ -113,15 +113,11 @@ trait ValidatePolicy {
       'RCIRenault' => trim($config->get('cod_renault_colectivo')),
       'RCINissan' => trim($config->get('cod_nissan_colectivo')),
       'GMFChevrolet' => trim($config->get('cod_chevrolet')),
-      'RCIChevyseguros' => trim($config->get('cod_chevyseguro_colectivo')),
     ];
 
     switch ($policy_brand) {
       case 'CHEVROLET':
         $chevy_seguros = false;
-        if ($policy_broker_code === $brokers_codes['RCIChevyseguros']) {
-          $chevy_seguros = true;
-        }
         if ($policy_broker_code === $brokers_codes['RCIChevyseguros'] ||
           $policy_broker_code === $brokers_codes['GMFChevrolet']) {
           $this->handleChevrolet($polizas, $index_vigencia, $return, $chevy_seguros);
