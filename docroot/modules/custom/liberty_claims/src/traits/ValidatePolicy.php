@@ -123,11 +123,6 @@ trait ValidatePolicy {
 
     switch ($policy_brand) {
       case 'CHEVROLET':
-        if ($policy_broker_code  !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy($policy_broker_code , $policy_brand)) {
-          $_SESSION[$policy_brand]['colectivo'] = FALSE;
-          $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
-        }
-
         if ($policy_broker_code === $brokers_codes['GMFChevrolet']) {
           $this->handle_chevrolet($polizas, $index_vigencia, $return, FALSE);
         }
