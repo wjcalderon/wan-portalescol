@@ -20,7 +20,7 @@ trait GetTokens
     $cesvi_endpoint = 'fnol/autenticacionCesvi';
 
     $client = new Client([
-      'base_uri' => $this->get_connection_data($base_uri),
+      'base_uri' => $this->getConnectionData($base_uri),
     ]);
 
     try {
@@ -32,11 +32,11 @@ trait GetTokens
           'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' =>
-            'Bearer ' . $this->getMainToken(),
+              'Bearer ' . $this->getMainToken(),
           ],
           'body' => json_encode([
-            "username" => $this->get_connection_data('username'),
-            "password" => $this->get_connection_data('password')
+            "username" => $this->getConnectionData('username'),
+            "password" => $this->getConnectionData('password')
           ]),
         ]
       );
@@ -71,9 +71,9 @@ trait GetTokens
    * @return AccessTokenInterface
    */
   private function getProviderToken(): AccessTokenInterface {
-    $client_id = $this->get_connection_data('validate_plate_token');
-    $client_secret = $this->get_connection_data('client_secret');
-    $token_uri = $this->get_connection_data('token_uri');
+    $client_id = $this->getConnectionData('validate_plate_token');
+    $client_secret = $this->getConnectionData('client_secret');
+    $token_uri = $this->getConnectionData('token_uri');
 
     $provider = new GenericProvider([
       'clientId' => $client_id,
