@@ -20,8 +20,9 @@ trait PqrWebform {
    * @param array $form_data
    *   Form data from react app.
    */
-  public function submitWebform(array $form_data) {
+  public function submitWebform(array $form_data, array $sfResponse) {
     $form_values = [];
+    unset($form_data['files']);
 
     foreach ($form_data as $field => $value) {
       if ($field === 'SSP_LGBTIQ__c'
@@ -39,6 +40,7 @@ trait PqrWebform {
     $form_values['entity_type'] = NULL;
     $form_values['entity_id'] = NULL;
     $form_values['in_draft'] = FALSE;
+    $form_values['salesforce_numero_caso'] = $sfResponse['caseNumber'] ?? 0;
 
     $body = [
       'headers' => [
@@ -46,16 +48,12 @@ trait PqrWebform {
         'X-CSRF-Token' => $this->getCsrfToken(),
       ],
       'body' => (json_encode($form_values)),
-    ];
-
-    $options = [
       'verify' => FALSE,
     ];
 
     $this->httpClient->post(
       $this->baseUri . '/webform_rest/submit?_format=json',
       $body,
-      $options
     );
   }
 
