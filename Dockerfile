@@ -1,9 +1,12 @@
-FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.5 AS base
+FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6 AS base
 
 WORKDIR /var/www/html/
 COPY . .
 
-FROM base AS files
+FROM base AS deps
+RUN composer install --ignore-platform-reqs --optimize-autoloader
+
+FROM deps AS files
 
 RUN mkdir -p docroot/sites/default/files
 RUN chmod 777 docroot/sites/default/files -R
@@ -17,7 +20,14 @@ RUN mkdir -p docroot/sites/sponsors/files
 RUN chmod 777 docroot/sites/sponsors/files -R
 COPY start.sh /opt/start.sh
 
+RUN ls -altrh
+
 FROM files AS final
+
+RUN chown -R nginx:nginx /var/www/html/
+RUN chmod -R 755 /var/www/html/
+
+RUN ls -altrh
 
 EXPOSE 80
 
