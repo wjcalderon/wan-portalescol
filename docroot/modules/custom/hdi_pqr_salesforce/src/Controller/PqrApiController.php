@@ -2,6 +2,7 @@
 
 namespace Drupal\hdi_pqr_salesforce\Controller;
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\hdi_pqr_salesforce\traits\PqrSalesforce;
@@ -67,12 +68,21 @@ final class PqrApiController extends ControllerBase {
   public function submitForm(Request $request): JsonResponse {
     $request_data = $request->getContent();
     $form_data = json_decode($request_data, TRUE);
-
-    // Submit to webform
-    $this->submitWebform($form_data);
+    $sfResponse = [];
 
     // Submit to salesforce
-    return new JsonResponse($this->submitDataSalesforce($form_data));
+    try {
+      $sfResponse = $this->submitDataSalesforce($form_data);
+      \Drupal::logger('hdi_pqr')->info(Json::encode($sfResponse));
+    } catch (\Exception $exception) {
+      error_log($exception->getMessage());
+      \Drupal::logger('hdi_pqr')->error($exception->getMessage());
+    }
+
+    // Submit to webform
+    $this->submitWebform($form_data, $sfResponse);
+
+    return new JsonResponse($sfResponse);
   }
 
 }
