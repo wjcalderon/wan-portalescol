@@ -132,7 +132,7 @@ trait PqrSalesforce {
       "records" => $form_data,
     ];
 
-    $result = $this->httpClient->post(
+    $this->httpClient->post(
       $config->get('salesforce_endpoint') . '/data/v58.0/composite/sobjects/',
       [
         'headers' => [
