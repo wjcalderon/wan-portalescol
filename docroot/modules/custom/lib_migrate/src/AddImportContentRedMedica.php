@@ -88,21 +88,12 @@ function create_node($item) {
   }
 
   $especialidades = [];
+  $especialidades_ap = [];
   if (!empty($item['C']) && !is_null($item['C'])) {
-    $tid = get_tid_by_name($item['C'], 'speciality');
-    if ($tid == 0) {
-      $new_term = Term::create([
-        'vid' => 'speciality',
-        'name' => $item['C'],
-      ]);
-      $new_term->enforceIsNew();
-      $new_term->save();
-      $tid = $new_term->id();
-      if (!empty($tid) && $tid > 0) {
-        $especialidades[] = ['target_id' => $tid];
-      }
-    } else {
-      $especialidades[] = ['target_id' => $tid];
+    $especialidades = create_speciality($item['C'], 'speciality');
+
+    if ($item['V'] == 1) {
+      $especialidades_ap = create_speciality($item['C'], 'speciality_ap');
     }
   }
 
@@ -239,6 +230,7 @@ function create_node($item) {
       'field_oficina' => $item['J'],
       'field_web_page' => $item['R'],
       'field_speciality' => $especialidades,
+      'field_speciality_ap' => $especialidades_ap,
       'field_provider_type' => $tipoproveedor,
       'field_ubication' => ['target_id' => $ciudad],
       'field_whatsapp' => $item['Z'],
@@ -265,6 +257,14 @@ function create_node($item) {
       if (!in_array($value, $especialiades_new)) {
         $flag_graba = true;
         $especialiades_new[] = $value;
+      }
+    }
+
+    $especialiades_ap_new = $node->field_speciality_ap->getValue();
+    foreach ($especialidades_ap as $value) {
+      if (!in_array($value, $especialiades_ap_new)) {
+        $flag_graba = true;
+        $especialiades_ap_new[] = $value;
       }
     }
 
@@ -300,6 +300,7 @@ function create_node($item) {
 
     if ($flag_graba) {
       $node->set('field_speciality', $especialiades_new);
+      $node->set('field_speciality_ap', $especialiades_ap_new);
       $node->set('field_provider_type', $tipoproveedor_new);
       $node->set('field_type_plan', $tipoplan_new);
       $node->set('field_ubication', $ubicaciones);
@@ -309,6 +310,26 @@ function create_node($item) {
     }
   }
 
+}
+
+function create_speciality($speciality, $type) {
+  $tid = get_tid_by_name($speciality, $type);
+  if ($tid == 0) {
+    $new_term = Term::create([
+      'vid' => $type,
+      'name' => $speciality,
+    ]);
+    $new_term->enforceIsNew();
+    $new_term->save();
+    $tid = $new_term->id();
+    if (!empty($tid) && $tid > 0) {
+      $especialidades[] = ['target_id' => $tid];
+    }
+  } else {
+    $especialidades[] = ['target_id' => $tid];
+  }
+
+  return $especialidades;
 }
 
 /**

@@ -5,7 +5,7 @@
     cursor: pointer;
 
     .text-container {
-      padding: 1rem 1rem 2rem 1rem;
+      padding: 1rem;
       text-align: left;
       border-style: solid;
       border-width: 0 0.063rem 0.063rem 0.063rem;
@@ -27,9 +27,11 @@
         .field-category {
           color: var(--hdi-universal-green);
         }
+
         .field-label {
           color: var(--hdi-green);
         }
+
         .link {
           text-decoration: underline;
         }
@@ -82,6 +84,7 @@
     .field-image img {
       height: 18.75rem;
     }
+
     @include phone-only {
       margin: 1rem 0;
     }
@@ -98,6 +101,7 @@
         height: auto;
       }
     }
+
     .text-container {
       .field-label {
         color: var(--hdi-universal-green);
@@ -132,7 +136,7 @@
       }
 
       .blog-news__link {
-        font-size: 0.875rem;
+        font-size: 1.063rem;
         color: var(--hdi-green);
         font-weight: bold;
 
@@ -230,8 +234,7 @@
             top: -3rem;
 
             &::after {
-              border-color: var(--overlay-news) transparent transparent
-                transparent;
+              border-color: var(--overlay-news) transparent transparent transparent;
               border-style: solid;
               border-width: 9px;
               content: " ";
@@ -260,6 +263,7 @@
         }
       }
     }
+
     .text-container_title_and_social {
       display: flex;
       align-items: center;
@@ -274,7 +278,7 @@
       }
 
       .news-blog-content {
-        & > ul {
+        &>ul {
           padding-left: 1rem;
 
           li {
@@ -297,6 +301,7 @@
           font-size: 1rem;
           color: #c0bfc0;
         }
+
         .field-category {
           font-size: 1.125rem;
           color: var(--hdi-green);
@@ -357,11 +362,13 @@
 
   @include tablet-portrait-up {
     padding: 1.688rem;
+
     .component__heading {
       .component__title {
         padding-top: 0.563rem;
       }
     }
+
     .component__content {
       .views-view-responsive-grid.views-view-responsive-grid--horizontal {
         grid-template-columns: 1fr 1fr;
@@ -377,6 +384,7 @@
         padding-top: 3rem;
       }
     }
+
     .component__content {
       .views-view-responsive-grid.views-view-responsive-grid--horizontal {
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -386,6 +394,7 @@
 }
 
 .component__drupal-view {
+
   &.featured-news,
   &.news-list {
     @include phone-only {

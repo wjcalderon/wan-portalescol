@@ -412,15 +412,15 @@ export default {
   methods: {
     setPlanTypes: function () {
       // Iterate over selected plans
-      for (let index = 0; index < this.plan_list.length; index++) {
+      for (const element of this.plan_list) {
         let new_plan = {
-          tid: this.plan_list[index].id,
-          description: this.plan_list[index].description,
+          tid: element.id,
+          description: element.description,
           name: null,
         };
 
         // Search additional plan data
-        Api.get("plan/", this.plan_list[index].id).then((result) => {
+        Api.get("plan/", element.id).then((result) => {
           new_plan.name = result[0].name;
           new_plan.tids = result[0].tid;
         });

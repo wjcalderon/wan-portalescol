@@ -123,11 +123,12 @@ export default {
       }
 
       let search_data = [];
-      Object.keys(data).forEach(function (key) {
+      const keys = Object.keys(data);
+      for (const key of keys) {
         if (data[key]) {
           search_data.push(key + "=" + data[key]);
         }
-      });
+      }
 
       let res = Api.get(
         type == "map" ? "search_map?" : "search?",
@@ -135,11 +136,19 @@ export default {
       );
 
       res.then((result) => {
+        let filteredRows = result.rows
+        let filteredPager = result.pager
+
+        if (this.$store.state.data.plan_id === 663) {
+          filteredRows = result.rows.filter(row => row.field_speciality_ap !== "");
+          filteredPager = {...filteredPager, total_items: filteredRows.length};
+        }
+
         if (type == "map") {
-          this.results = result.rows;
+          this.results = filteredRows;
         } else {
-          this.results = result.rows;
-          this.pager = result.pager;
+          this.results = filteredRows;
+          this.pager = filteredPager;
         }
         if (this.results.length > 0) {
           this.show_results = true;
