@@ -1,5 +1,5 @@
 <template>
-  <article :class="['search-result', (isMobile ? 'mobile' : '')]" ref="single_result">
+  <article v-show="show_result" :class="['search-result', (isMobile ? 'mobile' : '')]" ref="single_result">
     <span class="back" @click="closeInfo" v-show="show_info">Atrás</span>
     <div :class="['icon', 'category-' + data.field_lender_category, data.sticky == 'On' ? 'preferential' : '']"></div>
     <div class="info">
@@ -50,7 +50,8 @@ export default {
       plan_list: [],
       show_map: false,
       show_error_form: false,
-      show_info: false
+      show_info: false,
+      show_result: true
     }
   },
   props: ['data', 'isMobile'],
@@ -88,12 +89,16 @@ export default {
   methods: {
     servicesList: function () {
       this.services_list = this.data.field_speciality.split('|').sort()
+
+      if (this.$store.state.data.plan_id === 663) {
+        this.services_list = this.data.field_speciality_ap.split('|').sort()
+      }
     },
     planTypes: function () {
       let list = this.data.field_type_plan.split(', ')
 
-      for (let index = 0; index < list.length; index++) {
-        let plan = list[index].split('|')
+      for (const element of list) {
+        let plan = element.split('|')
 
         let plan_data = {
           'id': plan[0],

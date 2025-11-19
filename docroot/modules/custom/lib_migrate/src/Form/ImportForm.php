@@ -120,8 +120,10 @@ class ImportForm extends FormBase
           "\Drupal\lib_migrate\AddImportContentRedMedica::addImportContentItemCallback",
       ];
       batch_set($batch);
+
       return true;
     }
+
     $pFilename = \Drupal::service("file_system")->realpath($file->getFileUri());
 
     $type = IOFactory::identify($pFilename);
