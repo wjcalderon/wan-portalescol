@@ -66,10 +66,10 @@ export default {
       this.services_list = this.data.field_speciality.split('|')
     },
     planTypes: function () {
-      let list = this.data.field_type_plan.split(', ')
+      let list = this.data.field_type_plan.split('|')
 
-      for (let index = 0; index < list.length; index++) {
-        let plan = list[index].split('|')
+      for (const element of list) {
+        let plan = element.split('|')
 
         let plan_data = {
           'id': plan[0],
