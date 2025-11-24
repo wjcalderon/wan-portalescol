@@ -346,7 +346,8 @@ class ClaimServices {
             $this->logger->set('response_iaxis', $error, $token);
           }
           $this->sendEmailErrorIaxis($data, $error);
-          unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+          // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+          unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
         }
 
         return json_decode($body ?? '{}', TRUE);
@@ -430,7 +431,8 @@ class ClaimServices {
         ],
         $token
       );
-      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
     }
     catch (RequestException $e) {
       if ($e->hasResponse()) {
@@ -440,7 +442,8 @@ class ClaimServices {
       }
 
       $this->sendEmailErrorSipo($request, $data_taller, $error);
-      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
     }
 
     $body = json_decode($body, TRUE);
@@ -1147,12 +1150,12 @@ class ClaimServices {
       'field' => 'field_clave_renault'
     ];
 
-    if ($brand === 'CHEVROLET') {
-      $search_fields = [
-        'vid' => 'talleres_chevrolet',
-        'field' => 'field_clave_chevyseguros'
-      ];
-    }
+    // if ($brand === 'CHEVROLET') {
+    //   $search_fields = [
+    //     'vid' => 'talleres_chevrolet',
+    //     'field' => 'field_clave_chevyseguros'
+    //   ];
+    // }
 
     $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     $terms = $term_storage->loadByProperties(['vid' => $search_fields['vid']]);

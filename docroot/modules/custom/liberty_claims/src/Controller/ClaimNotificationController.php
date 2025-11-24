@@ -265,9 +265,10 @@ class ClaimNotificationController extends ControllerBase
         'GMFChevrolet' => 'codigoConcesionario',
         'RCINissan' => 'codigoConcesionario',
         'RCIRenault' => 'codigoConcesionario',
-        'RCIChevrolet' => 'codigoConcesionario',
+        // 'RCIChevrolet' => 'codigoConcesionario',
       ];
-      $valueField = ($brand === 'CHEVROLET') ? ($value['chevySeguros'] ?? NULL) : ($value['codTaller'] ?? NULL);
+      // $valueField = ($brand === 'CHEVROLET') ? ($value['chevySeguros'] ?? NULL) : ($value['codTaller'] ?? NULL);
+      $valueField = ($value['codTaller'] ?? NULL);
       $aixis = $value['aixis'] ?? NULL;
 
       foreach ($concesionarios as $sessionKey => $codigoKey) {
@@ -467,25 +468,25 @@ class ClaimNotificationController extends ControllerBase
       $result = $this->claimService->carShops($city, $brand, $model, $type);
     }
 
-    if (isset($_SESSION['RCIChevrolet']) && $_SESSION['RCIChevrolet']) {
-      $filterData = $this->loadChevroletCarShopsByCity($textCity);
-      $workShopList = $this->filterByConcesionario($filterData, $brand);
+    // if (isset($_SESSION['RCIChevrolet']) && $_SESSION['RCIChevrolet']) {
+    //   $filterData = $this->loadChevroletCarShopsByCity($textCity);
+    //   $workShopList = $this->filterByConcesionario($filterData, $brand);
 
-      if (count($result) > 1) {
-        $workShopList = array_filter($workShopList, function ($item) {
-          return $item['chevySeguros'] !== NULL;
-        });
-      }
+    //   if (count($result) > 1) {
+    //     $workShopList = array_filter($workShopList, function ($item) {
+    //       return $item['chevySeguros'] !== NULL;
+    //     });
+    //   }
 
-      $result = [];
-      foreach ($workShopList as $item) {
-        $result[] = $item;
-      }
+    //   $result = [];
+    //   foreach ($workShopList as $item) {
+    //     $result[] = $item;
+    //   }
 
-      array_walk($result, function (&$item) {
-        unset($item['chevySeguros']);
-      });
-    }
+    //   array_walk($result, function (&$item) {
+    //     unset($item['chevySeguros']);
+    //   });
+    // }
 
     return new JsonResponse($result);
   }
