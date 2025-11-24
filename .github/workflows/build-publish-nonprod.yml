@@ -11,6 +11,7 @@ env:
   GH_REGISTRY: ghcr.io
   IMAGE_NAME: hdinonprod
   REGION: us-east-1
+  CICD: github-actions
 
 jobs:
   build_and_publish:

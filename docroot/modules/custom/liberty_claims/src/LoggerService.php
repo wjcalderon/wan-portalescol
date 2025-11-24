@@ -32,8 +32,8 @@ class LoggerService implements LoggerServiceInterface {
     $this->drupal_logger = $drupalLogger->get('claims_log');
     $this->logger = new Logger('liberty_claims');
 
-    $path = \Drupal::service('file_system')->realpath(\Drupal::config('system.file')->get('default_scheme') . "://");
-    $path = $path . '/claims_logs/';
+    $temp_path = \Drupal::service('settings')->get('file_private_path', '/private');
+    $path = $temp_path . '/claims_logs/';
 
     if (!is_dir($path)) {
       mkdir($path);

@@ -903,6 +903,7 @@ $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
 
 # tenporary files
 $settings['file_temp_path'] = '/var/www/html/efs/tmp';
+$settings['file_private_path'] = '/var/www/html/efs/private';
 
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
