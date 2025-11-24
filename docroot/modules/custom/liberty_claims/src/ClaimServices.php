@@ -603,7 +603,6 @@ class ClaimServices {
       ]), $this->tokenLog);
 
       if ($response && \property_exists($response, 'numeroRegistros') && \property_exists($response, 'polizas')) {
-
         $product = $polizas[$index_vigencia]['codigoProducto'];
         $ramo_by_product = Yaml::decode($config->get('policy_ramos'));
 
