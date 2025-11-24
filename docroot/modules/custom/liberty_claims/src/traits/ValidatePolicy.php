@@ -18,7 +18,7 @@ trait ValidatePolicy
    * @throws InvalidPluginDefinitionException
    * @throws PluginNotFoundException
    */
-  public function validate_policy($polizas, $index_vigencia, $type): array|string
+  public function validatePolicy($polizas, $index_vigencia, $type): array|string
   {
     $this->config = $this->configFactory->get('liberty_claims.settings');
     $return = $this->policy_basic_data($polizas, $index_vigencia, $type);
@@ -111,7 +111,7 @@ trait ValidatePolicy
     $this->unset_session_for_brand('RCIRenault');
     $this->unset_session_for_brand('RCINissan');
     $this->unset_session_for_brand('GMFChevrolet');
-    $this->unset_session_for_brand('RCIChevrolet');
+    // $this->unset_session_for_brand('RCIChevrolet');
 
     $brokers_codes = [
       'RCIRenault' => trim($config->get('cod_renault_colectivo')),
@@ -121,10 +121,10 @@ trait ValidatePolicy
 
     switch ($policy_brand) {
       case 'CHEVROLET':
-        if ($policy_broker_code  !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy($policy_broker_code , $policy_brand)) {
-          $_SESSION[$policy_brand]['colectivo'] = FALSE;
-          $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
-        }
+        // if ($policy_broker_code  !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy($policy_broker_code , $policy_brand)) {
+        //   $_SESSION[$policy_brand]['colectivo'] = FALSE;
+        //   $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
+        // }
 
         if ($policy_broker_code === $brokers_codes['GMFChevrolet']) {
           $this->handle_chevrolet($polizas, $index_vigencia, $return, FALSE);
@@ -136,7 +136,7 @@ trait ValidatePolicy
           $policy_broker_code === $brokers_codes['RCINissan']) {
           $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, TRUE);
         }
-        if ($this->validate_broker_in_taxonomy($polizas[$index_vigencia]['codigoBroker'], $policy_brand)) {
+        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker'], $policy_brand)) {
           $_SESSION[$policy_brand]['colectivo'] = FALSE;
           $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
         }
@@ -145,7 +145,7 @@ trait ValidatePolicy
         $this->unset_session_for_brand('RCIRenault');
         $this->unset_session_for_brand('RCINissan');
         $this->unset_session_for_brand('GMFChevrolet');
-        $this->unset_session_for_brand('RCIChevrolet');
+        // $this->unset_session_for_brand('RCIChevrolet');
         break;
     }
   }
