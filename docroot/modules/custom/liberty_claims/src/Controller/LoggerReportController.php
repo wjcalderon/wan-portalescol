@@ -36,9 +36,8 @@ class LoggerReportController extends ControllerBase {
    */
   public function report(Request $request) {
 
-    $file_default_scheme = \Drupal::config('system.file')->get('default_scheme');
-    $path = \Drupal::service('file_system')->realpath($file_default_scheme . "://");
-    $path = $path . '/claims_logs/';
+    $temp_path = \Drupal::service('settings')->get('file_private_path', '/private');
+    $path = $temp_path . '/claims_logs/';
 
     $output = [];
     $header = [
@@ -49,7 +48,7 @@ class LoggerReportController extends ControllerBase {
     $file_list = array_diff(scandir($path, 1), ['..', '.']);
 
     foreach ($file_list as $file) {
-      $url = '/sites/default/files/claims_logs/' . $file;
+      $url = $path . $file;
 
       $output[] = [
         'plate' => $file,
