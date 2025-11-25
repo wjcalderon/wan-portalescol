@@ -13,7 +13,7 @@ RUN mkdir -p docroot/sites/default/files && \
   chmod 777 docroot/sites/default/settings.php
 
 RUN mkdir -p efs
-RUN chown nginx:nginx efs
+RUN chown nginx:root efs
 RUN chmod 755 efs
 
 RUN mkdir -p docroot/sites/sponsors/files
