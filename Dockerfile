@@ -13,14 +13,16 @@ RUN mkdir -p docroot/sites/default/files && \
   chmod 777 docroot/sites/default/settings.php
 
 RUN mkdir -p efs
-RUN chown nginx:root efs
+RUN chown nginx:nginx efs
 RUN chmod 755 efs
 
 RUN mkdir -p docroot/sites/sponsors/files
 RUN chmod 777 docroot/sites/sponsors/files -R
 COPY start.sh /opt/start.sh
 
-RUN ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files && \
+RUN mkdir -p /var/www/html/efs/tmp && \
+  ln -sf /var/www/html/efs/tmp /tmp && \
+  ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files && \
   ln -s /var/www/html/efs/files/sponsors/files /var/www/html/docroot/sites/sponsors/files && \
   ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
 
