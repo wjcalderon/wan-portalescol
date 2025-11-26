@@ -1,8 +1,9 @@
 FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6 AS base
 
 WORKDIR /var/www/html/
+#RUN mkdir demo
 COPY . .
-
+#COPY . demo/
 FROM base AS deps
 RUN composer install --ignore-platform-reqs --optimize-autoloader
 
