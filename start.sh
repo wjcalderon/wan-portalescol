@@ -7,20 +7,24 @@ cat /etc/hostname
 cat /etc/resolv.conf
 
 #printenv
-echo "Iniciando-readonlyfilesystem-true v1"
+echo "Iniciando-readonlyfilesystem-true v2"
 
 #rm -rf /var/www/html/docroot/sites/default/files
 #rm -rf /var/www/html/docroot/sites/sponsors/files
-
+echo "Creando-link-symbolico..."
+ln -sf /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files
 #ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/
 #ln -s /var/www/html/efs/files/sponsors/files /var/www/html/docroot/sites/sponsors/
 
 #ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
+echo "Agredando-permisos..."
+chown -R nginx:nginx /var/www/html/docroot/sites/default/files
+chmod -R 755 /var/www/html/docroot/sites/default/files
 
 # chown -R nginx:nginx /var/www/html/efs
 # chown -R nginx:nginx /var/www/html/docroot/sites/default
 # chown -R nginx:nginx /var/www/html/docroot/sites/sponsors
-
+ 
 # echo "104.69.219.12 nonprodportal.libertyseguros.co aliados-nonprod.libertyseguros.co" >> /etc/hosts
 
 cat /etc/hosts
