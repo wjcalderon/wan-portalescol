@@ -9,7 +9,8 @@ use Monolog\Logger;
 /**
  * Class Logger Service.
  */
-class LoggerService implements LoggerServiceInterface {
+class LoggerService implements LoggerServiceInterface
+{
 
   /**
    * Drupal\Core\Logger\LoggerChannelFactoryInterface definition.
@@ -28,12 +29,13 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * Constructs a new LoggerService object.
    */
-  public function __construct(LoggerChannelFactoryInterface $drupalLogger) {
+  public function __construct(LoggerChannelFactoryInterface $drupalLogger)
+  {
     $this->drupal_logger = $drupalLogger->get('claims_log');
     $this->logger = new Logger('liberty_claims');
 
-    $path = \Drupal::service('file_system')->realpath(\Drupal::config('system.file')->get('default_scheme') . "://");
-    $path = $path . '/claims_logs/';
+    $private_file_path = \Drupal::service('settings')->get('file_private_path', '/private');
+    $path = $private_file_path . '/claims_logs/';
 
     if (!is_dir($path)) {
       mkdir($path);
@@ -51,18 +53,18 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * {@inheritdoc}
    */
-  public function logActivity(string $plate, string $token) {
+  public function logActivity(string $plate, string $token)
+  {
     try {
       $this->logger->info(json_encode([
-        'token' => $token . $plate,
-        'plate' => $plate,
-        'has_files' => 0,
-        'status' => 1,
-        'timestamp' => time(),
-      ])
+          'token' => $token . $plate,
+          'plate' => $plate,
+          'has_files' => 0,
+          'status' => 1,
+          'timestamp' => time(),
+        ])
       );
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->drupal_logger->error($e->getMessage());
     }
   }
@@ -70,16 +72,16 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * {@inheritdoc}
    */
-  public function set(string $field, string $value, $token) {
+  public function set(string $field, string $value, $token)
+  {
     try {
       $this->logger->debug(json_encode([
-        $field => $value,
-        'timestamp' => time(),
-        'token' => $token,
-      ])
+          $field => $value,
+          'timestamp' => time(),
+          'token' => $token,
+        ])
       );
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->drupal_logger->error($e->getMessage());
     }
   }
@@ -87,7 +89,8 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * Custom get.
    */
-  public function get(string $field, $token) {
+  public function get(string $field, $token)
+  {
     try {
       $result = $this->database->select('liberty_log', 'l')
         ->fields('l', [$field])
@@ -95,8 +98,7 @@ class LoggerService implements LoggerServiceInterface {
         ->execute()->fetchAll();
 
       return $result[0];
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->drupal_logger->error($e->getMessage());
     }
   }
@@ -104,14 +106,14 @@ class LoggerService implements LoggerServiceInterface {
   /**
    * {@inheritdoc}
    */
-  public function setMultiple(array $fields, string $token) {
+  public function setMultiple(array $fields, string $token)
+  {
     try {
       $fields['timestamp'] = time();
       $fields['token'] = $token;
 
       $this->logger->debug(json_encode($fields));
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->drupal_logger->error($e->getMessage());
     }
   }
