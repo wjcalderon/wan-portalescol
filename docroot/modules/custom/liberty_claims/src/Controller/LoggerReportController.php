@@ -10,7 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class LoggerReportController.
  */
-class LoggerReportController extends ControllerBase {
+class LoggerReportController extends ControllerBase
+{
 
   /**
    * Drupal\Core\Database\Driver\mysql\Connection definition.
@@ -22,7 +23,8 @@ class LoggerReportController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container)
+  {
     $instance = parent::create($container);
     $instance->database = $container->get('database');
     return $instance;
@@ -31,13 +33,13 @@ class LoggerReportController extends ControllerBase {
   /**
    * Report.
    *
-   * @return string
+   * @return array
    *   Return Hello string.
    */
-  public function report(Request $request) {
-
-    $temp_path = \Drupal::service('settings')->get('file_private_path', '/private');
-    $path = $temp_path . '/claims_logs/';
+  public function report(Request $request)
+  {
+    $private_file_path = \Drupal::service('settings')->get('file_private_path', '/private');
+    $path = $private_file_path . '/claims_logs/';
 
     $output = [];
     $header = [
@@ -53,10 +55,10 @@ class LoggerReportController extends ControllerBase {
       $output[] = [
         'plate' => $file,
         'link' => new FormattableMarkup(
-                '<a  href=":link" target="_blank" rel="noreferrer" download>Descarga</a>',
-                [
-                  ':link' => $url,
-                ]
+          '<a  href=":link" target="_blank" rel="noreferrer" download>Descarga</a>',
+          [
+            ':link' => $url,
+          ]
         ),
       ];
     }
@@ -82,7 +84,8 @@ class LoggerReportController extends ControllerBase {
    * @return array
    *   Output of option.
    */
-  public function detail($token, $option) {
+  public function detail($token, $option)
+  {
     $query = $this->database->select('liberty_log', 'l');
     $query->fields('l', [$option])->condition('token', $token);
     $result = $query->execute()->fetchAll();
@@ -94,8 +97,8 @@ class LoggerReportController extends ControllerBase {
       '#rows' => 30,
       '#value' => json_encode(json_decode($result->$option), JSON_PRETTY_PRINT),
     ];
+    
     return $output;
-
   }
 
 }

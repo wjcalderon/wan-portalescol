@@ -406,10 +406,10 @@ $settings['reverse_proxy'] = true;
  * @see \Symfony\Component\HttpFoundation\Request::setTrustedProxies
  */
 $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
-\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
-\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
-\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_AWS_ELB |
-\Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST;
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_AWS_ELB |
+  \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST;
 
 /**
  * Page caching:
@@ -749,8 +749,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * @see \Drupal\Core\Extension\ExtensionDiscovery::scanDirectory()
  */
 $settings['file_scan_ignore_directories'] = [
-    'node_modules',
-    'bower_components',
+  'node_modules',
+  'bower_components',
 ];
 
 /**
@@ -799,7 +799,7 @@ $settings['migrate_node_migrate_type_classic'] = false;
  * Keep this code block at the end of this file to take full effect.
  */
 
-$databases['default']['default'] = array (
+$databases['default']['default'] = array(
   'database' => getenv('Sponsor_nameDB'),
   'username' => getenv('Sponsor_username'),
   'password' => getenv('Sponsor_password'),
@@ -825,6 +825,10 @@ $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
 
 # tenporary files
 // $settings['file_temp_path'] = '/var/www/html/efs/tmp';
+$settings['file_temp_path'] = '/var/www/html/efs/tmp';
+
+# Configuración adicional para stream wrappers
+$config['system.file']['path']['temporary'] = '/var/www/html/efs/tmp';
 
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
