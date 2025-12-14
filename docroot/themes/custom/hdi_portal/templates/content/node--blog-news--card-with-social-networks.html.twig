@@ -1,44 +1,36 @@
 <div class="content-wrapper blog-news__with-social-networks">
-  <div class="field field-image">
-    {{ content.field_big_image }}
-  </div>
-
+  <a href="{{ url }}">
+    <div class="field field-image">
+      {{ content.field_big_image }}
+    </div>
+  </a>
   <div class="text-container">
     <div class="text-container_title_and_social">
-      <div class="field-category">
-        {{ content.field_category[0]["#plain_text"] }}
-      </div>
+      <a href="{{ url }}">
+        <div class="field-category">
+          {{ content.field_category[0]["#plain_text"] }}
+        </div>
+      </a>
       <section class="news-blog-footer">
         <div class="field-social">
           <div class="social-share">
             share <span class="a2a_counter"></span>
-
             <div class="social-share-links">
               {{ content.sharing_buttons }}
             </div>
           </div>
-
           {{ content.likeit }}
         </div>
       </section>
     </div>
-    <div class="field-label">
-      {{ node.label }}
-    </div>
-    {% if title_prefix or title_suffix or display_submitted or unpublished or
-    (not page and label) %}
-    {{ title_prefix }}
-
-    {% if not page and label %}
-    <h3>
-      <a href="{{ url }}">{{ label }}</a>
-    </h3>
-    {% endif %}
-    {{ title_suffix }}
-    {% endif %}
-    <div class="field-summary">
-      {{ content.body[0]['#text']|truncate(50, false, ' ...') }}
-    </div>
-    <a href="{{ url }}" class="blog-news__link link">Leer más</a>
+    <a href="{{ url }}">
+      <div class="field-label">
+        {{ node.label }}
+      </div>
+      <div class="field-summary">
+        {{ content.body[0]['#text']|truncate(50, false, ' ...') }}
+      </div>
+      <span class="blog-news__link link">Leer más</span>
+    </a>
   </div>
 </div>
