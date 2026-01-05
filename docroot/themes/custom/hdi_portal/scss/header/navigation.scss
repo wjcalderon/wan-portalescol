@@ -33,9 +33,20 @@
           top: 6.5rem;
           width: 100vw !important; // Overwrite megamenu default width
 
+          @include small-desktop {
+            & > .cog-mq {
+              max-width: 80%;
+            }
+          }
+
+
           .tb-megamenu-row {
             &.row-fluid {
+              align-items: stretch;
               display: flex;
+              flex-wrap: nowrap;
+              flex-direction: row;
+              justify-content: space-between;
             }
           }
         }
@@ -52,12 +63,86 @@
                 background-image: none;
                 font-weight: 500;
               }
+
+              .caption {
+                display: block;
+                font-weight: 300;
+                margin-top: .25rem;
+              }
             }
 
             &.active > a {
               background-image: none;
               background-color: var(--white);
               font-weight: 500;
+            }
+
+            .mega-group-title {
+              margin-bottom: .5rem;
+              position: relative;
+
+              i {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: block;
+                height: 1.5rem;
+                left: -1.5rem;
+                position: absolute;
+                top: -.25rem;
+                width: 1.5rem;
+
+                &.auto {
+                  background-image: url("../../images/icons/Icon_auto.svg");
+                  height: 1.85rem;
+                  width: 1.85rem;
+                }
+
+                &.avion {
+                  background-image: url("../../images/icons/Icon_avion.svg");
+                }
+
+                &.corazon {
+                  background-image: url("../../images/icons/Icon_corazon.svg");
+                }
+
+                &.cuidado_personal {
+                  background-image: url("../../images/icons/Icon_cuidado_personal.svg");
+                }
+
+                &.documento {
+                  background-image: url("../../images/icons/Icon_documento.svg");
+                }
+
+                &.escudo {
+                  background-image: url("../../images/icons/Icon_escudo.svg");
+                }
+
+                &.escudo_simple {
+                  background-image: url("../../images/icons/Icon_escudo_simple.svg");
+                }
+
+                &.franquicias {
+                  background-image: url("../../images/icons/Icon_franquicias.svg");
+                }
+
+                &.home {
+                  background-image: url("../../images/icons/Icon_home.svg");
+                }
+
+                &.medico {
+                  background-image: url("../../images/icons/Icon_medico.svg");
+                }
+
+                &.seguro_de_auto {
+                  background-image: url("../../images/icons/Icon_seguro_de_auto.svg");
+                }
+
+                &.transporte_de_carga {
+                  background-image: url("../../images/icons/Icon_transporte_de_carga.svg");
+                }
+
+              }
             }
           }
         }
@@ -108,6 +193,7 @@
             background-color: var(--hdi-gray-10);
             border: none;
             color: var(--gray);
+            cursor: pointer;
             font-size: .9rem;
             font-weight: 400;
             margin: 0 .5rem;
@@ -129,7 +215,7 @@
               background-color: var(--white);
               border: 1px solid var(--hdi-universal-green);
               color: var(--black);
-              font-family: 'HDI Pro';
+              font-family: var(--hdi-font);
               font-size: 1.1rem;
               font-weight: 600;
               margin-top: .1rem;
