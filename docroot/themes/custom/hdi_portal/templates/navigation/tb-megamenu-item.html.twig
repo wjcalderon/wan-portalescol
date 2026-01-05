@@ -8,6 +8,7 @@
 {% endif %}
 
 {% set linkAttributes = link['attributes'] %}
+
 {% if ( link['url'] is defined and link['url'] is not empty ) %}
   {% set tag = "a" %}
   {% set href = " href='#{ link['url'] }'" %}
@@ -24,12 +25,12 @@
 {% endif %}
 <li {{ attributes }} >
   <{{ tag }}{{ href|raw }} {{ link['attributes'] }} {{ target }} {{ link_class }}>
-    {% if  item_config['xicon'] %}
-      <i class="{{ item_config['xicon'] }}"></i>
+    {% if link.options.attributes.icon %}
+      <i class="{{ link.options.attributes.icon }}"></i>
     {% endif %}
     {{ link.title_translate|t }}
-    {% if item_config['caption'] %}
-      <span class="mega-caption"> {{ item_config['caption']|t }}</span>
+    {% if link.options.attributes.descripcion %}
+      <span class="caption"> {{ link.options.attributes.descripcion }}</span>
     {% endif %}
   </{{ tag }}>
   {{ submenu }}
