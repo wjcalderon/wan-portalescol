@@ -902,12 +902,14 @@ $settings['reverse_proxy_proto_header'] = 'HTTP_X_FORWARDED_PROTO';
 $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
 
 # temporary files
-// $settings['file_temp_path'] = '/var/www/html/efs/tmp';
-$settings['file_temp_path'] = '/var/www/html/efs/tmp';
-$settings['file_private_path'] = '/var/www/html/efs/private';
+if (getenv('AH_SITE_ENVIRONMENT') !== 'local') {
+  $settings['file_temp_path'] = '/var/www/html/efs/tmp';
+  $settings['file_private_path'] = '/var/www/html/efs/private';
 
-# Configuración adicional para stream wrappers
-$config['system.file']['path']['temporary'] = '/var/www/html/efs/tmp';
+  # Configuración adicional para stream wrappers
+  $config['system.file']['path']['temporary'] = '/var/www/html/efs/tmp';
+}
+
 
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';

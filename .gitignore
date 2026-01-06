@@ -151,6 +151,7 @@ drush/*
 docker-compose.yml
 traefik.yml
 certs
+.certs/
 .dockerignore
 docroot/libraries
 grumphp.yml
