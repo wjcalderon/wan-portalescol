@@ -10,6 +10,7 @@ env:
   GH_REGISTRY: ghcr.io
   IMAGE_NAME: hdiprod
   REGION: us-east-1
+  CICD: github-actions
 
 jobs:
   build_and_publish:
@@ -59,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/arm64,linux/amd64
+          platforms: linux/arm64
           provenance: false
           push: true
           tags: ${{ steps.meta.outputs.tags }}

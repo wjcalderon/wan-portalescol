@@ -10,21 +10,26 @@ env:
   GH_REGISTRY: ghcr.io
   IMAGE_NAME: hdidev
   REGION: us-east-1
+  CICD: github-actions
 
 jobs:
   build_and_publish:
     name: Build and publish develop
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     permissions:
       contents: read
-      packages: read
+      packages: write
       id-token: write
 
     steps:
 
       - name: Check out the repo
         uses: actions/checkout@v4
+
+      - name: create version file
+        run: |
+          echo ${{ github.ref_name }} > VERSION
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -42,13 +47,6 @@ jobs:
           password: ${{ secrets.DESARROLLO_A }}
           logout: true
 
-      - name: Install dependencies
-        uses: php-actions/composer@v6
-        with:
-          php_version: "8.1"
-          version: "2.2"
-          args: "--ignore-platform-reqs --optimize-autoloader"
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
@@ -62,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/arm64,linux/amd64
+          platforms: linux/arm64
           provenance: false
           push: true
           tags: ${{ steps.meta.outputs.tags }}
