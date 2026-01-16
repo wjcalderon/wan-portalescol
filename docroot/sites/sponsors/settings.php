@@ -824,7 +824,7 @@ $settings['reverse_proxy_proto_header'] = 'HTTP_X_FORWARDED_PROTO';
 $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
 
 if (getenv('AH_SITE_ENVIRONMENT') !== 'local') {
-   $settings['file_public_path'] = '/var/www/html/docroot/sites/sponsors/files/files';
+  # $settings['file_public_path'] = '/var/www/html/docroot/sites/sponsors/files/files';
   $settings['file_temp_path'] = '/var/www/html/efs/tmp';
 
   # Configuración adicional para stream wrappers
