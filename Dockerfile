@@ -25,10 +25,10 @@ RUN mkdir -p /var/www/html/efs/tmp && \
 #   chmod 777 docroot/sites/default/files -R && \
 #   chmod 777 docroot/sites/default/settings.php
 
-RUN chmod 777 docroot/sites/default/files -R
+# RUN chmod 777 docroot/sites/default/files -R
 
 # RUN mkdir -p docroot/sites/sponsors/files
-RUN chmod 777 docroot/sites/sponsors/files -R
+# RUN chmod 777 docroot/sites/sponsors/files -R
 
 RUN ls -altrh
 
