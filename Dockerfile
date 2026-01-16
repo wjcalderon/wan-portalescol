@@ -1,9 +1,9 @@
 FROM ghcr.io/hdiseguroscol/php-nginx-docker:v1.0.6 AS base
 
 WORKDIR /var/www/html/
-
+#RUN mkdir demo
 COPY . .
-
+#COPY . demo/
 FROM base AS deps
 RUN composer install --ignore-platform-reqs --optimize-autoloader
 
@@ -17,16 +17,15 @@ COPY start.sh /opt/start.sh
 
 RUN mkdir -p /var/www/html/efs/tmp && \
   ln -sf /var/www/html/efs/tmp /tmp && \
-  ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files && \
-  ln -s /var/www/html/efs/files/sponsors/files /var/www/html/docroot/sites/sponsors/files && \
+  ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/ && \
+  ln -s /var/www/html/efs/files/sponsors/files /var/www/html/docroot/sites/sponsors/ && \
   ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
 
 # RUN mkdir -p docroot/sites/default/files && \
 #   chmod 777 docroot/sites/default/files -R && \
 #   chmod 777 docroot/sites/default/settings.php
 
-RUN chmod 777 docroot/sites/default/files -R && \
-  chmod 777 docroot/sites/default/settings.php
+RUN chmod 777 docroot/sites/default/files -R
 
 # RUN mkdir -p docroot/sites/sponsors/files
 RUN chmod 777 docroot/sites/sponsors/files -R
