@@ -1,0 +1,130 @@
+@import "../mixins/responsive.scss";
+
+.component__drupal-view {
+  &.component__view--testimonios {
+    background-color: var(--hdi-yellow);
+    padding: 2.5rem 0;
+
+    header {
+      background-color: var(--hdi-yellow);
+      box-shadow: none;
+      margin-bottom: 2rem;
+      text-align: center;
+
+      h2 {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .slick-track {
+      .slick-slide {
+        margin: 0 1rem;
+
+        & > div {
+          & > .slide {
+            background-color: var(--white);
+            border: 1px solid var(--hdi-gray-30);
+            display: inline-grid !important;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 0fr);
+            gap: 0;
+            padding: 2rem;
+            position: relative;
+
+            &::before {
+              background-image: url(../../images/icons/Icon_globo.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              content: "";
+              height: 2rem;
+              left: 2rem;
+              position: absolute;
+              top: 2rem;
+              width: 2rem;
+            }
+
+            .views-field-body {
+              border-bottom: 1px solid var(--hdi-gray-30);
+              grid-column: span 2 / span 2;
+              margin: 3rem 0 1.5rem;
+              min-height: 13rem;
+              padding-bottom: 1.5rem;
+
+              @include phone-only {
+                min-height: 16rem;
+              }
+
+              p {
+                &:before {
+                  content: open-quote;
+                  display: inline-block;
+                }
+
+                &:after {
+                  content: close-quote;
+                  display: inline-block;
+                }
+              }
+            }
+
+            .views-field-title {
+              grid-column: span 2 / span 2;
+              grid-row-start: 2;
+            }
+
+            .views-field-nothing {
+              color: var(--gray-70);
+              font-size: .8rem;
+              grid-row-start: 3;
+            }
+          }
+        }
+      }
+    }
+
+    .slick__arrow {
+      @include phone-only {
+        margin: 3rem 0 1rem;
+        position: relative;
+      }
+
+      .slick-prev, .slick-next {
+        height: 2rem;
+        width: 2rem;
+
+        @include phone-only {
+          height: 3rem;
+          width: 3rem;
+          background-color: var(--gray-30);
+          border-radius: 0;
+        }
+
+        &::before {
+          height: 2.5rem;
+          width: 2.5rem;
+        }
+      }
+
+      .slick-prev {
+        @include phone-only {
+          left: 7rem;
+        }
+
+        &::before {
+          background: transparent url(../../images/arrow-left-black.svg) no-repeat center center;
+        }
+      }
+
+      .slick-next {
+        @include phone-only {
+          right: 7rem;
+        }
+
+        &::before {
+          background: transparent url(../../images/arrow-right-black.svg) no-repeat center center;
+        }
+      }
+    }
+  }
+}
