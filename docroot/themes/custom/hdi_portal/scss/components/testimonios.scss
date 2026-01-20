@@ -39,7 +39,7 @@
               background-size: contain;
               content: "";
               height: 2rem;
-              left: 2rem;
+              left: calc(50% - 1rem);
               position: absolute;
               top: 2rem;
               width: 2rem;
@@ -49,11 +49,11 @@
               border-bottom: 1px solid var(--hdi-gray-30);
               grid-column: span 2 / span 2;
               margin: 3rem 0 1.5rem;
-              min-height: 13rem;
+              min-height: 10rem;
               padding-bottom: 1.5rem;
 
               @include phone-only {
-                min-height: 16rem;
+                min-height: 11rem;
               }
 
               p {
