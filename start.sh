@@ -11,15 +11,15 @@ echo "Iniciando-readonlyfilesystem-true v2"
 
 #rm -rf /var/www/html/docroot/sites/default/files
 #rm -rf /var/www/html/docroot/sites/sponsors/files
-echo "Creando-link-symbolico..."
-ln -sf /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files
+#echo "Creando-link-symbolico..."
+#ln -sf /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/files
 #ln -s /var/www/html/efs/files/default/files /var/www/html/docroot/sites/default/
 #ln -s /var/www/html/efs/files/sponsors/files /var/www/html/docroot/sites/sponsors/
 
 #ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
-echo "Agredando-permisos..."
-chown -R nginx:nginx /var/www/html/docroot/sites/default/files
-chmod -R 755 /var/www/html/docroot/sites/default/files
+#echo "Agredando-permisos..."
+#chown -R nginx:nginx /var/www/html/docroot/sites/default/files
+#chmod -R 755 /var/www/html/docroot/sites/default/files
 
 # chown -R nginx:nginx /var/www/html/efs
 # chown -R nginx:nginx /var/www/html/docroot/sites/default

@@ -903,6 +903,7 @@ $settings['reverse_proxy_host_header'] = 'HTTP_X_FORWARDED_HOST';
 
 # temporary files
 if (getenv('AH_SITE_ENVIRONMENT') !== 'local') {
+  # $settings['file_public_path'] = '/var/www/html/docroot/sites/default/files/files';
   $settings['file_temp_path'] = '/var/www/html/efs/tmp';
   $settings['file_private_path'] = '/var/www/html/efs/private';
 
