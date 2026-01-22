@@ -160,15 +160,6 @@
                 {# Normal tabs #}
                 <div class="normal-tab">
                   <a href="#tab-{{id_key}}" title="{{ item.entity.field_name.value }}">
-                    {% if item.entity.field_image is not empty %}
-                      {% if item.entity.field_class_wrapper_image is not empty %}
-                        <div class="{{ item.entity.field_class_wrapper_image.value }}">
-                      {% endif %}
-                        <img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
-                      {% if item.entity.field_class_wrapper_image is not empty %}
-                        </div>
-                      {% endif %}
-                    {% endif %}
                     {% if item.entity.field_name is not empty %}
                       {{ item.entity.field_name.value }}
                     {% endif %}
