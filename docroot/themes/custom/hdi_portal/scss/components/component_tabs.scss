@@ -41,7 +41,6 @@
 
             @include tablet-landscape-up {
               margin: auto;
-              max-width: 1053px;
               width: 100%;
             }
 
@@ -53,7 +52,6 @@
               .ui-tab {
                 border-bottom: 0.08rem solid var(--gray-50);
                 background-color: unset;
-                flex: 1;
                 padding: unset;
                 font-weight: 350;
                 margin-bottom: 0;
