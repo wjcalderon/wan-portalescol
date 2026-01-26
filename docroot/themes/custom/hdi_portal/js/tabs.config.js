@@ -146,24 +146,23 @@
         }
       });
 
+      $(".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a").click(
+        function (e) {
+          const tabHref = $(this).attr("href");
+          const $tabPanel = $(tabHref);
+          const $slider = $tabPanel.find(".slick-slider");
+          console.log('Slick with tabs')
+          if ($slider.hasClass('slick-initialized')) {
+            $slider.slick("setPosition");
+          }
+        }
+      );
+
       // Tabs contact
       if ($(".component__tabs--contact").length > 0) {
         // Add active tabs contact
         $(".component__tabs--contact .cp-tabs li").removeClass(
           "ui-tabs-active ui-state-active"
-        );
-
-        $(".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a").click(
-          function (e) {
-            const tabHref = $(this).attr("href");
-            const $tabPanel = $(tabHref);
-            const $slider = $tabPanel.find(".slick-slider");
-            console.log('verificando tabs')
-            if ($slider.hasClass('slick-initialized')) {
-              console.log('ajustando slick')
-              $slider.slick("setPosition");
-            }
-          }
         );
 
         $(".component__tabs--contact .cp-tabs li .component__card a").click(
