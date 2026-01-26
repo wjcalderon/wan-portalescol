@@ -4,23 +4,18 @@
   Drupal.behaviors.tabsJS = {
     attach: function (context, settings) {
 
-      $(context)
-        .once("headerTabsClickFix")
-        .on(
-          "click",
-          ".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a",
-          function (e) {
-            const tabHref = $(this).attr("href");
-            const $tabPanel = $(tabHref);
-            const $slider = $tabPanel.find(".slick-slider");
+      $(document).on("click", ".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a", function (e) {
+        const tabHref = $(this).attr("href");
+        const $tabPanel = $(tabHref);
+        const $slider = $tabPanel.find(".slick-slider");
 
-            console.log("Slick with tabs. ");
+        console.log("Slick with tabs");
 
-            if ($slider.hasClass("slick-initialized")) {
-              $slider.slick("setPosition");
-            }
-          }
-        );
+        if ($slider.hasClass("slick-initialized")) {
+          $slider.slick("setPosition");
+        }
+      });
+
 
       $(".cp-tabs").not(".is-shorcut, .popup-no-tabs").tabs();
 
