@@ -14,7 +14,7 @@
             const $tabPanel = $(tabHref);
             const $slider = $tabPanel.find(".slick-slider");
 
-            console.log("Slick with tabs");
+            console.log("Slick with tabs. ");
 
             if ($slider.hasClass("slick-initialized")) {
               $slider.slick("setPosition");
