@@ -158,8 +158,9 @@
             const tabHref = $(this).attr("href");
             const $tabPanel = $(tabHref);
             const $slider = $tabPanel.find(".slick-slider");
-
+            console.log('verificando tabs')
             if ($slider.hasClass('slick-initialized')) {
+              console.log('ajustando slick')
               $slider.slick("setPosition");
             }
           }
