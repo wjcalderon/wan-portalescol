@@ -93,7 +93,9 @@
                     }
 
                     img {
-                      filter: contrast(0.2);
+                      <<<<<<< HEAD filter: contrast(0.2);
+                      =======filter: constrast(0.2);
+                      >>>>>>>a2c4c2d9022c233ce002afcd8994fc9f28df0c49
                     }
                   }
                 }
@@ -104,6 +106,7 @@
 
                   a {
                     align-items: center;
+                    color: var(--gray-50);
                     display: flex;
                     color: var(--gray-50);
                     font-size: 1rem;

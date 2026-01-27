@@ -32,7 +32,7 @@ trait GetTokens
           'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' =>
-            'Bearer ' . $this->getMainToken(),
+              'Bearer ' . $this->getMainToken(),
           ],
           'body' => json_encode([
             "username" => $this->getConnectionData('username'),

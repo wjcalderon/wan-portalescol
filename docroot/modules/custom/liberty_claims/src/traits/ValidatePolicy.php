@@ -5,7 +5,8 @@ namespace Drupal\liberty_claims\traits;
 use Drupal\Component\Serialization\Yaml;
 use Drupal\liberty_claims\traits\GetPersonalData;
 
-trait ValidatePolicy {
+trait ValidatePolicy
+{
   private $config;
 
   use GetPersonalData;
@@ -14,15 +15,15 @@ trait ValidatePolicy {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function validatePolicy($polizas, $index_vigencia, $type): array|string {
+  public function validatePolicy($polizas, $index_vigencia, $type): array|string
+  {
     $this->config = $this->configFactory->get('liberty_claims.settings');
     $return = $this->policyBasicData($polizas, $index_vigencia, $type);
 
     if (array_key_exists('token', $return)) {
       if (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaNatural'])) {
         $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia);
-      }
-      elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
+      } elseif (isset($polizas[$index_vigencia]['riesgoAuto']['aseguradoPersonaJuridica'])) {
         $return['personalInfo'] = $this->personalInfo($polizas, $index_vigencia, TRUE);
       }
 
@@ -64,7 +65,8 @@ trait ValidatePolicy {
     return 'no-guarantee';
   }
 
-  private function checkInRange($oldest_model, $latest_model, $model): bool {
+  private function checkInRange($oldest_model, $latest_model, $model): bool
+  {
     $oldest_model = strtotime($oldest_model);
     $latest_model = strtotime($latest_model);
     $model = strtotime($model);
@@ -72,7 +74,8 @@ trait ValidatePolicy {
     return ($model >= $oldest_model && $model <= $latest_model);
   }
 
-  private function policyBasicData($polizas, $index_vigencia, $type): array {
+  private function policyBasicData($polizas, $index_vigencia, $type): array
+  {
     $codes = Yaml::decode($this->config->get('insured_codes'));
     $data = [];
 
@@ -86,11 +89,9 @@ trait ValidatePolicy {
         if (is_array($brokers) && in_array($polizas[$index_vigencia]['codigoBroker'], $brokers)) {
           $data['broker'] = TRUE;
         }
-      }
-      elseif (in_array($item['codigoGarantia'], [756, 9036])) {
+      } elseif (in_array($item['codigoGarantia'], [756, 9036])) {
         $data['guarantees']['rc1'] = $item['codigoGarantia'];
-      }
-      elseif (in_array($item['codigoGarantia'], [757, 9037])) {
+      } elseif (in_array($item['codigoGarantia'], [757, 9037])) {
         $data['guarantees']['rc3'] = $item['codigoGarantia'];
       }
     }
@@ -102,29 +103,30 @@ trait ValidatePolicy {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  private function validateBrand($polizas, $index_vigencia, &$return, $policy_brand, $policy_broker_code): void {
+  private function validateBrand($polizas, $index_vigencia, &$return, $policy_brand, $policy_broker_code): void
+  {
     $config = $this->configFactory->get('liberty_claims_email.settings');
 
-    $this->unsetSessionForBrand('RCIRenault');
-    $this->unsetSessionForBrand('RCINissan');
-    $this->unsetSessionForBrand('GMFChevrolet');
+    $this->unset_session_for_brand('RCIRenault');
+    $this->unset_session_for_brand('RCINissan');
+    $this->unset_session_for_brand('GMFChevrolet');
+    // $this->unset_session_for_brand('RCIChevrolet');
 
     $brokers_codes = [
       'RCIRenault' => trim($config->get('cod_renault_colectivo')),
       'RCINissan' => trim($config->get('cod_nissan_colectivo')),
       'GMFChevrolet' => trim($config->get('cod_chevrolet')),
-      'RCIChevyseguros' => trim($config->get('cod_chevyseguro_colectivo')),
     ];
 
     switch ($policy_brand) {
       case 'CHEVROLET':
-        $chevy_seguros = false;
-        if ($policy_broker_code === $brokers_codes['RCIChevyseguros']) {
-          $chevy_seguros = true;
-        }
-        if ($policy_broker_code === $brokers_codes['RCIChevyseguros'] ||
-          $policy_broker_code === $brokers_codes['GMFChevrolet']) {
-          $this->handleChevrolet($polizas, $index_vigencia, $return, $chevy_seguros);
+        // if ($policy_broker_code  !== $brokers_codes['GMFChevrolet'] && $this->validate_broker_in_taxonomy($policy_broker_code , $policy_brand)) {
+        //   $_SESSION[$policy_brand]['colectivo'] = FALSE;
+        //   $this->handle_other_brands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
+        // }
+
+        if ($policy_broker_code === $brokers_codes['GMFChevrolet']) {
+          $this->handleChevrolet($polizas, $index_vigencia, $return, FALSE);
         }
         break;
       case 'NISSAN':
@@ -133,20 +135,22 @@ trait ValidatePolicy {
           $policy_broker_code === $brokers_codes['RCINissan']) {
           $this->handleOtherBrands($polizas, $index_vigencia, $return, $policy_brand, TRUE);
         }
-        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker'])) {
-          $_SESSION[$policy_brand]['colectivo'] = false;
-          $this->handleOtherBrands($polizas, $index_vigencia, $return, $policy_brand, false);
+        if ($this->validateBrokerInTaxonomy($polizas[$index_vigencia]['codigoBroker'], $policy_brand)) {
+          $_SESSION[$policy_brand]['colectivo'] = FALSE;
+          $this->handleOtherBrands($polizas, $index_vigencia, $return, $policy_brand, FALSE);
         }
         break;
       default:
-        $this->unsetSessionForBrand('RCIRenault');
-        $this->unsetSessionForBrand('RCINissan');
-        $this->unsetSessionForBrand('GMFChevrolet');
+        $this->unset_session_for_brand('RCIRenault');
+        $this->unset_session_for_brand('RCINissan');
+        $this->unset_session_for_brand('GMFChevrolet');
+        // $this->unset_session_for_brand('RCIChevrolet');
         break;
     }
   }
 
-  private function handleChevrolet(array $polizas, int $index_vigencia, array &$return, bool $chevy): void {
+  private function handleChevrolet(array $polizas, int $index_vigencia, array &$return, bool $chevy): void
+  {
     $return['GMFChevrolet']['codigoConcesionario'] = $polizas[$index_vigencia]['codigoConcesionario'];
     $_SESSION['GMFChevrolet'] = $return['GMFChevrolet'];
 
@@ -162,9 +166,11 @@ trait ValidatePolicy {
     }
   }
 
-  private function handleOtherBrands($polizas, $index_vigencia, &$return, $brand, $collective): void {
+  private function handleOtherBrands($polizas, $index_vigencia, &$return, $brand, $collective): void
+  {
     $sessionKey = 'RCI' . ucfirst(strtolower($brand));
     $codigoConcesionario = $polizas[$index_vigencia]['codigoBroker'];
+
     if ($collective) {
       $codigoConcesionario = $polizas[$index_vigencia]['codigoConcesionario'];
     }
@@ -173,7 +179,8 @@ trait ValidatePolicy {
     $_SESSION[$sessionKey] = $return[$sessionKey];
   }
 
-  private function unsetSessionForBrand($brandSessionKey): void {
+  private function unsetSessionForBrand($brandSessionKey): void
+  {
     if (isset($_SESSION[$brandSessionKey])) {
       unset($_SESSION[$brandSessionKey]);
     }

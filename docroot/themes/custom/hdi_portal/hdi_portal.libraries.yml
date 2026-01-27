@@ -10,6 +10,7 @@ global_styles:
     theme:
       assets/css/styles.css: {}
       assets/css/components_styles.css: {}
+      assets/css/ckeditor.css: {}
 
 global_javascript:
   version: VERSION
@@ -107,7 +108,7 @@ tour:
     - core/jquery
 
 liberty-components:
-  version:  VERSION
+  version: VERSION
   js:
     assets/js/liberty-components.js: {}
   dependencies:
@@ -117,7 +118,7 @@ liberty-components:
     - core/jquery.once
 
 liberty-card-accordion:
-  version:  VERSION
+  version: VERSION
   js:
     assets/js/card-accordion.js: {}
   dependencies:

@@ -126,30 +126,24 @@
 					{% set id_key = item.entity.id.value ?? key %}
 					<li>
 
-						{% if item.entity.field_cta is not empty %}
-							<div
-								class="component__card">
-								{# Button tabs #}
-								{% if item.entity.field_image is not empty %}
-									{% if item.entity.field_class_wrapper_image is not empty %}
-										<div class="{{ item.entity.field_class_wrapper_image.value }}">
-										{% endif %}
-										<img alt="" src="{{ file_url(item.entity.field_image.entity.uri.value) }}" width="40" height="40">
-										{% if item.entity.field_class_wrapper_image is not empty %}
-										</div>
-									{% endif %}
-								{% endif %}
-								{% if item.entity.field_name is not empty %}
-									<h4 class="name">{{ item.entity.field_name.value }}</h4>
-								{% endif %}
-								{% if item.entity.field_lead is not empty %}
-									<p class="lead">{{ item.entity.field_lead.value }}</p>
-								{% endif %}
-								<p class="cta">
-									{% if popup_class %}
-										<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
-									{% elseif item.entity.field_c_classes.0.value == 'popup-no-tabs' %}
-										<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs">{{ item.entity.field_cta.0.title }}</a>
+                    {% elseif item.entity.field_c_classes.0.value == 'external' %}
+                      <a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs" id="external">{{ item.entity.field_cta.0.title }}</a>
+                    {% else %}
+                      <a href="#tab-{{id_key}}" class="button button-secondary button--small">{{ item.entity.field_cta.0.title }}</a>
+                    {% endif %}
+                  </p>
+                </div>
+              {% else %}
+                {# Normal tabs #}
+                <div class="normal-tab">
+                  <a href="#tab-{{id_key}}" title="{{ item.entity.field_name.value }}">
+                    {% if item.entity.field_name is not empty %}
+                      {{ item.entity.field_name.value }}
+                    {% endif %}
+                  </a>
+                </div>
+              {% endif %}
+            </li>
 
 									{% elseif item.entity.field_c_classes.0.value == 'external' %}
 										<a href="{{ item.entity.field_cta.0.uri }}" class="button button-secondary button--small popup-no-tabs" id="external">{{ item.entity.field_cta.0.title }}</a>

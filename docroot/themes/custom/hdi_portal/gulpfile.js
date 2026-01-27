@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const { series, parallel } = require('gulp')
+const {series, parallel} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const del = require('delete')
 const terser = require('gulp-terser')
@@ -19,6 +19,14 @@ const compileScss = (cb) => {
     .pipe(gulp.dest('assets/css'))
 }
 
+const compileCkeditorScss = (cb) => {
+  return gulp.src('scss/ckeditor.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('css'))
+}
+
 const javascript = (cb) => {
   return gulp.src('js/*.js')
     .pipe(sourcemaps.init())
@@ -34,3 +42,4 @@ function watchSassJs() {
 exports.build = series(clean, parallel(compileScss, javascript))
 exports.clean = clean
 exports.watch = series(clean, parallel(compileScss, javascript), watchSassJs)
+exports.ckeditor = compileCkeditorScss

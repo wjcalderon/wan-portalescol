@@ -151,8 +151,10 @@ drush/*
 docker-compose.yml
 traefik.yml
 certs
+.certs/
 .dockerignore
 docroot/libraries
 grumphp.yml
 load_fonts.php
 .phpactor.json
+VERSION

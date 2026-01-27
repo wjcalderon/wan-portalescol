@@ -244,7 +244,7 @@ export default {
       page: 0,
       offset: 4,
       showError: false,
-      defaultCS: null,
+      defaultCS: {codTaller: 0},
       noWorkshopsCities: [],
       ciudad_original: false,
       claimCitySelected: '',
@@ -293,13 +293,18 @@ export default {
         this.selected = {};
         this.casualtyData = {};
 
-        let brand = this.vehicleData.brand.replace(/\s+/g, "--");
-        brand = brand.replace(/[\/]/g, "++");
+        let brand = this.vehicleData.brand.replaceAll(/\s+/g, "--");
+        brand = brand.replaceAll(/[\/]/g, "++");
         let model = this.vehicleData.model;
+
+        const year = parseInt(this.drupalSettings.lastModel, 10);
+        const currentDate = new Date();
+        const date = new Date(year, currentDate.getMonth(), currentDate.getDay());
+        date.setFullYear(date.getFullYear() - 5);
 
         if (
           this.isBroker &&
-          this.vehicleData.model >= this.drupalSettings.lastModel - 5
+          this.vehicleData.model > date.getFullYear()
         ) {
           model = this.drupalSettings.lastModel;
         }
@@ -316,7 +321,7 @@ export default {
 
               brands.forEach(brand => {
                 if (localStorage.getItem(`${brand}-codigoConcesionario`)) {
-                  vm.defaultCS = data.body;
+                  vm.defaultCS = {...this.defaultCS, ...data.body};
                 }
               });
 
@@ -325,7 +330,7 @@ export default {
                   carShop.nombre.includes("Taller para Arreglo Directo") &&
                   carShop.codExternal === undefined
                 ) {
-                  vm.defaultCS = carShop;
+                  vm.defaultCS = {...this.defaultCS, ...carShop};
                 }
                 if (this.claimType === "CLAIM_TYPE_LR") {
                   return carShop.nombre.includes("LLANTAS ESTALLADAS");

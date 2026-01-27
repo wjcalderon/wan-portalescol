@@ -7,9 +7,12 @@
         "click",
         ".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a",
         function (e) {
-          const target = $(this).attr("href");
-          const $tabPanel = $(target);
+          const tabHref = $(this).attr("href");
+          const $tabPanel = $(tabHref);
           const $slider = $tabPanel.find(".slick-slider");
+
+          console.log("Slick with tabs");
+
           if ($slider.hasClass("slick-initialized")) {
             $slider.slick("setPosition");
           }

@@ -293,7 +293,6 @@ class ClaimServices {
     $data = json_decode($json, TRUE);
 
     if ($data && isset($data['tellus'])) {
-      // Gets samples yml data to creates a JSON request.
       $config = $this->configFactory->get('liberty_claims.settings');
       $samples = $config->get('samples');
 
@@ -301,11 +300,9 @@ class ClaimServices {
       $type = Yaml::decode($samples[$data['tellus']]['data']);
       $data = $this->getExtraData($data);
 
-      // Creates a unique array from the YML decode data.
       $request = array_merge($common, $type);
 
       if (is_array($request) && !empty($request)) {
-        // Replace each token text of type @[name] to complete the request.
         $request = json_encode($request, JSON_PRETTY_PRINT);
         $request = $this->iAxisCompleteData($request, $data);
 
@@ -326,7 +323,7 @@ class ClaimServices {
               'headers' => [
                 'Content-Type' => 'application/json',
                 'Authorization' =>
-                'Bearer ' . $this->getMainToken(),
+                  'Bearer ' . $this->getMainToken(),
                 'country' => '1',
               ],
               'body' => $request,
@@ -349,6 +346,7 @@ class ClaimServices {
             $this->logger->set('response_iaxis', $error, $token);
           }
           $this->sendEmailErrorIaxis($data, $error);
+          // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
           unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
         }
 
@@ -433,7 +431,8 @@ class ClaimServices {
         ],
         $token
       );
-      unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
+      // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
     }
     catch (RequestException $e) {
       if ($e->hasResponse()) {
@@ -443,7 +442,8 @@ class ClaimServices {
       }
 
       $this->sendEmailErrorSipo($request, $data_taller, $error);
-      unset($_SESSION['GMFChevrolet'],$_SESSION['RCINissan'],$_SESSION['RCIRenault']);
+      // unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault'], $_SESSION['RCIChevrolet']);
+      unset($_SESSION['GMFChevrolet'], $_SESSION['RCINissan'], $_SESSION['RCIRenault']);
     }
 
     $body = json_decode($body, TRUE);
@@ -964,8 +964,8 @@ class ClaimServices {
     $data = str_replace('_#@_form', $input, $data);
 
     $input = array_key_exists($source['tellus'], $protections)
-            ? $protections[$source['tellus']]
-            : '';
+      ? $protections[$source['tellus']]
+      : '';
     $data = str_replace('_#@_type', $input, $data);
 
     $input = substr($source['city'], 2, 3);
@@ -1092,9 +1092,9 @@ class ClaimServices {
         $body_request['Imagen'] = [
           'Clave' => $sipo_id,
           'Placa' =>
-          $data->tellus === 'THIRD_PARTY'
-            ? $data->plateAffected
-            : $data->plate,
+            $data->tellus === 'THIRD_PARTY'
+              ? $data->plateAffected
+              : $data->plate,
           'NombreArchivo' => $file_name[0],
           'TipoArchivo' => strtolower(end($file_name)),
           'Archivo' => \base64_encode(\file_get_contents($file_path . '/' . $file)),
@@ -1109,7 +1109,7 @@ class ClaimServices {
               'headers' => [
                 'Content-Type' => 'application/json',
                 'Authorization' =>
-                'Bearer ' . $this->getMainToken(),
+                  'Bearer ' . $this->getMainToken(),
                 'cesvi-authorization' => $this->getCesviToken(),
                 'country' => '1',
               ],
@@ -1143,16 +1143,31 @@ class ClaimServices {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function validateBrokerInTaxonomy(string $codigo_broker): bool {
+  public function validateBrokerInTaxonomy(string $codigo_broker, string $brand): bool
+  {
+    $search_fields = [
+      'vid' => 'talleres_renault',
+      'field' => 'field_clave_renault'
+    ];
+
+    // if ($brand === 'CHEVROLET') {
+    //   $search_fields = [
+    //     'vid' => 'talleres_chevrolet',
+    //     'field' => 'field_clave_chevyseguros'
+    //   ];
+    // }
+
     $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
-    $terms = $term_storage->loadByProperties(['vid' => 'talleres_renault']);
+    $terms = $term_storage->loadByProperties(['vid' => $search_fields['vid']]);
 
     foreach ($terms as $term) {
-      $field_clave_renault = $term->get('field_clave_renault')->value;
-      if ($codigo_broker == $field_clave_renault) {
+      $field_clave = $term->get($search_fields['field'])->value;
+
+      if ($codigo_broker == $field_clave) {
         return TRUE;
       }
     }
+
     return FALSE;
   }
 
