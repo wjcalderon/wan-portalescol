@@ -1,4 +1,4 @@
-@import "../../mixins/responsive.scss";
+@use '../../mixins/responsive' as *;
 
 .component {
   &__view--news-list {

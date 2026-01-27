@@ -1,4 +1,6 @@
-@import './forms.scss';
-@import './inputs.scss';
-@import './buttons.scss';
-@import './webform.scss';
+@use '../mixins/responsive' as *;
+
+@use './forms.scss';
+@use './inputs.scss';
+@use './buttons.scss';
+@use './webform.scss';

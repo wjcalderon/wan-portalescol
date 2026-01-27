@@ -1,3 +1,5 @@
+@use '../mixins/responsive' as *;
+
 @import './tabs';
 @import './product';
 @import './pagos';

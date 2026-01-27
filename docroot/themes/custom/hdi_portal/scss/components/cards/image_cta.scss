@@ -1,4 +1,4 @@
-@import '../../mixins/responsive.scss';
+@use '../../mixins/responsive' as *;
 
 &.cards--image-cta {
   background-color: var(--gray-10);

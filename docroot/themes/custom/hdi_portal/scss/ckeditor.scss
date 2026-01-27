@@ -1,4 +1,4 @@
-@import './base/colors.scss';
+@use './base/colors.scss'as *;
 
 .color-green {
 	color: var(--hdi-universal-green);

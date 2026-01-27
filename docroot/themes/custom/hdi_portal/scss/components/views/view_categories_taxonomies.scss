@@ -1,4 +1,4 @@
-@import '../../mixins/responsive.scss';
+@use '../../mixins/responsive' as *;
 
 .view-categories-taxonomies {
   padding-bottom: 4rem;

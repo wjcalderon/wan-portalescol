@@ -1,3 +1,5 @@
+@use '../mixins/responsive' as *;
+
 header {
   background: var(--white);
   box-shadow: 0px 1px 0px rgba(0, 0, 0, .1);

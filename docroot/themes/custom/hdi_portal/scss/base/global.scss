@@ -1,4 +1,4 @@
-@import '../mixins/responsive.scss';
+@use '../mixins/responsive'as *;
 
 body {
   font-family : var(--roboto-font);

@@ -1,5 +1,7 @@
-form, .view-filters {
+@use '../mixins/responsive' as *;
 
+form, .view-filters {
+  
   &:not(.view-filters) {
     margin: 2rem auto;
     text-align: center;

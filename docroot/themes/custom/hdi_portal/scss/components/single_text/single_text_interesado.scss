@@ -1,4 +1,4 @@
-@import "../../mixins/responsive.scss";
+@use '../../mixins/responsive' as *;
 
 &--interesado--external {
   background-color: var(--hdi-yellow);

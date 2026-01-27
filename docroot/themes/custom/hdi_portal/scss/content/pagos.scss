@@ -1,4 +1,4 @@
-@import '../mixins/responsive.scss';
+@use '../mixins/responsive' as *;
 
 .alias--pagos {
   .ui-widget-content a {
