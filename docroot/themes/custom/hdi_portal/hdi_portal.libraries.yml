@@ -67,6 +67,10 @@ tabs:
   js:
     assets/js/tabs.config.js: {}
   dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
     - jquery_ui_tabs/tabs
 
 forms:

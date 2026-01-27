@@ -3,6 +3,19 @@
 
   Drupal.behaviors.tabsJS = {
     attach: function (context, settings) {
+      $(document).on(
+        "click",
+        ".header-tabs.ui-tabs-nav .ui-tabs-tab.ui-tab a",
+        function (e) {
+          const target = $(this).attr("href");
+          const $tabPanel = $(target);
+          const $slider = $tabPanel.find(".slick-slider");
+          if ($slider.hasClass("slick-initialized")) {
+            $slider.slick("setPosition");
+          }
+        },
+      );
+
       $(".cp-tabs").not(".is-shorcut, .popup-no-tabs").tabs();
 
       if ($("body").hasClass("js-mobile")) {
@@ -35,7 +48,7 @@
                 return false;
               }
               $(this).parents(".cp-tabs").children(id_tab).addClass("active");
-            }
+            },
           );
         }
       }
@@ -49,7 +62,7 @@
         if (tab.find(".sub-tabs").tabs("instance") !== undefined) {
           if (
             tab.parents(
-              ".block-tabs-assistances, .block-tabs-documents-required"
+              ".block-tabs-assistances, .block-tabs-documents-required",
             ).length > 0
           ) {
             tab.find(".sub-tabs").tabs("destroy");
@@ -59,7 +72,7 @@
 
       $(function () {
         let id_tab = $(
-            "#tabs .component__heading ul li.ui-state-active a"
+            "#tabs .component__heading ul li.ui-state-active a",
           ).attr("href"),
           tab = $(id_tab),
           select = tab.find(".select--tabs");
@@ -68,7 +81,7 @@
       });
 
       $(".cp-tabs ul li a").on("click", function (e) {
-        if (!($(this).hasClass('popup-no-tabs'))) {
+        if (!$(this).hasClass("popup-no-tabs")) {
           let el = $(this),
             id_body_tab = el.attr("href"),
             body_tab = el.parents(".cp-tabs").children(id_body_tab),
@@ -88,20 +101,20 @@
       });
 
       let getUrlParameter = function (sParam) {
-        const urlParams = new URL(document.location)
+        const urlParams = new URL(document.location);
         if (urlParams?.hash.includes(sParam)) {
-          return urlParams?.hash.split('-')[1]
+          return urlParams?.hash.split("-")[1];
         }
 
-        return false
-      }
+        return false;
+      };
 
       $(function () {
-        let active_tab = getUrlParameter("tab")
+        let active_tab = getUrlParameter("tab");
         if (active_tab !== undefined) {
-          $('a[href="#tab-' + active_tab + '"]').trigger('click')
+          $('a[href="#tab-' + active_tab + '"]').trigger("click");
         }
-      })
+      });
 
       $(".cp-tabs.is-shorcut .normal-tab a").on("click", function (e) {
         e.preventDefault();
@@ -110,14 +123,13 @@
         let strAncla = $(this).attr("href"); //id del ancla
 
         let pop = $(strAncla).offset().top;
-        console.log(pop);
         $("html, body")
           .stop(true, true)
           .animate(
             {
               scrollTop: $(strAncla).offset().top - 100,
             },
-            1000
+            1000,
           );
       });
 
@@ -150,11 +162,12 @@
       if ($(".component__tabs--contact").length > 0) {
         // Add active tabs contact
         $(".component__tabs--contact .cp-tabs li").removeClass(
-          "ui-tabs-active ui-state-active"
+          "ui-tabs-active ui-state-active",
         );
+
         $(".component__tabs--contact .cp-tabs li .component__card a").click(
           function (e) {
-            if(!($(this).hasClass('popup-no-tabs'))) {
+            if (!$(this).hasClass("popup-no-tabs")) {
               e.preventDefault();
               $(this)
                 .parents(".component__tabs--contact .cp-tabs li")
@@ -167,12 +180,12 @@
                 .find("#" + $id_tab)
                 .addClass("active");
             }
-          }
+          },
         );
         $(".component__tabs--contact .cp-tabs .tabs form #close").click(
           function (e) {
             $(this).parents(".tabs").removeClass("active");
-          }
+          },
         );
       }
 
@@ -224,14 +237,14 @@
                 .parent(".cog--mq")
                 .addClass("is-fixed")
                 .css("margin-bottom", "5.25rem");
-              $('body').addClass('menu-fixed')
+              $("body").addClass("menu-fixed");
             } else {
               menu
                 .removeClass("fixed")
                 .parent(".cog--mq")
                 .removeClass("is-fixed")
                 .css("margin-bottom", "");
-              $('body').removeClass('menu-fixed')
+              $("body").removeClass("menu-fixed");
             }
           });
         }
@@ -261,7 +274,7 @@
       $(".component__shorcuts .sticky-item a").on("click", function (e) {
         e.preventDefault();
         $(
-          ".component__shorcuts .sticky-item, .component__shorcuts .sticky-item a"
+          ".component__shorcuts .sticky-item, .component__shorcuts .sticky-item a",
         ).removeClass("active");
         $(this).parent().addClass("active");
         $(this).addClass("active");
@@ -274,7 +287,7 @@
             {
               scrollTop: $(strAncla).offset().top - 70,
             },
-            1000
+            1000,
           );
         e.stopPropagation();
       });
@@ -341,6 +354,7 @@
       //menu mobile
       $(".tabs--menu-mobile .tab--first a").click(function (e) {
         e.preventDefault();
+
         if (!$(".tab--first").hasClass("active")) {
           $(".tab--second").removeClass("active");
           $(".tab--first").addClass("active");
@@ -370,17 +384,17 @@
         $(".tabs__formas-de-pago #tab-0 .component").removeClass("is-hide-mb");
         if ($(this).hasClass("item-first")) {
           $(
-            ".tabs__formas-de-pago #tab-0 .js-item-second, .tabs__formas-de-pago #tab-0 .js-item-third"
+            ".tabs__formas-de-pago #tab-0 .js-item-second, .tabs__formas-de-pago #tab-0 .js-item-third",
           ).addClass("is-hide-mb");
         }
         if ($(this).hasClass("item-second")) {
           $(
-            ".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-third"
+            ".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-third",
           ).addClass("is-hide-mb");
         }
         if ($(this).hasClass("item-third")) {
           $(
-            ".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-second"
+            ".tabs__formas-de-pago #tab-0 .js-item-first, .tabs__formas-de-pago #tab-0 .js-item-second",
           ).addClass("is-hide-mb");
         }
       });
@@ -393,17 +407,17 @@
         $(".tabs__formas-de-pago #tab-1 .component").removeClass("is-hide-mb");
         if ($(this).hasClass("item-first")) {
           $(
-            ".tabs__formas-de-pago #tab-1 .js-item-second, .tabs__formas-de-pago #tab-1 .js-item-third"
+            ".tabs__formas-de-pago #tab-1 .js-item-second, .tabs__formas-de-pago #tab-1 .js-item-third",
           ).addClass("is-hide-mb");
         }
         if ($(this).hasClass("item-second")) {
           $(
-            ".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-third"
+            ".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-third",
           ).addClass("is-hide-mb");
         }
         if ($(this).hasClass("item-third")) {
           $(
-            ".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-second"
+            ".tabs__formas-de-pago #tab-1 .js-item-first, .tabs__formas-de-pago #tab-1 .js-item-second",
           ).addClass("is-hide-mb");
         }
       });
@@ -411,28 +425,28 @@
       $(".tabs--otras-formas-pago .component__card").click(function (e) {
         e.preventDefault();
         $(".tabs--otras-formas-pago .component__card").removeClass(
-          "item-active"
+          "item-active",
         );
         $(this).addClass("item-active");
 
         $(
-          ".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)"
+          ".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)",
         ).hide();
         if ($(this).hasClass("item-first")) {
           $(
-            ".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)"
+            ".canales-pago .payment-row:nth-child(2), .canales-pago .payment-row:nth-child(3)",
           ).hide();
           $(".canales-pago .payment-row:nth-child(1)").show();
         }
         if ($(this).hasClass("item-second")) {
           $(
-            ".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(3)"
+            ".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(3)",
           ).hide();
           $(".canales-pago .payment-row:nth-child(2)").show();
         }
         if ($(this).hasClass("item-third")) {
           $(
-            ".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(2)"
+            ".canales-pago .payment-row:nth-child(1), .canales-pago .payment-row:nth-child(2)",
           ).hide();
           $(".canales-pago .payment-row:nth-child(3)").show();
         }

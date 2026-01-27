@@ -2,7 +2,8 @@
 
 .component__tabs {
 
-  &--erescliente-home {
+  &--erescliente-home,
+  &--general {
     margin-bottom: 6rem;
 
     @include phone-only {
@@ -23,43 +24,51 @@
     }
 
     .component__content {
-      .ui-widget.ui-widget-content, .cog--flex {
+
+      .ui-widget.ui-widget-content,
+      .cog--flex {
         border: none;
       }
 
       &.cp-cards__list {
         .cp-tabs {
-          & > .cog--flex {
+          &>.cog--flex {
+            flex-direction: row;
+            flex-wrap: wrap;
             margin: unset;
-            width: 90%;
+            width: 100%;
             z-index: 1;
 
             @include tablet-landscape-up {
               margin: auto;
-              max-width: 1053px;
               width: 100%;
             }
 
-            &.ui-widget-header {
+            &.ui-widget-header,
+            &:hover {
               background-color: unset;
               border: unset;
 
               .ui-tab {
-                border: none;
+                border-bottom: 0.08rem solid var(--gray-50);
                 background-color: unset;
-                flex: 1;
                 padding: unset;
+                font-weight: 350;
+                margin-bottom: 0;
 
-                @include tablet-landscape-up {
-                  padding-bottom: 2rem;
+                a {
+                  color: var(--gray-50);
                 }
 
-                &.ui-state-active, &:hover {
-                  & > div {
+                &.ui-state-active {
+                  border-bottom-color: var(--hdi-universal-green);
+                  border-bottom-width: 0.33rem;
+
+                  &>div {
 
                     a {
-                      color: var(--hdi-light-blue);
-                      font-weight: bolder;
+                      color: var(--gray);
+                      font-weight: 700;
 
                       @include phone-only {
                         font-weight: 500;
@@ -72,14 +81,31 @@
                   }
                 }
 
-                & > div {
+                &:not(.ui-state-active) {
+                  a {
+                    margin-bottom: 0.188rem;
+                  }
+
+                  &:hover {
+                    a {
+                      color: var(--hdi-gray-50);
+                      font-weight: 350;
+                    }
+
+                    img {
+                      filter: contrast(0.2);
+                    }
+                  }
+                }
+
+                &>div {
                   display: flex;
                   justify-content: center;
 
                   a {
                     align-items: center;
-                    color: var(--hdi-gray-50);
                     display: flex;
+                    color: var(--gray-50);
                     font-size: 1rem;
 
                     @include phone-only {
@@ -97,6 +123,23 @@
                     }
                   }
                 }
+              }
+            }
+
+            li.ui-tabs-tab a {
+              padding: 1.5rem 2rem .7rem;
+            }
+
+            @include phone-only {
+              &.ui-widget-header {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+              }
+
+              li.ui-tabs-tab a {
+                padding: 1rem 1rem .5rem 1rem;
               }
             }
           }
@@ -155,10 +198,13 @@
       }
     }
   }
+
   &--contact {
     .header-tabs {
       .ui-tab {
-        &:hover, &.ui-tabs-active {
+
+        &:hover,
+        &.ui-tabs-active {
           .component__card {
             background-color: var(--hdi-light-green-10);
             border-bottom: 5px solid var(--hdi-universal-green);
