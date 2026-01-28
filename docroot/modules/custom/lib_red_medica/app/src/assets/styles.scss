@@ -1,12 +1,27 @@
+@use "scss/block";
+@use "scss/form";
+@use "scss/single_result";
+@use "scss/pagination";
+@use "scss/modal";
+@use "scss/tabs";
+@use "scss/preferential_help";
+@use "scss/single_map";
+@use "scss/tooltips";
+@use "scss/error_form";
+@use "scss/banner_footer";
+
 html {
   scroll-behavior: smooth;
+
   &.is-modal {
     overflow: hidden;
   }
+
   .component__form--red-medica {
     min-height: 35rem;
     overflow-x: unset;
   }
+
   @media only screen and (max-width: 768px) {
     .hide-mobile {
       visibility: hidden;
@@ -17,16 +32,3 @@ html {
     }
   }
 }
-
-@import "scss/block";
-@import "scss/form";
-@import "scss/results";
-@import "scss/single_result";
-@import "scss/pagination";
-@import "scss/modal";
-@import "scss/tabs";
-@import "scss/preferential_help";
-@import "scss/single_map";
-@import "scss/tooltips";
-@import "scss/error_form";
-@import "scss/banner_footer";
