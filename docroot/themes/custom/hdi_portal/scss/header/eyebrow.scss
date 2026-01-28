@@ -1,34 +1,41 @@
-.header__eyebrow {
-  background-color: var(--hdi-red);
-  color: var(--white);
-  display: block;
-  font-family: var(--hdi-font);
-  padding: .9rem 2rem 1rem 4rem;
-  position: relative;
-
-  &::before {
-    background-image: url("../../images/icons/icon-alert.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: "";
-    height: 1.25rem;
-    left: 2rem;
-    position: absolute;
-    top: 1rem;
-    width: 1.25rem;
-  }
-
-  a {
-    font-weight: bolder;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
+@mixin eyebrow() {
+  .header__eyebrow {
+    background-color: var(--hdi-red);
     color: var(--white);
+    display: block;
+    font-family: var(--hdi-font);
+    padding: .9rem 2rem 1rem 4rem;
+    position: relative;
+
+    &::before {
+      background-image: url("../../images/icons/icon-alert.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      height: 1.25rem;
+      left: 2rem;
+      position: absolute;
+      top: 1rem;
+      width: 1.25rem;
+    }
 
     a {
+      font-weight: bolder;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--white);
-      display: inline-block;
-      font-size: 1rem;
+
+      a {
+        color: var(--white);
+        display: inline-block;
+        font-size: 1rem;
+      }
     }
   }
 }

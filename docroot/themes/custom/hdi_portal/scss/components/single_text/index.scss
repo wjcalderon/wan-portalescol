@@ -1,3 +1,7 @@
+@use './single_text_cotiza.scss'as stc;
+@use './single_text_interesado.scss'as sti;
+@use './single_text_responsabilidad.scss'as str;
+
 .component__single-text {
   padding-bottom: 1.5rem;
 
@@ -36,7 +40,7 @@
     }
   }
 
-  @import './single_text_cotiza.scss';
-  @import './single_text_interesado.scss';
-  @import './single_text_responsabilidad.scss';
+  @include stc.single-text-cotiza();
+  @include sti.single-text-interesado();
+  @include str.single-text-responsabilidad();
 }

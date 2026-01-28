@@ -1,51 +1,54 @@
-&.components__cards--certificaciones {
-  background-color: var(--hdi-yellow);
-  margin: 1rem 0;
-  padding: 3rem 0;
+@mixin certificaciones() {
 
-  .component__content {
-    margin-top: 2.5rem;
+  &.components__cards--certificaciones {
+    background-color: var(--hdi-yellow);
+    margin: 1rem 0;
+    padding: 3rem 0;
 
-    .cog--items {
-      align-items: center;
-      gap: 1rem;
-      justify-content: space-evenly;
+    .component__content {
+      margin-top: 2.5rem;
 
-      .component__card {
-        background-color: var(--white);
-        box-shadow: 0px 6px 24px var(--hdi-gray-30);
-        padding: 2.5rem 4rem;
-        flex-basis: clamp(48%, 48%, 100%);
-        flex-grow: 1;
-        position: relative;
+      .cog--items {
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-evenly;
 
-        &::before {
-          background-image: url(../../images/medal.png);
-          background-repeat: no-repeat;
-          background-size: contain;
-          content: "";
-          height: 1.5rem;
-          left: 1rem;
-          position: absolute;
-          top: 1rem;
-          width: 1.5rem;
-        }
+        .component__card {
+          background-color: var(--white);
+          box-shadow: 0px 6px 24px var(--hdi-gray-30);
+          padding: 2.5rem 4rem;
+          flex-basis: clamp(48%, 48%, 100%);
+          flex-grow: 1;
+          position: relative;
 
-        .card__img--oval {
-          margin-bottom: 2rem;
-          width: 15rem;
-        }
+          &::before {
+            background-image: url(../../images/medal.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: "";
+            height: 1.5rem;
+            left: 1rem;
+            position: absolute;
+            top: 1rem;
+            width: 1.5rem;
+          }
 
-        h3 {
-          color: var(--gray);
-          font-size: 1.5rem;
-        }
+          .card__img--oval {
+            margin-bottom: 2rem;
+            width: 15rem;
+          }
 
-        .field__items {
-          font-size: .875rem;
+          h3 {
+            color: var(--gray);
+            font-size: 1.5rem;
+          }
 
-          a {
+          .field__items {
             font-size: .875rem;
+
+            a {
+              font-size: .875rem;
+            }
           }
         }
       }

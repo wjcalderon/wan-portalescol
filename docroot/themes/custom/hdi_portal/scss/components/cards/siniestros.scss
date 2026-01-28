@@ -1,44 +1,46 @@
-&.component__cards--ques-siniestro {
-  .component__heading {
-    h2 {
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
+@mixin siniestros() {
+  &.component__cards--ques-siniestro {
+    .component__heading {
+      h2 {
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .cog--mq p.lead {
+        font-size: 1.25rem;
+        width: 70%;
+        margin: auto;
+      }
     }
 
-    .cog--mq p.lead {
-      font-size: 1.25rem;
-      width: 70%;
-      margin: auto;
-    }
-  }
+    .component__content {
+      .cog--items {
+        flex-wrap: wrap;
+        margin-top: 3rem;
 
-  .component__content {
-    .cog--items {
-      flex-wrap: wrap;
-      margin-top: 3rem;
+        .component__card {
+          min-width: 25%;
+          min-height: auto;
+          text-align: center;
 
-      .component__card {
-        min-width: 25%;
-        min-height: auto;
-        text-align: center;
-
-        @media only screen and (max-width: 979px) {
-          display: flex;
-        }
-
-        .card__img--oval {
           @media only screen and (max-width: 979px) {
-            margin: 0;
-            width: 3rem;
-            height: 3rem;
-            margin-right: 1rem;
-            margin-left: 3rem;
+            display: flex;
           }
-        }
 
-        h3 {
-          margin-bottom: 3.0625rem;
-          margin-top: 0.5rem;
+          .card__img--oval {
+            @media only screen and (max-width: 979px) {
+              margin: 0;
+              width: 3rem;
+              height: 3rem;
+              margin-right: 1rem;
+              margin-left: 3rem;
+            }
+          }
+
+          h3 {
+            margin-bottom: 3.0625rem;
+            margin-top: 0.5rem;
+          }
         }
       }
     }

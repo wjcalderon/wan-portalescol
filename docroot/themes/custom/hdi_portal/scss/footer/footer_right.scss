@@ -1,20 +1,22 @@
-@use '../mixins/responsive' as *;
+@use '../mixins/responsive'as *;
 
-#footer__right {
-  display: none;
-  flex-basis: 20%;
-  padding-right: 2rem;
-  padding-top: 2.5rem;
+@mixin footer-right() {
+  #footer__right {
+    display: none;
+    flex-basis: 20%;
+    padding-right: 2rem;
+    padding-top: 2.5rem;
 
-  @include tablet-landscape-up {
-    display: block;
-  }
+    @include tablet-landscape-up {
+      display: block;
+    }
 
 
-  .navigation {
-    & > .menu {
-      & > li:last-of-type {
-        margin-top: 1.5rem;
+    .navigation {
+      &>.menu {
+        &>li:last-of-type {
+          margin-top: 1.5rem;
+        }
       }
     }
   }

@@ -1,11 +1,17 @@
-@use '../mixins/responsive' as *;
+@use '../mixins/responsive'as *;
+@use './eyebrow.scss'as eye;
+@use './topbar.scss'as top;
+@use './navigation.scss'as nav;
+@use './navigation-mb.scss'as nmb;
+@use './breadcrumb.scss'as bread;
+@use './banner.scss'as ban;
 
 header {
   background: var(--white);
   box-shadow: 0px 1px 0px rgba(0, 0, 0, .1);
 
-  @import './eyebrow.scss';
-  @import './topbar.scss';
+  @include eye.eyebrow();
+  @include top.topbar();
 
   #header {
     background-color: var(--hdi-gray-10);
@@ -16,12 +22,12 @@ header {
       justify-content: space-around;
       align-items: center;
 
-       a > img {
+      a>img {
         width: 7rem;
         height: 4rem;
         padding: 0px;
         position: sticky;
-       }
+      }
 
     }
 
@@ -37,7 +43,7 @@ header {
     }
   }
 
-  @import './navigation.scss';
+  @include nav.navigation();
 
   #herramientas--mb {
     @include tablet-landscape-up {
@@ -46,6 +52,6 @@ header {
   }
 }
 
-@import './navigation-mb.scss';
-@import './breadcrumb.scss';
-@import './banner.scss';
+@include nmb.navigation-mb();
+@include bread.breadcrumb();
+@include ban.banner();

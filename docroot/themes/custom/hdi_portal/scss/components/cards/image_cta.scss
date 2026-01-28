@@ -1,69 +1,72 @@
-@use '../../mixins/responsive' as *;
+@use '../../mixins/responsive'as *;
 
-&.cards--image-cta {
-  background-color: var(--gray-10);
-  padding: 2rem 0;
+@mixin image-cta() {
 
-  .component__heading {
-    h2 {
-      &.component__title {
-        font-size: 2rem;
-        margin-top: 0;
-      }
-    }
-  }
+  &.cards--image-cta {
+    background-color: var(--gray-10);
+    padding: 2rem 0;
 
-  .component__content {
-    .cog--items {
-      background-color: var(--white);
-      display: block;
-
-      .component__card {
-        display: flex;
-        flex-direction: column;
-        padding: 2rem 4rem;
-        justify-content: space-around;
-
-        @include phone-only {
-          padding: 0rem 0.5rem 0rem 0.5rem;
-          align-items: center;
-          background-color: var(--gray-10);
-        }
-
-        @include tablet-landscape-up {
-          align-items: center;
-          flex-direction: row;
-        }
-
-        h3 {
-          color: var(--gray);
-          font-family: var(--roboto-font);
-          font-size: 1rem;
-          font-weight: 400;
-        }
-
-        .card__img--oval {
-          background-color: unset;
-          border: unset;
-          height: unset;
-          margin: unset;
+    .component__heading {
+      h2 {
+        &.component__title {
+          font-size: 2rem;
+          margin-top: 0;
         }
       }
     }
-  }
 
-  &#component-2345 {
     .component__content {
       .cog--items {
+        background-color: var(--white);
+        display: block;
+
         .component__card {
+          display: flex;
+          flex-direction: column;
+          padding: 2rem 4rem;
+          justify-content: space-around;
+
+          @include phone-only {
+            padding: 0rem 0.5rem 0rem 0.5rem;
+            align-items: center;
+            background-color: var(--gray-10);
+          }
+
+          @include tablet-landscape-up {
+            align-items: center;
+            flex-direction: row;
+          }
+
           h3 {
-            max-width: 22rem;
+            color: var(--gray);
+            font-family: var(--roboto-font);
+            font-size: 1rem;
+            font-weight: 400;
           }
 
           .card__img--oval {
-            img {
-              margin-right: 1rem;
-              width: 14.5625rem;
+            background-color: unset;
+            border: unset;
+            height: unset;
+            margin: unset;
+          }
+        }
+      }
+    }
+
+    &#component-2345 {
+      .component__content {
+        .cog--items {
+          .component__card {
+            h3 {
+              max-width: 22rem;
+            }
+
+            .card__img--oval {
+              img {
+                margin-right: 1rem;
+                width: 14.5625rem;
+              }
             }
           }
         }

@@ -1,12 +1,22 @@
 @use '../mixins/responsive' as *;
-@use './cards/formas_pago' as fp;
-@use './cards/two_colums' as tc;
-@use './cards/cifras' as cs;
+@use './cards/formas_pago'as fp;
+@use './cards/two_colums'as tc;
+@use './cards/cifras'as cs;
+@use './cards/image_cta.scss'as ic;
+@use './cards/valores.scss'as va;
+@use './cards/certificaciones.scss'as cer;
+@use './cards/informes.scss'as inf;
+@use './cards/hdi_tools.scss'as ht;
+@use './cards/siniestros.scss'as sin;
+@use './cards/situacion_discapacidad.scss'as sd;
+@use './cards/productos.scss'as prod;
 
 .component__cards {
   .component__heading {
     .cog--mq {
-      h2, h4 {
+
+      h2,
+      h4 {
         text-align: center;
       }
 
@@ -19,7 +29,7 @@
       p {
         &.lead {
           font-size: 1.25rem;
-          margin: 1.5rem ;
+          margin: 1.5rem;
           text-align: center;
         }
       }
@@ -45,7 +55,8 @@
           position: relative;
           width: 8.75rem;
 
-          svg, img {
+          svg,
+          img {
             position: relative;
             top: calc(50% - 2rem);
             width: auto;
@@ -88,13 +99,12 @@
   @include fp.formas-pago();
   @include tc.two-columns();
   @include cs.cifras-style();
-
-  @import './cards/image_cta.scss';
-  @import './cards/valores.scss';
-  @import './cards/certificaciones.scss';
-  @import './cards/informes.scss';
-  @import './cards/hdi_tools.scss';
-  @import './cards/siniestros.scss';
-  @import './cards/situacion_discapacidad.scss';
-  @import './cards/productos.scss';
+  @include ic.image-cta();
+  @include va.valores();
+  @include cer.certificaciones();
+  @include inf.informes();
+  @include ht.hdi-tools();
+  @include sin.siniestros();
+  @include sd.situacion-discapacidad();
+  @include prod.productos();
 }

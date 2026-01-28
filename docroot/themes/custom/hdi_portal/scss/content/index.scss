@@ -1,7 +1,7 @@
 @use '../mixins/responsive' as *;
 
-@import './tabs';
-@import './product';
-@import './pagos';
-@import './siniestros';
-@import './search_results';
+@use './tabs';
+@use './product';
+@use './pagos';
+@use './siniestros';
+@use './search_results';

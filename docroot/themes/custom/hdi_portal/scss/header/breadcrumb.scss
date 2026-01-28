@@ -1,75 +1,81 @@
-@use '../mixins/responsive' as *;
+@use '../mixins/responsive'as *;
 
-body {
-  #block-hdi-portal-breadcrumbs,
-  #block-hdi-portal-breadcrumbs-2 {
-    ol {
-      display: flex;
-      justify-content: left;
-      gap: 1.563rem;
+@mixin breadcrumb() {
+  body {
 
-      li {
-        font-family: "HDI Pro";
-        position: relative;
-        font-size: 1rem;
+    #block-hdi-portal-breadcrumbs,
+    #block-hdi-portal-breadcrumbs-2 {
+      ol {
+        display: flex;
+        justify-content: left;
+        gap: 1.563rem;
 
-        a {
-          color: var(--gray);
+        li {
+          font-family: "HDI Pro";
+          position: relative;
           font-size: 1rem;
-        }
 
-        &::after {
-          content: "";
-          position: absolute;
-          right: -1.625rem;
-          top: 0.375rem;
-          height: 0.75rem;
-          width: 1.813rem;
-          background: transparent url(../../images/breadcrumb-arrow.svg)
-            no-repeat center center;
-          background-size: 0.563rem;
-        }
-
-        &:last-of-type {
-          color: var(--hdi-blue-90);
+          a {
+            color: var(--gray);
+            font-size: 1rem;
+          }
 
           &::after {
-            content: unset;
+            content: "";
+            position: absolute;
+            right: -1.625rem;
+            top: 0.375rem;
+            height: 0.75rem;
+            width: 1.813rem;
+            background: transparent url(../../images/breadcrumb-arrow.svg) no-repeat center center;
+            background-size: 0.563rem;
+          }
+
+          &:last-of-type {
+            color: var(--hdi-blue-90);
+
+            &::after {
+              content: unset;
+            }
           }
         }
       }
     }
-  }
 
-  #block-hdi-portal-breadcrumbs-2 {
-    display: none;
-  }
-
-  @include phone-only {
-    #block-hdi-portal-breadcrumbs {
+    #block-hdi-portal-breadcrumbs-2 {
       display: none;
     }
-    #block-hdi-portal-breadcrumbs-2 {
-      display: block;
-      padding: 0 2.188rem;
-      margin-top: 2rem;
-    }
-    .news-container  #block-hdi-portal-breadcrumbs-2 {
-      padding: 0;
-    }
-  }
 
-  @include tablet-portrait-up {
-    #block-hdi-portal-breadcrumbs,
-    #block-hdi-portal-breadcrumbs-2 {
-      padding: 1rem 1.938rem;
-    }
-  }
+    @include phone-only {
+      #block-hdi-portal-breadcrumbs {
+        display: none;
+      }
 
-  @include tablet-landscape-up {
-    #block-hdi-portal-breadcrumbs,
-    #block-hdi-portal-breadcrumbs-2 {
-      padding: 1rem 6.8rem;
+      #block-hdi-portal-breadcrumbs-2 {
+        display: block;
+        padding: 0 2.188rem;
+        margin-top: 2rem;
+      }
+
+      .news-container #block-hdi-portal-breadcrumbs-2 {
+        padding: 0;
+      }
+    }
+
+    @include tablet-portrait-up {
+
+      #block-hdi-portal-breadcrumbs,
+      #block-hdi-portal-breadcrumbs-2 {
+        padding: 1rem 1.938rem;
+      }
+    }
+
+    @include tablet-landscape-up {
+
+      #block-hdi-portal-breadcrumbs,
+      #block-hdi-portal-breadcrumbs-2 {
+        padding: 1rem 6.8rem;
+      }
     }
   }
 }

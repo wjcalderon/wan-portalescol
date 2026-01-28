@@ -1,4 +1,4 @@
-@import "../../mixins/responsive.scss";
+@use '../../mixins/responsive' as *;
 
 .component__columns.column-news-blog {
   .component__content.columns-container {

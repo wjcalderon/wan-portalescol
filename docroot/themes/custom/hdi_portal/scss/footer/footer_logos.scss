@@ -1,51 +1,55 @@
-#footer__logos {
-  p {
-    margin: 1rem 0;
+@use '../mixins/responsive'as *;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-items: center;
-    align-items: center;
+@mixin footer-logos() {
+  #footer__logos {
+    p {
+      margin: 1rem 0;
 
-    @include tablet-landscape-up {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      justify-items: center;
       align-items: center;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
 
-    img {
-      margin: 1rem 2rem;
-
-      &.logo-superfinanciera {
-        height: 1.875rem;
-        width: 5.875rem;
-        grid-area: 2 / 1 / 3 / 2;
+      @include tablet-landscape-up {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
-      &.logo-talanx {
-        height: 1.25rem;
-        width: 5.3125rem;
-        grid-area: 1 / 1 / 2 / 4;
+      img {
+        margin: 1rem 2rem;
 
-        @include phone-only {
-          margin: 1rem auto;
+        &.logo-superfinanciera {
+          height: 1.875rem;
+          width: 5.875rem;
+          grid-area: 2 / 1 / 3 / 2;
         }
-      }
 
-      &.logo-fasecolda {
-        height: 1.875rem;
-        width: 6.1875rem;
-        grid-area: 2 / 2 / 3 / 3;
-      }
+        &.logo-talanx {
+          height: 1.25rem;
+          width: 5.3125rem;
+          grid-area: 1 / 1 / 2 / 4;
 
-      &.logo-vivaseguro {
-        height: 2.6875rem;
-        width: 8.75rem;
-        grid-area: 2 / 3 / 3 / 4;
+          @include phone-only {
+            margin: 1rem auto;
+          }
+        }
+
+        &.logo-fasecolda {
+          height: 1.875rem;
+          width: 6.1875rem;
+          grid-area: 2 / 2 / 3 / 3;
+        }
+
+        &.logo-vivaseguro {
+          height: 2.6875rem;
+          width: 8.75rem;
+          grid-area: 2 / 3 / 3 / 4;
+        }
       }
     }
   }

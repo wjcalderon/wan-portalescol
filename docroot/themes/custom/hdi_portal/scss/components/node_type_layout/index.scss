@@ -1,2 +1,3 @@
-@import './mixins.scss';
-@import './node_type_layout.scss';
+@use '../../mixins/responsive' as *;
+@use './mixins' as *;
+@use './node_type_layout.scss';

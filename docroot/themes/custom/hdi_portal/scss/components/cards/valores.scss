@@ -1,29 +1,34 @@
-&.components__cards--valores {
-  padding-top: 1rem;
+@use '../../mixins/responsive' as *;
 
-  .component__content {
-    .cog--flex {
-      .component__card {
-        flex-basis: 20%;
-        min-height: 12rem;
-        text-align: center;
+@mixin valores() {
+  &.components__cards--valores {
+    padding-top: 1rem;
 
-        .card__img--oval {
-          align-items: center;
-          display: flex;
-          height: 4rem;
-          justify-content: center;
-          margin-bottom: 1rem;
-          width: 4rem;
+    .component__content {
+      .cog--flex {
+        .component__card {
+          flex-basis: 20%;
+          min-height: 12rem;
+          text-align: center;
 
-          svg, img {
-            position: relative;
-            width: 2rem;
+          .card__img--oval {
+            align-items: center;
+            display: flex;
+            height: 4rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            width: 4rem;
+
+            svg,
+            img {
+              position: relative;
+              width: 2rem;
+            }
           }
-        }
 
-        p {
-          font-size: .875rem;
+          p {
+            font-size: .875rem;
+          }
         }
       }
     }

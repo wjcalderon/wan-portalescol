@@ -1,182 +1,186 @@
-#footer__contact {
-  display: none;
-  align-items: flex-start;
-  background-color: var(--gray-10);
-  flex-direction: column;
-  padding: 2.5rem 2.8rem 7rem;
-  width: 100%;
+@use '../mixins/responsive'as *;
 
-  @include tablet-landscape-up {
-    display: flex;
-    flex-basis: 30%;
-    justify-content: flex-start;
-  }
+@mixin footer-contact() {
+  #footer__contact {
+    display: none;
+    align-items: flex-start;
+    background-color: var(--gray-10);
+    flex-direction: column;
+    padding: 2.5rem 2.8rem 7rem;
+    width: 100%;
 
-  @include small-desktop {
-    flex-basis: 25%;
-    justify-content: flex-start;
-  }
-
-  @include desktop {
-    flex-basis: 20%;
-    justify-content: space-between;
-  }
-
-  &::before {
-    background: var(--hdi-light-blue);
-    content: " ";
-    display: block;
-    height: .625rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30%;
+    @include tablet-landscape-up {
+      display: flex;
+      flex-basis: 30%;
+      justify-content: flex-start;
+    }
 
     @include small-desktop {
-      width: 25%;
+      flex-basis: 25%;
+      justify-content: flex-start;
     }
 
     @include desktop {
-      width: 20%;
-    }
-  }
-
-  #block-hdi-portal-socialmedialinks {
-    align-items: center;
-    display: flex;
-
-    @include tablet-landscape-up {
-      margin-bottom: 7rem;
+      flex-basis: 20%;
+      justify-content: space-between;
     }
 
-    @include small-desktop {
-      margin-bottom: 10rem;
+    &::before {
+      background: var(--hdi-light-blue);
+      content: " ";
+      display: block;
+      height: .625rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30%;
+
+      @include small-desktop {
+        width: 25%;
+      }
+
+      @include desktop {
+        width: 20%;
+      }
     }
 
-    h2 {
-      color: var(--hdi-green);
-      font-size: 1rem;
-      margin-right: 1rem;
-    }
-
-    ul {
+    #block-hdi-portal-socialmedialinks {
+      align-items: center;
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
 
-      li {
-        a {
-          display: block;
-          height: 2.5rem;
-          position: relative;
-          width: 2.5rem;
+      @include tablet-landscape-up {
+        margin-bottom: 7rem;
+      }
 
-          &::before {
-            content: "";
+      @include small-desktop {
+        margin-bottom: 10rem;
+      }
+
+      h2 {
+        color: var(--hdi-green);
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        li {
+          a {
+            display: block;
             height: 2.5rem;
-            position: absolute;
-            width: 2.5rem;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-          }
-
-          &:is(.facebook)::before {
-            background-image: url(../../images/Icon-Social-Facebook-Blue.svg);
-          }
-
-          &:is(.linkedin)::before {
-            background-image: url(../../images/Icon-Social-Linkedin-Blue.svg);
-          }
-
-          &:is(.instagram)::before {
-            background-image: url(../../images/Icon-Social-Instagram.svg);
-          }
-
-          &:is(.youtube)::before {
-            background-image: url(../../images/Icon-Social-Youtube.svg);
-          }
-        }
-      }
-    }
-  }
-
-  #block-hdi-portal-lineasdeasistenciafooter {
-    font-family: var(--hdi-font);
-
-    h2 {
-      font-size: 1rem;
-      margin-bottom: .5rem;
-    }
-
-    .mobile-number {
-      display: flex;
-      padding-left: 2rem;
-      position: relative;
-
-      &::before {
-        background-image: url(../../images/short-number.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        content: "";
-        height: 1.5rem;
-        left: 0;
-        position: absolute;
-        width: .875rem;
-      }
-
-      strong {
-        color: var(--hdi-gray);
-        font-size: 1.5rem;
-        font-weight: bolder;
-        margin-right: .5rem;
-      }
-
-      span {
-        font-size: .85rem;
-      }
-    }
-
-    & > ul {
-      margin: 2rem 0 2rem 2rem;
-
-      li {
-        font-size: .85rem;
-
-        ul {
-          li {
-            color: var(--hdi-gray);
-            font-size: 1rem;
-            font-weight: bolder;
             position: relative;
+            width: 2.5rem;
 
             &::before {
-              background-image: url(../../images/phone.svg);
+              content: "";
+              height: 2.5rem;
+              position: absolute;
+              width: 2.5rem;
               background-repeat: no-repeat;
               background-size: contain;
               background-position: center;
-              content: "";
-              height: 1.5rem;
-              left: -2rem;
-              position: absolute;
-              top: -.25rem;
-              width: 1.5rem;
+            }
+
+            &:is(.facebook)::before {
+              background-image: url(../../images/Icon-Social-Facebook-Blue.svg);
+            }
+
+            &:is(.linkedin)::before {
+              background-image: url(../../images/Icon-Social-Linkedin-Blue.svg);
+            }
+
+            &:is(.instagram)::before {
+              background-image: url(../../images/Icon-Social-Instagram.svg);
+            }
+
+            &:is(.youtube)::before {
+              background-image: url(../../images/Icon-Social-Youtube.svg);
             }
           }
         }
       }
     }
 
-    .whatsapp {
-      font-size: .85rem;
-      padding-left: 2rem;
+    #block-hdi-portal-lineasdeasistenciafooter {
+      font-family: var(--hdi-font);
 
-      strong {
-        color: var(--hdi-gray);
-        display: block;
-        font-size: 1.5rem;
-        font-weight: bolder;
+      h2 {
+        font-size: 1rem;
+        margin-bottom: .5rem;
+      }
+
+      .mobile-number {
+        display: flex;
+        padding-left: 2rem;
+        position: relative;
+
+        &::before {
+          background-image: url(../../images/short-number.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          content: "";
+          height: 1.5rem;
+          left: 0;
+          position: absolute;
+          width: .875rem;
+        }
+
+        strong {
+          color: var(--hdi-gray);
+          font-size: 1.5rem;
+          font-weight: bolder;
+          margin-right: .5rem;
+        }
+
+        span {
+          font-size: .85rem;
+        }
+      }
+
+      &>ul {
+        margin: 2rem 0 2rem 2rem;
+
+        li {
+          font-size: .85rem;
+
+          ul {
+            li {
+              color: var(--hdi-gray);
+              font-size: 1rem;
+              font-weight: bolder;
+              position: relative;
+
+              &::before {
+                background-image: url(../../images/phone.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                content: "";
+                height: 1.5rem;
+                left: -2rem;
+                position: absolute;
+                top: -.25rem;
+                width: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      .whatsapp {
+        font-size: .85rem;
+        padding-left: 2rem;
+
+        strong {
+          color: var(--hdi-gray);
+          display: block;
+          font-size: 1.5rem;
+          font-weight: bolder;
+        }
       }
     }
   }

@@ -1,3 +1,5 @@
+@use '../mixins/responsive' as *;
+
 .alias--buscador-global {
   #content {
     h2 {

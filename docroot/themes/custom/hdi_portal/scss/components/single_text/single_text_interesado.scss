@@ -1,65 +1,69 @@
-@use '../../mixins/responsive' as *;
+@use '../../mixins/responsive'as *;
 
-&--interesado--external {
-  background-color: var(--hdi-yellow);
-  padding: 2rem 0;
+@mixin single-text-interesado() {
+  &--interesado--external {
+    background-color: var(--hdi-yellow);
+    padding: 2rem 0;
 
-  .component__content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    .component__content {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
 
-    p:first-of-type {
-      font-size: 1.25rem;
-      padding: 1rem 0;
+      p:first-of-type {
+        font-size: 1.25rem;
+        padding: 1rem 0;
+
+        img {
+          margin-bottom: 2rem;
+          width: 3rem;
+        }
+      }
+
+      h6 {
+        font-weight: bolder;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &--cotizar-seguro {
+    padding: 1rem 3rem;
+
+    .component__content {
+      padding: 1rem 2rem 4rem;
+      align-items: center;
+
+      p:first-of-type {
+        font-size: 1.125rem;
+        padding: 0 0 1rem;
+      }
+
+      h6 {
+        margin: 3rem 0;
+      }
 
       img {
-        margin-bottom: 2rem;
-        width: 3rem;
+        width: 2.583rem;
+        height: 2.629rem;
       }
     }
 
-    h6 {
-      font-weight: bolder;
-      margin-top: 2rem;
-    }
-  }
-}
+    @include phone-only {
+      padding: .2rem 1.5rem;
+      margin: 1.563rem 1.375rem;
 
-&--cotizar-seguro {
-  padding: 1rem 3rem;
-
-  .component__content {
-    padding: 1rem 2rem 4rem;
-    align-items: center;
-    p:first-of-type {
-      font-size: 1.125rem;
-      padding: 0 0 1rem;
+      .component__content {
+        padding-bottom: 0.5rem;
+      }
     }
 
-    h6 {
-      margin: 3rem 0;
-    }
-
-    img {
-      width: 2.583rem;
-      height: 2.629rem;
-    }
-  }
-
-  @include phone-only {
-    padding: .2rem 1.5rem;
-    margin: 1.563rem 1.375rem;
-    .component__content {
-      padding-bottom: 0.5rem;
-    }
-  }
-
-  @include tablet-portrait-up {
+    @include tablet-portrait-up {
       margin-bottom: 2rem;
 
-    .component__content {
-      padding-bottom: 0.2rem;
+      .component__content {
+        padding-bottom: 0.2rem;
+      }
     }
   }
 }

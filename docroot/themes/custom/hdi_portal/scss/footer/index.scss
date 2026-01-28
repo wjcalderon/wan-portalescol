@@ -1,4 +1,10 @@
-@use '../mixins/responsive' as *;
+@use '../mixins/responsive'as *;
+@use './footer_left.scss'as fl;
+@use './footer_tool.scss'as fto;
+@use './footer_right.scss'as fr;
+@use './footer_logos.scss'as flo;
+@use './footer_contact.scss'as fc;
+@use './footer_terminos.scss'as ft;
 
 footer {
   position: relative;
@@ -48,14 +54,14 @@ footer {
         }
       }
 
-      & > div {
+      &>div {
         display: flex;
 
         nav {
           &.navigation {
-            & > .menu {
-              & > li {
-                & > a {
+            &>.menu {
+              &>li {
+                &>a {
                   background-color: var(--hdi-universal-green);
                   color: var(--white);
                   display: inline-block;
@@ -76,18 +82,16 @@ footer {
           }
         }
 
-        @import './footer_left.scss';
-
-        @import './footer_tool.scss';
-
-        @import './footer_right.scss';
+        @include fl.footer-left();
+        @include fto.footer-tool();
+        @include fr.footer-right();
       }
 
-      @import './footer_logos.scss';
+      @include flo.footer-logos();
     }
 
-    @import './footer_contact.scss';
+    @include fc.footer-contact();
   }
 
-  @import './footer_terminos.scss';
+  @include ft.footer-terminos();
 }
