@@ -1,8 +1,8 @@
-@use '../mixins/responsive'as *;
+@use '../mixins/responsive' as *;
 
 @use './forms.scss';
 @use './inputs.scss';
-@use './buttons.scss'as btns;
+@use './buttons.scss' as btns;
 @use './webform.scss';
 
 @include btns.buttons();

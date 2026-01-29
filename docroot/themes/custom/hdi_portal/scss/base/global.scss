@@ -1,5 +1,5 @@
-@use '../mixins/responsive'as *;
-@use '../content/strategic_dialogue.scss'as sdia;
+@use '../mixins/responsive' as *;
+@use '../content/strategic_dialogue.scss' as sdia;
 
 body {
   font-family: var(--roboto-font);

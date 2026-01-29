@@ -1,15 +1,15 @@
-@use '../mixins/responsive'as *;
-@use './cards/formas_pago'as fp;
-@use './cards/two_colums'as tc;
-@use './cards/cifras'as cs;
-@use './cards/image_cta.scss'as ic;
-@use './cards/valores.scss'as va;
-@use './cards/certificaciones.scss'as cer;
-@use './cards/informes.scss'as inf;
-@use './cards/hdi_tools.scss'as ht;
-@use './cards/siniestros.scss'as sin;
-@use './cards/situacion_discapacidad.scss'as sd;
-@use './cards/productos.scss'as prod;
+@use '../mixins/responsive' as *;
+@use './cards/formas_pago' as fp;
+@use './cards/two_colums' as tc;
+@use './cards/cifras' as cs;
+@use './cards/image_cta.scss' as ic;
+@use './cards/valores.scss' as va;
+@use './cards/certificaciones.scss' as cer;
+@use './cards/informes.scss' as inf;
+@use './cards/hdi_tools.scss' as ht;
+@use './cards/siniestros.scss' as sin;
+@use './cards/situacion_discapacidad.scss' as sd;
+@use './cards/productos.scss' as prod;
 
 .component__cards {
   .component__heading {

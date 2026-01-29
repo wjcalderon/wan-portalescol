@@ -1,10 +1,10 @@
-@use '../mixins/responsive'as *;
-@use './footer_left.scss'as fl;
-@use './footer_tool.scss'as fto;
-@use './footer_right.scss'as fr;
-@use './footer_logos.scss'as flo;
-@use './footer_contact.scss'as fc;
-@use './footer_terminos.scss'as ft;
+@use '../mixins/responsive' as *;
+@use './footer_left.scss' as fl;
+@use './footer_tool.scss' as fto;
+@use './footer_right.scss' as fr;
+@use './footer_logos.scss' as flo;
+@use './footer_contact.scss' as fc;
+@use './footer_terminos.scss' as ft;
 
 footer {
   position: relative;

@@ -1,10 +1,10 @@
-@use '../mixins/responsive'as *;
-@use './eyebrow.scss'as eye;
-@use './topbar.scss'as top;
-@use './navigation.scss'as nav;
-@use './navigation-mb.scss'as nmb;
-@use './breadcrumb.scss'as bread;
-@use './banner.scss'as ban;
+@use '../mixins/responsive' as *;
+@use './eyebrow.scss' as eye;
+@use './topbar.scss' as top;
+@use './navigation.scss' as nav;
+@use './navigation-mb.scss' as nmb;
+@use './breadcrumb.scss' as bread;
+@use './banner.scss' as ban;
 
 header {
   background: var(--white);
