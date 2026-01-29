@@ -1,190 +1,190 @@
 liberty_claims.claim_notification_controller:
-  path: '/liberty-claims/claim'
+  path: "/liberty-claims/claim"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::claim'
-    _title: 'Claim'
+    _title: "Claim"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_cities:
-  path: '/claim-data/cities'
+  path: "/claim-data/cities"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCities'
-    _title: 'Cities'
+    _title: "Cities"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.plate:
-  path: '/claim-data/plate/{plate}/{type}/{date}'
+  path: "/claim-data/plate/{plate}/{type}/{date}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::validatePlate'
-    _title: 'Validate Plate'
+    _title: "Validate Plate"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_cities_carshops:
-  path: '/claim-data/cities-carshops'
+  path: "/claim-data/cities-carshops"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShops'
-    _title: 'Cities Carshops'
+    _title: "Cities Carshops"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_cities_carshops_chevrolet:
-  path: '/claim-data/cities-carshops/chevrolet'
+  path: "/claim-data/cities-carshops/chevrolet"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsChevrolet'
-    _title: 'Cities Carshops'
+    _title: "Cities Carshops"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_cities_carshops_nissan:
-  path: '/claim-data/cities-carshops/nissan'
+  path: "/claim-data/cities-carshops/nissan"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsNissan'
-    _title: 'Cities Carshops'
+    _title: "Cities Carshops"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_cities_carshops_renault:
-  path: '/claim-data/cities-carshops/renault'
+  path: "/claim-data/cities-carshops/renault"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCitiesCarShopsRenault'
-    _title: 'Cities Carshops'
+    _title: "Cities Carshops"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.get_brands:
-  path: '/claim-data/brands'
+  path: "/claim-data/brands"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getBrands'
-    _title: 'brands'
+    _title: "brands"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.save_files:
-  path: '/claim/files/{folder}/{op}'
+  path: "/claim/files/{folder}/{op}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::manageFiles'
-    _title: 'Files'
+    _title: "Files"
   methods: [POST]
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.send_email:
-  path: '/claim/email'
+  path: "/claim/email"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::sendEmail'
-    _title: 'Email'
+    _title: "Email"
   methods: [POST]
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.submit:
-  path: '/claim/submit/{type}'
+  path: "/claim/submit/{type}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::submit'
-    _title: 'Submit'
+    _title: "Submit"
   methods: [POST]
   requirements:
-    _permission: 'access content'
-    type: '[a-zA-Z]+'
+    _permission: "access content"
+    type: "[a-zA-Z]+"
 
 liberty_claims.get_carshops:
-  path: '/claim-data/carshops/{city}/{brand}/{model}/{type}'
+  path: "/claim-data/carshops/{city}/{brand}/{model}/{type}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\ClaimNotificationController::getCarShops'
-    _title: 'carshops'
+    _title: "carshops"
   requirements:
-    _permission: 'access content'
-    city: '[0-9]+'
+    _permission: "access content"
+    city: "[0-9]+"
     brand: '[a-zA-Z\-\+]+'
-    model: '[0-9]{4}'
-    type: '[a-zA-Z]+'
+    model: "[0-9]{4}"
+    type: "[a-zA-Z]+"
   options:
     no_cache: TRUE
 
 liberty_claims.settings_form:
-  path: '/admin/config/liberty_claims/settings'
+  path: "/admin/config/liberty_claims/settings"
   defaults:
     _form: '\Drupal\liberty_claims\Form\SettingsForm'
-    _title: 'Claims Settings Form'
+    _title: "Claims Settings Form"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
   options:
     _admin_route: TRUE
 
 liberty_claims.download:
-  path: '/claim/download/{number}'
+  path: "/claim/download/{number}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\DownloadPdfController::download'
-    _title: 'Download PDF'
+    _title: "Download PDF"
   methods: [POST]
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 liberty_claims.logs:
-  path: 'admin/reports/claims'
+  path: "admin/reports/claims"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\LoggerReportController::report'
-    _title: 'Claims log'
+    _title: "Claims log"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
 
 liberty_claims.detail:
-  path: 'admin/reports/claims/detail/{token}/{option}'
+  path: "admin/reports/claims/detail/{token}/{option}"
   defaults:
     _controller: '\Drupal\liberty_claims\Controller\LoggerReportController::detail'
-    _title: 'Claim Detail'
+    _title: "Claim Detail"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
 
 liberty_claims.purge_logs_form:
-  path: 'admin/reports/claims/purge'
+  path: "admin/reports/claims/purge"
   defaults:
     _form: '\Drupal\liberty_claims\Form\PurgeLogsForm'
-    _title: 'PurgeLogsForm'
+    _title: "PurgeLogsForm"
   requirements:
-    _access: 'TRUE'
+    _access: "TRUE"
 
 liberty_claims.settings_email_form:
-  path: '/admin/config/liberty_claims/settings/send_email'
+  path: "/admin/config/liberty_claims/settings/send_email"
   defaults:
     _form: '\Drupal\liberty_claims\Form\SettingsEmailForm'
-    _title: 'Formulario de correo electrónico de configuración de reclamaciones'
+    _title: "Formulario de correo electrónico de configuración de reclamaciones"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
   options:
     _admin_route: TRUE
 
 liberty_claims.comunas:
-  path: '/liberty_claims/comunas'
+  path: "/liberty_claims/comunas"
   defaults:
-    _title: 'Comunas'
+    _title: "Comunas"
     _form: 'Drupal\liberty_claims\Form\ComunasForm'
   requirements:
-    _permission: 'administer content types'
+    _permission: "administer content types"
 
 liberty_claims.list_log_hurto:
-  path: '/admin/config/liberty_claims/settings/repots/hurto'
+  path: "/admin/config/liberty_claims/settings/repots/hurto"
   defaults:
-    _title: 'Claims Hurto Vehiculo'
+    _title: "Claims Hurto Vehiculo"
     _controller: '\Drupal\liberty_claims\Controller\LoggerReportHurtoController::build'
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
 
 liberty_claims.import_nissan_form:
-  path: '/admin/config/liberty_claims/settings/import_nissan'
+  path: "/admin/config/liberty_claims/settings/import_nissan"
   defaults:
     _form: '\Drupal\liberty_claims\Form\ImportFormNissan'
-    _title: 'Import Taxonomy Terms Nissan'
+    _title: "Import Taxonomy Terms Nissan"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
 
 liberty_claims.import_renault_form:
-  path: '/admin/config/liberty_claims/settings/import_renault'
+  path: "/admin/config/liberty_claims/settings/import_renault"
   defaults:
     _form: '\Drupal\liberty_claims\Form\ImportFormRenault'
-    _title: 'Import Taxonomy Terms Renault'
+    _title: "Import Taxonomy Terms Renault"
   requirements:
-    _permission: 'access administration pages'
+    _permission: "access administration pages"
