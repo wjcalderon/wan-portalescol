@@ -49,7 +49,7 @@ const UploadFiles = ({ handleChange }) => {
       handleChange([...uploadedFiles, ...fileList])
     }, [uploadedFiles, handleChange])
 
-  const { acceptedFiles,fileRejections, getRootProps, getInputProps } = useDropzone({
+  const { fileRejections, getRootProps, getInputProps } = useDropzone({
     accept: fileTypes,
     maxSize: 4194304, // 4MB
     maxFiles: 10,

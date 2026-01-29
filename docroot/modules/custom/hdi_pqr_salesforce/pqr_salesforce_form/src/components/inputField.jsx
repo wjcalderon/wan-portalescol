@@ -21,26 +21,26 @@ const InputField = forwardRef(({
     const val = e.target.value
     setState(val)
 
-    if (val !== '') {
-      setActiveClass('form__input--activo')
-    } else {
-      setActiveClass('')  // Si el campo está vacío, se restablece la clase activa.
-    }
+    setActiveClass(val !== '' ? 'form__input--activo' : '')
   }
-
 
   return (
     <div className={`form-item js-form-type-${type} form-type-${type} ${activeClass}`}>
       {error !== '' && (
-        <div className="error-message">
+        <div className="error-message" id={`${name}-error`} role="alert">
           <span className="error-icon"></span>
           <span>{error}</span>
         </div>
       )}
-      <label htmlFor={name} className={`label-${type} ${error ? 'input-error' : ''}`}>{label}</label>
+
+      <label htmlFor={name} className={`label-${type} ${error ? 'input-error' : ''}`}>
+        {label}
+      </label>
+
       {pattern === '' && type !== 'number' &&
         <input
           ref={ref}
+          id={name}
           type={type}
           required={required}
           name={name}
@@ -48,12 +48,14 @@ const InputField = forwardRef(({
           onChange={handleChange}
           minLength={minLength}
           maxLength={maxLength}
-          error={error}
+          aria-invalid={error}
+          aria-describedby={error ? `${name}-error` : undefined}
         />
       }
       {pattern !== '' && type !== 'number' &&
         <input
           ref={ref}
+          id={name}
           type={type}
           required={required}
           name={name}
@@ -62,12 +64,14 @@ const InputField = forwardRef(({
           pattern={pattern}
           minLength={minLength}
           maxLength={maxLength}
-          error={error}
+          aria-invalid={error}
+          aria-describedby={error ? `${name}-error` : undefined}
         />
       }
       {type === 'number' &&
         <input
           ref={ref}
+          id={name}
           type={type}
           required={required}
           name={name}
@@ -75,18 +79,19 @@ const InputField = forwardRef(({
           onChange={handleChange}
           min={minLength}
           max={maxLength}
-          error={error}
+          aria-invalid={error}
+          aria-describedby={error ? `${name}-error` : undefined}
         />
       }
-      {toolTipId !== '' &&
-        <ToolTip
-          id={toolTipId}
-          text={toolTipText}
-        />
-      }
+
+      {toolTipId !== '' && (
+        <ToolTip id={toolTipId} text={toolTipText} />
+      )}
     </div>
   )
 })
+
+InputField.displayName = 'InputField'
 
 InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'number']),
