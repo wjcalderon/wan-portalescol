@@ -89,7 +89,7 @@ section.error-form {
         opacity: 0;
 
         &:checked~label::before {
-          background-image: url('~@/assets/img/fill-583.svg');
+          background-image: url('/img/fill-583.svg');
           background-repeat: no-repeat;
           background-position: center center;
           background-size: auto;
@@ -101,7 +101,7 @@ section.error-form {
 
   .form-confirmation {
     .icon {
-      background-image: url('~@/assets/img/form-confirmation.svg');
+      background-image: url('/img/form-confirmation.svg');
       background-color: transparent;
       background-size: contain;
       height: 8.125rem;

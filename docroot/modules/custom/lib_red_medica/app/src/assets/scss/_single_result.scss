@@ -11,7 +11,7 @@ article.search-result {
 
   .icon {
     background-color: #f5f5f5;
-    background-image: url('~@/assets/img/rm-instituciones.svg');
+    background-image: url('/img/rm-instituciones.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 2.3rem;
@@ -21,17 +21,17 @@ article.search-result {
     width: 5rem;
 
     &.preferential {
-      background-image: url('~@/assets/img/rm-favorite.svg');
+      background-image: url('/img/rm-favorite.svg');
       background-position: top right;
       background-size: 3.5rem;
       border-top-right-radius: 2rem;
     }
 
     &.category-2 {
-      background-image: url('~@/assets/img/rm-especialistas.svg');
+      background-image: url('/img/rm-especialistas.svg');
 
       &.preferential {
-        background-image: url('~@/assets/img/rm-especialistas-favorite.svg');
+        background-image: url('/img/rm-especialistas-favorite.svg');
         background-position: top right;
         background-size: 3.5rem;
         border-top-right-radius: 2rem;
@@ -66,25 +66,25 @@ article.search-result {
 
       &.address {
         &::before {
-          background-image: url('~@/assets/img/rm-marker.svg');
+          background-image: url('/img/rm-marker.svg');
         }
       }
 
       &.phone {
         &::before {
-          background-image: url('~@/assets/img/rm-phone.svg');
+          background-image: url('/img/rm-phone.svg');
         }
       }
 
       &.whatsapp {
         &::before {
-          background-image: url('~@/assets/img/whatsapp.svg');
+          background-image: url('/img/whatsapp.svg');
         }
       }
 
       &.services {
         &::before {
-          background-image: url('~@/assets/img/rm-services.svg');
+          background-image: url('/img/rm-services.svg');
         }
 
         select {
@@ -158,13 +158,13 @@ article.search-result {
         margin-bottom: .5rem;
 
         &::before {
-          background-image: url('~@/assets/img/icons-view-info.svg');
+          background-image: url('/img/icons-view-info.svg');
         }
       }
 
       .show-map {
         &::before {
-          background-image: url('~@/assets/img/icon-map-info.svg');
+          background-image: url('/img/icon-map-info.svg');
         }
       }
     }
@@ -176,7 +176,7 @@ article.search-result {
     width: 30%;
 
     .show-map {
-      background-image: url('~@/assets/img/vermap-red.svg');
+      background-image: url('/img/vermap-red.svg');
       background-position: top center;
       background-repeat: no-repeat;
       color: #27a3af;
@@ -279,7 +279,7 @@ article.search-result {
           width: 70%;
 
           &::before {
-            background-image: url('~@/assets/img/icons-add-circle.svg');
+            background-image: url('/img/icons-add-circle.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: contain;

@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import SingleMap from './SingleMap'
-import ErrorForm from './ErrorForm'
+import SingleMap from './SingleMap.vue'
+import ErrorForm from './ErrorForm.vue'
 
 export default {
   name: 'SingleResult',

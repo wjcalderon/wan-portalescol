@@ -117,7 +117,7 @@
               margin-top: 2rem;
 
               &::before {
-                background-image: url('~@/assets/img/rm-telemedicina.svg');
+                background-image: url('/img/rm-telemedicina.svg');
               }
             }
           }
@@ -125,7 +125,7 @@
           &.form-item-search-institutions {
             label {
               &::before {
-                background-image: url('~@/assets/img/rm-instituciones.svg');
+                background-image: url('/img/rm-instituciones.svg');
               }
             }
           }
@@ -133,7 +133,7 @@
           &.form-item-search-specialists {
             label {
               &::before {
-                background-image: url('~@/assets/img/rm-especialistas.svg');
+                background-image: url('/img/rm-especialistas.svg');
               }
             }
           }
@@ -175,7 +175,7 @@
         position: relative;
 
         &::before {
-          background-image: url('~@/assets/img/servicios-icon-red.svg');
+          background-image: url('/img/servicios-icon-red.svg');
           background-position: center;
           background-repeat: no-repeat;
           background-size: 1rem;
@@ -244,7 +244,7 @@
 
               &::after {
                 content: "";
-                background-image: url('~@/assets/img/elements-icon-glyph-arrow-right.svg');
+                background-image: url('/img/elements-icon-glyph-arrow-right.svg');
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 1rem;
@@ -367,13 +367,13 @@
 
       &.institutions {
         &::before {
-          background-image: url('~@/assets/img/rm-favorite.svg');
+          background-image: url('/img/rm-favorite.svg');
         }
       }
 
       &.specialists {
         &::before {
-          background-image: url('~@/assets/img/rm-especialistas-favorite.svg');
+          background-image: url('/img/rm-especialistas-favorite.svg');
         }
       }
 

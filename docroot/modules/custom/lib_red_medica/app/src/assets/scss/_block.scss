@@ -14,7 +14,7 @@
     position: relative;
     text-align: left;
     &::before {
-      background-image: url("@/assets/img/back-filters.svg");
+      background-image: url("/img/back-filters.svg");
       background-repeat: no-repeat;
       background-size: contain;
       content: "";

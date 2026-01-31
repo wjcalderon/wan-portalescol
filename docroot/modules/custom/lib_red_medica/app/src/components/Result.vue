@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import SingleMap from './SingleMap'
+import SingleMap from './SingleMap.vue'
 
 export default {
   name: 'Result',

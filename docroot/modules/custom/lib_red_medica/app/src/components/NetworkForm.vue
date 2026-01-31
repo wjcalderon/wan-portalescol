@@ -326,8 +326,8 @@
 <script>
 import Api from "../helpers/Api";
 
-import Glossary from "./Glossary";
-import PreferentialHelp from "./PreferentialHelp";
+import Glossary from "./Glossary.vue";
+import PreferentialHelp from "./PreferentialHelp.vue";
 
 export default {
   name: "NetworkForm",

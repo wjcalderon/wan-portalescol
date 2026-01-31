@@ -55,9 +55,9 @@
 <script>
 import Api from "@/helpers/Api";
 
-import ResultsList from "./ResultsList";
-import ResultsMap from "./ResultsMap";
-import NoResults from "./NoResults";
+import ResultsList from "./ResultsList.vue";
+import ResultsMap from "./ResultsMap.vue";
+import NoResults from "./NoResults.vue";
 
 export default {
   name: "SearchResult",

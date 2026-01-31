@@ -32,13 +32,13 @@
 
       &.show-results {
         &::before {
-          background-image: url("~@/assets/img/servicios-icon-red.svg");
+          background-image: url("/img/servicios-icon-red.svg");
         }
       }
 
       &.show-map {
         &::before {
-          background-image: url("~@/assets/img/view-map-red.svg");
+          background-image: url("/img/view-map-red.svg");
         }
       }
 
@@ -86,7 +86,7 @@
       text-align: center;
 
       &::before {
-        background-image: url("~@/assets/img/no-results.svg");
+        background-image: url("/img/no-results.svg");
         background-repeat: no-repeat;
         background-size: cover;
         content: "";

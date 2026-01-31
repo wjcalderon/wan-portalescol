@@ -1,9 +1,9 @@
 main:
   js:
-    app/dist/js/app.js: {}
+    app/dist/js/index.js: {}
     app/dist/js/chunk-vendors.js: {}
   css:
     component:
-      app/dist/css/app.css: {}
+      app/dist/css/index.css: {}
   dependencies:
     - core/drupalSettings
