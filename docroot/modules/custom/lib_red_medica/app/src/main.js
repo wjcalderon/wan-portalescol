@@ -1,18 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
-import store from './store'
+import Vue from "vue";
+import App from "./App.vue";
+import store from "./store";
 
-import Tooltip from 'vue-directive-tooltip'
-import 'vue-directive-tooltip/dist/vueDirectiveTooltip.css'
-import 'bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css'
+import Tooltip from "vue-directive-tooltip";
+import "vue-directive-tooltip/dist/vueDirectiveTooltip.css";
+import "bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 import "@/assets/styles.scss";
 
-Vue.use(Tooltip)
+Vue.use(Tooltip);
 
 new Vue({
   store,
-  render: h => h(App)
-}).$mount('#medical-network')
+  render: (h) => h(App),
+}).$mount("#medical-network");

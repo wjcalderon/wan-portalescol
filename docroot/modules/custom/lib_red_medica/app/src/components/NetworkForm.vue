@@ -153,9 +153,7 @@
           ]"
         >
           <p class="col-sm-12">Haz clic en los iconos para filtrar</p>
-          <div
-            class="form-item form-item-search-telemedicine col-md-4"
-          >
+          <div class="form-item form-item-search-telemedicine col-md-4">
             <input
               type="checkbox"
               name="search_telemedicine"
