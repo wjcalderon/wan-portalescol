@@ -1,45 +1,42 @@
-const gulp = require('gulp')
-const {series, parallel} = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
-const del = require('delete')
-const terser = require('gulp-terser')
-const cleanCSS = require('gulp-clean-css')
-const sourcemaps = require('gulp-sourcemaps')
+const gulp = require('gulp');
+const { series, parallel } = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const del = require('delete');
+const terser = require('gulp-terser');
+const cleanCSS = require('gulp-clean-css');
 
 const clean = (cb) => {
-  del(['assets'], cb)
-}
+  del(['assets'], cb);
+};
 
-const compileScss = (cb) => {
-  return gulp.src('scss/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+const compileScss = () => {
+  return gulp
+    .src('scss/*.scss', { sourcemaps: true })
+    .pipe(sass({ sourceMap: true }).on('error', sass.logError))
     .pipe(cleanCSS())
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('assets/css'))
-}
+    .pipe(gulp.dest('assets/css', { sourcemaps: '.' }));
+};
 
-const compileCkeditorScss = (cb) => {
-  return gulp.src('scss/ckeditor.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+const compileCkeditorScss = () => {
+  return gulp
+    .src('scss/ckeditor.scss', { sourcemaps: true })
+    .pipe(sass({ sourceMap: true }).on('error', sass.logError))
     .pipe(cleanCSS())
-    .pipe(gulp.dest('css'))
-}
+    .pipe(gulp.dest('css', { sourcemaps: '.' }));
+};
 
-const javascript = (cb) => {
-  return gulp.src('js/*.js')
-    .pipe(sourcemaps.init())
+const javascript = () => {
+  return gulp
+    .src('js/*.js', { sourcemaps: true })
     .pipe(terser())
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('assets/js'))
-}
+    .pipe(gulp.dest('assets/js', { sourcemaps: '.' }));
+};
 
 function watchSassJs() {
-  gulp.watch(['scss/**/*.scss', 'js/*.js'], parallel(compileScss, javascript))
+  gulp.watch(['scss/**/*.scss', 'js/*.js'], parallel(compileScss, javascript));
 }
 
-exports.build = series(clean, parallel(compileScss, javascript))
-exports.clean = clean
-exports.watch = series(clean, parallel(compileScss, javascript), watchSassJs)
-exports.ckeditor = compileCkeditorScss
+exports.build = series(clean, parallel(compileScss, javascript));
+exports.clean = clean;
+exports.watch = series(clean, parallel(compileScss, javascript), watchSassJs);
+exports.ckeditor = compileCkeditorScss;
